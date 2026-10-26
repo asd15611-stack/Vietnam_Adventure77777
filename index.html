@@ -572,6 +572,52 @@ nav.rpg-bottom-menu button.active{background:#ffb86c!important;color:#282a36!imp
 #itinerary > .itinerary-progress-card .today-quest-line{padding:2px 0!important}
 #itinerary > .itinerary-progress-card .today-quest-panel button{font-size:11px!important;padding:5px 8px!important;margin-top:4px!important}
 </style>
+
+<style id="menu-organization-v1">
+/* 選單分類整理：統一按鈕高度、間距與分類閱讀順序 */
+.category-menu-tip{margin:0 0 10px;font-size:12px;line-height:1.5;color:#e7e3f5}
+.category-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:9px}
+.category-group{display:flex;flex-direction:column;gap:5px;min-width:0;padding:9px!important;border-radius:8px!important}
+.category-group h3{min-height:34px;display:flex;align-items:center;margin:0 0 3px!important;font-size:13px!important;line-height:1.35}
+.category-group button{min-height:39px;display:flex!important;align-items:center;gap:5px;margin:0!important;padding:8px!important;font-size:12px!important;line-height:1.3;text-align:left;border-radius:6px!important;box-shadow:1px 2px 0 #171821!important;white-space:normal}
+.category-group button:active{transform:translateY(1px)}
+@media(max-width:360px){.category-grid{grid-template-columns:1fr}.category-group h3{min-height:0}.category-group button{min-height:36px}}
+</style>
+
+<style id="menu-text-clarity-fix">
+/* 修正分類選單標題疊影：清除全站 RPG 標題的繼承陰影，只調整選單可讀性 */
+.category-menu .category-menu-head,
+.category-menu .category-group h3,
+.category-menu .category-group button {
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+  filter: none !important;
+  font-family: system-ui, -apple-system, "Noto Sans TC", sans-serif !important;
+  letter-spacing: normal !important;
+}
+.category-menu .category-group h3 {
+  color: #fff0c9 !important;
+  font-weight: 800 !important;
+  line-height: 1.4 !important;
+}
+.category-menu .category-group button {
+  color: #ffffff !important;
+  font-weight: 650 !important;
+  line-height: 1.45 !important;
+}
+</style>
+
+<style id="global-no-text-shadow-fix">
+/* 全站文字清晰修正：移除所有元素及偽元素的文字陰影，不改動卡片/按鈕外框陰影 */
+*, *::before, *::after { text-shadow: none !important; }
+</style>
+
+<style id="global-text-contrast-fix">
+/* 全站文字可讀性修正：文字不加陰影，避免字色與影色接近造成重影；保留卡片與按鈕的外框/立體陰影。 */
+html body *, html body *::before, html body *::after {
+  text-shadow: none !important;
+}
+</style>
 </head><body>
 
 
@@ -654,11 +700,12 @@ nav.rpg-bottom-menu button.active{background:#ffb86c!important;color:#282a36!imp
 <div id="categoryMenuBackdrop" class="category-menu-backdrop" hidden onclick="toggleCategoryMenu(false)"></div>
 <section id="categoryMenu" class="category-menu" aria-label="功能分類選單" hidden>
 <div class="category-menu-head"><b>🧭 冒險功能總覽</b><button type="button" class="category-close" onclick="toggleCategoryMenu(false)" aria-label="關閉分類選單">✕</button></div>
+<p class="category-menu-tip">功能依用途分類；點選按鈕即可切換頁面。</p>
 <div class="category-grid">
-<section class="category-group"><h3>🌏 探索與補給</h3><button data-page="places" onclick="chooseCategoryPage('places')">📍 景點地點</button><button data-page="food" onclick="chooseCategoryPage('food')">🍜 美食收藏</button><button data-page="shoppingQuest" onclick="chooseCategoryPage('shoppingQuest')">🎁 伴手禮清單</button><button data-page="translate" onclick="chooseCategoryPage('translate')">🗣️ 越南翻譯</button></section>
-<section class="category-group"><h3>📔 回憶與記帳</h3><button data-page="diary" onclick="chooseCategoryPage('diary')">📖 旅行日記</button><button data-page="photos" onclick="chooseCategoryPage('photos')">📸 照片相簿</button><button data-page="expenses" onclick="chooseCategoryPage('expenses')">💰 旅費支出</button></section>
-<section class="category-group"><h3>⚔️ RPG 冒險進度</h3><button data-page="loot" onclick="chooseCategoryPage('loot')">🧑‍🤝‍🧑 小隊與戰利品</button><button data-page="achievements" onclick="chooseCategoryPage('achievements')">🏆 成就與稱號</button><button data-page="tasks" onclick="chooseCategoryPage('tasks')">📜 主線任務</button></section>
-<section class="category-group"><h3>🧰 旅行工具</h3><button data-page="offline" onclick="chooseCategoryPage('offline')">📴 出發檢查與備份</button></section>
+<section class="category-group"><h3>🗺️ 行程與探索</h3><button data-page="itinerary" onclick="chooseCategoryPage('itinerary')">🗓️ 每日行程</button><button data-page="tasks" onclick="chooseCategoryPage('tasks')">📜 主線任務</button><button data-page="places" onclick="chooseCategoryPage('places')">📍 景點與住宿</button><button data-page="food" onclick="chooseCategoryPage('food')">🍜 美食收藏</button></section>
+<section class="category-group"><h3>📔 旅行記錄</h3><button data-page="diary" onclick="chooseCategoryPage('diary')">📖 旅行日記</button><button data-page="photos" onclick="chooseCategoryPage('photos')">📸 照片相簿</button><button data-page="expenses" onclick="chooseCategoryPage('expenses')">💰 旅費支出</button></section>
+<section class="category-group"><h3>⚔️ RPG 冒險</h3><button data-page="achievements" onclick="chooseCategoryPage('achievements')">🏆 成就與等級</button><button data-page="loot" onclick="chooseCategoryPage('loot')">🎒 小隊與戰利品</button></section>
+<section class="category-group"><h3>🎁 購物與旅行工具</h3><button data-page="shoppingQuest" onclick="chooseCategoryPage('shoppingQuest')">🎁 伴手禮清單</button><button data-page="translate" onclick="chooseCategoryPage('translate')">🗣️ 越南翻譯</button><button data-page="offline" onclick="chooseCategoryPage('offline')">📴 出發檢查與備份</button></section>
 </div></section>
 <script>
 const DEFAULT_DAYS=[
