@@ -457,6 +457,10 @@ label{color:#ffcf9b!important}input[type=checkbox]{accent-color:#ffb86c!importan
 .category-menu-head{border-color:#555873!important;color:#ffb86c!important}.category-group{background:#3d405b!important;border:2px solid #555873!important;border-radius:5px!important}.category-group h3{color:#bd93f9!important}.category-group button{background:#282a36!important;color:#f8f4ff!important;border:1px solid #bd93f9!important;border-left:3px solid #ffb86c!important;box-shadow:2px 2px 0 #171821!important;border-radius:4px!important}
 .category-close{background:#e07a5f!important;color:#282a36!important;border:2px solid #ffb86c!important}
 nav.rpg-nav,nav.rpg-bottom-menu{background:linear-gradient(180deg,#3d405b,#282a36)!important;border-top:3px solid #ffb86c!important;box-shadow:0 -4px 0 #171821!important}
+/* 可用性修正：更多選單置於固定底部導覽列上方，避免最後一項被遮擋 */
+.category-menu{z-index:50!important;bottom:calc(112px + env(safe-area-inset-bottom))!important;padding-bottom:24px!important}
+.category-menu-backdrop{z-index:49!important}
+
 nav.rpg-nav button,nav.rpg-bottom-menu button{background:#3d405b!important;color:#f8f4ff!important;border:2px solid #555873!important;border-bottom:3px solid #bd93f9!important;border-radius:5px!important;box-shadow:2px 2px 0 #171821!important;text-shadow:none!important}
 nav.rpg-nav button.active,nav.rpg-bottom-menu button.active{background:#ffb86c!important;color:#282a36!important;border-color:#ffe0b8!important;border-bottom-color:#e07a5f!important;box-shadow:0 0 0 1px #ffb86c,2px 2px 0 #171821!important}
 nav.rpg-nav button img{border:1px solid #bd93f9!important;border-radius:3px!important}
@@ -618,33 +622,86 @@ html body *, html body *::before, html body *::after {
   text-shadow: none !important;
 }
 </style>
+<style id="category-menu-final-click-fix-20261027">
+/* 最終修正：分類選單固定浮在底部導覽列上方，並為最後一列保留可捲動空間 */
+nav.rpg-bottom-menu{z-index:20!important}
+#categoryMenuBackdrop{position:fixed!important;inset:0!important;z-index:9998!important}
+#categoryMenu.category-menu{position:fixed!important;left:10px!important;right:10px!important;bottom:calc(96px + env(safe-area-inset-bottom))!important;top:auto!important;z-index:9999!important;max-height:calc(100dvh - 126px - env(safe-area-inset-bottom))!important;overflow-x:hidden!important;overflow-y:auto!important;overscroll-behavior:contain!important;box-sizing:border-box!important;padding:13px 13px 30px!important;scroll-padding-bottom:30px!important;pointer-events:auto!important}
+#categoryMenu .category-grid,#categoryMenu .category-group{position:relative!important;z-index:1!important}
+#categoryMenu .category-group button{position:relative!important;z-index:2!important;pointer-events:auto!important;touch-action:manipulation!important}
+@media(max-width:380px){#categoryMenu.category-menu{left:6px!important;right:6px!important;bottom:calc(90px + env(safe-area-inset-bottom))!important;max-height:calc(100dvh - 118px - env(safe-area-inset-bottom))!important;padding:10px 10px 28px!important}}
+</style>
+
+<style id="menu-pending-count-style">
+.category-group button{position:relative;padding-right:44px!important}
+.menu-pending-badge[hidden]{display:none!important}
+.menu-pending-badge{display:inline-flex;align-items:center;justify-content:center;min-width:23px;height:23px;padding:0 6px;margin-left:6px;border-radius:999px;background:#e85d4a;color:#fff;font-size:12px;font-weight:900;line-height:1;box-shadow:0 1px 4px #0003;vertical-align:middle}
+.category-group button .menu-pending-badge{position:absolute;right:9px;top:50%;transform:translateY(-50%);margin:0}
+#categoryMenuToggle .menu-pending-badge{position:absolute;right:3px;top:2px;min-width:18px;height:18px;font-size:10px;padding:0 4px}
+#categoryMenuToggle{position:relative}
+</style>
+
+<style id="emergency-title-contrast-fix">
+/* 修正「突發狀況怎麼做」標題與卡片背景對比 */
+#emergency .card:has(> h3) > h3 { color:#172033 !important; }
+#emergency .card:has(> h3) { color:#172033; }
+#emergency .card > h3 { color:#172033 !important; }
+#emergency .card details summary, #emergency .card details summary b { color:#7f1d1d !important; }
+</style>
+
+<style id="emergency-body-text-contrast-fix">
+/* 強制緊急應變指南內文使用深色字，避免與底色融在一起 */
+#emergency .card details { background:#ffffff !important; color:#172033 !important; border:1px solid #94a3b8 !important; }
+#emergency .card details ol,
+#emergency .card details li,
+#emergency .card details li::marker,
+#emergency .card details p,
+#emergency .card details span { color:#172033 !important; }
+#emergency .card details ol { padding-left:1.5rem !important; line-height:1.85 !important; }
+#emergency .card details li { color:#172033 !important; background:transparent !important; }
+#emergency .card details summary,
+#emergency .card details summary b { color:#7f1d1d !important; }
+</style>
 </head><body>
 
 
 <header><small>VIETNAM ADVENTURE · 2026</small><h1>🇻🇳 越南冒險日記</h1><p>北越六天五夜｜11/18（三）–11/23（一）</p></header><main>
-<section class="page active" id="home"><section class="rpg-map-panel card" aria-label="RPG 行程地圖">
-<div class="map-heading"><div><small>MAIN QUEST · 北越冒險</small><h2>🗺️ 我的冒險地圖</h2></div><b id="mapQuestCount">0 / 0 已探索</b></div>
-<button class="main-map-quest" onclick="document.getElementById('rpgMap').scrollIntoView({behavior:'smooth',block:'center'});document.getElementById('rpgMap').classList.add('map-focus');setTimeout(()=>document.getElementById('rpgMap').classList.remove('map-focus'),1200)">🗺️ 地圖闖關 <small>河內 → 沙壩 → 下龍灣</small></button>
-
-<div class="pixel-game-hint">🧭 嗨，冒險者！點擊地圖上的地點，開啟任務並留下旅行足跡！</div><div class="pixel-map-wrap"><div class="pixel-npc-speech">出發吧！<br>一起探索北越的美麗風景！ 💗</div><div id="rpgMap" class="rpg-map-path"><div class="notice">正在載入北越冒險地圖…若未顯示地圖，請確認瀏覽器允許執行此 HTML 的 JavaScript。</div></div><div class="pixel-pet" aria-hidden="true">🐈 🐾</div></div>
-</section>
+<section class="page active" id="home">
 <!-- 新增 RPG 指揮中心：只讀取既有進度，簽到資料使用獨立新鍵保存。 -->
 <section class="card rpg-command-card" id="rpgCommandCenter" aria-label="冒險者控制台">
  <div class="rpg-dashboard-top"><div class="rpg-dashboard-emblem" id="rpgDashboardEmblem">🧭</div><div><small>VIETNAM ADVENTURE · COMMAND CENTER</small><h2 id="rpgDashboardLevel">Lv. 1 初心旅人</h2><p id="rpgDashboardSummary">踏上河內、沙壩與下龍灣的冒險旅程！</p></div></div>
  <div class="rpg-dashboard-xp"><b>✨ 冒險經驗 EXP</b><strong><span id="rpgDashboardXP">0</span> EXP</strong></div><div class="rpg-dashboard-track"><span id="rpgDashboardBar"></span></div><p class="small" id="rpgDashboardProgress">本級 0 / 100 EXP</p>
  <div class="rpg-daily-row"><div><b>📅 每日冒險簽到　+10 EXP</b><div class="rpg-daily-stats"><span id="rpgDailyStatus">今日尚未簽到</span><span id="rpgDailyStreak">連續簽到 0 天</span></div></div><button type="button" id="rpgDailyClaimButton" onclick="claimDailyAdventure()">領取獎勵</button></div>
- <div class="rpg-dashboard-actions"><button type="button" onclick="showPage('tasks')">🗺️ 探索主線任務</button><button type="button" onclick="showPage('achievements')">🏆 查看成就等級</button><button type="button" onclick="showPage('loot')">🎒 小隊與戰利品</button><button type="button" onclick="showPage('shoppingQuest')">🎁 伴手禮任務</button></div>
+ <div class="rpg-dashboard-actions"><button type="button" onclick="showPage('tasks')">🗺️ 探索主線任務</button><button type="button" onclick="showPage('achievements')">🏆 查看成就等級</button><button type="button" onclick="showPage('loot')">🎒 小隊與戰利品</button><button type="button" onclick="showPage('shoppingQuest')">🎁 伴手禮任務</button><button type="button" onclick="showPage('adventurePlaybook')">🎲 每日驚喜互動</button></div>
  <p class="small" style="margin-bottom:0">每日簽到只會新增一筆獨立的 RPG 紀錄，不會修改日記、照片、支出、行程或既有成就。</p>
+</section>
+<section class="card" id="checkinReminderCard" aria-label="今日待打卡與到達提醒">
+ <h2>📍 今日待打卡・到達提醒</h2>
+ <p class="small">開啟後，網站在前景執行期間會檢查河內、沙壩、下龍灣附近的位置；接近時會在此頁提醒你。其他細部景點可從清單直接開啟打卡。GPS 受定位權限、網路與手機省電設定影響，不能保證背景或關閉網頁時提醒。</p>
+ <div class="row"><button type="button" class="action" id="checkinWatchButton" onclick="toggleCheckinWatch()">🛰️ 開啟到達提醒</button><button type="button" class="secondary" onclick="showPage('adventureMap')">開啟景點打卡</button></div>
+ <p id="checkinWatchStatus" class="notice" aria-live="polite">到達提醒尚未開啟。允許定位後，請保持此網頁在前景。</p>
+ <div id="checkinReminderList"></div>
 </section>
 <!-- 首頁只保留主視覺與冒險地圖；小隊與戰利品獨立為底部選單頁面。 -->
 
 <div class="notice">飯店地址、交通時間與預訂資料請出發前逐項核對。GPS 只有在北越景點附近才會確認為真實地點；其他位置會明確標示測試模式／未確認地點。</div></section>
+
+<section class="page" id="adventureMap"><h2 class="section-title">🗺️ 北越冒險地圖・景點打卡</h2><section class="rpg-map-panel card" aria-label="RPG 行程地圖">
+<div class="map-heading"><div><small>MAIN QUEST · 北越冒險</small><h2>🗺️ 我的冒險地圖</h2></div><b id="mapQuestCount">0 / 0 已探索</b></div>
+<button class="main-map-quest" onclick="document.getElementById('rpgMap').scrollIntoView({behavior:'smooth',block:'center'});document.getElementById('rpgMap').classList.add('map-focus');setTimeout(()=>document.getElementById('rpgMap').classList.remove('map-focus'),1200)">🗺️ 地圖闖關 <small>河內 → 沙壩 → 下龍灣</small></button>
+
+<div class="pixel-game-hint">🧭 嗨，冒險者！點擊地圖上的地點，開啟任務並留下旅行足跡！</div><div class="pixel-map-wrap"><div class="pixel-npc-speech">出發吧！<br>一起探索北越的美麗風景！ 💗</div><div id="rpgMap" class="rpg-map-path"><div class="notice">正在載入北越冒險地圖…若未顯示地圖，請確認瀏覽器允許執行此 HTML 的 JavaScript。</div></div><div class="pixel-pet" aria-hidden="true">🐈 🐾</div></div>
+</section><p class="small">點選地圖地點可展開景點資訊、打卡與照片功能。</p></section>
 <section class="page" id="tasks"><h2 class="section-title">📜 任務清單</h2><div class="notice">景點探索與行程任務集中在這裡；勾選行程任務會同步更新行程進度。</div><div class="pixel-quest-board"><div id="pixelQuestList"></div><button class="pixel-green-button" onclick="showPage('achievements')">🏆 查看成就</button><button class="pixel-orange-button" onclick="showPage('diary')">📖 旅行回憶錄</button></div></section>
+
+<section class="page" id="treasureRewards"><h2 class="section-title">🧰 隱藏寶箱・探索獎勵</h2><div class="notice">完成景點打卡後，有機會發現專屬探索獎勵。此頁只讀取既有探索獎勵資料，不會清除或重設收藏。</div><div class="card"><h3>✨ 景點專屬寶藏</h3><p id="treasureRewardSummary" class="small">正在整理探索紀錄…</p><div id="treasureRewardGrid" class="loot-codex-grid"></div></div><div class="card"><h3>🗺️ 繼續探索</h3><p>回到地圖完成景點打卡，尋找尚未發現的寶藏。</p><button type="button" class="action" onclick="showPage('adventureMap')">開啟北越冒險地圖</button></div></section>
 <section class="page" id="loot"><h2 class="section-title">🎒 戰利品與冒險小隊</h2><div class="notice">戰利品背包、景點收藏圖鑑、小隊成員、羈絆事件與 EXP 都集中在這個獨立選單，不會顯示在首頁地圖下方。</div><section class="card" id="squadPanel"><h2>🧭 四人冒險小隊</h2><p class="small">隊員暱稱、羈絆事件與戰利品會另外保存，不會覆蓋原有支出或日記。</p><div id="squadMembers"></div><div class="row"><div><label for="memberName">隊員暱稱</label><input id="memberName" maxlength="24" placeholder="輸入隊員暱稱"></div><div style="align-self:end"><button class="action" onclick="addSquadMember()">加入小隊</button></div></div><div class="row"><button class="secondary" onclick="triggerBondEvent()">💞 隨機隊友羈絆</button><button class="secondary" onclick="claimLoot()">🎁 搜尋隨機戰利品</button></div><div id="bondResult" class="notice" aria-live="polite">冒險途中可能觸發特別事件！</div><div class="card loot-codex-card"><h3>📖 戰利品收藏圖鑑</h3><p id="lootCodexProgress" class="small">已發現 0 / 8 種景點專屬戰利品</p><div class="itinerary-progress-track"><span id="lootCodexBar"></span></div><div class="loot-codex-tools"><label for="lootCodexSearch">🔎 搜尋收藏</label><input id="lootCodexSearch" type="search" placeholder="輸入道具、景點名稱…" oninput="renderLootCodex()" autocomplete="off"><div class="loot-codex-filters" role="group" aria-label="收藏圖鑑篩選"><button type="button" class="secondary active" data-loot-filter="all" onclick="setLootCodexFilter('all',this)">全部 8 種</button><button type="button" class="secondary" data-loot-filter="found" onclick="setLootCodexFilter('found',this)">已收集</button><button type="button" class="secondary" data-loot-filter="missing" onclick="setLootCodexFilter('missing',this)">尚未發現</button></div><p id="lootCodexHint" class="small">提示：完成對應景點打卡，有機會取得專屬收藏。</p></div><div id="lootCodex"></div></div><p><b>小隊 EXP：</b><span id="squadExp">0</span> EXP</p><section class="card loot-bag-bottom"><h3>🎒 戰利品背包</h3><div id="lootBag"></div></section></section></section>
 <section class="page" id="itinerary"><h2 class="section-title">🗓️ 我的冒險行程</h2><div class="notice">行程可直接新增、編輯、刪除及調整順序。修改會自動保存在這台裝置的瀏覽器；建議定期到「備份」匯出資料。</div><div class="card itinerary-progress-card"><h3>🎮 冒險進度</h3><div id="itineraryOverallProgress" class="itinerary-progress-text">尚未開始</div><div class="itinerary-progress-track"><span id="itineraryOverallBar"></span></div><div id="todayQuestPanel" class="today-quest-panel"></div></div><div class="daytabs" id="daytabs"></div><div class="diary-actions"><button class="action" onclick="addItineraryDay()">＋ 新增日期</button><button class="secondary" onclick="renameItineraryDay()">✏️ 修改日期／標題</button><button class="secondary" onclick="deleteItineraryDay()">🗑️ 刪除整天</button></div><div id="daycontent"></div><div id="itineraryEditor" class="card" hidden><h3 id="itineraryEditorTitle">新增行程</h3><input id="itineraryEditIndex" type="hidden"><label>時間</label><input id="itineraryTime" placeholder="例如：09:30／上午"><label>行程名稱 *</label><input id="itineraryEventName" placeholder="例如：還劍湖散步"><label>備註／說明</label><textarea id="itineraryEventNote" rows="3" placeholder="集合時間、地址、預約資訊、提醒事項…"></textarea><div class="diary-actions"><button class="action" onclick="saveItineraryEvent()">保存行程</button><button class="secondary" onclick="cancelItineraryEdit()">取消</button></div></div><p class="small" id="itinerarySaveStatus" aria-live="polite">行程資料會保存在本機瀏覽器。</p></section>
 <section class="page" id="places"><h2 class="section-title">📍 飯店與重要地點</h2><div id="placeslist"></div><div class="notice">導航連結需要網路。地址請以訂房或車票確認資料為準。</div></section>
 <section class="page" id="translate"><h2 class="section-title">🗣️ 旅遊翻譯</h2><div class="card"><b>自由輸入翻譯（需要網路）</b><p class="small">輸入中文，翻譯成越南文。翻譯結果請自行確認。</p><label>輸入要翻譯的中文</label><textarea id="translateInput" rows="3" placeholder="例如：我們四個人，請問可以現在入住嗎？"></textarea><button class="action" id="translateBtn" onclick="translateFreeText()">翻譯成越南文</button><p id="translateStatus" class="small"></p><div id="translateResultCard" style="display:none"><textarea id="translateResult" rows="3" readonly></textarea><button class="secondary" onclick="copyText(document.getElementById('translateResult').value)">複製越南文</button></div></div><div class="card"><b>離線常用句</b><div class="row"><button class="secondary" onclick="setLang('vi')" id="vibtn">中文 ↔ 越文</button><button class="secondary" onclick="setLang('en')" id="enbtn">中文 ↔ 英文</button></div><label>搜尋中文或外文</label><input id="phraseSearch" placeholder="例如：飯店、How much..." oninput="renderPhrases()"><div id="phrases"></div><p class="small">常用句可離線查看；自由輸入翻譯需要網路。</p></div></section>
-<section class="page" id="food"><h2 class="section-title">🍜 美食收藏</h2><div class="notice">美食資料保存在這台裝置的瀏覽器。請定期使用「備份」頁面匯出網站資料，避免更換裝置或清除網站資料時遺失。</div><div class="card"><b id="foodFormTitle">新增美食</b><input id="foodEditId" type="hidden"><label>美食名稱 *</label><input id="foodName" placeholder="例如：越南牛肉河粉" required><label>餐廳名稱</label><input id="foodRestaurant" placeholder="餐廳或攤位名稱"><div class="row"><div><label>價格（越南盾）</label><input id="foodPrice" type="number" min="0" placeholder="例如 60000"></div><div><label>狀態</label><select id="foodStatus"><option value="想吃">想吃</option><option value="吃過">吃過</option></select></div></div><label>地址</label><input id="foodAddress" placeholder="地址或地標（可貼上 Google Maps 地址）"><label>備註</label><textarea id="foodNotes" rows="3" placeholder="推薦菜色、營業時間、口味心得…"></textarea><label>照片（選填）</label><input id="foodPhoto" type="file" accept="image/*" capture="environment"><p class="small">照片會儲存在本機美食資料中，建議選擇較小的照片。</p><div class="diary-actions"><button class="action" onclick="saveFood()">儲存美食</button><button class="secondary" onclick="resetFoodForm()">取消編輯</button></div><p class="small" id="foodStatusMsg" aria-live="polite"></p></div><div class="row"><button class="secondary" onclick="foodFilter='全部';renderFoods()">全部</button><button class="secondary" onclick="foodFilter='想吃';renderFoods()">想吃</button><button class="secondary" onclick="foodFilter='吃過';renderFoods()">吃過</button></div><div id="foodList"></div></section>
+<section class="page" id="food"><h2 class="section-title">🍜 美食收藏</h2><div class="notice">美食資料保存在這台裝置的瀏覽器。請定期使用「備份」頁面匯出網站資料，避免更換裝置或清除網站資料時遺失。</div>
+<div class="card" id="vietnamMustEatPanel"><h3>🇻🇳 越南必吃推薦｜北越美食圖鑑</h3><p class="small">先看推薦、加入「想吃」清單；吃過後可在下方收藏中打卡。推薦項目不會自動新增，按下收藏才會加入。</p><div class="row"><div><label for="mustEatSearch">🔎 搜尋必吃美食</label><input id="mustEatSearch" type="search" placeholder="例如：河粉、咖啡、米線" oninput="renderMustEat()"></div><div><label for="mustEatCategory">分類</label><select id="mustEatCategory" onchange="renderMustEat()"><option value="全部">全部推薦</option><option value="主食">主食／米線</option><option value="小吃">街頭小吃</option><option value="飲品">飲品</option><option value="甜點">甜點</option></select></div></div><div id="mustEatList"></div></div>
+<div class="card"><b id="foodFormTitle">新增美食</b><input id="foodEditId" type="hidden"><label>美食名稱 *</label><input id="foodName" placeholder="例如：越南牛肉河粉" required><label>餐廳名稱</label><input id="foodRestaurant" placeholder="餐廳或攤位名稱"><div class="row"><div><label>價格（越南盾）</label><input id="foodPrice" type="number" min="0" placeholder="例如 60000"></div><div><label>狀態</label><select id="foodStatus"><option value="想吃">想吃</option><option value="吃過">吃過</option></select></div></div><label>地址</label><input id="foodAddress" placeholder="地址或地標（可貼上 Google Maps 地址）"><label>備註</label><textarea id="foodNotes" rows="3" placeholder="推薦菜色、營業時間、口味心得…"></textarea><label>照片（選填）</label><input id="foodPhoto" type="file" accept="image/*" capture="environment"><p class="small">照片會儲存在本機美食資料中，建議選擇較小的照片。</p><div class="diary-actions"><button class="action" onclick="saveFood()">儲存美食</button><button class="secondary" onclick="resetFoodForm()">取消編輯</button></div><p class="small" id="foodStatusMsg" aria-live="polite"></p></div><div class="row"><button class="secondary" onclick="foodFilter='全部';renderFoods()">全部</button><button class="secondary" onclick="foodFilter='想吃';renderFoods()">想吃</button><button class="secondary" onclick="foodFilter='吃過';renderFoods()">吃過</button></div><div id="foodList"></div></section>
 <section class="page" id="expenses"><h2 class="section-title">💰 越南盾記帳</h2>
 <div class="card budget-panel"><h3>🎯 旅程預算控制台</h3><p class="small">設定整趟旅程預算，系統會依照既有支出紀錄計算使用金額。預算設定獨立保存，不會覆蓋任何支出。</p><label for="tripBudget">旅程總預算（越南盾）</label><div class="row"><input id="tripBudget" type="number" min="0" step="100000" placeholder="例如 15000000" onchange="saveTripBudget()"><button class="action" onclick="saveTripBudget()">保存預算</button></div><div class="row budget-stats"><div><small>預算剩餘</small><h3 id="budgetRemaining">尚未設定</h3></div><div><small>預算使用率</small><h3 id="budgetPercent">—</h3></div></div><div class="itinerary-progress-track"><span id="budgetBar"></span></div><p id="budgetStatus" class="small" aria-live="polite">設定預算後即可追蹤花費。</p></div>
 <div class="card" id="expenseInsights"><h3>📊 支出分析</h3><div class="row"><div><label for="expenseSummaryDate">每日支出日期</label><input id="expenseSummaryDate" type="date" onchange="renderExpenseInsights()"></div><div><small>當日合計</small><h3 id="dailyExpenseTotal">0 ₫</h3></div></div><h4>類別分布</h4><div id="expenseCategoryBreakdown" class="small">尚無支出資料。</div></div>
@@ -691,22 +748,100 @@ html body *, html body *::before, html body *::after {
 <div class="card shopping-summary"><div class="shopping-stat-grid"><div><small>🪙 預算總額</small><b id="shoppingBudgetTotal">NT$ 0</b></div><div><small>💰 已購買實際花費</small><b id="shoppingSpentTotal">NT$ 0</b></div><div><small>🎁 完成項目</small><b id="shoppingCount">0 / 0</b></div><div><small>🏆 完成進度</small><b id="shoppingPercent">0%</b></div></div><div class="shopping-progress"><span id="shoppingProgressBar"></span></div></div>
 <div class="card"><h3>➕ 新增／編輯戰利品</h3><input id="shoppingEditId" type="hidden"><label for="shoppingName">商品名稱 *</label><input id="shoppingName" maxlength="120" placeholder="例如：越南咖啡粉"><label for="shoppingCategory">商品分類</label><select id="shoppingCategory"><option>咖啡與飲品</option><option>零食與食品</option><option>手工藝與紀念品</option><option>沙壩特色</option><option>我的自訂項目</option></select><div class="shopping-fields"><div><label for="shoppingBudget">預算（台幣 NT$）</label><input id="shoppingBudget" type="number" min="0" step="1" inputmode="numeric" placeholder="0"></div><div><label for="shoppingPrice">實際購買金額（台幣 NT$）</label><input id="shoppingPrice" type="number" min="0" step="1" inputmode="numeric" placeholder="購買後填寫"></div></div><label for="shoppingPlace">購買地點</label><input id="shoppingPlace" maxlength="160" placeholder="例如：河內老城區／沙壩市區"><label for="shoppingRecipient">🎁 伴手禮送給誰</label><input id="shoppingRecipient" maxlength="240" placeholder="例如：爸爸、媽媽、同事小美（可填多人）"><label for="shoppingNotes">備註</label><textarea id="shoppingNotes" rows="2" maxlength="1000" placeholder="品牌、數量、送給誰……"></textarea><div class="shopping-form-actions"><button class="action" type="button" onclick="saveShoppingItem()">💾 儲存商品</button><button class="secondary" type="button" onclick="resetShoppingForm()">取消編輯／清空表單</button></div><p id="shoppingFormStatus" class="small" aria-live="polite"></p></div>
 <div class="card"><h3>🎒 戰利品清單</h3><label for="shoppingCategoryFilter">分類篩選</label><select id="shoppingCategoryFilter" onchange="renderShoppingItems()"><option value="全部分類">全部分類</option><option>咖啡與飲品</option><option>零食與食品</option><option>手工藝與紀念品</option><option>沙壩特色</option><option>我的自訂項目</option></select><label for="shoppingStatusFilter">購買狀態</label><select id="shoppingStatusFilter" onchange="renderShoppingItems()"><option value="全部狀態">全部狀態</option><option value="未購買">尚未購買</option><option value="已購買">已買到</option></select><div id="shoppingItems" class="shopping-items" aria-live="polite"></div></div></section>
+
+<section class="page" id="adventurePlaybook">
+<h2 class="section-title">🎲 冒險互動中心｜每日驚喜</h2>
+<div class="notice">每日任務、集章、四人職業、照片挑戰與旅行事件都使用獨立的新儲存鍵。這些互動不會覆蓋既有日記、照片、支出、行程、成就或 RPG 存檔。每日隱藏任務與旅行事件依裝置日期更新；集章及職業羈絆由你手動確認。</div>
+<section class="card" id="playbookPendingSummary" aria-live="polite"><h3>📌 未完成任務總覽</h3><p style="font-size:1.35rem;font-weight:800;margin:6px 0"><span id="playbookPendingTotal">0</span> 項尚未完成</p><div class="small" id="playbookPendingBreakdown">正在整理任務進度…</div></section>
+<section class="card"><h3>🎴 ① 今日隱藏任務 <span class="small" id="hiddenQuestPendingCount"></span></h3><p class="small">每天自動抽出三個小挑戰。可以完成或跳過；完成獲得本互動中心的冒險點數，不會改動原有 EXP。</p><div id="hiddenQuestList"></div><p id="hiddenQuestStatus" class="small" aria-live="polite"></p></section>
+<section class="card"><h3>🗺️ ② 北越集章冒險 <span class="small" id="stampPendingCount"></span></h3><p class="small">在河內、沙壩、下龍灣留下紀念印章。印章是旅行紀念紀錄，不代表 GPS 已驗證真實到訪。</p><div id="northStampGrid" class="loot-codex-grid"></div><p id="stampSummary" class="small"></p></section>
+<section class="card"><h3>🧑‍🤝‍🧑 ③ 四人職業與羈絆值</h3><p class="small">你可以一個人操作 APP，但必須分別完成四種職業任務。四位隊員各完成一項後，系統才會自動增加一次團隊羈絆；不能直接按按鈕加分。</p><div id="partyRoleList"></div><div class="row" style="flex-wrap:wrap"><button type="button" class="action" onclick="savePartyRoles()">💾 儲存隊伍設定</button><button type="button" class="secondary" id="nextPartyRoundBtn" onclick="startNextPartyRound()" hidden>🔄 開始下一輪團隊挑戰</button></div><p id="partyBondStatus" class="small" aria-live="polite"></p></section>
+<section class="card"><h3>📸 ④ 照片任務與回憶彩蛋 <span class="small" id="photoPendingCount"></span></h3><p class="small">完成主題照片後勾選任務，再前往照片專區保存照片。這裡只記錄任務狀態，不會搬動、刪除或複製你的照片。</p><div id="photoMissionList"></div><button type="button" class="action" onclick="showPage('photos')">📸 前往旅行照片</button><p id="photoMissionSummary" class="small"></p></section>
+<section class="card"><h3>🎲 ⑤ 今日旅行突發事件 <span class="small" id="eventPendingCount"></span></h3><p class="small">這是遊戲內的趣味挑戰，不是對真實事件的預測。請以安全、體力、預算和既定行程為優先；不適合時可略過。</p><div id="travelEventCard" class="notice" aria-live="polite"></div><div class="row" style="flex-wrap:wrap"><button type="button" class="action" onclick="drawTravelEvent()">🎲 抽取今日事件</button><button type="button" class="secondary" onclick="resolveTravelEvent('done')">完成事件</button><button type="button" class="secondary" onclick="resolveTravelEvent('skip')">略過事件</button></div><p id="travelEventStatus" class="small"></p></section>
+<section class="card"><h3>⭐ 互動中心紀錄</h3><p>冒險點數：<b id="playbookXP">0</b>　·　今日任務完成：<b id="playbookQuestDone">0/3</b>　·　集章：<b id="playbookStampCount">0/3</b></p><p class="small">此處的點數是獨立趣味統計，不會加入既有 RPG 等級，避免重複計算或改變你原本的進度。</p></section>
+</section>
+
+<section class="page" id="emergency">
+<h2 class="section-title">🆘 注意事項與緊急應變中心</h2>
+<div class="notice"><b>先確保人身安全。</b> 若有立即危險，移到安全且有人員的地方，並聯絡當地緊急服務或請飯店人員協助。此頁是旅行輔助資訊，不能取代警方、醫療人員或官方公告。</div>
+<div class="card" style="border:2px solid #d83b43;background:#fff8f8"><h3 style="color:#b4232c;margin-top:0">🚨 越南緊急電話</h3><p>以下為常見越南緊急電話，出發前請再向官方來源或住宿方核實是否適用於所在區域及手機門號。</p><div class="row" style="flex-wrap:wrap"><a class="action" href="tel:112" style="text-decoration:none;text-align:center">📞 112 綜合緊急求助</a><a class="secondary" href="tel:113" style="text-decoration:none;text-align:center">👮 113 警察</a></div><div class="row" style="flex-wrap:wrap"><a class="secondary" href="tel:114" style="text-decoration:none;text-align:center">🚒 114 消防</a><a class="secondary" href="tel:115" style="text-decoration:none;text-align:center">🚑 115 救護車</a></div><p class="small">若無法撥通，請立即向飯店櫃檯、導遊、車站／碼頭工作人員或附近警方求助。電話按鈕只會嘗試開啟裝置的撥號功能。</p></div>
+<div class="card"><h3>🧭 突發狀況怎麼做</h3><details open><summary><b>身體不適、受傷</b></summary><ol><li>先離開車道、海邊、高處或其他危險位置。</li><li>嚴重受傷、呼吸困難或失去意識時，立即求助並聯絡救護服務。</li><li>告知飯店／同行者，準備護照影本、保險資料及藥物／過敏資訊。</li></ol></details><details><summary><b>護照或手機遺失、遭竊</b></summary><ol><li>先到安全且有人員的場所，避免追趕或與可疑人士衝突。</li><li>手機遺失時，使用可信任裝置鎖定帳號／SIM，並通知電信商及銀行（若有支付功能）。</li><li>護照遺失或遭竊時，向當地警方報案並聯絡台灣駐越南代表處或官方急難救助管道。</li></ol></details><details><summary><b>四人走散、聯絡不上</b></summary><ol><li>先到事先約定、明亮且有人員的集合點；不要為了找人走進偏僻區域。</li><li>傳送目前位置、地標照片及可辨識的店名；約定固定時間再次聯絡。</li><li>若有人身安全疑慮，請飯店、警方或現場工作人員協助。</li></ol></details><details><summary><b>交通事故、天災或暴雨</b></summary><ol><li>遠離車流、倒塌物、積水、海岸浪區及其他立即危險。</li><li>遵從當地主管機關、導遊及飯店人員指示，不冒險拍照或自行涉水。</li><li>確認四位隊員位置與狀況，必要時聯絡緊急服務及保險公司。</li></ol></details></div>
+<div class="card taiwan-emergency-card" id="taiwanVietnamEmergency">
+<h3>🇹🇼 台灣駐越南代表處／急難救助資訊</h3>
+<p class="small">以下電話依外交部領事事務局官方資訊整理。北越（順化以北）請聯絡駐越南代表處；南越（峴港以南）請聯絡駐胡志明市辦事處。急難專線限車禍、搶劫或生命安全等重大緊急事件使用。</p>
+<div class="taiwan-emergency-contact"><h4>🧭 北越｜駐越南代表處</h4><p><b>越南境內直撥：</b><a href="tel:0913219986">0913-219-986</a></p><p><b>從境外撥打：</b><a href="tel:+84913219986">+84-913-219-986</a></p><div class="taiwan-emergency-actions"><a class="action" href="tel:+84913219986">📞 撥打北越急難電話</a><button class="secondary" type="button" onclick="navigator.clipboard&&navigator.clipboard.writeText('+84-913-219-986').then(()=>alert('已複製北越急難電話')).catch(()=>alert('請手動複製：+84-913-219-986'))">複製電話</button></div></div>
+<div class="taiwan-emergency-contact"><h4>🌴 南越｜駐胡志明市辦事處</h4><p><b>越南境內直撥：</b><a href="tel:0903927019">0903-927-019</a></p><p><b>從境外撥打：</b><a href="tel:+84903927019">+84-903-927-019</a></p><div class="taiwan-emergency-actions"><a class="action" href="tel:+84903927019">📞 撥打南越急難電話</a><button class="secondary" type="button" onclick="navigator.clipboard&&navigator.clipboard.writeText('+84-903-927-019').then(()=>alert('已複製南越急難電話')).catch(()=>alert('請手動複製：+84-903-927-019'))">複製電話</button></div></div>
+<div class="taiwan-emergency-contact"><h4>☎️ 外交部旅外國人急難救助服務專線</h4><p><a href="tel:0800085095"><b>0800-085-095</b></a></p><p class="small">可請人在台灣的親友撥打，協助聯繫海外急難救助。</p></div>
+<p><a href="https://www.boca.gov.tw/sp-foof-countrycp-03-8-f4a19-03-1.html" target="_blank" rel="noopener noreferrer">🔗 外交部領事事務局：駐越南館處聯絡資訊</a></p>
+<p><a href="https://www.taiwanembassy.org/vn/index.html" target="_blank" rel="noopener noreferrer">🔗 駐越南代表處官方網站</a></p>
+<p class="small">提醒：急難電話與轄區可能更新，出發前請再點官方網站確認。一般護照、簽證等非急難事項，請於辦公時間聯絡館處。</p>
+</div>
+<style id="taiwan-vietnam-emergency-style">
+#taiwanVietnamEmergency{background:#fff!important;color:#172033!important;border:2px solid #b91c1c!important;border-radius:16px!important;padding:16px!important}
+#taiwanVietnamEmergency h3{color:#991b1b!important;line-height:1.5}
+#taiwanVietnamEmergency h4{color:#7f1d1d!important;margin:0 0 8px}
+#taiwanVietnamEmergency p,#taiwanVietnamEmergency b,#taiwanVietnamEmergency .small{color:#172033!important;line-height:1.7}
+#taiwanVietnamEmergency a{color:#075985!important;font-weight:800;overflow-wrap:anywhere}
+#taiwanVietnamEmergency .taiwan-emergency-contact{background:#fff7f7!important;border:1px solid #fecaca!important;border-radius:12px;padding:12px;margin:12px 0}
+#taiwanVietnamEmergency .taiwan-emergency-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+#taiwanVietnamEmergency .taiwan-emergency-actions a{display:inline-block;text-decoration:none;border-radius:9px;padding:10px 12px;background:#991b1b;color:#fff!important}
+#taiwanVietnamEmergency button{min-height:40px}
+</style>
+<div class="card"><h3>📞 自訂緊急聯絡資料</h3><p class="small">可填台灣家人、旅遊保險、台灣駐越南代表處、飯店與四位隊員的聯絡方式。資料只存在這台裝置的瀏覽器；請勿在共用裝置填入不希望他人看到的資訊。</p><label for="emergencyFamily">台灣家人／緊急聯絡人</label><input id="emergencyFamily" maxlength="100" placeholder="姓名與電話（自行填寫）"><label for="emergencyInsurance">旅遊保險公司／保單聯絡方式</label><input id="emergencyInsurance" maxlength="160" placeholder="公司、保單號碼或海外協助電話"><label for="emergencyRep">台灣駐越南代表處／急難救助資訊</label><input id="emergencyRep" maxlength="200" placeholder="出發前查核官方聯絡資訊後填入"><label for="emergencyHotel">目前飯店／導遊／交通業者</label><input id="emergencyHotel" maxlength="200" placeholder="名稱、電話、地址或集合地點"><label for="emergencyMeet">四人約定集合點</label><input id="emergencyMeet" maxlength="200" placeholder="例如：飯店大廳服務櫃檯"><label for="emergencyNotes">其他重要提醒（例如過敏、用藥、隊員聯絡方式）</label><textarea id="emergencyNotes" rows="3" maxlength="2000" placeholder="只填需要的資訊，避免不必要的敏感資料"></textarea><div class="row" style="flex-wrap:wrap"><button class="action" type="button" onclick="saveEmergencyInfo()">💾 保存聯絡資料</button><button class="secondary" type="button" onclick="loadEmergencyInfo()">重新載入已保存資料</button></div><p id="emergencySaveStatus" class="small" aria-live="polite">尚未載入自訂資料</p></div>
+<div class="card"><h3>🎒 出發前安全檢查</h3><div id="emergencyChecklist"></div><p class="small">勾選狀態只保存在獨立的緊急應變資料中，不會更動原本的離線檢查清單。</p></div>
+<div class="card"><h3>📴 離線提醒</h3><p>此頁內容已寫在 APP 裡，但自訂電話與備註只會在這台裝置保存。若要在沒有網路時使用，請先在有網路時開啟本頁並確認 APP 已成功快取；另建議把關鍵電話、飯店地址與保險資訊另存到手機可離線查看的位置。</p></div>
+</section>
+
+<section class="page" id="adventureFinale">
+  <h2 class="section-title">🎁 終章彩蛋｜冒險者的最後禮物</h2>
+  <div class="notice">這是旅行結束後才揭曉的隱藏章節。只有你親手按下「完成冒險」並再次確認後，才會解鎖。此功能使用獨立儲存鍵，不會修改原有日記、照片、支出或 RPG 存檔。</div>
+  <div class="card" id="finaleLockedPanel" style="text-align:center;padding:22px">
+    <div style="font-size:72px;line-height:1.3" aria-hidden="true">🗝️🎁🗝️</div>
+    <h3>最後一個寶箱，正在等待你</h3>
+    <p>等這趟旅程真正結束，再回來開啟專屬於你們四人的禮物吧。</p>
+    <p class="small">解鎖不會自動觸發；按下按鈕後會再次確認。完成狀態只寫入獨立的新資料鍵。</p>
+    <button type="button" class="action" onclick="completeAdventure()">🏁 完成冒險・揭開終章</button>
+    <p class="small" id="finaleStatus" aria-live="polite">狀態：尚未通關</p>
+  </div>
+  <div id="finaleUnlockedPanel" hidden>
+    <div class="card" style="text-align:center;padding:24px;background:linear-gradient(135deg,#fff7d6,#fffdf5)">
+      <div style="font-size:76px;line-height:1.25" aria-hidden="true">🎉🏆🎁</div>
+      <p class="small">VIETNAM ADVENTURE · THE ENDING</p><h2>恭喜通關！北越傳說冒險者</h2>
+      <p>你們帶回來的不只是照片與紀錄，還有一起走過的每一段路。</p>
+    </div>
+    <div class="card"><h3>🎁 ① 神祕寶箱</h3><div style="font-size:54px;text-align:center;padding:8px" aria-hidden="true">💎🧰✨</div><p>寶箱已開啟！這趟旅程最珍貴的戰利品，是四個人共同創造的回憶。</p><p><b>通關獎勵：</b>終章紀念稱號與秘密信件。</p></div>
+    <div class="card"><h3>🪪 ② 四人冒險紀念卡</h3><p class="small">這張紀念卡提供旅程的紀念摘要；不會修改或搬動原始資料。</p>
+      <div class="row" style="gap:10px;flex-wrap:wrap"><div class="card" style="flex:1;min-width:110px;margin:0"><small>🗓️ 行程天數</small><h3 id="finaleDaysCount">—</h3></div><div class="card" style="flex:1;min-width:110px;margin:0"><small>📜 行程項目</small><h3 id="finaleTasksCount">—</h3></div><div class="card" style="flex:1;min-width:110px;margin:0"><small>🏆 成就項目</small><h3 id="finaleAchievementsCount">—</h3></div><div class="card" style="flex:1;min-width:110px;margin:0"><small>🍜 美食收藏</small><h3 id="finaleFoodsCount">—</h3></div></div>
+      <p id="finaleDiaryPhotoSummary" class="small">日記與照片仍保存在原本的本機資料庫。</p><button type="button" class="secondary" onclick="window.print()">🖨️ 列印／另存紀念卡</button>
+    </div>
+    <div class="card"><h3>💌 ③ 終章秘密信件</h3><blockquote style="font-size:1.05em;line-height:1.9">親愛的冒險者：<br><br>謝謝你們一起走過北越。那些一起分享的美食、沿途看見的風景、拍下的照片，還有旅途中不經意的笑聲，都成為了這趟旅程獨一無二的寶藏。<br><br>行程可以結束，但一起冒險的時光不會因此消失。希望多年以後，再翻開這些紀錄時，你們仍然會想起當時的風景、笑聲，以及彼此照應的默契。<br><br>下次再出發時，願你們仍然保有好奇與勇氣。<br><br>—— 北越冒險公會</blockquote></div>
+    <div class="card"><h3>🌟 ④ 隱藏稱號</h3><div class="notice">🏅 北越傳說冒險者<br>💞 四人羈絆永存<br>🍜 越南美食獵人</div><p class="small">以上是終章紀念稱號，不會更動原有成就資料。</p><button type="button" class="secondary" onclick="showPage('diary')">📖 回顧旅行日記</button> <button type="button" class="secondary" onclick="showPage('photos')">📸 重看旅行照片</button></div>
+    <p class="small">終章已解鎖。請繼續定期匯出備份；此頁不會刪除或覆寫任何既有紀錄。</p>
+  </div>
+</section>
+
 </main><nav class="rpg-nav rpg-bottom-menu" aria-label="主要導覽">
 <button class="active" data-page="home" onclick="showPage('home')"><span class="nav-icon" aria-hidden="true">🏠</span><span>首頁</span></button>
 <button data-page="itinerary" onclick="showPage('itinerary')"><span class="nav-icon" aria-hidden="true">🗓️</span><span>行程</span></button>
-<button data-page="tasks" onclick="showPage('tasks')"><span class="nav-icon" aria-hidden="true">🗺️</span><span>任務</span></button>
-<button type="button" id="categoryMenuToggle" aria-expanded="false" aria-controls="categoryMenu" onclick="toggleCategoryMenu()"><span class="nav-icon" aria-hidden="true">🎒</span><span>冒險總覽</span></button>
+<button data-page="tasks" onclick="showPage('tasks')"><span class="nav-icon" aria-hidden="true">🗺️</span><span>探索</span></button>
+<button data-page="food" onclick="showPage('food')"><span class="nav-icon" aria-hidden="true">🍜</span><span>美食</span></button>
+<button type="button" id="categoryMenuToggle" aria-expanded="false" aria-controls="categoryMenu" onclick="toggleCategoryMenu()"><span class="nav-icon" aria-hidden="true">☰</span><span>更多</span><span id="morePendingBadge" class="menu-pending-badge" aria-label="未完成任務數">0</span></button>
 </nav>
 <div id="categoryMenuBackdrop" class="category-menu-backdrop" hidden onclick="toggleCategoryMenu(false)"></div>
 <section id="categoryMenu" class="category-menu" aria-label="功能分類選單" hidden>
 <div class="category-menu-head"><b>🧭 冒險功能總覽</b><button type="button" class="category-close" onclick="toggleCategoryMenu(false)" aria-label="關閉分類選單">✕</button></div>
-<p class="category-menu-tip">功能依用途分類；點選按鈕即可切換頁面。</p>
+<p class="category-menu-tip">常用功能放在底部；其他工具依用途分類，點選即可切換頁面。</p>
 <div class="category-grid">
-<section class="category-group"><h3>🗺️ 行程與探索</h3><button data-page="itinerary" onclick="chooseCategoryPage('itinerary')">🗓️ 每日行程</button><button data-page="tasks" onclick="chooseCategoryPage('tasks')">📜 主線任務</button><button data-page="places" onclick="chooseCategoryPage('places')">📍 景點與住宿</button><button data-page="food" onclick="chooseCategoryPage('food')">🍜 美食收藏</button></section>
-<section class="category-group"><h3>📔 旅行記錄</h3><button data-page="diary" onclick="chooseCategoryPage('diary')">📖 旅行日記</button><button data-page="photos" onclick="chooseCategoryPage('photos')">📸 照片相簿</button><button data-page="expenses" onclick="chooseCategoryPage('expenses')">💰 旅費支出</button></section>
-<section class="category-group"><h3>⚔️ RPG 冒險</h3><button data-page="achievements" onclick="chooseCategoryPage('achievements')">🏆 成就與等級</button><button data-page="loot" onclick="chooseCategoryPage('loot')">🎒 小隊與戰利品</button></section>
-<section class="category-group"><h3>🎁 購物與旅行工具</h3><button data-page="shoppingQuest" onclick="chooseCategoryPage('shoppingQuest')">🎁 伴手禮清單</button><button data-page="translate" onclick="chooseCategoryPage('translate')">🗣️ 越南翻譯</button><button data-page="offline" onclick="chooseCategoryPage('offline')">📴 出發檢查與備份</button></section>
+<section class="category-group"><h3>🧭 探索與尋寶</h3><button data-page="adventurePlaybook" onclick="chooseCategoryPage('adventurePlaybook')">🎲 每日驚喜與四人互動 <span id="playbookMenuPendingBadge" class="menu-pending-badge" aria-label="未完成任務數">0</span></button><button data-page="adventureMap" onclick="chooseCategoryPage('adventureMap')">🗺️ 北越冒險地圖・景點打卡</button><button data-page="tasks" onclick="chooseCategoryPage('tasks')">📜 主線任務與每日任務 <span id="mainTasksMenuPendingBadge" class="menu-pending-badge" aria-label="未完成任務數">0</span></button><button data-page="shoppingQuest" onclick="chooseCategoryPage('shoppingQuest')">🎁 北越必買清單</button><button data-page="treasureRewards" onclick="chooseCategoryPage('treasureRewards')">🧰 隱藏寶箱・探索獎勵</button></section>
+<section class="category-group"><h3>🆘 安全與緊急應變</h3><button data-page="emergency" onclick="chooseCategoryPage('emergency')">🆘 注意事項與緊急聯絡</button></section>
+<section class="category-group"><h3>📍 飯店與重要地點</h3><button data-page="places" onclick="chooseCategoryPage('places')">🏨 飯店與重要地點</button><button data-page="itinerary" onclick="chooseCategoryPage('itinerary')">🗓️ 每日行程</button></section>
+<section class="category-group"><h3>💰 旅費與旅行工具</h3><button data-page="expenses" onclick="chooseCategoryPage('expenses')">💰 支出記帳</button><button data-page="translate" onclick="chooseCategoryPage('translate')">🗣️ 旅遊翻譯</button><button data-page="offline" onclick="chooseCategoryPage('offline')">📴 離線與出發檢查</button><button data-page="offline" onclick="chooseCategoryPage('offline')">🧰 離線與出發檢查</button></section>
+<section class="category-group"><h3>📔 旅行回憶</h3><button data-page="photos" onclick="chooseCategoryPage('photos')">📸 旅行照片</button><button data-page="diary" onclick="chooseCategoryPage('diary')">📖 旅行日記</button><button data-page="food" onclick="chooseCategoryPage('food')">🍜 美食收藏</button></section>
+<section class="category-group"><h3>🎁 旅程終章</h3><button data-page="adventureFinale" onclick="chooseCategoryPage('adventureFinale')">🎁 旅行結束後的隱藏驚喜</button></section>
+<section class="category-group"><h3>🏆 成就與冒險進度</h3><button data-page="achievements" onclick="chooseCategoryPage('achievements')">🏆 成就與等級</button><button data-page="loot" onclick="chooseCategoryPage('loot')">🎒 戰利品與冒險小隊</button></section>
 </div></section>
+<style id="emergency-center-style">.emergency-float{position:fixed;right:14px;bottom:calc(150px + env(safe-area-inset-bottom));z-index:9999;background:#c62835;color:#fff;border:2px solid #fff;border-radius:999px;padding:11px 15px;font-weight:900;box-shadow:0 4px 14px #0004;text-decoration:none;display:inline-flex;align-items:center;gap:6px}.emergency-float:focus-visible{outline:3px solid #ffb86c;outline-offset:3px}#emergency details{border:1px solid var(--line);border-radius:12px;padding:12px;margin:9px 0;background:#fff}#emergency summary{cursor:pointer}#emergency li{margin:7px 0}#emergency a{display:inline-flex;align-items:center;justify-content:center;margin:4px 0;min-width:125px} @media(min-width:700px){.emergency-float{right:calc(50% - 360px);bottom:28px;z-index:9999}}</style>
+<a class="emergency-float" href="#" onclick="showPage('emergency');return false" aria-label="開啟緊急應變中心">🆘 緊急求助</a>
 <script>
 const DEFAULT_DAYS=[
 {date:'11/18（三）',title:'河內集結',events:[['16:00','抵達河內內排機場','領取行李，確認集合與交通安排。'],['傍晚','河內老城區吃飯、逛街','先用餐、散步，注意集合時間。'],['21:30','HK Buslines 集合','前往 HK Buslines 河內辦公室集合，確認車票與行李。'],['22:45','夜巴前往沙壩','夜臥巴士出發，依電子車票確認上車資訊。'],['住宿','夜間巴士','夜臥巴士前往沙壩。']]},
@@ -726,10 +861,10 @@ const places=[['HK Buslines 河內辦公室','70 Nguyen Huu Huan, Hoan Kiem, Han
 const phrases=[['請帶我們到這間飯店。','Vui lòng đưa chúng tôi đến khách sạn này.','Please take us to this hotel.','交通'],['請問這個多少錢？','Cái này bao nhiêu tiền?','How much is this?','購物'],['請在這裡讓我們下車。','Vui lòng cho chúng tôi xuống ở đây.','Please drop us off here.','交通'],['請問洗手間在哪裡？','Nhà vệ sinh ở đâu?','Where is the restroom?','日常'],['請幫我們確認訂房。','Vui lòng xác nhận đặt phòng giúp chúng tôi.','Could you confirm our reservation, please?','住宿'],['我們有四個人。','Chúng tôi có bốn người.','There are four of us.','日常'],['請不要加辣。','Vui lòng đừng cho cay.','Please don’t make it spicy.','餐飲'],['可以刷卡嗎？','Có thể thanh toán bằng thẻ không?','Can I pay by card?','付款'],['請稍等一下。','Vui lòng đợi một chút.','Please wait a moment.','日常'],['我需要幫忙。','Tôi cần giúp đỡ.','I need help.','緊急'],['我想去這個地址。','Tôi muốn đến địa chỉ này.','I’d like to go to this address.','交通'],['謝謝。','Cảm ơn.','Thank you.','日常']];
 const achievements=[['✈️','北越啟程','完成出發打卡'],['🚌','夜臥冒險家','完成河內至沙壩夜巴'],['⛰️','征服番西邦','完成番西邦峰打卡'],['🏡','沙壩探索者','完成貓貓村打卡'],['🚢','海上冒險家','完成下龍灣郵輪打卡'],['🍜','越南美食家','記錄五種不同美食'],['💰','精明旅人','新增第一筆旅費'],['🏆','北越全制霸','完成所有主線任務']];const sideAchievements=[['🌊','還劍湖','湖畔散步、欣賞河內城市風景','河內支線'],['🚂','河內火車街','探索特色鐵道街景，注意現場安全','河內支線'],['🏡','貓貓村','走訪山村、梯田與傳統村落','沙壩支線'],['🚠','番西邦峰','搭乘登山纜車，欣賞高山景觀','沙壩主線'],['🚢','下龍灣郵輪','記錄登船體驗、船上活動與海灣風景','海上支線']];const checks=['下載河內、沙壩、下龍灣離線地圖','確認越南電子簽證與護照資料','保存巴士電子票與 QR Code','保存飯店訂房資訊與地址','確認郵輪接送、護照要求與尾款','購買旅遊保險','準備 SIM 卡與重要聯絡方式','匯出記帳與網站資料備份'];let lang='vi',dayIndex=0,editingExpenseId=null;
 function toggleCategoryMenu(force){const menu=document.getElementById('categoryMenu'),backdrop=document.getElementById('categoryMenuBackdrop'),toggle=document.getElementById('categoryMenuToggle');if(!menu||!backdrop)return;const open=typeof force==='boolean'?force:menu.hidden;menu.hidden=!open;backdrop.hidden=!open;if(toggle)toggle.setAttribute('aria-expanded',String(open));}function chooseCategoryPage(id){toggleCategoryMenu(false);showPage(id)}
-function showPage(id){const pages=[...document.querySelectorAll('main .page')];const target=document.getElementById(id);if(!target||!target.classList.contains('page')){console.error('找不到頁面區塊：',id);return}pages.forEach(p=>{const selected=p===target;p.classList.toggle('active',selected);p.setAttribute('aria-hidden',String(!selected))});document.querySelectorAll('nav.rpg-bottom-menu button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));if(id!=='home'&&id!=='itinerary'&&id!=='tasks'){document.getElementById('categoryMenuToggle')?.classList.add('active')}else{document.getElementById('categoryMenuToggle')?.classList.remove('active')}toggleCategoryMenu(false);window.scrollTo({top:0,behavior:'auto'});if(id==='food')renderFoods();if(id==='expenses')renderExpenses();if(id==='achievements')renderAchievements();if(id==='diary')renderDiaries();if(id==='photos')renderPhotoLibrary();if(id==='tasks')renderRpgMap();if(id==='shoppingQuest')renderShoppingItems()}
+function showPage(id){const pages=[...document.querySelectorAll('main .page')];const target=document.getElementById(id);if(!target||!target.classList.contains('page')){console.error('找不到頁面區塊：',id);return}pages.forEach(p=>{const selected=p===target;p.classList.toggle('active',selected);p.setAttribute('aria-hidden',String(!selected))});document.querySelectorAll('nav.rpg-bottom-menu button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));if(id!=='home'&&id!=='itinerary'&&id!=='tasks'){document.getElementById('categoryMenuToggle')?.classList.add('active')}else{document.getElementById('categoryMenuToggle')?.classList.remove('active')}toggleCategoryMenu(false);window.scrollTo({top:0,behavior:'auto'});if(id==='food')renderFoods();if(id==='expenses')renderExpenses();if(id==='achievements')renderAchievements();if(id==='diary')renderDiaries();if(id==='photos')renderPhotoLibrary();if(id==='tasks'||id==='adventureMap')renderRpgMap();if(id==='treasureRewards')renderTreasureRewards();if(id==='shoppingQuest')renderShoppingItems();if(id==='adventureFinale')renderAdventureFinale();if(id==='home')renderCheckinReminder();if(id==='adventurePlaybook')renderAdventurePlaybook();if(id==='emergency')loadEmergencyInfo()}
 // 旅行回憶錄使用獨立 IndexedDB，完全不讀寫原有 expenses／ach／checks。
 const DIARY_DB_NAME='vietnam-adventure-memories';const DIARY_STORE='entries';const PHOTO_STORE='photoLibrary';let diaryDbPromise=null;let diaryObjectUrls=[];let photoObjectUrls=[];
-function openDiaryDb(){if(!('indexedDB' in window))return Promise.reject(new Error('此瀏覽器不支援本機日記資料庫。'));if(!diaryDbPromise)diaryDbPromise=new Promise((resolve,reject)=>{const req=indexedDB.open(DIARY_DB_NAME,2);req.onupgradeneeded=()=>{const db=req.result;if(!db.objectStoreNames.contains(DIARY_STORE))db.createObjectStore(DIARY_STORE,{keyPath:'id'});if(!db.objectStoreNames.contains(PHOTO_STORE))db.createObjectStore(PHOTO_STORE,{keyPath:'id'})};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error||new Error('無法開啟日記資料庫'))});return diaryDbPromise}
+function openDiaryDb(){if(!('indexedDB' in window))return Promise.reject(new Error('此瀏覽器不支援本機日記資料庫。'));if(!diaryDbPromise)diaryDbPromise=new Promise((resolve,reject)=>{const req=indexedDB.open(DIARY_DB_NAME,2);req.onupgradeneeded=()=>{const db=req.result;if(!db.objectStoreNames.contains(DIARY_STORE))db.createObjectStore(DIARY_STORE,{keyPath:'id'});if(!db.objectStoreNames.contains(PHOTO_STORE))db.createObjectStore(PHOTO_STORE,{keyPath:'id'})};req.onsuccess=()=>{const db=req.result;db.onversionchange=()=>{db.close();diaryDbPromise=null};resolve(db)};req.onerror=()=>{diaryDbPromise=null;reject(req.error||new Error('無法開啟日記資料庫'))}});return diaryDbPromise}
 async function diaryGetAll(){const db=await openDiaryDb();return new Promise((resolve,reject)=>{const req=db.transaction(DIARY_STORE,'readonly').objectStore(DIARY_STORE).getAll();req.onsuccess=()=>resolve((req.result||[]).sort((a,b)=>(b.date||'').localeCompare(a.date||'')||(b.updatedAt||0)-(a.updatedAt||0)));req.onerror=()=>reject(req.error)})}
 async function diaryPut(entry){const db=await openDiaryDb();return new Promise((resolve,reject)=>{const tx=db.transaction(DIARY_STORE,'readwrite');tx.objectStore(DIARY_STORE).put(entry);tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error||new Error('儲存失敗'));tx.onabort=()=>reject(tx.error||new Error('儲存已取消'))})}
 async function diaryDelete(id){const db=await openDiaryDb();return new Promise((resolve,reject)=>{const tx=db.transaction(DIARY_STORE,'readwrite');tx.objectStore(DIARY_STORE).delete(id);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}
@@ -769,6 +904,38 @@ function editFood(id){const x=get('foods',[]).find(f=>f.id===id);if(!x)return;do
 function deleteFood(id){if(!confirm('確定刪除這筆美食收藏？'))return;put('foods',get('foods',[]).filter(x=>x.id!==id));renderFoods()}
 function toggleFoodStatus(id){const a=get('foods',[]);const x=a.find(f=>f.id===id);if(!x)return;x.status=x.status==='吃過'?'想吃':'吃過';x.updatedAt=Date.now();put('foods',a);renderFoods()}
 function renderFoods(){const host=document.getElementById('foodList');if(!host)return;const a=get('foods',[]).filter(x=>foodFilter==='全部'||x.status===foodFilter);host.innerHTML=a.length?a.map(x=>`<article class="card">${x.photo?`<img src="${x.photo}" alt="${escapeFood(x.name)}" style="display:block;width:100%;max-height:240px;object-fit:cover;border-radius:12px;margin-bottom:10px">`:''}<div class="row"><h3 style="margin:0">${escapeFood(x.name)}</h3><span class="badge">${escapeFood(x.status||'想吃')}</span></div>${x.restaurant?`<p><b>餐廳：</b>${escapeFood(x.restaurant)}</p>`:''}${x.price!==''&&x.price!=null?`<p><b>價格：</b>${Number(x.price).toLocaleString()} ₫</p>`:''}${x.address?`<p><b>地址：</b>${escapeFood(x.address)}</p><p><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(x.address)}" target="_blank" rel="noopener">📍 Google Maps 導航 ↗</a></p>`:''}${x.notes?`<p style="white-space:pre-wrap">${escapeFood(x.notes)}</p>`:''}<div class="diary-actions"><button class="secondary" onclick="toggleFoodStatus('${x.id}')">標記為${x.status==='吃過'?'想吃':'吃過'}</button><button class="secondary" onclick="editFood('${x.id}')">編輯</button><button class="secondary" onclick="deleteFood('${x.id}')">刪除</button></div></article>`).join(''):`<div class="card muted">${foodFilter==='全部'?'還沒有美食收藏，請使用上方表單新增。':'目前沒有「'+foodFilter+'」的項目。'}</div>`}
+
+// 越南必吃推薦：推薦資料與使用者收藏分開；按「加入想吃」才寫入既有 foods。
+const VIETNAM_MUST_EAT=[
+ {id:'pho-bo',name:'越南牛肉河粉 Phở bò',category:'主食',region:'河內／北越',desc:'清香牛骨湯、米粉與牛肉，是北越代表性早餐。',tip:'可依喜好選生牛肉或熟牛肉；點餐時確認辣椒與香草。'},
+ {id:'bun-cha',name:'烤肉米線 Bún chả',category:'主食',region:'河內',desc:'炭烤豬肉搭配米線、生菜與酸甜沾醬。',tip:'河內經典必吃，適合安排午餐。'},
+ {id:'banh-mi',name:'越南法國麵包 Bánh mì',category:'小吃',region:'越南各地',desc:'酥脆麵包夾肉、醃菜、香草與醬料。',tip:'適合當早餐或移動途中方便吃的點心。'},
+ {id:'cha-ca',name:'河內香煎魚餅／烤魚 Chả cá',category:'主食',region:'河內',desc:'香料醃魚搭配蒔蘿、蔥與米線，風味濃郁。',tip:'部分店家以整套料理供應，點餐前確認份量與價格。'},
+ {id:'banh-cuon',name:'越南蒸米卷 Bánh cuốn',category:'小吃',region:'北越',desc:'薄透米皮包肉末與木耳，常搭配魚露沾醬。',tip:'適合早餐，通常會配香腸或炸蔥。'},
+ {id:'xoi-xeo',name:'黃豆糯米飯 Xôi xéo',category:'主食',region:'河內',desc:'糯米、黃豆泥、炸紅蔥頭組合的在地早餐。',tip:'可當快速早餐；不同店家的配料會略有差異。'},
+ {id:'bun-thang',name:'河內雞絲米線 Bún thang',category:'主食',region:'河內',desc:'湯頭細緻，常搭配雞絲、蛋絲與其他配料。',tip:'適合想嘗試較清爽、層次細膩湯麵的人。'},
+ {id:'bun-rieu',name:'番茄蟹湯米線 Bún riêu',category:'主食',region:'越南北部常見',desc:'番茄湯底搭配蟹味配料、米線與香草。',tip:'湯頭酸香，配料依店家而異。'},
+ {id:'egg-coffee',name:'越南蛋咖啡 Cà phê trứng',category:'飲品',region:'河內',desc:'咖啡上覆濃厚綿密的蛋奶泡沫，是河內特色飲品。',tip:'通常偏濃郁、帶甜味；可與同行者分飲嘗試。'},
+ {id:'che',name:'越南甜湯 Chè',category:'甜點',region:'越南各地',desc:'以豆類、果凍、水果或椰奶等組合的甜品。',tip:'品項很多，可先問清楚配料；怕甜可詢問能否少糖。'}
+];
+function renderMustEat(){
+ const host=document.getElementById('mustEatList');if(!host)return;
+ const q=(document.getElementById('mustEatSearch')?.value||'').trim().toLowerCase();
+ const cat=document.getElementById('mustEatCategory')?.value||'全部';
+ const saved=get('foods',[]);
+ const items=VIETNAM_MUST_EAT.filter(x=>(cat==='全部'||x.category===cat)&&(!q||(x.name+' '+x.region+' '+x.desc+' '+x.tip).toLowerCase().includes(q)));
+ host.innerHTML=items.length?items.map(x=>{
+  const added=saved.some(f=>f.recommendationId===x.id||f.name===x.name);
+  return `<article class="card" style="margin:10px 0;border:1px solid var(--line)"><div class="row"><h3 style="margin:0">${escapeFood(x.name)}</h3><span class="badge">${escapeFood(x.category)}</span></div><p class="small">📍 ${escapeFood(x.region)}</p><p>${escapeFood(x.desc)}</p><p class="small">💡 ${escapeFood(x.tip)}</p><button class="${added?'secondary':'action'}" ${added?'disabled':''} onclick="addMustEatToFood('${x.id}')">${added?'✓ 已在美食收藏':'♡ 加入想吃清單'}</button></article>`;
+ }).join(''):'<p class="muted">找不到符合的推薦，試試其他關鍵字或分類。</p>';
+}
+function addMustEatToFood(id){
+ const rec=VIETNAM_MUST_EAT.find(x=>x.id===id);if(!rec)return;
+ const foods=get('foods',[]);
+ if(foods.some(f=>f.recommendationId===id||f.name===rec.name)){alert('這道美食已經在收藏清單裡了。');renderMustEat();return}
+ foods.unshift({id:'food-rec-'+id,name:rec.name,restaurant:'',price:'',status:'想吃',address:'',notes:'【越南必吃推薦】'+rec.desc+'\\n小提醒：'+rec.tip,recommendationId:id,updatedAt:Date.now()});
+ try{put('foods',foods);renderFoods();renderMustEat();alert('已加入「想吃」清單！')}catch(e){alert('加入失敗：'+(e.message||'本機儲存空間可能不足'))}
+}
 
 const QUEST_KEY='vietnam-rpg-map-checkins-v1';
 const RPG_DESTINATIONS=[{id:'hanoi',name:'河內 HÀ NỘI',icon:'🏯',kind:'古城主城',desc:'老城區、還劍湖、火車街與越南街頭美食。',x:22,y:20},{id:'sapa',name:'沙壩 SA PA',icon:'⛰️',kind:'山岳支線',desc:'梯田、山城風景與番西邦峰冒險。',x:72,y:47},{id:'halong',name:'下龍灣 HẠ LONG',icon:'⛵',kind:'海灣主線',desc:'石灰岩島嶼、遊船與海上探索。',x:35,y:76},{id:'hoankiem',name:'還劍湖',icon:'🌊',kind:'河內支線',desc:'漫步湖畔，欣賞龜塔與河內城市風景。',x:12,y:39},{id:'trainstreet',name:'河內火車街',icon:'🚂',kind:'河內支線',desc:'探索鐵道街景；請遵守現場安全規定。',x:39,y:27},{id:'catcat',name:'貓貓村',icon:'🏡',kind:'沙壩支線',desc:'走訪山村、梯田與傳統村落風景。',x:83,y:63},{id:'fansipan',name:'番西邦峰',icon:'🚠',kind:'沙壩主線',desc:'搭乘登山纜車，挑戰印度支那屋脊。',x:60,y:35},{id:'cruise',name:'下龍灣郵輪',icon:'🚢',kind:'海上支線',desc:'確認登船集合、船上活動與海灣景色。',x:53,y:83}];
@@ -812,6 +979,12 @@ function triggerBondEvent(){const text=BOND_POOL[Math.floor(Math.random()*BOND_P
 function claimLoot(){const item=LOOT_POOL[Math.floor(Math.random()*LOOT_POOL.length)],loot=squadGet(LOOT_KEY,[]);loot.push({...{icon:item[0],name:item[1],note:item[2]},at:Date.now()});put(LOOT_KEY,loot);addSquadExp(5);document.getElementById('bondResult').textContent=`🎉 找到戰利品：${item[0]} ${item[1]}！小隊 EXP +5`;}
 const GPS_TARGETS={hanoi:{name:'河內',lat:21.0285,lon:105.8542,radius:2500},sapa:{name:'沙壩',lat:22.3364,lon:103.8438,radius:3500},halong:{name:'下龍灣',lat:20.9101,lon:107.1839,radius:5000}};
 function distanceMeters(a,b,c,d){const R=6371000,rad=x=>x*Math.PI/180,dl=rad(c-a),dn=rad(d-b),v=Math.sin(dl/2)**2+Math.cos(rad(a))*Math.cos(rad(c))*Math.sin(dn/2)**2;return 2*R*Math.asin(Math.sqrt(v))}
+const CHECKIN_WATCH_STATE_KEY='vietnamCheckinWatchState_v1';
+let checkinWatchId=null,checkinLastAlerted={};
+function renderCheckinReminder(){const host=document.getElementById('checkinReminderList');if(!host)return;const saved=get(QUEST_KEY,{});const pending=RPG_DESTINATIONS.filter(q=>!saved[q.id]?.done);host.innerHTML=pending.length?`<div class="home-task-section"><div class="home-task-section-title"><b>🧭 尚未打卡的景點</b><small>${pending.length} 個待完成</small></div>${pending.map(q=>`<div class="row" style="align-items:center;justify-content:space-between"><span>${q.icon} ${escapeQuest(q.name)}</span><button type="button" class="secondary" onclick="showPage('adventureMap');openRpgLocation('${q.id}')">去打卡</button></div>`).join('')}</div>`:'<div class="notice">🎉 目前列出的景點都已完成打卡！如果只是忘記按，仍可進入地圖補登。 </div>';const btn=document.getElementById('checkinWatchButton');if(btn)btn.textContent=checkinWatchId===null?'🛰️ 開啟到達提醒':'⏸️ 關閉到達提醒'}
+function toggleCheckinWatch(){if(checkinWatchId!==null){navigator.geolocation.clearWatch(checkinWatchId);checkinWatchId=null;const st=document.getElementById('checkinWatchStatus');if(st)st.textContent='到達提醒已關閉。';renderCheckinReminder();return}if(!navigator.geolocation){const st=document.getElementById('checkinWatchStatus');if(st)st.textContent='此瀏覽器不支援 GPS 定位，請使用景點清單手動打卡。';return}const st=document.getElementById('checkinWatchStatus');if(st)st.textContent='正在等待定位權限…請允許瀏覽器使用位置。';checkinWatchId=navigator.geolocation.watchPosition(pos=>{const {latitude:lat,longitude:lon,accuracy:acc}=pos.coords;const inNorthVietnam=lat>=20&&lat<=23.6&&lon>=102&&lon<=108.5;if(!inNorthVietnam){if(st)st.textContent='🧪 目前位置不在北越範圍，提醒保持測試／未確認狀態，不會自動打卡。';return}if(acc>3000){if(st)st.textContent=`定位精度約 ${Math.round(acc)} 公尺，尚不足以判斷接近目的地。`;return}const nearby=Object.entries(GPS_TARGETS).map(([id,t])=>({id,...t,distance:distanceMeters(lat,lon,t.lat,t.lon)})).filter(x=>x.distance<=x.radius).sort((a,b)=>a.distance-b.distance)[0];if(nearby){if(checkinLastAlerted[nearby.id])return;checkinLastAlerted[nearby.id]=true;if(st)st.textContent=`📍 你已接近「${nearby.name}」（約 ${Math.round(nearby.distance)} 公尺）。請點下面按鈕確認打卡；系統不會擅自替你完成打卡。`;const host=document.getElementById('checkinReminderList');if(host){const card=document.createElement('div');card.className='notice';card.innerHTML=`<b>🔔 到達提醒：${escapeQuest(nearby.name)}</b><p>你可能已抵達目的地。請確認現場位置後再打卡。</p><button type="button" class="action" onclick="showPage('adventureMap');openRpgLocation('${nearby.id}')">查看景點並打卡</button>`;host.prepend(card)}}else{if(st)st.textContent='🛰️ 到達提醒已開啟：目前尚未接近河內、沙壩或下龍灣的設定範圍。請保持網頁在前景。'}},err=>{checkinWatchId=null;const msg=err.code===1?'你未允許定位權限':err.code===2?'目前無法取得位置':'定位逾時';if(st)st.textContent=`⚠️ ${msg}。到達提醒未啟動，仍可使用景點清單手動打卡。`;renderCheckinReminder()},{enableHighAccuracy:true,maximumAge:10000,timeout:20000});renderCheckinReminder()}
+function renderTreasureRewards(){const host=document.getElementById('treasureRewardGrid');if(!host)return;const rewards=squadGet(LOCATION_REWARD_KEY,{});const found=LOCATION_LOOT.filter(x=>rewards[x.id]?.found);const summary=document.getElementById('treasureRewardSummary');if(summary)summary.textContent=`已發現 ${found.length} / ${LOCATION_LOOT.length} 種景點專屬寶藏。未發現的寶藏會保持神祕，完成對應景點打卡後有機會獲得。`;host.innerHTML=LOCATION_LOOT.map(x=>{const got=!!rewards[x.id]?.found;return `<div class="loot-codex-item ${got?'found':'locked'}"><span class="codex-icon">${got?x.icon:'❔'}</span><b>${got?escapeQuest(x.name):'？？？ 未發現'}</b><small>${got?escapeQuest(x.note):'完成「'+escapeQuest(x.place)+'」景點打卡，有機會獲得'}</small><small class="codex-status">${got?'✅ 已獲得':'🔒 尚未發現'}</small></div>`}).join('');}
+
 function gpsCheckin(id){const status=document.getElementById('gps-status-'+id),target=GPS_TARGETS[id];if(!target||!status)return;if(!navigator.geolocation){status.textContent='此瀏覽器不支援 GPS 定位；目前標記為未確認地點。';return}status.textContent='正在取得 GPS 位置…請允許瀏覽器使用定位。';navigator.geolocation.getCurrentPosition(pos=>{const lat=pos.coords.latitude,lon=pos.coords.longitude,acc=pos.coords.accuracy||0;const inNorthVietnam=lat>=20&&lat<=23.6&&lon>=102&&lon<=108.5;const distance=distanceMeters(lat,lon,target.lat,target.lon);if(!inNorthVietnam){status.textContent=`🧪 測試模式／未確認地點：目前座標 ${lat.toFixed(4)}, ${lon.toFixed(4)}，不會當作北越景點打卡。`;return}if(acc>3000){status.textContent=`⚠️ 定位精度約 ${Math.round(acc)} 公尺，位置尚未確認。請移到戶外再試。`;return}if(distance<=target.radius){const all=get(QUEST_KEY,{});all[id]=all[id]||{};const wasDone=!!all[id].done;all[id].gpsVerified=true;all[id].gpsAt=new Date().toISOString();all[id].gpsLat=lat;all[id].gpsLon=lon;all[id].gpsAccuracy=Math.round(acc);all[id].done=true;all[id].checkedAt=all[id].checkedAt||new Date().toISOString();put(QUEST_KEY,all);const rewardMessage=!wasDone?grantLocationReward(id):'';status.textContent=`✅ 已驗證接近「${target.name}」！距離約 ${Math.round(distance)} 公尺（GPS 精度 ±${Math.round(acc)} 公尺）。${rewardMessage?' '+rewardMessage:''}`;renderRpgMap();addSquadExp(20)}else{status.textContent=`📍 北越區域內，但距離「${target.name}」約 ${Math.round(distance/1000*10)/10} 公里，尚未完成此景點 GPS 打卡。`}},err=>{const msg=err.code===1?'未允許定位權限':err.code===2?'目前無法取得位置':'定位逾時';status.textContent=`⚠️ ${msg}。此地點仍是未確認狀態，請檢查定位權限後重試。`},{enableHighAccuracy:true,timeout:15000,maximumAge:0})}
 function itineraryTaskId(di,ei){const d=days[di]||{};const e=(Array.isArray(d.events)?d.events:[])[ei]||[];return [String(d.date||di),String(d.title||''),String(e[0]||''),String(e[1]||'')].join('::')}
 function isItineraryTaskDone(di,ei){return itineraryTasks[itineraryTaskId(di,ei)]===true}
@@ -842,6 +1015,16 @@ function claimDailyAdventure(){const d=dailyAdventureLoad(),today=todayISO();if(
 function adventureXpBreakdown(){const main=new Set(get('ach',[]));if(get('expenses',[]).length)main.add(6);const side=new Set(get('sideAch',[]));const map=get(QUEST_KEY,{});const mapDone=RPG_DESTINATIONS.filter(q=>map[q.id]?.done).length;let taskDone=0;days.forEach((d,di)=>(Array.isArray(d.events)?d.events:[]).forEach((e,ei)=>{if(isItineraryTaskDone(di,ei))taskDone++}));const achievementXP=main.size*25+side.size*10;const itineraryXP=taskDone*10;const locationXP=mapDone*20;const squadXP=Math.max(0,Number(squadGet(SQUAD_EXP_KEY,0))||0);const dailyXP=Math.max(0,Number(dailyAdventureLoad().totalXP)||0);return {achievementXP,itineraryXP,locationXP,squadXP,dailyXP,total:achievementXP+itineraryXP+locationXP+squadXP+dailyXP,mainCount:main.size,sideCount:side.size,mapDone,taskDone}}function renderAdventureLevel(){const el=id=>document.getElementById(id);const d=adventureXpBreakdown();const level=Math.floor(d.total/100)+1;const within=d.total%100;const names=['初心旅人','路線探索者','北越見習冒險家','山海旅者','資深探索者','傳奇旅人','北越守護者','冒險大師','傳說收藏家','世界級冒險家'];const rank=names[Math.min(level-1,names.length-1)];if(el('adventureLevelTitle'))el('adventureLevelTitle').textContent=`Lv. ${level} ${rank}`;if(el('adventureLevelEmblem'))el('adventureLevelEmblem').textContent=level>=8?'👑':level>=5?'🏅':level>=3?'🧭':'🌱';if(el('adventureLevelSubtitle'))el('adventureLevelSubtitle').textContent=`已完成 ${d.mainCount+d.sideCount} 個成就、${d.taskDone} 項行程與 ${d.mapDone} 個景點探索。`;if(el('adventureTotalXP'))el('adventureTotalXP').textContent=d.total.toLocaleString();if(el('adventureLevelBar'))el('adventureLevelBar').style.width=within+'%';if(el('adventureLevelProgress'))el('adventureLevelProgress').textContent=`本級 ${within}/100 EXP · 距離下一級 ${100-within} EXP`;if(el('adventureNextLevel'))el('adventureNextLevel').textContent=`下一級：Lv. ${level+1}`;[['levelAchievementXP',d.achievementXP],['levelItineraryXP',d.itineraryXP],['levelLocationXP',d.locationXP],['levelSquadXP',d.squadXP]].forEach(([id,n])=>{if(el(id))el(id).textContent=n.toLocaleString()});}function updateProgress(){const n=new Set(get('ach',[]));if(get('expenses',[]).length)n.add(6);const p=document.getElementById('progress'),bar=document.getElementById('progressbar');if(p)p.textContent=n.size+'/8 · 小隊 '+Number(squadGet(SQUAD_EXP_KEY,0))+' EXP';if(bar)bar.style.width=(n.size/8*100)+'%';renderAdventureLevel();renderDailyAdventure()}function download(name,type,data){const b=new Blob([data],{type}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}async function exportBackup(){
  try{
   const local={};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k!==null)local[k]=localStorage.getItem(k)}
+  // 支出備份防護：只檢查資料，不自動改寫任何金額。
+  // 確保匯出的支出是有效 JSON 陣列，且每筆金額都是正整數。
+  if(Object.prototype.hasOwnProperty.call(local,'expenses')){
+   let expenseSnapshot;
+   try{expenseSnapshot=JSON.parse(local.expenses)}catch(e){throw new Error('支出資料無法解析，已停止備份；原始資料未修改。')}
+   if(!Array.isArray(expenseSnapshot))throw new Error('支出資料格式不是清單，已停止備份；原始資料未修改。');
+   const invalid=expenseSnapshot.findIndex(x=>!x||!Number.isSafeInteger(Number(x.amount))||Number(x.amount)<1);
+   if(invalid!==-1)throw new Error('第 '+(invalid+1)+' 筆支出金額格式異常，已停止備份；沒有自動更改任何金額。請先檢查支出紀錄。');
+   // 保留瀏覽器內原始支出 JSON，不做加減、四捨五入或自動補值。
+  }
   local[ITINERARY_KEY]=JSON.stringify(days);
   const diaryEntries=await diaryGetAll();const diaries=[];
   for(const entry of diaryEntries){const photos=[];for(const blob of(entry.photos||[]))photos.push(await blobToDataUrl(blob));diaries.push({...entry,photos})}
@@ -896,10 +1079,114 @@ async function importLegacyBackupObject(d){
  const mergeKey=(key,incoming)=>{if(incoming===undefined||incoming===null)return;const raw=localStorage.getItem(key);if(raw===null){put(key,incoming);return}try{put(key,mergeBackupValue(key,JSON.parse(raw),incoming))}catch(err){console.warn('略過格式不相容的舊備份欄位：'+key,err)}};
  mergeKey('expenses',d.expenses);mergeKey('ach',d.ach);mergeKey('sideAch',d.sideAch);mergeKey('checks',d.checks);mergeKey('foods',d.foods);mergeKey(SQUAD_KEY,d.squad);mergeKey(LOOT_KEY,d.loot);mergeKey(BOND_KEY,d.bonds);mergeKey(SQUAD_EXP_KEY,d.squadExp);mergeKey(QUEST_KEY,d.rpgCheckins);
  if(Array.isArray(d.itinerary)&&d.itinerary.length){const raw=localStorage.getItem(ITINERARY_KEY);let merged=d.itinerary;try{if(raw)merged=mergeBackupValue(ITINERARY_KEY,JSON.parse(raw),d.itinerary)}catch(err){console.warn('舊備份行程合併失敗，保留現有行程',err);merged=days}days=merged;dayIndex=0;saveItinerary();renderDays()}
- renderSquad();renderRpgMap();renderExpenses();renderAchievements();renderChecks();renderFoods();updateProgress()
+ renderSquad();renderRpgMap();renderExpenses();renderAchievements();renderChecks();renderFoods();renderMustEat();updateProgress()
 }
 // 啟動保護：各區塊分開初始化，單一區塊出錯不會讓整個 APP 的行程、地點、地圖、成就和備份一起消失。
 const startupErrors=[];
+
+// 旅行終章：使用獨立資料鍵；不修改既有日記、照片、支出、成就或 RPG 存檔。
+const ADVENTURE_FINALE_KEY = 'vietnamAdventureFinale_v1';
+function getAdventureFinaleState(){
+  try { const raw=localStorage.getItem(ADVENTURE_FINALE_KEY); return raw?JSON.parse(raw):null; }
+  catch(err){ console.warn('無法讀取終章狀態',err); return null; }
+}
+function renderAdventureFinale(){
+  const state=getAdventureFinaleState();
+  const locked=document.getElementById('finaleLockedPanel');
+  const unlocked=document.getElementById('finaleUnlockedPanel');
+  if(!locked||!unlocked)return;
+  const done=!!(state&&state.completed===true);
+  locked.hidden=done; unlocked.hidden=!done;
+  const status=document.getElementById('finaleStatus');
+  if(status)status.textContent=done?'狀態：已通關 · '+(state.completedAt||'已解鎖'):'狀態：尚未通關';
+  if(!done)return;
+  try{
+    const readArray=(key)=>{try{const v=JSON.parse(localStorage.getItem(key)||'[]');return Array.isArray(v)?v:[]}catch(_){return []}};
+    const ach=readArray('ach'); const foods=readArray('foods');
+    let taskTotal=0; if(Array.isArray(days)) days.forEach(d=>{if(Array.isArray(d.events))taskTotal+=d.events.length});
+    const setText=(id,value)=>{const node=document.getElementById(id);if(node)node.textContent=String(value)};
+    setText('finaleDaysCount',Array.isArray(days)?days.length:'—');
+    setText('finaleTasksCount',taskTotal);
+    setText('finaleAchievementsCount',ach.filter(x=>x===true||(x&&typeof x==='object'&&(x.done===true||x.completed===true))).length);
+    setText('finaleFoodsCount',foods.length);
+    const summary=document.getElementById('finaleDiaryPhotoSummary');
+    if(summary)summary.textContent='日記與照片仍保存在原本的 IndexedDB 資料庫；本終章不讀寫、不搬動、不刪除日記或照片。';
+  }catch(err){console.warn('終章紀念卡摘要未能完整顯示',err)}
+}
+function completeAdventure(){
+  const current=getAdventureFinaleState();
+  if(current&&current.completed===true){renderAdventureFinale();return}
+  const confirmed=confirm('確定要完成這趟冒險並揭開隱藏驚喜嗎？\n\n解鎖狀態會保存在本機的新資料鍵中，不會修改日記、照片、支出或原有 RPG 存檔。');
+  if(!confirmed)return;
+  try{
+    localStorage.setItem(ADVENTURE_FINALE_KEY,JSON.stringify({completed:true,completedAt:new Date().toLocaleString(),version:1}));
+    renderAdventureFinale();
+  }catch(err){alert('無法保存終章狀態。請確認瀏覽器允許本機儲存；既有資料未被修改。');console.error(err)}
+}
+
+
+// 五項新互動使用完全獨立的鍵；不寫入既有日記、照片、支出、行程或 RPG 鍵。
+const PLAYBOOK_KEY='vietnam-adventure-playbook-v1';
+const PLAYBOOK_QUESTS=[
+ ['local-food','🍜 美食偵察兵','找一道之前沒吃過的越南料理'],['four-photo','📸 四人合照','留下今天的四人合照'],['kind-moment','💞 旅伴小幫手','主動幫一位旅伴完成一件小事'],['blue-sign','🔵 顏色獵人','拍下一個今天最有印象的藍色物件'],['viet-phrase','🗣️ 越語勇者','學會並使用一句簡單越南語'],['unexpected','✨ 意外驚喜','記錄一個行程外的小發現'],['slow-down','☕ 慢旅行者','安排一次休息或喝飲料的放鬆時間'],['local-life','🏘️ 在地觀察家','觀察並記錄一個當地生活細節']
+];
+const PLAYBOOK_STAMPS=[{id:'hanoi',name:'河內印章',icon:'🏮',desc:'老城區、還劍湖或河內街巷的旅行紀念'},{id:'sapa',name:'沙壩印章',icon:'⛰️',desc:'山景、梯田或沙壩村落的旅行紀念'},{id:'halong',name:'下龍灣印章',icon:'🚢',desc:'海灣、郵輪或洞穴探險的旅行紀念'}];
+const PLAYBOOK_ROLES=[{id:'scout',name:'探險家',icon:'🧭',task:'查看地圖並確認下一個景點或路線'},{id:'photographer',name:'記錄師',icon:'📸',task:'選一張今日照片，或記錄一個值得留念的瞬間'},{id:'foodie',name:'美食獵人',icon:'🍜',task:'記下一道想吃或已品嚐的越南料理'},{id:'quartermaster',name:'補給官',icon:'🎒',task:'檢查飲水、休息安排或今日預算'}];
+const PLAYBOOK_PHOTOS=[['best-view','🌄 今日最美風景','拍下今天最喜歡的一處風景'],['food-memory','🍜 美食記憶','拍下一道今天吃過的食物'],['funny-moment','😂 最有趣瞬間','記錄一個讓大家笑出來的瞬間'],['little-detail','🔎 旅行小細節','拍下旅途中容易被忽略的小細節'],['team-memory','🧑‍🤝‍🧑 四人紀念照','留下一張四人同框照片']];
+const PLAYBOOK_EVENTS=[
+ {id:'taste',title:'🍜 美食偵察任務',desc:'如果行程與預算允許，找一種還沒試過的當地小吃；不方便就改成記錄今天最喜歡的一餐。'},
+ {id:'postcard',title:'📮 明信片視角',desc:'找一個喜歡的角度拍張照片，想像要寄給未來的自己。'},
+ {id:'kindness',title:'💞 旅伴支援事件',desc:'問問隊友現在最需要什麼：休息、喝水、拍照或幫忙查路線。'},
+ {id:'color',title:'🎨 顏色獵人',desc:'在安全的公共區域找一個今天最醒目的顏色，拍照留念。'},
+ {id:'phrase',title:'🗣️ 越語勇者',desc:'練習一句「Cảm ơn」（謝謝）；不方便開口時，也可以只記下這句話。'},
+ {id:'rest',title:'☕ 休息補給事件',desc:'安排 10 分鐘喝水、坐下或休息。旅行不必每一刻都在趕任務。'},
+ {id:'memory',title:'✨ 回憶碎片',desc:'每個人說一句今天最喜歡的事，記在日記裡。'},
+ {id:'detail',title:'🔎 微小發現',desc:'觀察一個街道、建築或自然景色的小細節，拍照或寫一句描述。'}
+];
+function playbookLoad(){try{const d=JSON.parse(localStorage.getItem(PLAYBOOK_KEY)||'{}');return d&&typeof d==='object'&&!Array.isArray(d)?d:{}}catch{return {}}}
+function playbookSave(d){try{localStorage.setItem(PLAYBOOK_KEY,JSON.stringify(d));return true}catch(e){alert('互動紀錄無法保存，可能是瀏覽器儲存空間不足；既有資料沒有被清除。');return false}}
+function playbookToday(){return new Date().getFullYear()+'-'+String(new Date().getMonth()+1).padStart(2,'0')+'-'+String(new Date().getDate()).padStart(2,'0')}
+function playbookDaily(d){const today=playbookToday();if(!d.daily||d.daily.date!==today){const pool=PLAYBOOK_QUESTS.slice();const chosen=[];while(pool.length&&chosen.length<3){const i=Math.floor(Math.random()*pool.length);chosen.push(pool.splice(i,1)[0])}d.daily={date:today,quests:chosen.map(q=>({id:q[0],done:false,status:'open'}))}}return d.daily}
+function playbookXP(d){return Math.max(0,Number(d.xp)||0)}
+const EMERGENCY_KEY='vietnam-adventure-emergency-v1';
+const EMERGENCY_CHECKS=['保存護照資料與護照影本','保存機票、飯店地址及交通票券','確認旅遊保險與海外急難協助電話','四位隊員互存電話並約定集合點','手機可離線查看重要地址與電話','準備常用藥物並記錄必要過敏資訊'];
+function loadEmergencyInfo(){let d=get(EMERGENCY_KEY,{contacts:{},checks:{}});if(!d||typeof d!=='object')d={contacts:{},checks:{}};const c=d.contacts||{};[['emergencyFamily','family'],['emergencyInsurance','insurance'],['emergencyRep','representative'],['emergencyHotel','hotel'],['emergencyMeet','meet'],['emergencyNotes','notes']].forEach(([id,k])=>{const el=document.getElementById(id);if(el)el.value=typeof c[k]==='string'?c[k]:''});const host=document.getElementById('emergencyChecklist');if(host)host.innerHTML=EMERGENCY_CHECKS.map((v,i)=>`<label style="display:flex;gap:10px;align-items:flex-start;padding:9px 0;font-weight:500"><input type="checkbox" style="width:auto;min-height:20px;margin-top:3px" ${d.checks&&d.checks[i]?'checked':''} onchange="toggleEmergencyCheck(${i},this.checked)"><span>${v}</span></label>`).join('');const status=document.getElementById('emergencySaveStatus');if(status)status.textContent='已載入本機保存的緊急聯絡資料（若為空白，請自行填寫並保存）。'}
+function saveEmergencyInfo(){const contacts={};[['emergencyFamily','family'],['emergencyInsurance','insurance'],['emergencyRep','representative'],['emergencyHotel','hotel'],['emergencyMeet','meet'],['emergencyNotes','notes']].forEach(([id,k])=>contacts[k]=(document.getElementById(id)?.value||'').trim());const old=get(EMERGENCY_KEY,{checks:{}});const data={...(old&&typeof old==='object'?old:{}),contacts,checks:old&&old.checks||{},updatedAt:new Date().toISOString()};try{put(EMERGENCY_KEY,data);const status=document.getElementById('emergencySaveStatus');if(status)status.textContent='✓ 緊急聯絡資料已保存於本機。請勿只依賴這一份資料，重要資訊也請另存離線備份。'}catch(e){alert('保存失敗，可能是裝置儲存空間不足。請先另行記錄重要電話；沒有清除任何既有資料。')}}
+function toggleEmergencyCheck(i,checked){if(!Number.isInteger(i)||i<0||i>=EMERGENCY_CHECKS.length)return;const d=get(EMERGENCY_KEY,{contacts:{},checks:{}});d.checks=d.checks||{};d.checks[i]=!!checked;try{put(EMERGENCY_KEY,d)}catch(e){alert('無法保存此勾選狀態，請稍後再試。')}}
+
+function renderAdventurePlaybook(forceDaily=false){const d=playbookLoad(),daily=playbookDaily(d);if(forceDaily){/* same-day task list remains stable to avoid accidental rerolls */}
+ const qHost=document.getElementById('hiddenQuestList');if(qHost)qHost.innerHTML=daily.quests.map(q=>{const meta=PLAYBOOK_QUESTS.find(x=>x[0]===q.id);return `<div class="event ${q.status==='done'?'checked':''}" style="align-items:center"><div style="font-size:25px">${meta?meta[1].split(' ')[0]:'🎴'}</div><div style="flex:1"><b>${meta?meta[1].replace(/^\S+\s/,''): '今日任務'}</b><p class="small">${meta?meta[2]:''}</p><p class="small">${q.status==='done'?'✅ 已完成':q.status==='skip'?'⏭️ 已跳過':'獎勵：互動點數 +10'}</p></div>${q.status==='open'?`<button type="button" class="action" onclick="resolveHiddenQuest('${q.id}','done')">完成</button><button type="button" class="secondary" onclick="resolveHiddenQuest('${q.id}','skip')">跳過</button>`:''}</div>`}).join('');
+ const stampHost=document.getElementById('northStampGrid');if(stampHost)stampHost.innerHTML=PLAYBOOK_STAMPS.map(st=>{const v=d.stamps&&d.stamps[st.id];return `<div class="card" style="min-width:0"><div style="font-size:30px">${v?'🏅':st.icon}</div><b>${st.name}</b><p class="small">${st.desc}</p>${v&&v.photo?`<img src="${v.photo}" alt="${st.name}照片集章" style="display:block;width:100%;max-height:180px;object-fit:cover;border-radius:12px;margin:8px 0">`:''}<p>${v?'✅ 已完成照片集章':'⬜ 尚未集章'}</p>${v?`<p class="small">${escapeQuest(v.date||'')} · 照片紀念</p><button type="button" class="secondary" onclick="document.getElementById('stampPhoto-${st.id}').click()">更換照片</button>`:`<label class="action" style="display:inline-block;text-align:center;cursor:pointer" for="stampPhoto-${st.id}">📸 拍照／選擇照片集章</label>`}<input id="stampPhoto-${st.id}" type="file" accept="image/*" capture="environment" style="display:none" onchange="saveStampPhoto('${st.id}',this)"><p class="small">${v?'可重新拍照更新紀念':'使用景點照片解鎖數位印章，不需要實體印章'}</p></div>`}).join('');
+ const roles=Array.isArray(d.party)&&d.party.length===4?d.party:[{name:'隊員 1',role:'scout'},{name:'隊員 2',role:'photographer'},{name:'隊員 3',role:'foodie'},{name:'隊員 4',role:'quartermaster'}];d.party=roles;
+ d.partyRound=d.partyRound&&typeof d.partyRound==='object'?d.partyRound:{completed:{}};d.partyRound.completed=d.partyRound.completed||{};
+ const roundDone=!!d.partyRound.bondAwarded;
+ const roleHost=document.getElementById('partyRoleList');if(roleHost)roleHost.innerHTML=roles.map((m,i)=>{const role=PLAYBOOK_ROLES.find(r=>r.id===m.role)||PLAYBOOK_ROLES[i],done=!!d.partyRound.completed[i];return `<div class="card" style="margin:8px 0"><label for="pbName${i}">隊員 ${i+1} 暱稱</label><input id="pbName${i}" maxlength="24" value="${escapeQuest(m.name||'隊員 '+(i+1))}"><label for="pbRole${i}">旅行職業</label><select id="pbRole${i}">${PLAYBOOK_ROLES.map(r=>`<option value="${r.id}" ${m.role===r.id?'selected':''}>${r.icon} ${r.name}｜${r.task}</option>`).join('')}</select><div class="notice" style="margin-top:8px"><b>${role.icon} ${role.name}任務</b><p class="small">${role.task}</p><p class="small">${done?'✅ 本輪已完成':roundDone?'🏅 本輪已結算':'⬜ 尚未完成'}</p>${!done&&!roundDone?`<button type="button" class="action" onclick="completePartyRoleTask(${i})">完成這位隊員的任務</button>`:''}</div></div>`}).join('');
+ const nextRoundBtn=document.getElementById('nextPartyRoundBtn');if(nextRoundBtn)nextRoundBtn.hidden=!roundDone;
+ const photoHost=document.getElementById('photoMissionList');if(photoHost)photoHost.innerHTML=PLAYBOOK_PHOTOS.map(([id,title,desc])=>`<label style="display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line);font-weight:500"><input style="width:auto;margin-top:4px" type="checkbox" ${d.photos&&d.photos[id]?'checked':''} onchange="togglePhotoMission('${id}',this.checked)"><span><b>${title}</b><br><small>${desc}</small></span></label>`).join('');
+ const ev=d.event&&d.event.date===playbookToday()?d.event:null;const eventHost=document.getElementById('travelEventCard');if(eventHost)eventHost.innerHTML=ev?`<b>${escapeQuest(ev.title)}</b><p>${escapeQuest(ev.desc)}</p><p class="small">${ev.status==='done'?'✅ 已完成':ev.status==='skip'?'⏭️ 已略過':'🎯 等待你決定'}</p>`:'今天還沒有抽取事件，按下「抽取今日事件」開始一個小挑戰。';
+ const count=PLAYBOOK_STAMPS.filter(st=>d.stamps&&d.stamps[st.id]).length;const qDone=daily.quests.filter(q=>q.status==='done').length;const qOpen=daily.quests.filter(q=>q.status==='open').length;const photoDone=Object.values(d.photos||{}).filter(Boolean).length;const photoOpen=Math.max(0,PLAYBOOK_PHOTOS.length-photoDone);const eventPending=!ev||ev.status==='open'?1:0;const stampOpen=PLAYBOOK_STAMPS.length-count;const pendingTotal=qOpen+stampOpen+photoOpen+eventPending;const updateMenuBadge=(id,n)=>{const el=document.getElementById(id);if(el){el.textContent=String(n);el.hidden=Number(n)<=0;el.setAttribute('aria-label',`未完成 ${n} 項任務`)}};updateMenuBadge('playbookMenuPendingBadge',pendingTotal);updateMenuBadge('mainTasksMenuPendingBadge',qOpen);updateMenuBadge('morePendingBadge',pendingTotal);const pendingTotalEl=document.getElementById('playbookPendingTotal');if(pendingTotalEl)pendingTotalEl.textContent=pendingTotal;const pendingBreakdown=document.getElementById('playbookPendingBreakdown');if(pendingBreakdown)pendingBreakdown.textContent=`今日隱藏任務 ${qOpen} 項 · 北越照片集章 ${stampOpen} 枚 · 照片主題任務 ${photoOpen} 項 · 今日旅行事件 ${eventPending?'尚未處理':'已處理'}`;const setCount=(id,txt)=>{const el=document.getElementById(id);if(el)el.textContent=txt};setCount('hiddenQuestPendingCount',`（未完成 ${qOpen} 項）`);setCount('stampPendingCount',`（尚缺 ${stampOpen} 枚）`);setCount('photoPendingCount',`（未完成 ${photoOpen} 項）`);setCount('eventPendingCount',`（${eventPending?'待處理':'已處理'}）`);const qEl=document.getElementById('hiddenQuestStatus');if(qEl)qEl.textContent=`今日 ${playbookToday()} · 完成 ${qDone}/3，未完成 ${qOpen} 項，跳過 ${daily.quests.filter(q=>q.status==='skip').length} 項。`;
+ const stampSummary=document.getElementById('stampSummary');if(stampSummary)stampSummary.textContent=`已收集 ${count}/3 枚紀念印章。印章可在旅行後補登，不會偽裝成 GPS 驗證。`;
+ const bond=document.getElementById('partyBondStatus');if(bond){const finished=Object.values((d.partyRound&&d.partyRound.completed)||{}).filter(Boolean).length;bond.textContent=`目前團隊羈絆值：${Math.max(0,Number(d.bond)||0)}　·　本輪職業任務：${finished}/4。${d.partyRound&&d.partyRound.bondAwarded?'四人任務已完成，羈絆已結算！':'四位隊員都完成各自任務後才會增加羈絆。'}`;}
+ const pSummary=document.getElementById('photoMissionSummary');if(pSummary)pSummary.textContent=`已完成 ${photoDone}/${PLAYBOOK_PHOTOS.length} 個照片主題任務；尚有 ${photoOpen} 項未完成。此處只記錄勾選狀態。`
+ const eventStatus=document.getElementById('travelEventStatus');if(eventStatus)eventStatus.textContent=ev?`今日事件狀態：${ev.status==='done'?'完成':ev.status==='skip'?'略過':'尚未處理'}`:'每日只保存一個事件；重新進入頁面不會自動重抽。';
+ [['playbookXP',playbookXP(d)],['playbookQuestDone',qDone+'/3'],['playbookStampCount',count+'/3']].forEach(([id,val])=>{const el=document.getElementById(id);if(el)el.textContent=val});
+ if(!localStorage.getItem(PLAYBOOK_KEY))playbookSave(d);
+}
+function resolveHiddenQuest(id,status){if(!['done','skip'].includes(status))return;const d=playbookLoad(),daily=playbookDaily(d),q=daily.quests.find(x=>x.id===id);if(!q||q.status!=='open')return;q.status=status;if(status==='done')d.xp=playbookXP(d)+10;if(!playbookSave(d))return;renderAdventurePlaybook()}
+function saveStampPhoto(id,input){
+ if(!PLAYBOOK_STAMPS.some(x=>x.id===id))return;const file=input&&input.files&&input.files[0];if(!file)return;
+ if(!file.type||!file.type.startsWith('image/')){alert('請選擇照片圖片檔。');input.value='';return}
+ const reader=new FileReader();reader.onerror=()=>{alert('照片讀取失敗，請再試一次。');input.value=''};
+ reader.onload=()=>{const img=new Image();img.onerror=()=>{alert('無法讀取這張照片，請換一張圖片。');input.value=''};img.onload=()=>{try{const max=900,scale=Math.min(1,max/Math.max(img.naturalWidth,img.naturalHeight));const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(img.naturalWidth*scale));canvas.height=Math.max(1,Math.round(img.naturalHeight*scale));const ctx=canvas.getContext('2d');if(!ctx)throw new Error('無法處理照片');ctx.drawImage(img,0,0,canvas.width,canvas.height);const photo=canvas.toDataURL('image/jpeg',0.76);const d=playbookLoad();d.stamps=d.stamps||{};const wasStamped=!!d.stamps[id];d.stamps[id]={date:playbookToday(),at:Date.now(),photo,photoStamp:true};if(!wasStamped)d.xp=playbookXP(d)+15;if(!playbookSave(d))return;renderAdventurePlaybook();alert(wasStamped?'照片已更新，紀念印章保留。':'照片集章完成！獲得冒險點數 +15。');}catch(err){console.error(err);alert('照片處理或保存失敗。請試較小的照片；既有資料未被清除。')}finally{input.value=''}};img.src=reader.result};reader.readAsDataURL(file);
+}
+function savePartyRoles(){const d=playbookLoad(),party=[];for(let i=0;i<4;i++){const name=document.getElementById('pbName'+i)?.value.trim()||'隊員 '+(i+1),role=document.getElementById('pbRole'+i)?.value||PLAYBOOK_ROLES[i].id;party.push({name,role})}if(new Set(party.map(m=>m.role)).size!==4){alert('四位隊員需要分配四種不同職業，才能保留四人分工挑戰。請檢查職業是否重複。');return}d.party=party;if(!playbookSave(d))return;renderAdventurePlaybook();document.getElementById('partyBondStatus').textContent=`隊伍設定已保存。團隊羈絆值：${Math.max(0,Number(d.bond)||0)}`;}
+function completePartyRoleTask(index){if(!Number.isInteger(index)||index<0||index>3)return;const d=playbookLoad();d.partyRound=d.partyRound&&typeof d.partyRound==='object'?d.partyRound:{completed:{}};d.partyRound.completed=d.partyRound.completed||{};if(d.partyRound.bondAwarded||d.partyRound.completed[index])return;const party=Array.isArray(d.party)&&d.party.length===4?d.party:[{name:'隊員 1',role:'scout'},{name:'隊員 2',role:'photographer'},{name:'隊員 3',role:'foodie'},{name:'隊員 4',role:'quartermaster'}];if(new Set(party.map(m=>m.role)).size!==4){alert('請先儲存四種不同的職業，再開始四人分工挑戰。');return}d.partyRound.completed[index]=true;if([0,1,2,3].every(i=>d.partyRound.completed[i])){d.partyRound.bondAwarded=true;d.bond=Math.max(0,Number(d.bond)||0)+1;d.xp=playbookXP(d)+5}if(!playbookSave(d))return;renderAdventurePlaybook();if(d.partyRound.bondAwarded)alert('🎉 四種職業任務全部完成！團隊羈絆 +1，冒險點數 +5。')}
+function startNextPartyRound(){const d=playbookLoad();if(!d.partyRound||!d.partyRound.bondAwarded)return;d.partyRound={completed:{},bondAwarded:false,startedAt:Date.now()};if(!playbookSave(d))return;renderAdventurePlaybook()}
+function addPartyBond(){alert('團隊羈絆不能直接手動增加。請完成四位隊員各自的職業任務，系統才會自動結算。')}
+function togglePhotoMission(id,checked){if(!PLAYBOOK_PHOTOS.some(x=>x[0]===id))return;const d=playbookLoad();d.photos=d.photos||{};d.photoRewards=d.photoRewards||{};if(checked&&!d.photos[id]&&!d.photoRewards[id]){d.xp=playbookXP(d)+5;d.photoRewards[id]=true}d.photos[id]=!!checked;if(!playbookSave(d))return;renderAdventurePlaybook()}
+function drawTravelEvent(){const d=playbookLoad(),today=playbookToday();if(d.event&&d.event.date===today){alert('今天已抽過事件；可以完成或略過，不會重複抽取。');renderAdventurePlaybook();return}const ev=PLAYBOOK_EVENTS[Math.floor(Math.random()*PLAYBOOK_EVENTS.length)];d.event={...ev,date:today,status:'open',drawnAt:Date.now()};if(!playbookSave(d))return;renderAdventurePlaybook()}
+function resolveTravelEvent(status){if(!['done','skip'].includes(status))return;const d=playbookLoad();if(!d.event||d.event.date!==playbookToday()){alert('請先抽取今日旅行事件。');return}if(d.event.status!=='open'){alert('今日事件已處理。');return}d.event.status=status;if(status==='done')d.xp=playbookXP(d)+10;if(!playbookSave(d))return;renderAdventurePlaybook()}
+
 function safeStartup(label,fn){try{fn()}catch(err){console.error('[APP 初始化錯誤] '+label,err);startupErrors.push(label+': '+(err&&err.message?err.message:String(err)));}}
 safeStartup('行程表',renderDays);
 safeStartup('飯店與重要地點',renderPlaces);
@@ -912,6 +1199,8 @@ safeStartup('成就',renderAchievements);
 safeStartup('出發檢查',renderChecks);
 safeStartup('旅行進度',updateProgress);
 safeStartup('每日冒險控制台',renderDailyAdventure);
+safeStartup('今日待打卡提醒',renderCheckinReminder);
+safeStartup('選單未完成任務數字',renderAdventurePlaybook);
 if(startupErrors.length){try{const notice=document.createElement('div');notice.className='notice';notice.style.cssText='margin:12px;padding:12px;border:2px solid #b45309';const heading=document.createElement('b');heading.textContent='部分功能初始化失敗，但其他頁面仍可使用。';notice.appendChild(heading);const list=document.createElement('ul');for(const message of startupErrors){const item=document.createElement('li');item.textContent=String(message);list.appendChild(item)}notice.appendChild(list);document.body.insertBefore(notice,document.body.firstChild)}catch(bannerError){console.error('[APP 啟動錯誤提示顯示失敗]',bannerError)}}
 if('serviceWorker'in navigator&&(location.protocol==='https:'||location.hostname==='localhost'))window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(e=>console.warn(e)));
 
@@ -968,4 +1257,19 @@ function editShoppingItem(id){const x=shoppingEnsureLoaded().find(v=>v.id===id);
 function toggleShoppingBought(id,checked){const x=shoppingEnsureLoaded().find(v=>v.id===id);if(!x)return;x.bought=checked===true;if(!shoppingSave())return;renderShoppingItems()}
 function deleteShoppingItem(id){const x=shoppingEnsureLoaded().find(v=>v.id===id);if(!x||!x.custom)return;if(!confirm(`確定刪除自訂商品「${x.name}」？`))return;shoppingItemsCache=shoppingItemsCache.filter(v=>v.id!==id);if(shoppingSave())renderShoppingItems()}
 
-</script></body></html>
+</script>
+<style id="category-menu-clean-layout">
+/* 冒險功能總覽：統一間距、層級與按鈕排列 */
+#categoryMenu{padding:16px!important;max-height:min(78vh,720px)!important;overflow-y:auto!important;overscroll-behavior:contain!important;background:#25283a!important;border:2px solid #bd93f9!important;border-radius:14px!important;box-shadow:0 12px 36px #0007!important}
+#categoryMenu .category-menu-head{position:sticky;top:-16px;z-index:2;margin:-2px -2px 12px!important;padding:12px 2px 12px!important;background:#25283a!important;border-bottom:1px solid #555873!important;font-size:18px!important}
+#categoryMenu .category-menu-tip{margin:0 0 14px!important;padding:10px 12px!important;border-radius:8px!important;background:#34374d!important;color:#e8e7f2!important;font-size:12px!important;line-height:1.6!important}
+#categoryMenu .category-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;align-items:start!important;gap:12px!important}
+#categoryMenu .category-group{display:flex!important;flex-direction:column!important;gap:7px!important;min-width:0!important;padding:12px!important;background:#303348!important;border:1px solid #555873!important;border-radius:10px!important;box-shadow:none!important}
+#categoryMenu .category-group h3{min-height:0!important;margin:0 0 3px!important;padding:0 0 8px!important;border-bottom:1px solid #555873!important;color:#ffcf9e!important;font-size:13px!important;line-height:1.5!important}
+#categoryMenu .category-group button{position:relative!important;display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:6px!important;width:100%!important;min-height:40px!important;margin:0!important;padding:9px 10px!important;border:1px solid #555873!important;border-left:3px solid #bd93f9!important;border-radius:7px!important;background:#25283a!important;color:#f8f5ff!important;text-align:left!important;font-size:12px!important;line-height:1.45!important;font-weight:700!important;box-shadow:none!important;overflow-wrap:anywhere!important}
+#categoryMenu .category-group button:active{background:#41445e!important}
+#categoryMenu .category-group button .menu-pending-badge{margin-left:auto!important;flex:0 0 auto!important}
+#categoryMenu .category-group:nth-child(2) button{border-left-color:#ff6b6b!important}
+@media(max-width:560px){#categoryMenu{left:8px!important;right:8px!important;bottom:calc(82px + env(safe-area-inset-bottom))!important;padding:12px!important;max-height:min(78vh,720px)!important}#categoryMenu .category-menu-head{top:-12px!important;margin:-1px -1px 10px!important}#categoryMenu .category-grid{grid-template-columns:minmax(0,1fr)!important;gap:10px!important}#categoryMenu .category-group{padding:11px!important}#categoryMenu .category-group button{min-height:42px!important;font-size:13px!important}}
+</style>
+</body></html>
