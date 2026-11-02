@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#282a36"><meta name="application-name" content="越南冒險日記 第二版本"><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg" type="image/svg+xml"><title>越南冒險日記｜2026・第二版本</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#282a36"><meta name="application-name" content="越南冒險日記 V3 全功能簡易直覺版"><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg" type="image/svg+xml"><title>越南冒險日記 V4｜操作直覺改善版</title>
 <style>
 :root{--teal:#087f70;--mint:#e4f6ef;--ink:#173b39;--muted:#637775;--paper:#f5f8f6;--line:#dce8e2}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif}header{padding:22px 18px 18px;background:linear-gradient(135deg,#075f59,#159b83);color:white;border-radius:0 0 24px 24px}header small{opacity:.85}h1{font-size:25px;margin:6px 0}main{padding:14px 14px 90px;max-width:720px;margin:auto}.card,.hero{background:white;border:1px solid var(--line);border-radius:16px;padding:14px;margin:10px 0}.hero{margin-top:0}.muted,.small{color:var(--muted);font-size:13px}.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0}.tile{background:white;border:1px solid var(--line);border-radius:15px;padding:14px;text-align:left;color:var(--ink);font:inherit;min-height:85px}.tile span{display:block;font-size:24px}.tile b{display:block;margin-top:6px}.page{display:none}.page.active{display:block}.section-title{font-size:18px;margin:18px 2px 10px}.daytabs{display:flex;gap:7px;overflow:auto;padding:3px 0 8px}.daytabs button,button{cursor:pointer}.daytabs button,.secondary{border:1px solid var(--line);background:white;border-radius:10px;padding:9px 12px;color:var(--ink)}.daytabs button.active,.primary,.action{background:var(--teal);color:white;border-color:var(--teal)}.event{display:grid;grid-template-columns:65px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.event:last-child{border:0}.time{color:var(--teal);font-weight:800;font-size:13px}.event p{margin:4px 0;font-size:13px;color:var(--muted)}button,input,select,textarea{font:inherit}input,select,textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:11px;background:white;color:var(--ink);margin:5px 0 10px}label{font-size:13px;font-weight:650}.action{border:0;border-radius:11px;padding:11px 14px;font-weight:700}.row{display:flex;gap:8px;align-items:center}.row>*{flex:1}.expense{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}nav{position:fixed;bottom:0;left:0;right:0;background:#ffffffef;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:8px 3px;z-index:5}nav button{border:0;background:transparent;color:var(--muted);font-size:11px;padding:5px 6px;border-radius:10px;min-width:0;white-space:nowrap}nav button.active{background:var(--mint);color:var(--teal);font-weight:700}nav span{display:block;font-size:20px}.notice{background:#fff5df;border-radius:12px;padding:11px;font-size:13px;color:#77571c}.copy{float:right;font-size:12px}.checked{opacity:.6}.checked strong{text-decoration:line-through}.diary-photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:8px 0}.diary-photo-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;border:1px solid var(--line)}.diary-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.diary-actions button{flex:1;min-width:90px}.diary-entry{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}.photo-hint{font-size:12px;color:var(--muted);margin-top:-5px;margin-bottom:10px}
 
@@ -389,6 +389,25 @@ a{color:#bd93f9}
 /* 寫實商品插畫版：每項推薦商品有獨立的內嵌 SVG 插畫；自訂商品使用通用禮物插畫 */
 .shopping-items{grid-template-columns:repeat(2,minmax(0,1fr))}.shopping-product-art{height:158px;margin:-2px -2px 10px;border-radius:7px;overflow:hidden;background:#f5f0e4;border:1px solid rgba(130,100,60,.18);display:flex;align-items:center;justify-content:center}.shopping-product-art svg{display:block;width:100%;height:100%;object-fit:contain}.shopping-item h4{margin:8px 0 10px;font-size:15px;line-height:1.45}.shopping-item{background:#fffdf6;border-color:#d7c69e;box-shadow:0 3px 10px rgba(70,45,20,.10)}.shopping-item.is-bought{border-color:#4b9b75;background:#f2fbf5}.shopping-item .shopping-badge{background:#f8e7ca;border-radius:999px;color:#70421f;border:0;padding:3px 8px}.shopping-item .shopping-check{font-size:12px}.shopping-item-actions button{border-radius:8px}@media(max-width:520px){.shopping-items{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.shopping-product-art{height:126px}.shopping-item{padding:9px}.shopping-item h4{font-size:13px}.shopping-item p{font-size:12px}}
 
+
+/* V4.4 美食推薦查證資訊：僅影響 STEP 2 推薦卡片 */
+.v44-food-criteria{margin:12px 0;padding:13px 14px;background:#222D40;border:1px solid #71809A;color:#F3EBD8;line-height:1.55}
+.v44-food-criteria b{display:block;color:#F4C95D;margin-bottom:4px}
+.v44-food-criteria span,.v44-food-criteria small{display:block}
+.v44-food-criteria small{margin-top:5px;color:#D6DFEC}
+.v44-kind-label{display:block;color:#F4C95D;font-weight:900;margin:12px 0 3px}
+.v44-kind-select{background:#FFF9E8!important;color:#201A13!important}
+#restaurantGuideMeta{color:#F3EBD8;margin:8px 0}
+#restaurantGuideList .restaurant-simple-row{background:#FFF9E8;border:1px solid #D6AE5C;border-radius:10px;padding:13px!important;margin:10px 0;box-shadow:3px 3px 0 rgba(45,29,16,.22)}
+#restaurantGuideList .restaurant-simple-row b{color:#3E2A18;font-size:17px;line-height:1.4}
+.v44-rating{display:inline-flex;align-items:center;gap:5px;margin:8px 0 4px;padding:5px 8px;background:#E7EDCC;border:1px solid #9DAF70;color:#294B2D;font-weight:900;border-radius:6px;font-size:13px}
+.v44-rating.missing{background:#F5E7D2;border-color:#C9A875;color:#69451E}
+.v44-source-line{font-size:12px;line-height:1.5;color:#5A4A35;margin-top:6px;overflow-wrap:anywhere}
+.v44-source-line a{color:#315D8A;font-weight:800}
+.v44-rec-kind{display:inline-block;padding:4px 7px;border-radius:5px;background:#304C38;color:#F4F0D7;font-size:12px;font-weight:800}
+.v44-rec-kind.special{background:#765022;color:#FFF0C8}
+.v44-rec-note{font-size:13px;line-height:1.55;color:#514331;margin-top:6px}
+
 </style>
 <style id="adventure-font-refresh">
 :root { --adventure-body-font: "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif; --adventure-pixel-font: "Courier New", "Noto Sans TC", "Microsoft JhengHei", monospace; }
@@ -732,11 +751,171 @@ main{max-width:900px!important;padding-top:10px!important}
 }
 </style>
 
+
+<style id="v3-simple-intuitive-refresh">
+/* V3 全功能簡易直覺版：只整理入口與視覺層，不改動資料儲存結構 */
+.v3-home-overview{margin:0 0 18px;padding:18px;background:linear-gradient(145deg,#fff4c9,#f0d58d);border:3px solid #815025;box-shadow:4px 4px 0 #422b19;color:#402a18}
+.v3-home-title-row{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.v3-eyebrow{font-size:10px;font-weight:900;letter-spacing:1px;color:#7a4a21}
+.v3-home-title-row h2{font-size:clamp(21px,5vw,29px);line-height:1.25;margin:7px 0}
+.v3-home-title-row p{margin:0;font-size:14px;font-weight:750}
+.v3-home-badge{display:grid;place-items:center;flex:0 0 58px;width:58px;height:58px;font-size:34px;background:#d8ed9c;border:3px solid #6b8d42;box-shadow:3px 3px 0 #50351e}
+.v3-trip-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:16px 0}
+.v3-trip-facts>div{min-width:0;padding:10px 8px;background:#fff9e5;border:2px solid #d0a75e}
+.v3-trip-facts small{display:block;font-size:11px;color:#74522d;font-weight:750}
+.v3-trip-facts strong{display:block;margin-top:4px;font-size:13px;line-height:1.4;overflow-wrap:anywhere}
+.v3-home-reminder{display:flex;align-items:center;gap:9px;padding:12px;background:#e5efc3;border:2px solid #78934d}
+.v3-home-reminder>span{font-size:24px}.v3-home-reminder>div{flex:1;min-width:0}.v3-home-reminder strong{font-size:14px}.v3-home-reminder p{font-size:12px;line-height:1.5;margin:3px 0 0}
+.v3-home-reminder button{flex:none;min-height:44px;padding:8px 10px;background:#39794b;color:#fff4c9;border:2px solid #23482b;font-size:12px}
+.v3-quick-section{margin:16px 0 22px}.v3-quick-heading{margin:0 0 12px;font-size:20px;color:#51351e}.v3-quick-heading small{display:block;font-size:12px;font-weight:600;color:#72583b;margin-top:3px}
+.v3-quick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.v3-quick-card{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px;min-width:0;min-height:112px;padding:13px;text-align:left;background:linear-gradient(180deg,#fff4ce,#eac477);color:#402a18;border:3px solid #895020;box-shadow:3px 4px 0 #422b19}
+.v3-quick-card>span{display:grid;place-items:center;width:40px;height:40px;background:#d8ed9c;border:2px solid #a7782d;font-size:24px}
+.v3-quick-card strong{font-size:16px;line-height:1.35}.v3-quick-card small{font-size:12px;color:#70502c;line-height:1.35}
+.v3-quick-card:active{transform:translate(2px,2px);box-shadow:1px 2px 0 #422b19}
+nav.rpg-bottom-menu.v3-primary-nav{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:5px!important;justify-content:stretch!important;overflow:visible!important;min-height:70px!important;padding:6px max(7px,env(safe-area-inset-left)) calc(6px + env(safe-area-inset-bottom)) max(7px,env(safe-area-inset-right))!important}
+nav.rpg-bottom-menu.v3-primary-nav button{display:flex!important;flex:initial!important;min-width:0!important;width:100%!important;min-height:54px!important;align-items:center!important;justify-content:center!important;gap:3px!important;padding:5px 2px!important;font-size:12px!important;white-space:nowrap!important}
+nav.rpg-bottom-menu.v3-primary-nav button span{display:block!important;line-height:1.15!important}
+nav.rpg-bottom-menu.v3-primary-nav button .nav-icon{font-size:21px!important}
+nav.rpg-bottom-menu.v3-primary-nav button span:last-child{font-size:12px!important;font-weight:900!important}
+nav.rpg-bottom-menu.v3-primary-nav #morePendingBadge{display:none!important}
+.category-menu-tip{font-size:13px;line-height:1.6}
+.category-group button{min-height:44px}
+@media(min-width:600px){.v3-home-overview,.v3-quick-section{max-width:820px;margin-left:auto;margin-right:auto}.v3-quick-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.v3-quick-card{min-height:125px}.v3-trip-facts strong{font-size:14px}}
+@media(max-width:390px){.v3-home-overview{padding:12px}.v3-trip-facts{gap:5px}.v3-trip-facts>div{padding:8px 5px}.v3-trip-facts small{font-size:10px}.v3-trip-facts strong{font-size:11px}.v3-home-reminder{align-items:flex-start;flex-wrap:wrap}.v3-home-reminder button{margin-left:32px}.v3-quick-grid{gap:9px}.v3-quick-card{min-height:105px;padding:10px}.v3-quick-card strong{font-size:15px}}
+
+/* V4.1：首頁快捷操作只保留底部主要導覽沒有直接呈現的功能，避免重複入口 */
+.v4-unique-actions{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important}
+.v4-unique-actions .v3-quick-card{min-width:0;min-height:108px;padding:12px 8px}
+.v4-unique-actions .v3-quick-card strong{font-size:15px;line-height:1.35}
+.v4-unique-actions .v3-quick-card small{font-size:12px;line-height:1.4}
+@media(max-width:390px){
+  .v4-unique-actions{gap:7px!important}
+  .v4-unique-actions .v3-quick-card{padding:10px 5px;min-height:104px}
+  .v4-unique-actions .v3-quick-card strong{font-size:13px}
+  .v4-unique-actions .v3-quick-card small{font-size:11px}
+}
+</style>
+<!-- V4 UX navigation improvements: searchable More menu, intent shortcuts, larger touch targets. Existing data stores are preserved. -->
+<style id="v43-global-rpg-theme-20261102">
+:root{
+ --teal:#F4C95D!important;--mint:#34445D!important;--ink:#F3EBD8!important;
+ --muted:#C4CAD5!important;--paper:#171D2B!important;--line:#68758B!important;
+ --accent:#AD8BE8!important;--shadow:0 5px 0 rgba(5,10,20,.55)!important;
+ --rpg-bg:#171D2B;--rpg-panel:#222D40;--rpg-card:#2D3B52;
+ --rpg-gold:#F4C95D;--rpg-green:#65C98A;--rpg-purple:#AD8BE8;--rpg-red:#E47777;
+ color-scheme:dark;
+}
+html,body{background:#171D2B!important;color:#F3EBD8!important}
+body{background-image:radial-gradient(ellipse at 50% -12%,#35435B 0%,#222D40 38%,#171D2B 78%)!important}
+header{background:linear-gradient(135deg,#26364D,#354963)!important;color:#FFF4D6!important;border-bottom:3px solid #D6A84B!important;box-shadow:0 5px 0 #111827!important}
+main,.page,.page.active{color:#F3EBD8!important}
+.card,.hero,.tile,.subcard,.va-subcard,.panel,.modal-content,.sheet,.accordion-content,.menu-panel,.list-card,.stat-card,.feature-card{
+ background:#2D3B52!important;color:#F3EBD8!important;border:1px solid #68758B!important;
+ box-shadow:0 4px 0 rgba(8,13,24,.42)!important;
+}
+.hero,.hero-card{background:linear-gradient(145deg,#354963,#26364D)!important;border:2px solid #D6A84B!important}
+.section-title,h1,h2,h3,h4,strong,b,legend{color:#F8EFD9!important}
+p,li,small,.small,.muted,.hint,.description{color:#C4CAD5!important}
+label{color:#F0D99A!important}
+input,select,textarea{background:#1B2638!important;color:#F3EBD8!important;border:1px solid #71809A!important;box-shadow:inset 0 1px 3px #101827!important}
+input::placeholder,textarea::placeholder{color:#AAB4C5!important;opacity:1}
+input:focus,select:focus,textarea:focus{border-color:#F4C95D!important;box-shadow:0 0 0 3px rgba(244,201,93,.2)!important}
+button,.action,.primary,.secondary,.daytabs button,.tile,.nav-button{
+ color:#F3EBD8!important;border-color:#75839A!important;
+}
+button,.action,.primary{background:linear-gradient(180deg,#DDB653,#B98732)!important;color:#20283A!important;border:1px solid #F4D985!important;box-shadow:0 3px 0 #765321!important}
+.secondary,.daytabs button,.tile{background:#35445C!important;color:#F3EBD8!important;border:1px solid #71809A!important;box-shadow:0 3px 0 #131D2C!important}
+.daytabs button.active,.tab.active,.selected{background:#F4C95D!important;color:#20283A!important;border-color:#FFE49A!important}
+button:disabled{background:#485365!important;color:#B8C0CC!important;opacity:.7}
+progress{accent-color:#65C98A}
+progress::-webkit-progress-bar{background:#182336;border-radius:20px}
+progress::-webkit-progress-value{background:#65C98A;border-radius:20px}
+.badge,.tag,.chip{background:#3B4B63!important;color:#F4D77F!important;border-color:#8B7851!important}
+.success,.complete,.done{color:#65C98A!important}
+.warning,.notice{background:#493C2B!important;color:#FFE5A4!important;border-color:#B78A42!important}
+.danger,.error{color:#FF9999!important}
+hr,.divider{border-color:#52617A!important}
+table th{background:#354963!important;color:#F8EFD9!important}
+table td{background:#263449!important;color:#E9E5DA!important;border-color:#53627A!important}
+nav.rpg-nav{background:linear-gradient(180deg,#354963,#1B2638)!important;border-top:3px solid #D6A84B!important}
+nav.rpg-nav button,nav.rpg-nav a{color:#FFF0C4!important}
+nav.rpg-nav button.active,nav.rpg-nav a.active{background:#D6A84B!important;color:#20283A!important}
+#safetyCenter .card,#photoMap .card{background:#2D3B52!important}
+/* Keep map terrain illustrations colorful; only their labels and controls follow the RPG palette. */
+.pixel-map-label{background:#F4C95D!important;color:#352515!important;border-color:#604126!important}
+*:focus-visible{outline-color:#F4C95D!important}
+</style>
+
+<style id="v43-home-food-ux">
+/* V4.3 scoped visual and usability layer */
+.v43-home-overview{margin:14px 0 18px;padding:clamp(18px,4vw,28px);color:#F3EBD8!important;background:#171D2B!important;border:2px solid #F4C95D!important;border-radius:18px!important;box-shadow:0 7px 0 #101522,inset 0 0 0 2px rgba(244,201,93,.14)!important}
+.v43-home-overview .v3-home-title-row{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.v43-home-overview .v3-eyebrow{color:#F4C95D!important;font-weight:900;letter-spacing:.12em}
+.v43-home-overview h2{color:#F4C95D!important;text-shadow:none!important;line-height:1.3;margin:8px 0}
+.v43-home-overview .v3-home-title-row p{color:#F3EBD8!important;font-weight:750;line-height:1.5;margin:0}
+.v43-home-overview .v3-trip-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px 0}
+.v43-home-overview .v3-trip-facts>div{min-width:0;padding:13px 12px;background:#FFF9E8!important;color:#201A13!important;border:2px solid #E4C77F;box-shadow:0 3px 0 rgba(0,0,0,.22);border-radius:8px}
+.v43-home-overview .v3-trip-facts small{display:block;color:#514331!important;font-size:13px;font-weight:800;line-height:1.4}
+.v43-home-overview .v3-trip-facts strong{display:block;margin-top:5px;color:#201A13!important;font-size:clamp(15px,2.5vw,19px);font-weight:950;line-height:1.45;overflow-wrap:anywhere}
+.v43-home-overview .v3-home-reminder{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:11px;align-items:center;padding:14px;background:#222D40!important;border:1px solid #71809A;border-radius:9px;color:#F3EBD8!important}
+.v43-home-overview .v3-home-reminder strong{display:block;color:#65C98A!important;font-size:17px;line-height:1.4}
+.v43-home-overview .v3-home-reminder p{margin:5px 0 0;color:#F3EBD8!important;font-size:14px;line-height:1.65}
+.v43-home-overview .v3-home-reminder button{background:#F4C95D!important;color:#201A13!important;border:2px solid #D5A83E!important;box-shadow:0 3px 0 #76551e!important;font-weight:900;white-space:nowrap}
+.v43-step-heading{display:flex;align-items:center;gap:12px;margin:24px 2px 10px;color:#F3EBD8}
+.v43-step-heading>span{flex:0 0 auto;padding:8px 10px;background:#F4C95D;color:#201A13;border:2px solid #8e6828;font-size:13px;font-weight:1000;letter-spacing:.06em;box-shadow:3px 3px 0 #35251b}
+.v43-step-heading b{display:block;color:#F4C95D;font-size:18px;line-height:1.4}
+.v43-step-heading small{display:block;color:#F3EBD8;font-size:13px;line-height:1.5;margin-top:2px}
+.v43-food-panel{margin-top:8px!important}
+#vietnamMustEatPanel>.row{align-items:end;gap:12px}
+#vietnamMustEatPanel #mustEatList>.card{background:#FFF9E8!important;color:#201A13!important;border:1px solid #D8BD83!important;box-shadow:0 3px 0 rgba(55,37,20,.16)!important}
+#vietnamMustEatPanel #mustEatList .small{color:#514331!important}
+#restaurantGuidePanel .diary-actions{gap:8px}
+#restaurantGuidePanel .diary-actions button{min-height:46px;flex:1 1 100px}
+#restaurantGuidePanel .restaurant-simple-row{padding:15px 0!important}
+.v43-food-tools{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:8px 0 12px}
+.v43-food-editor{margin:0 0 16px;border:2px solid #D6AE5C;background:#FFF9E8;box-shadow:3px 3px 0 #56391f}
+.v43-food-editor>summary{list-style:none;cursor:pointer;padding:14px 16px;background:#222D40;color:#F4C95D;font-weight:950;min-height:52px;display:flex;align-items:center}
+.v43-food-editor>summary::-webkit-details-marker{display:none}
+.v43-food-editor>summary:after{content:"＋";margin-left:auto;color:#F3EBD8}
+.v43-food-editor[open]>summary:after{content:"－"}
+.v43-food-editor>.card{margin:0!important;border:0!important;border-top:2px solid #D6AE5C!important;border-radius:0!important;box-shadow:none!important;background:#FFF9E8!important;color:#201A13!important}
+.v43-food-filter{margin:14px 0 8px;padding:12px;background:#222D40;border:1px solid #71809A;color:#F3EBD8}
+.v43-food-filter>span{display:block;color:#F4C95D;font-weight:900;margin-bottom:8px}
+.v43-food-filter>.row{gap:8px;margin:0}
+.v43-food-filter>.row button{flex:1;min-height:46px}
+#foodList>.card{background:#FFF9E8!important;color:#201A13!important;border-color:#D6AE5C!important}
+#foodList>.card .small{color:#514331!important}
+@media(max-width:560px){
+.v43-home-overview .v3-trip-facts{grid-template-columns:1fr;gap:8px;margin:15px 0}
+.v43-home-overview .v3-trip-facts>div{display:grid;grid-template-columns:88px minmax(0,1fr);align-items:center;gap:8px;padding:10px 12px}
+.v43-home-overview .v3-trip-facts strong{margin:0}
+.v43-home-overview .v3-home-reminder{grid-template-columns:auto minmax(0,1fr)}
+.v43-home-overview .v3-home-reminder button{grid-column:1/-1;width:100%;min-height:46px}
+#vietnamMustEatPanel>.row{display:grid;grid-template-columns:1fr;gap:2px}
+.v43-food-tools{align-items:stretch}
+.v43-food-tools>.action{width:100%;min-height:48px}
+}
+@media(min-width:600px){.v43-home-overview .v3-trip-facts>div{padding:16px}.v43-home-overview .v3-trip-facts strong{font-size:18px}}
+</style>
 </head><body>
 
 
 <header><small>VIETNAM ADVENTURE · 2026</small><h1>🇻🇳 越南冒險日記</h1><p>北越六天五夜｜11/18（三）–11/23（一）</p></header><main>
 <section class="page active" id="home">
+<section class="v3-home-overview v43-home-overview" aria-label="旅程總覽">
+  <div class="v3-home-title-row"><div><span class="v3-eyebrow">YOUR NORTH VIETNAM QUEST</span><h2>準備好出發冒險了嗎？</h2><p>北越六天五夜・4 人小隊</p></div><span class="v3-home-badge" aria-hidden="true">🇻🇳</span></div>
+  <div class="v3-trip-facts"><div><small>出發日期</small><strong>11/18（三）</strong></div><div><small>旅程天數</small><strong>6 天 5 夜</strong></div><div><small>旅遊地區</small><strong>河內・沙壩・下龍灣</strong></div></div>
+  <div class="v3-home-reminder"><span aria-hidden="true">📌</span><div><strong>出發前準備中</strong><p>查看每日行程、交通集合時間與待辦任務，讓旅程更安心。</p></div><button type="button" onclick="showPage('itinerary')">查看行程</button></div>
+</section>
+<section class="v3-quick-section" aria-label="常用操作">
+  <h2 class="v3-quick-heading">✨ 常用操作 <small>只放底部選單沒有的快捷功能</small></h2>
+  <div class="v3-quick-grid v4-unique-actions">
+    <button class="v3-quick-card" type="button" onclick="showPage('expenses')"><span>💰</span><strong>記帳／分帳</strong><small>新增支出・查看結算</small></button>
+    <button class="v3-quick-card" type="button" onclick="showPage('translate')"><span>🗣️</span><strong>旅遊翻譯</strong><small>越南文・常用句</small></button>
+    <button class="v3-quick-card" type="button" onclick="showPage('diary')"><span>📖</span><strong>記錄旅行回憶</strong><small>日記・照片整理</small></button>
+  </div>
+</section>
 <!-- 新增 RPG 指揮中心：只讀取既有進度，簽到資料使用獨立新鍵保存。 -->
 <section class="card rpg-command-card" id="rpgCommandCenter" aria-label="冒險者控制台">
  <div class="rpg-dashboard-top"><div class="rpg-dashboard-emblem" id="rpgDashboardEmblem">🧭</div><div><small>VIETNAM ADVENTURE · COMMAND CENTER</small><h2 id="rpgDashboardLevel">Lv. 1 初心旅人</h2><p id="rpgDashboardSummary">踏上河內、沙壩與下龍灣的冒險旅程！</p></div></div>
@@ -799,7 +978,6 @@ main{max-width:900px!important;padding-top:10px!important}
   <section class="va-subcard"><h4>⚔️ 回合制冒險挑戰</h4><p id="vaBattleIntro" class="va-muted">選擇目前場景的怪物進行挑戰。每個地區每日首次勝利才會發放獎勵，避免無限刷 EXP。</p><div class="va-progress"><b id="vaEnemyName">尚未遭遇怪物</b><b id="vaEnemyHP">—</b></div><div class="va-bar"><span id="vaEnemyBar"></span></div><div class="va-battle-controls"><button class="action" type="button" onclick="VAUnified.startBattle()">開始挑戰</button><button class="secondary" type="button" onclick="VAUnified.attack()">⚔️ 攻擊</button><button class="secondary" type="button" onclick="VAUnified.flee()">撤退</button></div><div id="vaBattleLog" class="va-battle-log" aria-live="polite">冒險者，準備好再出發！</div></section>
   <section class="va-subcard"><h4>🌏 旅遊資料連動</h4><div class="va-sync-list"><button class="secondary" type="button" onclick="showPage('itinerary')">🗓️ 行程<br><b id="vaTripCount">讀取中</b></button><button class="secondary" type="button" onclick="showPage('expenses')">💰 支出<br><b id="vaExpenseCount">讀取中</b></button><button class="secondary" type="button" onclick="showPage('food')">🍜 美食<br><b id="vaFoodCount">讀取中</b></button><button class="secondary" type="button" onclick="showPage('diary')">📖 日記<br><b id="vaDiaryCount">讀取中</b></button><button class="secondary" type="button" onclick="showPage('photos')">📸 照片<br><b id="vaPhotoCount">讀取中</b></button><button class="secondary" type="button" onclick="showPage('shoppingQuest')">🎁 必買清單<br><b>開啟</b></button></div><p class="va-core-note" id="vaSyncStatus">只讀取既有旅遊資料；不會自動修改行程或支出。</p></section>
  </div>
- <section class="va-subcard" style="margin-top:12px"><h4>🤖 智慧服務整合狀態</h4><div class="va-sync-list"><div><b>🧾 收據 OCR</b><br><span class="va-tag">待串接服務</span></div><div><b>🌦️ 即時天氣</b><br><span class="va-tag">待串接服務</span></div><div><b>🗣️ 語音翻譯</b><br><span class="va-tag">依瀏覽器支援</span></div><div><b>🧠 AI 行程建議</b><br><span class="va-tag">待串接服務</span></div><div><b>📷 AI 照片辨識</b><br><span class="va-tag">待串接服務</span></div><div><b>📴 離線遊戲</b><br><span class="va-tag">本機可用</span></div></div><p class="va-core-note">收據辨識、即時天氣、雲端 AI 與照片 AI 需要外部 API／服務及網路；本版先整合資料入口與本機功能，不會假稱已完成 AI 辨識或即時連線。</p></section>
  <div class="va-actions"><button class="secondary" type="button" onclick="showPage('safetyCenter')">🛡️ 資料安全檢查</button><button class="secondary" type="button" onclick="showPage('offline')">📴 離線檢查</button><button class="secondary" type="button" onclick="VAUnified.refresh()">🔄 更新整合資料</button></div>
 </section>
 </section>
@@ -807,8 +985,25 @@ main{max-width:900px!important;padding-top:10px!important}
 <section class="page" id="places"><h2 class="section-title">📍 飯店與重要地點</h2><div id="placeslist"></div><div class="notice">導航連結需要網路。地址請以訂房或車票確認資料為準。</div></section>
 <section class="page" id="translate"><h2 class="section-title">🗣️ 旅遊翻譯</h2><div class="card"><b>自由輸入翻譯（需要網路）</b><p class="small">輸入中文，翻譯成越南文。翻譯結果請自行確認。</p><label>輸入要翻譯的中文</label><textarea id="translateInput" rows="3" placeholder="例如：我們四個人，請問可以現在入住嗎？"></textarea><button class="action" id="translateBtn" onclick="translateFreeText()">翻譯成越南文</button><p id="translateStatus" class="small"></p><div id="translateResultCard" style="display:none"><textarea id="translateResult" rows="3" readonly></textarea><button class="secondary" onclick="copyText(document.getElementById('translateResult').value)">複製越南文</button></div></div><div class="card"><b>離線常用句</b><div class="row"><button class="secondary" onclick="setLang('vi')" id="vibtn">中文 ↔ 越文</button><button class="secondary" onclick="setLang('en')" id="enbtn">中文 ↔ 英文</button></div><label>搜尋中文或外文</label><input id="phraseSearch" placeholder="例如：飯店、How much..." oninput="renderPhrases()"><div id="phrases"></div><p class="small">常用句可離線查看；自由輸入翻譯需要網路。</p></div></section>
 <section class="page" id="food"><h2 class="section-title">🍜 美食收藏</h2><div class="notice">美食資料保存在這台裝置的瀏覽器。請定期使用「備份」頁面匯出網站資料，避免更換裝置或清除網站資料時遺失。</div>
-<div class="card" id="vietnamMustEatPanel"><h3>🇻🇳 越南必吃推薦｜北越美食圖鑑</h3><p class="small">先看推薦、加入「想吃」清單；吃過後可在下方收藏中打卡。推薦項目不會自動新增，按下收藏才會加入。</p><div class="row"><div><label for="mustEatSearch">🔎 搜尋必吃美食</label><input id="mustEatSearch" type="search" placeholder="例如：河粉、咖啡、米線" oninput="renderMustEat()"></div><div><label for="mustEatCategory">分類</label><select id="mustEatCategory" onchange="renderMustEat()"><option value="全部">全部推薦</option><option value="主食">主食／米線</option><option value="小吃">街頭小吃</option><option value="飲品">飲品</option><option value="甜點">甜點</option></select></div></div><div id="mustEatList"></div></div>
-<div class="card"><b id="foodFormTitle">新增美食</b><input id="foodEditId" type="hidden"><label>美食名稱 *</label><input id="foodName" placeholder="例如：越南牛肉河粉" required><label>餐廳名稱</label><input id="foodRestaurant" placeholder="餐廳或攤位名稱"><div class="row"><div><label>價格（越南盾）</label><input id="foodPrice" type="number" min="0" placeholder="例如 60000"></div><div><label>狀態</label><select id="foodStatus"><option value="想吃">想吃</option><option value="吃過">吃過</option></select></div></div><label>地址</label><input id="foodAddress" placeholder="地址或地標（可貼上 Google Maps 地址）"><label>備註</label><textarea id="foodNotes" rows="3" placeholder="推薦菜色、營業時間、口味心得…"></textarea><label>照片（選填）</label><input id="foodPhoto" type="file" accept="image/*" capture="environment"><p class="small">照片會儲存在本機美食資料中，建議選擇較小的照片。</p><div class="diary-actions"><button class="action" onclick="saveFood()">儲存美食</button><button class="secondary" onclick="resetFoodForm()">取消編輯</button></div><p class="small" id="foodStatusMsg" aria-live="polite"></p></div><div class="row"><button class="secondary" onclick="foodFilter='全部';renderFoods()">全部</button><button class="secondary" onclick="foodFilter='想吃';renderFoods()">想吃</button><button class="secondary" onclick="foodFilter='吃過';renderFoods()">吃過</button></div><div id="foodList"></div></section>
+<div class="v43-step-heading"><span>STEP 1</span><div><b>挑選想吃的越南美食</b><small>搜尋推薦、依分類探索必吃清單</small></div></div><div class="card v43-food-panel" id="vietnamMustEatPanel"><h3>🇻🇳 越南必吃推薦｜北越美食圖鑑</h3><p class="small">先看推薦、加入「想吃」清單；吃過後可在下方收藏中打卡。推薦項目不會自動新增，按下收藏才會加入。</p><div class="row"><div><label for="mustEatSearch">🔎 搜尋必吃美食</label><input id="mustEatSearch" type="search" placeholder="例如：河粉、咖啡、米線" oninput="renderMustEat()"></div><div><label for="mustEatCategory">分類</label><select id="mustEatCategory" onchange="renderMustEat()"><option value="全部">全部推薦</option><option value="主食">主食／米線</option><option value="小吃">街頭小吃</option><option value="飲品">飲品</option><option value="甜點">甜點</option></select></div></div><div id="mustEatList"></div></div>
+<div class="v43-step-heading"><span>STEP 2</span><div><b>尋找附近或推薦餐廳</b><small>依河內、沙壩、下龍灣切換店家</small></div></div><div class="card v43-food-panel" id="restaurantGuidePanel">
+ <h3>🍜 北越店家推薦</h3>
+ <p class="small">選擇地區，就能快速查看店家。按「想吃」加入你的美食收藏。</p>
+ <div class="diary-actions" style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0">
+  <button type="button" class="action" id="restTabAll" onclick="setRestaurantRegion('全部')">全部</button>
+  <button type="button" class="secondary" id="restTabHanoi" onclick="setRestaurantRegion('河內')">河內</button>
+  <button type="button" class="secondary" id="restTabSapa" onclick="setRestaurantRegion('沙壩')">沙壩</button>
+  <button type="button" class="secondary" id="restTabHalong" onclick="setRestaurantRegion('下龍灣')">下龍灣</button>
+ </div>
+ <div class="v44-food-criteria"><b>🔎 推薦篩選方式</b><span>評價推薦：平台評分至少 4.2／5，且評論數原則上達 100 則；特色料理：保留代表性料理，但不把未查證的評價當成分數。</span><small>資料查核：2026-11-02。評分與評論數會變動；出發前請再開地圖確認營業狀態、分店與價格。</small></div>
+ <label for="restaurantKindFilter" class="v44-kind-label">推薦類型</label>
+ <select id="restaurantKindFilter" class="v44-kind-select" onchange="setRestaurantKind(this.value)">
+  <option value="全部">全部推薦</option><option value="網路評價推薦">網路評價推薦（達門檻）</option><option value="特色料理推薦">特色料理推薦（評價資料不足）</option>
+ </select>
+ <div id="restaurantGuideMeta" class="small" aria-live="polite"></div>
+ <div id="restaurantGuideList"></div>
+</div>
+<div class="v43-step-heading"><span>STEP 3</span><div><b>我的美食收藏與紀錄</b><small>管理想吃、已吃、照片及備註</small></div></div><div class="v43-food-tools"><button type="button" class="action" onclick="openFoodEditor()">＋ 新增美食</button><span class="small">收藏及紀錄會沿用原本裝置資料</span></div><details id="foodEditorDetails" class="v43-food-editor"><summary>＋ 新增美食</summary><div class="card"><b id="foodFormTitle">新增美食</b><input id="foodEditId" type="hidden"><label>美食名稱 *</label><input id="foodName" placeholder="例如：越南牛肉河粉" required><label>餐廳名稱</label><input id="foodRestaurant" placeholder="餐廳或攤位名稱"><div class="row"><div><label>價格（越南盾）</label><input id="foodPrice" type="number" min="0" placeholder="例如 60000"></div><div><label>狀態</label><select id="foodStatus"><option value="想吃">想吃</option><option value="吃過">吃過</option></select></div></div><label>地址</label><input id="foodAddress" placeholder="地址或地標（可貼上 Google Maps 地址）"><label>備註</label><textarea id="foodNotes" rows="3" placeholder="推薦菜色、營業時間、口味心得…"></textarea><label>照片（選填）</label><input id="foodPhoto" type="file" accept="image/*" capture="environment"><p class="small">照片會儲存在本機美食資料中，建議選擇較小的照片。</p><div class="diary-actions"><button class="action" onclick="saveFood()">儲存美食</button><button class="secondary" onclick="resetFoodForm()">取消編輯</button></div><p class="small" id="foodStatusMsg" aria-live="polite"></p></div></details><div class="v43-food-filter"><span>篩選收藏</span><div class="row"><button class="secondary" onclick="foodFilter='全部';renderFoods()">全部</button><button class="secondary" onclick="foodFilter='想吃';renderFoods()">想吃</button><button class="secondary" onclick="foodFilter='吃過';renderFoods()">吃過</button></div></div><div id="foodList"></div></section>
 <section class="page" id="expenses"><h2 class="section-title">💰 越南盾記帳</h2>
 <div class="card v2-finance-panel" id="v2SmartFinance">
  <h3>🧾 智慧旅費中心｜第二版本</h3>
@@ -963,43 +1158,61 @@ main{max-width:900px!important;padding-top:10px!important}
 </section>
 
 
-<section class="page" id="v2hub">
- <h2 class="section-title">✨ 旅行管理中心</h2>
- <div class="v2-hero card"><div class="v2-hero-top"><span class="v2-emblem">🧭</span><div><small>VIETNAM ADVENTURE · V2 INTEGRATION</small><h2>五大系統整合工作台</h2><p>沿用原有行程、支出、隊伍、日記照片與 RPG 存檔；新功能使用獨立資料鍵。</p></div></div><div class="v2-status-row"><span>🛡️ 原始資料保護</span><span>📦 舊功能保留</span><span>🎮 RPG 延伸整合</span></div></div>
 
- <div class="v2-summary-grid">
-  <div class="v2-stat"><small>旅費累積</small><b id="v2ExpenseTotal">0 ₫</b><span id="v2ExpenseCount">0 筆紀錄</span></div>
-  <div class="v2-stat"><small>行程完成</small><b id="v2ItineraryProgress">0%</b><span id="v2ItineraryCount">0 項行程</span></div>
-  <div class="v2-stat"><small>冒險隊伍</small><b id="v2TeamCount">0 / 4</b><span>位隊員</span></div>
-  <div class="v2-stat"><small>回憶收藏</small><b id="v2MemoryCount">讀取中</b><span id="v2PhotoCount">日記與照片</span></div>
- </div>
- <section class="card v2-panel" id="v2-expense-panel"><div class="v2-panel-title"><h3>💰 旅費總管</h3><button class="secondary" onclick="showPage('expenses')">開啟原支出頁</button></div><p class="small">直接讀取原有 expenses 支出資料，不搬移、不重設。以下為本機統計與付款人整理。</p><div id="v2ExpenseInsights"></div><div class="v2-feature-note"><b>🧾 AI 收據辨識｜下一個串接階段</b><p>目前這份 HTML 沒有 OCR／AI 收據辨識服務。此版先完成支出資料整合與重複檢查基礎；不會把照片假裝辨識成帳目，也不會自動新增錯誤支出。</p></div></section>
- <section class="card v2-panel" id="v2-itinerary-panel"><div class="v2-panel-title"><h3>🗺️ 智慧行程管家</h3><button class="secondary" onclick="showPage('itinerary')">編輯原行程</button></div><p class="small">讀取現有每日行程及完成狀態，提供行程完整度檢查與地圖搜尋入口；不會自動改動原行程。</p><div id="v2ItineraryAudit"></div><div class="v2-feature-note"><b>🌦️ 即時天氣、交通時間與 AI 路線最佳化</b><p>需串接天氣／地圖／AI 服務後才能提供即時資料。本版不會捏造天氣或交通時間。</p></div></section>
- <section class="card v2-panel" id="v2-team-panel"><div class="v2-panel-title"><h3>👥 四人旅行隊伍</h3><button class="secondary" onclick="showPage('loot')">開啟原小隊頁</button></div><p class="small">沿用既有四位隊員暱稱，新增的分工任務獨立保存。</p><div id="v2TeamMembers"></div><div class="v2-team-add"><label for="v2TeamTaskName">新增隊伍任務</label><input id="v2TeamTaskName" maxlength="80" placeholder="例如：確認明天集合時間"><label for="v2TeamAssignee">負責隊員</label><select id="v2TeamAssignee"></select><button class="action" onclick="v2AddTeamTask()">新增分工任務</button></div><div id="v2TeamTasks"></div></section>
- <section class="card v2-panel" id="v2-memory-panel"><div class="v2-panel-title"><h3>📸 旅行回憶整理</h3><div class="v2-inline-actions"><button class="secondary" onclick="showPage('diary')">日記</button><button class="secondary" onclick="showPage('photos')">照片</button></div></div><p class="small">讀取既有 IndexedDB 日記與相簿，產生可自行修改的旅行摘要草稿；原始日記、照片不會被覆蓋。</p><div id="v2MemoryPreview" class="v2-memory-preview">正在讀取回憶資料…</div><button class="action" onclick="v2GenerateMemoryDraft()">整理旅行回憶草稿</button><textarea id="v2MemoryDraft" rows="8" placeholder="整理後的回憶草稿會顯示在這裡，可自行修改。"></textarea><div class="diary-actions"><button class="secondary" onclick="v2DownloadMemoryDraft()">下載文字檔</button><button class="secondary" onclick="copyText(document.getElementById('v2MemoryDraft').value)">複製草稿</button></div><div class="v2-feature-note"><b>✨ 回憶草稿整理</b><p>目前先以本機既有紀錄整理草稿；目前使用本機紀錄整理草稿；內容由你自行修改與保存。</p></div></section>
- <section class="card v2-panel" id="v2-rpg-panel"><div class="v2-panel-title"><h3>🏆 RPG 冒險任務系統</h3><button class="secondary" onclick="showPage('achievements')">查看原成就</button></div><p class="small">新增每日冒險任務，完成後增加既有小隊 EXP；任務紀錄使用獨立資料鍵。</p><div class="v2-rpg-level"><div><small>目前冒險等級</small><b id="v2RpgLevel">讀取中</b></div><div><small>今日任務</small><b id="v2RpgProgress">0 / 5</b></div></div><div id="v2RpgQuestList"></div><div class="v2-feature-note"><b>🎁 主線／支線／隱藏任務</b><p>這版先建立每日任務與 EXP 連動；後續再把景點打卡、美食、照片任務統一成任務圖鑑。</p></div></section>
- <div class="notice">本機旅行管理中心：行程、支出、隊伍、回憶與 RPG 任務在本機整理；不使用付費 AI API。</div>
-</section>
 
-</main><nav class="rpg-nav rpg-bottom-menu" aria-label="主要導覽">
-<button class="active" data-page="home" onclick="showPage('home')"><span class="nav-icon" aria-hidden="true">🏠</span><span>首頁</span></button>
-<button data-page="adventureMap" onclick="showPage('adventureMap')"><span class="nav-icon" aria-hidden="true">🗺️</span><span>冒險</span></button>
-<button data-page="loot" onclick="showPage('loot')"><span class="nav-icon" aria-hidden="true">🎒</span><span>角色</span></button>
-<button data-page="itinerary" onclick="showPage('itinerary')"><span class="nav-icon" aria-hidden="true">🧳</span><span>旅行</span></button>
-<button data-page="diary" onclick="showPage('diary')"><span class="nav-icon" aria-hidden="true">📖</span><span>回憶</span></button>
-<button type="button" id="categoryMenuToggle" aria-expanded="false" aria-controls="categoryMenu" onclick="toggleCategoryMenu()"><span class="nav-icon" aria-hidden="true">☰</span><span>總覽</span><span id="morePendingBadge" class="menu-pending-badge" aria-label="未完成任務數">0</span></button>
+</main><nav class="rpg-nav rpg-bottom-menu v3-primary-nav" aria-label="主要導覽">
+<button class="active" data-page="home" onclick="showPage('home')" aria-label="首頁"><span class="nav-icon" aria-hidden="true">🏠</span><span>首頁</span></button>
+<button data-page="itinerary" onclick="showPage('itinerary')" aria-label="我的行程"><span class="nav-icon" aria-hidden="true">🗓️</span><span>行程</span></button>
+<button data-page="adventureMap" onclick="showPage('adventureMap')" aria-label="地圖與冒險"><span class="nav-icon" aria-hidden="true">🗺️</span><span>地圖</span></button>
+<button data-page="food" onclick="showPage('food')" aria-label="北越美食"><span class="nav-icon" aria-hidden="true">🍜</span><span>美食</span></button>
+<button type="button" id="categoryMenuToggle" aria-expanded="false" aria-controls="categoryMenu" onclick="toggleCategoryMenu()" aria-label="更多功能"><span class="nav-icon" aria-hidden="true">☰</span><span>更多</span><span id="morePendingBadge" class="menu-pending-badge" aria-label="未完成任務數">0</span></button>
 </nav>
 <div id="categoryMenuBackdrop" class="category-menu-backdrop" hidden onclick="toggleCategoryMenu(false)"></div>
 <section id="categoryMenu" class="category-menu" aria-label="功能分類選單" hidden>
 <div class="category-menu-head"><b>🧭 功能總覽｜想做什麼，從這裡開始</b><button type="button" class="category-close" onclick="toggleCategoryMenu(false)" aria-label="關閉功能總覽">✕</button></div>
-<p class="category-menu-tip">底部六個按鈕是主要入口；其他功能依用途整理。點選功能即可開啟，無須回首頁尋找。</p>
-<div class="category-grid">
-<section class="category-group"><h3>🗺️ 冒險探索</h3><button data-page="adventureMap" onclick="chooseCategoryPage('adventureMap')">🗺️ 北越冒險地圖</button><button data-page="tasks" onclick="chooseCategoryPage('tasks')">📜 主線與每日任務 <span id="mainTasksMenuPendingBadge" class="menu-pending-badge">0</span></button><button data-page="treasureRewards" onclick="chooseCategoryPage('treasureRewards')">🧰 隱藏寶箱與探索獎勵</button><button data-page="adventurePlaybook" onclick="chooseCategoryPage('adventurePlaybook')">🎲 每日驚喜與四人互動 <span id="playbookMenuPendingBadge" class="menu-pending-badge">0</span></button></section>
-<section class="category-group"><h3>🎒 角色成長</h3><button data-page="loot" onclick="chooseCategoryPage('loot')">🎒 背包、裝備與戰利品</button><button data-page="achievements" onclick="chooseCategoryPage('achievements')">🏆 成就與冒險等級</button></section>
-<section class="category-group"><h3>🧳 旅行工具</h3><button data-page="itinerary" onclick="chooseCategoryPage('itinerary')">🗓️ 每日行程</button><button data-page="places" onclick="chooseCategoryPage('places')">🏨 飯店與重要地點</button><button data-page="expenses" onclick="chooseCategoryPage('expenses')">💰 支出記帳與分帳</button><button data-page="translate" onclick="chooseCategoryPage('translate')">🗣️ 旅遊翻譯</button><button data-page="food" onclick="chooseCategoryPage('food')">🍜 北越美食圖鑑</button><button data-page="shoppingQuest" onclick="chooseCategoryPage('shoppingQuest')">🎁 必買清單</button><button data-page="offline" onclick="chooseCategoryPage('offline')">📴 離線與出發檢查</button></section>
-<section class="category-group"><h3>📖 回憶收藏</h3><button data-page="diary" onclick="chooseCategoryPage('diary')">📖 旅行日記與回憶錄</button><button data-page="photos" onclick="chooseCategoryPage('photos')">📸 旅行照片</button><button data-page="photoMap" onclick="chooseCategoryPage('photoMap')">🗺️ 照片地圖</button><button data-page="adventureFinale" onclick="chooseCategoryPage('adventureFinale')">🎁 旅程終章驚喜</button></section>
-<section class="category-group"><h3>🛡️ 安全與資料</h3><button data-page="emergency" onclick="chooseCategoryPage('emergency')">🆘 緊急聯絡與應變</button><button data-page="safetyCenter" onclick="chooseCategoryPage('safetyCenter')">🔐 資料安全與備份還原</button></section>
+<p class="category-menu-tip">不用記住功能放在哪裡：直接搜尋名稱，或先選你現在想做的事。</p>
+<div class="ux-intent-row" aria-label="常用操作捷徑">
+<button type="button" onclick="chooseCategoryPage('expenses')">💰 我要記帳／分帳</button>
+<button type="button" onclick="chooseCategoryPage('translate')">🗣️ 我要翻譯</button>
+<button type="button" onclick="chooseCategoryPage('diary')">📖 我要寫日記</button>
+<button type="button" onclick="chooseCategoryPage('photos')">📸 我要找照片</button>
+<button type="button" onclick="chooseCategoryPage('emergency')">🆘 緊急求助</button>
+</div>
+<label class="ux-function-search"><span aria-hidden="true">🔎</span><span class="sr-only">搜尋功能</span><input id="categoryMenuSearch" type="search" placeholder="搜尋：支出、飯店、照片、備份、任務…" autocomplete="off" aria-label="搜尋功能名稱或用途"><button type="button" id="categoryMenuSearchClear" onclick="clearCategoryMenuSearch()" aria-label="清除搜尋" hidden>清除</button></label>
+<p id="categoryMenuSearchStatus" class="ux-search-status" aria-live="polite">所有功能已按用途分類。</p>
+<div class="category-grid" id="categoryMenuGrid">
+<details class="category-accordion" open><summary>💰 旅行管理 <span class="accordion-hint">行程、住宿、支出與購物</span></summary><div class="category-accordion-content">
+<section class="category-group"><button data-page="itinerary" data-keywords="行程 日期 時間 交通 每天 排程" onclick="chooseCategoryPage('itinerary')">🗓️ 每日行程</button><button data-page="places" data-keywords="飯店 住宿 地址 地點 酒店" onclick="chooseCategoryPage('places')">🏨 飯店與重要地點</button><button data-page="expenses" data-keywords="記帳 錢 費用 花費 支出 付款 分帳 結算 匯率" onclick="chooseCategoryPage('expenses')">💰 支出記帳與分帳</button><button data-page="shoppingQuest" data-keywords="購物 必買 清單 伴手禮 商品 買東西" onclick="chooseCategoryPage('shoppingQuest')">🎁 必買清單</button><button data-page="offline" data-keywords="離線 出發 檢查 網路 備用" onclick="chooseCategoryPage('offline')">📴 離線與出發檢查</button></section>
+</div></details>
+<details class="category-accordion"><summary>📖 旅行紀錄 <span class="accordion-hint">日記、照片與旅程回憶</span></summary><div class="category-accordion-content">
+<section class="category-group"><button data-page="diary" data-keywords="日記 回憶 文字 記錄 旅行故事" onclick="chooseCategoryPage('diary')">📖 旅行日記與回憶錄</button><button data-page="photos" data-keywords="照片 相片 圖片 相簿 上傳" onclick="chooseCategoryPage('photos')">📸 旅行照片</button><button data-page="photoMap" data-keywords="照片地圖 座標 地理位置 拍照地點" onclick="chooseCategoryPage('photoMap')">🗺️ 照片地圖</button><button data-page="adventureFinale" data-keywords="結局 終章 旅程紀念" onclick="chooseCategoryPage('adventureFinale')">🎁 旅程終章驚喜</button></section>
+</div></details>
+<details class="category-accordion"><summary>🎯 任務與成就 <span class="accordion-hint">探索、獎勵、背包與等級</span></summary><div class="category-accordion-content">
+<section class="category-group"><button data-page="tasks" data-keywords="任務 待辦 完成 清單 主線 每日" onclick="chooseCategoryPage('tasks')">📜 主線與每日任務 <span id="mainTasksMenuPendingBadge" class="menu-pending-badge">0</span></button><button data-page="treasureRewards" data-keywords="寶箱 獎勵 收集 探索" onclick="chooseCategoryPage('treasureRewards')">🧰 隱藏寶箱與探索獎勵</button><button data-page="adventurePlaybook" data-keywords="遊戲 互動 隨機 驚喜 四人" onclick="chooseCategoryPage('adventurePlaybook')">🎲 每日驚喜與四人互動 <span id="playbookMenuPendingBadge" class="menu-pending-badge">0</span></button><button data-page="loot" data-keywords="背包 裝備 道具 戰利品" onclick="chooseCategoryPage('loot')">🎒 背包、裝備與戰利品</button><button data-page="achievements" data-keywords="成就 等級 EXP 經驗值 獎章" onclick="chooseCategoryPage('achievements')">🏆 成就與冒險等級</button><button data-page="adventureMap" data-keywords="地圖 景點 探索 導航 RPG 遊戲" onclick="chooseCategoryPage('adventureMap')">🗺️ 北越冒險地圖</button></section>
+</div></details>
+<details class="category-accordion"><summary>🗣️ 旅遊工具 <span class="accordion-hint">翻譯與美食探索</span></summary><div class="category-accordion-content">
+<section class="category-group"><button data-page="translate" data-keywords="翻譯 越南文 語言 對話 常用句" onclick="chooseCategoryPage('translate')">🗣️ 旅遊翻譯</button><button data-page="food" data-keywords="美食 食物 餐廳 吃 必吃 菜單" onclick="chooseCategoryPage('food')">🍜 北越美食圖鑑</button></section>
+</div></details>
+<details class="category-accordion"><summary>🛡️ 安全與資料 <span class="accordion-hint">緊急聯絡與備份還原</span></summary><div class="category-accordion-content">
+<section class="category-group"><button data-page="emergency" data-keywords="緊急 SOS 求助 電話 聯絡 醫院 警察" onclick="chooseCategoryPage('emergency')">🆘 緊急聯絡與應變</button><button data-page="safetyCenter" data-keywords="安全 備份 還原 資料 存檔 匯入 匯出" onclick="chooseCategoryPage('safetyCenter')">🔐 資料安全與備份還原</button></section>
+</div></details>
 </div></section>
+<style id="v43-category-accordion-style">
+#categoryMenuGrid{display:flex;flex-direction:column;gap:10px}
+#categoryMenuGrid .category-accordion{border:2px solid #d7b477;border-radius:12px;background:#fff8e8;color:#282a36;overflow:hidden}
+#categoryMenuGrid .category-accordion>summary{display:flex;align-items:center;gap:8px;min-height:52px;padding:12px 14px;cursor:pointer;list-style:none;font-weight:900;font-size:16px;color:#68421f;background:linear-gradient(135deg,#fff3d4,#ffe5b4)}
+#categoryMenuGrid .category-accordion>summary::-webkit-details-marker{display:none}
+#categoryMenuGrid .category-accordion>summary:after{content:'＋';margin-left:auto;font-size:20px;font-weight:900}
+#categoryMenuGrid .category-accordion[open]>summary:after{content:'－'}
+#categoryMenuGrid .accordion-hint{font-size:11px;font-weight:600;color:#745b3b;margin-left:auto}
+#categoryMenuGrid .category-accordion-content{padding:8px 10px 10px}
+#categoryMenuGrid .category-group{display:block;margin:0;padding:0;border:0;background:transparent}
+#categoryMenuGrid .category-group button{background:#fff;border:1px solid #e7d4aa;color:#352b1d;min-height:44px}
+#categoryMenuGrid .category-group button[hidden]{display:none!important}
+#categoryMenuGrid .category-group[hidden],#categoryMenuGrid .category-accordion[hidden]{display:none!important}
+@media(prefers-color-scheme:dark){#categoryMenuGrid .category-accordion{background:#25283a;color:#f8f4ff}#categoryMenuGrid .category-accordion>summary{background:linear-gradient(135deg,#3d405b,#34364a);color:#ffe0a3}#categoryMenuGrid .category-group button{background:#303348;color:#f8f4ff;border-color:#555873}#categoryMenuGrid .accordion-hint{color:#ddd0b5}}
+</style>
+<script id="v43-category-accordion-state">document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('#categoryMenuGrid details.category-accordion').forEach((d,i)=>{d.dataset.defaultOpen=i===0?'true':'false';d.addEventListener('toggle',()=>{if(!document.getElementById('categoryMenuSearch')?.value.trim())d.dataset.userToggled='true'})})});</script>
 <style id="clear-navigation-redesign">
 .rpg-bottom-menu{grid-template-columns:repeat(5,minmax(0,1fr))!important}
 .rpg-bottom-menu button{min-width:0!important;gap:3px!important}
@@ -1035,8 +1248,10 @@ function saveItinerary(){put(ITINERARY_KEY,days);const msg=document.getElementBy
 const places=[['HK Buslines 河內辦公室','70 Nguyen Huu Huan, Hoan Kiem, Hanoi','巴士上車與報到點','https://www.google.com/maps/search/?api=1&query=70+Nguyen+Huu+Huan+Hanoi'],['Palais De Sapa Boutique Hotel','87 Thạch Sơn Street, Sa Pa, Vietnam','11/19 沙壩住宿','https://www.google.com/maps/search/?api=1&query=Palais+De+Sapa+Boutique+Hotel'],['Minerva Church Hotel','河內；請依訂房確認單核對完整地址','11/20、11/22 河內住宿','https://www.google.com/maps/search/?api=1&query=Minerva+Church+Hotel+Hanoi'],['Hermes Premium Cruise Halong','下龍灣；集合碼頭與接送點待船方確認','11/21–11/22 郵輪','https://www.google.com/maps/search/?api=1&query=Hermes+Premium+Cruise+Halong']];
 const phrases=[['請帶我們到這間飯店。','Vui lòng đưa chúng tôi đến khách sạn này.','Please take us to this hotel.','交通'],['請問這個多少錢？','Cái này bao nhiêu tiền?','How much is this?','購物'],['請在這裡讓我們下車。','Vui lòng cho chúng tôi xuống ở đây.','Please drop us off here.','交通'],['請問洗手間在哪裡？','Nhà vệ sinh ở đâu?','Where is the restroom?','日常'],['請幫我們確認訂房。','Vui lòng xác nhận đặt phòng giúp chúng tôi.','Could you confirm our reservation, please?','住宿'],['我們有四個人。','Chúng tôi có bốn người.','There are four of us.','日常'],['請不要加辣。','Vui lòng đừng cho cay.','Please don’t make it spicy.','餐飲'],['可以刷卡嗎？','Có thể thanh toán bằng thẻ không?','Can I pay by card?','付款'],['請稍等一下。','Vui lòng đợi một chút.','Please wait a moment.','日常'],['我需要幫忙。','Tôi cần giúp đỡ.','I need help.','緊急'],['我想去這個地址。','Tôi muốn đến địa chỉ này.','I’d like to go to this address.','交通'],['謝謝。','Cảm ơn.','Thank you.','日常']];
 const achievements=[['✈️','北越啟程','完成出發打卡'],['🚌','夜臥冒險家','完成河內至沙壩夜巴'],['⛰️','征服番西邦','完成番西邦峰打卡'],['🏡','沙壩探索者','完成貓貓村打卡'],['🚢','海上冒險家','完成下龍灣郵輪打卡'],['🍜','越南美食家','記錄五種不同美食'],['💰','精明旅人','新增第一筆旅費'],['🏆','北越全制霸','完成所有主線任務']];const sideAchievements=[['🌊','還劍湖','湖畔散步、欣賞河內城市風景','河內支線'],['🚂','河內火車街','探索特色鐵道街景，注意現場安全','河內支線'],['🏡','貓貓村','走訪山村、梯田與傳統村落','沙壩支線'],['🚠','番西邦峰','搭乘登山纜車，欣賞高山景觀','沙壩主線'],['🚢','下龍灣郵輪','記錄登船體驗、船上活動與海灣風景','海上支線']];const checks=['下載河內、沙壩、下龍灣離線地圖','確認越南電子簽證與護照資料','保存巴士電子票與 QR Code','保存飯店訂房資訊與地址','確認郵輪接送、護照要求與尾款','購買旅遊保險','準備 SIM 卡與重要聯絡方式','匯出記帳與網站資料備份'];let lang='vi',dayIndex=0,editingExpenseId=null;
+function filterCategoryMenu(){const input=document.getElementById('categoryMenuSearch');const grid=document.getElementById('categoryMenuGrid');const status=document.getElementById('categoryMenuSearchStatus');if(!input||!grid)return;const q=input.value.trim().toLocaleLowerCase();let visible=0;grid.querySelectorAll('.category-group').forEach(group=>{let groupVisible=0;group.querySelectorAll('button[data-page]').forEach(button=>{const hay=(button.textContent+' '+(button.dataset.keywords||'')).toLocaleLowerCase();const match=!q||hay.includes(q);button.hidden=!match;if(match){visible++;groupVisible++}});group.hidden=groupVisible===0;const accordion=group.closest('details.category-accordion');if(accordion){accordion.hidden=groupVisible===0;if(q&&groupVisible)accordion.open=true;else if(!q&&accordion.dataset.userToggled!=='true')accordion.open=accordion.dataset.defaultOpen==='true'}});if(status)status.textContent=q?(visible?`找到 ${visible} 個相關功能。點選即可開啟。`:'找不到符合的功能，試試「照片」、「記帳」、「行程」或「備份」。'):'所有功能已按用途分類。';const clear=document.getElementById('categoryMenuSearchClear');if(clear)clear.hidden=!input.value;}
+function clearCategoryMenuSearch(){const input=document.getElementById('categoryMenuSearch');if(input){input.value='';filterCategoryMenu();input.focus()}}
 function toggleCategoryMenu(force){const menu=document.getElementById('categoryMenu'),backdrop=document.getElementById('categoryMenuBackdrop'),toggle=document.getElementById('categoryMenuToggle');if(!menu||!backdrop)return;const open=typeof force==='boolean'?force:menu.hidden;menu.hidden=!open;backdrop.hidden=!open;if(toggle)toggle.setAttribute('aria-expanded',String(open));}function chooseCategoryPage(id){toggleCategoryMenu(false);showPage(id)}
-function showPage(id){const pages=[...document.querySelectorAll('main .page')];const target=document.getElementById(id);if(!target||!target.classList.contains('page')){console.error('找不到頁面區塊：',id);return}pages.forEach(p=>{const selected=p===target;p.classList.toggle('active',selected);p.setAttribute('aria-hidden',String(!selected))});document.querySelectorAll('nav.rpg-bottom-menu button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));if(id!=='home'&&id!=='itinerary'&&id!=='tasks'){document.getElementById('categoryMenuToggle')?.classList.add('active')}else{document.getElementById('categoryMenuToggle')?.classList.remove('active')}toggleCategoryMenu(false);window.scrollTo({top:0,behavior:'auto'});if(id==='food')renderFoods();if(id==='expenses'){renderExpenses();if(typeof v2RenderPayerChoices==='function')v2RenderPayerChoices();if(typeof v2RenderSplitChoices==='function')v2RenderSplitChoices()}if(id==='achievements')renderAchievements();if(id==='diary')renderDiaries();if(id==='photos')renderPhotoLibrary();if(id==='photoMap')photoMapRender();if(id==='safetyCenter')safetyRunAudit();if(id==='tasks'||id==='adventureMap')renderRpgMap();if(id==='treasureRewards')renderTreasureRewards();if(id==='shoppingQuest')renderShoppingItems();if(id==='adventureFinale')renderAdventureFinale();if(id==='home')renderCheckinReminder();if(id==='adventurePlaybook')renderAdventurePlaybook();if(id==='emergency')loadEmergencyInfo()}
+function showPage(id){const pages=[...document.querySelectorAll('main .page')];const target=document.getElementById(id);if(!target||!target.classList.contains('page')){console.error('找不到頁面區塊：',id);return}pages.forEach(p=>{const selected=p===target;p.classList.toggle('active',selected);p.setAttribute('aria-hidden',String(!selected))});document.querySelectorAll('nav.rpg-bottom-menu button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));if(!['home','itinerary','adventureMap','food'].includes(id)){document.getElementById('categoryMenuToggle')?.classList.add('active')}else{document.getElementById('categoryMenuToggle')?.classList.remove('active')}toggleCategoryMenu(false);window.scrollTo({top:0,behavior:'auto'});if(id==='food')renderFoods();if(id==='expenses'){renderExpenses();if(typeof v2RenderPayerChoices==='function')v2RenderPayerChoices();if(typeof v2RenderSplitChoices==='function')v2RenderSplitChoices()}if(id==='achievements')renderAchievements();if(id==='diary')renderDiaries();if(id==='photos')renderPhotoLibrary();if(id==='photoMap')photoMapRender();if(id==='safetyCenter')safetyRunAudit();if(id==='tasks'||id==='adventureMap')renderRpgMap();if(id==='treasureRewards')renderTreasureRewards();if(id==='shoppingQuest')renderShoppingItems();if(id==='adventureFinale')renderAdventureFinale();if(id==='home')renderCheckinReminder();if(id==='adventurePlaybook')renderAdventurePlaybook();if(id==='emergency')loadEmergencyInfo()}
 // 旅行回憶錄使用獨立 IndexedDB，完全不讀寫原有 expenses／ach／checks。
 const DIARY_DB_NAME='vietnam-adventure-memories';const DIARY_STORE='entries';const PHOTO_STORE='photoLibrary';let diaryDbPromise=null;let diaryObjectUrls=[];let photoObjectUrls=[];
 function openDiaryDb(){if(!('indexedDB' in window))return Promise.reject(new Error('此瀏覽器不支援本機日記資料庫。'));if(!diaryDbPromise)diaryDbPromise=new Promise((resolve,reject)=>{const req=indexedDB.open(DIARY_DB_NAME,2);req.onupgradeneeded=()=>{const db=req.result;if(!db.objectStoreNames.contains(DIARY_STORE))db.createObjectStore(DIARY_STORE,{keyPath:'id'});if(!db.objectStoreNames.contains(PHOTO_STORE))db.createObjectStore(PHOTO_STORE,{keyPath:'id'})};req.onsuccess=()=>{const db=req.result;db.onversionchange=()=>{db.close();diaryDbPromise=null};resolve(db)};req.onerror=()=>{diaryDbPromise=null;reject(req.error||new Error('無法開啟日記資料庫'))}});return diaryDbPromise}
@@ -1073,9 +1288,10 @@ async function importPhotoLibrary(event){const file=event.target.files?.[0];if(!
 // 美食收藏：獨立 localStorage key「foods」，不更動既有 expenses／ach／checks 與日記 IndexedDB。
 let foodFilter='全部';let foodObjectUrls=[];
 function escapeFood(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function resetFoodForm(){['foodEditId','foodName','foodRestaurant','foodPrice','foodAddress','foodNotes'].forEach(id=>document.getElementById(id).value='');document.getElementById('foodStatus').value='想吃';document.getElementById('foodPhoto').value='';document.getElementById('foodFormTitle').textContent='新增美食';document.getElementById('foodStatusMsg').textContent=''}
+function resetFoodForm(){['foodEditId','foodName','foodRestaurant','foodPrice','foodAddress','foodNotes'].forEach(id=>document.getElementById(id).value='');document.getElementById('foodStatus').value='想吃';document.getElementById('foodPhoto').value='';document.getElementById('foodFormTitle').textContent='新增美食';document.getElementById('foodStatusMsg').textContent='';const editor=document.getElementById('foodEditorDetails');if(editor)editor.open=false;}
+function openFoodEditor(){const editor=document.getElementById('foodEditorDetails');if(editor)editor.open=true;document.getElementById('foodFormTitle')?.scrollIntoView({behavior:'smooth',block:'center'});document.getElementById('foodName')?.focus({preventScroll:true})}
 function saveFood(){const id=document.getElementById('foodEditId').value;const name=document.getElementById('foodName').value.trim();if(!name){alert('請先填寫美食名稱。');return}const foods=get('foods',[]);const old=id?foods.find(x=>x.id===id):null;const file=document.getElementById('foodPhoto').files[0];const finish=photo=>{const item={id:id||('food-'+Date.now()+'-'+Math.random().toString(36).slice(2,7)),name,restaurant:document.getElementById('foodRestaurant').value.trim(),price:document.getElementById('foodPrice').value===''?'':Number(document.getElementById('foodPrice').value),status:document.getElementById('foodStatus').value,address:document.getElementById('foodAddress').value.trim(),notes:document.getElementById('foodNotes').value.trim(),photo:photo===undefined?(old?.photo||''):photo,updatedAt:Date.now()};const i=foods.findIndex(x=>x.id===item.id);if(i>=0)foods[i]=item;else foods.unshift(item);try{put('foods',foods);resetFoodForm();renderFoods();alert('美食已儲存。')}catch(e){alert('儲存失敗，可能是照片太大或裝置空間不足。請縮小照片後再試。')}};if(file){if(!file.type.startsWith('image/')){alert('請選擇圖片檔。');return}if(file.size>2*1024*1024&&!confirm('這張照片超過 2 MB，可能佔用較多本機空間。仍要儲存嗎？'))return;const reader=new FileReader();reader.onload=()=>finish(reader.result);reader.onerror=()=>alert('讀取照片失敗。');reader.readAsDataURL(file)}else finish(undefined)}
-function editFood(id){const x=get('foods',[]).find(f=>f.id===id);if(!x)return;document.getElementById('foodEditId').value=x.id;document.getElementById('foodName').value=x.name||'';document.getElementById('foodRestaurant').value=x.restaurant||'';document.getElementById('foodPrice').value=x.price??'';document.getElementById('foodStatus').value=x.status||'想吃';document.getElementById('foodAddress').value=x.address||'';document.getElementById('foodNotes').value=x.notes||'';document.getElementById('foodPhoto').value='';document.getElementById('foodFormTitle').textContent='編輯美食';document.getElementById('foodStatusMsg').textContent=x.photo?'已有照片；若不選新照片會保留原照片。':'尚未附照片';document.getElementById('foodFormTitle').scrollIntoView({behavior:'smooth',block:'center'})}
+function editFood(id){const x=get('foods',[]).find(f=>f.id===id);if(!x)return;document.getElementById('foodEditId').value=x.id;document.getElementById('foodName').value=x.name||'';document.getElementById('foodRestaurant').value=x.restaurant||'';document.getElementById('foodPrice').value=x.price??'';document.getElementById('foodStatus').value=x.status||'想吃';document.getElementById('foodAddress').value=x.address||'';document.getElementById('foodNotes').value=x.notes||'';document.getElementById('foodPhoto').value='';document.getElementById('foodFormTitle').textContent='編輯美食';document.getElementById('foodStatusMsg').textContent=x.photo?'已有照片；若不選新照片會保留原照片。':'尚未附照片';const editor=document.getElementById('foodEditorDetails');if(editor)editor.open=true;document.getElementById('foodFormTitle').scrollIntoView({behavior:'smooth',block:'center'})}
 function deleteFood(id){if(!confirm('確定刪除這筆美食收藏？'))return;put('foods',get('foods',[]).filter(x=>x.id!==id));renderFoods()}
 function toggleFoodStatus(id){const a=get('foods',[]);const x=a.find(f=>f.id===id);if(!x)return;x.status=x.status==='吃過'?'想吃':'吃過';x.updatedAt=Date.now();put('foods',a);renderFoods()}
 function renderFoods(){const host=document.getElementById('foodList');if(!host)return;const a=get('foods',[]).filter(x=>foodFilter==='全部'||x.status===foodFilter);host.innerHTML=a.length?a.map(x=>`<article class="card">${x.photo?`<img src="${x.photo}" alt="${escapeFood(x.name)}" style="display:block;width:100%;max-height:240px;object-fit:cover;border-radius:12px;margin-bottom:10px">`:''}<div class="row"><h3 style="margin:0">${escapeFood(x.name)}</h3><span class="badge">${escapeFood(x.status||'想吃')}</span></div>${x.restaurant?`<p><b>餐廳：</b>${escapeFood(x.restaurant)}</p>`:''}${x.price!==''&&x.price!=null?`<p><b>價格：</b>${Number(x.price).toLocaleString()} ₫</p>`:''}${x.address?`<p><b>地址：</b>${escapeFood(x.address)}</p><p><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(x.address)}" target="_blank" rel="noopener">📍 Google Maps 導航 ↗</a></p>`:''}${x.notes?`<p style="white-space:pre-wrap">${escapeFood(x.notes)}</p>`:''}<div class="diary-actions"><button class="secondary" onclick="toggleFoodStatus('${x.id}')">標記為${x.status==='吃過'?'想吃':'吃過'}</button><button class="secondary" onclick="editFood('${x.id}')">編輯</button><button class="secondary" onclick="deleteFood('${x.id}')">刪除</button></div></article>`).join(''):`<div class="card muted">${foodFilter==='全部'?'還沒有美食收藏，請使用上方表單新增。':'目前沒有「'+foodFilter+'」的項目。'}</div>`}
@@ -1110,6 +1326,77 @@ function addMustEatToFood(id){
  if(foods.some(f=>f.recommendationId===id||f.name===rec.name)){alert('這道美食已經在收藏清單裡了。');renderMustEat();return}
  foods.unshift({id:'food-rec-'+id,name:rec.name,restaurant:'',price:'',status:'想吃',address:'',notes:'【越南必吃推薦】'+rec.desc+'\\n小提醒：'+rec.tip,recommendationId:id,updatedAt:Date.now()});
  try{put('foods',foods);renderFoods();renderMustEat();alert('已加入「想吃」清單！')}catch(e){alert('加入失敗：'+(e.message||'本機儲存空間可能不足'))}
+}
+
+
+// 店家口袋名單：與原本美食圖鑑及 foods 收藏分離，加入想吃才寫入既有資料格式。
+const FOOD_RECOMMENDATION_CHECKED='2026-11-02';
+const NORTH_VN_RESTAURANTS=[
+ // 原本使用者指定的店家：完整保留，不納入網路評價排名。
+ {id:'user-bach-phuong',name:'Bún Bò Nam Bộ Bách Phương',region:'河內',type:'河粉／米線',kind:'你指定',dish:'南部風味牛肉米線',address:'73-75 Hàng Điếu, Hoàn Kiếm, Hanoi',note:'你提供的 Bách Phương；以店名及地址搜尋導航。'},
+ {id:'user-banh-mi-oi',name:'Bánh Mì ơi',region:'河內',type:'越式麵包',kind:'你指定',dish:'越式法國麵包；可留意店家飲品',address:'3 Hàng Phèn, Hoàn Kiếm, Hanoi',note:'舊城區麵包店。'},
+ {id:'user-banh-mi-25',name:'Bánh Mì 25',region:'河內',type:'越式麵包',kind:'你指定',dish:'越式法國麵包',address:'25 Hàng Cá, Hoàn Kiếm, Hanoi',note:'河內舊城區知名麵包店。'},
+ {id:'user-pho-ga-nguyet',name:'Phở Gà Nguyệt',region:'河內',type:'河粉／米線',kind:'你指定',dish:'雞肉河粉',address:'5B Phủ Doãn, Hoàn Kiếm, Hanoi',note:'雞肉河粉；營業時段出發前再確認。'},
+ {id:'user-pizza4ps',name:'Pizza 4P’s',region:'河內',type:'披薩／西式',kind:'你指定',dish:'日式風格創意披薩、起司',address:'Pizza 4P’s Hanoi',note:'河內有不同分店，導航請選擇當天行程附近的分店。'},
+ // 網路評價推薦：平台評分 >= 4.2 且評論數 >= 100；評分平台明確標示。
+ {id:'rec-pho-gia-truyen',name:'Phở Gia Truyền Bát Đàn',region:'河內',type:'河粉／米線',kind:'網路評價推薦',dish:'傳統牛肉河粉',address:'49 P. Bát Đàn, Hoàn Kiếm, Hanoi',rating:'4.3／5',reviewCount:'約 5,720',ratingSource:'Google 評分彙整',sourceUrl:'https://restaurantguru.com/Pho-Gia-truyen-Hanoi',note:'河內經典牛肉河粉；評論提到自助點餐、尖峰時段可能排隊。評分與評論數為彙整頁查核值。'},
+ {id:'rec-hoangs',name:"Hoang's Restaurant",region:'河內',type:'越南料理',kind:'網路評價推薦',dish:'越南家常菜、烤肉米線',address:'54 P. Hàng Buồm, Hoàn Kiếm, Hanoi',rating:'4.9／5',reviewCount:'約 10,440',ratingSource:'Tripadvisor',sourceUrl:'https://www.tripadvisor.com/Restaurants-g293924-zfd19953-Hanoi-Pho.html',note:'Tripadvisor 河粉餐廳清單中名列前段；評論常提到烤肉米線與友善服務。'},
+ {id:'rec-hong-hoai',name:"Hong Hoai's Restaurant",region:'河內',type:'越南料理',kind:'網路評價推薦',dish:'越南家常菜、河粉與素食選擇',address:'20 P. Hàng Bồ, Hoàn Kiếm, Hanoi',rating:'4.9／5',reviewCount:'約 8,968',ratingSource:'Tripadvisor',sourceUrl:'https://www.tripadvisor.com/Restaurants-g293924-zfd19953-Hanoi-Pho.html',note:'Tripadvisor 河粉餐廳清單中名列前段；評論常提到越南料理與素食選項。'},
+ {id:'rec-tungs-kitchen',name:"Tung's Kitchen",region:'河內',type:'越南料理',kind:'網路評價推薦',dish:'烤肉米線、河內煎魚',address:'2 P. Hàng Bông, Hoàn Kiếm, Hanoi',rating:'4.9／5',reviewCount:'約 5,544',ratingSource:'Tripadvisor',sourceUrl:'https://www.tripadvisor.com/Restaurants-g293924-zfd19953-Hanoi-Pho.html',note:'Tripadvisor 河粉餐廳清單中名列前段；亦有河內代表菜色。'},
+ {id:'rec-king-salmon',name:'King Salmon Restaurant（Cá Hồi Vua）',region:'沙壩',type:'火鍋／山產',kind:'網路評價推薦',dish:'沙壩鮭魚、鱘魚火鍋',address:'15 Lê Văn Tám, Sa Pa, Lào Cai, Vietnam',rating:'4.7／5',reviewCount:'2,279',ratingSource:'地圖商家評分',sourceUrl:'https://www.google.com/maps/search/?api=1&query=King+Salmon+Restaurant+15+Le+Van+Tam+Sa+Pa',note:'以鮭魚與鱘魚料理、火鍋為主；適合想吃沙壩冷水魚料理的人。'},
+ {id:'rec-a-phu',name:'A Phủ Restaurant',region:'沙壩',type:'火鍋／山產',kind:'網路評價推薦',dish:'鮭魚／鱘魚火鍋與西北山區料理',address:'15 Fansipan, Sa Pa, Lào Cai, Vietnam',rating:'4.7／5',reviewCount:'3,915',ratingSource:'地圖商家評分',sourceUrl:'https://www.google.com/maps/search/?api=1&query=A+Phu+Restaurant+15+Fansipan+Sa+Pa',note:'以西北山區料理及鮭魚、鱘魚火鍋聞名；適合多人共享。'},
+ {id:'rec-may-quan',name:'Mẩy Quán',region:'沙壩',type:'火鍋／山產',kind:'網路評價推薦',dish:'鮭魚／鱘魚火鍋、竹筒飯與山區料理',address:'057 Xuân Viên, Sa Pa, Lào Cai, Vietnam',rating:'4.8／5',reviewCount:'約 908',ratingSource:'地圖商家評分',sourceUrl:'https://www.google.com/maps/search/?api=1&query=May+Quan+057+Xuan+Vien+Sa+Pa',note:'沙壩市區店家，評論常提到鮭魚、鱘魚火鍋及西北特色菜。'},
+ {id:'rec-cho-tinh-sapa',name:'Chợ Tình Quán',region:'沙壩',type:'火鍋／山產',kind:'網路評價推薦',dish:'鮭魚／鱘魚火鍋、黑雞與山區料理',address:'63D Fansipan, Sa Pa, Lào Cai, Vietnam',rating:'4.9／5',reviewCount:'約 227',ratingSource:'Tripadvisor／地圖商家資料',sourceUrl:'https://www.tripadvisor.com/Restaurants-g311304-zfd10909-Sapa_Lao_Cai_Province-Hot_Pot.html',note:'Tripadvisor 火鍋分類有列出此店；評論量較其他熱門店少，建議查看近期評論再決定。'},
+ {id:'rec-red-dzao',name:'Red Dzao House（Nhà hàng Dao Đỏ）',region:'沙壩',type:'火鍋／山產',kind:'網路評價推薦',dish:'紅瑤風味料理、鮭魚／鱘魚火鍋',address:'4B Thác Bạc, Sa Pa, Lào Cai, Vietnam',rating:'4.7／5',reviewCount:'5,661',ratingSource:'地圖商家評分',sourceUrl:'https://www.google.com/maps/search/?api=1&query=Red+Dzao+House+4B+Thac+Bac+Sa+Pa',note:'以山區料理及魚類火鍋為主；晚餐尖峰可能較忙。'},
+ {id:'rec-ngoc-phuong-nam',name:'Ngọc Phương Nam Seafood Restaurant',region:'下龍灣',type:'海鮮',kind:'網路評價推薦',dish:'海鮮拼盤、烤生蠔、下龍魷魚餅',address:'Đỗ Sĩ Họa St., Bãi Cháy, Hạ Long, Quảng Ninh, Vietnam',rating:'4.7／5',reviewCount:'206',ratingSource:'Tripadvisor',sourceUrl:'https://www.tripadvisor.com.tw/Restaurant_Review-g13163470-d14058890-Reviews-Ngoc_Phuong_Nam_Seafood_Restaurant-Bai_Chay_H_Long_Bay_Quang_Ninh_Province.html',note:'Tripadvisor 下龍灣海鮮餐廳名單列為前段班；海鮮價格依時價，點餐前逐項確認。'},
+ {id:'rec-vua-hai-san',name:'Vựa Hải Sản Bãi Cháy',region:'下龍灣',type:'海鮮',kind:'網路評價推薦',dish:'現撈海鮮、海鮮合菜',address:'Bãi Cháy, Hạ Long, Quảng Ninh, Vietnam',rating:'4.6／5',reviewCount:'約 1,607',ratingSource:'Google 評分彙整',sourceUrl:'https://wanderlog.com/place/details/7156088/v%E1%BB%B1a-h%E1%BA%A3i-s%E1%BA%A3n-b%C3%A3i-ch%C3%A1y',note:'評論對新鮮海鮮與服務意見不一；點餐前先確認活海鮮單價、重量與烹調費。'},
+ // 特色料理推薦：保留具代表性的河內菜色；本次未取得足夠可比較的評分資料，不顯示星等。
+ {id:'rec-bun-cha-ta',name:'Bún Chả Ta',region:'河內',type:'河粉／米線',kind:'特色料理推薦',dish:'河內烤肉米線',address:'21 P. Nguyễn Hữu Huân, Hoàn Kiếm, Hanoi',note:'保留作為烤肉米線選項；本次未取得足夠可比較的評論數與評分，不列入評價優先推薦。'},
+ {id:'rec-cafe-giang',name:'Café Giảng',region:'河內',type:'咖啡／甜點',kind:'特色料理推薦',dish:'蛋咖啡 Cà phê trứng',address:'39 P. Nguyễn Hữu Huân, Hoàn Kiếm, Hanoi',note:'河內蛋咖啡代表性店家；本次未取得足夠可比較的評論數與評分，不列入評價優先推薦。'},
+ {id:'rec-cha-ca-la-vong',name:'Chả Cá Lã Vọng',region:'河內',type:'在地料理',kind:'特色料理推薦',dish:'香料煎魚、蒔蘿與米線',address:'14 P. Chả Cá, Hoàn Kiếm, Hanoi',note:'保留河內特色魚料理選項；本次未取得足夠可比較的評論數與評分，不列入評價優先推薦。'}
+];
+let restaurantRegionChoice='全部';
+let restaurantKindChoice='全部';
+function setRestaurantRegion(region){
+ restaurantRegionChoice=region;
+ const ids={'全部':'restTabAll','河內':'restTabHanoi','沙壩':'restTabSapa','下龍灣':'restTabHalong'};
+ Object.entries(ids).forEach(([key,id])=>{const b=document.getElementById(id);if(b)b.className=key===region?'action':'secondary'});
+ renderRestaurantGuide();
+}
+function setRestaurantKind(kind){restaurantKindChoice=kind;renderRestaurantGuide();}
+function renderRestaurantGuide(){
+ const host=document.getElementById('restaurantGuideList');if(!host)return;
+ const saved=get('foods',[]);
+ const items=NORTH_VN_RESTAURANTS.filter(x=>(restaurantRegionChoice==='全部'||x.region===restaurantRegionChoice)&&(restaurantKindChoice==='全部'||x.kind===restaurantKindChoice));
+ const meta=document.getElementById('restaurantGuideMeta');
+ if(meta){const verified=items.filter(x=>x.kind==='網路評價推薦').length;meta.textContent=`目前顯示 ${items.length} 間｜其中 ${verified} 間有符合門檻的評價資料｜資料查核日 ${FOOD_RECOMMENDATION_CHECKED}`;}
+ host.innerHTML=items.length?items.map(x=>{
+  const added=saved.some(f=>f.restaurantRecommendationId===x.id);
+  const map='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(x.name+' '+x.address);
+  const rated=x.kind==='網路評價推薦'&&x.rating;
+  const kindClass=x.kind==='特色料理推薦'?'special':'';
+  const rating=rated?`<div class="v44-rating">★ ${escapeFood(x.rating)} <span>· ${escapeFood(x.reviewCount)} 則評論</span></div><div class="v44-source-line">評分來源：${escapeFood(x.ratingSource||'公開評論平台')} · <a href="${escapeFood(x.sourceUrl||map)}" target="_blank" rel="noopener">查看來源</a></div>`:`<div class="v44-rating missing">未列評分｜評論資料不足或未達本次查證門檻</div>`;
+  return `<article class="restaurant-simple-row">
+   <div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap">
+    <div style="min-width:0;flex:1"><b>${escapeFood(x.name)}</b><div class="small" style="margin-top:4px">${escapeFood(x.dish)} · ${escapeFood(x.region)}</div></div>
+    <span class="v44-rec-kind ${kindClass}">${escapeFood(x.kind)}</span>
+   </div>
+   ${rating}
+   <div class="v44-rec-note">${escapeFood(x.note)}</div>
+   <div class="v44-source-line">📍 ${escapeFood(x.address)}<br>查核日期：${FOOD_RECOMMENDATION_CHECKED} · 營業時間與價格請出發前再次確認</div>
+   <div class="diary-actions" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:9px">
+    <a class="secondary" style="display:inline-block;padding:7px 11px;border-radius:9px;text-decoration:none" href="${map}" target="_blank" rel="noopener">📍 Google 地圖</a>
+    <button type="button" class="${added?'secondary':'action'}" ${added?'disabled':''} onclick="addRestaurantToFood('${x.id}')">${added?'✓ 已加入':'＋ 想吃'}</button>
+   </div>
+  </article>`;
+ }).join(''):'<p class="muted">這個篩選條件目前沒有店家。</p>';
+}
+function addRestaurantToFood(id){
+ const x=NORTH_VN_RESTAURANTS.find(v=>v.id===id);if(!x)return;
+ const foods=get('foods',[]);
+ if(foods.some(f=>f.restaurantRecommendationId===id)){renderRestaurantGuide();return}
+ foods.unshift({id:'food-rest-'+id,name:x.dish,restaurant:x.name,price:'',status:'想吃',address:x.address,notes:'【'+x.kind+'｜'+x.region+'】'+x.note+(x.rating?' 評價參考：'+x.rating+'，'+x.reviewCount+' 則評論（'+x.ratingSource+'；查核日 '+FOOD_RECOMMENDATION_CHECKED+'）。':''),restaurantRecommendationId:id,updatedAt:Date.now()});
+ try{put('foods',foods);renderFoods();renderRestaurantGuide();alert('已加入「想吃」清單！')}catch(e){alert('加入失敗：'+(e.message||'本機儲存空間可能不足'))}
 }
 
 const QUEST_KEY='vietnam-rpg-map-checkins-v1';
@@ -1323,7 +1610,7 @@ async function importLegacyBackupObject(d){
  const mergeKey=(key,incoming)=>{if(incoming===undefined||incoming===null)return;const raw=localStorage.getItem(key);if(raw===null){put(key,incoming);return}try{put(key,mergeBackupValue(key,JSON.parse(raw),incoming))}catch(err){console.warn('略過格式不相容的舊備份欄位：'+key,err)}};
  mergeKey('expenses',await filterImportedExpensesWithConfirmation(d.expenses));mergeKey('ach',d.ach);mergeKey('sideAch',d.sideAch);mergeKey('checks',d.checks);mergeKey('foods',d.foods);mergeKey(SQUAD_KEY,d.squad);mergeKey(LOOT_KEY,d.loot);mergeKey(BOND_KEY,d.bonds);mergeKey(SQUAD_EXP_KEY,d.squadExp);mergeKey(QUEST_KEY,d.rpgCheckins);
  if(Array.isArray(d.itinerary)&&d.itinerary.length){const raw=localStorage.getItem(ITINERARY_KEY);let merged=d.itinerary;try{if(raw)merged=mergeBackupValue(ITINERARY_KEY,JSON.parse(raw),d.itinerary)}catch(err){console.warn('舊備份行程合併失敗，保留現有行程',err);merged=days}days=merged;dayIndex=0;saveItinerary();renderDays()}
- renderSquad();renderRpgMap();renderExpenses();renderAchievements();renderChecks();renderFoods();renderMustEat();updateProgress()
+ renderSquad();renderRpgMap();renderExpenses();renderAchievements();renderChecks();renderFoods();renderMustEat();renderRestaurantGuide();updateProgress()
 }
 // 啟動保護：各區塊分開初始化，單一區塊出錯不會讓整個 APP 的行程、地點、地圖、成就和備份一起消失。
 const startupErrors=[];
@@ -1531,7 +1818,7 @@ try {
 } catch (error) {}
 
 const v2OriginalShowPage=showPage;
-showPage=function(id){v2OriginalShowPage(id);if(id==='v2hub'){renderV2Hub()}};
+showPage=function(id){v2OriginalShowPage(id)};
 
 </script>
 <style id="category-menu-clean-layout">
@@ -1903,6 +2190,143 @@ window.addEventListener('storage',e=>{if(e.key===XP_KEY||e.key===RPG_KEY)refresh
 })();
 </script>
 
+
+<script id="ux-navigation-improvements">
+document.addEventListener('DOMContentLoaded',()=>{const input=document.getElementById('categoryMenuSearch');if(input){input.addEventListener('input',filterCategoryMenu);input.addEventListener('keydown',event=>{if(event.key==='Escape'){clearCategoryMenuSearch();toggleCategoryMenu(false)}})}document.addEventListener('keydown',event=>{if(event.key==='Escape'){const menu=document.getElementById('categoryMenu');if(menu&&!menu.hidden)toggleCategoryMenu(false)}});});
+</script>
+<style id="ux-navigation-improvements-style">
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.ux-intent-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}
+.ux-intent-row button{min-height:46px;padding:9px 10px;border:2px solid #8b5e34;border-radius:9px;background:#fff1c9;color:#392716;font-size:14px;font-weight:800;text-align:left;line-height:1.3;cursor:pointer}
+.ux-intent-row button:last-child{background:#ffe0df;border-color:#b8323c;color:#7f1720}
+.ux-function-search{display:flex;align-items:center;gap:8px;position:sticky;top:0;z-index:3;padding:9px;margin:10px 0;background:#282a36;border:2px solid #bd93f9;border-radius:10px;box-shadow:0 3px 0 #171923}
+.ux-function-search>span:first-child{font-size:20px}
+.ux-function-search input{min-width:0;flex:1;min-height:42px;padding:8px 10px;border:2px solid #777b92;border-radius:7px;background:#fff;color:#252535;font-size:16px}
+.ux-function-search button{min-height:42px;padding:7px 10px;border:2px solid #777b92;border-radius:7px;background:#eee8ff;color:#282a36;font-weight:800}
+.ux-search-status{margin:5px 0 10px;font-size:13px;line-height:1.5;color:inherit}
+.category-group[hidden],.category-group button[hidden]{display:none!important}
+.category-group button{min-height:46px!important;line-height:1.35!important}
+.category-close{min-width:44px!important;min-height:44px!important}
+.ux-intent-row button:focus-visible,.ux-function-search input:focus-visible,.ux-function-search button:focus-visible,.category-group button:focus-visible{outline:3px solid #ffb86c;outline-offset:2px}
+@media(max-width:380px){.ux-intent-row{grid-template-columns:1fr}.ux-intent-row button{min-height:44px}.ux-function-search{gap:5px;padding:6px}.ux-function-search input{font-size:16px}}
+@media(min-width:760px){.ux-intent-row{grid-template-columns:repeat(5,minmax(0,1fr))}.ux-intent-row button{font-size:13px}}
+/* 全站操作可讀性：不改動資料欄位、事件邏輯或遊戲畫布 */
+main .page input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+main .page select,main .page textarea{font-size:16px;max-width:100%;box-sizing:border-box}
+main .page input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),main .page select{min-height:44px;padding:9px 10px}
+main .page textarea{min-height:92px;padding:10px;line-height:1.5}
+main .page button:not(.game-control):not(.rpg-control):not(.tiny-button){touch-action:manipulation}
+main .page button:focus-visible,main .page a:focus-visible,main .page summary:focus-visible{outline:3px solid #ffb86c;outline-offset:3px}
+main .page details>summary{min-height:44px;display:flex;align-items:center;cursor:pointer;line-height:1.4}
+main .page h1,main .page h2,main .page h3{scroll-margin-top:12px}
+</style>
+
+<style id="rpg-global-high-contrast-fix">
+/* V4.3 RPG 全站高對比修正：文字與底色分離，優先確保可讀性 */
+:root{
+  --rpg-bg:#171b29;--rpg-panel:#252b3d;--rpg-panel-2:#30384f;
+  --rpg-text:#fff9ed;--rpg-muted:#e2e5f0;--rpg-title:#ffe2a6;
+  --rpg-gold:#ffc86b;--rpg-purple:#d5b8ff;--rpg-border:#8790ad;
+}
+html,body{background:#171b29!important;color:var(--rpg-text)!important}
+body{background:radial-gradient(ellipse at top,#30384f 0,#171b29 520px)!important;color:var(--rpg-text)!important}
+main,.page{color:var(--rpg-text)!important}
+/* 所有層級標題統一使用高亮米金色，不再用低亮度紫灰色 */
+h1,h2,h3,h4,h5,h6,.section-title,.category-menu-head,
+.page>h3,.hero h2,.hero>b,.pixel-quest-board h3,
+.loot-codex-card h3,.category-group h3,
+.ai-assistant-heading h3,.v2-panel-title h3{
+  color:var(--rpg-title)!important;text-shadow:none!important;opacity:1!important;
+}
+/* 一般內文、輔助文字、表單標籤與數字提高亮度 */
+body p,body li,body label,body small,body strong,body b,
+body .muted,body .small,body .photo-hint,body .event p,
+body .va-muted,body .va-core-note,body .va-item-main small,
+body .v2-finance-original,body .ai-assistant-heading p,
+body .ai-assistant-heading small,body .ai-chat-welcome,
+body .ai-chat-welcome small,body .ai-chat-message p,
+body .loot-codex-item small,body .pixel-quest-row .quest-row-text small{
+  color:var(--rpg-muted)!important;opacity:1!important;
+}
+body label,body .loot-codex-tools label{color:#ffe2a6!important}
+/* 全站主要內容容器統一深色底，避免淺色面板上套用淺色字 */
+.card,.hero,.tile,.rpg-home-tiles .tile,
+[class*="subcard"],[class*="panel"],[class*="-card"],
+.va-hero,.va-item,.va-battle-log,.va-equipment>div,
+#v2hub .v2-hero,#v2hub .v2-stat,#v2hub .v2-feature-note,
+#v2hub .v2-two-col>div,.v2-finance-panel,.v2-split-panel,
+.v2-conversion-preview,.v2-split-choices,.v2-split-choice,
+.ai-assistant-panel,.ai-setup-details,.ai-data-consent,
+.ai-chat-log,.ai-chat-welcome,.ai-bot-message,.ai-user-message,
+.expense-duplicate-warning,.expense-duplicate-new,.expense-duplicate-item,
+#categoryMenuGrid .category-accordion,
+#categoryMenuGrid .category-accordion>summary,
+#categoryMenuGrid .category-accordion-content,
+#categoryMenuGrid .category-group button,
+#emergency details{
+  background:linear-gradient(145deg,#30384f,#252b3d)!important;
+  color:var(--rpg-text)!important;border-color:var(--rpg-border)!important;
+}
+/* 面板內標題、說明、連結一律明確設定，避免被舊樣式覆蓋 */
+.card h1,.card h2,.card h3,.card h4,.hero h1,.hero h2,.hero h3,
+[class*="panel"] h1,[class*="panel"] h2,[class*="panel"] h3,[class*="panel"] h4,
+[class*="card"] h1,[class*="card"] h2,[class*="card"] h3,[class*="card"] h4,
+#v2hub .v2-stat small,#v2hub .v2-stat span,#v2hub .v2-stat b,
+#categoryMenuGrid .category-accordion>summary,
+#categoryMenuGrid .accordion-hint{
+  color:var(--rpg-title)!important;text-shadow:none!important;opacity:1!important;
+}
+/* 按鈕採深底亮字；主要動作採亮金底深字，兩種組合都維持強烈反差 */
+button,.daytabs button,.secondary,.category-group button,
+#categoryMenuGrid .category-group button{
+  background:#30384f!important;color:#fff9ed!important;
+  border-color:#b6a0e8!important;text-shadow:none!important;opacity:1!important;
+}
+.action,.primary,.pixel-orange-button,.pixel-green-button,
+.rpg-dashboard-actions button,.rpg-daily-row button{
+  background:#ffc86b!important;color:#211b2b!important;
+  border:2px solid #fff0c7!important;text-shadow:none!important;font-weight:900!important;
+}
+.daytabs button.active,nav button.active{
+  background:#d5b8ff!important;color:#211b2b!important;border-color:#fff0ff!important;
+}
+nav.rpg-bottom-menu{background:#202638!important;border-top:3px solid #ffc86b!important}
+nav.rpg-bottom-menu button,nav.rpg-bottom-menu button span,
+#categoryMenuToggle{color:#fff4d8!important;text-shadow:none!important}
+#categoryMenuToggle.active{color:#ffe2a6!important}
+/* 表單輸入區固定深底亮字，placeholder 也要清楚可辨 */
+input,select,textarea,.ux-function-search input,.loot-codex-tools input{
+  background:#171b29!important;color:#fff9ed!important;
+  border:2px solid #a9b2cc!important;caret-color:#ffc86b!important;
+}
+input::placeholder,textarea::placeholder{color:#c8ccda!important;opacity:1!important}
+input:focus,select:focus,textarea:focus{border-color:#ffe2a6!important;outline:2px solid #d5b8ff!important;outline-offset:1px}
+/* 任務、時間、進度、狀態標籤 */
+.pixel-quest-row,.squad-member,.loot-item,.quest-stop,
+.loot-codex-item,.loot-codex-tools,.category-menu-tip,
+#categoryMenu .category-group,.rpg-daily-row{
+  background:#252b3d!important;color:#fff9ed!important;border-color:#a9b2cc!important;
+}
+.pixel-quest-row .quest-row-text b,.itinerary-event-heading>b,
+.achievement-heading>b,.loot-codex-item b,.pixel-quest-row>strong,
+.time,.v2-balance-positive,.v2-balance-negative{
+  color:#ffe2a6!important;opacity:1!important;text-shadow:none!important;
+}
+.itinerary-event-content>p,.achievement-copy>p{color:#e2e5f0!important;opacity:1!important}
+/* 保留緊急資訊白底黑字，確保高風險資訊仍有清楚對比 */
+#taiwanVietnamEmergency{background:#fff!important;color:#172033!important}
+#taiwanVietnamEmergency h3{color:#991b1b!important}
+#taiwanVietnamEmergency h4{color:#7f1d1d!important}
+#taiwanVietnamEmergency p,#taiwanVietnamEmergency b,#taiwanVietnamEmergency .small{color:#172033!important}
+#taiwanVietnamEmergency a{color:#075985!important}
+#taiwanVietnamEmergency .taiwan-emergency-contact{background:#fff7f7!important;color:#172033!important}
+#taiwanVietnamEmergency .taiwan-emergency-actions a{background:#991b1b!important;color:#fff!important}
+.emergency-float{background:#c62835!important;color:#fff!important;border-color:#fff!important}
+/* 停用會降低文字辨識度的透明度與文字陰影 */
+.checked,.loot-codex-item.locked{opacity:1!important}
+header h1,.pixel-game-logo{ text-shadow:none!important }
+
+</style>
 </body></html>
 
 <style id="six-item-bottom-navigation-fix">
