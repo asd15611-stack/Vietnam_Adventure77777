@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#282a36"><meta name="application-name" content="越南冒險日記 V3 全功能簡易直覺版"><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg" type="image/svg+xml"><title>越南冒險日記 V4｜操作直覺改善版</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#282a36"><meta name="application-name" content="越南冒險日記 V4.10 真正自由探索 RPG 世界版"><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg" type="image/svg+xml"><title>越南冒險日記 V4.10｜真正自由探索 RPG 世界版</title>
 <style>
 :root{--teal:#087f70;--mint:#e4f6ef;--ink:#173b39;--muted:#637775;--paper:#f5f8f6;--line:#dce8e2}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif}header{padding:22px 18px 18px;background:linear-gradient(135deg,#075f59,#159b83);color:white;border-radius:0 0 24px 24px}header small{opacity:.85}h1{font-size:25px;margin:6px 0}main{padding:14px 14px 90px;max-width:720px;margin:auto}.card,.hero{background:white;border:1px solid var(--line);border-radius:16px;padding:14px;margin:10px 0}.hero{margin-top:0}.muted,.small{color:var(--muted);font-size:13px}.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0}.tile{background:white;border:1px solid var(--line);border-radius:15px;padding:14px;text-align:left;color:var(--ink);font:inherit;min-height:85px}.tile span{display:block;font-size:24px}.tile b{display:block;margin-top:6px}.page{display:none}.page.active{display:block}.section-title{font-size:18px;margin:18px 2px 10px}.daytabs{display:flex;gap:7px;overflow:auto;padding:3px 0 8px}.daytabs button,button{cursor:pointer}.daytabs button,.secondary{border:1px solid var(--line);background:white;border-radius:10px;padding:9px 12px;color:var(--ink)}.daytabs button.active,.primary,.action{background:var(--teal);color:white;border-color:var(--teal)}.event{display:grid;grid-template-columns:65px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.event:last-child{border:0}.time{color:var(--teal);font-weight:800;font-size:13px}.event p{margin:4px 0;font-size:13px;color:var(--muted)}button,input,select,textarea{font:inherit}input,select,textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:11px;background:white;color:var(--ink);margin:5px 0 10px}label{font-size:13px;font-weight:650}.action{border:0;border-radius:11px;padding:11px 14px;font-weight:700}.row{display:flex;gap:8px;align-items:center}.row>*{flex:1}.expense{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}nav{position:fixed;bottom:0;left:0;right:0;background:#ffffffef;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:8px 3px;z-index:5}nav button{border:0;background:transparent;color:var(--muted);font-size:11px;padding:5px 6px;border-radius:10px;min-width:0;white-space:nowrap}nav button.active{background:var(--mint);color:var(--teal);font-weight:700}nav span{display:block;font-size:20px}.notice{background:#fff5df;border-radius:12px;padding:11px;font-size:13px;color:#77571c}.copy{float:right;font-size:12px}.checked{opacity:.6}.checked strong{text-decoration:line-through}.diary-photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:8px 0}.diary-photo-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;border:1px solid var(--line)}.diary-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.diary-actions button{flex:1;min-width:90px}.diary-entry{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}.photo-hint{font-size:12px;color:var(--muted);margin-top:-5px;margin-bottom:10px}
 
@@ -971,7 +971,173 @@ table{max-width:100%;border-collapse:collapse}
   nav span{font-size:18px}
 }
 
-</style>\n</head><body>
+</style>\n<style id="v44-practical-upgrade">
+
+/* V4.4 實用性與可及性優化 */
+.v44-readiness{background:#fffdf5;border:1px solid #d9c99b}
+.v44-readiness-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.v44-readiness-head b{display:block;font-size:16px;color:#3e3422}
+.v44-readiness-head small{display:block;color:#6d6250;font-size:12px;margin-top:3px}
+#v44ReadinessPercent{font-size:22px;font-weight:850;color:#176b58;font-variant-numeric:tabular-nums}
+.v44-progress-track{height:11px;background:#e9e5d9;border-radius:999px;overflow:hidden;margin:12px 0 8px}
+.v44-progress-track span{display:block;width:0;height:100%;background:linear-gradient(90deg,#16836e,#5ab88a);border-radius:inherit;transition:width .25s ease}
+.v44-readiness-stats{display:flex;flex-wrap:wrap;gap:8px 18px;color:#5c5548;font-size:13px}
+.v44-readiness-stats b{color:#243d35;font-variant-numeric:tabular-nums}
+.v44-readiness-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.v44-readiness-actions button{flex:1 1 140px;min-height:44px}
+.v44-checklist-progress{font-size:14px;font-weight:750;color:#234b40;background:#edf7f0;border-radius:10px;padding:10px 12px;margin:10px 0}
+:where(button,a,input,select,textarea,[tabindex]):focus-visible{outline:3px solid #e0a72e!important;outline-offset:2px}
+button,a{touch-action:manipulation}
+@media(max-width:600px){
+  .v44-readiness{padding:13px}
+  .v44-readiness-head b{font-size:15px}
+  .v44-readiness-actions{display:grid;grid-template-columns:1fr}
+  .v44-readiness-actions button{width:100%;min-height:46px}
+  #checklist label{font-size:14px!important;line-height:1.5;align-items:flex-start!important}
+  #checklist input[type=checkbox]{width:20px!important;height:20px;min-width:20px;margin-top:1px}
+  nav.rpg-bottom-menu button{min-height:48px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+</style>\n<style id="walk-wild-battle-style">
+
+/* 野外遇敵與回合戰鬥 */
+.walk-wild-battle{margin-top:12px;padding:14px;background:linear-gradient(150deg,#29263d,#403452);border:3px solid #d5a24a;border-radius:12px;color:#fff4d6;box-shadow:4px 4px 0 #4b2e19}
+.walk-wild-battle[hidden]{display:none!important}
+.walk-wild-title{display:flex;justify-content:space-between;gap:8px;align-items:center;font-weight:900;color:#ffe18a;margin-bottom:12px}
+.walk-wild-title span:last-child{font-size:12px;color:#e8d5ff}
+.walk-wild-monster{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center;padding:12px;background:#fff4dc;color:#382515;border:2px solid #c68d46;border-radius:9px}
+.walk-wild-monster>span{font-size:46px;text-align:center;filter:drop-shadow(2px 3px 0 #b99a72)}
+.walk-wild-monster b{display:block;font-size:17px}
+.walk-wild-monster small{display:block;margin:3px 0;font-size:13px}
+.walk-wild-hp{height:12px;background:#d6c9b4;border-radius:99px;overflow:hidden}
+.walk-wild-hp span{display:block;width:100%;height:100%;background:#40a66c;transition:width .2s}
+.walk-wild-player{display:flex;justify-content:space-between;gap:8px;padding:10px 2px;color:#fff4d6;font-weight:800}
+.walk-wild-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.walk-wild-actions button{min-height:46px;font-size:14px}
+.walk-wild-log{margin-top:10px;min-height:48px;padding:9px 11px;border-radius:8px;background:#fff4dc;color:#392718;font-size:13px;line-height:1.55}
+@media(max-width:420px){.walk-wild-battle{padding:10px}.walk-wild-actions button{font-size:13px;padding:8px 5px}.walk-wild-monster{grid-template-columns:52px minmax(0,1fr);gap:8px}.walk-wild-monster>span{font-size:38px}}
+
+</style>
+
+<style id="v46-fullscreen-wild-battle-style">
+/* V4.6：真正獨立的全螢幕野外戰鬥場景 */
+html.walk-battle-open,body.walk-battle-open{
+ width:100%!important;height:100%!important;min-height:100%!important;
+ overflow:hidden!important;overscroll-behavior:none!important;
+}
+body.walk-battle-open{padding:0!important;margin:0!important;touch-action:none!important}
+#walkWildBattle.walk-wild-battle{
+ position:fixed!important;inset:0!important;z-index:2147483647!important;
+ display:flex!important;flex-direction:column!important;justify-content:space-between!important;
+ gap:clamp(8px,2vh,18px)!important;
+ width:100vw!important;height:100vh!important;height:100dvh!important;
+ max-height:100vh!important;max-height:100dvh!important;
+ margin:0!important;padding:calc( max(14px,env(safe-area-inset-top)) + 8px ) max(14px,env(safe-area-inset-right)) calc(max(14px,env(safe-area-inset-bottom)) + 12px) max(14px,env(safe-area-inset-left))!important;
+ box-sizing:border-box!important;overflow:hidden!important;
+ border:0!important;border-radius:0!important;
+ color:#fff4d6!important;
+ background:
+  radial-gradient(ellipse at 80% 20%,rgba(255,221,135,.24),transparent 28%),
+  radial-gradient(ellipse at 15% 72%,rgba(104,164,94,.35),transparent 32%),
+  linear-gradient(180deg,#172f4b 0%,#365c67 43%,#527c50 44%,#27452f 100%)!important;
+ box-shadow:none!important;
+}
+#walkWildBattle[hidden]{display:none!important}
+#walkWildBattle:before{
+ content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;
+ background-image:linear-gradient(0deg,transparent 95%,rgba(255,255,255,.12) 96%),linear-gradient(90deg,transparent 95%,rgba(255,255,255,.12) 96%);
+ background-size:22px 22px;z-index:0
+}
+#walkWildBattle>*{position:relative;z-index:1;flex-shrink:0}
+#walkWildBattle .walk-wild-title{
+ display:flex!important;align-items:center!important;justify-content:space-between!important;
+ gap:10px!important;margin:0!important;padding:10px 13px!important;
+ min-height:48px!important;background:#30251d!important;border:3px solid #e6bd61!important;
+ box-shadow:4px 4px 0 rgba(0,0,0,.35)!important;color:#ffe69a!important;
+ font-size:clamp(15px,3vw,20px)!important;font-weight:1000!important
+}
+#walkWildBattle .walk-wild-title span:last-child{font-size:12px!important;color:#fff1c7!important}
+#walkWildBattle .walk-wild-monster{
+ display:grid!important;grid-template-columns:minmax(92px,25%) minmax(0,1fr)!important;
+ align-items:center!important;gap:14px!important;width:min(620px,92%)!important;
+ align-self:flex-end!important;margin:clamp(8px,3vh,28px) 2% 0 0!important;
+ padding:clamp(12px,3vw,22px)!important;
+ background:linear-gradient(145deg,#fff4d6,#e8d29b)!important;
+ color:#352519!important;border:4px solid #76502b!important;border-radius:4px!important;
+ box-shadow:6px 6px 0 rgba(0,0,0,.35)!important
+}
+#walkWildBattle .walk-wild-monster>span{font-size:clamp(56px,13vw,100px)!important;text-align:center!important;filter:drop-shadow(4px 5px 0 rgba(74,48,26,.3))!important}
+#walkWildBattle .walk-wild-monster b{display:block!important;font-size:clamp(17px,4vw,25px)!important;font-weight:1000!important}
+#walkWildBattle .walk-wild-monster small{display:block!important;margin:8px 0!important;font-size:14px!important;font-weight:900!important}
+#walkWildBattle .walk-wild-hp{height:15px!important;background:#b6a88d!important;border:2px solid #604126!important;border-radius:0!important;overflow:hidden!important}
+#walkWildBattle .walk-wild-hp span{display:block!important;height:100%!important;background:linear-gradient(90deg,#57b95e,#a6d95d)!important;transition:width .18s!important}
+#walkWildBattle .walk-wild-player{
+ display:grid!important;grid-template-columns:64px minmax(0,1fr)!important;
+ align-items:center!important;gap:12px!important;width:min(620px,92%)!important;
+ align-self:flex-start!important;margin:0 0 0 2%!important;padding:12px 15px!important;
+ background:linear-gradient(145deg,#f8e6b2,#e0c27d)!important;color:#352519!important;
+ border:4px solid #76502b!important;border-radius:4px!important;
+ box-shadow:6px 6px 0 rgba(0,0,0,.35)!important;font-size:clamp(15px,3.5vw,21px)!important
+}
+#walkWildBattle .walk-wild-player-avatar{grid-row:span 2;font-size:clamp(44px,10vw,72px)!important;text-align:center!important}
+#walkWildBattle #walkWildPlayerHp{font-weight:1000!important}
+#walkWildBattle .walk-wild-log{
+ width:100%!important;min-height:44px!important;max-height:76px!important;overflow:auto!important;
+ margin:0!important;padding:10px 12px!important;background:#fff3d1!important;
+ border:3px solid #79502b!important;border-radius:3px!important;color:#382719!important;
+ font-size:clamp(13px,2.8vw,16px)!important;font-weight:800!important;line-height:1.45!important
+}
+#walkWildBattle .walk-wild-actions{
+ display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ gap:10px!important;width:100%!important;margin:0!important
+}
+#walkWildBattle .walk-wild-actions button{
+ min-width:0!important;min-height:clamp(54px,9vh,76px)!important;padding:10px 6px!important;
+ font-size:clamp(15px,3.5vw,20px)!important;font-weight:1000!important;
+ color:#fff4d2!important;background:linear-gradient(180deg,#477b4a,#285536)!important;
+ border:3px solid #f0c85d!important;border-radius:3px!important;
+ box-shadow:4px 4px 0 #17291d!important;text-shadow:1px 2px #1c321f!important;
+ touch-action:manipulation!important
+}
+#walkWildBattle .walk-wild-actions button:nth-child(2){background:linear-gradient(180deg,#7355a0,#48366f)!important}
+#walkWildBattle .walk-wild-actions button:nth-child(3){background:linear-gradient(180deg,#b27a37,#805020)!important}
+#walkWildBattle .walk-wild-actions button:nth-child(4){background:linear-gradient(180deg,#65717a,#39434a)!important}
+#walkWildBattle .walk-wild-actions button:active{transform:translate(2px,2px)!important;box-shadow:1px 1px 0 #17291d!important}
+@media(min-width:700px){
+ #walkWildBattle{padding-left:max(5vw,32px)!important;padding-right:max(5vw,32px)!important}
+ #walkWildBattle .walk-wild-monster,#walkWildBattle .walk-wild-player{width:min(680px,66%)!important}
+ #walkWildBattle .walk-wild-actions{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+ #walkWildBattle .walk-wild-actions button{min-height:72px!important}
+}
+@media(max-height:620px){
+ #walkWildBattle.walk-wild-battle{gap:6px!important;padding-top:max(6px,env(safe-area-inset-top))!important;padding-bottom:max(7px,env(safe-area-inset-bottom))!important}
+ #walkWildBattle .walk-wild-monster{margin-top:4px!important;padding:7px 10px!important}
+ #walkWildBattle .walk-wild-monster>span{font-size:46px!important}
+ #walkWildBattle .walk-wild-player{padding:6px 10px!important}
+ #walkWildBattle .walk-wild-player-avatar{font-size:38px!important}
+ #walkWildBattle .walk-wild-actions button{min-height:48px!important}
+ #walkWildBattle .walk-wild-log{min-height:34px!important;max-height:48px!important;padding:6px 9px!important}
+}
+</style>
+
+<style id="v48-rpg-one-page-tabs-style">
+.va-hub-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:14px 0 10px;position:sticky;top:4px;z-index:20;padding:7px;background:rgba(28,35,49,.96);border:2px solid #8b7654;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.16)}
+.va-hub-tabs button{min-width:0;min-height:48px;padding:7px 4px;border:2px solid #75664f;border-radius:9px;background:#30394d;color:#fff4d8;font-weight:900;font-size:13px;line-height:1.25;cursor:pointer}
+.va-hub-tabs button[aria-selected="true"]{background:#ffe3a2;color:#493016;border-color:#d7a64c;box-shadow:inset 0 -3px rgba(116,75,25,.18)}
+.va-hub-pane{display:none;min-width:0}.va-hub-pane.is-active{display:block;animation:vaHubFade .16s ease-out}
+.va-hub-pane>.va-subcard,.va-hub-pane>.va-subcard+.va-subcard{margin:0 0 10px}
+.va-hub-pane .va-rpg-subtitle{margin-top:15px}
+.va-hub-travel{margin-top:14px}
+#squadPanel{margin-top:10px}
+#squadPanel>h2{font-size:1.08rem}
+@keyframes vaHubFade{from{opacity:.65;transform:translateY(3px)}to{opacity:1;transform:none}}
+@media(max-width:430px){.va-hub-tabs{gap:4px;padding:5px}.va-hub-tabs button{font-size:11px;min-height:46px;padding:6px 2px}.va-hub-tabs button span{display:block;font-size:17px;margin-bottom:2px}}
+@media(prefers-reduced-motion:reduce){.va-hub-pane.is-active{animation:none}}
+</style>
+
+</head><body>
 
 
 <header><small>VIETNAM ADVENTURE · 2026</small><h1>🇻🇳 越南冒險日記</h1><p>北越六天五夜｜11/18（三）–11/23（一）</p></header><main>
@@ -979,6 +1145,12 @@ table{max-width:100%;border-collapse:collapse}
 <section class="v3-home-overview v43-home-overview" aria-label="旅程總覽">
   <div class="v3-home-title-row"><div><span class="v3-eyebrow">YOUR NORTH VIETNAM QUEST</span><h2>準備好出發冒險了嗎？</h2><p>北越六天五夜・4 人小隊</p></div><span class="v3-home-badge" aria-hidden="true">🇻🇳</span></div>
   <div class="v3-trip-facts"><div><small>出發日期</small><strong>11/18（三）</strong></div><div><small>旅程天數</small><strong>6 天 5 夜</strong></div><div><small>旅遊地區</small><strong>河內・沙壩・下龍灣</strong></div></div>
+  <section class="v44-readiness card" id="v44Readiness" aria-label="出發準備進度">
+    <div class="v44-readiness-head"><div><b>🧳 出發準備總覽</b><small id="v44ReadinessCaption">整理待辦，讓旅程更安心</small></div><span id="v44ReadinessPercent">0%</span></div>
+    <div class="v44-progress-track" role="progressbar" aria-label="出發準備完成度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="v44ReadinessBar"><span id="v44ReadinessFill"></span></div>
+    <div class="v44-readiness-stats"><span>出發檢查 <b id="v44ChecksCount">0/8</b></span><span>行程任務 <b id="v44ItineraryCount">0/0</b></span></div>
+    <div class="v44-readiness-actions"><button type="button" class="secondary" onclick="showPage('offline')">查看出發檢查</button><button type="button" class="secondary" onclick="showPage('itinerary')">查看每日行程</button></div>
+  </section>
   <div class="v3-home-reminder"><span aria-hidden="true">📌</span><div><strong>出發前準備中</strong><p>查看每日行程、交通集合時間與待辦任務，讓旅程更安心。</p></div><button type="button" onclick="showPage('itinerary')">查看行程</button></div>
 </section>
 <section class="v3-quick-section" aria-label="常用操作">
@@ -1015,8 +1187,9 @@ table{max-width:100%;border-collapse:collapse}
 <div class="pixel-game-hint">🧭 嗨，冒險者！點擊地圖上的地點，開啟任務並留下旅行足跡！</div><div class="pixel-map-wrap"><div class="pixel-npc-speech">出發吧！<br>一起探索北越的美麗風景！ 💗</div><div id="rpgMap" class="rpg-map-path"><div class="notice">正在載入北越冒險地圖…若未顯示地圖，請確認瀏覽器允許執行此 HTML 的 JavaScript。</div></div><div class="pixel-pet" aria-hidden="true">🐈 🐾</div></div>
 </section><p class="small">點選地圖地點可展開景點資訊、打卡與照片功能。</p>
 <section class="card walk-rpg-card" id="walkRpgModule">
- <div class="walk-rpg-top"><div><h3 style="margin:0">🎮 自由探索 RPG｜NPC 委託冒險版</h3><p class="small" style="margin:4px 0 0">鍵盤方向鍵／WASD，或使用手機方向鍵移動；靠近 NPC、任務物件、寶箱或地圖閃光祕密後按「互動」；完成 NPC 委託可獲得額外 EXP。樹幹、建築與岩石無法穿越。</p></div><b id="walkRpgLevel">探索 EXP 連動中</b></div>
- <div class="walk-rpg-areas" role="group" aria-label="切換冒險場景">
+ <div class="walk-rpg-top"><div><h3 style="margin:0">🎮 北越自由探索世界｜NPC 委託冒險</h3><p class="small" style="margin:4px 0 0">鍵盤方向鍵／WASD，或使用手機方向鍵移動；靠近 NPC、任務物件、寶箱或地圖閃光祕密後按「互動」；三個地區已連成同一張冒險世界：走到地圖出口即可前往相鄰地區，不必手動切換。完成 NPC 委託、尋找寶箱與祕密收藏，移動時還可能遇到野生怪物。樹幹、建築與岩石無法穿越。</p></div><b id="walkRpgLevel">探索 EXP 連動中</b></div>
+ <div class="walk-rpg-world-route" aria-live="polite"><b>🗺️ 北越連續冒險世界</b><span>河內古城 ⇄ 沙壩山村 ⇄ 下龍港口</span><small>走到場景左右側的發光出口，即可自然進入相鄰地圖。</small></div>
+ <div class="walk-rpg-areas" role="group" aria-label="舊版場景相容控制" hidden>
   <button type="button" class="active" data-walk-area="hanoi">🏮 河內古城</button><button type="button" data-walk-area="sapa">⛰️ 沙壩山村</button><button type="button" data-walk-area="halong">⛵ 下龍港口</button>
  </div>
  <canvas id="walkRpgCanvas" width="720" height="420" aria-label="可用鍵盤或方向按鈕自由移動的像素 RPG 場景"></canvas>
@@ -1027,17 +1200,38 @@ table{max-width:100%;border-collapse:collapse}
   <button type="button" class="action walk-rpg-interact" id="walkRpgInteract">💬 互動 / 對話</button>
  </div>
  <div class="walk-rpg-dialog" id="walkRpgDialog" aria-live="polite">冒險者，歡迎來到北越！移動人物，靠近當地居民或寶箱，開始探索吧。</div>
+ <section id="walkWildBattle" class="walk-wild-battle" hidden aria-live="polite" aria-label="野生怪物戰鬥">
+  <div class="walk-wild-title"><span>⚔️ 野生怪物出現！</span><span id="walkWildArea"></span></div>
+  <div class="walk-wild-monster"><span id="walkWildMonsterIcon">👾</span><div><b id="walkWildMonsterName">未知怪物</b><small id="walkWildMonsterHp">HP —</small><div class="walk-wild-hp"><span id="walkWildMonsterBar"></span></div></div></div>
+  <div class="walk-wild-player"><span>🧑‍🌾 冒險者</span><b id="walkWildPlayerHp">HP —</b></div>
+  <div class="walk-wild-actions">
+   <button type="button" class="action" onclick="WalkRPGEncounter.attack()">⚔️ 普通攻擊</button>
+   <button type="button" class="secondary" onclick="WalkRPGEncounter.skill()">✨ 強力技能</button>
+   <button type="button" class="secondary" onclick="WalkRPGEncounter.potion()">🧪 使用藥水</button>
+   <button type="button" class="secondary" onclick="WalkRPGEncounter.flee()">🏃 逃跑</button>
+  </div>
+  <div id="walkWildLog" class="walk-wild-log" role="status">選擇你的行動！</div>
+ </section>
  <div class="walk-rpg-status" id="walkRpgStatus">主線：與居民交談後尋找寶箱；支線：接受 NPC 委託、找回物品並回報領獎。</div>
+ <div class="walk-rpg-base-divider"><span>🎒 冒險者基地</span><small>角色、背包、戰利品、裝備、技能與圖鑑都在這裡，無須離開探索世界</small></div>
+ <div id="vaUnifiedPanelMount" class="walk-rpg-base-mount" aria-live="off"></div>
 </section>
 </section>
 <section class="page" id="tasks"><h2 class="section-title">📜 任務清單</h2><div class="notice">景點探索與行程任務集中在這裡；勾選行程任務會同步更新行程進度。</div><div class="pixel-quest-board"><div id="pixelQuestList"></div><button class="pixel-green-button" onclick="showPage('achievements')">🏆 查看成就</button><button class="pixel-orange-button" onclick="showPage('diary')">📖 旅行回憶錄</button></div></section>
 
 <section class="page" id="treasureRewards"><h2 class="section-title">🧰 隱藏寶箱・探索獎勵</h2><div class="notice">完成景點打卡後，有機會發現專屬探索獎勵。此頁只讀取既有探索獎勵資料，不會清除或重設收藏。</div><div class="card"><h3>✨ 景點專屬寶藏</h3><p id="treasureRewardSummary" class="small">正在整理探索紀錄…</p><div id="treasureRewardGrid" class="loot-codex-grid"></div></div><div class="card"><h3>🗺️ 繼續探索</h3><p>回到地圖完成景點打卡，尋找尚未發現的寶藏。</p><button type="button" class="action" onclick="showPage('adventureMap')">開啟北越冒險地圖</button></div></section>
-<section class="page" id="loot"><h2 class="section-title">🎒 戰利品與冒險小隊</h2><div class="notice">戰利品背包、景點收藏圖鑑、小隊成員、羈絆事件與 EXP 都集中在這個獨立選單，不會顯示在首頁地圖下方。</div><section class="card" id="squadPanel"><h2>🧭 四人冒險小隊</h2><p class="small">隊員暱稱、羈絆事件與戰利品會另外保存，不會覆蓋原有支出或日記。</p><div id="squadMembers"></div><div class="row"><div><label for="memberName">隊員暱稱</label><input id="memberName" maxlength="24" placeholder="輸入隊員暱稱"></div><div style="align-self:end"><button class="action" onclick="addSquadMember()">加入小隊</button></div></div><div class="row"><button class="secondary" onclick="triggerBondEvent()">💞 隨機隊友羈絆</button><button class="secondary" onclick="claimLoot()">🎁 搜尋隨機戰利品</button></div><div id="bondResult" class="notice" aria-live="polite">冒險途中可能觸發特別事件！</div><div class="card loot-codex-card"><h3>📖 戰利品收藏圖鑑</h3><p id="lootCodexProgress" class="small">已發現 0 / 8 種景點專屬戰利品</p><div class="itinerary-progress-track"><span id="lootCodexBar"></span></div><div class="loot-codex-tools"><label for="lootCodexSearch">🔎 搜尋收藏</label><input id="lootCodexSearch" type="search" placeholder="輸入道具、景點名稱…" oninput="renderLootCodex()" autocomplete="off"><div class="loot-codex-filters" role="group" aria-label="收藏圖鑑篩選"><button type="button" class="secondary active" data-loot-filter="all" onclick="setLootCodexFilter('all',this)">全部 8 種</button><button type="button" class="secondary" data-loot-filter="found" onclick="setLootCodexFilter('found',this)">已收集</button><button type="button" class="secondary" data-loot-filter="missing" onclick="setLootCodexFilter('missing',this)">尚未發現</button></div><p id="lootCodexHint" class="small">提示：完成對應景點打卡，有機會取得專屬收藏。</p></div><div id="lootCodex"></div></div><p><b>小隊 EXP：</b><span id="squadExp">0</span> EXP</p><section class="card loot-bag-bottom"><h3>🎒 戰利品背包</h3><div id="lootBag"></div></section></section><style id="va-unified-system-style">
+<section class="page" id="loot"><h2 class="section-title">⚔️ RPG 冒險中心</h2><div class="notice">戰鬥、背包戰利品、角色裝備與怪物圖鑑整合在同一頁，使用上方分類切換即可，不必在多個選單間來回尋找。</div><section class="card" id="squadPanel"><h2>🧭 四人冒險小隊</h2><p class="small">隊員暱稱、羈絆事件與戰利品會另外保存，不會覆蓋原有支出或日記。</p><div id="squadMembers"></div><div class="row"><div><label for="memberName">隊員暱稱</label><input id="memberName" maxlength="24" placeholder="輸入隊員暱稱"></div><div style="align-self:end"><button class="action" onclick="addSquadMember()">加入小隊</button></div></div><div class="row"><button class="secondary" onclick="triggerBondEvent()">💞 隨機隊友羈絆</button><button class="secondary" onclick="claimLoot()">🎁 搜尋隨機戰利品</button></div><div id="bondResult" class="notice" aria-live="polite">冒險途中可能觸發特別事件！</div><div class="card loot-codex-card"><h3>📖 戰利品收藏圖鑑</h3><p id="lootCodexProgress" class="small">已發現 0 / 8 種景點專屬戰利品</p><div class="itinerary-progress-track"><span id="lootCodexBar"></span></div><div class="loot-codex-tools"><label for="lootCodexSearch">🔎 搜尋收藏</label><input id="lootCodexSearch" type="search" placeholder="輸入道具、景點名稱…" oninput="renderLootCodex()" autocomplete="off"><div class="loot-codex-filters" role="group" aria-label="收藏圖鑑篩選"><button type="button" class="secondary active" data-loot-filter="all" onclick="setLootCodexFilter('all',this)">全部 8 種</button><button type="button" class="secondary" data-loot-filter="found" onclick="setLootCodexFilter('found',this)">已收集</button><button type="button" class="secondary" data-loot-filter="missing" onclick="setLootCodexFilter('missing',this)">尚未發現</button></div><p id="lootCodexHint" class="small">提示：完成對應景點打卡，有機會取得專屬收藏。</p></div><div id="lootCodex"></div></div><p><b>小隊 EXP：</b><span id="squadExp">0</span> EXP</p><section class="card loot-bag-bottom"><h3>🎒 戰利品背包</h3><div id="lootBag"></div></section></section><style id="va-v47-victory-style">
+#vaVictoryReward{position:fixed;inset:0;z-index:2147483646;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(12,20,18,.72);backdrop-filter:blur(3px)}#vaVictoryReward.show{display:flex}#vaVictoryReward .va-victory-card{width:min(460px,94vw);padding:24px 20px;text-align:center;background:linear-gradient(180deg,#fff6d9,#e8d5a5);border:4px solid #704b26;box-shadow:8px 8px 0 rgba(0,0,0,.28);color:#3c2b19;font-family:inherit}#vaVictoryReward .va-victory-emblem{font-size:56px}#vaVictoryReward h2{margin:5px 0 10px;color:#674217}#vaVictoryReward p{line-height:1.7;font-weight:800}#vaVictoryReward button{margin-top:10px;padding:12px 18px;background:#477b48;color:#fff;border:2px solid #244c2b;border-radius:8px;font-weight:900;cursor:pointer}
+</style>
+<style id="va-v47-rpg-growth-style">
+.va-rpg-wallet{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:8px 0 12px}.va-rpg-wallet>div{background:#f4ead0;border:1px solid #c6a66b;border-radius:9px;padding:8px;text-align:center;font-size:.82rem}.va-rpg-wallet b{display:block;font-size:1.1rem;color:#68451d}.va-rpg-subtitle{font-weight:900;margin:13px 0 6px;padding-bottom:5px;border-bottom:1px dashed rgba(112,91,65,.3)}.va-craft-row,.va-bestiary-row,.va-boss-row{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px dashed rgba(112,91,65,.2)}.va-craft-row:last-child,.va-bestiary-row:last-child,.va-boss-row:last-child{border-bottom:0}.va-craft-copy,.va-bestiary-copy,.va-boss-copy{flex:1;min-width:0}.va-craft-copy small,.va-bestiary-copy small,.va-boss-copy small{display:block;opacity:.72;font-size:.8rem}.va-rpg-expansion button{font-size:.82rem!important;padding:7px 9px!important}.va-boss-row button:disabled,.va-craft-row button:disabled{opacity:.48;cursor:not-allowed}.va-rare-tag{display:inline-block;background:#f8e7b5;color:#6b4610;border:1px solid #d7a943;border-radius:99px;padding:2px 7px;font-size:.72rem;margin-left:4px}
+@media(max-width:620px){.va-rpg-wallet>div{font-size:.75rem;padding:6px 3px}.va-craft-row,.va-boss-row{align-items:flex-start;flex-wrap:wrap}.va-craft-row button,.va-boss-row button{margin-left:40px}}
+</style>
+<style id="va-unified-system-style">
 #vaUnifiedPanel{margin-top:18px}.va-hero{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:12px 0}.va-stat{background:rgba(112,91,65,.08);border:1px solid rgba(112,91,65,.18);border-radius:12px;padding:10px}.va-stat small{display:block;opacity:.75}.va-stat b{display:block;font-size:1.2rem;margin-top:4px}.va-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.va-subcard{border:1px solid rgba(112,91,65,.2);border-radius:13px;padding:12px;background:rgba(255,255,255,.5);min-width:0}.va-subcard h4{margin:0 0 9px}.va-item{display:flex;align-items:center;gap:9px;padding:8px 0;border-bottom:1px dashed rgba(112,91,65,.22)}.va-item:last-child{border-bottom:0}.va-item-icon{font-size:25px;width:32px;text-align:center}.va-item-main{flex:1;min-width:0}.va-item-main b{display:block}.va-item-main small{opacity:.72}.va-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.va-actions button{font:inherit}.va-bar{height:10px;background:rgba(80,70,55,.15);border-radius:20px;overflow:hidden;margin:8px 0}.va-bar span{display:block;height:100%;background:linear-gradient(90deg,#63a879,#b4cf70);width:100%;transition:width .2s}.va-battle-log{max-height:130px;overflow:auto;background:rgba(30,35,30,.06);border-radius:9px;padding:8px;font-size:.9rem;line-height:1.55}.va-tag{display:inline-block;border-radius:99px;padding:3px 8px;background:rgba(90,130,90,.14);font-size:.78rem;margin:2px}.va-muted{opacity:.72;font-size:.88rem}.va-sync-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.va-sync-list button{text-align:left;min-width:0}.va-core-note{font-size:.84rem;opacity:.76;line-height:1.5}.va-progress{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}.va-equipment{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.va-equipment>div{border:1px dashed rgba(112,91,65,.3);border-radius:9px;padding:8px}.va-battle-controls{display:flex;gap:8px;flex-wrap:wrap}.va-battle-controls button{flex:1;min-width:100px}@media(max-width:620px){.va-hero{grid-template-columns:repeat(2,minmax(0,1fr))}.va-grid{grid-template-columns:1fr}.va-sync-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 <section class="card" id="vaUnifiedPanel" aria-label="冒險整合中心">
- <div class="v2-panel-title"><div><small>VIETNAM ADVENTURE · UNIFIED CORE</small><h2>🧭 全功能整合中心</h2></div><span class="va-tag">本機資料管理</span></div>
+ <div class="v2-panel-title"><div><small>VIETNAM ADVENTURE · RPG HUB</small><h2>⚔️ 我的冒險者基地</h2></div><span class="va-tag">本機資料保存</span></div>
  <p class="small">遊戲角色、任務收藏、背包、裝備與戰鬥使用獨立存檔；旅遊行程、支出、美食、日記與照片只讀取原有資料，不搬移、不重設。</p>
  <div class="va-hero">
   <div class="va-stat"><small>冒險經驗</small><b id="vaXP">0 EXP</b></div>
@@ -1047,8 +1241,9 @@ table{max-width:100%;border-collapse:collapse}
  </div>
  <div class="va-grid">
   <section class="va-subcard"><h4>🎒 冒險背包</h4><div id="vaInventory"><p class="va-muted">正在整理收藏…</p></div><div class="va-actions"><button class="secondary" type="button" onclick="VAUnified.usePotion()">🧪 使用藥水</button><button class="secondary" type="button" onclick="VAUnified.usePho()">🍜 使用河粉</button><button class="secondary" type="button" onclick="VAUnified.addStarterSupply()">＋ 補給商店</button></div><p class="va-core-note">任務收藏品與補給品分開管理；任務紀念品不會被消耗。</p></section>
-  <section class="va-subcard"><h4>🛡️ 角色與裝備</h4><div class="va-equipment"><div>🧢 頭部<br><b id="vaHead">尚未裝備</b></div><div>👟 腳部<br><b id="vaFeet">尚未裝備</b></div><div>⚔️ 武器<br><b id="vaWeapon">尚未裝備</b></div><div>🧥 防具<br><b id="vaArmor">尚未裝備</b></div></div><p id="vaStatsText" class="va-muted">攻擊 12 · 防禦 2</p><div id="vaEquipChoices"></div></section>
-  <section class="va-subcard"><h4>⚔️ 回合制冒險挑戰</h4><p id="vaBattleIntro" class="va-muted">選擇目前場景的怪物進行挑戰。每個地區每日首次勝利才會發放獎勵，避免無限刷 EXP。</p><div class="va-progress"><b id="vaEnemyName">尚未遭遇怪物</b><b id="vaEnemyHP">—</b></div><div class="va-bar"><span id="vaEnemyBar"></span></div><div class="va-battle-controls"><button class="action" type="button" onclick="VAUnified.startBattle()">開始挑戰</button><button class="secondary" type="button" onclick="VAUnified.attack()">⚔️ 攻擊</button><button class="secondary" type="button" onclick="VAUnified.flee()">撤退</button></div><div id="vaBattleLog" class="va-battle-log" aria-live="polite">冒險者，準備好再出發！</div></section>
+  <section class="va-subcard"><h4>🛡️ 角色與裝備</h4><div class="va-equipment"><div>🧢 頭部<br><b id="vaHead">尚未裝備</b></div><div>👟 腳部<br><b id="vaFeet">尚未裝備</b></div><div>⚔️ 武器<br><b id="vaWeapon">尚未裝備</b></div><div>🧥 防具<br><b id="vaArmor">尚未裝備</b></div></div><p id="vaStatsText" class="va-muted">攻擊 12 · 防禦 2</p><div id="vaEquipChoices"></div><div class="va-actions"><button class="secondary" type="button" onclick="VAUnified.upgradeEquipped('weapon')">⚔️ 強化武器</button><button class="secondary" type="button" onclick="VAUnified.upgradeEquipped('armor')">🛡️ 強化防具</button><button class="secondary" type="button" onclick="VAUnified.upgradeEquipped('head')">🧢 強化頭部</button><button class="secondary" type="button" onclick="VAUnified.upgradeEquipped('feet')">👟 強化鞋子</button></div><p class="va-core-note">強化需消耗對應地區素材與金幣；每次強化都會永久提升裝備能力。</p></section>
+  <section class="va-subcard"><h4>⚔️ 回合制冒險挑戰</h4><p id="vaBattleIntro" class="va-muted">每次勝利都可獲得 EXP、金幣與地區素材；稀有物品有機率掉落。</p><div class="va-progress"><b id="vaEnemyName">尚未遭遇怪物</b><b id="vaEnemyHP">—</b></div><div class="va-bar"><span id="vaEnemyBar"></span></div><div class="va-battle-controls"><button class="action" type="button" onclick="VAUnified.startBattle()">開始挑戰</button><button class="secondary" type="button" onclick="VAUnified.attack()">⚔️ 攻擊</button><button class="secondary" type="button" onclick="VAUnified.flee()">撤退</button></div><div id="vaBattleLog" class="va-battle-log" aria-live="polite">冒險者，準備好再出發！</div></section>
+  <section class="va-subcard va-rpg-expansion"><h4>🏅 冒險成長中心</h4><div class="va-rpg-wallet"><div>💰 金幣<b id="vaGold">0</b></div><div>👾 怪物擊敗<b id="vaMonsterKills">0</b></div><div>✨ 稀有收藏<b id="vaRareCount">0</b></div></div><p id="vaRpgProgress" class="va-muted">擊敗怪物累積素材，打造更強裝備。</p><div class="va-rpg-subtitle">🛠️ 鍛造工坊</div><div id="vaCrafting"></div><div class="va-rpg-subtitle">✨ 技能成長</div><div id="vaSkillTree"></div><div class="va-rpg-subtitle">📖 怪物圖鑑</div><div id="vaBestiary"></div><div class="va-rpg-subtitle">🐲 區域頭目挑戰</div><div id="vaBosses"></div></section>
   <section class="va-subcard"><h4>🌏 旅遊資料連動</h4><div class="va-sync-list"><button class="secondary" type="button" onclick="showPage('itinerary')">🗓️ 行程<br><b id="vaTripCount">讀取中</b></button><button class="secondary" type="button" onclick="showPage('expenses')">💰 支出<br><b id="vaExpenseCount">讀取中</b></button><button class="secondary" type="button" onclick="showPage('food')">🍜 美食<br><b id="vaFoodCount">讀取中</b></button><button class="secondary" type="button" onclick="showPage('diary')">📖 日記<br><b id="vaDiaryCount">讀取中</b></button><button class="secondary" type="button" onclick="showPage('photos')">📸 照片<br><b id="vaPhotoCount">讀取中</b></button><button class="secondary" type="button" onclick="showPage('shoppingQuest')">🎁 必買清單<br><b>開啟</b></button></div><p class="va-core-note" id="vaSyncStatus">只讀取既有旅遊資料；不會自動修改行程或支出。</p></section>
  </div>
  <div class="va-actions"><button class="secondary" type="button" onclick="showPage('safetyCenter')">🛡️ 資料安全檢查</button><button class="secondary" type="button" onclick="showPage('offline')">📴 離線檢查</button><button class="secondary" type="button" onclick="VAUnified.refresh()">🔄 更新整合資料</button></div>
@@ -1155,7 +1350,7 @@ table{max-width:100%;border-collapse:collapse}
 <div class="event"><div style="font-size:25px">🚠</div><div><b>番西邦峰</b><p class="muted">搭乘登山纜車，欣賞高山景觀</p><p class="small">沙壩主線</p><button class="secondary" onclick="toggleSideAch(3)">完成打卡</button></div></div>
 <div class="event"><div style="font-size:25px">🚢</div><div><b>下龍灣郵輪</b><p class="muted">記錄登船體驗、船上活動與海灣風景</p><p class="small">海上支線</p><button class="secondary" onclick="toggleSideAch(4)">完成打卡</button></div></div>
 </div></div></section>
-<section class="page" id="offline"><h2 class="section-title">📴 離線與出發檢查</h2><div class="card"><p>勾選完成的準備事項，紀錄會保存在這個瀏覽器。</p><div id="checklist"></div></div><div class="card"><b>🧰 全功能備份與還原</b><p class="small">完整備份包含行程、支出、美食、成就、任務清單、小隊資料、日記文字與照片專區。照片會轉成備份資料，因此檔案可能很大；請保存到安全位置。匯入會合併資料，不會清空現有紀錄。</p><button class="action" onclick="exportBackup()">匯出完整備份（含日記與照片）</button> <button class="secondary" onclick="document.getElementById('importFile').click()">匯入完整備份</button><input id="importFile" type="file" accept="application/json" style="display:none" onchange="importBackup(event)"></div></section>
+<section class="page" id="offline"><h2 class="section-title">📴 離線與出發檢查</h2><div class="card"><p>勾選完成的準備事項，紀錄會保存在這個瀏覽器。</p><div class="v44-checklist-progress" id="v44ChecklistProgress" aria-live="polite">已完成 0 / 8 項</div><div class="v44-progress-track" role="progressbar" aria-label="出發檢查完成度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="v44ChecklistBar"><span id="v44ChecklistFill"></span></div><div id="checklist"></div></div><div class="card"><b>🧰 全功能備份與還原</b><p class="small">完整備份包含行程、支出、美食、成就、任務清單、小隊資料、日記文字與照片專區。照片會轉成備份資料，因此檔案可能很大；請保存到安全位置。匯入會合併資料，不會清空現有紀錄。</p><button class="action" onclick="exportBackup()">匯出完整備份（含日記與照片）</button> <button class="secondary" onclick="document.getElementById('importFile').click()">匯入完整備份</button><input id="importFile" type="file" accept="application/json" style="display:none" onchange="importBackup(event)"></div></section>
 <section class="page" id="photoMap"><h2 class="section-title">🗺️ 旅行照片地圖</h2>
 <div class="notice">照片仍保存在原本的 IndexedDB 相簿。地圖座標是選填資料；舊照片不會被猜測座標或改寫。可先選照片，再輸入 GPS 緯度、經度。</div>
 <div class="card"><h3>📍 為照片補上座標</h3><label for="photoMapSelect">選擇一張照片</label><select id="photoMapSelect"><option value="">讀取照片中…</option></select><label for="photoMapLat">緯度</label><input id="photoMapLat" type="number" step="any" placeholder="例如 21.0285"><label for="photoMapLng">經度</label><input id="photoMapLng" type="number" step="any" placeholder="例如 105.8542"><p class="small">可從手機照片資訊或地圖分享位置取得座標。北越範圍參考：河內約 21.03, 105.85；沙壩約 22.34, 103.84；下龍灣約 20.95, 107.08。以上僅供定位參考，請依照片實際拍攝地點填寫。</p><button class="action" onclick="photoMapSaveCoords()">保存這張照片座標</button><p id="photoMapStatus" class="small" aria-live="polite"></p></div>
@@ -1274,7 +1469,7 @@ table{max-width:100%;border-collapse:collapse}
 <section class="category-group"><button data-page="diary" data-keywords="日記 回憶 文字 記錄 旅行故事" onclick="chooseCategoryPage('diary')">📖 旅行日記與回憶錄</button><button data-page="photos" data-keywords="照片 相片 圖片 相簿 上傳" onclick="chooseCategoryPage('photos')">📸 旅行照片</button><button data-page="photoMap" data-keywords="照片地圖 座標 地理位置 拍照地點" onclick="chooseCategoryPage('photoMap')">🗺️ 照片地圖</button><button data-page="adventureFinale" data-keywords="結局 終章 旅程紀念" onclick="chooseCategoryPage('adventureFinale')">🎁 旅程終章驚喜</button></section>
 </div></details>
 <details class="category-accordion"><summary>🎯 任務與成就 <span class="accordion-hint">探索、獎勵、背包與等級</span></summary><div class="category-accordion-content">
-<section class="category-group"><button data-page="tasks" data-keywords="任務 待辦 完成 清單 主線 每日" onclick="chooseCategoryPage('tasks')">📜 主線與每日任務 <span id="mainTasksMenuPendingBadge" class="menu-pending-badge">0</span></button><button data-page="treasureRewards" data-keywords="寶箱 獎勵 收集 探索" onclick="chooseCategoryPage('treasureRewards')">🧰 隱藏寶箱與探索獎勵</button><button data-page="adventurePlaybook" data-keywords="遊戲 互動 隨機 驚喜 四人" onclick="chooseCategoryPage('adventurePlaybook')">🎲 每日驚喜與四人互動 <span id="playbookMenuPendingBadge" class="menu-pending-badge">0</span></button><button data-page="loot" data-keywords="背包 裝備 道具 戰利品" onclick="chooseCategoryPage('loot')">🎒 背包、裝備與戰利品</button><button data-page="achievements" data-keywords="成就 等級 EXP 經驗值 獎章" onclick="chooseCategoryPage('achievements')">🏆 成就與冒險等級</button><button data-page="adventureMap" data-keywords="地圖 景點 探索 導航 RPG 遊戲" onclick="chooseCategoryPage('adventureMap')">🗺️ 北越冒險地圖</button></section>
+<section class="category-group"><button data-page="tasks" data-keywords="任務 待辦 完成 清單 主線 每日" onclick="chooseCategoryPage('tasks')">📜 主線與每日任務 <span id="mainTasksMenuPendingBadge" class="menu-pending-badge">0</span></button><button data-page="treasureRewards" data-keywords="寶箱 獎勵 收集 探索" onclick="chooseCategoryPage('treasureRewards')">🧰 隱藏寶箱與探索獎勵</button><button data-page="adventurePlaybook" data-keywords="遊戲 互動 隨機 驚喜 四人" onclick="chooseCategoryPage('adventurePlaybook')">🎲 每日驚喜與四人互動 <span id="playbookMenuPendingBadge" class="menu-pending-badge">0</span></button><button data-page="loot" data-keywords="RPG 遊戲 戰鬥 背包 裝備 道具 戰利品 圖鑑" onclick="chooseCategoryPage('loot')">⚔️ RPG 冒險中心</button><button data-page="achievements" data-keywords="成就 等級 EXP 經驗值 獎章" onclick="chooseCategoryPage('achievements')">🏆 成就與冒險等級</button><button data-page="adventureMap" data-keywords="地圖 景點 探索 導航 RPG 遊戲" onclick="chooseCategoryPage('adventureMap')">🗺️ 北越冒險地圖</button></section>
 </div></details>
 <details class="category-accordion"><summary>🗣️ 旅遊工具 <span class="accordion-hint">翻譯與美食探索</span></summary><div class="category-accordion-content">
 <section class="category-group"><button data-page="translate" data-keywords="翻譯 越南文 語言 對話 常用句" onclick="chooseCategoryPage('translate')">🗣️ 旅遊翻譯</button><button data-page="food" data-keywords="美食 食物 餐廳 吃 必吃 菜單" onclick="chooseCategoryPage('food')">🍜 北越美食圖鑑</button></section>
@@ -2153,9 +2348,11 @@ const originalSavePhotoForMemoryXP=savePhotoLibrary;
 savePhotoLibrary=async function(){const before=await photoGetAll().catch(()=>[]);await originalSavePhotoForMemoryXP();const after=await photoGetAll().catch(()=>[]);const oldIds=new Set(before.map(x=>x.id));let earned=0;for(const x of after){if(!oldIds.has(x.id))earned+=adventureMemoryAward('photos',x.id,5)}if(earned){const status=document.getElementById('photoStatus');if(status)status.textContent+=` · 照片探索 +${earned} EXP（獨立收藏點數）`}}
 </script>
 
+<script>window.__V410_WORLD_ACTIVE__=true;</script>
 <script id="v2-free-walk-rpg">
 (()=>{
 'use strict';
+if(window.__V410_WORLD_ACTIVE__)return;
 const KEY='vietnam-adventure-walk-rpg-v1';
 const canvas=document.getElementById('walkRpgCanvas');if(!canvas)return;
 const ctx=canvas.getContext('2d');if(!ctx)return;
@@ -2171,7 +2368,7 @@ let player={x:80,y:330,face:'down',walking:false,step:0};const held=new Set();le
 function save(){try{state.players[state.area]={x:Math.round(player.x),y:Math.round(player.y),face:player.face};localStorage.setItem(KEY,JSON.stringify(state))}catch(e){say('目前無法保存自由探索進度；既有日記、支出與其他資料不受影響。')}}
 function say(t){const el=document.getElementById('walkRpgDialog');if(el)el.textContent=t}
 function status(){const a=state.area,el=document.getElementById('walkRpgStatus');if(el){const quest=state.completed[a]?'✓ '+areas[a].name+'主線探索完成':state.talked[a]?'主線任務：'+areas[a].task:'主線任務：先與「'+areas[a].npc+'」交談，接受探索任務。';const side=state.questClaimed[a]?'✓ NPC 委託已完成':state.questFound[a]?'NPC 委託：回去找「'+areas[a].npc+'」領取獎勵。':state.talked[a]?'NPC 委託：'+areas[a].questHint:'NPC 委託：與居民交談即可接受。';el.textContent=quest+'｜'+side+'｜祕密探索：'+(state.discovered[a]?'已找到':'地圖中藏有一件祕密收藏，仔細找找！')}const lv=document.getElementById('walkRpgLevel');if(lv){let xp=0;try{xp=Number(JSON.parse(localStorage.getItem('vietnam-adventure-exp-v1')||'0'))||0}catch(e){}lv.textContent='小隊 EXP '+(Number.isFinite(xp)?xp:0)}}
-function loadArea(id){if(!areas[id])return;state.area=id;const p=state.players[id];player={x:p&&Number.isFinite(p.x)?Math.max(24,Math.min(W-24,p.x)):80,y:p&&Number.isFinite(p.y)?Math.max(80,Math.min(H-30,p.y)):330,face:p&&p.face||'down',walking:false,step:0};document.querySelectorAll('[data-walk-area]').forEach(b=>b.classList.toggle('active',b.dataset.walkArea===id));say('現在位於「'+areas[id].name+'」。'+(state.completed[id]?'主線探索已完成，還可以尋找祕密收藏。':state.talked[id]?'嚮導已交付任務，去尋找寶箱吧！':'先找到居民並按互動鍵。'));status();draw();save()}
+function loadArea(id,spawn){if(!areas[id])return;state.area=id;const p=state.players[id];player={x:spawn&&Number.isFinite(spawn.x)?spawn.x:(p&&Number.isFinite(p.x)?Math.max(24,Math.min(W-24,p.x)):80),y:spawn&&Number.isFinite(spawn.y)?spawn.y:(p&&Number.isFinite(p.y)?Math.max(80,Math.min(H-30,p.y)):330),face:spawn?.face||p&&p.face||'down',walking:false,step:0};document.querySelectorAll('[data-walk-area]').forEach(b=>b.classList.toggle('active',b.dataset.walkArea===id));say('抵達「'+areas[id].name+'」！沿著道路探索，與當地 NPC 接受委託。');status();draw();save()}
 function rect(x,y,w,h,c){ctx.fillStyle=c;ctx.fillRect(Math.round(x),Math.round(y),Math.round(w),Math.round(h))}
 function tree(x,y){rect(x+8,y+18,10,22,'#704326');rect(x,y,27,24,'#2d7744');rect(x+5,y-8,19,20,'#4e9a4f');rect(x+7,y-5,5,5,'#b5d978')}
 function house(x,y){rect(x,y+18,80,52,'#f2d28a');rect(x-6,y+12,92,16,'#9c5430');rect(x+31,y+42,18,28,'#704326');rect(x+8,y+32,15,14,'#78c6d2');rect(x+56,y+32,15,14,'#78c6d2')}
@@ -2191,6 +2388,21 @@ function obstacles(){
  if(a==='halong')list.push({x:480,y:195,w:150,h:49});
  return list;
 }
+function drawPortal(x,y,label,side){
+ // 明顯的像素拱門出口；不需按選單，走近即可跨區。
+ rect(x-15,y-24,30,42,'#68452b');rect(x-10,y-20,20,38,'#f6d878');rect(x-6,y-15,12,33,'#4e8d9b');rect(x-18,y-29,36,7,'#8b5a32');
+ ctx.fillStyle='#fff7bd';ctx.font='bold 11px monospace';ctx.textAlign='center';ctx.fillText(label,x,y-37);
+ ctx.fillStyle='#fff';ctx.font='10px monospace';ctx.fillText(side==='right'?'→':'←',x,y+30);
+}
+function portalTarget(){
+ const yOk=player.y>305&&player.y<395;
+ if(!yOk)return null;
+ if(state.area==='hanoi'&&player.x>675)return {id:'sapa',spawn:{x:48,y:350,face:'right'},label:'前往沙壩山村'};
+ if(state.area==='sapa'&&player.x<45)return {id:'hanoi',spawn:{x:672,y:350,face:'left'},label:'返回河內古城'};
+ if(state.area==='sapa'&&player.x>675)return {id:'halong',spawn:{x:48,y:350,face:'right'},label:'前往下龍港口'};
+ if(state.area==='halong'&&player.x<45)return {id:'sapa',spawn:{x:672,y:350,face:'left'},label:'返回沙壩山村'};
+ return null;
+}
 function draw(){
  const a=areas[state.area];rect(0,0,W,H,a.sky);rect(0,100,W,H-100,a.ground);
  for(let i=0;i<12;i++){const x=(i*73+19)%W,y=120+(i*47)%270;rect(x,y,18,5,'#a5cf78');rect(x+8,y+5,7,4,'#6c9d5b')}
@@ -2200,6 +2412,9 @@ function draw(){
  if(state.area==='hanoi'){house(420,115);house(525,150);rect(0,110,120,65,'#5aa7b9');rect(0,175,120,7,'#d8e6c1')}
  tree(70,115);tree(300,250);tree(650,110);tree(660,265);rect(20,395,680,3,'#7b5a31');
  for(let i=0;i<8;i++){const x=35+i*88;rect(x,385,4,4,'#fff0a8')}
+ if(state.area==='hanoi'){drawPortal(690,350,'沙壩出口','right')}
+ if(state.area==='sapa'){drawPortal(30,350,'河內出口','left');drawPortal(690,350,'下龍出口','right')}
+ if(state.area==='halong'){drawPortal(30,350,'沙壩出口','left')}
  person(a.npcX,a.npcY,'#db6a48','#f4d36b','down',false,0);ctx.fillStyle='#30251b';ctx.font='bold 14px monospace';ctx.textAlign='center';ctx.fillText(a.npc,a.npcX,a.npcY-54);
  rect(a.chestX-18,a.chestY-16,36,25,'#9b592a');rect(a.chestX-14,a.chestY-12,28,8,'#e7b94f');rect(a.chestX-3,a.chestY-9,6,12,'#704326');ctx.fillStyle='#fff1a1';ctx.font='20px monospace';ctx.fillText(state.completed[state.area]?'✓':'✦',a.chestX,a.chestY-24);
  // NPC side-quest item: appears only after accepting the request
@@ -2212,9 +2427,10 @@ function draw(){
  ctx.fillStyle='rgba(28,43,35,.72)';ctx.fillRect(520,8,188,27);ctx.fillStyle='#fff';ctx.font='11px monospace';ctx.textAlign='center';ctx.fillText('樹幹／建築／岩石不可穿越',614,26);
 }
 function nearTarget(){const id=state.area,a=areas[id],d=(x,y)=>Math.hypot(player.x-x,player.y-y);if(!state.discovered[id]&&d(a.secretX,a.secretY)<48)return 'secret';if(state.talked[id]&&!state.questFound[id]&&d(a.questX,a.questY)<48)return 'questItem';if(d(a.npcX,a.npcY)<62)return 'npc';if(d(a.chestX,a.chestY)<65)return 'chest';return ''}
-function interact(){const id=state.area,a=areas[id],target=nearTarget();if(!target){say('再靠近居民、任務物件、寶箱或閃光祕密收藏，就能進行互動。');return}if(target==='secret'){state.discovered[id]=true;save();try{if(typeof addSquadExp==='function')addSquadExp(10)}catch(e){console.warn('祕密探索 EXP 更新失敗',e)}say('✨ 發現隱藏收藏「'+a.secretName+'」！獲得小隊 EXP +10。每個場景只能收藏一次。');status();draw();return}if(target==='questItem'){state.questFound[id]=true;save();say('🎒 找到了「'+a.questName+'」！請回去找「'+a.npc+'」，交還物品並領取委託獎勵。');status();draw();return}if(target==='npc'){if(!state.talked[id]){state.talked[id]=true;say(a.line+'\n📜 新委託：'+a.questHint+' 找到「'+a.questName+'」後回來找我，另外還能繼續尋找主線寶箱！');save();status();draw();return}if(state.questFound[id]&&!state.questClaimed[id]){state.questClaimed[id]=true;save();try{if(typeof addSquadExp==='function')addSquadExp(20)}catch(e){console.warn('NPC 委託 EXP 更新失敗',e)}say('🏅 委託完成！你交還了「'+a.questName+'」，獲得小隊 EXP +20。謝謝你的幫忙！');status();draw();return}if(state.questClaimed[id])say(a.name+'：謝謝你幫忙找回'+a.questName+'！接下來去完成附近的主線寶箱探索吧。');else say(a.name+'：'+a.questHint+' 找到「'+a.questName+'」後回來找我領取獎勵！');return}if(!state.talked[id]){say('寶箱被鎖住了！先和「'+a.npc+'」交談，接受探索任務。');return}if(state.completed[id]){say('這個寶箱已經領取過了。探索回憶會留下來，但獎勵不會重複領取。');return}state.completed[id]=true;save();try{if(typeof addSquadExp==='function')addSquadExp(30)}catch(e){console.warn('RPG EXP 更新失敗',e)}say('🎉 探索完成！你在「'+a.name+'」找到紀念寶箱，獲得小隊 EXP +30！可以切換其他場景繼續冒險。');status();draw()}
+function interact(){const id=state.area,a=areas[id],target=nearTarget();if(!target){say('再靠近居民、任務物件、寶箱或閃光祕密收藏，就能進行互動。');return}if(target==='secret'){state.discovered[id]=true;save();try{if(typeof addSquadExp==='function')addSquadExp(10)}catch(e){console.warn('祕密探索 EXP 更新失敗',e)}say('✨ 發現隱藏收藏「'+a.secretName+'」！獲得小隊 EXP +10。每個場景只能收藏一次。');status();draw();return}if(target==='questItem'){state.questFound[id]=true;save();say('🎒 找到了「'+a.questName+'」！請回去找「'+a.npc+'」，交還物品並領取委託獎勵。');status();draw();return}if(target==='npc'){if(!state.talked[id]){state.talked[id]=true;say(a.line+'\n📜 新委託：'+a.questHint+' 找到「'+a.questName+'」後回來找我，另外還能繼續尋找主線寶箱！');save();status();draw();return}if(state.questFound[id]&&!state.questClaimed[id]){state.questClaimed[id]=true;save();try{if(typeof addSquadExp==='function')addSquadExp(20)}catch(e){console.warn('NPC 委託 EXP 更新失敗',e)}say('🏅 委託完成！你交還了「'+a.questName+'」，獲得小隊 EXP +20。謝謝你的幫忙！');status();draw();return}if(state.questClaimed[id])say(a.name+'：謝謝你幫忙找回'+a.questName+'！接下來去完成附近的主線寶箱探索吧。');else say(a.name+'：'+a.questHint+' 找到「'+a.questName+'」後回來找我領取獎勵！');return}if(!state.talked[id]){say('寶箱被鎖住了！先和「'+a.npc+'」交談，接受探索任務。');return}if(state.completed[id]){say('這個寶箱已經領取過了。探索回憶會留下來，但獎勵不會重複領取。');return}state.completed[id]=true;save();try{if(typeof addSquadExp==='function')addSquadExp(30)}catch(e){console.warn('RPG EXP 更新失敗',e)}say('🎉 探索完成！你在「'+a.name+'」找到紀念寶箱，獲得小隊 EXP +30！沿著地圖出口即可前往其他地區繼續冒險。');status();draw()}
 function collides(x,y){const r=9;for(const o of obstacles()){const cx=Math.max(o.x,Math.min(x,o.x+o.w)),cy=Math.max(o.y,Math.min(y,o.y+o.h));if(Math.hypot(x-cx,y-cy)<r)return true}return false}
-function move(dt){let dx=0,dy=0;if(held.has('left'))dx--;if(held.has('right'))dx++;if(held.has('up'))dy--;if(held.has('down'))dy++;if(dx&&dy){dx*=.7071;dy*=.7071}player.walking=!!(dx||dy);if(!player.walking)return;if(Math.abs(dx)>Math.abs(dy))player.face=dx<0?'left':'right';else player.face=dy<0?'up':'down';player.step+=dt*12;const speed=190*dt,nx=Math.max(18,Math.min(W-18,player.x+dx*speed)),ny=Math.max(76,Math.min(H-20,player.y+dy*speed));if(!collides(nx,player.y))player.x=nx;if(!collides(player.x,ny))player.y=ny}
+let wildWalkDistance=0,wildEncounterCooldown=0;
+function move(dt){if(window.VAUnified&&window.VAUnified.getBattle&&window.VAUnified.getBattle()){held.clear();player.walking=false;return}let dx=0,dy=0;if(held.has('left'))dx--;if(held.has('right'))dx++;if(held.has('up'))dy--;if(held.has('down'))dy++;if(dx&&dy){dx*=.7071;dy*=.7071}player.walking=!!(dx||dy);if(!player.walking)return;if(Math.abs(dx)>Math.abs(dy))player.face=dx<0?'left':'right';else player.face=dy<0?'up':'down';player.step+=dt*12;const ox=player.x,oy=player.y,speed=190*dt,nx=Math.max(18,Math.min(W-18,player.x+dx*speed)),ny=Math.max(76,Math.min(H-20,player.y+dy*speed));if(!collides(nx,player.y))player.x=nx;if(!collides(player.x,ny))player.y=ny;const moved=Math.hypot(player.x-ox,player.y-oy);if(moved>0){const gate=portalTarget();if(gate){held.clear();wildWalkDistance=0;wildEncounterCooldown=3;loadArea(gate.id,gate.spawn);say('🚪 '+gate.label+'！已無縫進入新地區，原地圖的 NPC 委託與探索進度都會保留。');return}wildWalkDistance+=moved;wildEncounterCooldown=Math.max(0,wildEncounterCooldown-dt);if(wildWalkDistance>=250&&wildEncounterCooldown<=0&&(!window.VAUnified||!window.VAUnified.getBattle())){wildWalkDistance=0;if(Math.random()<.16&&window.VAUnified&&window.VAUnified.startWildBattle){held.clear();wildEncounterCooldown=8;window.VAUnified.startWildBattle(state.area);if(window.WalkRPGEncounter)window.WalkRPGEncounter.refresh();say('草叢傳來窸窣聲！野生怪物出現了，準備戰鬥！')}}}}
 function loop(t){const dt=Math.min(.04,(t-last)/1000||0);last=t;move(dt);draw();raf=requestAnimationFrame(loop)}
 const keyMap={ArrowUp:'up',w:'up',W:'up',ArrowDown:'down',s:'down',S:'down',ArrowLeft:'left',a:'left',A:'left',ArrowRight:'right',d:'right',D:'right'};
 window.addEventListener('keydown',e=>{const gamePage=document.getElementById('adventureMap');if(!gamePage?.classList.contains('active'))return;const target=e.target;if(target&&/^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(target.tagName)&&!target.closest('#walkRpgModule'))return;const dir=keyMap[e.key];if(dir){held.add(dir);e.preventDefault()}if(e.key==='e'||e.key==='E'||e.key==='Enter'){interact();e.preventDefault()}});
@@ -2230,7 +2446,7 @@ loadArea(state.area in areas?state.area:'hanoi');if(!raf)raf=requestAnimationFra
 const KEY='vietnam-adventure-unified-core-v1',RPG_KEY='vietnam-adventure-walk-rpg-v1',XP_KEY='vietnam-adventure-exp-v1';
 const $=id=>document.getElementById(id),read=(k,d)=>{try{const v=JSON.parse(localStorage.getItem(k));return v??d}catch(_){return d}},write=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));return true}catch(_){return false}};
 const fresh=()=>({version:1,inventory:{},equipment:{head:'',feet:'',weapon:'',armor:''},hp:100,maxHp:100,battle:null,battleWins:{},starterGranted:false,log:[]});
-let data=read(KEY,fresh());if(!data||typeof data!=='object'||Array.isArray(data))data=fresh();data={...fresh(),...data,inventory:data.inventory&&typeof data.inventory==='object'?data.inventory:{},equipment:data.equipment&&typeof data.equipment==='object'?data.equipment:{},battleWins:data.battleWins&&typeof data.battleWins==='object'?data.battleWins:{}};
+let data=read(KEY,fresh());if(!data||typeof data!=='object'||Array.isArray(data))data=fresh();data={...fresh(),...data,inventory:data.inventory&&typeof data.inventory==='object'?data.inventory:{},equipment:data.equipment&&typeof data.equipment==='object'?data.equipment:{},battleWins:data.battleWins&&typeof data.battleWins==='object'?data.battleWins:{},gold:Math.max(0,Number(data.gold)||0),bestiary:data.bestiary&&typeof data.bestiary==='object'?data.bestiary:{},bossWins:data.bossWins&&typeof data.bossWins==='object'?data.bossWins:{},craftLevels:data.craftLevels&&typeof data.craftLevels==='object'?data.craftLevels:{}};
 const items={
  'quest-hanoi':{id:'quest-hanoi',icon:'📘',name:'古城導覽手冊',desc:'河內 NPC 任務紀念品',type:'collectible'},
  'quest-sapa':{id:'quest-sapa',icon:'🌿',name:'山村藥草包',desc:'沙壩 NPC 任務紀念品',type:'collectible'},
@@ -2243,6 +2459,7 @@ const items={
  vest:{id:'vest',icon:'🧥',name:'旅行防護背心',desc:'防禦 +4',type:'equipment',slot:'armor',def:4}
 };
 const areas={hanoi:{name:'河內',enemy:'古城搗蛋史萊姆',icon:'🟢',hp:42,atk:7},sapa:{name:'沙壩',enemy:'山林小野豬',icon:'🐗',hp:58,atk:9},halong:{name:'下龍灣',enemy:'海灣寄居蟹',icon:'🦀',hp:68,atk:10}};
+const wildPools={hanoi:[['古城搗蛋史萊姆','🟢',34,6],['還劍湖水精靈','💧',42,7],['老街飛天蝙蝠','🦇',38,8]],sapa:[['梯田山林野豬','🐗',54,9],['霧林小妖精','🧚',46,8],['高山岩石怪','🪨',66,10]],halong:[['海灣寄居蟹','🦀',62,10],['翡翠海龍','🐉',72,11],['漂流木怪','🪵',58,9]]};
 function save(){if(!write(KEY,data)){alert('背包資料保存失敗，可能是瀏覽器空間不足。原有旅遊資料未被修改。');return false}return true}
 function addItem(id,qty=1,source='manual'){if(!data.inventory[id]){const base=items[id]||{};data.inventory[id]={...base,qty:0,sources:[]}}const row=data.inventory[id];if(source&&row.sources?.includes(source))return false;row.qty=Math.max(0,Number(row.qty)||0)+qty;row.sources=row.sources||[];if(source)row.sources.push(source);save();return true}
 function ensureStarter(){if(data.starterGranted)return;addItem('potion',3,'starter-potions');addItem('pho',2,'starter-pho');addItem('hat',1,'starter-hat');addItem('shoes',1,'starter-shoes');data.starterGranted=true;save()}
@@ -2254,23 +2471,48 @@ function stats(){const eq=Object.values(data.equipment).filter(Boolean);return {
 function level(){return Math.floor(xp()/100)+1}
 function renderInventory(){const host=$('vaInventory');if(!host)return;const list=Object.values(data.inventory).filter(x=>(Number(x.qty)||0)>0);$('vaItemCount').textContent=list.reduce((n,x)=>n+(Number(x.qty)||0),0)+' 件';if(!list.length){host.innerHTML='<p class="va-muted">背包目前是空的，完成任務或挑戰怪物來收集物品。</p>';return}host.innerHTML=list.map(x=>`<div class="va-item"><span class="va-item-icon">${esc(x.icon||'🎁')}</span><div class="va-item-main"><b>${esc(x.name)}</b><small>${esc(x.desc||'冒險收藏品')} · 數量 ${Number(x.qty)||0}</small></div>${x.type==='equipment'?`<button class="secondary" type="button" onclick="VAUnified.equip('${esc(x.id)}')">裝備</button>`:''}</div>`).join('')}
 function renderEquipment(){const slots={head:'vaHead',feet:'vaFeet',weapon:'vaWeapon',armor:'vaArmor'};Object.entries(slots).forEach(([slot,id])=>$(id).textContent=data.equipment[slot]?.name||'尚未裝備');const st=stats();$('vaStatsText').textContent=`攻擊 ${st.atk} · 防禦 ${st.def} · 等級 ${level()}`;$('vaEquipChoices').innerHTML=Object.values(data.inventory).filter(x=>x.type==='equipment'&&x.qty>0).map(x=>`<span class="va-tag">${esc(x.icon)} ${esc(x.name)} ${data.equipment[x.slot]?.id===x.id?'（已裝備）':''}</span>`).join('')||'<span class="va-muted">尚無裝備</span>'}
-function renderBattle(){const b=data.battle;const st=stats();$('vaXP').textContent=xp()+' EXP';$('vaLevel').textContent='Lv. '+level();$('vaHP').textContent=Math.max(0,data.hp)+' / '+data.maxHp;$('vaHPBar').style.width=(Math.max(0,data.hp)/Math.max(1,data.maxHp)*100)+'%';if(b){$('vaEnemyName').textContent=b.icon+' '+b.name;$('vaEnemyHP').textContent=Math.max(0,b.hp)+' / '+b.maxHp+' HP';$('vaEnemyBar').style.width=(Math.max(0,b.hp)/b.maxHp*100)+'%';$('vaBattleIntro').textContent='正在戰鬥：'+areas[b.area].name+' · 攻擊 '+st.atk+' · 防禦 '+st.def}else{$('vaEnemyName').textContent='尚未遭遇怪物';$('vaEnemyHP').textContent='—';$('vaEnemyBar').style.width='0%';$('vaBattleIntro').textContent='選擇目前場景的怪物進行挑戰。每個地區每日首次勝利才會發放獎勵。'}}
-function render(){renderInventory();renderEquipment();renderBattle();renderTravel()}
+function renderBattle(){const b=data.battle;const st=stats();$('vaXP').textContent=xp()+' EXP';$('vaLevel').textContent='Lv. '+level();$('vaHP').textContent=Math.max(0,data.hp)+' / '+data.maxHp;$('vaHPBar').style.width=(Math.max(0,data.hp)/Math.max(1,data.maxHp)*100)+'%';if(b){$('vaEnemyName').textContent=b.icon+' '+b.name;$('vaEnemyHP').textContent=Math.max(0,b.hp)+' / '+b.maxHp+' HP';$('vaEnemyBar').style.width=(Math.max(0,b.hp)/b.maxHp*100)+'%';$('vaBattleIntro').textContent='正在戰鬥：'+areas[b.area].name+' · 攻擊 '+st.atk+' · 防禦 '+st.def}else{$('vaEnemyName').textContent='尚未遭遇怪物';$('vaEnemyHP').textContent='—';$('vaEnemyBar').style.width='0%';$('vaBattleIntro').textContent='選擇目前場景的怪物進行挑戰。每次勝利都會發放基本獎勵。'}}
+function render(){renderInventory();renderEquipment();renderBattle();renderTravel();renderRpgGrowth()}
 function equip(id){const x=data.inventory[id];if(!x||x.type!=='equipment'||x.qty<1)return;data.equipment[x.slot]=x;save();render();log('已裝備 '+x.name+'。')}
-function log(msg){const host=$('vaBattleLog');if(host){const p=document.createElement('div');p.textContent=msg;host.prepend(p);while(host.children.length>8)host.lastChild.remove()}}
+function log(msg){['vaBattleLog','walkWildLog'].forEach(id=>{const host=$(id);if(host){const p=document.createElement('div');p.textContent=msg;host.prepend(p);while(host.children.length>8)host.lastChild.remove()}})}
 function today(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
 function currentArea(){const r=read(RPG_KEY,{});return areas[r.area]?r.area:'hanoi'}
-function startBattle(){if(data.hp<=0){log('生命值不足，請先使用補給藥水。');return}const area=currentArea(),a=areas[area];if(data.battleWins[area+'-'+today()]){log('今天已完成 '+a.name+' 的勝利挑戰，明天再來領取新的獎勵！');return}data.battle={area,name:a.enemy,icon:a.icon,maxHp:a.hp,hp:a.hp,atk:a.atk};save();renderBattle();log('遭遇 '+a.enemy+'！選擇攻擊開始戰鬥。')}
-function attack(){const b=data.battle;if(!b){log('請先開始挑戰。');return}if(b.hp<=0)return;const st=stats(),crit=Math.random()<.15,damage=Math.max(1,st.atk+(crit?7:0));b.hp=Math.max(0,b.hp-damage);log(`你造成 ${damage} 點傷害${crit?'（會心一擊！）':''}。`);if(b.hp<=0){const key=b.area+'-'+today();data.battleWins[key]=true;data.battle=null;const award=15;try{if(typeof window.addSquadExp==='function')window.addSquadExp(award);else write(XP_KEY,xp()+award)}catch(_){write(XP_KEY,xp()+award)}addItem('pho',1,'battle-'+key);save();render();log('勝利！獲得 EXP +15 與河粉能量包 ×1。');return}const incoming=Math.max(1,b.atk-stats().def);data.hp=Math.max(0,data.hp-incoming);if(data.hp<=0){data.battle=null;log('角色體力耗盡，戰鬥結束。使用補給藥水恢復後再挑戰。')}else log(b.name+' 反擊，造成 '+incoming+' 點傷害。');save();renderBattle()}
+function startBattle(){if(data.hp<=0){log('生命值不足，請先使用補給藥水。');return}const area=currentArea(),a=areas[area];if(data.battleWins[area+'-'+today()])log('再次挑戰 '+a.name+'！本次勝利仍可獲得獎勵。');data.battle={area,name:a.enemy,icon:a.icon,maxHp:a.hp,hp:a.hp,atk:a.atk};save();renderBattle();log('遭遇 '+a.enemy+'！選擇攻擊開始戰鬥。')}
+function addAdventureXP(amount){try{if(typeof window.addSquadExp==='function')window.addSquadExp(amount);else write(XP_KEY,xp()+amount)}catch(_){write(XP_KEY,xp()+amount)}}
+function areaMaterial(area){return area==='hanoi'?'slime-gel':area==='sapa'?'mountain-herb':'sea-shell'}
+const materialInfo={'slime-gel':['🟢','史萊姆黏液'],'mountain-herb':['🌿','山林藥草'],'sea-shell':['🐚','海灣貝殼']};
+const rareInfo={hanoi:['💠','古城星光晶核'],sapa:['🔮','霧峰水晶'],halong:['🦪','翡翠珍珠']};
+function giveMaterial(id,qty=1){const info=materialInfo[id];if(!data.inventory[id])data.inventory[id]={id,icon:info[0],name:info[1],desc:'野外戰鬥與鍛造素材',type:'material',qty:0,sources:[]};data.inventory[id].qty=(Number(data.inventory[id].qty)||0)+qty}
+function showVictoryReward(message){let panel=document.getElementById('vaVictoryReward');if(!panel){panel=document.createElement('div');panel.id='vaVictoryReward';panel.setAttribute('role','status');panel.setAttribute('aria-live','assertive');panel.innerHTML='<div class="va-victory-card"><div class="va-victory-emblem">🏆</div><h2>戰鬥勝利！</h2><p id="vaVictoryMessage"></p><button type="button" onclick="VAUnified.closeVictory()">收下獎勵，繼續冒險</button></div>';document.body.appendChild(panel)}const msg=panel.querySelector('#vaVictoryMessage');if(msg)msg.textContent=message;panel.hidden=false;panel.classList.add('show')}
+function closeVictory(){const panel=document.getElementById('vaVictoryReward');if(panel){panel.classList.remove('show');panel.hidden=true}}
+function winBattle(b){const area=b.area||'hanoi',name=b.name||'未知怪物',key=area+'-'+name;data.bestiary[key]=(Number(data.bestiary[key])||0)+1;data.battleWins[area+'-'+today()]=true;data.battle=null;
+ let expReward=b.boss?80:20,goldReward=b.boss?50:(8+Math.floor(Math.random()*11));addAdventureXP(expReward);data.gold+=goldReward;
+ const material=areaMaterial(area);giveMaterial(material,b.boss?3:1);
+ let rare='';if(b.boss||Math.random()<0.12){const r=rareInfo[area]||rareInfo.hanoi;const id='rare-'+area;if(!data.inventory[id])data.inventory[id]={id,icon:r[0],name:r[1],desc:'稀有戰利品，可用於收藏與特殊鍛造',type:'rare',qty:0,sources:[]};data.inventory[id].qty++;rare=r[1];}
+ if(b.boss){data.bossWins[area]=true;}
+ save();render();const materialName=materialInfo[material][1];let msg=(b.boss?'👑 頭目討伐成功！':'🏆 勝利！')+' EXP +'+expReward+'、金幣 +'+goldReward+'、'+materialName+' ×'+(b.boss?3:1)+'。';if(rare)msg+=' 🌟 稀有掉落：'+rare+'！';if(!b.boss&&data.bestiary[key]===1)msg+=' 📖 已登錄怪物圖鑑！';if(!b.boss&&Object.entries(data.bestiary).filter(([k,v])=>k.startsWith(area+'-')).reduce((n,[k,v])=>n+v,0)>=5)msg+=' 🐲 區域頭目已解鎖！';log(msg);showVictoryReward(msg);}
+function takeEnemyTurn(b){const incoming=Math.max(1,b.atk-stats().def);data.hp=Math.max(0,data.hp-incoming);if(data.hp<=0){data.battle=null;log('💤 體力耗盡！請使用藥水或河粉補給後再探索。')}else log(b.name+' 反擊，造成 '+incoming+' 點傷害。');save();renderBattle()}
+function attack(){const b=data.battle;if(!b){log('請先開始挑戰。');return}if(b.hp<=0)return;const st=stats(),crit=Math.random()<.15,damage=Math.max(1,st.atk+(crit?7:0));b.hp=Math.max(0,b.hp-damage);log(`你造成 ${damage} 點傷害${crit?'（會心一擊！）':''}。`);if(b.hp<=0){winBattle(b);return}takeEnemyTurn(b)}
+function startWildBattle(areaId){const area=areas[areaId]?areaId:'hanoi';if(data.hp<=0){log('體力不足！請先使用補給藥水再探索。');return false}if(data.battle)return false;const pool=wildPools[area]||wildPools.hanoi,monster=pool[Math.floor(Math.random()*pool.length)];data.battle={area,name:monster[0],icon:monster[1],maxHp:monster[2],hp:monster[2],atk:monster[3],wild:true};save();renderBattle();log('🌿 草叢晃動……野生的 '+monster[0]+' 出現了！');return true}
+function getBattle(){const b=data.battle;if(!b)return null;return {area:b.area,name:b.name,icon:b.icon,hp:b.hp,maxHp:b.maxHp,playerHp:data.hp,maxPlayerHp:data.maxHp,wild:!!b.wild}}
+function currentSkill(){const lv=level();if(lv>=8)return {name:'翡翠潮汐',multiplier:2.5,unlock:8};if(lv>=5)return {name:'山嵐重擊',multiplier:2.2,unlock:5};if(lv>=3)return {name:'旋風斬',multiplier:2,unlock:3};return {name:'強力技能',multiplier:1.8,unlock:1}}
+function skillAttack(){const b=data.battle;if(!b){log('目前沒有遇到怪物。');return}if(b.hp<=0)return;const st=stats(),skill=currentSkill(),damage=Math.max(2,Math.round(st.atk*skill.multiplier+Math.floor(Math.random()*5)));b.hp=Math.max(0,b.hp-damage);log('✨ 使出「'+skill.name+'」，造成 '+damage+' 點傷害！');if(b.hp<=0){winBattle(b);return}takeEnemyTurn(b)}
 function flee(){if(!data.battle){log('目前沒有進行中的戰鬥。');return}data.battle=null;save();renderBattle();log('你安全撤退了，之後可以再來挑戰。')}
 function usePotion(){const x=data.inventory.potion;if(!x||x.qty<1){log('沒有草本補給藥水；可在補給商店領取。');return}if(data.hp>=data.maxHp){log('生命值已滿，不需要使用藥水。');return}x.qty--;data.hp=Math.min(data.maxHp,data.hp+35);save();render();log('使用草本補給藥水，恢復 35 HP。')}
 function usePho(){const x=data.inventory.pho;if(!x||x.qty<1){log('沒有河粉能量包；可在補給商店領取。');return}if(data.hp>=data.maxHp){log('生命值已滿，不需要使用補給。');return}x.qty--;data.hp=Math.min(data.maxHp,data.hp+20);save();render();log('享用河粉能量包，恢復 20 HP。')}
 function addStarterSupply(){addItem('potion',1,'supply-'+Date.now());addItem('pho',1,'supply-pho-'+Date.now());save();render();log('補給商店：取得草本補給藥水 ×1、河粉能量包 ×1。')}
+const craftRecipes=[{id:'blade',name:'精製探險短刀',icon:'🗡️',desc:'攻擊 +7',material:'slime-gel',cost:3,gold:35,slot:'weapon',atk:7,def:0},{id:'vest',name:'山嵐防護背心',icon:'🧥',desc:'防禦 +7',material:'mountain-herb',cost:3,gold:35,slot:'armor',atk:0,def:7},{id:'shell-shield',name:'海灣貝殼盾',icon:'🛡️',desc:'攻擊 +2、防禦 +5',material:'sea-shell',cost:3,gold:35,slot:'armor',atk:2,def:5}];
+const bossInfo={hanoi:{name:'還劍湖古龍',icon:'🐉',hp:150,atk:14},sapa:{name:'霧峰守護巨獸',icon:'🦍',hp:185,atk:17},halong:{name:'翡翠海龍王',icon:'🐲',hp:220,atk:19}};
+function materialQty(id){return Number(data.inventory[id]?.qty)||0}
+function craft(id){const r=craftRecipes.find(x=>x.id===id);if(!r)return;if(data.gold<r.gold||materialQty(r.material)<r.cost){log('素材或金幣不足，暫時無法鍛造。');return}data.gold-=r.gold;data.inventory[r.material].qty-=r.cost;const itemId='crafted-'+id;const old=data.inventory[itemId];if(old){old.qty=(Number(old.qty)||0)+1}else data.inventory[itemId]={id:itemId,icon:r.icon,name:r.name,desc:r.desc,type:'equipment',slot:r.slot,atk:r.atk,def:r.def,qty:1,sources:['crafted']};save();render();log('🔨 鍛造完成：'+r.name+'！記得在背包按「裝備」使用。')}
+function upgradeEquipped(slot){const item=data.equipment[slot];if(!item){log('請先裝備此欄位的裝備。');return}const level=Number(data.craftLevels[item.id])||0;const mat=slot==='weapon'?'slime-gel':slot==='armor'?'sea-shell':'mountain-herb';const cost=2+level,gold=25+level*15;if(materialQty(mat)<cost||data.gold<gold){log('強化需要 '+materialInfo[mat][1]+' ×'+cost+' 與金幣 '+gold+'。');return}data.inventory[mat].qty-=cost;data.gold-=gold;data.craftLevels[item.id]=level+1;item.atk=(Number(item.atk)||0)+(slot==='weapon'?2:1);item.def=(Number(item.def)||0)+(slot==='weapon'?0:2);save();render();log('✨ '+item.name+' 強化至 +'+(level+1)+'！攻擊／防禦能力提升。')}
+function startBoss(areaId){const area=areas[areaId]?areaId:currentArea(),info=bossInfo[area];if(data.bossWins[area]){log('這個地區的頭目已經被你擊敗，榮耀紀錄已保存！');return}if(data.battle){log('請先完成目前戰鬥。');return}const kills=Object.entries(data.bestiary).filter(([k])=>k.startsWith(area+'-')).reduce((n,[k,v])=>n+(Number(v)||0),0);if(kills<5){log('還需要擊敗 '+(5-kills)+' 隻此地區怪物，才能召喚區域頭目。');return}if(data.hp<=0){log('生命值不足，請先補給。');return}data.battle={area,name:info.name,icon:info.icon,maxHp:info.hp,hp:info.hp,atk:info.atk,wild:true,boss:true};save();renderBattle();log('⚠️ 區域頭目 '+info.name+' 出現了！做好準備！');if(window.WalkRPGEncounter)window.WalkRPGEncounter.refresh()}
+function renderRpgGrowth(){const set=(id,v)=>{const e=$(id);if(e)e.textContent=v};set('vaGold',data.gold.toLocaleString());const entries=Object.entries(data.bestiary),kills=entries.reduce((n,[k,v])=>n+(Number(v)||0),0),rare=Object.values(data.inventory).filter(x=>x.type==='rare'&&x.qty>0).reduce((n,x)=>n+x.qty,0);set('vaMonsterKills',kills);set('vaRareCount',rare);set('vaRpgProgress','每次勝利固定獲得 EXP、金幣與地區素材；稀有物品掉落率 12%，頭目必定掉落稀有物品。');const craftHost=$('vaCrafting');if(craftHost)craftHost.innerHTML=craftRecipes.map(r=>{const enough=materialQty(r.material)>=r.cost&&data.gold>=r.gold;return `<div class="va-craft-row"><span style="font-size:25px">${r.icon}</span><div class="va-craft-copy"><b>${esc(r.name)}</b><small>${esc(r.desc)} · ${esc(materialInfo[r.material][1])} ${materialQty(r.material)}/${r.cost} · 💰 ${r.gold}</small></div><button class="secondary" ${enough?'':'disabled'} onclick="VAUnified.craft('${r.id}')">鍛造</button></div>`}).join('');const skillHost=$('vaSkillTree');if(skillHost){const tiers=[{lv:1,name:'強力技能',desc:'基礎必殺技',icon:'✨'},{lv:3,name:'旋風斬',desc:'技能傷害提升',icon:'🌪️'},{lv:5,name:'山嵐重擊',desc:'技能傷害再次提升',icon:'⛰️'},{lv:8,name:'翡翠潮汐',desc:'最高階技能',icon:'🌊'}];skillHost.innerHTML=tiers.map(t=>`<div class="va-bestiary-row"><span>${t.icon}</span><div class="va-bestiary-copy"><b>${t.name}</b><small>Lv. ${t.lv} 解鎖 · ${t.desc}</small></div><span>${level()>=t.lv?'✓ 已解鎖':'🔒 未解鎖'}</span></div>`).join('')}const best=$('vaBestiary');if(best){const rows=entries.sort((a,b)=>b[1]-a[1]).map(([key,count])=>{const name=key.slice(key.indexOf('-')+1);return `<div class="va-bestiary-row"><span>👾</span><div class="va-bestiary-copy"><b>${esc(name)}</b><small>擊敗 ${count} 次</small></div></div>`}).join('');best.innerHTML=rows||'<p class="va-muted">尚未登錄怪物。走進草叢，開始第一次遭遇戰吧！</p>'}const boss=$('vaBosses');if(boss)boss.innerHTML=Object.entries(bossInfo).map(([area,info])=>{const kills=Object.entries(data.bestiary).filter(([k])=>k.startsWith(area+'-')).reduce((n,[k,v])=>n+(Number(v)||0),0),done=!!data.bossWins[area],ready=kills>=5&&!done;return `<div class="va-boss-row"><span style="font-size:25px">${info.icon}</span><div class="va-boss-copy"><b>${esc(areas[area].name)}・${esc(info.name)}</b><small>${done?'✓ 已討伐完成':`頭目解鎖進度 ${Math.min(5,kills)}/5 隻普通怪物`}</small></div><button class="secondary" ${ready?'':'disabled'} onclick="VAUnified.startBoss('${area}')">${done?'已完成':ready?'挑戰頭目':'未解鎖'}</button></div>`}).join('')}
 function renderTravel(){const expenses=read('expenses',[]),foods=read('foods',[]),days=read('vietnam-adventure-itinerary-v3',[]);$('vaExpenseCount').textContent=(Array.isArray(expenses)?expenses.length:0)+' 筆';$('vaFoodCount').textContent=(Array.isArray(foods)?foods.length:0)+' 種';$('vaTripCount').textContent=(Array.isArray(days)?days.length:0)+' 天';$('vaDiaryCount').textContent='讀取中';$('vaPhotoCount').textContent='讀取中';const host=$('vaSyncStatus');if(host)host.textContent='已讀取原有行程、支出與美食資料；日記與照片由原本的資料庫函式非破壞性讀取。';try{if(typeof diaryGetAll==='function'&&typeof photoGetAll==='function'){Promise.all([diaryGetAll(),photoGetAll()]).then(([diaries,photos])=>{$('vaDiaryCount').textContent=diaries.length+' 篇';$('vaPhotoCount').textContent=photos.length+' 張'}).catch(()=>{$('vaDiaryCount').textContent='暫時無法讀取';$('vaPhotoCount').textContent='暫時無法讀取'})}else{$('vaDiaryCount').textContent='尚未載入';$('vaPhotoCount').textContent='尚未載入'}}catch(_){$('vaDiaryCount').textContent='暫時無法讀取';$('vaPhotoCount').textContent='暫時無法讀取'}}
 function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function refresh(){syncRpg();syncLegacyLoot();render();log('整合資料已更新。')}
 ensureStarter();syncRpg();syncLegacyLoot();render();
-window.VAUnified={refresh,equip,startBattle,attack,flee,usePotion,usePho,addStarterSupply};
+window.VAUnified={refresh,equip,startBattle,startWildBattle,getBattle,attack,skillAttack,flee,usePotion,usePho,addStarterSupply,craft,startBoss,upgradeEquipped,closeVictory};
 const canvas=$('walkRpgCanvas');if(canvas&&window.MutationObserver){const obs=new MutationObserver(()=>syncRpg());const d=$('walkRpgDialog');if(d)obs.observe(d,{childList:true,subtree:true,characterData:true})}
 window.addEventListener('storage',e=>{if(e.key===XP_KEY||e.key===RPG_KEY)refresh()});
 })();
@@ -2585,6 +2827,240 @@ header h1,.pixel-game-logo{ text-shadow:none!important }
 }
 </style>
 
+
+<script id="v44-readiness-script">
+(function(){
+ 'use strict';
+ const CHECKS_KEY='checks';
+ const ITINERARY_KEY='vietnam-adventure-itinerary-v3';
+ const TASKS_KEY='vietnam-adventure-itinerary-tasks-v1';
+ const CHECK_TOTAL=8;
+ function read(key,fallback){try{const value=JSON.parse(localStorage.getItem(key));return value==null?fallback:value}catch(_){return fallback}}
+ function getCounts(){
+   const checked=read(CHECKS_KEY,[]);
+   const checkDone=Array.isArray(checked)?new Set(checked.filter(x=>Number.isInteger(x)&&x>=0&&x<CHECK_TOTAL)).size:0;
+   let days=read(ITINERARY_KEY,null);
+   if(!Array.isArray(days)||!days.length){try{days=typeof DEFAULT_DAYS!=='undefined'?DEFAULT_DAYS:[]}catch(_){days=[]}}
+   const taskState=read(TASKS_KEY,{});
+   let taskTotal=0,taskDone=0;
+   if(Array.isArray(days))days.forEach((day,di)=>{
+     const events=Array.isArray(day&&day.events)?day.events:[];
+     events.forEach((event,ei)=>{
+       taskTotal++;
+       try{
+         if(typeof isItineraryTaskDone==='function'&&typeof days!=='undefined'){
+           const originalDays=window.__v44DaysBackup;
+           if(originalDays===undefined)window.__v44DaysBackup=days;
+           if(isItineraryTaskDone(di,ei))taskDone++;
+         }else{
+           const key=[String(day.date||di),String(day.title||''),String(event[0]||''),String(event[1]||'')].join('::');
+           if(taskState&&taskState[key]===true)taskDone++;
+         }
+       }catch(_){}
+     });
+   });
+   return {checkDone,taskDone,taskTotal};
+ }
+ function update(){
+   const c=getCounts(),total=CHECK_TOTAL+c.taskTotal,done=c.checkDone+c.taskDone;
+   const pct=total?Math.round(done/total*100):Math.round(c.checkDone/CHECK_TOTAL*100);
+   const set=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value};
+   set('v44ChecksCount',c.checkDone+'/'+CHECK_TOTAL);
+   set('v44ItineraryCount',c.taskDone+'/'+c.taskTotal);
+   set('v44ReadinessPercent',pct+'%');
+   set('v44ReadinessCaption',done===total?'準備項目已全部完成，出發前仍請再次核對重要文件':'還有 '+(total-done)+' 項待完成，點擊下方按鈕繼續整理');
+   const fill=document.getElementById('v44ReadinessFill'),bar=document.getElementById('v44ReadinessBar');
+   if(fill)fill.style.width=pct+'%';if(bar)bar.setAttribute('aria-valuenow',String(pct));
+   set('v44ChecklistProgress','已完成 '+c.checkDone+' / '+CHECK_TOTAL+' 項出發檢查');
+   const cf=document.getElementById('v44ChecklistFill'),cb=document.getElementById('v44ChecklistBar');
+   const cp=Math.round(c.checkDone/CHECK_TOTAL*100);
+   if(cf)cf.style.width=cp+'%';if(cb)cb.setAttribute('aria-valuenow',String(cp));
+ }
+ function bind(){
+   update();
+   const checklist=document.getElementById('checklist');
+   if(checklist&&!checklist.dataset.v44Bound){
+     checklist.dataset.v44Bound='true';
+     checklist.addEventListener('change',()=>setTimeout(update,0));
+   }
+   const originalToggle=window.toggleCheck;
+   if(typeof originalToggle==='function'&&!originalToggle.__v44Wrapped){
+     const wrapped=function(){const result=originalToggle.apply(this,arguments);setTimeout(update,0);return result};
+     wrapped.__v44Wrapped=true;window.toggleCheck=wrapped;
+   }
+   const originalTask=window.toggleItineraryTask;
+   if(typeof originalTask==='function'&&!originalTask.__v44Wrapped){
+     const wrappedTask=function(){const result=originalTask.apply(this,arguments);setTimeout(update,0);return result};
+     wrappedTask.__v44Wrapped=true;window.toggleItineraryTask=wrappedTask;
+   }
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind,{once:true});else bind();
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)update()});
+ window.addEventListener('storage',update);
+ window.v44UpdateReadiness=update;
+})();
+</script>
+
+
+<script id="walk-rpg-encounter-controller">
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+let wasOpen=false;
+function mount(){
+ const box=$('walkWildBattle');
+ if(!box)return;
+ // 將戰鬥場景移到 body 最外層，避免被地圖容器、捲動區或導覽列裁切。
+ if(box.parentElement!==document.body)document.body.appendChild(box);
+ box.setAttribute('role','dialog');
+ box.setAttribute('aria-modal','true');
+ box.setAttribute('aria-label','全螢幕野外戰鬥');
+ if(!$('walkWildPlayerAvatar')){
+  const avatar=document.createElement('div');
+  avatar.id='walkWildPlayerAvatar';
+  avatar.className='walk-wild-player-avatar';
+  avatar.setAttribute('aria-hidden','true');
+  avatar.textContent='🧑‍🌾';
+  const player=$('walkWildPlayer');
+  if(player)player.insertBefore(avatar,player.firstChild);
+ }
+}
+function refresh(){
+ const box=$('walkWildBattle'),b=window.VAUnified?.getBattle?.();
+ if(!box)return;
+ if(box.parentElement!==document.body)mount();
+ const active=!!b;
+ box.hidden=!active;
+ document.body.classList.toggle('walk-battle-open',active);
+ if(!active){wasOpen=false;return}
+ wasOpen=true;
+ $('walkWildArea').textContent=({hanoi:'🏮 河內古城',sapa:'⛰️ 沙壩山村',halong:'⛵ 下龍港口'})[b.area]||'北越冒險區域';
+ $('walkWildMonsterIcon').textContent=b.icon;
+ $('walkWildMonsterName').textContent=b.name;
+ $('walkWildMonsterHp').textContent='HP '+Math.max(0,b.hp)+' / '+b.maxHp;
+ $('walkWildMonsterBar').style.width=(Math.max(0,b.hp)/Math.max(1,b.maxHp)*100)+'%';
+ $('walkWildPlayerHp').textContent='冒險者　HP '+Math.max(0,b.playerHp)+' / '+b.maxPlayerHp;
+ const oldLog=$('vaBattleLog');
+ const log=$('walkWildLog');
+ if(oldLog&&log&&oldLog.textContent.trim())log.textContent=oldLog.textContent.trim();
+ const hpPct=Math.max(0,b.playerHp)/Math.max(1,b.maxPlayerHp)*100;
+ let playerBar=$('walkWildPlayerBar');
+ if(playerBar)playerBar.style.width=hpPct+'%';
+}
+function action(fn){return function(){
+ if(typeof window.VAUnified?.[fn]==='function')window.VAUnified[fn]();
+ refresh();
+};}
+window.WalkRPGEncounter={refresh,attack:action('attack'),skill:action('skillAttack'),potion:action('usePotion'),flee:action('flee')};
+document.addEventListener('DOMContentLoaded',()=>{mount();refresh();});
+document.addEventListener('keydown',e=>{
+ const b=window.VAUnified?.getBattle?.();
+ if(!b)return;
+ // 戰鬥時鎖住地圖鍵盤操作，避免方向鍵或互動鍵穿透到後方場景。
+ if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' ','Enter','e','E','w','a','s','d','W','A','S','D'].includes(e.key)){
+  e.preventDefault();e.stopPropagation();
+ }
+},true);
+document.addEventListener('pointerdown',e=>{
+ if(window.VAUnified?.getBattle?.()){
+  const box=$('walkWildBattle');
+  if(box&&!box.contains(e.target)){e.preventDefault();e.stopPropagation();}
+ }
+},true);
+setInterval(refresh,250);
+})();
+</script>
+
+
+<script id="v48-rpg-one-page-tabs-script">
+(()=>{
+ 'use strict';
+ const init=()=>{
+  const panel=document.getElementById('vaUnifiedPanel');
+  if(!panel||panel.dataset.v48TabsReady==='1')return;
+  const grid=panel.querySelector('.va-grid');
+  const hero=panel.querySelector('.va-hero');
+  if(!grid||!hero)return;
+  const bagCard=grid.querySelector('#vaInventory')?.closest('.va-subcard');
+  const equipmentCard=grid.querySelector('#vaHead')?.closest('.va-subcard');
+  const battleCard=grid.querySelector('#vaBattleIntro')?.closest('.va-subcard');
+  const growthCard=grid.querySelector('#vaCrafting')?.closest('.va-subcard');
+  const travelCard=grid.querySelector('#vaSyncStatus')?.closest('.va-subcard');
+  if(!bagCard||!equipmentCard||!battleCard||!growthCard||!travelCard)return;
+  const squad=document.getElementById('squadPanel');
+  const nav=document.createElement('div');nav.className='va-hub-tabs';nav.setAttribute('role','tablist');nav.setAttribute('aria-label','RPG 冒險中心分類');
+  const views=document.createElement('div');views.className='va-hub-views';
+  const defs=[
+   {id:'battle',label:'冒險戰鬥',icon:'⚔️',hint:'角色狀態與戰鬥'},
+   {id:'bag',label:'背包戰利品',icon:'🎒',hint:'道具、素材與收藏'},
+   {id:'equipment',label:'角色裝備',icon:'🛡️',hint:'裝備、鍛造與強化'},
+   {id:'codex',label:'技能圖鑑',icon:'📖',hint:'技能、怪物與頭目'}
+  ];
+  const panes={};
+  defs.forEach((d,i)=>{
+   const b=document.createElement('button');b.type='button';b.id='vaHubTab-'+d.id;b.dataset.vaHubTab=d.id;b.setAttribute('role','tab');b.setAttribute('aria-controls','vaHubPane-'+d.id);b.setAttribute('aria-selected',i===0?'true':'false');b.tabIndex=i===0?0:-1;b.innerHTML='<span aria-hidden="true">'+d.icon+'</span> '+d.label;b.title=d.hint;nav.appendChild(b);
+   const pane=document.createElement('section');pane.id='vaHubPane-'+d.id;pane.className='va-hub-pane'+(i===0?' is-active':'');pane.setAttribute('role','tabpanel');pane.setAttribute('aria-labelledby',b.id);pane.hidden=i!==0;panes[d.id]=pane;views.appendChild(pane);
+   b.addEventListener('click',()=>activate(d.id));
+   b.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();const idx=defs.findIndex(x=>x.id===d.id);const next=e.key==='Home'?0:e.key==='End'?defs.length-1:(idx+(e.key==='ArrowRight'?1:-1)+defs.length)%defs.length;const target=nav.querySelector('[data-va-hub-tab="'+defs[next].id+'"]');target?.click();target?.focus()});
+  });
+  function activate(id){defs.forEach(d=>{const active=d.id===id,b=nav.querySelector('[data-va-hub-tab="'+d.id+'"]'),p=panes[d.id];b.setAttribute('aria-selected',active?'true':'false');b.tabIndex=active?0:-1;p.hidden=!active;p.classList.toggle('is-active',active)});}
+  panel.insertBefore(nav,hero.nextSibling);panel.insertBefore(views,nav.nextSibling);
+  const wallet=growthCard.querySelector('.va-rpg-wallet');
+  const progress=growthCard.querySelector('#vaRpgProgress');
+  if(wallet)panes.battle.appendChild(wallet);
+  if(progress)panes.battle.appendChild(progress);
+  panes.battle.appendChild(battleCard);
+  panes.bag.appendChild(bagCard);
+  if(squad){squad.querySelector('h2')?.replaceChildren(document.createTextNode('🎁 景點收藏與冒險小隊'));panes.bag.appendChild(squad)}
+  panes.equipment.appendChild(equipmentCard);
+  const growthTitles=[...growthCard.querySelectorAll('.va-rpg-subtitle')];
+  growthTitles.forEach(title=>{
+   const content=title.nextElementSibling;if(!content)return;
+   const t=title.textContent||'';
+   if(t.includes('鍛造')){panes.equipment.appendChild(title);panes.equipment.appendChild(content)}
+   else{panes.codex.appendChild(title);panes.codex.appendChild(content)}
+  });
+  growthCard.remove();
+  travelCard.classList.add('va-hub-travel');panel.appendChild(travelCard);
+  grid.remove();
+  panel.dataset.v48TabsReady='1';
+  // 預設開啟冒險戰鬥；切換分類不會重設任何遊戲資料。
+ };
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+</script>
+
+
+<style id="v49-connected-world-integration-style">
+.walk-rpg-world-route{display:flex;flex-wrap:wrap;align-items:center;gap:7px 13px;margin:10px 0;padding:10px 12px;border:2px solid #a8874f;border-radius:10px;background:linear-gradient(90deg,#fff4d5,#e8f3d9);color:#49351d;font-weight:900}
+.walk-rpg-world-route span{padding:4px 8px;border-radius:7px;background:#fff;border:1px solid #d5c18e;font-size:13px}
+.walk-rpg-world-route small{flex-basis:100%;font-weight:700;color:#675b43}
+.walk-rpg-base-divider{display:flex;flex-direction:column;gap:4px;margin:22px 0 10px;padding:12px 14px;border:2px solid #9c7a43;border-radius:11px;background:linear-gradient(90deg,#f7e8bd,#e8f2d9);color:#4b351d}
+.walk-rpg-base-divider span{font-size:19px;font-weight:1000}.walk-rpg-base-divider small{font-size:12px;font-weight:700}
+.walk-rpg-base-mount>#vaUnifiedPanel{margin:0!important;max-width:none!important}
+#walkRpgModule .va-hub-tabs{position:sticky;top:4px;z-index:20}
+#walkRpgModule .va-hub-pane{scroll-margin-top:70px}
+#walkRpgModule .va-hub-travel{margin-top:12px}
+@media(max-width:620px){.walk-rpg-world-route{font-size:13px}.walk-rpg-world-route span{font-size:11px}.walk-rpg-base-divider span{font-size:17px}}
+</style>
+<script id="v49-connected-world-and-base-integration">
+(()=>{'use strict';
+ function integrate(){
+  const module=document.getElementById('walkRpgModule');
+  const panel=document.getElementById('vaUnifiedPanel');
+  const mount=document.getElementById('vaUnifiedPanelMount');
+  if(module&&panel&&mount&&panel.parentElement!==mount)mount.appendChild(panel);
+  // RPG 中心已成為自由探索世界的一部分；舊入口自動帶回同一冒險頁，不再要求玩家切換。
+  const original=window.showPage;
+  if(typeof original==='function'&&!original.__v49UnifiedRoute){
+   const routed=function(id){return original.call(this,id==='loot'?'adventureMap':id)};
+   routed.__v49UnifiedRoute=true;window.showPage=routed;
+  }
+  const oldLoot=document.getElementById('loot');
+  if(oldLoot){oldLoot.setAttribute('aria-label','RPG 已整合至自由探索世界');const notice=oldLoot.querySelector('.notice');if(notice)notice.textContent='RPG 冒險基地已整合進「自由探索世界」頁面。從此不必在探索地圖與冒險者基地之間切換。';}
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',integrate,{once:true});else integrate();
+})();
+</script>
 </body></html>
 
 <style id="six-item-bottom-navigation-fix">
@@ -2607,3 +3083,319 @@ body{padding-bottom:82px!important}
 .ai-setup-details{margin:14px 0;padding:12px;border:1px solid #d5c9ef;border-radius:11px;background:#fff}.ai-setup-details summary{cursor:pointer;font-weight:900}.ai-setup-details label,.ai-assistant-panel>label{display:block;margin:10px 0 5px;font-weight:800}.ai-setup-details input[type=url],.ai-assistant-panel textarea{width:100%;box-sizing:border-box;border:1px solid #c9c1d9;border-radius:9px;padding:11px;background:#fff;color:#292538}.ai-setup-actions,.ai-chat-actions{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:9px}.ai-data-consent{margin:14px 0;padding:12px;border-radius:10px;background:#f0edfa}.ai-data-consent p{margin:5px 0 9px}.ai-consent-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.ai-consent-grid label{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700}.ai-consent-grid input{width:17px;height:17px;accent-color:#7054b5}.ai-chat-log{display:flex;flex-direction:column;gap:9px;max-height:380px;overflow:auto;padding:10px;border:1px solid #ded8ed;border-radius:11px;background:#fbfaff}.ai-chat-welcome{padding:10px;color:#4d4569}.ai-chat-welcome p{margin:6px 0}.ai-chat-welcome small{color:#756d89}.ai-chat-message{max-width:94%;padding:10px 12px;border-radius:11px;overflow-wrap:anywhere}.ai-chat-message b{font-size:12px}.ai-chat-message p{margin:5px 0 0;white-space:pre-wrap;line-height:1.65;font-size:14px}.ai-user-message{align-self:flex-end;background:#e7e0fa;color:#30264e}.ai-bot-message{align-self:flex-start;background:#fff;border:1px solid #e1dced;color:#292538}.ai-chat-actions .small{flex:1;min-width:170px}.ai-assistant-panel button:disabled{opacity:.55;cursor:wait}
 @media(max-width:520px){.ai-consent-grid{grid-template-columns:1fr}.ai-assistant-heading{flex-direction:column}.ai-chat-actions{align-items:stretch}.ai-chat-actions button{width:100%}}
 </style>
+
+<style id="v410-free-world-style">
+#walkRpgModule .v410-world-banner{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin:10px 0;padding:10px 12px;background:#283d2c;color:#fff0bd;border:3px solid #bd8a3e;box-shadow:3px 3px 0 #3a2517;font-size:13px}
+#walkRpgModule .v410-world-banner strong{font-size:15px}
+#walkRpgModule .v410-world-tools{display:flex;gap:7px;flex-wrap:wrap;margin:9px 0}
+#walkRpgModule .v410-world-tools button{flex:1 1 110px;min-height:40px;padding:7px;background:#f6df9c;color:#392718;border:2px solid #754923;font-weight:900}
+#walkRpgModule .v410-world-wrap{position:relative;width:100%;max-width:100%;margin:10px 0 8px;overflow:hidden;border:4px solid #54351f;background:#6ea85d;box-shadow:5px 5px 0 #2e2117}
+#walkRpgModule #walkRpgCanvas{display:block;width:100%;height:auto;aspect-ratio:12/7;image-rendering:pixelated;touch-action:none}
+#walkRpgModule .v410-near-dialog{position:absolute;z-index:8;display:none;max-width:min(250px,72%);min-width:155px;padding:9px 10px;background:#fff4d1;color:#392719;border:3px solid #4b2e1c;box-shadow:3px 3px 0 #271a12;font-size:12px;line-height:1.45;pointer-events:auto}
+#walkRpgModule .v410-near-dialog strong{display:block;margin-bottom:4px;color:#78431d}
+#walkRpgModule .v410-near-dialog p{margin:3px 0 7px;white-space:pre-wrap}
+#walkRpgModule .v410-near-dialog button{display:inline-block;margin:3px 3px 0 0;padding:6px 8px;min-height:32px;background:#39794b;color:#fff4c9;border:2px solid #23482b;font-size:11px;font-weight:900}
+#walkRpgModule .v410-world-log{padding:9px 11px;margin:8px 0;background:#fff0c9;border:2px solid #8b6036;color:#49301d;font-size:13px;line-height:1.5;min-height:42px}
+#walkRpgModule .v410-world-legend{display:flex;gap:7px;flex-wrap:wrap;font-size:11px;margin:7px 0;color:#4c321d}
+#walkRpgModule .v410-world-legend span{background:#f8e9bd;padding:4px 6px;border:1px solid #9a7040}
+#walkRpgModule .v410-world-record{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:8px 0}
+#walkRpgModule .v410-world-record div{padding:8px 5px;text-align:center;background:#f5df9e;border:2px solid #80532c;color:#3d2a19;font-size:12px}
+#walkRpgModule .v410-world-record b{display:block;font-size:18px}
+@media(max-width:520px){#walkRpgModule .v410-world-record{grid-template-columns:repeat(3,minmax(0,1fr))}#walkRpgModule .v410-near-dialog{max-width:78%;font-size:11px}}
+</style>
+
+<style id="v410-readable-dark-text">
+/* 淺色 RPG 底色一律使用深色文字，提升閱讀對比 */
+#walkRpgModule{color:#111!important}
+#walkRpgModule .walk-rpg-card,
+#walkRpgModule .walk-rpg-dialog,
+#walkRpgModule .walk-rpg-status,
+#walkRpgModule .walk-rpg-base-divider,
+#walkRpgModule .walk-rpg-base-mount,
+#walkRpgModule .v410-world-tools,
+#walkRpgModule .v410-world-record,
+#walkRpgModule .v410-world-log,
+#walkRpgModule .v410-world-legend,
+#walkRpgModule .v410-near-dialog{
+ color:#111!important
+}
+#walkRpgModule .walk-rpg-card :is(p,span,small,label,li,h2,h3,h4,strong,b,summary,div),
+#walkRpgModule .walk-rpg-dialog :is(p,span,small,strong,b),
+#walkRpgModule .walk-rpg-status :is(span,small,strong,b),
+#walkRpgModule .v410-world-record :is(div,b),
+#walkRpgModule .v410-world-log,
+#walkRpgModule .v410-world-legend,
+#walkRpgModule .v410-near-dialog :is(strong,p){
+ color:#111!important
+}
+#walkRpgModule .v410-world-banner{color:#fff0bd!important}
+#walkRpgModule .v410-world-banner :is(strong,span){color:#fff0bd!important}
+#walkRpgModule .walk-rpg-areas button.active{color:#fff4c9!important}
+#walkRpgModule .v410-near-dialog button{color:#fff4c9!important}
+#walkRpgModule .walk-rpg-pad button,
+#walkRpgModule .walk-rpg-interact{color:#111!important}
+#walkRpgModule .walk-rpg-card :is(input,select,textarea){color:#111!important;background:#fff!important}
+#walkRpgModule .va-muted{color:#333!important}
+</style>
+<script id="v410-free-exploration-world">
+(()=>{
+'use strict';
+window.__V410_WORLD_ACTIVE__=true;
+const canvas=document.getElementById('walkRpgCanvas');
+const module=document.getElementById('walkRpgModule');
+if(!canvas||!module)return;
+const ctx=canvas.getContext('2d'); if(!ctx)return;
+const W=canvas.width,H=canvas.height;
+const WALK_KEY='vietnam-adventure-walk-rpg-v1';
+const CORE_KEY='vietnam-adventure-unified-core-v1';
+const XP_KEY='vietnam-adventure-exp-v1';
+const $=id=>document.getElementById(id);
+const safeRead=(key,fallback)=>{try{const v=JSON.parse(localStorage.getItem(key));return v==null?fallback:v}catch(_){return fallback}};
+const cloneDefault={area:'hanoi',players:{},talked:{},completed:{},discovered:{},questFound:{},questClaimed:{}};
+let state=safeRead(WALK_KEY,cloneDefault);
+if(!state||typeof state!=='object'||Array.isArray(state))state={...cloneDefault};
+state={...cloneDefault,...state,
+ players:state.players&&typeof state.players==='object'&&!Array.isArray(state.players)?state.players:{},
+ talked:state.talked&&typeof state.talked==='object'&&!Array.isArray(state.talked)?state.talked:{},
+ completed:state.completed&&typeof state.completed==='object'&&!Array.isArray(state.completed)?state.completed:{},
+ discovered:state.discovered&&typeof state.discovered==='object'&&!Array.isArray(state.discovered)?state.discovered:{},
+ questFound:state.questFound&&typeof state.questFound==='object'&&!Array.isArray(state.questFound)?state.questFound:{},
+ questClaimed:state.questClaimed&&typeof state.questClaimed==='object'&&!Array.isArray(state.questClaimed)?state.questClaimed:{}};
+state.worldScene=typeof state.worldScene==='string'?state.worldScene:(state.area||'hanoi');
+state.worldPlayers=state.worldPlayers&&typeof state.worldPlayers==='object'?state.worldPlayers:{};
+state.worldGathered=state.worldGathered&&typeof state.worldGathered==='object'?state.worldGathered:{};
+state.worldChests=state.worldChests&&typeof state.worldChests==='object'?state.worldChests:{};
+state.worldHidden=state.worldHidden&&typeof state.worldHidden==='object'?state.worldHidden:{};
+state.worldQuest=state.worldQuest&&typeof state.worldQuest==='object'?state.worldQuest:{};
+state.worldFlags=state.worldFlags&&typeof state.worldFlags==='object'?state.worldFlags:{};
+let player={x:85,y:350,face:'down',walking:false,step:0};
+const held=new Set(); let raf=0,last=0,nearDialog=null,distanceSinceSave=0,transitionLockUntil=0;
+let worldLog='世界已載入。使用方向鍵／WASD 或手機方向按鈕移動，靠近人物與物件後按 E 互動。';
+const sceneBase=id=>id.startsWith('hanoi')?'hanoi':id.startsWith('sapa')?'sapa':'halong';
+const scenes={
+ hanoi:{name:'河內古城',kind:'outdoor',sky:'#91d5e6',ground:'#85b96a',npc:[{id:'guide',x:190,y:205,name:'阿明・古城嚮導',icon:'🧑🏻‍🌾',line:'歡迎來到河內老城！先去巷口找回導覽手冊，再回來領取獎勵。',quest:'guidebook',questName:'古城導覽手冊',questHint:'採集巷口的紙卷，找回導覽手冊。'} ,{id:'vendor',x:545,y:255,name:'玲玲・街市商人',icon:'👩🏻‍🍳',line:'來看看吧！旅人補給、河粉能量包都準備好了。',shop:true}],
+ buildings:[{id:'hanoi_shop',x:430,y:145,w:78,h:58,label:'街市商店',icon:'🏪'},{id:'hanoi_inn',x:550,y:145,w:78,h:58,label:'還劍湖旅店',icon:'🏨'},{id:'hanoi_guild',x:80,y:155,w:82,h:60,label:'冒險者公會',icon:'🏛️'}],
+ nodes:[{id:'hn-herb-1',x:285,y:300,kind:'mountain-herb',name:'街角香草',icon:'🌿'},{id:'hn-paper',x:340,y:170,kind:'quest-guidebook',name:'遺失的導覽手冊',icon:'📜'},{id:'hn-wood',x:640,y:350,kind:'slime-gel',name:'樹下黏液素材',icon:'🟢'}],
+ chest:{id:'hn-chest',x:650,y:220},hidden:{id:'hn-secret',x:325,y:375,name:'老街屋頂下的秘密明信片',icon:'💌'},exits:[{x:700,y:360,to:'sapa',spawn:{x:58,y:360},label:'沙壩山路'}]},
+ hanoi_shop:{name:'河內街市商店',kind:'interior',parent:'hanoi',npc:[{id:'shopkeeper',x:365,y:225,name:'玲玲・商店老闆',icon:'👩🏻‍🍳',line:'補給品、旅途點心，還有探險小物！',shop:true}],nodes:[{id:'shop-box',x:160,y:320,kind:'sea-shell',name:'展示櫃旁素材',icon:'🐚'}],doors:[{x:360,y:385,to:'hanoi',spawn:{x:470,y:220},label:'返回街道'}]},
+ hanoi_inn:{name:'還劍湖旅店',kind:'interior',parent:'hanoi',npc:[{id:'innkeeper',x:365,y:220,name:'秋・旅店主人',icon:'🧑🏻‍🍳',line:'歡迎入住！休息一下，恢復體力再出發。',inn:true}],doors:[{x:360,y:385,to:'hanoi',spawn:{x:590,y:220},label:'返回街道'}]},
+ hanoi_guild:{name:'冒險者公會',kind:'interior',parent:'hanoi',npc:[{id:'guildmaster',x:365,y:210,name:'公會會長・陳',icon:'🧙🏻',line:'公會記錄著北越各地的委託。完成各區探索任務，累積你的冒險聲望。',guild:true}],doors:[{x:360,y:385,to:'hanoi',spawn:{x:120,y:230},label:'返回街道'}]},
+ sapa:{name:'沙壩梯田村',kind:'outdoor',sky:'#b7dbe8',ground:'#83b875',npc:[{id:'elder',x:170,y:210,name:'阿桃・山村長者',icon:'👵🏻',line:'山霧裡有珍貴藥草。幫我找回藥草包，再回村口交給我。',quest:'herb-pouch',questName:'山村藥草包',questHint:'在梯田採集發光藥草。'},{id:'craftsman',x:560,y:250,name:'小林・山村工匠',icon:'🧑🏻‍🔧',line:'收集素材後來找我，可以打造更好的裝備。',forge:true}],
+ buildings:[{id:'sapa_inn',x:420,y:140,w:82,h:60,label:'雲霧山屋',icon:'🏡'},{id:'sapa_forge',x:565,y:140,w:82,h:60,label:'山村鐵匠舖',icon:'⚒️'}],
+ nodes:[{id:'sp-herb',x:300,y:300,kind:'mountain-herb',name:'霧林藥草',icon:'🌿'},{id:'sp-gel',x:80,y:315,kind:'slime-gel',name:'山徑黏液',icon:'🟢'},{id:'sp-ore',x:650,y:350,kind:'sea-shell',name:'山壁礦石',icon:'⛏️'}],
+ chest:{id:'sp-chest',x:650,y:220},hidden:{id:'sp-secret',x:320,y:370,name:'梯田深處的山茶花秘境',icon:'🌺'},exits:[{x:20,y:360,to:'hanoi',spawn:{x:642,y:360},label:'河內古城'},{x:700,y:360,to:'halong',spawn:{x:58,y:360},label:'下龍灣港口'}]},
+ sapa_inn:{name:'雲霧山屋',kind:'interior',parent:'sapa',npc:[{id:'sapa-host',x:365,y:220,name:'梅・山屋主人',icon:'👩🏻',line:'山路辛苦了，休息可以恢復全部生命值。',inn:true}],doors:[{x:360,y:385,to:'sapa',spawn:{x:455,y:220},label:'返回梯田村'}]},
+ sapa_forge:{name:'山村鐵匠舖',kind:'interior',parent:'sapa',npc:[{id:'smith',x:365,y:220,name:'阿強・鐵匠',icon:'🧑🏻‍🔧',line:'把素材和金幣帶來，我會幫你打造裝備。',forge:true}],doors:[{x:360,y:385,to:'sapa',spawn:{x:600,y:220},label:'返回梯田村'}]},
+ halong:{name:'下龍灣港口',kind:'outdoor',sky:'#a0d8e8',ground:'#79b98c',npc:[{id:'captain',x:185,y:210,name:'船長・海風',icon:'🧔🏻',line:'港口附近有海灣貝殼。幫我找回羅盤，才能帶你探索祕密海灣。',quest:'compass',questName:'船長的羅盤',questHint:'沿碼頭尋找遺失的羅盤。'},{id:'fisher',x:535,y:280,name:'阿海・漁夫',icon:'🧑🏻‍🌾',line:'退潮時可以撿到海灣素材。'}],
+ buildings:[{id:'halong_inn',x:430,y:145,w:82,h:60,label:'海風旅舍',icon:'🏨'},{id:'halong_guild',x:80,y:145,w:82,h:60,label:'港口公會',icon:'⚓'}],
+ nodes:[{id:'hl-shell',x:320,y:330,kind:'sea-shell',name:'潮間帶貝殼',icon:'🐚'},{id:'hl-herb',x:580,y:350,kind:'mountain-herb',name:'海岸香草',icon:'🌿'},{id:'hl-gel',x:650,y:270,kind:'slime-gel',name:'海灣凝膠',icon:'🟢'}],
+ chest:{id:'hl-chest',x:650,y:210},hidden:{id:'hl-secret',x:350,y:375,name:'翡翠海灣漂流瓶',icon:'🍾'},exits:[{x:20,y:360,to:'sapa',spawn:{x:642,y:360},label:'返回沙壩'}]},
+ halong_inn:{name:'海風旅舍',kind:'interior',parent:'halong',npc:[{id:'hl-host',x:365,y:220,name:'蘭・旅舍主人',icon:'👩🏻‍🍳',line:'旅人請進，休息後再搭船出海。',inn:true}],doors:[{x:360,y:385,to:'halong',spawn:{x:465,y:225},label:'返回港口'}]},
+ halong_guild:{name:'港口公會',kind:'interior',parent:'halong',npc:[{id:'hl-guild',x:365,y:220,name:'航海公會長',icon:'🧙🏻',line:'完成港口委託，取得探索海灣的資格。',guild:true}],doors:[{x:360,y:385,to:'halong',spawn:{x:120,y:225},label:'返回港口'}]}
+};
+const sceneId=()=>state.worldScene in scenes?state.worldScene:(state.area in scenes?state.area:'hanoi');
+const baseArea=()=>sceneBase(sceneId());
+function save(){
+ const sid=sceneId();state.worldPlayers[sid]={x:Math.round(player.x),y:Math.round(player.y),face:player.face};
+ if(scenes[sid].kind==='outdoor')state.players[baseArea()]={x:Math.round(player.x),y:Math.round(player.y),face:player.face};
+ state.area=baseArea();
+ try{localStorage.setItem(WALK_KEY,JSON.stringify(state));return true}catch(e){setLog('探索進度保存失敗；既有日記、支出與其他存檔未被修改。');return false}
+}
+function getCore(){let d=safeRead(CORE_KEY,{});if(!d||typeof d!=='object'||Array.isArray(d))d={};d.inventory=d.inventory&&typeof d.inventory==='object'?d.inventory:{};d.equipment=d.equipment&&typeof d.equipment==='object'?d.equipment:{};d.gold=Math.max(0,Number(d.gold)||0);d.hp=Math.max(0,Number(d.hp??100));d.maxHp=Math.max(1,Number(d.maxHp??100));return d}
+function saveCore(d){try{localStorage.setItem(CORE_KEY,JSON.stringify(d));return true}catch(e){setLog('冒險背包保存失敗，請先釋出瀏覽器空間；既有資料未被清除。');return false}}
+function giveItem(id,icon,name,qty=1,type='material',desc='自由探索收集素材'){
+ const d=getCore();let row=d.inventory[id];if(!row)row=d.inventory[id]={id,icon,name,desc,type,qty:0,sources:[]};
+ row.qty=Math.max(0,Number(row.qty)||0)+qty;row.sources=Array.isArray(row.sources)?row.sources:[];row.sources.push('v410-world-'+Date.now());saveCore(d);
+}
+function reward(exp,gold=0){if(exp&&typeof window.addSquadExp==='function')window.addSquadExp(exp);if(gold){const d=getCore();d.gold+=gold;saveCore(d)}}
+function setLog(t){worldLog=t;const el=$('v410WorldLog');if(el)el.textContent=t;const old=$('walkRpgDialog');if(old)old.textContent=t}
+function showNear(title,message,actions=[],x=player.x,y=player.y){
+ const box=$('v410NearDialog'),wrap=$('v410WorldWrap');if(!box||!wrap)return;
+ box.style.display='block';box.replaceChildren();const h=document.createElement('strong');h.textContent=title;const p=document.createElement('p');p.textContent=message;box.append(h,p);
+ actions.forEach(a=>{const b=document.createElement('button');b.type='button';b.textContent=a.label;b.addEventListener('click',()=>{a.run();});box.appendChild(b)});
+ const rect=canvas.getBoundingClientRect(),parent=wrap.getBoundingClientRect(),scaleX=rect.width/W,scaleY=rect.height/H;
+ let left=(x*scaleX)+(rect.left-parent.left),top=(y*scaleY)+(rect.top-parent.top)-85;
+ left=Math.max(4,Math.min(parent.width-box.offsetWidth-4,left-box.offsetWidth/2));top=Math.max(4,Math.min(parent.height-box.offsetHeight-4,top));
+ box.style.left=left+'px';box.style.top=top+'px';box.style.display='block';nearDialog=box;
+}
+function hideNear(){const b=$('v410NearDialog');if(b)b.style.display='none';nearDialog=null}
+function addWorldUI(){
+ const wrap=document.createElement('div');wrap.className='v410-world-wrap';wrap.id='v410WorldWrap';
+ canvas.parentNode.insertBefore(wrap,canvas);wrap.appendChild(canvas);
+ const bubble=document.createElement('div');bubble.className='v410-near-dialog';bubble.id='v410NearDialog';bubble.setAttribute('role','dialog');bubble.setAttribute('aria-live','polite');wrap.appendChild(bubble);
+ const banner=document.createElement('div');banner.className='v410-world-banner';banner.innerHTML='<strong>🌏 V4.10 北越自由探索世界</strong><span id="v410SceneName">載入地圖…</span><span id="v410WorldCurrency">💰 金幣 —</span>';wrap.after(banner);
+ const tools=document.createElement('div');tools.className='v410-world-tools';tools.innerHTML='<button type="button" id="v410QuestBtn">📜 地區任務</button><button type="button" id="v410InventoryBtn">🎒 共用背包</button><button type="button" id="v410MapBtn">🗺️ 區域導覽</button>';banner.after(tools);
+ const record=document.createElement('div');record.className='v410-world-record';record.innerHTML='<div><b id="v410GatherCount">0</b>素材採集</div><div><b id="v410ChestCount">0</b>寶箱開啟</div><div><b id="v410HiddenCount">0</b>祕境發現</div>';tools.after(record);
+ const log=document.createElement('div');log.className='v410-world-log';log.id='v410WorldLog';log.setAttribute('aria-live','polite');log.textContent=worldLog;record.after(log);
+ const legend=document.createElement('div');legend.className='v410-world-legend';legend.innerHTML='<span>🚶 自由行走</span><span>💬 NPC 對話</span><span>🌿 採集素材</span><span>🚪 進入建築</span><span>✨ 隱藏探索</span>';log.after(legend);
+ $('v410QuestBtn').onclick=showQuestBoard;$('v410InventoryBtn').onclick=()=>{showNear('🎒 共用冒險背包','道具與素材已放入 V4.9 原有 RPG 背包。請到下方「背包戰利品」查看。',[{label:'查看背包',run:()=>{hideNear();document.querySelector('[data-va-hub-tab="bag"]')?.click();}}])};
+ $('v410MapBtn').onclick=()=>showNear('🗺️ 北越世界地圖','河內古城 ⇄ 沙壩梯田村 ⇄ 下龍灣港口。每個城鎮都有可進入的商店、旅店、公會或鐵匠舖。',[{label:'河內',run:()=>enterScene('hanoi',{x:85,y:350})},{label:'沙壩',run:()=>enterScene('sapa',{x:85,y:350})},{label:'下龍灣',run:()=>enterScene('halong',{x:85,y:350})}]);
+}
+function showQuestBoard(){
+ const rows=[['hanoi','guidebook','河內：古城導覽手冊'],['sapa','herb-pouch','沙壩：山村藥草包'],['halong','compass','下龍灣：船長的羅盤']];
+ const lines=rows.map(([a,id,label])=>{const q=state.worldQuest[id]||'未接取';return label+'｜'+q}).join('\n');
+ showNear('📜 北越地區委託',lines,[{label:'知道了',run:hideNear}],player.x,player.y);
+}
+function enterScene(id,spawn){
+ if(!scenes[id])return;
+ save();state.worldScene=id;state.area=sceneBase(id);transitionLockUntil=performance.now()+900;
+ const old=state.worldPlayers[id];player={x:spawn?.x??old?.x??85,y:spawn?.y??old?.y??350,face:spawn?.face||old?.face||'down',walking:false,step:0};
+ hideNear();setLog('🚪 進入「'+scenes[id].name+'」。每個場景的探索紀錄都會自動保存。');save();renderStatus();draw();
+}
+function rect(x,y,w,h,c){ctx.fillStyle=c;ctx.fillRect(Math.round(x),Math.round(y),Math.round(w),Math.round(h))}
+function tree(x,y){rect(x+7,y+17,8,22,'#754a2a');rect(x,y,24,23,'#2e7041');rect(x+4,y-7,18,19,'#4a984e');rect(x+7,y-3,5,5,'#c5df83')}
+function building(b){rect(b.x-4,b.y-6,b.w+8,13,'#714326');rect(b.x,b.y,b.w,b.h,'#e8c47c');rect(b.x+7,b.y+9,b.w-14,12,'#83c8d3');rect(b.x+b.w/2-9,b.y+b.h-24,18,24,'#714326');rect(b.x-7,b.y-9,b.w+14,5,'#f5d778');ctx.fillStyle='#382518';ctx.font='bold 10px monospace';ctx.textAlign='center';ctx.fillText(b.label,b.x+b.w/2,b.y-15)}
+function person(x,y,color='#d86e4b',walking=false,step=0){const sw=walking?Math.round(Math.sin(step)*2):0;rect(x-8+sw,y-13,5,13,'#684329');rect(x+3-sw,y-13,5,13,'#684329');rect(x-10,y-32,20,20,color);rect(x-7,y-43,14,12,'#efbd8d');rect(x-11,y-47,22,6,'#49301d');rect(x-5,y-37,3,3,'#34251c');rect(x+3,y-37,3,3,'#34251c')}
+function drawScene(){
+ const sid=sceneId(),sc=scenes[sid],base=sceneBase(sid);
+ if(sc.kind==='outdoor'){
+  rect(0,0,W,H,sc.sky);rect(0,80,W,H-80,sc.ground);
+  for(let i=0;i<18;i++){let x=(i*97+21)%W,y=105+(i*59)%280;rect(x,y,17,5,'#b4d77b');rect(x+5,y+5,6,4,'#6d9e54')}
+  rect(0,350,W,48,'#d5b77b');rect(0,355,W,4,'#a78550');rect(0,395,W,25,'#5d9c5d');
+  if(base==='hanoi'){rect(0,85,150,90,'#5aaabe');rect(0,170,150,7,'#dce7be');tree(240,115);tree(320,275);tree(675,115)}
+  if(base==='sapa'){for(let i=0;i<5;i++){rect(310+i*34,95+i*36,230-i*25,8,'#d8c78a');rect(310+i*34,103+i*36,230-i*25,5,'#6b9e52')}tree(80,130);tree(690,130)}
+  if(base==='halong'){rect(500,80,220,340,'#58b3cd');for(let y=100;y<415;y+=27)rect(505,y,210,2,'#a5e2e7');rect(465,245,185,20,'#8b5a32');tree(90,125)}
+  (sc.buildings||[]).forEach(building);
+  (sc.npc||[]).forEach(n=>{person(n.x,n.y);ctx.fillStyle='#3c2a1b';ctx.font='bold 11px monospace';ctx.textAlign='center';ctx.fillText(n.name,n.x,n.y-55)});
+  (sc.nodes||[]).forEach(n=>{if(state.worldGathered[n.id])return;ctx.font='24px monospace';ctx.textAlign='center';ctx.fillText(n.icon,n.x,n.y);ctx.font='10px monospace';ctx.fillStyle='#3b2b1b';ctx.fillText('採集',n.x,n.y+15)});
+  if(sc.chest&&!state.worldChests[sc.chest.id]){rect(sc.chest.x-17,sc.chest.y-12,34,24,'#925326');rect(sc.chest.x-14,sc.chest.y-8,28,7,'#e9bb4f');rect(sc.chest.x-3,sc.chest.y-7,6,14,'#59351d');ctx.fillStyle='#fff1a1';ctx.font='17px monospace';ctx.fillText('✦',sc.chest.x,sc.chest.y-18)}
+  if(sc.hidden&&!state.worldHidden[sc.hidden.id]){ctx.fillStyle='#fff6a2';ctx.font='24px monospace';ctx.fillText('✧',sc.hidden.x,sc.hidden.y)}
+  (sc.exits||[]).forEach(e=>{rect(e.x-14,e.y-25,28,40,'#704426');rect(e.x-9,e.y-20,18,35,'#f5d779');rect(e.x-5,e.y-15,10,30,'#4e8d9b');ctx.fillStyle='#fff4bf';ctx.font='bold 10px monospace';ctx.fillText(e.label,e.x,e.y-33)});
+ }else{
+  rect(0,0,W,H,'#986e48');rect(12,12,W-24,H-24,'#e9cb8d');rect(25,25,W-50,H-50,'#f7e7bb');
+  for(let x=40;x<W-40;x+=40)rect(x,35,3,H-70,'#dfc38d');
+  rect(120,120,480,8,'#9b7045');rect(120,290,480,8,'#9b7045');
+  (sc.npc||[]).forEach(n=>{person(n.x,n.y);ctx.fillStyle='#3c2a1b';ctx.font='bold 11px monospace';ctx.textAlign='center';ctx.fillText(n.name,n.x,n.y-55)});
+  if(sid.includes('shop')){for(let i=0;i<4;i++){rect(95+i*135,100,70,35,'#a66c39');rect(102+i*135,107,56,20,['#cce78d','#f3d16d','#8dcde0','#e8a0a0'][i])}}
+  if(sid.includes('forge')){rect(180,285,90,45,'#714326');rect(195,265,60,20,'#d76d35');rect(520,290,50,38,'#a8a8a8')}
+  if(sid.includes('inn')){rect(140,105,100,50,'#b57c49');rect(480,105,100,50,'#b57c49');rect(170,115,40,30,'#f3dfaa');rect(510,115,40,30,'#f3dfaa')}
+  if(sid.includes('guild')){rect(265,95,190,70,'#b8894b');ctx.fillStyle='#4c2d19';ctx.font='bold 17px monospace';ctx.textAlign='center';ctx.fillText('ADVENTURERS GUILD',360,135)}
+  (sc.nodes||[]).forEach(n=>{if(state.worldGathered[n.id])return;ctx.font='24px monospace';ctx.textAlign='center';ctx.fillText(n.icon,n.x,n.y)});
+  (sc.doors||[]).forEach(d=>{rect(d.x-22,d.y-24,44,48,'#704426');rect(d.x-16,d.y-18,32,42,'#f5d779');ctx.fillStyle='#4c301a';ctx.font='bold 10px monospace';ctx.fillText('出口',d.x,d.y-31)});
+ }
+ ctx.fillStyle='rgba(33,48,34,.55)';ctx.fillRect(8,8,180,24);ctx.fillStyle='#fff2c9';ctx.font='bold 12px monospace';ctx.textAlign='left';ctx.fillText(sc.name,16,25);
+ person(player.x,player.y,'#397bb1',player.walking,player.step);
+}
+function nearTarget(){
+ const sc=scenes[sceneId()],d=(o)=>Math.hypot(player.x-o.x,player.y-o.y);
+ for(const n of sc.npc||[])if(d(n)<55)return {type:'npc',data:n};
+ for(const b of sc.buildings||[])if(Math.hypot(player.x-(b.x+b.w/2),player.y-(b.y+b.h))<58)return {type:'building',data:b};
+ for(const n of sc.nodes||[])if(!state.worldGathered[n.id]&&d(n)<42)return {type:'node',data:n};
+ if(sc.chest&&!state.worldChests[sc.chest.id]&&d(sc.chest)<52)return {type:'chest',data:sc.chest};
+ if(sc.hidden&&!state.worldHidden[sc.hidden.id]&&d(sc.hidden)<42)return {type:'hidden',data:sc.hidden};
+ for(const e of sc.exits||[])if(d(e)<45)return {type:'exit',data:e};
+ for(const e of sc.doors||[])if(d(e)<48)return {type:'exit',data:e};
+ return null;
+}
+function questTalk(n){
+ const id=n.quest,base=baseArea(),q=state.worldQuest[id]||'未接取';
+ if(q==='未接取'){
+  state.worldQuest[id]='進行中';save();setLog('📜 已接取「'+n.questName+'」：'+n.questHint);
+  showNear(n.name,n.line+'\n委託已加入任務紀錄：'+n.questName,[{label:'知道了',run:hideNear}],n.x,n.y);return;
+ }
+ if(q==='待回報'){
+  state.worldQuest[id]='已完成';state.worldFlags['claim-'+id]=true;reward(35,20);save();
+  showNear(n.name,'太好了！你找回了'+n.questName+'。委託完成，獲得 EXP +35、金幣 +20。',[{label:'收下獎勵',run:hideNear}],n.x,n.y);renderStatus();return;
+ }
+ showNear(n.name,q==='進行中'?'委託進行中：'+n.questHint:'謝謝你完成委託！這份紀念品會留在共用背包。',[{label:'離開',run:hideNear}],n.x,n.y);
+}
+function interact(){
+ const target=nearTarget();if(!target){setLog('再靠近 NPC、建築門口、素材、寶箱或閃光祕境後按 E。');hideNear();return}
+ const {type,data}=target;
+ if(type==='npc'){
+  if(data.quest){questTalk(data);return}
+  if(data.shop){showNear(data.name,'街市補給：使用既有 RPG 金幣購買道具。',[{label:'河粉能量包 12G',run:()=>purchase('pho',12,'🍜','河粉能量包','恢復 20 HP','consumable')},{label:'草本藥水 20G',run:()=>purchase('potion',20,'🧪','草本補給藥水','恢復 35 HP','consumable')},{label:'離開',run:hideNear}],data.x,data.y);return}
+  if(data.inn){restAtInn(data);return}
+  if(data.forge){showNear(data.name,'鐵匠舖已開張。消耗素材與既有金幣，鍛造會寫入共用裝備背包。',[{label:'鍛造探險短刀',run:()=>craftAtForge('blade')},{label:'鍛造防護背心',run:()=>craftAtForge('vest')},{label:'離開',run:hideNear}],data.x,data.y);return}
+  if(data.guild){showNear(data.name,'公會委託已與本次自由探索任務串接。完成各地 NPC 委託、探索寶箱與祕境即可提升小隊 EXP。',[{label:'查看任務',run:showQuestBoard},{label:'離開',run:hideNear}],data.x,data.y);return}
+  showNear(data.name,data.line,[{label:'離開',run:hideNear}],data.x,data.y);return;
+ }
+ if(type==='building'){const b=data;showNear(b.label,'要進入建築內部探索嗎？',[{label:'進入',run:()=>enterScene(b.id,{x:360,y:350})},{label:'稍後',run:hideNear}],b.x+b.w/2,b.y+b.h);return}
+ if(type==='exit'){enterScene(data.to,data.spawn);return}
+ if(type==='node'){
+  state.worldGathered[data.id]=true;
+  if(data.kind.startsWith('quest-')){const qid=data.kind.slice(6);state.worldQuest[qid]='待回報';giveItem('quest-'+baseArea(),'📜',data.name,1,'collectible','地區任務物品');setLog('🎒 找到「'+data.name+'」！回去找委託 NPC 回報。')}
+  else{giveItem(data.kind,data.kind==='mountain-herb'?'🌿':data.kind==='sea-shell'?'🐚':'🟢',data.name,1,'material');reward(5,0);setLog('🌿 採集成功：'+data.name+' ×1，探索 EXP +5。素材已放入共用背包。')}
+  save();hideNear();renderStatus();draw();return;
+ }
+ if(type==='chest'){
+  state.worldChests[data.id]=true;giveItem('world-chest-'+baseArea(),'🎁',scenes[sceneId()].name+'探索寶箱紀念品',1,'collectible');reward(25,30);save();setLog('🎉 開啟寶箱！獲得紀念品、EXP +25、金幣 +30。');hideNear();renderStatus();draw();return;
+ }
+ if(type==='hidden'){
+  state.worldHidden[data.id]=true;giveItem('world-secret-'+baseArea(),data.icon,data.name,1,'collectible');reward(15,10);save();setLog('✨ 發現隱藏地點「'+data.name+'」！EXP +15、金幣 +10。');hideNear();renderStatus();draw();return;
+ }
+}
+function purchase(id,cost,icon,name,desc,type){
+ const d=getCore();if(d.gold<cost){setLog('金幣不足，需要 '+cost+' G；目前有 '+d.gold+' G。');return}
+ d.gold-=cost;const row=d.inventory[id]||(d.inventory[id]={id,icon,name,desc,type,qty:0,sources:[]});row.qty=(Number(row.qty)||0)+1;row.sources=Array.isArray(row.sources)?row.sources:[];row.sources.push('v410-shop-'+Date.now());saveCore(d);setLog('購買成功：'+name+' ×1，已更新共用背包。');renderStatus();
+}
+function restAtInn(n){
+ const d=getCore();const cost=8;if(d.hp>=d.maxHp){showNear(n.name,'你的生命值已滿，可以繼續冒險。',[{label:'離開',run:hideNear}],n.x,n.y);return}
+ showNear(n.name,'住宿休息費用 '+cost+' G，恢復全部生命值。',[{label:'休息並恢復',run:()=>{const core=getCore();if(core.gold<cost){setLog('金幣不足，休息需要 '+cost+' G。');return}core.gold-=cost;core.hp=core.maxHp;saveCore(core);setLog('🛏️ 休息完成！生命值已恢復至 '+core.hp+'/'+core.maxHp+'。');hideNear();renderStatus()}},{label:'離開',run:hideNear}],n.x,n.y);
+}
+function craftAtForge(id){
+ const d=getCore(),mat=id==='blade'?'slime-gel':'mountain-herb',need=3,cost=30;
+ if(d.gold<cost||!d.inventory[mat]||Number(d.inventory[mat].qty)<need){setLog('素材或金幣不足：需要 '+mat+' ×'+need+'、金幣 '+cost+'。');return}
+ d.gold-=cost;d.inventory[mat].qty-=need;
+ const itemId='crafted-'+id,row=d.inventory[itemId]||(d.inventory[itemId]={id:itemId,icon:id==='blade'?'🗡️':'🧥',name:id==='blade'?'精製探險短刀':'山嵐防護背心',desc:id==='blade'?'攻擊 +7':'防禦 +7',type:'equipment',slot:id==='blade'?'weapon':'armor',atk:id==='blade'?7:0,def:id==='vest'?7:0,qty:0,sources:[]});
+ row.qty=(Number(row.qty)||0)+1;row.sources=Array.isArray(row.sources)?row.sources:[];row.sources.push('v410-forge-'+Date.now());saveCore(d);setLog('🔨 鍛造完成：'+row.name+' ×1！請到共用背包裝備。');renderStatus();
+}
+function renderStatus(){
+ const sid=sceneId(),d=getCore();const set=(id,v)=>{const e=$(id);if(e)e.textContent=v};
+ set('v410SceneName','📍 '+scenes[sid].name);set('v410WorldCurrency','💰 金幣 '+d.gold);
+ set('v410GatherCount',Object.keys(state.worldGathered).filter(k=>state.worldGathered[k]).length);
+ set('v410ChestCount',Object.keys(state.worldChests).filter(k=>state.worldChests[k]).length);
+ set('v410HiddenCount',Object.keys(state.worldHidden).filter(k=>state.worldHidden[k]).length);
+ const lv=$('walkRpgLevel');if(lv){const xp=Number(safeRead(XP_KEY,0))||0;lv.textContent='小隊 EXP '+xp}
+ const st=$('walkRpgStatus');if(st){const q=Object.entries(state.worldQuest).map(([k,v])=>k+'：'+v).join('｜')||'尚未接取地區委託';st.textContent='自由探索：'+scenes[sid].name+'｜'+q+'｜素材、寶箱與祕境進度均已保存。'}
+}
+function collides(x,y){
+ const sc=scenes[sceneId()],r=10;
+ const blocks=sc.kind==='outdoor'?(sc.buildings||[]).map(b=>({x:b.x-4,y:b.y-7,w:b.w+8,h:b.h+9})):[{x:10,y:0,w:20,h:H},{x:W-30,y:0,w:20,h:H},{x:0,y:0,w:W,h:25},{x:0,y:H-15,w:W,h:15}];
+ return blocks.some(o=>x+r>o.x&&x-r<o.x+o.w&&y+r>o.y&&y-r<o.y+o.h);
+}
+function move(dt){
+ if(window.VAUnified?.getBattle?.()){held.clear();player.walking=false;return}
+ let dx=(held.has('right')?1:0)-(held.has('left')?1:0),dy=(held.has('down')?1:0)-(held.has('up')?1:0);
+ if(dx&&dy){dx*=.7071;dy*=.7071}
+ player.walking=!!(dx||dy);if(!player.walking)return;
+ player.face=Math.abs(dx)>Math.abs(dy)?(dx<0?'left':'right'):(dy<0?'up':'down');player.step+=dt*12;
+ const ox=player.x,oy=player.y,speed=180*dt,nx=Math.max(18,Math.min(W-18,player.x+dx*speed)),ny=Math.max(55,Math.min(H-15,player.y+dy*speed));
+ if(!collides(nx,player.y))player.x=nx;if(!collides(player.x,ny))player.y=ny;
+ if(Math.hypot(player.x-ox,player.y-oy)>0){
+  const sc=scenes[sceneId()],sid=sceneId();
+  const exit=performance.now()>=transitionLockUntil?(sc.exits||[]).find(e=>Math.hypot(player.x-e.x,player.y-e.y)<20):null;
+  if(exit){enterScene(exit.to,exit.spawn);return}
+  const door=performance.now()>=transitionLockUntil?(sc.doors||[]).find(e=>Math.hypot(player.x-e.x,player.y-e.y)<20):null;
+  if(door){enterScene(door.to,door.spawn);return}
+  if(Math.random()<.0007&&sc.kind==='outdoor'&&!window.VAUnified?.getBattle?.()&&window.VAUnified?.startWildBattle){window.VAUnified.startWildBattle(baseArea());setLog('⚔️ 草叢傳來聲響！野生怪物出現，戰鬥使用原有 RPG 系統。')}
+  const movedDistance=Math.hypot(player.x-ox,player.y-oy);
+  distanceSinceSave+=movedDistance;
+  if(distanceSinceSave>=140){distanceSinceSave=0;save();}
+ }
+}
+function draw(){
+ drawScene();
+ const near=nearTarget();if(near){ctx.fillStyle='#fff2bd';ctx.fillRect(player.x-64,player.y-68,128,20);ctx.fillStyle='#4a2e19';ctx.font='bold 11px monospace';ctx.textAlign='center';ctx.fillText('按 E / 互動',player.x,player.y-54)}
+}
+function showQuestHelp(){showQuestBoard()}
+function loop(t){const dt=Math.min(.04,(t-last)/1000||0);last=t;move(dt);draw();raf=requestAnimationFrame(loop)}
+const keyMap={ArrowUp:'up',w:'up',W:'up',ArrowDown:'down',s:'down',S:'down',ArrowLeft:'left',a:'left',A:'left',ArrowRight:'right',d:'right',D:'right'};
+function keydown(e){
+ const page=$('adventureMap');if(!page?.classList.contains('active'))return;
+ if(e.target&&/^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(e.target.tagName)&&!e.target.closest('#walkRpgModule'))return;
+ const dir=keyMap[e.key];if(dir){held.add(dir);e.preventDefault()}
+ if(['e','E','Enter'].includes(e.key)){interact();e.preventDefault()}
+}
+function keyup(e){const dir=keyMap[e.key];if(dir)held.delete(dir)}
+window.addEventListener('keydown',keydown);window.addEventListener('keyup',keyup);window.addEventListener('blur',()=>held.clear());window.addEventListener('pagehide',save);
+document.querySelectorAll('[data-dir]').forEach(b=>{const d=b.dataset.dir;const down=e=>{e.preventDefault();held.add(d)},up=e=>{e.preventDefault();held.delete(d)};b.addEventListener('pointerdown',down);['pointerup','pointercancel','pointerleave'].forEach(ev=>b.addEventListener(ev,up))});
+$('walkRpgInteract')?.addEventListener('click',interact);
+addWorldUI();
+const first=sceneId(),p=state.worldPlayers[first]||state.players[sceneBase(first)];
+player={x:p?.x??85,y:p?.y??350,face:p?.face||'down',walking:false,step:0};
+state.area=sceneBase(first);state.worldScene=first;renderStatus();setLog(worldLog);draw();
+if(!raf)raf=requestAnimationFrame(loop);
+window.V410World={save,interact,enterScene,getState:()=>({...state})};
+})();
+</script>
