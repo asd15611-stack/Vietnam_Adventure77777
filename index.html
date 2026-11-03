@@ -2,7 +2,7 @@
 
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#282a36" name="theme-color"/><meta content="越南冒險日記 V5.3 復古旅行手帳回憶錄版" name="application-name"/><link href="./manifest.webmanifest" rel="manifest"/><link href="./icon.svg" rel="icon" type="image/svg+xml"/><title>越南冒險日記 V5.3｜復古旅行手帳回憶錄版</title>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#282a36" name="theme-color"/><meta content="越南冒險日記 V5.4 復古旅行手帳回憶錄版" name="application-name"/><link href="./manifest.webmanifest" rel="manifest"/><link href="./icon.svg" rel="icon" type="image/svg+xml"/><title>越南冒險日記 V5.4｜復古旅行手帳回憶錄版</title>
 <style>
 :root{--teal:#087f70;--mint:#e4f6ef;--ink:#173b39;--muted:#637775;--paper:#f5f8f6;--line:#dce8e2}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif}header{padding:22px 18px 18px;background:linear-gradient(135deg,#075f59,#159b83);color:white;border-radius:0 0 24px 24px}header small{opacity:.85}h1{font-size:25px;margin:6px 0}main{padding:14px 14px 90px;max-width:720px;margin:auto}.card,.hero{background:white;border:1px solid var(--line);border-radius:16px;padding:14px;margin:10px 0}.hero{margin-top:0}.muted,.small{color:var(--muted);font-size:13px}.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0}.tile{background:white;border:1px solid var(--line);border-radius:15px;padding:14px;text-align:left;color:var(--ink);font:inherit;min-height:85px}.tile span{display:block;font-size:24px}.tile b{display:block;margin-top:6px}.page{display:none}.page.active{display:block}.section-title{font-size:18px;margin:18px 2px 10px}.daytabs{display:flex;gap:7px;overflow:auto;padding:3px 0 8px}.daytabs button,button{cursor:pointer}.daytabs button,.secondary{border:1px solid var(--line);background:white;border-radius:10px;padding:9px 12px;color:var(--ink)}.daytabs button.active,.primary,.action{background:var(--teal);color:white;border-color:var(--teal)}.event{display:grid;grid-template-columns:65px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.event:last-child{border:0}.time{color:var(--teal);font-weight:800;font-size:13px}.event p{margin:4px 0;font-size:13px;color:var(--muted)}button,input,select,textarea{font:inherit}input,select,textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:11px;background:white;color:var(--ink);margin:5px 0 10px}label{font-size:13px;font-weight:650}.action{border:0;border-radius:11px;padding:11px 14px;font-weight:700}.row{display:flex;gap:8px;align-items:center}.row>*{flex:1}.expense{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}nav{position:fixed;bottom:0;left:0;right:0;background:#ffffffef;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:8px 3px;z-index:5}nav button{border:0;background:transparent;color:var(--muted);font-size:11px;padding:5px 6px;border-radius:10px;min-width:0;white-space:nowrap}nav button.active{background:var(--mint);color:var(--teal);font-weight:700}nav span{display:block;font-size:20px}.notice{background:#fff5df;border-radius:12px;padding:11px;font-size:13px;color:#77571c}.copy{float:right;font-size:12px}.checked{opacity:.6}.checked strong{text-decoration:line-through}.diary-photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:8px 0}.diary-photo-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;border:1px solid var(--line)}.diary-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.diary-actions button{flex:1;min-width:90px}.diary-entry{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}.photo-hint{font-size:12px;color:var(--muted);margin-top:-5px;margin-bottom:10px}
 
@@ -1379,6 +1379,28 @@ nav.rpg-bottom-menu button:focus-visible{background:#dbeafe!important;color:#142
  #memoirPrintRoot .memoir-note{font-size:8pt;color:#7b8177}
  #memoirPrintRoot .memoir-mapline{border-top:1px dashed #c8b99f;border-bottom:1px dashed #c8b99f;padding:2mm 0;margin:3mm 0;color:#7c806e;font-size:8pt}
 }
+
+/* V5.4：旁白與不同每日版型 */
+#memoirPrintRoot .memoir-page{box-sizing:border-box;min-height:0}
+#memoirPrintRoot .memoir-narration{margin:4mm 0;padding:4mm;border-left:3px solid #a78b68;background:#f6f2e9;break-inside:avoid}
+#memoirPrintRoot .memoir-narration p{font-family:serif;font-size:10.5pt;line-height:1.8;margin:2mm 0;color:#485447}
+#memoirPrintRoot .memoir-narration small{font-size:7pt;color:#8b8171}
+#memoirPrintRoot .memoir-original-diary{break-inside:avoid;margin:2mm 0}
+#memoirPrintRoot .memoir-original-diary h4{font-size:9pt;color:#8a765e;margin:2mm 0}
+#memoirPrintRoot .memoir-place-index{margin-top:8mm;padding:4mm;border:1px dashed #b9aa91}
+#memoirPrintRoot .memoir-stats{display:flex;flex-wrap:wrap;gap:2mm}
+#memoirPrintRoot .memoir-layout-film .memoir-day-head{border-bottom:1px solid #b7a68c;padding-bottom:4mm}
+#memoirPrintRoot .memoir-layout-film .memoir-day-number{font-family:serif;font-size:32pt;color:#b69a73}
+#memoirPrintRoot .memoir-layout-postcard .memoir-day-head{background:#f5f0e7;padding:5mm;border:1px solid #ded3c2}
+#memoirPrintRoot .memoir-layout-gallery .memoir-day-head{border-left:3px solid #9aab92;padding-left:4mm}
+#memoirPrintRoot .memoir-photo-grid img{max-height:58mm;object-fit:contain;background:#f5f3ee}
+@media print{
+ #memoirPrintRoot{position:static!important;width:100%!important}
+ #memoirPrintRoot .memoir-page{box-sizing:border-box;min-height:0!important;padding:3mm 2mm 8mm!important;overflow:visible!important;break-after:page;page-break-after:always}
+ #memoirPrintRoot .memoir-page:last-child{break-after:auto;page-break-after:auto}
+ #memoirPrintRoot .memoir-day{break-inside:auto;page-break-inside:auto}
+ #memoirPrintRoot figure,#memoirPrintRoot .memoir-narration,#memoirPrintRoot .memoir-original-diary{break-inside:avoid;page-break-inside:avoid}
+}
 </style>
 </head><body>
 <header><small>VIETNAM ADVENTURE · 2026</small><h1>🇻🇳 越南旅行日記</h1><p>北越六天五夜｜11/18（三）–11/23（一）</p></header><main>
@@ -1620,7 +1642,7 @@ nav.rpg-bottom-menu button:focus-visible{background:#dbeafe!important;color:#142
 <div aria-live="polite" class="v411-story-list" id="v411StoryList"></div>
 <section class="v411-memory-shelf"><div class="v411-shelf-head"><div><span>YOUR TRAVEL MOMENTS</span><h3>📚 我的相遇紀錄</h3></div><b id="v411MemoryCount">0 則</b></div><div id="v411MemoryList"><p>完成一段人物故事後，回憶會收藏在這裡。</p></div></section>
 </section>
-<section class="page" id="diary"><h2 class="section-title">📖 旅行回憶錄</h2><div class="card memory-timeline-card"><div class="memory-timeline-heading"><div><h3>🧭 每日旅行回憶總覽</h3><p class="small">以日期串起每日行程、完成打卡、相簿照片與日記。只讀取現有資料，不搬動、不複製、不覆蓋任何舊存檔。</p></div><button class="secondary" type="button" onclick="renderTravelMemoryTimeline()">↻ 更新</button></div><div id="travelMemoryTimeline"><p class="muted">正在整理每日旅行紀錄…</p></div></div><div class="notice">日記與相簿照片都儲存在這台裝置的瀏覽器本機資料庫，不會自動上傳雲端。日記會依日期顯示相簿中的同日照片；照片仍分開保存與備份，不會複製或刪除原始相片。清除網站資料或更換裝置可能造成資料遺失，請定期匯出備份。</div><div class="card"><b id="diaryFormTitle">新增一篇回憶</b><input id="diaryEditId" type="hidden"/><label>日期</label><input id="diaryDate" max="2026-11-23" min="2026-11-18" type="date" value="2026-11-18"/><label>地點</label><input id="diaryLocation" placeholder="例如：沙壩、番西邦峰"/><label>心情</label><select id="diaryMood"><option value="😍">😍 開心</option><option value="🥰">🥰 感動</option><option value="😌">😌 放鬆</option><option value="🤩">🤩 興奮</option><option value="😴">😴 疲累</option><option value="🥹">🥹 難忘</option><option value="😐">😐 普通</option></select><label>日記內容</label><textarea id="diaryText" placeholder="今天看見了什麼、吃了什麼、發生哪些難忘的事？" rows="5"></textarea><div class="notice">日記只記錄文字、日期、地點與心情。要拍照或整理照片，請使用底部的「📸 照片」專區；兩者分開保存。</div><div class="diary-actions"><button class="action" onclick="saveDiary()">儲存日記</button><button class="secondary" onclick="resetDiaryForm()">取消／清空表單</button></div><p aria-live="polite" class="small" id="diaryStatus"></p></div><div class="card" id="printableMemoirCard"><h3>📚 自動生成旅行回憶小冊子</h3><p class="small">把每日行程、已完成打卡、日記與相簿照片排成可列印的小冊子。資料只從本機讀取，不會更動原始紀錄。</p><div class="diary-actions"><button class="action" type="button" onclick="generatePrintableMemoir()">✨ 生成回憶錄小冊子</button><button class="secondary" type="button" onclick="window.print()">🖨️ 列印／存成 PDF</button></div><p class="small">版型：A5 直式、單面印刷、四周保留白邊。復古手帳 × 日系清新 × 底片照片；生成後再按列印／存成 PDF。</p><p class="small" id="memoirPrintStatus" aria-live="polite">尚未生成。生成後可先預覽，再列印。</p></div><div class="card"><b>回憶錄備份</b><p class="small">備份檔包含日記文字及照片，請存放在自己信任的位置。匯入時會合併日記，不會碰觸原本的支出紀錄。</p><div class="diary-actions"><button class="action" onclick="exportDiaries()">匯出日記與照片</button><button class="secondary" onclick="document.getElementById('diaryImportFile').click()">匯入日記備份</button></div><input accept="application/json,.json" id="diaryImportFile" onchange="importDiaries(event)" style="display:none" type="file"/></div><h3>已保存的日記</h3><div id="diaryList"><p class="muted">正在讀取本機日記…</p></div></section>
+<section class="page" id="diary"><h2 class="section-title">📖 旅行回憶錄</h2><div class="card memory-timeline-card"><div class="memory-timeline-heading"><div><h3>🧭 每日旅行回憶總覽</h3><p class="small">以日期串起每日行程、完成打卡、相簿照片與日記。只讀取現有資料，不搬動、不複製、不覆蓋任何舊存檔。</p></div><button class="secondary" type="button" onclick="renderTravelMemoryTimeline()">↻ 更新</button></div><div id="travelMemoryTimeline"><p class="muted">正在整理每日旅行紀錄…</p></div></div><div class="notice">日記與相簿照片都儲存在這台裝置的瀏覽器本機資料庫，不會自動上傳雲端。日記會依日期顯示相簿中的同日照片；照片仍分開保存與備份，不會複製或刪除原始相片。清除網站資料或更換裝置可能造成資料遺失，請定期匯出備份。</div><div class="card"><b id="diaryFormTitle">新增一篇回憶</b><input id="diaryEditId" type="hidden"/><label>日期</label><input id="diaryDate" max="2026-11-23" min="2026-11-18" type="date" value="2026-11-18"/><label>地點</label><input id="diaryLocation" placeholder="例如：沙壩、番西邦峰"/><label>心情</label><select id="diaryMood"><option value="😍">😍 開心</option><option value="🥰">🥰 感動</option><option value="😌">😌 放鬆</option><option value="🤩">🤩 興奮</option><option value="😴">😴 疲累</option><option value="🥹">🥹 難忘</option><option value="😐">😐 普通</option></select><label>日記內容</label><textarea id="diaryText" placeholder="今天看見了什麼、吃了什麼、發生哪些難忘的事？" rows="5"></textarea><div class="notice">日記只記錄文字、日期、地點與心情。要拍照或整理照片，請使用底部的「📸 照片」專區；兩者分開保存。</div><div class="diary-actions"><button class="action" onclick="saveDiary()">儲存日記</button><button class="secondary" onclick="resetDiaryForm()">取消／清空表單</button></div><p aria-live="polite" class="small" id="diaryStatus"></p></div><div class="card" id="printableMemoirCard"><h3>📚 V5.4 電影感旅行回憶小冊子</h3><p class="small">把每日行程、已完成打卡、日記與相簿照片排成可列印的小冊子。資料只從本機讀取，不會更動原始紀錄。</p><div class="diary-actions"><button class="action" type="button" onclick="generatePrintableMemoir()">✨ 生成回憶錄小冊子</button><button class="secondary" type="button" onclick="if(document.getElementById('memoirPrintRoot')?.dataset.generated==='true')window.print();else alert('請先生成回憶錄小冊子，再進行列印。')">🖨️ 列印／存成 PDF</button></div><p class="small">版型：A5 直式、單面印刷、四周保留白邊。復古手帳 × 日系清新 × 底片照片；每日加入電影感旁白，原始日記完整保留。生成後再按列印／存成 PDF。</p><p class="small" id="memoirPrintStatus" aria-live="polite">尚未生成。生成後可先預覽，再列印。</p></div><div class="card"><b>回憶錄備份</b><p class="small">備份檔包含日記文字及照片，請存放在自己信任的位置。匯入時會合併日記，不會碰觸原本的支出紀錄。</p><div class="diary-actions"><button class="action" onclick="exportDiaries()">匯出日記與照片</button><button class="secondary" onclick="document.getElementById('diaryImportFile').click()">匯入日記備份</button></div><input accept="application/json,.json" id="diaryImportFile" onchange="importDiaries(event)" style="display:none" type="file"/></div><h3>已保存的日記</h3><div id="diaryList"><p class="muted">正在讀取本機日記…</p></div></section>
 <section class="page" id="shoppingQuest"><h2 class="section-title">🛍️ 北越尋寶任務</h2><div class="notice">🎒 把想帶回家的戰利品收進清單！以下是購物靈感，不保證每個商品都能在指定地點買到。資料只保存在這台裝置的瀏覽器。</div>
 <div class="card shopping-summary"><div class="shopping-stat-grid"><div><small>🪙 預算總額</small><b id="shoppingBudgetTotal">NT$ 0</b></div><div><small>💰 已購買實際花費</small><b id="shoppingSpentTotal">NT$ 0</b></div><div><small>🎁 完成項目</small><b id="shoppingCount">0 / 0</b></div><div><small>🏆 完成進度</small><b id="shoppingPercent">0%</b></div></div><div class="shopping-progress"><span id="shoppingProgressBar"></span></div></div>
 <div class="card"><h3>➕ 新增／編輯戰利品</h3><input id="shoppingEditId" type="hidden"/><label for="shoppingName">商品名稱 *</label><input id="shoppingName" maxlength="120" placeholder="例如：越南咖啡粉"/><label for="shoppingCategory">商品分類</label><select id="shoppingCategory"><option>咖啡與飲品</option><option>零食與食品</option><option>手工藝與紀念品</option><option>沙壩特色</option><option>我的自訂項目</option></select><div class="shopping-fields"><div><label for="shoppingBudget">預算（台幣 NT$）</label><input id="shoppingBudget" inputmode="numeric" min="0" placeholder="0" step="1" type="number"/></div><div><label for="shoppingPrice">實際購買金額（台幣 NT$）</label><input id="shoppingPrice" inputmode="numeric" min="0" placeholder="購買後填寫" step="1" type="number"/></div></div><label for="shoppingPlace">購買地點</label><input id="shoppingPlace" maxlength="160" placeholder="例如：河內老城區／沙壩市區"/><label for="shoppingRecipient">🎁 伴手禮送給誰</label><input id="shoppingRecipient" maxlength="240" placeholder="例如：爸爸、媽媽、同事小美（可填多人）"/><label for="shoppingNotes">備註</label><textarea id="shoppingNotes" maxlength="1000" placeholder="品牌、數量、送給誰……" rows="2"></textarea><div class="shopping-form-actions"><button class="action" onclick="saveShoppingItem()" type="button">💾 儲存商品</button><button class="secondary" onclick="resetShoppingForm()" type="button">取消編輯／清空表單</button></div><p aria-live="polite" class="small" id="shoppingFormStatus"></p></div>
@@ -3838,51 +3860,55 @@ window.V410World={save,interact,enterScene,getState:()=>({...state})};
 
 // 可列印旅行回憶小冊子：只讀取現有行程、打卡、日記與照片，不寫入原資料。
 function memoirEsc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+
+let memoirObjectUrls=[];
+function memoirNarration(g){
+ const places=[...new Set([...g.checkins.map(x=>x.place?.name),...g.events.filter(e=>e.done).map(e=>e.name),...g.diaries.map(e=>e.location),...g.photos.map(p=>p.location)].filter(Boolean).map(x=>String(x).trim()))];
+ const diaries=g.diaries.map(e=>String(e.text||'').trim()).filter(Boolean);
+ const completed=g.events.filter(e=>e.done);
+ const bits=[];
+ if(places.length)bits.push(`這一天的足跡，留在${places.slice(0,3).join('、')}${places.length>3?'等地方':''}。`);
+ else if(g.events.length)bits.push('行程表記下了這一天預定探索的方向；每一項完成紀錄，都是旅程留下的座標。');
+ else if(g.photos.length)bits.push('沒有太多文字，照片替這一天留下了清晰的線索。');
+ else bits.push('這一天也被安靜地收藏在旅程裡。');
+ if(completed.length)bits.push(`紀錄中有${completed.length}項行程標記完成，成為這一天清楚的里程碑。`);
+ if(diaries.length){const t=diaries.join(' ').replace(/\s+/g,' ');bits.push(`日記裡，當時的自己寫下：「${t.slice(0,88)}${t.length>88?'……':''}」這些文字，讓回憶有了最真實的聲音。`);}
+ else if(g.diaries.length===0)bits.push('這一天沒有留下文字日記，於是讓保存下來的足跡與影像替它說話。');
+ if(g.photos.length)bits.push(`相簿為這一天保存了${g.photos.length}張照片。`);
+ return bits.join('');
+}
 async function generatePrintableMemoir(){
- const status=document.getElementById('memoirPrintStatus'),root=document.getElementById('memoirPrintRoot');
- if(!root)return;
- status.textContent='正在整理旅行紀錄，製作 A5 手帳版面…';
+ const status=document.getElementById('memoirPrintStatus'),root=document.getElementById('memoirPrintRoot');if(!root)return;
+ status.textContent='正在整理旅行紀錄，製作 V5.4 A5 電影感回憶錄…';
+ memoirObjectUrls.forEach(u=>URL.revokeObjectURL(u));memoirObjectUrls=[];
  try{
   const [entries,photos]=await Promise.all([diaryGetAll(),photoGetAll()]);
-  const groups=new Map();
-  const keyOf=v=>memoryDateKey(v);
-  const group=k=>{if(!k)return null;if(!groups.has(k))groups.set(k,{key:k,day:null,events:[],diaries:[],photos:[],checkins:[]});return groups.get(k)};
-  (Array.isArray(days)?days:[]).forEach((d,di)=>{
-   const g=group(keyOf(d.date));if(!g)return;g.day=d;
-   (Array.isArray(d.events)?d.events:[]).forEach((e,ei)=>g.events.push({time:e[0]||'',name:e[1]||'',note:e[2]||'',done:isItineraryTaskDone(di,ei)}));
-  });
+  const groups=new Map(),keyOf=v=>memoryDateKey(v),group=k=>{if(!k)return null;if(!groups.has(k))groups.set(k,{key:k,day:null,events:[],diaries:[],photos:[],checkins:[]});return groups.get(k)};
+  (Array.isArray(days)?days:[]).forEach((d,di)=>{const g=group(keyOf(d.date));if(!g)return;g.day=d;(Array.isArray(d.events)?d.events:[]).forEach((e,ei)=>g.events.push({time:e[0]||'',name:e[1]||'',note:e[2]||'',done:isItineraryTaskDone(di,ei)}));});
   entries.forEach(e=>{const g=group(keyOf(e.date));if(g)g.diaries.push(e)});
   photos.forEach(p=>{const g=group(keyOf(p.date));if(g)g.photos.push(p)});
   const saved=get(QUEST_KEY,{});
   RPG_DESTINATIONS.forEach(place=>{const rec=saved?.[place.id];if(!rec?.done)return;const g=group(keyOf(rec.checkedAt||rec.gpsAt||rec.photoAddedAt));if(g)g.checkins.push({place,rec})});
-  const sorted=[...groups.values()].sort((a,b)=>a.key.localeCompare(b.key));
-  const esc=memoirEsc;
-  const allDiaries=entries.length,allPhotos=photos.length;
-  const allCheckins=sorted.reduce((n,g)=>n+g.checkins.length,0);
-  const allDone=sorted.reduce((n,g)=>n+g.events.filter(e=>e.done).length,0);
-  let pages='';
-  pages+=`<section class="memoir-page memoir-cover"><div class="memoir-kicker">VIETNAM · TRAVEL MEMORIES</div><div class="cover-emoji">✈️ 🌿 📮</div><h1>越南・我們的旅行手帳</h1><p class="memoir-sub">把走過的路、看過的風景，<br>收藏成一段值得反覆翻閱的故事。</p><div class="memoir-rule"></div><span class="memoir-stamp">A JOURNEY TO REMEMBER</span><p style="margin-top:9mm">${esc(sorted[0]?.key||'旅行紀錄')}${sorted.length>1?' — '+esc(sorted[sorted.length-1].key):''}</p><p class="memoir-kicker">MADE OF LITTLE MOMENTS</p></section>`;
-  pages+=`<section class="memoir-page"><div class="memoir-kicker">OUR TRAVEL INDEX</div><h2>這趟旅程的足跡</h2><p>這本小冊子依照目前裝置中已保存的資料自動整理。未記錄的事情不會自行補寫。</p><div class="memoir-rule"></div><span class="memoir-fact">🗓️ ${sorted.length} 個有紀錄的日期</span><span class="memoir-fact">📸 ${allPhotos} 張相簿照片</span><span class="memoir-fact">📖 ${allDiaries} 篇日記</span><span class="memoir-fact">📍 ${allCheckins} 個完成打卡</span><span class="memoir-fact">☑ ${allDone} 項行程完成</span><h3>旅行日程索引</h3><ol>${sorted.map(g=>`<li>${esc(memoryDateLabel(g.key))}　${esc(g.day?.title||g.diaries[0]?.location||g.photos[0]?.location||'旅途紀錄')}</li>`).join('')}</ol><div class="memoir-mapline">HANOI　✦　SAPA　✦　HA LONG BAY</div><p class="memoir-note">每個日期都是一頁新的旅程，每張照片都是一個小小的收藏。</p><div class="memoir-footer">VIETNAM TRAVEL MEMORIES · INDEX</div></section>`;
+  const sorted=[...groups.values()].sort((a,b)=>a.key.localeCompare(b.key)),esc=memoirEsc;
+  const allCheckins=sorted.reduce((n,g)=>n+g.checkins.length,0),allDone=sorted.reduce((n,g)=>n+g.events.filter(e=>e.done).length,0);
+  let pages=`<section class="memoir-page memoir-cover"><div class="memoir-kicker">VIETNAM · TRAVEL MEMORIES · V5.4</div><div class="cover-emoji">✈️ 🌿 📮</div><h1>越南・我們的旅行手帳</h1><p class="memoir-sub">真實日記，電影旁白。<br>把走過的路，收藏成一生的故事。</p><div class="memoir-rule"></div><span class="memoir-stamp">A JOURNEY TO REMEMBER</span><p style="margin-top:9mm">${esc(sorted[0]?.key||'旅行紀錄')}${sorted.length>1?' — '+esc(sorted[sorted.length-1].key):''}</p></section>`;
+  const places=[...new Set(sorted.flatMap(g=>[...g.checkins.map(x=>x.place?.name),...g.diaries.map(x=>x.location),...g.photos.map(x=>x.location)].filter(Boolean)))];
+  pages+=`<section class="memoir-page memoir-index"><div class="memoir-kicker">OUR TRAVEL INDEX</div><h2>這趟旅程的足跡</h2><p>本冊依照本機已保存資料整理；未記錄的情節不會自行補寫。</p><div class="memoir-rule"></div><span class="memoir-fact">🗓️ ${sorted.length} 個有紀錄的日期</span><span class="memoir-fact">📸 ${photos.length} 張相簿照片</span><span class="memoir-fact">📖 ${entries.length} 篇日記</span><span class="memoir-fact">📍 ${allCheckins} 個完成打卡</span><span class="memoir-fact">☑ ${allDone} 項行程完成</span><h3>旅行日程索引</h3><ol>${sorted.map(g=>`<li>${esc(memoryDateLabel(g.key))}　${esc(g.day?.title||g.diaries[0]?.location||g.photos[0]?.location||'旅途紀錄')}</li>`).join('')}</ol>${places.length?`<div class="memoir-place-index"><b>紀錄中出現的地點</b><p>${places.map(esc).join('　✦　')}</p></div>`:''}<div class="memoir-footer">VIETNAM TRAVEL MEMORIES · INDEX</div></section>`;
   for(let gi=0;gi<sorted.length;gi++){
-   const g=sorted[gi],variant=gi%4;
-   const done=g.events.filter(e=>e.done).length;
-   const title=g.day?.title||g.diaries[0]?.location||g.photos[0]?.location||'旅途中的一天';
-   const eventHtml=g.events.length?`<ul>${g.events.map(e=>`<li>${e.done?'☑':'□'} ${esc(e.time)} ${esc(e.name)}${e.note?' — '+esc(e.note):''}</li>`).join('')}</ul>`:'<p class="memoir-note">這天沒有已保存的行程項目。</p>';
-   const checkHtml=g.checkins.length?`<p>${g.checkins.map(x=>`📍 ${esc(x.place.name)} <span class="memoir-note">（${x.rec.gpsVerified?'GPS 驗證':'手動打卡'}）</span>`).join('　')}</p>`:'<p class="memoir-note">這天沒有已完成的景點打卡。</p>';
-   const diaryHtml=g.diaries.length?g.diaries.map(e=>`<h3>${esc(e.mood||'📖')} ${esc(e.location||'當日回憶')}</h3><div class="memoir-memory">${esc(e.text||'')}</div>`).join('<div class="memoir-rule"></div>'):'<p class="memoir-note">這天還沒有保存日記。</p>';
+   const g=sorted[gi],done=g.events.filter(e=>e.done).length,title=g.day?.title||g.diaries[0]?.location||g.photos[0]?.location||g.checkins[0]?.place?.name||'旅途中的一天';
+   const eventHtml=g.events.length?`<ul>${g.events.map(e=>`<li>${e.done?'☑':'□'} ${esc(e.time)} ${esc(e.name)}${e.note?' — '+esc(e.note):''}</li>`).join('')}</ul>`:'<p class="memoir-note">這天沒有保存行程項目。</p>';
+   const checkHtml=g.checkins.length?`<p>${g.checkins.map(x=>`📍 ${esc(x.place.name)} <span class="memoir-note">（${x.rec.gpsVerified?'GPS 驗證':'完成打卡'}）</span>`).join('　')}</p>`:'<p class="memoir-note">這天沒有已完成的景點打卡。</p>';
+   const diaryHtml=g.diaries.length?g.diaries.map(e=>`<article class="memoir-original-diary"><h4>${esc(e.mood||'📖')} ${esc(e.location||'當日回憶')}</h4><div class="memoir-memory">${esc(e.text||'')}</div></article>`).join('<div class="memoir-rule"></div>'):'<p class="memoir-note">這天還沒有保存日記。</p>';
    const imgs=[];
-   for(const p of g.photos){if(p.blob instanceof Blob){const u=URL.createObjectURL(p.blob);imgs.push(`<figure><img src="${u}" alt="${esc(p.name||p.location||'旅行照片')}"><figcaption class="memoir-caption">${esc(p.location||p.name||'旅行照片')}</figcaption></figure>`)}}
-   for(const e of g.diaries){for(const ph of(e.photos||[])){if(ph instanceof Blob){const u=URL.createObjectURL(ph);imgs.push(`<figure><img src="${u}" alt="日記附件照片"><figcaption class="memoir-caption">日記照片</figcaption></figure>`)}}}
-   const photoCount=imgs.length;
-   const leadPhotos=imgs.slice(0,2);
-   pages+=`<section class="memoir-page memoir-day-layout-${variant}"><div class="memoir-day-head"><div><div class="memoir-kicker">A LITTLE CHAPTER OF VIETNAM</div><h2>${esc(title)}</h2><span class="memoir-note">${esc(memoryDateLabel(g.key))}</span></div><div class="memoir-day-number">${String(gi+1).padStart(2,'0')}</div></div><span class="memoir-fact">行程 ${done}/${g.events.length} 完成</span><span class="memoir-fact">📍 ${g.checkins.length} 個足跡</span><span class="memoir-fact">📸 ${photoCount} 張照片</span><h3>🗓️ 今日行程</h3>${eventHtml}<h3>📍 旅行足跡</h3>${checkHtml}<h3>✍️ 今日回憶</h3>${diaryHtml}${leadPhotos.length?`<div class="memoir-photo-grid">${leadPhotos.join('')}</div>`:''}<div class="memoir-footer">DAY ${String(gi+1).padStart(2,'0')} · ${esc(memoryDateLabel(g.key))}</div></section>`;
-   for(let pi=2;pi<imgs.length;pi+=4){
-    pages+=`<section class="memoir-page memoir-photo-page"><div class="memoir-kicker">LITTLE MOMENTS · PHOTO COLLECTION</div><h2>${esc(title)}｜照片收藏</h2><div class="memoir-stamp">${esc(memoryDateLabel(g.key))}</div><div class="memoir-photo-grid">${imgs.slice(pi,pi+4).join('')}</div><p class="memoir-note">把這一天的風景，好好收藏。</p><div class="memoir-footer">VIETNAM TRAVEL MEMORIES · PHOTO ALBUM</div></section>`;
-   }
+   for(const p of g.photos)if(p.blob instanceof Blob){const u=URL.createObjectURL(p.blob);memoirObjectUrls.push(u);imgs.push(`<figure><img src="${u}" alt="${esc(p.name||p.location||'旅行照片')}"><figcaption class="memoir-caption">${esc(p.location||p.name||'旅行照片')}</figcaption></figure>`)}
+   for(const e of g.diaries)for(const ph of(e.photos||[]))if(ph instanceof Blob){const u=URL.createObjectURL(ph);memoirObjectUrls.push(u);imgs.push(`<figure><img src="${u}" alt="日記附件照片"><figcaption class="memoir-caption">日記照片</figcaption></figure>`)}
+   const variants=['memoir-layout-editorial','memoir-layout-film','memoir-layout-postcard','memoir-layout-gallery'];
+   pages+=`<section class="memoir-page memoir-day ${variants[gi%4]}"><div class="memoir-day-head"><div><div class="memoir-kicker">A LITTLE CHAPTER OF VIETNAM</div><h2>${esc(title)}</h2><span class="memoir-note">${esc(memoryDateLabel(g.key))}</span></div><div class="memoir-day-number">${String(gi+1).padStart(2,'0')}</div></div><div class="memoir-stats"><span class="memoir-fact">行程 ${done}/${g.events.length} 完成</span><span class="memoir-fact">📍 ${g.checkins.length} 個足跡</span><span class="memoir-fact">📸 ${imgs.length} 張照片</span></div><section class="memoir-narration"><div class="memoir-kicker">🎬 THE DAY IN A FILM · 今日電影旁白</div><p>${esc(memoirNarration(g))}</p><small>依當日已保存資料整理 · 非原始日記</small></section>${imgs.length?`<div class="memoir-photo-grid memoir-lead-photos">${imgs.slice(0,2).join('')}</div>`:''}<h3>🗓️ 今日行程</h3>${eventHtml}<h3>📍 旅行足跡</h3>${checkHtml}<h3>✍️ 我的原始日記</h3>${diaryHtml}<div class="memoir-footer">DAY ${String(gi+1).padStart(2,'0')} · ${esc(memoryDateLabel(g.key))}</div></section>`;
+   for(let pi=2;pi<imgs.length;pi+=4)pages+=`<section class="memoir-page memoir-photo-page"><div class="memoir-kicker">LITTLE MOMENTS · PHOTO COLLECTION</div><h2>${esc(title)}｜照片收藏</h2><div class="memoir-stamp">${esc(memoryDateLabel(g.key))}</div><div class="memoir-photo-grid">${imgs.slice(pi,pi+4).join('')}</div><div class="memoir-footer">VIETNAM TRAVEL MEMORIES · PHOTO ALBUM</div></section>`;
   }
-  pages+=`<section class="memoir-page memoir-cover"><div class="memoir-kicker">UNTIL THE NEXT JOURNEY</div><div class="cover-emoji">🌼 📷 💌</div><h1>旅程結束，回憶繼續</h1><p class="memoir-sub">謝謝這趟旅程裡的每一個風景、<br>每一頓美食，和每一個一起走過的人。</p><div class="memoir-rule"></div><p>願我們下次，再一起出發。</p><span class="memoir-stamp">THE END · SEE YOU AGAIN</span></section>`;
-  root.innerHTML=pages;root.setAttribute('aria-hidden','false');
-  status.textContent=`✓ A5 旅行手帳已生成：${sorted.length} 個日期、${allDiaries} 篇日記、${allPhotos} 張照片、${allCheckins} 個打卡。版面已保留四周白邊；請再按「列印／存成 PDF」開啟列印預覽。`;
+  pages+=`<section class="memoir-page memoir-cover"><div class="memoir-kicker">UNTIL THE NEXT JOURNEY</div><div class="cover-emoji">🌼 📷 💌</div><h1>旅程結束，回憶繼續</h1><p class="memoir-sub">謝謝這趟旅程裡每一段真實留下的故事。</p><div class="memoir-rule"></div><p>願我們下次，再一起出發。</p><span class="memoir-stamp">THE END · SEE YOU AGAIN</span></section>`;
+  root.innerHTML=pages;root.setAttribute('aria-hidden','false');root.dataset.generated='true';
+  status.textContent=`✓ V5.4 已生成：${sorted.length} 個日期、${entries.length} 篇原始日記、${photos.length} 張照片、${allCheckins} 個打卡。每日加入獨立電影旁白，原始日記完整保留。`;
   root.scrollIntoView({behavior:'smooth',block:'start'});
  }catch(err){console.error(err);status.textContent='生成失敗：'+(err.message||'無法讀取本機旅行資料')+'。原有資料沒有被修改。'}
 }
