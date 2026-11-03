@@ -3137,6 +3137,22 @@ body{padding-bottom:82px!important}
 #walkRpgModule .walk-rpg-card :is(input,select,textarea){color:#111!important;background:#fff!important}
 #walkRpgModule .va-muted{color:#333!important}
 </style>
+<style id="v410-map-below-controls">
+/* 操作列改放在地圖正下方；功能與統計依序放在操作列之後 */
+#walkRpgModule .v410-world-wrap{position:relative;isolation:isolate;overflow:hidden;touch-action:pan-y}
+#walkRpgModule .v410-world-wrap #walkRpgCanvas{display:block;width:100%;height:auto;aspect-ratio:12/7;max-height:none;margin:0;border:0;touch-action:none}
+#walkRpgModule .walk-rpg-controls{position:relative!important;inset:auto!important;z-index:2!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;width:100%!important;box-sizing:border-box!important;margin:12px 0 14px!important;padding:10px 12px!important;background:linear-gradient(135deg,#e9d39a,#c9a765)!important;border:3px solid #684326!important;box-shadow:3px 3px 0 #38271b!important;pointer-events:auto!important;touch-action:pan-y!important}
+#walkRpgModule .walk-rpg-pad{position:relative!important;display:grid!important;flex:0 0 auto!important;grid-template-columns:repeat(3,42px)!important;grid-template-rows:repeat(2,38px)!important;gap:4px!important;justify-content:center!important;margin:0!important;padding:7px!important;background:rgba(35,31,24,.88)!important;border:2px solid #e5bd58!important;box-shadow:3px 3px 0 rgba(25,18,12,.45)!important;pointer-events:auto!important;touch-action:none!important;user-select:none!important;-webkit-user-select:none!important}
+#walkRpgModule .walk-rpg-pad button{display:grid!important;place-items:center!important;width:42px!important;height:38px!important;min-width:42px!important;min-height:38px!important;margin:0!important;padding:0!important;background:linear-gradient(#f8df9b,#c99543)!important;color:#392719!important;border:2px solid #684326!important;box-shadow:2px 2px 0 #21170f!important;font-size:19px!important;font-weight:1000!important;line-height:1!important;touch-action:none!important;user-select:none!important;-webkit-user-select:none!important}
+#walkRpgModule .walk-rpg-pad button:active{background:#ffe37b!important;transform:translate(1px,1px)!important;box-shadow:1px 1px 0 #21170f!important}
+#walkRpgModule .walk-rpg-interact{position:relative!important;flex:0 1 auto!important;width:auto!important;min-width:110px!important;min-height:48px!important;margin:0!important;padding:9px 13px!important;background:linear-gradient(#f8df9b,#c99543)!important;color:#302015!important;border:3px solid #684326!important;box-shadow:3px 3px 0 #21170f!important;font-size:14px!important;font-weight:1000!important;touch-action:manipulation!important;white-space:nowrap!important}
+#walkRpgModule .walk-rpg-interact:active{transform:translate(2px,2px)!important;box-shadow:1px 1px 0 #21170f!important}
+#walkRpgModule .v410-world-banner{margin-top:8px!important}
+#walkRpgModule .v410-world-tools{margin-top:8px!important}
+#walkRpgModule .v410-near-dialog{max-height:65%;overflow:auto}
+@media(max-width:520px){#walkRpgModule .walk-rpg-controls{gap:8px!important;padding:8px!important}#walkRpgModule .walk-rpg-pad{grid-template-columns:repeat(3,36px)!important;grid-template-rows:repeat(2,34px)!important;padding:6px!important;gap:3px!important}#walkRpgModule .walk-rpg-pad button{width:36px!important;height:34px!important;min-width:36px!important;min-height:34px!important;font-size:17px!important}#walkRpgModule .walk-rpg-interact{min-width:88px!important;min-height:44px!important;padding:7px 8px!important;font-size:12px!important}}
+@media(max-width:350px){#walkRpgModule .walk-rpg-controls{align-items:center}#walkRpgModule .walk-rpg-interact{min-width:78px!important;font-size:11px!important}}
+</style>
 <script id="v410-free-exploration-world">
 (()=>{
 'use strict';
@@ -3222,14 +3238,16 @@ function hideNear(){const b=$('v410NearDialog');if(b)b.style.display='none';near
 function addWorldUI(){
  const wrap=document.createElement('div');wrap.className='v410-world-wrap';wrap.id='v410WorldWrap';
  canvas.parentNode.insertBefore(wrap,canvas);wrap.appendChild(canvas);
+ const controls=module.querySelector('.walk-rpg-controls');
+ // 方向鍵與互動按鈕直接放在地圖下方，沿用原按鈕節點與已綁定事件。
+ if(controls){controls.setAttribute('aria-label','地圖下方人物操作');wrap.after(controls);}
  const bubble=document.createElement('div');bubble.className='v410-near-dialog';bubble.id='v410NearDialog';bubble.setAttribute('role','dialog');bubble.setAttribute('aria-live','polite');wrap.appendChild(bubble);
- const banner=document.createElement('div');banner.className='v410-world-banner';banner.innerHTML='<strong>🌏 V4.10 北越自由探索世界</strong><span id="v410SceneName">載入地圖…</span><span id="v410WorldCurrency">💰 金幣 —</span>';wrap.after(banner);
- const tools=document.createElement('div');tools.className='v410-world-tools';tools.innerHTML='<button type="button" id="v410QuestBtn">📜 地區任務</button><button type="button" id="v410InventoryBtn">🎒 共用背包</button><button type="button" id="v410MapBtn">🗺️ 區域導覽</button>';banner.after(tools);
+ const banner=document.createElement('div');banner.className='v410-world-banner';banner.innerHTML='<strong>🌏 V4.10 北越自由探索世界</strong><span id="v410SceneName">載入地圖…</span><span id="v410WorldCurrency">💰 金幣 —</span>';if(controls)controls.after(banner);else wrap.after(banner);
+ const tools=document.createElement('div');tools.className='v410-world-tools';tools.innerHTML='<button type="button" id="v410QuestBtn">📜 地區任務</button><button type="button" id="v410InventoryBtn">🎒 共用背包</button>';banner.after(tools);
  const record=document.createElement('div');record.className='v410-world-record';record.innerHTML='<div><b id="v410GatherCount">0</b>素材採集</div><div><b id="v410ChestCount">0</b>寶箱開啟</div><div><b id="v410HiddenCount">0</b>祕境發現</div>';tools.after(record);
  const log=document.createElement('div');log.className='v410-world-log';log.id='v410WorldLog';log.setAttribute('aria-live','polite');log.textContent=worldLog;record.after(log);
  const legend=document.createElement('div');legend.className='v410-world-legend';legend.innerHTML='<span>🚶 自由行走</span><span>💬 NPC 對話</span><span>🌿 採集素材</span><span>🚪 進入建築</span><span>✨ 隱藏探索</span>';log.after(legend);
  $('v410QuestBtn').onclick=showQuestBoard;$('v410InventoryBtn').onclick=()=>{showNear('🎒 共用冒險背包','道具與素材已放入 V4.9 原有 RPG 背包。請到下方「背包戰利品」查看。',[{label:'查看背包',run:()=>{hideNear();document.querySelector('[data-va-hub-tab="bag"]')?.click();}}])};
- $('v410MapBtn').onclick=()=>showNear('🗺️ 北越世界地圖','河內古城 ⇄ 沙壩梯田村 ⇄ 下龍灣港口。每個城鎮都有可進入的商店、旅店、公會或鐵匠舖。',[{label:'河內',run:()=>enterScene('hanoi',{x:85,y:350})},{label:'沙壩',run:()=>enterScene('sapa',{x:85,y:350})},{label:'下龍灣',run:()=>enterScene('halong',{x:85,y:350})}]);
 }
 function showQuestBoard(){
  const rows=[['hanoi','guidebook','河內：古城導覽手冊'],['sapa','herb-pouch','沙壩：山村藥草包'],['halong','compass','下龍灣：船長的羅盤']];
@@ -3388,8 +3406,59 @@ function keydown(e){
  if(['e','E','Enter'].includes(e.key)){interact();e.preventDefault()}
 }
 function keyup(e){const dir=keyMap[e.key];if(dir)held.delete(dir)}
-window.addEventListener('keydown',keydown);window.addEventListener('keyup',keyup);window.addEventListener('blur',()=>held.clear());window.addEventListener('pagehide',save);
-document.querySelectorAll('[data-dir]').forEach(b=>{const d=b.dataset.dir;const down=e=>{e.preventDefault();held.add(d)},up=e=>{e.preventDefault();held.delete(d)};b.addEventListener('pointerdown',down);['pointerup','pointercancel','pointerleave'].forEach(ev=>b.addEventListener(ev,up))});
+window.addEventListener('keydown',keydown);window.addEventListener('keyup',keyup);
+const activePointers=new Map();
+function syncHeldDirections(){held.clear();for(const dir of activePointers.values())held.add(dir)}
+function releasePointer(pointerId){if(activePointers.delete(pointerId))syncHeldDirections()}
+function releaseAllDirections(){activePointers.clear();held.clear();player.walking=false}
+window.addEventListener('blur',releaseAllDirections);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)releaseAllDirections()});
+window.addEventListener('pagehide',()=>{releaseAllDirections();save()});
+const directionButtons=document.querySelectorAll('#walkRpgModule [data-dir]');
+if('PointerEvent' in window){
+ directionButtons.forEach(button=>{
+  const dir=button.dataset.dir;
+  button.addEventListener('contextmenu',e=>e.preventDefault());
+  button.addEventListener('pointerdown',e=>{
+   if(e.pointerType==='mouse'&&e.button!==0)return;
+   if(!document.getElementById('adventureMap')?.classList.contains('active'))return;
+   if(window.VAUnified?.getBattle?.())return;
+   e.preventDefault();e.stopPropagation();activePointers.set(e.pointerId,dir);syncHeldDirections();
+   try{button.setPointerCapture(e.pointerId)}catch(_){}
+  },{passive:false});
+  button.addEventListener('lostpointercapture',e=>releasePointer(e.pointerId));
+ });
+ const finishPointer=e=>{if(activePointers.has(e.pointerId)){e.preventDefault();releasePointer(e.pointerId)}};
+ window.addEventListener('pointerup',finishPointer,{passive:false});
+ window.addEventListener('pointercancel',finishPointer,{passive:false});
+ window.addEventListener('pointermove',e=>{
+  if(!activePointers.has(e.pointerId))return;
+  const button=[...directionButtons].find(b=>b.dataset.dir===activePointers.get(e.pointerId));
+  const hit=document.elementFromPoint(e.clientX,e.clientY);
+  if(button&&hit&&!button.contains(hit))releasePointer(e.pointerId);
+ },{passive:true});
+}else{
+ // Pointer Events 不可用時，使用 Touch Events 作為相容處理，並追蹤手指滑出按鈕。
+ const touchButtons=new Map();
+ directionButtons.forEach(button=>{
+  button.addEventListener('touchstart',e=>{
+   if(!document.getElementById('adventureMap')?.classList.contains('active')||window.VAUnified?.getBattle?.())return;
+   e.preventDefault();
+   for(const touch of e.changedTouches){const id='touch-'+touch.identifier;touchButtons.set(id,button);activePointers.set(id,button.dataset.dir)}
+   syncHeldDirections();
+  },{passive:false});
+ });
+ const endTouches=e=>{for(const touch of e.changedTouches){const id='touch-'+touch.identifier;touchButtons.delete(id);activePointers.delete(id)}syncHeldDirections()};
+ document.addEventListener('touchmove',e=>{
+  for(const touch of e.changedTouches){
+   const id='touch-'+touch.identifier,button=touchButtons.get(id),hit=document.elementFromPoint(touch.clientX,touch.clientY);
+   if(button&&hit&&!button.contains(hit)){touchButtons.delete(id);activePointers.delete(id)}
+  }
+  syncHeldDirections();
+ },{passive:false});
+ document.addEventListener('touchend',endTouches,{passive:false});
+ document.addEventListener('touchcancel',endTouches,{passive:false});
+}
 $('walkRpgInteract')?.addEventListener('click',interact);
 addWorldUI();
 const first=sceneId(),p=state.worldPlayers[first]||state.players[sceneBase(first)];
