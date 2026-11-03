@@ -2,7 +2,7 @@
 
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#282a36" name="theme-color"/><meta content="越南冒險日記 V4.11 沉浸式旅行世界版" name="application-name"/><link href="./manifest.webmanifest" rel="manifest"/><link href="./icon.svg" rel="icon" type="image/svg+xml"/><title>越南冒險日記 V4.14｜分類整合與易讀版</title>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#282a36" name="theme-color"/><meta content="越南冒險日記 V4.11 沉浸式旅行世界版" name="application-name"/><link href="./manifest.webmanifest" rel="manifest"/><link href="./icon.svg" rel="icon" type="image/svg+xml"/><title>越南冒險日記 V5.0｜旅行 × RPG 完美融合版</title>
 <style>
 :root{--teal:#087f70;--mint:#e4f6ef;--ink:#173b39;--muted:#637775;--paper:#f5f8f6;--line:#dce8e2}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif}header{padding:22px 18px 18px;background:linear-gradient(135deg,#075f59,#159b83);color:white;border-radius:0 0 24px 24px}header small{opacity:.85}h1{font-size:25px;margin:6px 0}main{padding:14px 14px 90px;max-width:720px;margin:auto}.card,.hero{background:white;border:1px solid var(--line);border-radius:16px;padding:14px;margin:10px 0}.hero{margin-top:0}.muted,.small{color:var(--muted);font-size:13px}.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0}.tile{background:white;border:1px solid var(--line);border-radius:15px;padding:14px;text-align:left;color:var(--ink);font:inherit;min-height:85px}.tile span{display:block;font-size:24px}.tile b{display:block;margin-top:6px}.page{display:none}.page.active{display:block}.section-title{font-size:18px;margin:18px 2px 10px}.daytabs{display:flex;gap:7px;overflow:auto;padding:3px 0 8px}.daytabs button,button{cursor:pointer}.daytabs button,.secondary{border:1px solid var(--line);background:white;border-radius:10px;padding:9px 12px;color:var(--ink)}.daytabs button.active,.primary,.action{background:var(--teal);color:white;border-color:var(--teal)}.event{display:grid;grid-template-columns:65px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.event:last-child{border:0}.time{color:var(--teal);font-weight:800;font-size:13px}.event p{margin:4px 0;font-size:13px;color:var(--muted)}button,input,select,textarea{font:inherit}input,select,textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:11px;background:white;color:var(--ink);margin:5px 0 10px}label{font-size:13px;font-weight:650}.action{border:0;border-radius:11px;padding:11px 14px;font-weight:700}.row{display:flex;gap:8px;align-items:center}.row>*{flex:1}.expense{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}nav{position:fixed;bottom:0;left:0;right:0;background:#ffffffef;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:8px 3px;z-index:5}nav button{border:0;background:transparent;color:var(--muted);font-size:11px;padding:5px 6px;border-radius:10px;min-width:0;white-space:nowrap}nav button.active{background:var(--mint);color:var(--teal);font-weight:700}nav span{display:block;font-size:20px}.notice{background:#fff5df;border-radius:12px;padding:11px;font-size:13px;color:#77571c}.copy{float:right;font-size:12px}.checked{opacity:.6}.checked strong{text-decoration:line-through}.diary-photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:8px 0}.diary-photo-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;border:1px solid var(--line)}.diary-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.diary-actions button{flex:1;min-width:90px}.diary-entry{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}.photo-hint{font-size:12px;color:var(--muted);margin-top:-5px;margin-bottom:10px}
 
@@ -1263,12 +1263,82 @@ main .page select option{background:#fff!important;color:#172033!important}
 main .page button,nav button{-webkit-tap-highlight-color:rgba(37,99,235,.16)}
 </style>
 
+
+<style id="v50-integrated-travel-rpg">
+/* V5.0 visual integration layer: additive styling only; original data stores and game logic are preserved. */
+:root{
+  --v50-ink:#1d2d2a;--v50-muted:#52645d;--v50-forest:#285b45;--v50-leaf:#e7f0dc;
+  --v50-sand:#fff8e9;--v50-gold:#c38b36;--v50-line:#d9dfcf;--v50-focus:#1d4ed8;
+}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{color:var(--v50-ink);background:linear-gradient(180deg,#f5f5e9 0%,#f7f7f1 42%,#f2f5ee 100%)}
+main{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+.page{scroll-margin-top:12px}
+.page>.section-title,.page>h2{color:#203d32;letter-spacing:.01em;line-height:1.3}
+.v411-welcome{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.58);box-shadow:0 14px 34px rgba(43,75,54,.12)}
+.v411-kicker{display:inline-flex;align-items:center;gap:7px;padding:6px 10px;border:1px solid rgba(255,255,255,.55);border-radius:999px;background:rgba(255,255,255,.68);color:#315b43;font-weight:900;letter-spacing:.08em}
+.v411-welcome h2{max-width:18ch;line-height:1.25;text-wrap:balance}
+.v50-adventure-bridge{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(190px,.8fr);gap:18px;align-items:center;margin:16px 0;padding:clamp(18px,3vw,26px);border:1px solid #cbd8c4;border-radius:22px;background:linear-gradient(125deg,#f1f5df 0%,#fff8e8 54%,#e8f0e5 100%);box-shadow:0 9px 24px rgba(49,75,51,.08)}
+.v50-bridge-kicker{font-size:11px;font-weight:1000;letter-spacing:.14em;color:#57714c}
+.v50-bridge-copy h2{margin:7px 0 6px;color:#203d32;font-size:clamp(20px,3vw,27px);line-height:1.25}
+.v50-bridge-copy p{margin:0;color:#43564a;font-size:14px;line-height:1.65}
+.v50-journey-flow{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-top:14px;color:#304e3b;font-size:13px;font-weight:900}
+.v50-journey-flow span{padding:7px 10px;border:1px solid #c9d5b9;border-radius:999px;background:rgba(255,255,255,.72)}
+.v50-journey-flow i{font-style:normal;color:#8b9b78}
+.v50-bridge-actions{display:grid;gap:9px}
+.v50-bridge-actions button{width:100%;min-height:48px;border-radius:13px;padding:11px 14px;font-weight:900;cursor:pointer}
+.v50-primary-action{border:2px solid #234d39;background:#285b45;color:#fff!important;box-shadow:0 3px 0 #183d2b}
+.v50-secondary-action{border:2px solid #9bad8b;background:#fffdf4;color:#263e30!important}
+.v411-launch{gap:12px}
+.v414-home-category{min-height:118px;border:1px solid #d7dfce!important;background:linear-gradient(160deg,#fffef8,#f0f4e8)!important;box-shadow:0 5px 15px rgba(42,69,48,.07);transition:transform .16s ease,box-shadow .16s ease}
+.v414-home-category span{filter:drop-shadow(0 2px 1px rgba(44,60,38,.12))}
+.v414-home-category b{color:#203d32!important;font-size:15px}
+.v414-home-category small{color:#52645d!important;line-height:1.45}
+button,a,input,select,textarea{font:inherit}
+button{touch-action:manipulation;-webkit-tap-highlight-color:rgba(37,99,235,.12)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--v50-focus)!important;outline-offset:3px!important}
+button:disabled{cursor:not-allowed;opacity:.58}
+input,select,textarea{color:#1d2d2a}
+input::placeholder,textarea::placeholder{color:#66766d;opacity:1}
+.card,.notice{overflow-wrap:anywhere}
+.card{box-shadow:0 4px 14px rgba(45,65,45,.045)}
+nav.rpg-bottom-menu{padding-bottom:calc(7px + env(safe-area-inset-bottom));border-top:1px solid #cbd6c6;background:rgba(255,252,241,.97)}
+nav.rpg-bottom-menu button{min-height:56px;color:#43564a;font-weight:800}
+nav.rpg-bottom-menu button.active{background:#e1ecd8!important;color:#204a35!important;border:1px solid #9db78e!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.7)}
+nav.rpg-bottom-menu button:focus-visible{background:#dbeafe!important;color:#14243b!important}
+/* Keep the established fullscreen encounter scene truly dominant and readable. */
+#walkWildBattle .walk-wild-actions button{min-height:48px;font-size:15px;font-weight:900}
+#walkWildBattle .walk-wild-monster{max-width:min(620px,94vw)}
+@media(max-width:620px){
+ .v50-adventure-bridge{grid-template-columns:1fr;gap:14px;padding:17px;border-radius:18px}
+ .v50-bridge-actions{grid-template-columns:1fr 1fr}
+ .v50-bridge-actions button{min-height:52px;padding:10px 9px;font-size:13px}
+ .v50-journey-flow{gap:5px;font-size:12px}
+ .v50-journey-flow span{padding:6px 8px}
+ .v414-home-category{min-height:112px}
+}
+@media(max-width:360px){.v50-bridge-actions{grid-template-columns:1fr}.v50-bridge-copy p{font-size:13px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.v414-home-category{transition:none}}
+</style>
+
 </head><body>
 <header><small>VIETNAM ADVENTURE · 2026</small><h1>🇻🇳 越南旅行日記</h1><p>北越六天五夜｜11/18（三）–11/23（一）</p></header><main>
 <section class="page active" id="home">
 <section aria-label="旅行世界首頁" class="v411-welcome">
 <div class="v411-welcome-copy"><span class="v411-kicker">VIETNAM · SLOW TRAVEL JOURNAL</span><h2>把每一段旅程，變成自己的故事。</h2><p>慢慢探索北越、認識沿途的人，收藏風景、美食與不期而遇的回憶。</p></div>
 <div aria-label="越南山水旅行插畫" class="v411-welcome-art" role="img"><span>⛰️</span><span>🌿</span><span>🏡</span><span>🛶</span></div>
+</section>
+<section aria-label="旅行與 RPG 融合入口" class="v50-adventure-bridge">
+  <div class="v50-bridge-copy">
+    <span class="v50-bridge-kicker">TRAVEL IS YOUR ADVENTURE</span>
+    <h2>走進越南，也走進自己的冒險故事。</h2>
+    <p>探索景點、觸發遭遇、完成任務，再把沿途風景收藏成回憶。</p>
+    <div class="v50-journey-flow" aria-label="旅行冒險流程"><span>🗺️ 探索</span><i>›</i><span>⚔️ 挑戰</span><i>›</i><span>🏆 成長</span><i>›</i><span>📖 收藏</span></div>
+  </div>
+  <div class="v50-bridge-actions">
+    <button type="button" class="v50-primary-action" onclick="showPage('adventureMap')">開始探索地圖 <span aria-hidden="true">→</span></button>
+    <button type="button" class="v50-secondary-action" onclick="showPage('loot')">進入 RPG 冒險中心</button>
+  </div>
 </section>
 <section aria-label="四大功能分類入口" class="v411-launch"><button class="v414-home-category" onclick="showPage('adventureMap')" type="button"><span>📍</span><b>打卡與行程</b><small>景點、GPS 打卡、每日安排</small></button><button class="v414-home-category" onclick="showPage('tasks')" type="button"><span>🎮</span><b>遊戲與冒險</b><small>任務、戰鬥、背包、成就</small></button><button class="v414-home-category" onclick="showPage('diary')" type="button"><span>📖</span><b>旅行紀錄</b><small>人物故事、日記、照片、回憶</small></button><button class="v414-home-category" onclick="showPage('expenses')" type="button"><span>🧰</span><b>旅行工具</b><small>美食、翻譯、記帳、購物</small></button></section>
 <section aria-label="旅程總覽" class="v3-home-overview v43-home-overview">
