@@ -1,7 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#282a36"><meta name="application-name" content="越南冒險日記 V4.11 沉浸式旅行世界版"><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg" type="image/svg+xml"><title>越南冒險日記 V4.13｜分類精簡與高對比版</title>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#282a36" name="theme-color"/><meta content="越南冒險日記 V4.11 沉浸式旅行世界版" name="application-name"/><link href="./manifest.webmanifest" rel="manifest"/><link href="./icon.svg" rel="icon" type="image/svg+xml"/><title>越南冒險日記 V4.14｜分類整合與易讀版</title>
 <style>
 :root{--teal:#087f70;--mint:#e4f6ef;--ink:#173b39;--muted:#637775;--paper:#f5f8f6;--line:#dce8e2}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif}header{padding:22px 18px 18px;background:linear-gradient(135deg,#075f59,#159b83);color:white;border-radius:0 0 24px 24px}header small{opacity:.85}h1{font-size:25px;margin:6px 0}main{padding:14px 14px 90px;max-width:720px;margin:auto}.card,.hero{background:white;border:1px solid var(--line);border-radius:16px;padding:14px;margin:10px 0}.hero{margin-top:0}.muted,.small{color:var(--muted);font-size:13px}.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0}.tile{background:white;border:1px solid var(--line);border-radius:15px;padding:14px;text-align:left;color:var(--ink);font:inherit;min-height:85px}.tile span{display:block;font-size:24px}.tile b{display:block;margin-top:6px}.page{display:none}.page.active{display:block}.section-title{font-size:18px;margin:18px 2px 10px}.daytabs{display:flex;gap:7px;overflow:auto;padding:3px 0 8px}.daytabs button,button{cursor:pointer}.daytabs button,.secondary{border:1px solid var(--line);background:white;border-radius:10px;padding:9px 12px;color:var(--ink)}.daytabs button.active,.primary,.action{background:var(--teal);color:white;border-color:var(--teal)}.event{display:grid;grid-template-columns:65px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.event:last-child{border:0}.time{color:var(--teal);font-weight:800;font-size:13px}.event p{margin:4px 0;font-size:13px;color:var(--muted)}button,input,select,textarea{font:inherit}input,select,textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:11px;background:white;color:var(--ink);margin:5px 0 10px}label{font-size:13px;font-weight:650}.action{border:0;border-radius:11px;padding:11px 14px;font-weight:700}.row{display:flex;gap:8px;align-items:center}.row>*{flex:1}.expense{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}nav{position:fixed;bottom:0;left:0;right:0;background:#ffffffef;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:8px 3px;z-index:5}nav button{border:0;background:transparent;color:var(--muted);font-size:11px;padding:5px 6px;border-radius:10px;min-width:0;white-space:nowrap}nav button.active{background:var(--mint);color:var(--teal);font-weight:700}nav span{display:block;font-size:20px}.notice{background:#fff5df;border-radius:12px;padding:11px;font-size:13px;color:#77571c}.copy{float:right;font-size:12px}.checked{opacity:.6}.checked strong{text-decoration:line-through}.diary-photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:8px 0}.diary-photo-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;border:1px solid var(--line)}.diary-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.diary-actions button{flex:1;min-width:90px}.diary-entry{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}.photo-hint{font-size:12px;color:var(--muted);margin-top:-5px;margin-bottom:10px}
 
@@ -436,7 +437,6 @@ nav.rpg-bottom-menu button .nav-image{width:32px;height:32px}
 .category-group button{display:block;width:100%;margin-top:6px;padding:9px 7px;text-align:left;background:#fff7df;border:2px solid #d0ae76;color:#4d301b;font-weight:800;font-size:12px;box-shadow:2px 2px 0 #d0ae76}
 @media(max-width:380px){.category-menu{left:6px;right:6px;padding:9px}.category-grid{gap:6px}.category-group{padding:7px}.category-group button{font-size:11px;padding:8px 5px}}
 </style>
-
 <style>
 /* v11 — cohesive retro cartridge palette: sunset orange, dream purple, terracotta, charcoal and slate */
 :root{
@@ -563,13 +563,10 @@ nav.rpg-nav button img{border:1px solid #bd93f9!important;border-radius:3px!impo
 #shoppingQuest .shopping-empty{background:#f5f8f6!important;color:#263b36!important;border-color:#9fb8ac!important}
 @media(max-width:520px){#shoppingQuest .shopping-item h4{font-size:14px!important}#shoppingQuest .shopping-item p{font-size:13px!important}}
 </style>
-
 <style id="rpg-dashboard-upgrade">
 .rpg-command-card{background:linear-gradient(145deg,#173b39 0%,#245d53 58%,#8b5b2a 140%)!important;color:#fff8e8!important;border:2px solid #d9ad62!important;box-shadow:0 5px 0 #6c4424,0 10px 24px #173b3920!important}
 .rpg-command-card h2,.rpg-command-card h3,.rpg-command-card b{color:#fff0c9}.rpg-command-card .small,.rpg-command-card p{color:#f4e9d2}.rpg-dashboard-top{display:flex;align-items:center;gap:12px}.rpg-dashboard-emblem{font-size:42px;filter:drop-shadow(2px 3px 0 #442c20)}.rpg-dashboard-top h2{margin:0;font-size:20px}.rpg-dashboard-top p{margin:4px 0 0;font-size:12px}.rpg-dashboard-xp{display:flex;justify-content:space-between;gap:10px;align-items:center;margin:14px 0 7px}.rpg-dashboard-track{height:12px;border:2px solid #e7c47a;background:#2d3935;border-radius:99px;overflow:hidden}.rpg-dashboard-track span{display:block;height:100%;width:0;background:linear-gradient(90deg,#f0c35f,#f8e6a0);transition:width .25s}.rpg-dashboard-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:14px}.rpg-dashboard-actions button{min-height:44px;border:1px solid #e7c47a;border-radius:11px;background:#fff1cd;color:#3f3424;font-weight:800;padding:8px}.rpg-daily-row{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:14px;padding:12px;border:1px solid #d8b16d;border-radius:12px;background:#ffffff12}.rpg-daily-row button{background:#f0c35f;color:#382b1d;border:0;border-radius:10px;padding:10px 12px;font-weight:800}.rpg-daily-row button:disabled{opacity:.6}.rpg-daily-stats{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:#f5e5c6}
 </style>
-
-
 <style id="integrated-rpg-menu-v2">
 /* 整合選單：底部只保留四個主要入口，其餘功能收納於分類面板 */
 nav.rpg-bottom-menu{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;align-items:stretch!important;justify-content:stretch!important;gap:7px!important;padding:8px 12px calc(8px + env(safe-area-inset-bottom))!important;background:linear-gradient(180deg,#34364b,#242633)!important;border-top:3px solid #ffb86c!important;box-shadow:0 -5px 18px rgba(20,20,30,.28)!important;overflow:visible!important}
@@ -583,7 +580,6 @@ nav.rpg-bottom-menu button.active{background:#ffb86c!important;color:#282a36!imp
 .category-group button{border-radius:7px!important;min-height:38px!important;padding:8px!important;font-size:12px!important;box-shadow:none!important}
 @media(max-width:380px){nav.rpg-bottom-menu{gap:5px!important;padding-left:7px!important;padding-right:7px!important}nav.rpg-bottom-menu button{font-size:11px!important;min-height:50px!important}.category-menu{left:6px!important;right:6px!important;padding:9px!important}.category-grid{gap:6px!important}.category-group{padding:7px!important}}
 </style>
-
 <style id="compact-itinerary-progress-adjustment">
 /* 只縮小「行程」頁上方的冒險進度卡片；不改動行程資料或功能 */
 #itinerary > .itinerary-progress-card{padding:10px 12px!important;margin:8px 0 12px!important;gap:6px!important}
@@ -595,7 +591,6 @@ nav.rpg-bottom-menu button.active{background:#ffb86c!important;color:#282a36!imp
 #itinerary > .itinerary-progress-card .today-quest-line{padding:2px 0!important}
 #itinerary > .itinerary-progress-card .today-quest-panel button{font-size:11px!important;padding:5px 8px!important;margin-top:4px!important}
 </style>
-
 <style id="menu-organization-v1">
 /* 選單分類整理：統一按鈕高度、間距與分類閱讀順序 */
 .category-menu-tip{margin:0 0 10px;font-size:12px;line-height:1.5;color:#e7e3f5}
@@ -606,7 +601,6 @@ nav.rpg-bottom-menu button.active{background:#ffb86c!important;color:#282a36!imp
 .category-group button:active{transform:translateY(1px)}
 @media(max-width:360px){.category-grid{grid-template-columns:1fr}.category-group h3{min-height:0}.category-group button{min-height:36px}}
 </style>
-
 <style id="menu-text-clarity-fix">
 /* 修正分類選單標題疊影：清除全站 RPG 標題的繼承陰影，只調整選單可讀性 */
 .category-menu .category-menu-head,
@@ -629,12 +623,10 @@ nav.rpg-bottom-menu button.active{background:#ffb86c!important;color:#282a36!imp
   line-height: 1.45 !important;
 }
 </style>
-
 <style id="global-no-text-shadow-fix">
 /* 全站文字清晰修正：移除所有元素及偽元素的文字陰影，不改動卡片/按鈕外框陰影 */
 *, *::before, *::after { text-shadow: none !important; }
 </style>
-
 <style id="global-text-contrast-fix">
 /* 全站文字可讀性修正：文字不加陰影，避免字色與影色接近造成重影；保留卡片與按鈕的外框/立體陰影。 */
 html body *, html body *::before, html body *::after {
@@ -650,7 +642,6 @@ nav.rpg-bottom-menu{z-index:20!important}
 #categoryMenu .category-group button{position:relative!important;z-index:2!important;pointer-events:auto!important;touch-action:manipulation!important}
 @media(max-width:380px){#categoryMenu.category-menu{left:6px!important;right:6px!important;bottom:calc(90px + env(safe-area-inset-bottom))!important;max-height:calc(100dvh - 118px - env(safe-area-inset-bottom))!important;padding:10px 10px 28px!important}}
 </style>
-
 <style id="menu-pending-count-style">
 .category-group button{position:relative;padding-right:44px!important}
 .menu-pending-badge[hidden]{display:none!important}
@@ -659,7 +650,6 @@ nav.rpg-bottom-menu{z-index:20!important}
 #categoryMenuToggle .menu-pending-badge{position:absolute;right:3px;top:2px;min-width:18px;height:18px;font-size:10px;padding:0 4px}
 #categoryMenuToggle{position:relative}
 </style>
-
 <style id="emergency-title-contrast-fix">
 /* 修正「突發狀況怎麼做」標題與卡片背景對比 */
 #emergency .card:has(> h3) > h3 { color:#172033 !important; }
@@ -667,7 +657,6 @@ nav.rpg-bottom-menu{z-index:20!important}
 #emergency .card > h3 { color:#172033 !important; }
 #emergency .card details summary, #emergency .card details summary b { color:#7f1d1d !important; }
 </style>
-
 <style id="emergency-body-text-contrast-fix">
 /* 強制緊急應變指南內文使用深色字，避免與底色融在一起 */
 #emergency .card details { background:#ffffff !important; color:#172033 !important; border:1px solid #94a3b8 !important; }
@@ -682,7 +671,7 @@ nav.rpg-bottom-menu{z-index:20!important}
 #emergency .card details summary b { color:#7f1d1d !important; }
 </style>
 <style>#photoMap input,#safetyCenter input[type=file]{max-width:100%;box-sizing:border-box}#photoMap .card,#safetyCenter .card{margin-bottom:12px}#safetyCenter li{margin:6px 0}</style>
-<meta name="v2-test-build" content="finance-rounding-and-gps-exp-guard"><meta name="v2-test-build-date" content="2026-10-31"><style id="v2-free-walk-rpg-style">
+<meta content="finance-rounding-and-gps-exp-guard" name="v2-test-build"/><meta content="2026-10-31" name="v2-test-build-date"/><style id="v2-free-walk-rpg-style">
 /* V2 safe integration: free-walk pixel RPG module, isolated from legacy save keys */
 .walk-rpg-card{border:4px solid #684326!important;background:#f3dfa0!important;box-shadow:5px 5px 0 #38271b!important;padding:12px!important}
 .walk-rpg-top{display:flex;flex-wrap:wrap;gap:7px;align-items:center;justify-content:space-between;margin-bottom:10px}
@@ -750,8 +739,6 @@ main{max-width:900px!important;padding-top:10px!important}
  #loot #vaUnifiedPanel{grid-column:1/-1}
 }
 </style>
-
-
 <style id="v3-simple-intuitive-refresh">
 /* V3 全功能簡易直覺版：只整理入口與視覺層，不改動資料儲存結構 */
 .v3-home-overview{margin:0 0 18px;padding:18px;background:linear-gradient(145deg,#fff4c9,#f0d58d);border:3px solid #815025;box-shadow:4px 4px 0 #422b19;color:#402a18}
@@ -846,7 +833,6 @@ nav.rpg-nav button.active,nav.rpg-nav a.active{background:#D6A84B!important;colo
 .pixel-map-label{background:#F4C95D!important;color:#352515!important;border-color:#604126!important}
 *:focus-visible{outline-color:#F4C95D!important}
 </style>
-
 <style id="v43-home-food-ux">
 /* V4.3 scoped visual and usability layer */
 .v43-home-overview{margin:14px 0 18px;padding:clamp(18px,4vw,28px);color:#F3EBD8!important;background:#171D2B!important;border:2px solid #F4C95D!important;border-radius:18px!important;box-shadow:0 7px 0 #101522,inset 0 0 0 2px rgba(244,201,93,.14)!important}
@@ -1020,7 +1006,6 @@ button,a{touch-action:manipulation}
 @media(max-width:420px){.walk-wild-battle{padding:10px}.walk-wild-actions button{font-size:13px;padding:8px 5px}.walk-wild-monster{grid-template-columns:52px minmax(0,1fr);gap:8px}.walk-wild-monster>span{font-size:38px}}
 
 </style>
-
 <style id="v46-fullscreen-wild-battle-style">
 /* V4.6：真正獨立的全螢幕野外戰鬥場景 */
 html.walk-battle-open,body.walk-battle-open{
@@ -1121,7 +1106,6 @@ body.walk-battle-open{padding:0!important;margin:0!important;touch-action:none!i
  #walkWildBattle .walk-wild-log{min-height:34px!important;max-height:48px!important;padding:6px 9px!important}
 }
 </style>
-
 <style id="v48-rpg-one-page-tabs-style">
 .va-hub-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:14px 0 10px;position:sticky;top:4px;z-index:20;padding:7px;background:rgba(28,35,49,.96);border:2px solid #8b7654;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.16)}
 .va-hub-tabs button{min-width:0;min-height:48px;padding:7px 4px;border:2px solid #75664f;border-radius:9px;background:#30394d;color:#fff4d8;font-weight:900;font-size:13px;line-height:1.25;cursor:pointer}
@@ -1136,8 +1120,6 @@ body.walk-battle-open{padding:0!important;margin:0!important;touch-action:none!i
 @media(max-width:430px){.va-hub-tabs{gap:4px;padding:5px}.va-hub-tabs button{font-size:11px;min-height:46px;padding:6px 2px}.va-hub-tabs button span{display:block;font-size:17px;margin-bottom:2px}}
 @media(prefers-reduced-motion:reduce){.va-hub-pane.is-active{animation:none}}
 </style>
-
-
 <style id="v411-immersive-travel-design">
 :root{--v411-bg:#f3f1e9;--v411-paper:#fffdf7;--v411-ink:#263a36;--v411-muted:#64746e;--v411-green:#356b58;--v411-green2:#244d42;--v411-gold:#c18a43;--v411-line:#d9e0d7;--v411-shadow:0 8px 28px rgba(34,61,49,.08)}
 html{font-size:18px;scroll-padding-top:18px}body{background:var(--v411-bg)!important;background-image:linear-gradient(180deg,#e8eee5 0,#f3f1e9 320px)!important;color:var(--v411-ink)!important;font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif!important;font-size:18px!important;line-height:1.7!important;letter-spacing:.015em}header{padding:24px clamp(18px,4vw,48px)!important;background:linear-gradient(125deg,#254f43,#477c65)!important;border:0!important;border-radius:0 0 24px 24px!important;box-shadow:0 8px 24px rgba(30,70,53,.14)!important}header:after{display:none!important}header h1{font-size:clamp(27px,3vw,36px)!important;color:#fff!important;text-shadow:none!important;line-height:1.3!important}header p,header small{font-size:15px!important;color:#edf5e9!important}main{width:min(100% - 36px,1500px)!important;max-width:1500px!important;padding:24px 0 calc(112px + env(safe-area-inset-bottom))!important;margin:0 auto!important}.page{max-width:100%;min-width:0}.card,.hero{background:var(--v411-paper)!important;color:var(--v411-ink)!important;border:1px solid var(--v411-line)!important;border-radius:18px!important;box-shadow:var(--v411-shadow)!important;padding:clamp(18px,2.4vw,30px)!important;margin:18px 0!important}.section-title{font-size:clamp(24px,2.4vw,32px)!important;color:var(--v411-green2)!important;background:transparent!important;border:0!important;box-shadow:none!important;text-shadow:none!important;padding:0!important}.page h2{font-size:clamp(23px,2.2vw,31px)!important;line-height:1.35!important}.page h3{font-size:clamp(19px,1.8vw,24px)!important;line-height:1.4!important}.page p,.page li,.page label,.page .small,.page .muted{font-size:17px!important;line-height:1.75!important;color:var(--v411-muted)!important}.page strong,.page b{line-height:1.5}.page button,.page .action,.page .primary,.page .secondary,.page input,.page select,.page textarea{font-size:17px!important;line-height:1.45!important;min-height:52px!important;border-radius:12px!important}.page button{padding:12px 18px!important}.page input,.page select,.page textarea{padding:13px 15px!important;background:#fff!important;color:#263a36!important;border:1px solid #cbd8ce!important}.page input[type=checkbox],.page input[type=radio]{min-height:22px!important;width:22px!important}.page button:focus-visible,.page input:focus-visible,.page select:focus-visible,.page textarea:focus-visible{outline:3px solid #bd914e!important;outline-offset:3px!important}.page .notice{font-size:16px!important;line-height:1.7!important;background:#f4f0df!important;color:#62583f!important;border:1px solid #e4d9b9!important;border-left:5px solid #c49a5b!important;border-radius:10px!important;box-shadow:none!important}.page .tile,.page .v3-quick-card{min-height:116px!important}
@@ -1157,8 +1139,6 @@ nav.rpg-bottom-menu{min-height:76px!important;padding:8px max(12px,env(safe-area
 @media(max-width:390px){.v411-welcome-actions{display:grid;grid-template-columns:1fr}.v411-launch button{min-height:122px!important;padding:12px!important}.v411-launch button b{font-size:16px!important}.v411-launch button small{font-size:13px!important}.v411-story-card{padding:17px}.v411-story-options{display:grid}.v411-story-options button{width:100%}}
 @media(prefers-reduced-motion:reduce){.v411-launch button{transition:none!important}}
 </style>
-
-
 <style id="v412-simple-travel-interface">
 /* V4.12：簡化首頁與主導覽；原有功能區塊及資料結構完整保留 */
 header small:after{content:" · V4.12";opacity:.8}
@@ -1195,97 +1175,176 @@ nav.rpg-bottom-menu button .nav-icon{font-size:24px!important}
 }
 @media(max-width:390px){#home .v411-launch button{min-height:126px!important;padding:12px!important}}
 </style>
+<style id="v414-clean-layout-contrast">
+/* V4.14: clear hierarchy, fewer duplicate entry points, readable contrast */
+:root{--v414-ink:#172033;--v414-muted:#46536a;--v414-paper:#ffffff;--v414-soft:#f1f5f9;--v414-line:#cbd5e1;--v414-accent:#176b45;--v414-focus:#f59e0b}
+html,body{color:var(--v414-ink)}
+body{background:#f5f7f4}
+main .page{color:var(--v414-ink)}
+main .page h1,main .page h2,main .page h3,main .page h4{color:#172033}
+main .page p,main .page li,main .page label,main .page .small,main .page small{color:#39465c}
+main .page .card,main .page .notice,main .page .v3-home-overview,main .page .v44-readiness{color:#172033}
+main .page .card{background:#fff;border-color:#d5dde7}
+main .page .notice{background:#eef4f1!important;color:#203a30!important;border:1px solid #b9d2c5!important}
+main .page input:not([type=checkbox]):not([type=radio]),main .page select,main .page textarea{background:#fff!important;color:#172033!important;border:1.5px solid #8795a8!important}
+main .page input::placeholder,main .page textarea::placeholder{color:#58677d!important;opacity:1}
+main .page button{ text-shadow:none }
+main .page button:focus-visible,main .page a:focus-visible,nav button:focus-visible{outline:3px solid #f59e0b!important;outline-offset:3px!important}
+/* Home: four category cards are the only prominent shortcuts. */
+.v411-welcome{margin-bottom:14px!important}
+.v411-welcome h2{color:#172033!important}
+.v411-welcome p{color:#344258!important}
+.v411-launch{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important;margin:14px 0 20px!important}
+.v411-launch .v414-home-category{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:7px!important;min-height:118px!important;padding:16px!important;border:1.5px solid #cbd5e1!important;border-radius:16px!important;background:#fff!important;color:#172033!important;text-align:left!important;box-shadow:0 3px 12px #1720330c!important}
+.v411-launch .v414-home-category>span{font-size:27px!important;line-height:1.2}
+.v411-launch .v414-home-category>b{font-size:17px!important;color:#172033!important}
+.v411-launch .v414-home-category>small{font-size:13px!important;line-height:1.5;color:#46536a!important}
+.v414-home-secondary{display:none!important}
+.v414-checkin-on-map{margin:16px 0!important}
+/* Menu accordion: one consistent palette and stronger text contrast. */
+#categoryMenu{background:#172033!important;color:#f8fafc!important;border:2px solid #8293ad!important}
+#categoryMenu .category-menu-head{background:#172033!important;color:#fff!important}
+#categoryMenu .category-menu-head b{color:#fff!important}
+#categoryMenu .category-menu-tip{background:#26344d!important;color:#f8fafc!important}
+#categoryMenuGrid{display:flex!important;flex-direction:column!important;gap:9px!important}
+#categoryMenuGrid .category-accordion{background:#26344d!important;border:1px solid #8293ad!important;border-radius:12px!important;overflow:hidden}
+#categoryMenuGrid .category-accordion>summary{background:#354765!important;color:#fff!important;min-height:54px!important;font-size:16px!important;font-weight:800!important}
+#categoryMenuGrid .accordion-hint{color:#e6edf7!important}
+#categoryMenuGrid .category-accordion-content{background:#26344d!important}
+#categoryMenuGrid .category-group{background:transparent!important;border:0!important;padding:7px!important}
+#categoryMenuGrid .category-group button{background:#fff!important;color:#172033!important;border:1.5px solid #aab8cc!important;border-left:4px solid #d49a25!important;min-height:48px!important;font-size:14px!important;font-weight:750!important}
+#categoryMenuGrid .category-group button:hover{background:#edf4ff!important}
+#categoryMenu .ux-function-search{background:#fff!important;border:2px solid #a8b6ce!important}
+#categoryMenu .ux-function-search input{background:#fff!important;color:#172033!important}
+#categoryMenu .ux-function-search input::placeholder{color:#526078!important}
+#categoryMenu .ux-search-status{color:#f1f5f9!important}
+#categoryMenu .category-close{color:#fff!important}
+@media(max-width:560px){.v411-launch{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}.v411-launch .v414-home-category{min-height:112px!important;padding:12px!important}.v411-launch .v414-home-category>b{font-size:15px!important}.v411-launch .v414-home-category>small{font-size:12px!important}#categoryMenuGrid .category-accordion>summary{font-size:15px!important;padding:12px!important}#categoryMenuGrid .category-group button{font-size:14px!important;min-height:48px!important}}
+@media(prefers-color-scheme:dark){main .page{color:#172033}main .page .card{background:#fff;color:#172033}main .page h1,main .page h2,main .page h3,main .page h4{color:#172033}}
+</style>
+<style id="v415-button-selection-contrast">
+/* V4.15：修正點選後焦點/選取狀態白底淺字難辨識問題 */
+:root{--v415-selected-bg:#dbeafe;--v415-selected-ink:#14243b;--v415-selected-border:#2563eb;--v415-focus-ring:rgba(37,99,235,.28)}
+/* 一般內容按鈕：點擊後、鍵盤焦點與選取狀態統一使用深字＋淡藍底 */
+main .page button:focus,
+main .page button:active,
+main .page button[aria-pressed="true"],
+main .page button[aria-selected="true"],
+main .page button.selected,
+main .page button.active,
+main .page button.is-active,
+main .page .daytabs button.active{
+  background:var(--v415-selected-bg)!important;
+  color:var(--v415-selected-ink)!important;
+  border-color:var(--v415-selected-border)!important;
+  text-shadow:none!important;
+  box-shadow:inset 0 0 0 1px rgba(37,99,235,.12),0 0 0 3px var(--v415-focus-ring)!important;
+  opacity:1!important;
+}
+main .page button:focus-visible{outline:3px solid #1d4ed8!important;outline-offset:3px!important}
+/* 主要操作按鈕在非選取狀態維持深綠底白字；點選時改用上方高對比狀態 */
+main .page button.primary:not(:focus):not(:active),
+main .page button.action:not(:focus):not(:active){background:#176b45!important;color:#fff!important}
+/* 分類入口、次要按鈕本來是白底，確保互動後不會變成白字白底 */
+main .page button.secondary,
+main .page .v411-launch button{color:#172033!important}
+/* 導覽列選取狀態獨立處理，避免被頁面按鈕規則干擾 */
+nav.rpg-bottom-menu button:focus,
+nav.rpg-bottom-menu button:active,
+nav.rpg-bottom-menu button.active{background:#dbeafe!important;color:#14243b!important;border-color:#2563eb!important;text-shadow:none!important;box-shadow:0 0 0 3px rgba(37,99,235,.22)!important}
+/* RPG 內嵌分頁/標籤的選取狀態 */
+.va-hub-tabs button:focus,
+.va-hub-tabs button:active,
+.va-hub-tabs button[aria-selected="true"]{background:#dbeafe!important;color:#14243b!important;border-color:#2563eb!important;text-shadow:none!important}
+/* 原生下拉選單及選項採高對比配色 */
+main .page select{background-color:#fff!important;color:#172033!important;color-scheme:light}
+main .page select option{background:#fff!important;color:#172033!important}
+/* 減少觸控裝置點擊後殘留的系統高亮色 */
+main .page button,nav button{-webkit-tap-highlight-color:rgba(37,99,235,.16)}
+</style>
 
 </head><body>
-
-
 <header><small>VIETNAM ADVENTURE · 2026</small><h1>🇻🇳 越南旅行日記</h1><p>北越六天五夜｜11/18（三）–11/23（一）</p></header><main>
 <section class="page active" id="home">
-<section class="v411-welcome" aria-label="旅行世界首頁">
-  <div class="v411-welcome-copy"><span class="v411-kicker">VIETNAM · SLOW TRAVEL JOURNAL</span><h2>把每一段旅程，變成自己的故事。</h2><p>慢慢探索北越、認識沿途的人，收藏風景、美食與不期而遇的回憶。</p><div class="v411-welcome-actions"><button type="button" onclick="showPage('adventureMap')">🗺️ 開始探索</button><button type="button" class="v411-quiet" onclick="showPage('travelStories')">💬 遇見旅人</button></div></div>
-  <div class="v411-welcome-art" role="img" aria-label="越南山水旅行插畫"><span>⛰️</span><span>🌿</span><span>🏡</span><span>🛶</span></div>
+<section aria-label="旅行世界首頁" class="v411-welcome">
+<div class="v411-welcome-copy"><span class="v411-kicker">VIETNAM · SLOW TRAVEL JOURNAL</span><h2>把每一段旅程，變成自己的故事。</h2><p>慢慢探索北越、認識沿途的人，收藏風景、美食與不期而遇的回憶。</p></div>
+<div aria-label="越南山水旅行插畫" class="v411-welcome-art" role="img"><span>⛰️</span><span>🌿</span><span>🏡</span><span>🛶</span></div>
 </section>
-<section class="v411-launch" aria-label="旅行快捷入口"><button onclick="showPage('adventureMap')"><span>🧭</span><b>探索地圖</b><small>走訪河內、沙壩與下龍灣</small></button><button onclick="showPage('travelStories')"><span>👥</span><b>人物故事</b><small>與居民相遇、留下故事</small></button><button onclick="showPage('photos')"><span>📸</span><b>旅行相簿</b><small>保存沿途風景與照片</small></button><button onclick="showPage('diary')"><span>📖</span><b>旅行回憶</b><small>寫下每天的感受</small></button></section>
-
-<section class="v3-home-overview v43-home-overview" aria-label="旅程總覽">
-  <div class="v3-home-title-row"><div><span class="v3-eyebrow">YOUR NORTH VIETNAM QUEST</span><h2>準備好出發冒險了嗎？</h2><p>北越六天五夜・4 人小隊</p></div><span class="v3-home-badge" aria-hidden="true">🇻🇳</span></div>
-  <div class="v3-trip-facts"><div><small>出發日期</small><strong>11/18（三）</strong></div><div><small>旅程天數</small><strong>6 天 5 夜</strong></div><div><small>旅遊地區</small><strong>河內・沙壩・下龍灣</strong></div></div>
-  <section class="v44-readiness card" id="v44Readiness" aria-label="出發準備進度">
-    <div class="v44-readiness-head"><div><b>🧳 出發準備總覽</b><small id="v44ReadinessCaption">整理待辦，讓旅程更安心</small></div><span id="v44ReadinessPercent">0%</span></div>
-    <div class="v44-progress-track" role="progressbar" aria-label="出發準備完成度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="v44ReadinessBar"><span id="v44ReadinessFill"></span></div>
-    <div class="v44-readiness-stats"><span>出發檢查 <b id="v44ChecksCount">0/8</b></span><span>行程任務 <b id="v44ItineraryCount">0/0</b></span></div>
-    <div class="v44-readiness-actions"><button type="button" class="secondary" onclick="showPage('offline')">查看出發檢查</button><button type="button" class="secondary" onclick="showPage('itinerary')">查看每日行程</button></div>
-  </section>
-  <div class="v3-home-reminder"><span aria-hidden="true">📌</span><div><strong>出發前準備中</strong><p>查看每日行程、交通集合時間與待辦任務，讓旅程更安心。</p></div><button type="button" onclick="showPage('itinerary')">查看行程</button></div>
+<section aria-label="四大功能分類入口" class="v411-launch"><button class="v414-home-category" onclick="showPage('adventureMap')" type="button"><span>📍</span><b>打卡與行程</b><small>景點、GPS 打卡、每日安排</small></button><button class="v414-home-category" onclick="showPage('tasks')" type="button"><span>🎮</span><b>遊戲與冒險</b><small>任務、戰鬥、背包、成就</small></button><button class="v414-home-category" onclick="showPage('diary')" type="button"><span>📖</span><b>旅行紀錄</b><small>人物故事、日記、照片、回憶</small></button><button class="v414-home-category" onclick="showPage('expenses')" type="button"><span>🧰</span><b>旅行工具</b><small>美食、翻譯、記帳、購物</small></button></section>
+<section aria-label="旅程總覽" class="v3-home-overview v43-home-overview">
+<div class="v3-home-title-row"><div><span class="v3-eyebrow">YOUR NORTH VIETNAM QUEST</span><h2>準備好出發冒險了嗎？</h2><p>北越六天五夜・4 人小隊</p></div><span aria-hidden="true" class="v3-home-badge">🇻🇳</span></div>
+<div class="v3-trip-facts"><div><small>出發日期</small><strong>11/18（三）</strong></div><div><small>旅程天數</small><strong>6 天 5 夜</strong></div><div><small>旅遊地區</small><strong>河內・沙壩・下龍灣</strong></div></div>
+<section aria-label="出發準備進度" class="v44-readiness card" id="v44Readiness">
+<div class="v44-readiness-head"><div><b>🧳 出發準備總覽</b><small id="v44ReadinessCaption">整理待辦，讓旅程更安心</small></div><span id="v44ReadinessPercent">0%</span></div>
+<div aria-label="出發準備完成度" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="v44-progress-track" id="v44ReadinessBar" role="progressbar"><span id="v44ReadinessFill"></span></div>
+<div class="v44-readiness-stats"><span>出發檢查 <b id="v44ChecksCount">0/8</b></span><span>行程任務 <b id="v44ItineraryCount">0/0</b></span></div>
+<div class="v44-readiness-actions"><button class="secondary" onclick="showPage('offline')" type="button">查看出發檢查</button><button class="secondary" onclick="showPage('itinerary')" type="button">查看每日行程</button></div>
 </section>
-<section class="v3-quick-section" aria-label="常用操作">
-  <h2 class="v3-quick-heading">✨ 常用操作 <small>只放底部選單沒有的快捷功能</small></h2>
-  <div class="v3-quick-grid v4-unique-actions">
-    <button class="v3-quick-card" type="button" onclick="showPage('expenses')"><span>💰</span><strong>記帳／分帳</strong><small>新增支出・查看結算</small></button>
-    <button class="v3-quick-card" type="button" onclick="showPage('translate')"><span>🗣️</span><strong>旅遊翻譯</strong><small>越南文・常用句</small></button>
-    <button class="v3-quick-card" type="button" onclick="showPage('diary')"><span>📖</span><strong>記錄旅行回憶</strong><small>日記・照片整理</small></button>
-  </div>
+<div class="v3-home-reminder v414-home-secondary"><span aria-hidden="true">📌</span><div><strong>出發前準備中</strong><p>查看每日行程、交通集合時間與待辦任務，讓旅程更安心。</p></div><button onclick="showPage('itinerary')" type="button">查看行程</button></div>
+</section>
+<section aria-label="常用操作" class="v3-quick-section v414-home-secondary">
+<h2 class="v3-quick-heading">✨ 常用操作 <small>只放底部選單沒有的快捷功能</small></h2>
+<div class="v3-quick-grid v4-unique-actions">
+<button class="v3-quick-card" onclick="showPage('expenses')" type="button"><span>💰</span><strong>記帳／分帳</strong><small>新增支出・查看結算</small></button>
+<button class="v3-quick-card" onclick="showPage('translate')" type="button"><span>🗣️</span><strong>旅遊翻譯</strong><small>越南文・常用句</small></button>
+<button class="v3-quick-card" onclick="showPage('diary')" type="button"><span>📖</span><strong>記錄旅行回憶</strong><small>日記・照片整理</small></button>
+</div>
 </section>
 <!-- 新增 RPG 指揮中心：只讀取既有進度，簽到資料使用獨立新鍵保存。 -->
-<section class="card rpg-command-card" id="rpgCommandCenter" aria-label="冒險者控制台">
- <div class="rpg-dashboard-top"><div class="rpg-dashboard-emblem" id="rpgDashboardEmblem">🧭</div><div><small>VIETNAM ADVENTURE · COMMAND CENTER</small><h2 id="rpgDashboardLevel">Lv. 1 初心旅人</h2><p id="rpgDashboardSummary">踏上河內、沙壩與下龍灣的冒險旅程！</p></div></div>
- <div class="rpg-dashboard-xp"><b>✨ 冒險經驗 EXP</b><strong><span id="rpgDashboardXP">0</span> EXP</strong></div><div class="rpg-dashboard-track"><span id="rpgDashboardBar"></span></div><p class="small" id="rpgDashboardProgress">本級 0 / 100 EXP</p>
- <div class="rpg-daily-row"><div><b>📅 每日冒險簽到　+10 EXP</b><div class="rpg-daily-stats"><span id="rpgDailyStatus">今日尚未簽到</span><span id="rpgDailyStreak">連續簽到 0 天</span></div></div><button type="button" id="rpgDailyClaimButton" onclick="claimDailyAdventure()">領取獎勵</button></div>
- <div class="rpg-dashboard-actions"><button type="button" onclick="showPage('tasks')">🗺️ 探索主線任務</button><button type="button" onclick="showPage('achievements')">🏆 查看成就等級</button><button type="button" onclick="showPage('loot')">🎒 小隊與戰利品</button><button type="button" onclick="showPage('shoppingQuest')">🎁 伴手禮任務</button><button type="button" onclick="showPage('adventurePlaybook')">🎲 每日驚喜互動</button></div>
- <p class="small" style="margin-bottom:0">每日簽到只會新增一筆獨立的 RPG 紀錄，不會修改日記、照片、支出、行程或既有成就。</p>
-</section>
-<section class="card" id="checkinReminderCard" aria-label="今日待打卡與到達提醒">
- <h2>📍 今日待打卡・到達提醒</h2>
- <p class="small">開啟後，網站在前景執行期間會檢查河內、沙壩、下龍灣附近的位置；接近時會在此頁提醒你。其他細部景點可從清單直接開啟打卡。GPS 受定位權限、網路與手機省電設定影響，不能保證背景或關閉網頁時提醒。</p>
- <div class="row"><button type="button" class="action" id="checkinWatchButton" onclick="toggleCheckinWatch()">🛰️ 開啟到達提醒</button><button type="button" class="secondary" onclick="showPage('adventureMap')">開啟景點打卡</button></div>
- <p id="checkinWatchStatus" class="notice" aria-live="polite">到達提醒尚未開啟。允許定位後，請保持此網頁在前景。</p>
- <div id="checkinReminderList"></div>
-</section>
+
 <!-- 首頁只保留主視覺與冒險地圖；小隊與戰利品獨立為底部選單頁面。 -->
-
 <div class="notice">飯店地址、交通時間與預訂資料請出發前逐項核對。GPS 只有在北越景點附近才會確認為真實地點；其他位置會明確標示測試模式／未確認地點。</div></section>
-
-<section class="page" id="adventureMap"><h2 class="section-title">🗺️ 北越冒險地圖・景點打卡</h2><section class="rpg-map-panel card" aria-label="RPG 行程地圖">
+<section class="page" id="adventureMap"><h2 class="section-title">🗺️ 北越冒險地圖・景點打卡</h2><section aria-label="今日待打卡與到達提醒" class="card v414-checkin-on-map" id="checkinReminderCard">
+<h2>📍 今日待打卡・到達提醒</h2>
+<p class="small">開啟後，網站在前景執行期間會檢查河內、沙壩、下龍灣附近的位置；接近時會在此頁提醒你。其他細部景點可從清單直接開啟打卡。GPS 受定位權限、網路與手機省電設定影響，不能保證背景或關閉網頁時提醒。</p>
+<div class="row"><button class="action" id="checkinWatchButton" onclick="toggleCheckinWatch()" type="button">🛰️ 開啟到達提醒</button><button class="secondary" onclick="showPage('adventureMap')" type="button">開啟景點打卡</button></div>
+<p aria-live="polite" class="notice" id="checkinWatchStatus">到達提醒尚未開啟。允許定位後，請保持此網頁在前景。</p>
+<div id="checkinReminderList"></div>
+</section><section aria-label="RPG 行程地圖" class="rpg-map-panel card">
 <div class="map-heading"><div><small>MAIN QUEST · 北越冒險</small><h2>🗺️ 我的冒險地圖</h2></div><b id="mapQuestCount">0 / 0 已探索</b></div>
-<button class="main-map-quest" onclick="document.getElementById('rpgMap').scrollIntoView({behavior:'smooth',block:'center'});document.getElementById('rpgMap').classList.add('map-focus');setTimeout(()=>document.getElementById('rpgMap').classList.remove('map-focus'),1200)">🗺️ 地圖闖關 <small>河內 → 沙壩 → 下龍灣</small></button>
-
-<div class="pixel-game-hint">🧭 嗨，冒險者！點擊地圖上的地點，開啟任務並留下旅行足跡！</div><div class="pixel-map-wrap"><div class="pixel-npc-speech">出發吧！<br>一起探索北越的美麗風景！ 💗</div><div id="rpgMap" class="rpg-map-path"><div class="notice">正在載入北越冒險地圖…若未顯示地圖，請確認瀏覽器允許執行此 HTML 的 JavaScript。</div></div><div class="pixel-pet" aria-hidden="true">🐈 🐾</div></div>
+<button class="main-map-quest" onclick="document.getElementById('rpgMap').scrollIntoView({behavior:'smooth',block:'center'});document.getElementById('rpgMap').classList.add('map-focus');setTimeout(()=&gt;document.getElementById('rpgMap').classList.remove('map-focus'),1200)">🗺️ 地圖闖關 <small>河內 → 沙壩 → 下龍灣</small></button>
+<div class="pixel-game-hint">🧭 嗨，冒險者！點擊地圖上的地點，開啟任務並留下旅行足跡！</div><div class="pixel-map-wrap"><div class="pixel-npc-speech">出發吧！<br/>一起探索北越的美麗風景！ 💗</div><div class="rpg-map-path" id="rpgMap"><div class="notice">正在載入北越冒險地圖…若未顯示地圖，請確認瀏覽器允許執行此 HTML 的 JavaScript。</div></div><div aria-hidden="true" class="pixel-pet">🐈 🐾</div></div>
 </section><p class="small">點選地圖地點可展開景點資訊、打卡與照片功能。</p>
 <section class="card walk-rpg-card" id="walkRpgModule">
- <div class="walk-rpg-top"><div><h3 style="margin:0">🎮 北越自由探索世界｜NPC 委託冒險</h3><p class="small" style="margin:4px 0 0">鍵盤方向鍵／WASD，或使用手機方向鍵移動；靠近 NPC、任務物件、寶箱或地圖閃光祕密後按「互動」；三個地區已連成同一張冒險世界：走到地圖出口即可前往相鄰地區，不必手動切換。完成 NPC 委託、尋找寶箱與祕密收藏，移動時還可能遇到野生怪物。樹幹、建築與岩石無法穿越。</p></div><b id="walkRpgLevel">探索 EXP 連動中</b></div>
- <div class="walk-rpg-world-route" aria-live="polite"><b>🗺️ 北越連續冒險世界</b><span>河內古城 ⇄ 沙壩山村 ⇄ 下龍港口</span><small>走到場景左右側的發光出口，即可自然進入相鄰地圖。</small></div>
- <div class="walk-rpg-areas" role="group" aria-label="舊版場景相容控制" hidden>
-  <button type="button" class="active" data-walk-area="hanoi">🏮 河內古城</button><button type="button" data-walk-area="sapa">⛰️ 沙壩山村</button><button type="button" data-walk-area="halong">⛵ 下龍港口</button>
- </div>
- <canvas id="walkRpgCanvas" width="720" height="420" aria-label="可用鍵盤或方向按鈕自由移動的像素 RPG 場景"></canvas>
- <div class="walk-rpg-controls">
-  <div class="walk-rpg-pad" aria-label="人物移動控制">
-   <button type="button" data-dir="up" aria-label="向上">▲</button><button type="button" data-dir="left" aria-label="向左">◀</button><button type="button" data-dir="down" aria-label="向下">▼</button><button type="button" data-dir="right" aria-label="向右">▶</button>
-  </div>
-  <button type="button" class="action walk-rpg-interact" id="walkRpgInteract">💬 互動 / 對話</button>
- </div>
- <div class="walk-rpg-dialog" id="walkRpgDialog" aria-live="polite">冒險者，歡迎來到北越！移動人物，靠近當地居民或寶箱，開始探索吧。</div>
- <section id="walkWildBattle" class="walk-wild-battle" hidden aria-live="polite" aria-label="野生怪物戰鬥">
-  <div class="walk-wild-title"><span>⚔️ 野生怪物出現！</span><span id="walkWildArea"></span></div>
-  <div class="walk-wild-monster"><span id="walkWildMonsterIcon">👾</span><div><b id="walkWildMonsterName">未知怪物</b><small id="walkWildMonsterHp">HP —</small><div class="walk-wild-hp"><span id="walkWildMonsterBar"></span></div></div></div>
-  <div class="walk-wild-player"><span>🧑‍🌾 冒險者</span><b id="walkWildPlayerHp">HP —</b></div>
-  <div class="walk-wild-actions">
-   <button type="button" class="action" onclick="WalkRPGEncounter.attack()">⚔️ 普通攻擊</button>
-   <button type="button" class="secondary" onclick="WalkRPGEncounter.skill()">✨ 強力技能</button>
-   <button type="button" class="secondary" onclick="WalkRPGEncounter.potion()">🧪 使用藥水</button>
-   <button type="button" class="secondary" onclick="WalkRPGEncounter.flee()">🏃 逃跑</button>
-  </div>
-  <div id="walkWildLog" class="walk-wild-log" role="status">選擇你的行動！</div>
- </section>
- <div class="walk-rpg-status" id="walkRpgStatus">主線：與居民交談後尋找寶箱；支線：接受 NPC 委託、找回物品並回報領獎。</div>
- <div class="walk-rpg-base-divider"><span>🎒 冒險者基地</span><small>角色、背包、戰利品、裝備、技能與圖鑑都在這裡，無須離開探索世界</small></div>
- <div id="vaUnifiedPanelMount" class="walk-rpg-base-mount" aria-live="off"></div>
+<div class="walk-rpg-top"><div><h3 style="margin:0">🎮 北越自由探索世界｜NPC 委託冒險</h3><p class="small" style="margin:4px 0 0">鍵盤方向鍵／WASD，或使用手機方向鍵移動；靠近 NPC、任務物件、寶箱或地圖閃光祕密後按「互動」；三個地區已連成同一張冒險世界：走到地圖出口即可前往相鄰地區，不必手動切換。完成 NPC 委託、尋找寶箱與祕密收藏，移動時還可能遇到野生怪物。樹幹、建築與岩石無法穿越。</p></div><b id="walkRpgLevel">探索 EXP 連動中</b></div>
+<div aria-live="polite" class="walk-rpg-world-route"><b>🗺️ 北越連續冒險世界</b><span>河內古城 ⇄ 沙壩山村 ⇄ 下龍港口</span><small>走到場景左右側的發光出口，即可自然進入相鄰地圖。</small></div>
+<div aria-label="舊版場景相容控制" class="walk-rpg-areas" hidden="" role="group">
+<button class="active" data-walk-area="hanoi" type="button">🏮 河內古城</button><button data-walk-area="sapa" type="button">⛰️ 沙壩山村</button><button data-walk-area="halong" type="button">⛵ 下龍港口</button>
+</div>
+<canvas aria-label="可用鍵盤或方向按鈕自由移動的像素 RPG 場景" height="420" id="walkRpgCanvas" width="720"></canvas>
+<div class="walk-rpg-controls">
+<div aria-label="人物移動控制" class="walk-rpg-pad">
+<button aria-label="向上" data-dir="up" type="button">▲</button><button aria-label="向左" data-dir="left" type="button">◀</button><button aria-label="向下" data-dir="down" type="button">▼</button><button aria-label="向右" data-dir="right" type="button">▶</button>
+</div>
+<button class="action walk-rpg-interact" id="walkRpgInteract" type="button">💬 互動 / 對話</button>
+</div>
+<div aria-live="polite" class="walk-rpg-dialog" id="walkRpgDialog">冒險者，歡迎來到北越！移動人物，靠近當地居民或寶箱，開始探索吧。</div>
+<section aria-label="野生怪物戰鬥" aria-live="polite" class="walk-wild-battle" hidden="" id="walkWildBattle">
+<div class="walk-wild-title"><span>⚔️ 野生怪物出現！</span><span id="walkWildArea"></span></div>
+<div class="walk-wild-monster"><span id="walkWildMonsterIcon">👾</span><div><b id="walkWildMonsterName">未知怪物</b><small id="walkWildMonsterHp">HP —</small><div class="walk-wild-hp"><span id="walkWildMonsterBar"></span></div></div></div>
+<div class="walk-wild-player"><span>🧑‍🌾 冒險者</span><b id="walkWildPlayerHp">HP —</b></div>
+<div class="walk-wild-actions">
+<button class="action" onclick="WalkRPGEncounter.attack()" type="button">⚔️ 普通攻擊</button>
+<button class="secondary" onclick="WalkRPGEncounter.skill()" type="button">✨ 強力技能</button>
+<button class="secondary" onclick="WalkRPGEncounter.potion()" type="button">🧪 使用藥水</button>
+<button class="secondary" onclick="WalkRPGEncounter.flee()" type="button">🏃 逃跑</button>
+</div>
+<div class="walk-wild-log" id="walkWildLog" role="status">選擇你的行動！</div>
+</section>
+<div class="walk-rpg-status" id="walkRpgStatus">主線：與居民交談後尋找寶箱；支線：接受 NPC 委託、找回物品並回報領獎。</div>
+<div class="walk-rpg-base-divider"><span>🎒 冒險者基地</span><small>角色、背包、戰利品、裝備、技能與圖鑑都在這裡，無須離開探索世界</small></div>
+<div aria-live="off" class="walk-rpg-base-mount" id="vaUnifiedPanelMount"></div>
 </section>
 </section>
 <section class="page" id="tasks"><h2 class="section-title">📜 任務清單</h2><div class="notice">景點探索與行程任務集中在這裡；勾選行程任務會同步更新行程進度。</div><div class="pixel-quest-board"><div id="pixelQuestList"></div><button class="pixel-green-button" onclick="showPage('achievements')">🏆 查看成就</button><button class="pixel-orange-button" onclick="showPage('diary')">📖 旅行回憶錄</button></div></section>
-
-<section class="page" id="treasureRewards"><h2 class="section-title">🧰 隱藏寶箱・探索獎勵</h2><div class="notice">完成景點打卡後，有機會發現專屬探索獎勵。此頁只讀取既有探索獎勵資料，不會清除或重設收藏。</div><div class="card"><h3>✨ 景點專屬寶藏</h3><p id="treasureRewardSummary" class="small">正在整理探索紀錄…</p><div id="treasureRewardGrid" class="loot-codex-grid"></div></div><div class="card"><h3>🗺️ 繼續探索</h3><p>回到地圖完成景點打卡，尋找尚未發現的寶藏。</p><button type="button" class="action" onclick="showPage('adventureMap')">開啟北越冒險地圖</button></div></section>
-<section class="page" id="loot"><h2 class="section-title">⚔️ RPG 冒險中心</h2><div class="notice">戰鬥、背包戰利品、角色裝備與怪物圖鑑整合在同一頁，使用上方分類切換即可，不必在多個選單間來回尋找。</div><section class="card" id="squadPanel"><h2>🧭 四人冒險小隊</h2><p class="small">隊員暱稱、羈絆事件與戰利品會另外保存，不會覆蓋原有支出或日記。</p><div id="squadMembers"></div><div class="row"><div><label for="memberName">隊員暱稱</label><input id="memberName" maxlength="24" placeholder="輸入隊員暱稱"></div><div style="align-self:end"><button class="action" onclick="addSquadMember()">加入小隊</button></div></div><div class="row"><button class="secondary" onclick="triggerBondEvent()">💞 隨機隊友羈絆</button><button class="secondary" onclick="claimLoot()">🎁 搜尋隨機戰利品</button></div><div id="bondResult" class="notice" aria-live="polite">冒險途中可能觸發特別事件！</div><div class="card loot-codex-card"><h3>📖 戰利品收藏圖鑑</h3><p id="lootCodexProgress" class="small">已發現 0 / 8 種景點專屬戰利品</p><div class="itinerary-progress-track"><span id="lootCodexBar"></span></div><div class="loot-codex-tools"><label for="lootCodexSearch">🔎 搜尋收藏</label><input id="lootCodexSearch" type="search" placeholder="輸入道具、景點名稱…" oninput="renderLootCodex()" autocomplete="off"><div class="loot-codex-filters" role="group" aria-label="收藏圖鑑篩選"><button type="button" class="secondary active" data-loot-filter="all" onclick="setLootCodexFilter('all',this)">全部 8 種</button><button type="button" class="secondary" data-loot-filter="found" onclick="setLootCodexFilter('found',this)">已收集</button><button type="button" class="secondary" data-loot-filter="missing" onclick="setLootCodexFilter('missing',this)">尚未發現</button></div><p id="lootCodexHint" class="small">提示：完成對應景點打卡，有機會取得專屬收藏。</p></div><div id="lootCodex"></div></div><p><b>小隊 EXP：</b><span id="squadExp">0</span> EXP</p><section class="card loot-bag-bottom"><h3>🎒 戰利品背包</h3><div id="lootBag"></div></section></section><style id="va-v47-victory-style">
+<section class="page" id="treasureRewards"><h2 class="section-title">🧰 隱藏寶箱・探索獎勵</h2><div class="notice">完成景點打卡後，有機會發現專屬探索獎勵。此頁只讀取既有探索獎勵資料，不會清除或重設收藏。</div><div class="card"><h3>✨ 景點專屬寶藏</h3><p class="small" id="treasureRewardSummary">正在整理探索紀錄…</p><div class="loot-codex-grid" id="treasureRewardGrid"></div></div><div class="card"><h3>🗺️ 繼續探索</h3><p>回到地圖完成景點打卡，尋找尚未發現的寶藏。</p><button class="action" onclick="showPage('adventureMap')" type="button">開啟北越冒險地圖</button></div></section>
+<section class="page" id="loot"><h2 class="section-title">⚔️ RPG 冒險中心</h2><section aria-label="遊戲與冒險控制台" class="card rpg-command-card" id="rpgCommandCenter">
+<div class="rpg-dashboard-top"><div class="rpg-dashboard-emblem" id="rpgDashboardEmblem">🧭</div><div><small>VIETNAM ADVENTURE · COMMAND CENTER</small><h2 id="rpgDashboardLevel">Lv. 1 初心旅人</h2><p id="rpgDashboardSummary">踏上河內、沙壩與下龍灣的冒險旅程！</p></div></div>
+<div class="rpg-dashboard-xp"><b>✨ 冒險經驗 EXP</b><strong><span id="rpgDashboardXP">0</span> EXP</strong></div><div class="rpg-dashboard-track"><span id="rpgDashboardBar"></span></div><p class="small" id="rpgDashboardProgress">本級 0 / 100 EXP</p>
+<div class="rpg-daily-row"><div><b>📅 每日冒險簽到　+10 EXP</b><div class="rpg-daily-stats"><span id="rpgDailyStatus">今日尚未簽到</span><span id="rpgDailyStreak">連續簽到 0 天</span></div></div><button id="rpgDailyClaimButton" onclick="claimDailyAdventure()" type="button">領取獎勵</button></div>
+<div class="rpg-dashboard-actions"><button onclick="showPage('tasks')" type="button">🗺️ 探索主線任務</button><button onclick="showPage('achievements')" type="button">🏆 查看成就等級</button><button onclick="showPage('loot')" type="button">🎒 小隊與戰利品</button><button onclick="showPage('shoppingQuest')" type="button">🎁 伴手禮任務</button><button onclick="showPage('adventurePlaybook')" type="button">🎲 每日驚喜互動</button></div>
+<p class="small" style="margin-bottom:0">每日簽到只會新增一筆獨立的 RPG 紀錄，不會修改日記、照片、支出、行程或既有成就。</p>
+</section><div class="notice">戰鬥、背包戰利品、角色裝備與怪物圖鑑整合在同一頁，使用上方分類切換即可，不必在多個選單間來回尋找。</div><section class="card" id="squadPanel"><h2>🧭 四人冒險小隊</h2><p class="small">隊員暱稱、羈絆事件與戰利品會另外保存，不會覆蓋原有支出或日記。</p><div id="squadMembers"></div><div class="row"><div><label for="memberName">隊員暱稱</label><input id="memberName" maxlength="24" placeholder="輸入隊員暱稱"/></div><div style="align-self:end"><button class="action" onclick="addSquadMember()">加入小隊</button></div></div><div class="row"><button class="secondary" onclick="triggerBondEvent()">💞 隨機隊友羈絆</button><button class="secondary" onclick="claimLoot()">🎁 搜尋隨機戰利品</button></div><div aria-live="polite" class="notice" id="bondResult">冒險途中可能觸發特別事件！</div><div class="card loot-codex-card"><h3>📖 戰利品收藏圖鑑</h3><p class="small" id="lootCodexProgress">已發現 0 / 8 種景點專屬戰利品</p><div class="itinerary-progress-track"><span id="lootCodexBar"></span></div><div class="loot-codex-tools"><label for="lootCodexSearch">🔎 搜尋收藏</label><input autocomplete="off" id="lootCodexSearch" oninput="renderLootCodex()" placeholder="輸入道具、景點名稱…" type="search"/><div aria-label="收藏圖鑑篩選" class="loot-codex-filters" role="group"><button class="secondary active" data-loot-filter="all" onclick="setLootCodexFilter('all',this)" type="button">全部 8 種</button><button class="secondary" data-loot-filter="found" onclick="setLootCodexFilter('found',this)" type="button">已收集</button><button class="secondary" data-loot-filter="missing" onclick="setLootCodexFilter('missing',this)" type="button">尚未發現</button></div><p class="small" id="lootCodexHint">提示：完成對應景點打卡，有機會取得專屬收藏。</p></div><div id="lootCodex"></div></div><p><b>小隊 EXP：</b><span id="squadExp">0</span> EXP</p><section class="card loot-bag-bottom"><h3>🎒 戰利品背包</h3><div id="lootBag"></div></section></section><style id="va-v47-victory-style">
 #vaVictoryReward{position:fixed;inset:0;z-index:2147483646;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(12,20,18,.72);backdrop-filter:blur(3px)}#vaVictoryReward.show{display:flex}#vaVictoryReward .va-victory-card{width:min(460px,94vw);padding:24px 20px;text-align:center;background:linear-gradient(180deg,#fff6d9,#e8d5a5);border:4px solid #704b26;box-shadow:8px 8px 0 rgba(0,0,0,.28);color:#3c2b19;font-family:inherit}#vaVictoryReward .va-victory-emblem{font-size:56px}#vaVictoryReward h2{margin:5px 0 10px;color:#674217}#vaVictoryReward p{line-height:1.7;font-weight:800}#vaVictoryReward button{margin-top:10px;padding:12px 18px;background:#477b48;color:#fff;border:2px solid #244c2b;border-radius:8px;font-weight:900;cursor:pointer}
 </style>
 <style id="va-v47-rpg-growth-style">
@@ -1295,111 +1354,110 @@ nav.rpg-bottom-menu button .nav-icon{font-size:24px!important}
 <style id="va-unified-system-style">
 #vaUnifiedPanel{margin-top:18px}.va-hero{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:12px 0}.va-stat{background:rgba(112,91,65,.08);border:1px solid rgba(112,91,65,.18);border-radius:12px;padding:10px}.va-stat small{display:block;opacity:.75}.va-stat b{display:block;font-size:1.2rem;margin-top:4px}.va-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.va-subcard{border:1px solid rgba(112,91,65,.2);border-radius:13px;padding:12px;background:rgba(255,255,255,.5);min-width:0}.va-subcard h4{margin:0 0 9px}.va-item{display:flex;align-items:center;gap:9px;padding:8px 0;border-bottom:1px dashed rgba(112,91,65,.22)}.va-item:last-child{border-bottom:0}.va-item-icon{font-size:25px;width:32px;text-align:center}.va-item-main{flex:1;min-width:0}.va-item-main b{display:block}.va-item-main small{opacity:.72}.va-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.va-actions button{font:inherit}.va-bar{height:10px;background:rgba(80,70,55,.15);border-radius:20px;overflow:hidden;margin:8px 0}.va-bar span{display:block;height:100%;background:linear-gradient(90deg,#63a879,#b4cf70);width:100%;transition:width .2s}.va-battle-log{max-height:130px;overflow:auto;background:rgba(30,35,30,.06);border-radius:9px;padding:8px;font-size:.9rem;line-height:1.55}.va-tag{display:inline-block;border-radius:99px;padding:3px 8px;background:rgba(90,130,90,.14);font-size:.78rem;margin:2px}.va-muted{opacity:.72;font-size:.88rem}.va-sync-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.va-sync-list button{text-align:left;min-width:0}.va-core-note{font-size:.84rem;opacity:.76;line-height:1.5}.va-progress{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}.va-equipment{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.va-equipment>div{border:1px dashed rgba(112,91,65,.3);border-radius:9px;padding:8px}.va-battle-controls{display:flex;gap:8px;flex-wrap:wrap}.va-battle-controls button{flex:1;min-width:100px}@media(max-width:620px){.va-hero{grid-template-columns:repeat(2,minmax(0,1fr))}.va-grid{grid-template-columns:1fr}.va-sync-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
-<section class="card" id="vaUnifiedPanel" aria-label="冒險整合中心">
- <div class="v2-panel-title"><div><small>VIETNAM ADVENTURE · RPG HUB</small><h2>⚔️ 我的冒險者基地</h2></div><span class="va-tag">本機資料保存</span></div>
- <p class="small">遊戲角色、任務收藏、背包、裝備與戰鬥使用獨立存檔；旅遊行程、支出、美食、日記與照片只讀取原有資料，不搬移、不重設。</p>
- <div class="va-hero">
-  <div class="va-stat"><small>冒險經驗</small><b id="vaXP">0 EXP</b></div>
-  <div class="va-stat"><small>角色等級</small><b id="vaLevel">Lv. 1</b></div>
-  <div class="va-stat"><small>生命值 HP</small><b id="vaHP">100 / 100</b><div class="va-bar"><span id="vaHPBar"></span></div></div>
-  <div class="va-stat"><small>背包收藏</small><b id="vaItemCount">0 件</b></div>
- </div>
- <div class="va-grid">
-  <section class="va-subcard"><h4>🎒 冒險背包</h4><div id="vaInventory"><p class="va-muted">正在整理收藏…</p></div><div class="va-actions"><button class="secondary" type="button" onclick="VAUnified.usePotion()">🧪 使用藥水</button><button class="secondary" type="button" onclick="VAUnified.usePho()">🍜 使用河粉</button><button class="secondary" type="button" onclick="VAUnified.addStarterSupply()">＋ 補給商店</button></div><p class="va-core-note">任務收藏品與補給品分開管理；任務紀念品不會被消耗。</p></section>
-  <section class="va-subcard"><h4>🛡️ 角色與裝備</h4><div class="va-equipment"><div>🧢 頭部<br><b id="vaHead">尚未裝備</b></div><div>👟 腳部<br><b id="vaFeet">尚未裝備</b></div><div>⚔️ 武器<br><b id="vaWeapon">尚未裝備</b></div><div>🧥 防具<br><b id="vaArmor">尚未裝備</b></div></div><p id="vaStatsText" class="va-muted">攻擊 12 · 防禦 2</p><div id="vaEquipChoices"></div><div class="va-actions"><button class="secondary" type="button" onclick="VAUnified.upgradeEquipped('weapon')">⚔️ 強化武器</button><button class="secondary" type="button" onclick="VAUnified.upgradeEquipped('armor')">🛡️ 強化防具</button><button class="secondary" type="button" onclick="VAUnified.upgradeEquipped('head')">🧢 強化頭部</button><button class="secondary" type="button" onclick="VAUnified.upgradeEquipped('feet')">👟 強化鞋子</button></div><p class="va-core-note">強化需消耗對應地區素材與金幣；每次強化都會永久提升裝備能力。</p></section>
-  <section class="va-subcard"><h4>⚔️ 回合制冒險挑戰</h4><p id="vaBattleIntro" class="va-muted">每次勝利都可獲得 EXP、金幣與地區素材；稀有物品有機率掉落。</p><div class="va-progress"><b id="vaEnemyName">尚未遭遇怪物</b><b id="vaEnemyHP">—</b></div><div class="va-bar"><span id="vaEnemyBar"></span></div><div class="va-battle-controls"><button class="action" type="button" onclick="VAUnified.startBattle()">開始挑戰</button><button class="secondary" type="button" onclick="VAUnified.attack()">⚔️ 攻擊</button><button class="secondary" type="button" onclick="VAUnified.flee()">撤退</button></div><div id="vaBattleLog" class="va-battle-log" aria-live="polite">冒險者，準備好再出發！</div></section>
-  <section class="va-subcard va-rpg-expansion"><h4>🏅 冒險成長中心</h4><div class="va-rpg-wallet"><div>💰 金幣<b id="vaGold">0</b></div><div>👾 怪物擊敗<b id="vaMonsterKills">0</b></div><div>✨ 稀有收藏<b id="vaRareCount">0</b></div></div><p id="vaRpgProgress" class="va-muted">擊敗怪物累積素材，打造更強裝備。</p><div class="va-rpg-subtitle">🛠️ 鍛造工坊</div><div id="vaCrafting"></div><div class="va-rpg-subtitle">✨ 技能成長</div><div id="vaSkillTree"></div><div class="va-rpg-subtitle">📖 怪物圖鑑</div><div id="vaBestiary"></div><div class="va-rpg-subtitle">🐲 區域頭目挑戰</div><div id="vaBosses"></div></section>
-  <section class="va-subcard"><h4>🌏 旅遊資料連動</h4><div class="va-sync-list"><button class="secondary" type="button" onclick="showPage('itinerary')">🗓️ 行程<br><b id="vaTripCount">讀取中</b></button><button class="secondary" type="button" onclick="showPage('expenses')">💰 支出<br><b id="vaExpenseCount">讀取中</b></button><button class="secondary" type="button" onclick="showPage('food')">🍜 美食<br><b id="vaFoodCount">讀取中</b></button><button class="secondary" type="button" onclick="showPage('diary')">📖 日記<br><b id="vaDiaryCount">讀取中</b></button><button class="secondary" type="button" onclick="showPage('photos')">📸 照片<br><b id="vaPhotoCount">讀取中</b></button><button class="secondary" type="button" onclick="showPage('shoppingQuest')">🎁 必買清單<br><b>開啟</b></button></div><p class="va-core-note" id="vaSyncStatus">只讀取既有旅遊資料；不會自動修改行程或支出。</p></section>
- </div>
- <div class="va-actions"><button class="secondary" type="button" onclick="showPage('safetyCenter')">🛡️ 資料安全檢查</button><button class="secondary" type="button" onclick="showPage('offline')">📴 離線檢查</button><button class="secondary" type="button" onclick="VAUnified.refresh()">🔄 更新整合資料</button></div>
+<section aria-label="冒險整合中心" class="card" id="vaUnifiedPanel">
+<div class="v2-panel-title"><div><small>VIETNAM ADVENTURE · RPG HUB</small><h2>⚔️ 我的冒險者基地</h2></div><span class="va-tag">本機資料保存</span></div>
+<p class="small">遊戲角色、任務收藏、背包、裝備與戰鬥使用獨立存檔；旅遊行程、支出、美食、日記與照片只讀取原有資料，不搬移、不重設。</p>
+<div class="va-hero">
+<div class="va-stat"><small>冒險經驗</small><b id="vaXP">0 EXP</b></div>
+<div class="va-stat"><small>角色等級</small><b id="vaLevel">Lv. 1</b></div>
+<div class="va-stat"><small>生命值 HP</small><b id="vaHP">100 / 100</b><div class="va-bar"><span id="vaHPBar"></span></div></div>
+<div class="va-stat"><small>背包收藏</small><b id="vaItemCount">0 件</b></div>
+</div>
+<div class="va-grid">
+<section class="va-subcard"><h4>🎒 冒險背包</h4><div id="vaInventory"><p class="va-muted">正在整理收藏…</p></div><div class="va-actions"><button class="secondary" onclick="VAUnified.usePotion()" type="button">🧪 使用藥水</button><button class="secondary" onclick="VAUnified.usePho()" type="button">🍜 使用河粉</button><button class="secondary" onclick="VAUnified.addStarterSupply()" type="button">＋ 補給商店</button></div><p class="va-core-note">任務收藏品與補給品分開管理；任務紀念品不會被消耗。</p></section>
+<section class="va-subcard"><h4>🛡️ 角色與裝備</h4><div class="va-equipment"><div>🧢 頭部<br/><b id="vaHead">尚未裝備</b></div><div>👟 腳部<br/><b id="vaFeet">尚未裝備</b></div><div>⚔️ 武器<br/><b id="vaWeapon">尚未裝備</b></div><div>🧥 防具<br/><b id="vaArmor">尚未裝備</b></div></div><p class="va-muted" id="vaStatsText">攻擊 12 · 防禦 2</p><div id="vaEquipChoices"></div><div class="va-actions"><button class="secondary" onclick="VAUnified.upgradeEquipped('weapon')" type="button">⚔️ 強化武器</button><button class="secondary" onclick="VAUnified.upgradeEquipped('armor')" type="button">🛡️ 強化防具</button><button class="secondary" onclick="VAUnified.upgradeEquipped('head')" type="button">🧢 強化頭部</button><button class="secondary" onclick="VAUnified.upgradeEquipped('feet')" type="button">👟 強化鞋子</button></div><p class="va-core-note">強化需消耗對應地區素材與金幣；每次強化都會永久提升裝備能力。</p></section>
+<section class="va-subcard"><h4>⚔️ 回合制冒險挑戰</h4><p class="va-muted" id="vaBattleIntro">每次勝利都可獲得 EXP、金幣與地區素材；稀有物品有機率掉落。</p><div class="va-progress"><b id="vaEnemyName">尚未遭遇怪物</b><b id="vaEnemyHP">—</b></div><div class="va-bar"><span id="vaEnemyBar"></span></div><div class="va-battle-controls"><button class="action" onclick="VAUnified.startBattle()" type="button">開始挑戰</button><button class="secondary" onclick="VAUnified.attack()" type="button">⚔️ 攻擊</button><button class="secondary" onclick="VAUnified.flee()" type="button">撤退</button></div><div aria-live="polite" class="va-battle-log" id="vaBattleLog">冒險者，準備好再出發！</div></section>
+<section class="va-subcard va-rpg-expansion"><h4>🏅 冒險成長中心</h4><div class="va-rpg-wallet"><div>💰 金幣<b id="vaGold">0</b></div><div>👾 怪物擊敗<b id="vaMonsterKills">0</b></div><div>✨ 稀有收藏<b id="vaRareCount">0</b></div></div><p class="va-muted" id="vaRpgProgress">擊敗怪物累積素材，打造更強裝備。</p><div class="va-rpg-subtitle">🛠️ 鍛造工坊</div><div id="vaCrafting"></div><div class="va-rpg-subtitle">✨ 技能成長</div><div id="vaSkillTree"></div><div class="va-rpg-subtitle">📖 怪物圖鑑</div><div id="vaBestiary"></div><div class="va-rpg-subtitle">🐲 區域頭目挑戰</div><div id="vaBosses"></div></section>
+<section class="va-subcard"><h4>🌏 旅遊資料連動</h4><div class="va-sync-list"><button class="secondary" onclick="showPage('itinerary')" type="button">🗓️ 行程<br/><b id="vaTripCount">讀取中</b></button><button class="secondary" onclick="showPage('expenses')" type="button">💰 支出<br/><b id="vaExpenseCount">讀取中</b></button><button class="secondary" onclick="showPage('food')" type="button">🍜 美食<br/><b id="vaFoodCount">讀取中</b></button><button class="secondary" onclick="showPage('diary')" type="button">📖 日記<br/><b id="vaDiaryCount">讀取中</b></button><button class="secondary" onclick="showPage('photos')" type="button">📸 照片<br/><b id="vaPhotoCount">讀取中</b></button><button class="secondary" onclick="showPage('shoppingQuest')" type="button">🎁 必買清單<br/><b>開啟</b></button></div><p class="va-core-note" id="vaSyncStatus">只讀取既有旅遊資料；不會自動修改行程或支出。</p></section>
+</div>
+<div class="va-actions"><button class="secondary" onclick="showPage('safetyCenter')" type="button">🛡️ 資料安全檢查</button><button class="secondary" onclick="showPage('offline')" type="button">📴 離線檢查</button><button class="secondary" onclick="VAUnified.refresh()" type="button">🔄 更新整合資料</button></div>
 </section>
 </section>
 <section class="page" id="weather"><h2 class="section-title">🌦️ 越南旅遊天氣</h2>
 <div class="notice">即時連線查詢北越四個地點的天氣與未來 7 天預報。番西邦峰使用山頂高度參數估算，山區天氣變化快，出發前仍請以景區公告與現場狀況為準。</div>
-<div class="card weather-toolbar"><div><b>🧭 選擇目的地</b><p class="small">切換地點即可查看當地天氣</p></div><div class="weather-place-tabs" role="group" aria-label="天氣地點">
-<button type="button" class="weather-place-btn active" data-weather-place="hanoi" onclick="selectWeatherPlace('hanoi')">🏙️ 河內</button>
-<button type="button" class="weather-place-btn" data-weather-place="sapa" onclick="selectWeatherPlace('sapa')">🏔️ 沙壩</button>
-<button type="button" class="weather-place-btn" data-weather-place="fansipan" onclick="selectWeatherPlace('fansipan')">⛰️ 番西邦峰</button>
-<button type="button" class="weather-place-btn" data-weather-place="halong" onclick="selectWeatherPlace('halong')">🚢 下龍灣</button>
-</div><button class="action" type="button" id="weatherRefreshBtn" onclick="loadWeather(true)">🔄 更新天氣</button><p id="weatherUpdatedAt" class="small" aria-live="polite">尚未載入天氣資料</p></div>
-<div id="weatherCurrent" class="card weather-current"><p class="muted">正在準備天氣資訊…</p></div>
-<div class="card"><h3>📅 未來 16 天預報</h3><div id="weatherForecast" class="weather-forecast"><p class="muted">載入中…</p></div></div>
-<div class="card"><h3>🧳 旅遊提醒</h3><div id="weatherAdvice" class="weather-advice">天氣載入後會顯示穿著與行程提醒。</div></div>
+<div class="card weather-toolbar"><div><b>🧭 選擇目的地</b><p class="small">切換地點即可查看當地天氣</p></div><div aria-label="天氣地點" class="weather-place-tabs" role="group">
+<button class="weather-place-btn active" data-weather-place="hanoi" onclick="selectWeatherPlace('hanoi')" type="button">🏙️ 河內</button>
+<button class="weather-place-btn" data-weather-place="sapa" onclick="selectWeatherPlace('sapa')" type="button">🏔️ 沙壩</button>
+<button class="weather-place-btn" data-weather-place="fansipan" onclick="selectWeatherPlace('fansipan')" type="button">⛰️ 番西邦峰</button>
+<button class="weather-place-btn" data-weather-place="halong" onclick="selectWeatherPlace('halong')" type="button">🚢 下龍灣</button>
+</div><button class="action" id="weatherRefreshBtn" onclick="loadWeather(true)" type="button">🔄 更新天氣</button><p aria-live="polite" class="small" id="weatherUpdatedAt">尚未載入天氣資料</p></div>
+<div class="card weather-current" id="weatherCurrent"><p class="muted">正在準備天氣資訊…</p></div>
+<div class="card"><h3>📅 未來 16 天預報</h3><div class="weather-forecast" id="weatherForecast"><p class="muted">載入中…</p></div></div>
+<div class="card"><h3>🧳 旅遊提醒</h3><div class="weather-advice" id="weatherAdvice">天氣載入後會顯示穿著與行程提醒。</div></div>
 <p class="small weather-attribution">天氣資料來源：Open-Meteo。預報需連接網路；資料更新時間以 API 回傳為準。此功能不會讀取或修改你的行程、日記、照片或其他本機資料。</p>
 </section>
-<section class="page" id="itinerary"><h2 class="section-title">🗓️ 我的冒險行程</h2><div class="notice">行程可直接新增、編輯、刪除及調整順序。修改會自動保存在這台裝置的瀏覽器；建議定期到「備份」匯出資料。</div><div class="card itinerary-progress-card"><h3>🎮 冒險進度</h3><div id="itineraryOverallProgress" class="itinerary-progress-text">尚未開始</div><div class="itinerary-progress-track"><span id="itineraryOverallBar"></span></div><div id="todayQuestPanel" class="today-quest-panel"></div></div><div class="daytabs" id="daytabs"></div><div class="diary-actions"><button class="action" onclick="addItineraryDay()">＋ 新增日期</button><button class="secondary" onclick="renameItineraryDay()">✏️ 修改日期／標題</button><button class="secondary" onclick="deleteItineraryDay()">🗑️ 刪除整天</button></div><div id="daycontent"></div><div id="itineraryEditor" class="card" hidden><h3 id="itineraryEditorTitle">新增行程</h3><input id="itineraryEditIndex" type="hidden"><label>時間</label><input id="itineraryTime" placeholder="例如：09:30／上午"><label>行程名稱 *</label><input id="itineraryEventName" placeholder="例如：還劍湖散步"><label>備註／說明</label><textarea id="itineraryEventNote" rows="3" placeholder="集合時間、地址、預約資訊、提醒事項…"></textarea><div class="diary-actions"><button class="action" onclick="saveItineraryEvent()">保存行程</button><button class="secondary" onclick="cancelItineraryEdit()">取消</button></div></div><p class="small" id="itinerarySaveStatus" aria-live="polite">行程資料會保存在本機瀏覽器。</p></section>
+<section class="page" id="itinerary"><h2 class="section-title">🗓️ 我的冒險行程</h2><div class="notice">行程可直接新增、編輯、刪除及調整順序。修改會自動保存在這台裝置的瀏覽器；建議定期到「備份」匯出資料。</div><div class="card itinerary-progress-card"><h3>🎮 冒險進度</h3><div class="itinerary-progress-text" id="itineraryOverallProgress">尚未開始</div><div class="itinerary-progress-track"><span id="itineraryOverallBar"></span></div><div class="today-quest-panel" id="todayQuestPanel"></div></div><div class="daytabs" id="daytabs"></div><div class="diary-actions"><button class="action" onclick="addItineraryDay()">＋ 新增日期</button><button class="secondary" onclick="renameItineraryDay()">✏️ 修改日期／標題</button><button class="secondary" onclick="deleteItineraryDay()">🗑️ 刪除整天</button></div><div id="daycontent"></div><div class="card" hidden="" id="itineraryEditor"><h3 id="itineraryEditorTitle">新增行程</h3><input id="itineraryEditIndex" type="hidden"/><label>時間</label><input id="itineraryTime" placeholder="例如：09:30／上午"/><label>行程名稱 *</label><input id="itineraryEventName" placeholder="例如：還劍湖散步"/><label>備註／說明</label><textarea id="itineraryEventNote" placeholder="集合時間、地址、預約資訊、提醒事項…" rows="3"></textarea><div class="diary-actions"><button class="action" onclick="saveItineraryEvent()">保存行程</button><button class="secondary" onclick="cancelItineraryEdit()">取消</button></div></div><p aria-live="polite" class="small" id="itinerarySaveStatus">行程資料會保存在本機瀏覽器。</p></section>
 <section class="page" id="places"><h2 class="section-title">📍 飯店與重要地點</h2><div id="placeslist"></div><div class="notice">導航連結需要網路。地址請以訂房或車票確認資料為準。</div></section>
-<section class="page" id="translate"><h2 class="section-title">🗣️ 旅遊翻譯</h2><div class="card"><b>自由輸入翻譯（需要網路）</b><p class="small">輸入中文，翻譯成越南文。翻譯結果請自行確認。</p><label>輸入要翻譯的中文</label><textarea id="translateInput" rows="3" placeholder="例如：我們四個人，請問可以現在入住嗎？"></textarea><button class="action" id="translateBtn" onclick="translateFreeText()">翻譯成越南文</button><p id="translateStatus" class="small"></p><div id="translateResultCard" style="display:none"><textarea id="translateResult" rows="3" readonly></textarea><button class="secondary" onclick="copyText(document.getElementById('translateResult').value)">複製越南文</button></div></div><div class="card"><b>離線常用句</b><div class="row"><button class="secondary" onclick="setLang('vi')" id="vibtn">中文 ↔ 越文</button><button class="secondary" onclick="setLang('en')" id="enbtn">中文 ↔ 英文</button></div><label>搜尋中文或外文</label><input id="phraseSearch" placeholder="例如：飯店、How much..." oninput="renderPhrases()"><div id="phrases"></div><p class="small">常用句可離線查看；自由輸入翻譯需要網路。</p></div></section>
+<section class="page" id="translate"><h2 class="section-title">🗣️ 旅遊翻譯</h2><div class="card"><b>自由輸入翻譯（需要網路）</b><p class="small">輸入中文，翻譯成越南文。翻譯結果請自行確認。</p><label>輸入要翻譯的中文</label><textarea id="translateInput" placeholder="例如：我們四個人，請問可以現在入住嗎？" rows="3"></textarea><button class="action" id="translateBtn" onclick="translateFreeText()">翻譯成越南文</button><p class="small" id="translateStatus"></p><div id="translateResultCard" style="display:none"><textarea id="translateResult" readonly="" rows="3"></textarea><button class="secondary" onclick="copyText(document.getElementById('translateResult').value)">複製越南文</button></div></div><div class="card"><b>離線常用句</b><div class="row"><button class="secondary" id="vibtn" onclick="setLang('vi')">中文 ↔ 越文</button><button class="secondary" id="enbtn" onclick="setLang('en')">中文 ↔ 英文</button></div><label>搜尋中文或外文</label><input id="phraseSearch" oninput="renderPhrases()" placeholder="例如：飯店、How much..."/><div id="phrases"></div><p class="small">常用句可離線查看；自由輸入翻譯需要網路。</p></div></section>
 <section class="page" id="food"><h2 class="section-title">🍜 美食收藏</h2><div class="notice">美食資料保存在這台裝置的瀏覽器。請定期使用「備份」頁面匯出網站資料，避免更換裝置或清除網站資料時遺失。</div>
-<div class="v43-step-heading"><span>STEP 1</span><div><b>挑選想吃的越南美食</b><small>搜尋推薦、依分類探索必吃清單</small></div></div><div class="card v43-food-panel" id="vietnamMustEatPanel"><h3>🇻🇳 越南必吃推薦｜北越美食圖鑑</h3><p class="small">先看推薦、加入「想吃」清單；吃過後可在下方收藏中打卡。推薦項目不會自動新增，按下收藏才會加入。</p><div class="row"><div><label for="mustEatSearch">🔎 搜尋必吃美食</label><input id="mustEatSearch" type="search" placeholder="例如：河粉、咖啡、米線" oninput="renderMustEat()"></div><div><label for="mustEatCategory">分類</label><select id="mustEatCategory" onchange="renderMustEat()"><option value="全部">全部推薦</option><option value="主食">主食／米線</option><option value="小吃">街頭小吃</option><option value="飲品">飲品</option><option value="甜點">甜點</option></select></div></div><div id="mustEatList"></div></div>
+<div class="v43-step-heading"><span>STEP 1</span><div><b>挑選想吃的越南美食</b><small>搜尋推薦、依分類探索必吃清單</small></div></div><div class="card v43-food-panel" id="vietnamMustEatPanel"><h3>🇻🇳 越南必吃推薦｜北越美食圖鑑</h3><p class="small">先看推薦、加入「想吃」清單；吃過後可在下方收藏中打卡。推薦項目不會自動新增，按下收藏才會加入。</p><div class="row"><div><label for="mustEatSearch">🔎 搜尋必吃美食</label><input id="mustEatSearch" oninput="renderMustEat()" placeholder="例如：河粉、咖啡、米線" type="search"/></div><div><label for="mustEatCategory">分類</label><select id="mustEatCategory" onchange="renderMustEat()"><option value="全部">全部推薦</option><option value="主食">主食／米線</option><option value="小吃">街頭小吃</option><option value="飲品">飲品</option><option value="甜點">甜點</option></select></div></div><div id="mustEatList"></div></div>
 <div class="v43-step-heading"><span>STEP 2</span><div><b>尋找附近或推薦餐廳</b><small>依河內、沙壩、下龍灣切換店家</small></div></div><div class="card v43-food-panel" id="restaurantGuidePanel">
- <h3>🍜 北越店家推薦</h3>
- <p class="small">選擇地區，就能快速查看店家。按「想吃」加入你的美食收藏。</p>
- <div class="diary-actions" style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0">
-  <button type="button" class="action" id="restTabAll" onclick="setRestaurantRegion('全部')">全部</button>
-  <button type="button" class="secondary" id="restTabHanoi" onclick="setRestaurantRegion('河內')">河內</button>
-  <button type="button" class="secondary" id="restTabSapa" onclick="setRestaurantRegion('沙壩')">沙壩</button>
-  <button type="button" class="secondary" id="restTabHalong" onclick="setRestaurantRegion('下龍灣')">下龍灣</button>
- </div>
- <div class="v44-food-criteria"><b>🔎 推薦篩選方式</b><span>評價推薦：平台評分至少 4.2／5，且評論數原則上達 100 則；特色料理：保留代表性料理，但不把未查證的評價當成分數。</span><small>資料查核：2026-11-02。評分與評論數會變動；出發前請再開地圖確認營業狀態、分店與價格。</small></div>
- <label for="restaurantKindFilter" class="v44-kind-label">推薦類型</label>
- <select id="restaurantKindFilter" class="v44-kind-select" onchange="setRestaurantKind(this.value)">
-  <option value="全部">全部推薦</option><option value="網路評價推薦">網路評價推薦（達門檻）</option><option value="特色料理推薦">特色料理推薦（評價資料不足）</option>
- </select>
- <div id="restaurantGuideMeta" class="small" aria-live="polite"></div>
- <div id="restaurantGuideList"></div>
+<h3>🍜 北越店家推薦</h3>
+<p class="small">選擇地區，就能快速查看店家。按「想吃」加入你的美食收藏。</p>
+<div class="diary-actions" style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0">
+<button class="action" id="restTabAll" onclick="setRestaurantRegion('全部')" type="button">全部</button>
+<button class="secondary" id="restTabHanoi" onclick="setRestaurantRegion('河內')" type="button">河內</button>
+<button class="secondary" id="restTabSapa" onclick="setRestaurantRegion('沙壩')" type="button">沙壩</button>
+<button class="secondary" id="restTabHalong" onclick="setRestaurantRegion('下龍灣')" type="button">下龍灣</button>
 </div>
-<div class="v43-step-heading"><span>STEP 3</span><div><b>我的美食收藏與紀錄</b><small>管理想吃、已吃、照片及備註</small></div></div><div class="v43-food-tools"><button type="button" class="action" onclick="openFoodEditor()">＋ 新增美食</button><span class="small">收藏及紀錄會沿用原本裝置資料</span></div><details id="foodEditorDetails" class="v43-food-editor"><summary>＋ 新增美食</summary><div class="card"><b id="foodFormTitle">新增美食</b><input id="foodEditId" type="hidden"><label>美食名稱 *</label><input id="foodName" placeholder="例如：越南牛肉河粉" required><label>餐廳名稱</label><input id="foodRestaurant" placeholder="餐廳或攤位名稱"><div class="row"><div><label>價格（越南盾）</label><input id="foodPrice" type="number" min="0" placeholder="例如 60000"></div><div><label>狀態</label><select id="foodStatus"><option value="想吃">想吃</option><option value="吃過">吃過</option></select></div></div><label>地址</label><input id="foodAddress" placeholder="地址或地標（可貼上 Google Maps 地址）"><label>備註</label><textarea id="foodNotes" rows="3" placeholder="推薦菜色、營業時間、口味心得…"></textarea><label>照片（選填）</label><input id="foodPhoto" type="file" accept="image/*" capture="environment"><p class="small">照片會儲存在本機美食資料中，建議選擇較小的照片。</p><div class="diary-actions"><button class="action" onclick="saveFood()">儲存美食</button><button class="secondary" onclick="resetFoodForm()">取消編輯</button></div><p class="small" id="foodStatusMsg" aria-live="polite"></p></div></details><div class="v43-food-filter"><span>篩選收藏</span><div class="row"><button class="secondary" onclick="foodFilter='全部';renderFoods()">全部</button><button class="secondary" onclick="foodFilter='想吃';renderFoods()">想吃</button><button class="secondary" onclick="foodFilter='吃過';renderFoods()">吃過</button></div></div><div id="foodList"></div></section>
+<div class="v44-food-criteria"><b>🔎 推薦篩選方式</b><span>評價推薦：平台評分至少 4.2／5，且評論數原則上達 100 則；特色料理：保留代表性料理，但不把未查證的評價當成分數。</span><small>資料查核：2026-11-02。評分與評論數會變動；出發前請再開地圖確認營業狀態、分店與價格。</small></div>
+<label class="v44-kind-label" for="restaurantKindFilter">推薦類型</label>
+<select class="v44-kind-select" id="restaurantKindFilter" onchange="setRestaurantKind(this.value)">
+<option value="全部">全部推薦</option><option value="網路評價推薦">網路評價推薦（達門檻）</option><option value="特色料理推薦">特色料理推薦（評價資料不足）</option>
+</select>
+<div aria-live="polite" class="small" id="restaurantGuideMeta"></div>
+<div id="restaurantGuideList"></div>
+</div>
+<div class="v43-step-heading"><span>STEP 3</span><div><b>我的美食收藏與紀錄</b><small>管理想吃、已吃、照片及備註</small></div></div><div class="v43-food-tools"><button class="action" onclick="openFoodEditor()" type="button">＋ 新增美食</button><span class="small">收藏及紀錄會沿用原本裝置資料</span></div><details class="v43-food-editor" id="foodEditorDetails"><summary>＋ 新增美食</summary><div class="card"><b id="foodFormTitle">新增美食</b><input id="foodEditId" type="hidden"/><label>美食名稱 *</label><input id="foodName" placeholder="例如：越南牛肉河粉" required=""/><label>餐廳名稱</label><input id="foodRestaurant" placeholder="餐廳或攤位名稱"/><div class="row"><div><label>價格（越南盾）</label><input id="foodPrice" min="0" placeholder="例如 60000" type="number"/></div><div><label>狀態</label><select id="foodStatus"><option value="想吃">想吃</option><option value="吃過">吃過</option></select></div></div><label>地址</label><input id="foodAddress" placeholder="地址或地標（可貼上 Google Maps 地址）"/><label>備註</label><textarea id="foodNotes" placeholder="推薦菜色、營業時間、口味心得…" rows="3"></textarea><label>照片（選填）</label><input accept="image/*" capture="environment" id="foodPhoto" type="file"/><p class="small">照片會儲存在本機美食資料中，建議選擇較小的照片。</p><div class="diary-actions"><button class="action" onclick="saveFood()">儲存美食</button><button class="secondary" onclick="resetFoodForm()">取消編輯</button></div><p aria-live="polite" class="small" id="foodStatusMsg"></p></div></details><div class="v43-food-filter"><span>篩選收藏</span><div class="row"><button class="secondary" onclick="foodFilter='全部';renderFoods()">全部</button><button class="secondary" onclick="foodFilter='想吃';renderFoods()">想吃</button><button class="secondary" onclick="foodFilter='吃過';renderFoods()">吃過</button></div></div><div id="foodList"></div></section>
 <section class="page" id="expenses"><h2 class="section-title">💰 越南盾記帳</h2>
 <div class="card v2-finance-panel" id="v2SmartFinance">
- <h3>🧾 智慧旅費中心｜第二版本</h3>
- <p class="small">支援 VND／TWD／USD 原幣輸入、自訂匯率、換算越南盾與四人分帳。舊支出資料照常保留；新欄位只附加在新紀錄中。</p>
- <div class="v2-finance-grid">
-  <div><label for="v2ExpenseDate">日期</label><input id="v2ExpenseDate" type="date"></div>
-  <div><label for="v2ExpenseCurrency">付款幣別</label><select id="v2ExpenseCurrency" onchange="v2FinancePreview()"><option value="VND">越南盾 VND</option><option value="TWD">新台幣 TWD</option><option value="USD">美元 USD</option></select></div>
-  <div><label for="v2ExpenseOriginal">原幣金額</label><input id="v2ExpenseOriginal" type="number" min="0.01" step="any" placeholder="輸入收據金額" oninput="v2FinancePreview()"></div>
-  <div><label for="v2ExpenseRate">匯率（每 1 單位外幣兌 VND）</label><input id="v2ExpenseRate" type="number" min="0.0001" step="any" value="800" oninput="v2FinancePreview()"></div>
- </div>
- <div class="v2-rate-presets"><button type="button" class="secondary" onclick="v2SetRate(800)">TWD 匯率 800</button><button type="button" class="secondary" onclick="v2SetRate(25500)">USD 匯率 25,500</button></div>
- <div class="v2-conversion-preview" id="v2ConversionPreview">換算結果會顯示在這裡。</div>
- <div class="v2-finance-grid">
-  <div><label for="v2ExpenseCategory">類別</label><select id="v2ExpenseCategory"><option>餐飲</option><option>交通</option><option>住宿</option><option>購物</option><option>按摩休閒</option><option>門票活動</option><option>其他</option></select></div>
-  <div><label for="v2ExpensePayment">付款方式</label><select id="v2ExpensePayment"><option>現金</option><option>信用卡</option><option>其他</option></select></div>
-  <div><label for="v2ExpensePayer">付款人（從小隊名單選擇）</label><select id="v2ExpensePayer"><option value="">請選擇實際付款人</option></select></div>
-  <div><label for="v2ExpenseMemo">店家／備註</label><input id="v2ExpenseMemo" placeholder="例如：河粉、咖啡"></div>
- </div>
- <div class="v2-split-select-head"><label>這筆支出的分帳參與者（每筆可單獨選擇）</label><div class="v2-split-select-actions"><button type="button" class="secondary" onclick="v2ToggleAllSplitParticipants(true)">全選</button><button type="button" class="secondary" onclick="v2ToggleAllSplitParticipants(false)">清除選擇</button></div></div>
- <div id="v2ExpenseSplitChoices" class="v2-split-choices"><p class="small">正在載入小隊成員…</p></div>
- <p class="small">勾選的人才會分攤這一筆支出。名單沿用「冒險小隊」成員；要更改姓名，請到「更多／戰利品與冒險小隊」管理。未勾選任何人時，這筆支出不會納入分帳。</p>
- <button class="action" id="v2ExpenseSaveButton" type="button" onclick="v2SaveSmartExpense()">＋ 確認並新增支出</button> <button class="secondary" id="v2ExpenseCancelButton" type="button" onclick="v2CancelExpenseEdit()" hidden>取消編輯</button>
- <p id="v2ExpenseMessage" class="small" aria-live="polite"></p>
+<h3>🧾 智慧旅費中心｜第二版本</h3>
+<p class="small">支援 VND／TWD／USD 原幣輸入、自訂匯率、換算越南盾與四人分帳。舊支出資料照常保留；新欄位只附加在新紀錄中。</p>
+<div class="v2-finance-grid">
+<div><label for="v2ExpenseDate">日期</label><input id="v2ExpenseDate" type="date"/></div>
+<div><label for="v2ExpenseCurrency">付款幣別</label><select id="v2ExpenseCurrency" onchange="v2FinancePreview()"><option value="VND">越南盾 VND</option><option value="TWD">新台幣 TWD</option><option value="USD">美元 USD</option></select></div>
+<div><label for="v2ExpenseOriginal">原幣金額</label><input id="v2ExpenseOriginal" min="0.01" oninput="v2FinancePreview()" placeholder="輸入收據金額" step="any" type="number"/></div>
+<div><label for="v2ExpenseRate">匯率（每 1 單位外幣兌 VND）</label><input id="v2ExpenseRate" min="0.0001" oninput="v2FinancePreview()" step="any" type="number" value="800"/></div>
+</div>
+<div class="v2-rate-presets"><button class="secondary" onclick="v2SetRate(800)" type="button">TWD 匯率 800</button><button class="secondary" onclick="v2SetRate(25500)" type="button">USD 匯率 25,500</button></div>
+<div class="v2-conversion-preview" id="v2ConversionPreview">換算結果會顯示在這裡。</div>
+<div class="v2-finance-grid">
+<div><label for="v2ExpenseCategory">類別</label><select id="v2ExpenseCategory"><option>餐飲</option><option>交通</option><option>住宿</option><option>購物</option><option>按摩休閒</option><option>門票活動</option><option>其他</option></select></div>
+<div><label for="v2ExpensePayment">付款方式</label><select id="v2ExpensePayment"><option>現金</option><option>信用卡</option><option>其他</option></select></div>
+<div><label for="v2ExpensePayer">付款人（從小隊名單選擇）</label><select id="v2ExpensePayer"><option value="">請選擇實際付款人</option></select></div>
+<div><label for="v2ExpenseMemo">店家／備註</label><input id="v2ExpenseMemo" placeholder="例如：河粉、咖啡"/></div>
+</div>
+<div class="v2-split-select-head"><label>這筆支出的分帳參與者（每筆可單獨選擇）</label><div class="v2-split-select-actions"><button class="secondary" onclick="v2ToggleAllSplitParticipants(true)" type="button">全選</button><button class="secondary" onclick="v2ToggleAllSplitParticipants(false)" type="button">清除選擇</button></div></div>
+<div class="v2-split-choices" id="v2ExpenseSplitChoices"><p class="small">正在載入小隊成員…</p></div>
+<p class="small">勾選的人才會分攤這一筆支出。名單沿用「冒險小隊」成員；要更改姓名，請到「更多／戰利品與冒險小隊」管理。未勾選任何人時，這筆支出不會納入分帳。</p>
+<button class="action" id="v2ExpenseSaveButton" onclick="v2SaveSmartExpense()" type="button">＋ 確認並新增支出</button> <button class="secondary" hidden="" id="v2ExpenseCancelButton" onclick="v2CancelExpenseEdit()" type="button">取消編輯</button>
+<p aria-live="polite" class="small" id="v2ExpenseMessage"></p>
 </div>
 <div class="card v2-split-panel"><h3>👥 分帳結算</h3><p class="small">依照每筆支出實際填寫的分帳成員計算應分攤金額；舊紀錄若沒有分帳成員，會列為未設定，不會猜測。</p><div id="v2SplitSummary">尚無分帳資料。</div></div>
-
-<div class="card budget-panel"><h3>🎯 旅程預算控制台</h3><p class="small">設定整趟旅程預算，系統會依照既有支出紀錄計算使用金額。預算設定獨立保存，不會覆蓋任何支出。</p><label for="tripBudget">旅程總預算（越南盾）</label><div class="row"><input id="tripBudget" type="number" min="0" step="100000" placeholder="例如 15000000" onchange="saveTripBudget()"><button class="action" onclick="saveTripBudget()">保存預算</button></div><div class="row budget-stats"><div><small>預算剩餘</small><h3 id="budgetRemaining">尚未設定</h3></div><div><small>預算使用率</small><h3 id="budgetPercent">—</h3></div></div><div class="itinerary-progress-track"><span id="budgetBar"></span></div><p id="budgetStatus" class="small" aria-live="polite">設定預算後即可追蹤花費。</p></div>
-<div class="card" id="expenseInsights"><h3>📊 支出分析</h3><div class="row"><div><label for="expenseSummaryDate">每日支出日期</label><input id="expenseSummaryDate" type="date" onchange="renderExpenseInsights()"></div><div><small>當日合計</small><h3 id="dailyExpenseTotal">0 ₫</h3></div></div><h4>類別分布</h4><div id="expenseCategoryBreakdown" class="small">尚無支出資料。</div></div>
-<div class="card"><div class="row"><div><small>累積支出</small><h2 id="totalVnd">0 ₫</h2></div><div><small>台幣參考</small><h2 id="totalTwd">NT$0</h2></div></div><label>日期</label><input id="expenseDate" type="date"><label>金額（越南盾）</label><input id="amount" type="number" min="1" placeholder="例如 150000"><label>類別</label><select id="category"><option>餐飲</option><option>交通</option><option>住宿</option><option>購物</option><option>按摩休閒</option><option>門票活動</option><option>其他</option></select><div class="row"><div><label>付款方式</label><select id="payment"><option>現金</option><option>信用卡</option><option>其他</option></select></div><div><label>參考匯率（VND／TWD）</label><input id="rate" type="number" value="800" min="1"></div></div><label>付款人</label><input id="payer" placeholder="例如：小呂"><label>分帳成員</label><input id="splitMembers" placeholder="例如：小呂, 小王, 小美"><label>備註</label><input id="memo" placeholder="例如：河粉、計程車"><div class="row" style="flex-wrap:wrap"><button class="action" id="expenseSubmitButton" type="button" onclick="addExpense()">＋ 儲存支出</button><button class="secondary" id="expenseCancelEditButton" type="button" onclick="cancelExpenseEdit()" style="display:none">取消編輯</button></div></div><div id="expenseDuplicateWarning" class="expense-duplicate-warning" role="alert" aria-live="polite" style="display:none"></div><h3>支出紀錄</h3><div class="card" id="expenseList"></div><button class="secondary" onclick="exportExpenses()">匯出記帳 CSV 備份</button> <button class="secondary" onclick="clearExpenses()">清除全部紀錄</button></section>
+<div class="card budget-panel"><h3>🎯 旅程預算控制台</h3><p class="small">設定整趟旅程預算，系統會依照既有支出紀錄計算使用金額。預算設定獨立保存，不會覆蓋任何支出。</p><label for="tripBudget">旅程總預算（越南盾）</label><div class="row"><input id="tripBudget" min="0" onchange="saveTripBudget()" placeholder="例如 15000000" step="100000" type="number"/><button class="action" onclick="saveTripBudget()">保存預算</button></div><div class="row budget-stats"><div><small>預算剩餘</small><h3 id="budgetRemaining">尚未設定</h3></div><div><small>預算使用率</small><h3 id="budgetPercent">—</h3></div></div><div class="itinerary-progress-track"><span id="budgetBar"></span></div><p aria-live="polite" class="small" id="budgetStatus">設定預算後即可追蹤花費。</p></div>
+<div class="card" id="expenseInsights"><h3>📊 支出分析</h3><div class="row"><div><label for="expenseSummaryDate">每日支出日期</label><input id="expenseSummaryDate" onchange="renderExpenseInsights()" type="date"/></div><div><small>當日合計</small><h3 id="dailyExpenseTotal">0 ₫</h3></div></div><h4>類別分布</h4><div class="small" id="expenseCategoryBreakdown">尚無支出資料。</div></div>
+<div class="card"><div class="row"><div><small>累積支出</small><h2 id="totalVnd">0 ₫</h2></div><div><small>台幣參考</small><h2 id="totalTwd">NT$0</h2></div></div><label>日期</label><input id="expenseDate" type="date"/><label>金額（越南盾）</label><input id="amount" min="1" placeholder="例如 150000" type="number"/><label>類別</label><select id="category"><option>餐飲</option><option>交通</option><option>住宿</option><option>購物</option><option>按摩休閒</option><option>門票活動</option><option>其他</option></select><div class="row"><div><label>付款方式</label><select id="payment"><option>現金</option><option>信用卡</option><option>其他</option></select></div><div><label>參考匯率（VND／TWD）</label><input id="rate" min="1" type="number" value="800"/></div></div><label>付款人</label><input id="payer" placeholder="例如：小呂"/><label>分帳成員</label><input id="splitMembers" placeholder="例如：小呂, 小王, 小美"/><label>備註</label><input id="memo" placeholder="例如：河粉、計程車"/><div class="row" style="flex-wrap:wrap"><button class="action" id="expenseSubmitButton" onclick="addExpense()" type="button">＋ 儲存支出</button><button class="secondary" id="expenseCancelEditButton" onclick="cancelExpenseEdit()" style="display:none" type="button">取消編輯</button></div></div><div aria-live="polite" class="expense-duplicate-warning" id="expenseDuplicateWarning" role="alert" style="display:none"></div><h3>支出紀錄</h3><div class="card" id="expenseList"></div><button class="secondary" onclick="exportExpenses()">匯出記帳 CSV 備份</button> <button class="secondary" onclick="clearExpenses()">清除全部紀錄</button></section>
 <section class="page" id="photos">
 <h2 class="section-title">📸 旅行照片</h2>
 <div class="notice">這裡專門保存照片，不會自動附加到日記。照片獨立儲存在本機瀏覽器；請定期匯出照片備份。</div>
 <div class="card">
 <b>新增照片</b>
-<label for="photoDate">拍攝日期</label><input id="photoDate" type="date" value="2026-11-18" min="2026-11-18" max="2026-11-23">
-<label for="photoLocation">拍攝地點（選填）</label><input id="photoLocation" placeholder="例如：還劍湖、沙壩、下龍灣">
-<label for="photoCamera">📷 用手機拍照</label><input id="photoCamera" type="file" accept="image/*" capture="environment" multiple>
-<label for="photoFiles">🖼️ 從裝置選擇照片</label><input id="photoFiles" type="file" accept="image/*" multiple>
+<label for="photoDate">拍攝日期</label><input id="photoDate" max="2026-11-23" min="2026-11-18" type="date" value="2026-11-18"/>
+<label for="photoLocation">拍攝地點（選填）</label><input id="photoLocation" placeholder="例如：還劍湖、沙壩、下龍灣"/>
+<label for="photoCamera">📷 用手機拍照</label><input accept="image/*" capture="environment" id="photoCamera" multiple="" type="file"/>
+<label for="photoFiles">🖼️ 從裝置選擇照片</label><input accept="image/*" id="photoFiles" multiple="" type="file"/>
 <p class="small">可一次選多張照片。照片只會加入照片專區，不會建立日記。</p>
 <button class="action" onclick="savePhotoLibrary()">儲存照片</button>
-<p id="photoStatus" class="small" aria-live="polite"></p>
+<p aria-live="polite" class="small" id="photoStatus"></p>
 </div>
 <div class="card">
-<div class="row"><h3 style="margin:0">我的旅行相簿</h3><span id="photoCount" class="small">0 張照片</span></div>
+<div class="row"><h3 style="margin:0">我的旅行相簿</h3><span class="small" id="photoCount">0 張照片</span></div>
 <div id="photoLibraryList"><p class="muted">正在讀取照片…</p></div>
 <div class="diary-actions"><button class="action" onclick="exportPhotoLibrary()">匯出照片備份</button><button class="secondary" onclick="document.getElementById('photoImportFile').click()">匯入照片備份</button></div>
-<input id="photoImportFile" type="file" accept="application/json,.json" style="display:none" onchange="importPhotoLibrary(event)">
+<input accept="application/json,.json" id="photoImportFile" onchange="importPhotoLibrary(event)" style="display:none" type="file"/>
 </div>
 </section>
-<section class="page" id="achievements"><h2 class="section-title">🏆 旅遊成就</h2><section class="card adventure-level-card" aria-label="冒險等級與經驗值"><div class="level-topline"><span class="level-emblem" id="adventureLevelEmblem">🧭</span><div class="level-heading"><small>ADVENTURE RANK</small><h3 id="adventureLevelTitle">Lv. 1 初心旅人</h3><p id="adventureLevelSubtitle">每完成成就、行程或景點探索，都會累積冒險經驗。</p></div><strong class="level-xp-total"><span id="adventureTotalXP">0</span><small> TOTAL EXP</small></strong></div><div class="level-progress-line"><span id="adventureLevelBar"></span></div><div class="level-progress-meta"><span id="adventureLevelProgress">距離下一級 100 EXP</span><b id="adventureNextLevel">下一級：Lv. 2</b></div><div class="level-source-grid"><div><b id="levelAchievementXP">0</b><small>🏆 成就 EXP</small></div><div><b id="levelItineraryXP">0</b><small>🗓️ 行程 EXP</small></div><div><b id="levelLocationXP">0</b><small>🗺️ 探索 EXP</small></div><div><b id="levelSquadXP">0</b><small>🎒 小隊 EXP</small></div></div><p class="small level-safety-note">經驗值由現有成就、行程打卡、景點紀錄與小隊 EXP 即時計算，不會重複寫入或覆蓋原始資料。</p></section><div class="card"><b>主線進度 <span id="achCount">0/8</span></b><div id="achievementsList">
+<section class="page" id="achievements"><h2 class="section-title">🏆 旅遊成就</h2><section aria-label="冒險等級與經驗值" class="card adventure-level-card"><div class="level-topline"><span class="level-emblem" id="adventureLevelEmblem">🧭</span><div class="level-heading"><small>ADVENTURE RANK</small><h3 id="adventureLevelTitle">Lv. 1 初心旅人</h3><p id="adventureLevelSubtitle">每完成成就、行程或景點探索，都會累積冒險經驗。</p></div><strong class="level-xp-total"><span id="adventureTotalXP">0</span><small> TOTAL EXP</small></strong></div><div class="level-progress-line"><span id="adventureLevelBar"></span></div><div class="level-progress-meta"><span id="adventureLevelProgress">距離下一級 100 EXP</span><b id="adventureNextLevel">下一級：Lv. 2</b></div><div class="level-source-grid"><div><b id="levelAchievementXP">0</b><small>🏆 成就 EXP</small></div><div><b id="levelItineraryXP">0</b><small>🗓️ 行程 EXP</small></div><div><b id="levelLocationXP">0</b><small>🗺️ 探索 EXP</small></div><div><b id="levelSquadXP">0</b><small>🎒 小隊 EXP</small></div></div><p class="small level-safety-note">經驗值由現有成就、行程打卡、景點紀錄與小隊 EXP 即時計算，不會重複寫入或覆蓋原始資料。</p></section><div class="card"><b>主線進度 <span id="achCount">0/8</span></b><div id="achievementsList">
 <div class="event"><div style="font-size:25px">✈️</div><div><b>北越啟程</b><p class="muted">完成出發打卡</p><button class="secondary" onclick="toggleAch(0)">完成打卡</button></div></div>
 <div class="event"><div style="font-size:25px">🚌</div><div><b>夜臥冒險家</b><p class="muted">完成河內至沙壩夜巴</p><button class="secondary" onclick="toggleAch(1)">完成打卡</button></div></div>
 <div class="event"><div style="font-size:25px">⛰️</div><div><b>征服番西邦</b><p class="muted">完成番西邦峰打卡</p><button class="secondary" onclick="toggleAch(2)">完成打卡</button></div></div>
@@ -1415,54 +1473,52 @@ nav.rpg-bottom-menu button .nav-icon{font-size:24px!important}
 <div class="event"><div style="font-size:25px">🚠</div><div><b>番西邦峰</b><p class="muted">搭乘登山纜車，欣賞高山景觀</p><p class="small">沙壩主線</p><button class="secondary" onclick="toggleSideAch(3)">完成打卡</button></div></div>
 <div class="event"><div style="font-size:25px">🚢</div><div><b>下龍灣郵輪</b><p class="muted">記錄登船體驗、船上活動與海灣風景</p><p class="small">海上支線</p><button class="secondary" onclick="toggleSideAch(4)">完成打卡</button></div></div>
 </div></div></section>
-<section class="page" id="offline"><h2 class="section-title">📴 離線與出發檢查</h2><div class="card"><p>勾選完成的準備事項，紀錄會保存在這個瀏覽器。</p><div class="v44-checklist-progress" id="v44ChecklistProgress" aria-live="polite">已完成 0 / 8 項</div><div class="v44-progress-track" role="progressbar" aria-label="出發檢查完成度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="v44ChecklistBar"><span id="v44ChecklistFill"></span></div><div id="checklist"></div></div><div class="card"><b>🧰 全功能備份與還原</b><p class="small">完整備份包含行程、支出、美食、成就、任務清單、小隊資料、日記文字與照片專區。照片會轉成備份資料，因此檔案可能很大；請保存到安全位置。匯入會合併資料，不會清空現有紀錄。</p><button class="action" onclick="exportBackup()">匯出完整備份（含日記與照片）</button> <button class="secondary" onclick="document.getElementById('importFile').click()">匯入完整備份</button><input id="importFile" type="file" accept="application/json" style="display:none" onchange="importBackup(event)"></div></section>
+<section class="page" id="offline"><h2 class="section-title">📴 離線與出發檢查</h2><div class="card"><p>勾選完成的準備事項，紀錄會保存在這個瀏覽器。</p><div aria-live="polite" class="v44-checklist-progress" id="v44ChecklistProgress">已完成 0 / 8 項</div><div aria-label="出發檢查完成度" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="v44-progress-track" id="v44ChecklistBar" role="progressbar"><span id="v44ChecklistFill"></span></div><div id="checklist"></div></div><div class="card"><b>🧰 全功能備份與還原</b><p class="small">完整備份包含行程、支出、美食、成就、任務清單、小隊資料、日記文字與照片專區。照片會轉成備份資料，因此檔案可能很大；請保存到安全位置。匯入會合併資料，不會清空現有紀錄。</p><button class="action" onclick="exportBackup()">匯出完整備份（含日記與照片）</button> <button class="secondary" onclick="document.getElementById('importFile').click()">匯入完整備份</button><input accept="application/json" id="importFile" onchange="importBackup(event)" style="display:none" type="file"/></div></section>
 <section class="page" id="photoMap"><h2 class="section-title">🗺️ 旅行照片地圖</h2>
 <div class="notice">照片仍保存在原本的 IndexedDB 相簿。地圖座標是選填資料；舊照片不會被猜測座標或改寫。可先選照片，再輸入 GPS 緯度、經度。</div>
-<div class="card"><h3>📍 為照片補上座標</h3><label for="photoMapSelect">選擇一張照片</label><select id="photoMapSelect"><option value="">讀取照片中…</option></select><label for="photoMapLat">緯度</label><input id="photoMapLat" type="number" step="any" placeholder="例如 21.0285"><label for="photoMapLng">經度</label><input id="photoMapLng" type="number" step="any" placeholder="例如 105.8542"><p class="small">可從手機照片資訊或地圖分享位置取得座標。北越範圍參考：河內約 21.03, 105.85；沙壩約 22.34, 103.84；下龍灣約 20.95, 107.08。以上僅供定位參考，請依照片實際拍攝地點填寫。</p><button class="action" onclick="photoMapSaveCoords()">保存這張照片座標</button><p id="photoMapStatus" class="small" aria-live="polite"></p></div>
-<div class="card"><h3>🧭 北越照片分布</h3><p class="small">此為依座標繪製的簡易離線示意圖，不載入外部地圖圖磚。點選標記可查看照片。</p><div id="photoMapCanvas" style="min-height:260px;border:1px solid #777;border-radius:12px;padding:8px;background:linear-gradient(135deg,#263b3b,#35475a);color:#fff;overflow:hidden"></div><div id="photoMapPreview" class="notice" style="display:none;margin-top:10px"></div><p id="photoMapSummary" class="small"></p></div><div class="card"><h3>📷 尚未定位的照片</h3><div id="photoMapUnlocated"></div></div><div class="card"><h3>⭐ 探索收藏點數</h3><p>照片座標收藏：<b id="photoMapXp">0</b> EXP</p><p class="small">每張照片首次補上有效座標時，會在獨立收藏紀錄中獲得 5 EXP；不會改動原有 RPG 等級或舊成就。</p></div></section>
+<div class="card"><h3>📍 為照片補上座標</h3><label for="photoMapSelect">選擇一張照片</label><select id="photoMapSelect"><option value="">讀取照片中…</option></select><label for="photoMapLat">緯度</label><input id="photoMapLat" placeholder="例如 21.0285" step="any" type="number"/><label for="photoMapLng">經度</label><input id="photoMapLng" placeholder="例如 105.8542" step="any" type="number"/><p class="small">可從手機照片資訊或地圖分享位置取得座標。北越範圍參考：河內約 21.03, 105.85；沙壩約 22.34, 103.84；下龍灣約 20.95, 107.08。以上僅供定位參考，請依照片實際拍攝地點填寫。</p><button class="action" onclick="photoMapSaveCoords()">保存這張照片座標</button><p aria-live="polite" class="small" id="photoMapStatus"></p></div>
+<div class="card"><h3>🧭 北越照片分布</h3><p class="small">此為依座標繪製的簡易離線示意圖，不載入外部地圖圖磚。點選標記可查看照片。</p><div id="photoMapCanvas" style="min-height:260px;border:1px solid #777;border-radius:12px;padding:8px;background:linear-gradient(135deg,#263b3b,#35475a);color:#fff;overflow:hidden"></div><div class="notice" id="photoMapPreview" style="display:none;margin-top:10px"></div><p class="small" id="photoMapSummary"></p></div><div class="card"><h3>📷 尚未定位的照片</h3><div id="photoMapUnlocated"></div></div><div class="card"><h3>⭐ 探索收藏點數</h3><p>照片座標收藏：<b id="photoMapXp">0</b> EXP</p><p class="small">每張照片首次補上有效座標時，會在獨立收藏紀錄中獲得 5 EXP；不會改動原有 RPG 等級或舊成就。</p></div></section>
 <section class="page" id="safetyCenter"><h2 class="section-title">🛡️ 資料安全中心</h2><div class="notice">所有檢查均為唯讀，不會清除、覆蓋或上傳資料。此 App 的資料目前保存在這台裝置的瀏覽器；請定期下載備份並自行保存。</div>
 <div class="card"><h3>📊 本機資料概況</h3><div id="safetyInventory">按下「檢查資料」讀取本機資料概況。</div><button class="action" onclick="safetyRunAudit()">🔍 檢查資料</button></div>
 <div class="card"><h3>💾 完整備份</h3><p class="small">包含 localStorage、行程、日記及獨立照片。照片多時檔案會較大。</p><button class="action" onclick="exportBackup()">匯出完整備份</button></div>
 <div class="card"><h3>📦 分類備份</h3><button class="secondary" onclick="exportExpenses()">匯出支出 CSV</button> <button class="secondary" onclick="exportPhotoLibrary()">匯出照片 JSON</button> <button class="secondary" onclick="safetyExportDiary()">匯出日記 JSON</button></div>
-<div class="card"><h3>♻️ 還原前安全檢查</h3><p class="small">先選擇備份檔，只檢查格式與資料筆數，不會匯入。確認檔案正確後，仍需回到「離線與出發檢查」手動執行原有匯入流程。</p><input type="file" id="safetyCheckFile" accept="application/json" onchange="safetyPreviewBackup(event)"><div id="safetyPreview" class="small" aria-live="polite">尚未選擇備份檔。</div><button class="secondary" onclick="showPage('offline')">前往原有還原功能</button></div>
+<div class="card"><h3>♻️ 還原前安全檢查</h3><p class="small">先選擇備份檔，只檢查格式與資料筆數，不會匯入。確認檔案正確後，仍需回到「離線與出發檢查」手動執行原有匯入流程。</p><input accept="application/json" id="safetyCheckFile" onchange="safetyPreviewBackup(event)" type="file"/><div aria-live="polite" class="small" id="safetyPreview">尚未選擇備份檔。</div><button class="secondary" onclick="showPage('offline')">前往原有還原功能</button></div>
 <div class="card"><h3>⚠️ 資料保護提醒</h3><ul><li>不要清除 Chrome 網站資料或解除安裝 App，除非已確認備份可用。</li><li>匯入完整備份前，先匯出目前資料。</li><li>照片地圖座標是附加欄位，舊照片與原圖不會被刪除。</li><li>本中心不會自動上傳雲端，也不會替你刪除任何紀錄。</li></ul></div></section>
-<section class="page" id="travelStories" aria-label="旅行人物與故事">
-  <div class="v411-page-heading"><span>PEOPLE & MOMENTS</span><h2>👥 旅途中的相遇</h2><p>這些是遊戲中的情境故事。選擇你想做的事，留下自己的旅行回憶；每段故事只會記錄一次，不影響原有任務進度。</p></div>
-  <div class="v411-story-intro"><b>🌿 慢旅行提醒</b><p>不必趕著完成所有事情。看看街景、和人聊聊天，或只是坐下來喝杯咖啡，也是一段很棒的旅程。</p></div>
-  <div id="v411StoryList" class="v411-story-list" aria-live="polite"></div>
-  <section class="v411-memory-shelf"><div class="v411-shelf-head"><div><span>YOUR TRAVEL MOMENTS</span><h3>📚 我的相遇紀錄</h3></div><b id="v411MemoryCount">0 則</b></div><div id="v411MemoryList"><p>完成一段人物故事後，回憶會收藏在這裡。</p></div></section>
+<section aria-label="旅行人物與故事" class="page" id="travelStories">
+<div class="v411-page-heading"><span>PEOPLE &amp; MOMENTS</span><h2>👥 旅途中的相遇</h2><p>這些是遊戲中的情境故事。選擇你想做的事，留下自己的旅行回憶；每段故事只會記錄一次，不影響原有任務進度。</p></div>
+<div class="v411-story-intro"><b>🌿 慢旅行提醒</b><p>不必趕著完成所有事情。看看街景、和人聊聊天，或只是坐下來喝杯咖啡，也是一段很棒的旅程。</p></div>
+<div aria-live="polite" class="v411-story-list" id="v411StoryList"></div>
+<section class="v411-memory-shelf"><div class="v411-shelf-head"><div><span>YOUR TRAVEL MOMENTS</span><h3>📚 我的相遇紀錄</h3></div><b id="v411MemoryCount">0 則</b></div><div id="v411MemoryList"><p>完成一段人物故事後，回憶會收藏在這裡。</p></div></section>
 </section>
-<section class="page" id="diary"><h2 class="section-title">📖 旅行回憶錄</h2><div class="notice">日記與相簿照片都儲存在這台裝置的瀏覽器本機資料庫，不會自動上傳雲端。日記會依日期顯示相簿中的同日照片；照片仍分開保存與備份，不會複製或刪除原始相片。清除網站資料或更換裝置可能造成資料遺失，請定期匯出備份。</div><div class="card"><b id="diaryFormTitle">新增一篇回憶</b><input id="diaryEditId" type="hidden"><label>日期</label><input id="diaryDate" type="date" min="2026-11-18" max="2026-11-23" value="2026-11-18"><label>地點</label><input id="diaryLocation" placeholder="例如：沙壩、番西邦峰"><label>心情</label><select id="diaryMood"><option value="😍">😍 開心</option><option value="🥰">🥰 感動</option><option value="😌">😌 放鬆</option><option value="🤩">🤩 興奮</option><option value="😴">😴 疲累</option><option value="🥹">🥹 難忘</option><option value="😐">😐 普通</option></select><label>日記內容</label><textarea id="diaryText" rows="5" placeholder="今天看見了什麼、吃了什麼、發生哪些難忘的事？"></textarea><div class="notice">日記只記錄文字、日期、地點與心情。要拍照或整理照片，請使用底部的「📸 照片」專區；兩者分開保存。</div><div class="diary-actions"><button class="action" onclick="saveDiary()">儲存日記</button><button class="secondary" onclick="resetDiaryForm()">取消／清空表單</button></div><p class="small" id="diaryStatus" aria-live="polite"></p></div><div class="card"><b>回憶錄備份</b><p class="small">備份檔包含日記文字及照片，請存放在自己信任的位置。匯入時會合併日記，不會碰觸原本的支出紀錄。</p><div class="diary-actions"><button class="action" onclick="exportDiaries()">匯出日記與照片</button><button class="secondary" onclick="document.getElementById('diaryImportFile').click()">匯入日記備份</button></div><input id="diaryImportFile" type="file" accept="application/json,.json" style="display:none" onchange="importDiaries(event)"></div><h3>已保存的日記</h3><div id="diaryList"><p class="muted">正在讀取本機日記…</p></div></section>
+<section class="page" id="diary"><h2 class="section-title">📖 旅行回憶錄</h2><div class="notice">日記與相簿照片都儲存在這台裝置的瀏覽器本機資料庫，不會自動上傳雲端。日記會依日期顯示相簿中的同日照片；照片仍分開保存與備份，不會複製或刪除原始相片。清除網站資料或更換裝置可能造成資料遺失，請定期匯出備份。</div><div class="card"><b id="diaryFormTitle">新增一篇回憶</b><input id="diaryEditId" type="hidden"/><label>日期</label><input id="diaryDate" max="2026-11-23" min="2026-11-18" type="date" value="2026-11-18"/><label>地點</label><input id="diaryLocation" placeholder="例如：沙壩、番西邦峰"/><label>心情</label><select id="diaryMood"><option value="😍">😍 開心</option><option value="🥰">🥰 感動</option><option value="😌">😌 放鬆</option><option value="🤩">🤩 興奮</option><option value="😴">😴 疲累</option><option value="🥹">🥹 難忘</option><option value="😐">😐 普通</option></select><label>日記內容</label><textarea id="diaryText" placeholder="今天看見了什麼、吃了什麼、發生哪些難忘的事？" rows="5"></textarea><div class="notice">日記只記錄文字、日期、地點與心情。要拍照或整理照片，請使用底部的「📸 照片」專區；兩者分開保存。</div><div class="diary-actions"><button class="action" onclick="saveDiary()">儲存日記</button><button class="secondary" onclick="resetDiaryForm()">取消／清空表單</button></div><p aria-live="polite" class="small" id="diaryStatus"></p></div><div class="card"><b>回憶錄備份</b><p class="small">備份檔包含日記文字及照片，請存放在自己信任的位置。匯入時會合併日記，不會碰觸原本的支出紀錄。</p><div class="diary-actions"><button class="action" onclick="exportDiaries()">匯出日記與照片</button><button class="secondary" onclick="document.getElementById('diaryImportFile').click()">匯入日記備份</button></div><input accept="application/json,.json" id="diaryImportFile" onchange="importDiaries(event)" style="display:none" type="file"/></div><h3>已保存的日記</h3><div id="diaryList"><p class="muted">正在讀取本機日記…</p></div></section>
 <section class="page" id="shoppingQuest"><h2 class="section-title">🛍️ 北越尋寶任務</h2><div class="notice">🎒 把想帶回家的戰利品收進清單！以下是購物靈感，不保證每個商品都能在指定地點買到。資料只保存在這台裝置的瀏覽器。</div>
 <div class="card shopping-summary"><div class="shopping-stat-grid"><div><small>🪙 預算總額</small><b id="shoppingBudgetTotal">NT$ 0</b></div><div><small>💰 已購買實際花費</small><b id="shoppingSpentTotal">NT$ 0</b></div><div><small>🎁 完成項目</small><b id="shoppingCount">0 / 0</b></div><div><small>🏆 完成進度</small><b id="shoppingPercent">0%</b></div></div><div class="shopping-progress"><span id="shoppingProgressBar"></span></div></div>
-<div class="card"><h3>➕ 新增／編輯戰利品</h3><input id="shoppingEditId" type="hidden"><label for="shoppingName">商品名稱 *</label><input id="shoppingName" maxlength="120" placeholder="例如：越南咖啡粉"><label for="shoppingCategory">商品分類</label><select id="shoppingCategory"><option>咖啡與飲品</option><option>零食與食品</option><option>手工藝與紀念品</option><option>沙壩特色</option><option>我的自訂項目</option></select><div class="shopping-fields"><div><label for="shoppingBudget">預算（台幣 NT$）</label><input id="shoppingBudget" type="number" min="0" step="1" inputmode="numeric" placeholder="0"></div><div><label for="shoppingPrice">實際購買金額（台幣 NT$）</label><input id="shoppingPrice" type="number" min="0" step="1" inputmode="numeric" placeholder="購買後填寫"></div></div><label for="shoppingPlace">購買地點</label><input id="shoppingPlace" maxlength="160" placeholder="例如：河內老城區／沙壩市區"><label for="shoppingRecipient">🎁 伴手禮送給誰</label><input id="shoppingRecipient" maxlength="240" placeholder="例如：爸爸、媽媽、同事小美（可填多人）"><label for="shoppingNotes">備註</label><textarea id="shoppingNotes" rows="2" maxlength="1000" placeholder="品牌、數量、送給誰……"></textarea><div class="shopping-form-actions"><button class="action" type="button" onclick="saveShoppingItem()">💾 儲存商品</button><button class="secondary" type="button" onclick="resetShoppingForm()">取消編輯／清空表單</button></div><p id="shoppingFormStatus" class="small" aria-live="polite"></p></div>
-<div class="card"><h3>🎒 戰利品清單</h3><label for="shoppingCategoryFilter">分類篩選</label><select id="shoppingCategoryFilter" onchange="renderShoppingItems()"><option value="全部分類">全部分類</option><option>咖啡與飲品</option><option>零食與食品</option><option>手工藝與紀念品</option><option>沙壩特色</option><option>我的自訂項目</option></select><label for="shoppingStatusFilter">購買狀態</label><select id="shoppingStatusFilter" onchange="renderShoppingItems()"><option value="全部狀態">全部狀態</option><option value="未購買">尚未購買</option><option value="已購買">已買到</option></select><div id="shoppingItems" class="shopping-items" aria-live="polite"></div></div></section>
-
+<div class="card"><h3>➕ 新增／編輯戰利品</h3><input id="shoppingEditId" type="hidden"/><label for="shoppingName">商品名稱 *</label><input id="shoppingName" maxlength="120" placeholder="例如：越南咖啡粉"/><label for="shoppingCategory">商品分類</label><select id="shoppingCategory"><option>咖啡與飲品</option><option>零食與食品</option><option>手工藝與紀念品</option><option>沙壩特色</option><option>我的自訂項目</option></select><div class="shopping-fields"><div><label for="shoppingBudget">預算（台幣 NT$）</label><input id="shoppingBudget" inputmode="numeric" min="0" placeholder="0" step="1" type="number"/></div><div><label for="shoppingPrice">實際購買金額（台幣 NT$）</label><input id="shoppingPrice" inputmode="numeric" min="0" placeholder="購買後填寫" step="1" type="number"/></div></div><label for="shoppingPlace">購買地點</label><input id="shoppingPlace" maxlength="160" placeholder="例如：河內老城區／沙壩市區"/><label for="shoppingRecipient">🎁 伴手禮送給誰</label><input id="shoppingRecipient" maxlength="240" placeholder="例如：爸爸、媽媽、同事小美（可填多人）"/><label for="shoppingNotes">備註</label><textarea id="shoppingNotes" maxlength="1000" placeholder="品牌、數量、送給誰……" rows="2"></textarea><div class="shopping-form-actions"><button class="action" onclick="saveShoppingItem()" type="button">💾 儲存商品</button><button class="secondary" onclick="resetShoppingForm()" type="button">取消編輯／清空表單</button></div><p aria-live="polite" class="small" id="shoppingFormStatus"></p></div>
+<div class="card"><h3>🎒 戰利品清單</h3><label for="shoppingCategoryFilter">分類篩選</label><select id="shoppingCategoryFilter" onchange="renderShoppingItems()"><option value="全部分類">全部分類</option><option>咖啡與飲品</option><option>零食與食品</option><option>手工藝與紀念品</option><option>沙壩特色</option><option>我的自訂項目</option></select><label for="shoppingStatusFilter">購買狀態</label><select id="shoppingStatusFilter" onchange="renderShoppingItems()"><option value="全部狀態">全部狀態</option><option value="未購買">尚未購買</option><option value="已購買">已買到</option></select><div aria-live="polite" class="shopping-items" id="shoppingItems"></div></div></section>
 <section class="page" id="adventurePlaybook">
 <h2 class="section-title">🎲 冒險互動中心｜每日驚喜</h2>
 <div class="notice">每日任務、集章、四人職業、照片挑戰與旅行事件都使用獨立的新儲存鍵。這些互動不會覆蓋既有日記、照片、支出、行程、成就或 RPG 存檔。每日隱藏任務與旅行事件依裝置日期更新；集章及職業羈絆由你手動確認。</div>
-<section class="card" id="playbookPendingSummary" aria-live="polite"><h3>📌 未完成任務總覽</h3><p style="font-size:1.35rem;font-weight:800;margin:6px 0"><span id="playbookPendingTotal">0</span> 項尚未完成</p><div class="small" id="playbookPendingBreakdown">正在整理任務進度…</div></section>
-<section class="card"><h3>🎴 ① 今日隱藏任務 <span class="small" id="hiddenQuestPendingCount"></span></h3><p class="small">每天自動抽出三個小挑戰。可以完成或跳過；完成獲得本互動中心的冒險點數，不會改動原有 EXP。</p><div id="hiddenQuestList"></div><p id="hiddenQuestStatus" class="small" aria-live="polite"></p></section>
-<section class="card"><h3>🗺️ ② 北越集章冒險 <span class="small" id="stampPendingCount"></span></h3><p class="small">在河內、沙壩、下龍灣留下紀念印章。印章是旅行紀念紀錄，不代表 GPS 已驗證真實到訪。</p><div id="northStampGrid" class="loot-codex-grid"></div><p id="stampSummary" class="small"></p></section>
-<section class="card"><h3>🧑‍🤝‍🧑 ③ 四人職業與羈絆值</h3><p class="small">你可以一個人操作 APP，但必須分別完成四種職業任務。四位隊員各完成一項後，系統才會自動增加一次團隊羈絆；不能直接按按鈕加分。</p><div id="partyRoleList"></div><div class="row" style="flex-wrap:wrap"><button type="button" class="action" onclick="savePartyRoles()">💾 儲存隊伍設定</button><button type="button" class="secondary" id="nextPartyRoundBtn" onclick="startNextPartyRound()" hidden>🔄 開始下一輪團隊挑戰</button></div><p id="partyBondStatus" class="small" aria-live="polite"></p></section>
-<section class="card"><h3>📸 ④ 照片任務與回憶彩蛋 <span class="small" id="photoPendingCount"></span></h3><p class="small">完成主題照片後勾選任務，再前往照片專區保存照片。這裡只記錄任務狀態，不會搬動、刪除或複製你的照片。</p><div id="photoMissionList"></div><button type="button" class="action" onclick="showPage('photos')">📸 前往旅行照片</button><p id="photoMissionSummary" class="small"></p></section>
-<section class="card"><h3>🎲 ⑤ 今日旅行突發事件 <span class="small" id="eventPendingCount"></span></h3><p class="small">這是遊戲內的趣味挑戰，不是對真實事件的預測。請以安全、體力、預算和既定行程為優先；不適合時可略過。</p><div id="travelEventCard" class="notice" aria-live="polite"></div><div class="row" style="flex-wrap:wrap"><button type="button" class="action" onclick="drawTravelEvent()">🎲 抽取今日事件</button><button type="button" class="secondary" onclick="resolveTravelEvent('done')">完成事件</button><button type="button" class="secondary" onclick="resolveTravelEvent('skip')">略過事件</button></div><p id="travelEventStatus" class="small"></p></section>
+<section aria-live="polite" class="card" id="playbookPendingSummary"><h3>📌 未完成任務總覽</h3><p style="font-size:1.35rem;font-weight:800;margin:6px 0"><span id="playbookPendingTotal">0</span> 項尚未完成</p><div class="small" id="playbookPendingBreakdown">正在整理任務進度…</div></section>
+<section class="card"><h3>🎴 ① 今日隱藏任務 <span class="small" id="hiddenQuestPendingCount"></span></h3><p class="small">每天自動抽出三個小挑戰。可以完成或跳過；完成獲得本互動中心的冒險點數，不會改動原有 EXP。</p><div id="hiddenQuestList"></div><p aria-live="polite" class="small" id="hiddenQuestStatus"></p></section>
+<section class="card"><h3>🗺️ ② 北越集章冒險 <span class="small" id="stampPendingCount"></span></h3><p class="small">在河內、沙壩、下龍灣留下紀念印章。印章是旅行紀念紀錄，不代表 GPS 已驗證真實到訪。</p><div class="loot-codex-grid" id="northStampGrid"></div><p class="small" id="stampSummary"></p></section>
+<section class="card"><h3>🧑‍🤝‍🧑 ③ 四人職業與羈絆值</h3><p class="small">你可以一個人操作 APP，但必須分別完成四種職業任務。四位隊員各完成一項後，系統才會自動增加一次團隊羈絆；不能直接按按鈕加分。</p><div id="partyRoleList"></div><div class="row" style="flex-wrap:wrap"><button class="action" onclick="savePartyRoles()" type="button">💾 儲存隊伍設定</button><button class="secondary" hidden="" id="nextPartyRoundBtn" onclick="startNextPartyRound()" type="button">🔄 開始下一輪團隊挑戰</button></div><p aria-live="polite" class="small" id="partyBondStatus"></p></section>
+<section class="card"><h3>📸 ④ 照片任務與回憶彩蛋 <span class="small" id="photoPendingCount"></span></h3><p class="small">完成主題照片後勾選任務，再前往照片專區保存照片。這裡只記錄任務狀態，不會搬動、刪除或複製你的照片。</p><div id="photoMissionList"></div><button class="action" onclick="showPage('photos')" type="button">📸 前往旅行照片</button><p class="small" id="photoMissionSummary"></p></section>
+<section class="card"><h3>🎲 ⑤ 今日旅行突發事件 <span class="small" id="eventPendingCount"></span></h3><p class="small">這是遊戲內的趣味挑戰，不是對真實事件的預測。請以安全、體力、預算和既定行程為優先；不適合時可略過。</p><div aria-live="polite" class="notice" id="travelEventCard"></div><div class="row" style="flex-wrap:wrap"><button class="action" onclick="drawTravelEvent()" type="button">🎲 抽取今日事件</button><button class="secondary" onclick="resolveTravelEvent('done')" type="button">完成事件</button><button class="secondary" onclick="resolveTravelEvent('skip')" type="button">略過事件</button></div><p class="small" id="travelEventStatus"></p></section>
 <section class="card"><h3>⭐ 互動中心紀錄</h3><p>冒險點數：<b id="playbookXP">0</b>　·　今日任務完成：<b id="playbookQuestDone">0/3</b>　·　集章：<b id="playbookStampCount">0/3</b></p><p class="small">此處的點數是獨立趣味統計，不會加入既有 RPG 等級，避免重複計算或改變你原本的進度。</p></section>
 </section>
-
 <section class="page" id="emergency">
 <h2 class="section-title">🆘 注意事項與緊急應變中心</h2>
 <div class="notice"><b>先確保人身安全。</b> 若有立即危險，移到安全且有人員的地方，並聯絡當地緊急服務或請飯店人員協助。此頁是旅行輔助資訊，不能取代警方、醫療人員或官方公告。</div>
 <div class="card" style="border:2px solid #d83b43;background:#fff8f8"><h3 style="color:#b4232c;margin-top:0">🚨 越南緊急電話</h3><p>以下為常見越南緊急電話，出發前請再向官方來源或住宿方核實是否適用於所在區域及手機門號。</p><div class="row" style="flex-wrap:wrap"><a class="action" href="tel:112" style="text-decoration:none;text-align:center">📞 112 綜合緊急求助</a><a class="secondary" href="tel:113" style="text-decoration:none;text-align:center">👮 113 警察</a></div><div class="row" style="flex-wrap:wrap"><a class="secondary" href="tel:114" style="text-decoration:none;text-align:center">🚒 114 消防</a><a class="secondary" href="tel:115" style="text-decoration:none;text-align:center">🚑 115 救護車</a></div><p class="small">若無法撥通，請立即向飯店櫃檯、導遊、車站／碼頭工作人員或附近警方求助。電話按鈕只會嘗試開啟裝置的撥號功能。</p></div>
-<div class="card"><h3>🧭 突發狀況怎麼做</h3><details open><summary><b>身體不適、受傷</b></summary><ol><li>先離開車道、海邊、高處或其他危險位置。</li><li>嚴重受傷、呼吸困難或失去意識時，立即求助並聯絡救護服務。</li><li>告知飯店／同行者，準備護照影本、保險資料及藥物／過敏資訊。</li></ol></details><details><summary><b>護照或手機遺失、遭竊</b></summary><ol><li>先到安全且有人員的場所，避免追趕或與可疑人士衝突。</li><li>手機遺失時，使用可信任裝置鎖定帳號／SIM，並通知電信商及銀行（若有支付功能）。</li><li>護照遺失或遭竊時，向當地警方報案並聯絡台灣駐越南代表處或官方急難救助管道。</li></ol></details><details><summary><b>四人走散、聯絡不上</b></summary><ol><li>先到事先約定、明亮且有人員的集合點；不要為了找人走進偏僻區域。</li><li>傳送目前位置、地標照片及可辨識的店名；約定固定時間再次聯絡。</li><li>若有人身安全疑慮，請飯店、警方或現場工作人員協助。</li></ol></details><details><summary><b>交通事故、天災或暴雨</b></summary><ol><li>遠離車流、倒塌物、積水、海岸浪區及其他立即危險。</li><li>遵從當地主管機關、導遊及飯店人員指示，不冒險拍照或自行涉水。</li><li>確認四位隊員位置與狀況，必要時聯絡緊急服務及保險公司。</li></ol></details></div>
+<div class="card"><h3>🧭 突發狀況怎麼做</h3><details open=""><summary><b>身體不適、受傷</b></summary><ol><li>先離開車道、海邊、高處或其他危險位置。</li><li>嚴重受傷、呼吸困難或失去意識時，立即求助並聯絡救護服務。</li><li>告知飯店／同行者，準備護照影本、保險資料及藥物／過敏資訊。</li></ol></details><details><summary><b>護照或手機遺失、遭竊</b></summary><ol><li>先到安全且有人員的場所，避免追趕或與可疑人士衝突。</li><li>手機遺失時，使用可信任裝置鎖定帳號／SIM，並通知電信商及銀行（若有支付功能）。</li><li>護照遺失或遭竊時，向當地警方報案並聯絡台灣駐越南代表處或官方急難救助管道。</li></ol></details><details><summary><b>四人走散、聯絡不上</b></summary><ol><li>先到事先約定、明亮且有人員的集合點；不要為了找人走進偏僻區域。</li><li>傳送目前位置、地標照片及可辨識的店名；約定固定時間再次聯絡。</li><li>若有人身安全疑慮，請飯店、警方或現場工作人員協助。</li></ol></details><details><summary><b>交通事故、天災或暴雨</b></summary><ol><li>遠離車流、倒塌物、積水、海岸浪區及其他立即危險。</li><li>遵從當地主管機關、導遊及飯店人員指示，不冒險拍照或自行涉水。</li><li>確認四位隊員位置與狀況，必要時聯絡緊急服務及保險公司。</li></ol></details></div>
 <div class="card taiwan-emergency-card" id="taiwanVietnamEmergency">
 <h3>🇹🇼 台灣駐越南代表處／急難救助資訊</h3>
 <p class="small">以下電話依外交部領事事務局官方資訊整理。北越（順化以北）請聯絡駐越南代表處；南越（峴港以南）請聯絡駐胡志明市辦事處。急難專線限車禍、搶劫或生命安全等重大緊急事件使用。</p>
-<div class="taiwan-emergency-contact"><h4>🧭 北越｜駐越南代表處</h4><p><b>越南境內直撥：</b><a href="tel:0913219986">0913-219-986</a></p><p><b>從境外撥打：</b><a href="tel:+84913219986">+84-913-219-986</a></p><div class="taiwan-emergency-actions"><a class="action" href="tel:+84913219986">📞 撥打北越急難電話</a><button class="secondary" type="button" onclick="navigator.clipboard&&navigator.clipboard.writeText('+84-913-219-986').then(()=>alert('已複製北越急難電話')).catch(()=>alert('請手動複製：+84-913-219-986'))">複製電話</button></div></div>
-<div class="taiwan-emergency-contact"><h4>🌴 南越｜駐胡志明市辦事處</h4><p><b>越南境內直撥：</b><a href="tel:0903927019">0903-927-019</a></p><p><b>從境外撥打：</b><a href="tel:+84903927019">+84-903-927-019</a></p><div class="taiwan-emergency-actions"><a class="action" href="tel:+84903927019">📞 撥打南越急難電話</a><button class="secondary" type="button" onclick="navigator.clipboard&&navigator.clipboard.writeText('+84-903-927-019').then(()=>alert('已複製南越急難電話')).catch(()=>alert('請手動複製：+84-903-927-019'))">複製電話</button></div></div>
+<div class="taiwan-emergency-contact"><h4>🧭 北越｜駐越南代表處</h4><p><b>越南境內直撥：</b><a href="tel:0913219986">0913-219-986</a></p><p><b>從境外撥打：</b><a href="tel:+84913219986">+84-913-219-986</a></p><div class="taiwan-emergency-actions"><a class="action" href="tel:+84913219986">📞 撥打北越急難電話</a><button class="secondary" onclick="navigator.clipboard&amp;&amp;navigator.clipboard.writeText('+84-913-219-986').then(()=&gt;alert('已複製北越急難電話')).catch(()=&gt;alert('請手動複製：+84-913-219-986'))" type="button">複製電話</button></div></div>
+<div class="taiwan-emergency-contact"><h4>🌴 南越｜駐胡志明市辦事處</h4><p><b>越南境內直撥：</b><a href="tel:0903927019">0903-927-019</a></p><p><b>從境外撥打：</b><a href="tel:+84903927019">+84-903-927-019</a></p><div class="taiwan-emergency-actions"><a class="action" href="tel:+84903927019">📞 撥打南越急難電話</a><button class="secondary" onclick="navigator.clipboard&amp;&amp;navigator.clipboard.writeText('+84-903-927-019').then(()=&gt;alert('已複製南越急難電話')).catch(()=&gt;alert('請手動複製：+84-903-927-019'))" type="button">複製電話</button></div></div>
 <div class="taiwan-emergency-contact"><h4>☎️ 外交部旅外國人急難救助服務專線</h4><p><a href="tel:0800085095"><b>0800-085-095</b></a></p><p class="small">可請人在台灣的親友撥打，協助聯繫海外急難救助。</p></div>
-<p><a href="https://www.boca.gov.tw/sp-foof-countrycp-03-8-f4a19-03-1.html" target="_blank" rel="noopener noreferrer">🔗 外交部領事事務局：駐越南館處聯絡資訊</a></p>
-<p><a href="https://www.taiwanembassy.org/vn/index.html" target="_blank" rel="noopener noreferrer">🔗 駐越南代表處官方網站</a></p>
+<p><a href="https://www.boca.gov.tw/sp-foof-countrycp-03-8-f4a19-03-1.html" rel="noopener noreferrer" target="_blank">🔗 外交部領事事務局：駐越南館處聯絡資訊</a></p>
+<p><a href="https://www.taiwanembassy.org/vn/index.html" rel="noopener noreferrer" target="_blank">🔗 駐越南代表處官方網站</a></p>
 <p class="small">提醒：急難電話與轄區可能更新，出發前請再點官方網站確認。一般護照、簽證等非急難事項，請於辦公時間聯絡館處。</p>
 </div>
 <style id="taiwan-vietnam-emergency-style">
@@ -1476,88 +1532,83 @@ nav.rpg-bottom-menu button .nav-icon{font-size:24px!important}
 #taiwanVietnamEmergency .taiwan-emergency-actions a{display:inline-block;text-decoration:none;border-radius:9px;padding:10px 12px;background:#991b1b;color:#fff!important}
 #taiwanVietnamEmergency button{min-height:40px}
 </style>
-<div class="card"><h3>📞 自訂緊急聯絡資料</h3><p class="small">可填台灣家人、旅遊保險、台灣駐越南代表處、飯店與四位隊員的聯絡方式。資料只存在這台裝置的瀏覽器；請勿在共用裝置填入不希望他人看到的資訊。</p><label for="emergencyFamily">台灣家人／緊急聯絡人</label><input id="emergencyFamily" maxlength="100" placeholder="姓名與電話（自行填寫）"><label for="emergencyInsurance">旅遊保險公司／保單聯絡方式</label><input id="emergencyInsurance" maxlength="160" placeholder="公司、保單號碼或海外協助電話"><label for="emergencyRep">台灣駐越南代表處／急難救助資訊</label><input id="emergencyRep" maxlength="200" placeholder="出發前查核官方聯絡資訊後填入"><label for="emergencyHotel">目前飯店／導遊／交通業者</label><input id="emergencyHotel" maxlength="200" placeholder="名稱、電話、地址或集合地點"><label for="emergencyMeet">四人約定集合點</label><input id="emergencyMeet" maxlength="200" placeholder="例如：飯店大廳服務櫃檯"><label for="emergencyNotes">其他重要提醒（例如過敏、用藥、隊員聯絡方式）</label><textarea id="emergencyNotes" rows="3" maxlength="2000" placeholder="只填需要的資訊，避免不必要的敏感資料"></textarea><div class="row" style="flex-wrap:wrap"><button class="action" type="button" onclick="saveEmergencyInfo()">💾 保存聯絡資料</button><button class="secondary" type="button" onclick="loadEmergencyInfo()">重新載入已保存資料</button></div><p id="emergencySaveStatus" class="small" aria-live="polite">尚未載入自訂資料</p></div>
+<div class="card"><h3>📞 自訂緊急聯絡資料</h3><p class="small">可填台灣家人、旅遊保險、台灣駐越南代表處、飯店與四位隊員的聯絡方式。資料只存在這台裝置的瀏覽器；請勿在共用裝置填入不希望他人看到的資訊。</p><label for="emergencyFamily">台灣家人／緊急聯絡人</label><input id="emergencyFamily" maxlength="100" placeholder="姓名與電話（自行填寫）"/><label for="emergencyInsurance">旅遊保險公司／保單聯絡方式</label><input id="emergencyInsurance" maxlength="160" placeholder="公司、保單號碼或海外協助電話"/><label for="emergencyRep">台灣駐越南代表處／急難救助資訊</label><input id="emergencyRep" maxlength="200" placeholder="出發前查核官方聯絡資訊後填入"/><label for="emergencyHotel">目前飯店／導遊／交通業者</label><input id="emergencyHotel" maxlength="200" placeholder="名稱、電話、地址或集合地點"/><label for="emergencyMeet">四人約定集合點</label><input id="emergencyMeet" maxlength="200" placeholder="例如：飯店大廳服務櫃檯"/><label for="emergencyNotes">其他重要提醒（例如過敏、用藥、隊員聯絡方式）</label><textarea id="emergencyNotes" maxlength="2000" placeholder="只填需要的資訊，避免不必要的敏感資料" rows="3"></textarea><div class="row" style="flex-wrap:wrap"><button class="action" onclick="saveEmergencyInfo()" type="button">💾 保存聯絡資料</button><button class="secondary" onclick="loadEmergencyInfo()" type="button">重新載入已保存資料</button></div><p aria-live="polite" class="small" id="emergencySaveStatus">尚未載入自訂資料</p></div>
 <div class="card"><h3>🎒 出發前安全檢查</h3><div id="emergencyChecklist"></div><p class="small">勾選狀態只保存在獨立的緊急應變資料中，不會更動原本的離線檢查清單。</p></div>
 <div class="card"><h3>📴 離線提醒</h3><p>此頁內容已寫在 APP 裡，但自訂電話與備註只會在這台裝置保存。若要在沒有網路時使用，請先在有網路時開啟本頁並確認 APP 已成功快取；另建議把關鍵電話、飯店地址與保險資訊另存到手機可離線查看的位置。</p></div>
 </section>
-
 <section class="page" id="adventureFinale">
-  <h2 class="section-title">🎁 終章彩蛋｜冒險者的最後禮物</h2>
-  <div class="notice">這是旅行結束後才揭曉的隱藏章節。只有你親手按下「完成冒險」並再次確認後，才會解鎖。此功能使用獨立儲存鍵，不會修改原有日記、照片、支出或 RPG 存檔。</div>
-  <div class="card" id="finaleLockedPanel" style="text-align:center;padding:22px">
-    <div style="font-size:72px;line-height:1.3" aria-hidden="true">🗝️🎁🗝️</div>
-    <h3>最後一個寶箱，正在等待你</h3>
-    <p>等這趟旅程真正結束，再回來開啟專屬於你們四人的禮物吧。</p>
-    <p class="small">解鎖不會自動觸發；按下按鈕後會再次確認。完成狀態只寫入獨立的新資料鍵。</p>
-    <button type="button" class="action" onclick="completeAdventure()">🏁 完成冒險・揭開終章</button>
-    <p class="small" id="finaleStatus" aria-live="polite">狀態：尚未通關</p>
-  </div>
-  <div id="finaleUnlockedPanel" hidden>
-    <div class="card" style="text-align:center;padding:24px;background:linear-gradient(135deg,#fff7d6,#fffdf5)">
-      <div style="font-size:76px;line-height:1.25" aria-hidden="true">🎉🏆🎁</div>
-      <p class="small">VIETNAM ADVENTURE · THE ENDING</p><h2>恭喜通關！北越傳說冒險者</h2>
-      <p>你們帶回來的不只是照片與紀錄，還有一起走過的每一段路。</p>
-    </div>
-    <div class="card"><h3>🎁 ① 神祕寶箱</h3><div style="font-size:54px;text-align:center;padding:8px" aria-hidden="true">💎🧰✨</div><p>寶箱已開啟！這趟旅程最珍貴的戰利品，是四個人共同創造的回憶。</p><p><b>通關獎勵：</b>終章紀念稱號與秘密信件。</p></div>
-    <div class="card"><h3>🪪 ② 四人冒險紀念卡</h3><p class="small">這張紀念卡提供旅程的紀念摘要；不會修改或搬動原始資料。</p>
-      <div class="row" style="gap:10px;flex-wrap:wrap"><div class="card" style="flex:1;min-width:110px;margin:0"><small>🗓️ 行程天數</small><h3 id="finaleDaysCount">—</h3></div><div class="card" style="flex:1;min-width:110px;margin:0"><small>📜 行程項目</small><h3 id="finaleTasksCount">—</h3></div><div class="card" style="flex:1;min-width:110px;margin:0"><small>🏆 成就項目</small><h3 id="finaleAchievementsCount">—</h3></div><div class="card" style="flex:1;min-width:110px;margin:0"><small>🍜 美食收藏</small><h3 id="finaleFoodsCount">—</h3></div></div>
-      <p id="finaleDiaryPhotoSummary" class="small">日記與照片仍保存在原本的本機資料庫。</p><button type="button" class="secondary" onclick="window.print()">🖨️ 列印／另存紀念卡</button>
-    </div>
-    <div class="card"><h3>💌 ③ 終章秘密信件</h3><blockquote style="font-size:1.05em;line-height:1.9">親愛的冒險者：<br><br>謝謝你們一起走過北越。那些一起分享的美食、沿途看見的風景、拍下的照片，還有旅途中不經意的笑聲，都成為了這趟旅程獨一無二的寶藏。<br><br>行程可以結束，但一起冒險的時光不會因此消失。希望多年以後，再翻開這些紀錄時，你們仍然會想起當時的風景、笑聲，以及彼此照應的默契。<br><br>下次再出發時，願你們仍然保有好奇與勇氣。<br><br>—— 北越冒險公會</blockquote></div>
-    <div class="card"><h3>🌟 ④ 隱藏稱號</h3><div class="notice">🏅 北越傳說冒險者<br>💞 四人羈絆永存<br>🍜 越南美食獵人</div><p class="small">以上是終章紀念稱號，不會更動原有成就資料。</p><button type="button" class="secondary" onclick="showPage('diary')">📖 回顧旅行日記</button> <button type="button" class="secondary" onclick="showPage('photos')">📸 重看旅行照片</button></div>
-    <p class="small">終章已解鎖。請繼續定期匯出備份；此頁不會刪除或覆寫任何既有紀錄。</p>
-  </div>
+<h2 class="section-title">🎁 終章彩蛋｜冒險者的最後禮物</h2>
+<div class="notice">這是旅行結束後才揭曉的隱藏章節。只有你親手按下「完成冒險」並再次確認後，才會解鎖。此功能使用獨立儲存鍵，不會修改原有日記、照片、支出或 RPG 存檔。</div>
+<div class="card" id="finaleLockedPanel" style="text-align:center;padding:22px">
+<div aria-hidden="true" style="font-size:72px;line-height:1.3">🗝️🎁🗝️</div>
+<h3>最後一個寶箱，正在等待你</h3>
+<p>等這趟旅程真正結束，再回來開啟專屬於你們四人的禮物吧。</p>
+<p class="small">解鎖不會自動觸發；按下按鈕後會再次確認。完成狀態只寫入獨立的新資料鍵。</p>
+<button class="action" onclick="completeAdventure()" type="button">🏁 完成冒險・揭開終章</button>
+<p aria-live="polite" class="small" id="finaleStatus">狀態：尚未通關</p>
+</div>
+<div hidden="" id="finaleUnlockedPanel">
+<div class="card" style="text-align:center;padding:24px;background:linear-gradient(135deg,#fff7d6,#fffdf5)">
+<div aria-hidden="true" style="font-size:76px;line-height:1.25">🎉🏆🎁</div>
+<p class="small">VIETNAM ADVENTURE · THE ENDING</p><h2>恭喜通關！北越傳說冒險者</h2>
+<p>你們帶回來的不只是照片與紀錄，還有一起走過的每一段路。</p>
+</div>
+<div class="card"><h3>🎁 ① 神祕寶箱</h3><div aria-hidden="true" style="font-size:54px;text-align:center;padding:8px">💎🧰✨</div><p>寶箱已開啟！這趟旅程最珍貴的戰利品，是四個人共同創造的回憶。</p><p><b>通關獎勵：</b>終章紀念稱號與秘密信件。</p></div>
+<div class="card"><h3>🪪 ② 四人冒險紀念卡</h3><p class="small">這張紀念卡提供旅程的紀念摘要；不會修改或搬動原始資料。</p>
+<div class="row" style="gap:10px;flex-wrap:wrap"><div class="card" style="flex:1;min-width:110px;margin:0"><small>🗓️ 行程天數</small><h3 id="finaleDaysCount">—</h3></div><div class="card" style="flex:1;min-width:110px;margin:0"><small>📜 行程項目</small><h3 id="finaleTasksCount">—</h3></div><div class="card" style="flex:1;min-width:110px;margin:0"><small>🏆 成就項目</small><h3 id="finaleAchievementsCount">—</h3></div><div class="card" style="flex:1;min-width:110px;margin:0"><small>🍜 美食收藏</small><h3 id="finaleFoodsCount">—</h3></div></div>
+<p class="small" id="finaleDiaryPhotoSummary">日記與照片仍保存在原本的本機資料庫。</p><button class="secondary" onclick="window.print()" type="button">🖨️ 列印／另存紀念卡</button>
+</div>
+<div class="card"><h3>💌 ③ 終章秘密信件</h3><blockquote style="font-size:1.05em;line-height:1.9">親愛的冒險者：<br/><br/>謝謝你們一起走過北越。那些一起分享的美食、沿途看見的風景、拍下的照片，還有旅途中不經意的笑聲，都成為了這趟旅程獨一無二的寶藏。<br/><br/>行程可以結束，但一起冒險的時光不會因此消失。希望多年以後，再翻開這些紀錄時，你們仍然會想起當時的風景、笑聲，以及彼此照應的默契。<br/><br/>下次再出發時，願你們仍然保有好奇與勇氣。<br/><br/>—— 北越冒險公會</blockquote></div>
+<div class="card"><h3>🌟 ④ 隱藏稱號</h3><div class="notice">🏅 北越傳說冒險者<br/>💞 四人羈絆永存<br/>🍜 越南美食獵人</div><p class="small">以上是終章紀念稱號，不會更動原有成就資料。</p><button class="secondary" onclick="showPage('diary')" type="button">📖 回顧旅行日記</button> <button class="secondary" onclick="showPage('photos')" type="button">📸 重看旅行照片</button></div>
+<p class="small">終章已解鎖。請繼續定期匯出備份；此頁不會刪除或覆寫任何既有紀錄。</p>
+</div>
 </section>
-
-
-
-
-</main><nav class="rpg-nav rpg-bottom-menu v3-primary-nav" aria-label="主要導覽">
-<button class="active" data-page="home" onclick="showPage('home')" aria-label="首頁"><span class="nav-icon" aria-hidden="true">🏠</span><span>首頁</span></button>
-<button data-page="itinerary" onclick="showPage('itinerary')" aria-label="我的行程"><span class="nav-icon" aria-hidden="true">🗓️</span><span>行程</span></button>
-<button data-page="adventureMap" onclick="showPage('adventureMap')" aria-label="地圖與冒險"><span class="nav-icon" aria-hidden="true">🗺️</span><span>地圖</span></button>
-<button data-page="food" onclick="showPage('food')" aria-label="北越美食"><span class="nav-icon" aria-hidden="true">🍜</span><span>美食</span></button>
-<button type="button" id="categoryMenuToggle" aria-expanded="false" aria-controls="categoryMenu" onclick="toggleCategoryMenu()" aria-label="更多功能"><span class="nav-icon" aria-hidden="true">☰</span><span>更多</span><span id="morePendingBadge" class="menu-pending-badge" aria-label="未完成任務數">0</span></button>
+</main><nav aria-label="主要導覽" class="rpg-nav rpg-bottom-menu v3-primary-nav">
+<button aria-label="首頁" class="active" data-page="home" onclick="showPage('home')"><span aria-hidden="true" class="nav-icon">🏠</span><span>首頁</span></button>
+<button aria-label="我的行程" data-page="itinerary" onclick="showPage('itinerary')"><span aria-hidden="true" class="nav-icon">🗓️</span><span>行程</span></button>
+<button aria-label="地圖與冒險" data-page="adventureMap" onclick="showPage('adventureMap')"><span aria-hidden="true" class="nav-icon">🗺️</span><span>地圖</span></button>
+<button aria-label="北越美食" data-page="food" onclick="showPage('food')"><span aria-hidden="true" class="nav-icon">🍜</span><span>美食</span></button>
+<button aria-controls="categoryMenu" aria-expanded="false" aria-label="更多功能" id="categoryMenuToggle" onclick="toggleCategoryMenu()" type="button"><span aria-hidden="true" class="nav-icon">☰</span><span>更多</span><span aria-label="未完成任務數" class="menu-pending-badge" id="morePendingBadge">0</span></button>
 </nav>
-<div id="categoryMenuBackdrop" class="category-menu-backdrop" hidden onclick="toggleCategoryMenu(false)"></div>
-<section id="categoryMenu" class="category-menu" aria-label="功能分類選單" hidden>
-<div class="category-menu-head"><b>🧭 功能分類</b><button type="button" class="category-close" onclick="toggleCategoryMenu(false)" aria-label="關閉功能總覽">✕</button></div>
+<div class="category-menu-backdrop" hidden="" id="categoryMenuBackdrop" onclick="toggleCategoryMenu(false)"></div>
+<section aria-label="功能分類選單" class="category-menu" hidden="" id="categoryMenu">
+<div class="category-menu-head"><b>🧭 功能分類</b><button aria-label="關閉功能總覽" class="category-close" onclick="toggleCategoryMenu(false)" type="button">✕</button></div>
 <p class="category-menu-tip">功能依用途整理好了：打卡找「打卡與行程」，遊戲找「遊戲與冒險」。</p>
-<label class="ux-function-search"><span aria-hidden="true">🔎</span><span class="sr-only">搜尋功能</span><input id="categoryMenuSearch" type="search" placeholder="搜尋：支出、飯店、照片、備份、任務…" autocomplete="off" aria-label="搜尋功能名稱或用途"><button type="button" id="categoryMenuSearchClear" onclick="clearCategoryMenuSearch()" aria-label="清除搜尋" hidden>清除</button></label>
-<p id="categoryMenuSearchStatus" class="ux-search-status" aria-live="polite">選一個分類，就能找到同類功能。</p>
+<label class="ux-function-search"><span aria-hidden="true">🔎</span><span class="sr-only">搜尋功能</span><input aria-label="搜尋功能名稱或用途" autocomplete="off" id="categoryMenuSearch" placeholder="搜尋：支出、飯店、照片、備份、任務…" type="search"/><button aria-label="清除搜尋" hidden="" id="categoryMenuSearchClear" onclick="clearCategoryMenuSearch()" type="button">清除</button></label>
+<p aria-live="polite" class="ux-search-status" id="categoryMenuSearchStatus">選一個分類，就能找到同類功能。</p>
 <div class="category-grid" id="categoryMenuGrid">
-<details class="category-accordion" open><summary>📍 打卡與行程 <span class="accordion-hint">景點、每日安排、出發檢查</span></summary><div class="category-accordion-content"><section class="category-group">
-<button data-page="adventureMap" data-keywords="打卡 景點 地圖 探索 河內 沙壩 下龍灣 位置" onclick="chooseCategoryPage('adventureMap')">📍 景點探索與打卡</button>
-<button data-page="itinerary" data-keywords="行程 日期 時間 交通 每天 排程" onclick="chooseCategoryPage('itinerary')">🗓️ 每日行程</button>
-<button data-page="places" data-keywords="飯店 住宿 地址 地點 酒店" onclick="chooseCategoryPage('places')">🏨 飯店與重要地點</button>
-<button data-page="weather" data-keywords="天氣 預報 氣溫 降雨 風速 河內 沙壩 番西邦峰 下龍灣" onclick="chooseCategoryPage('weather')">🌦️ 越南旅遊天氣</button>
-<button data-page="offline" data-keywords="離線 出發 檢查 網路 備用 清單" onclick="chooseCategoryPage('offline')">🧳 行前檢查清單</button>
+<details class="category-accordion" open=""><summary>📍 打卡與行程<span class="accordion-hint">景點、每日安排、出發檢查</span></summary><div class="category-accordion-content"><section class="category-group">
+<button data-keywords="打卡 景點 地圖 探索 河內 沙壩 下龍灣 位置" data-page="adventureMap" onclick="chooseCategoryPage('adventureMap')">📍 景點探索與打卡</button>
+<button data-keywords="行程 日期 時間 交通 每天 排程" data-page="itinerary" onclick="chooseCategoryPage('itinerary')">🗓️ 每日行程</button>
+<button data-keywords="飯店 住宿 地址 地點 酒店" data-page="places" onclick="chooseCategoryPage('places')">🏨 飯店與重要地點</button>
+<button data-keywords="天氣 預報 氣溫 降雨 風速 河內 沙壩 番西邦峰 下龍灣" data-page="weather" onclick="chooseCategoryPage('weather')">🌦️ 越南旅遊天氣</button>
+<button data-keywords="離線 出發 檢查 網路 備用 清單" data-page="offline" onclick="chooseCategoryPage('offline')">🧳 行前檢查清單</button>
+<button data-keywords="GPS 定位 到達提醒 附近 打卡 景點" data-page="adventureMap" onclick="chooseCategoryPage('adventureMap')" type="button">🛰️ GPS 到達提醒（在地圖頁面）</button></section></div></details>
+<details class="category-accordion"><summary>🎮 遊戲與冒險<span class="accordion-hint">任務、戰鬥、獎勵、等級</span></summary><div class="category-accordion-content"><section class="category-group">
+<button data-keywords="任務 待辦 完成 清單 主線 每日 打卡 任務進度" data-page="tasks" onclick="chooseCategoryPage('tasks')">📜 冒險任務</button>
+<button data-keywords="RPG 遊戲 戰鬥 背包 裝備 道具 戰利品 圖鑑 怪物" data-page="loot" onclick="chooseCategoryPage('loot')">⚔️ RPG 戰鬥與背包</button>
+<button data-keywords="寶箱 獎勵 收集 探索 寶物" data-page="treasureRewards" onclick="chooseCategoryPage('treasureRewards')">🧰 寶箱與探索獎勵</button>
+<button data-keywords="遊戲 互動 隨機 驚喜 四人 事件" data-page="adventurePlaybook" onclick="chooseCategoryPage('adventurePlaybook')">🎲 隨機事件與互動</button>
+<button data-keywords="成就 等級 EXP 經驗值 獎章" data-page="achievements" onclick="chooseCategoryPage('achievements')">🏆 成就與冒險等級</button>
 </section></div></details>
-<details class="category-accordion"><summary>🎮 遊戲與冒險 <span class="accordion-hint">任務、戰鬥、獎勵、等級</span></summary><div class="category-accordion-content"><section class="category-group">
-<button data-page="tasks" data-keywords="任務 待辦 完成 清單 主線 每日 打卡 任務進度" onclick="chooseCategoryPage('tasks')">📜 冒險任務</button>
-<button data-page="loot" data-keywords="RPG 遊戲 戰鬥 背包 裝備 道具 戰利品 圖鑑 怪物" onclick="chooseCategoryPage('loot')">⚔️ RPG 戰鬥與背包</button>
-<button data-page="treasureRewards" data-keywords="寶箱 獎勵 收集 探索 寶物" onclick="chooseCategoryPage('treasureRewards')">🧰 寶箱與探索獎勵</button>
-<button data-page="adventurePlaybook" data-keywords="遊戲 互動 隨機 驚喜 四人 事件" onclick="chooseCategoryPage('adventurePlaybook')">🎲 隨機事件與互動</button>
-<button data-page="achievements" data-keywords="成就 等級 EXP 經驗值 獎章" onclick="chooseCategoryPage('achievements')">🏆 成就與冒險等級</button>
+<details class="category-accordion"><summary>📖 旅行紀錄<span class="accordion-hint">人物、日記、照片、回憶</span></summary><div class="category-accordion-content"><section class="category-group">
+<button data-keywords="人物 故事 NPC 居民 對話 回憶 相遇" data-page="travelStories" onclick="chooseCategoryPage('travelStories')">👥 人物故事與相遇</button>
+<button data-keywords="日記 回憶 文字 記錄 旅行故事" data-page="diary" onclick="chooseCategoryPage('diary')">📖 旅行日記</button>
+<button data-keywords="照片 相片 圖片 相簿 上傳" data-page="photos" onclick="chooseCategoryPage('photos')">📸 旅行相簿</button>
+<button data-keywords="照片地圖 座標 地理位置 拍照地點" data-page="photoMap" onclick="chooseCategoryPage('photoMap')">🗺️ 照片地圖</button>
+<button data-keywords="結局 終章 旅程紀念" data-page="adventureFinale" onclick="chooseCategoryPage('adventureFinale')">🎁 旅程終章紀念</button>
 </section></div></details>
-<details class="category-accordion"><summary>📖 旅行紀錄 <span class="accordion-hint">人物、日記、照片、回憶</span></summary><div class="category-accordion-content"><section class="category-group">
-<button data-page="travelStories" data-keywords="人物 故事 NPC 居民 對話 回憶 相遇" onclick="chooseCategoryPage('travelStories')">👥 人物故事與相遇</button>
-<button data-page="diary" data-keywords="日記 回憶 文字 記錄 旅行故事" onclick="chooseCategoryPage('diary')">📖 旅行日記</button>
-<button data-page="photos" data-keywords="照片 相片 圖片 相簿 上傳" onclick="chooseCategoryPage('photos')">📸 旅行相簿</button>
-<button data-page="photoMap" data-keywords="照片地圖 座標 地理位置 拍照地點" onclick="chooseCategoryPage('photoMap')">🗺️ 照片地圖</button>
-<button data-page="adventureFinale" data-keywords="結局 終章 旅程紀念" onclick="chooseCategoryPage('adventureFinale')">🎁 旅程終章紀念</button>
+<details class="category-accordion"><summary>🍜 美食與翻譯<span class="accordion-hint">吃什麼、怎麼說</span></summary><div class="category-accordion-content"><section class="category-group">
+<button data-keywords="美食 食物 餐廳 吃 必吃 菜單" data-page="food" onclick="chooseCategoryPage('food')">🍜 北越美食圖鑑</button>
+<button data-keywords="翻譯 越南文 語言 對話 常用句" data-page="translate" onclick="chooseCategoryPage('translate')">🗣️ 旅遊翻譯</button>
 </section></div></details>
-<details class="category-accordion"><summary>🍜 美食與翻譯 <span class="accordion-hint">吃什麼、怎麼說</span></summary><div class="category-accordion-content"><section class="category-group">
-<button data-page="food" data-keywords="美食 食物 餐廳 吃 必吃 菜單" onclick="chooseCategoryPage('food')">🍜 北越美食圖鑑</button>
-<button data-page="translate" data-keywords="翻譯 越南文 語言 對話 常用句" onclick="chooseCategoryPage('translate')">🗣️ 旅遊翻譯</button>
+<details class="category-accordion"><summary>💰 記帳與購物<span class="accordion-hint">記帳、分帳、必買清單</span></summary><div class="category-accordion-content"><section class="category-group">
+<button data-keywords="記帳 錢 費用 花費 支出 付款 分帳 結算 匯率" data-page="expenses" onclick="chooseCategoryPage('expenses')">💰 記帳與分帳</button>
+<button data-keywords="購物 必買 清單 伴手禮 商品 買東西" data-page="shoppingQuest" onclick="chooseCategoryPage('shoppingQuest')">🎁 必買與伴手禮清單</button>
 </section></div></details>
-<details class="category-accordion"><summary>💰 花費與購物 <span class="accordion-hint">記帳、分帳、必買清單</span></summary><div class="category-accordion-content"><section class="category-group">
-<button data-page="expenses" data-keywords="記帳 錢 費用 花費 支出 付款 分帳 結算 匯率" onclick="chooseCategoryPage('expenses')">💰 記帳與分帳</button>
-<button data-page="shoppingQuest" data-keywords="購物 必買 清單 伴手禮 商品 買東西" onclick="chooseCategoryPage('shoppingQuest')">🎁 必買與伴手禮清單</button>
-</section></div></details>
-<details class="category-accordion"><summary>🛡️ 安全與備份 <span class="accordion-hint">緊急聯絡、資料保護</span></summary><div class="category-accordion-content"><section class="category-group">
-<button data-page="emergency" data-keywords="緊急 SOS 求助 電話 聯絡 醫院 警察" onclick="chooseCategoryPage('emergency')">🆘 緊急聯絡與應變</button>
-<button data-page="safetyCenter" data-keywords="安全 備份 還原 資料 存檔 匯入 匯出" onclick="chooseCategoryPage('safetyCenter')">🔐 資料安全與備份還原</button>
+<details class="category-accordion"><summary>🛡️ 安全與備份<span class="accordion-hint">緊急聯絡、資料保護</span></summary><div class="category-accordion-content"><section class="category-group">
+<button data-keywords="緊急 SOS 求助 電話 聯絡 醫院 警察" data-page="emergency" onclick="chooseCategoryPage('emergency')">🆘 緊急聯絡與應變</button>
+<button data-keywords="安全 備份 還原 資料 存檔 匯入 匯出" data-page="safetyCenter" onclick="chooseCategoryPage('safetyCenter')">🔐 資料安全與備份還原</button>
 </section></div></details>
 </div></section>
 <style id="v43-category-accordion-style">
@@ -1592,7 +1643,7 @@ nav.rpg-bottom-menu button .nav-icon{font-size:24px!important}
 @media(max-width:520px){.category-grid{grid-template-columns:1fr}.category-menu-fab{right:9px;bottom:calc(78px + env(safe-area-inset-bottom));padding:9px 12px}}
 </style>
 <style id="emergency-center-style">.emergency-float{position:fixed;right:12px;bottom:calc(150px + env(safe-area-inset-bottom));z-index:9999;width:48px;height:42px;padding:0;background:#c62835;color:#fff;border:3px solid #fff;border-radius:8px;font-size:15px;letter-spacing:.5px;font-weight:1000;box-shadow:0 3px 0 #7f171f,0 4px 12px #0005;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;line-height:1}.emergency-float:focus-visible{outline:3px solid #ffb86c;outline-offset:3px}#emergency details{border:1px solid var(--line);border-radius:12px;padding:12px;margin:9px 0;background:#fff}#emergency summary{cursor:pointer}#emergency li{margin:7px 0}#emergency a{display:inline-flex;align-items:center;justify-content:center;margin:4px 0;min-width:125px} @media(min-width:700px){.emergency-float{right:calc(50% - 360px);bottom:28px;z-index:9999}}</style>
-<a class="emergency-float" href="#" onclick="showPage('emergency');return false" aria-label="SOS 緊急求助" title="SOS 緊急求助">SOS</a>
+<a aria-label="SOS 緊急求助" class="emergency-float" href="#" onclick="showPage('emergency');return false" title="SOS 緊急求助">SOS</a>
 <style id="expense-duplicate-protection-style">.expense-duplicate-warning{margin:12px 0;padding:14px;border:2px solid #d97706;border-radius:12px;background:#fff7e6;color:#35230b;box-shadow:0 3px 12px #0002}.expense-duplicate-head{font-size:17px;font-weight:800;color:#9a3412;margin-bottom:8px}.expense-duplicate-new,.expense-duplicate-item{padding:10px;margin:8px 0;border-radius:9px;background:#fff;border:1px solid #e7c98e;overflow-wrap:anywhere}.expense-duplicate-list{max-height:240px;overflow:auto}.expense-duplicate-warning button{min-height:44px;flex:1}@media(prefers-color-scheme:dark){.expense-duplicate-warning{background:#342817;color:#fff1d6}.expense-duplicate-new,.expense-duplicate-item{background:#25283a;color:#f7f0df;border-color:#80653d}}</style><script>
 const DEFAULT_DAYS=[
 {date:'11/18（三）',title:'河內集結',events:[['16:00','抵達河內內排機場','領取行李，確認集合與交通安排。'],['傍晚','河內老城區吃飯、逛街','先用餐、散步，注意集合時間。'],['21:30','HK Buslines 集合','前往 HK Buslines 河內辦公室集合，確認車票與行李。'],['22:45','夜巴前往沙壩','夜臥巴士出發，依電子車票確認上車資訊。'],['住宿','夜間巴士','夜臥巴士前往沙壩。']]},
@@ -1614,7 +1665,7 @@ const achievements=[['✈️','北越啟程','完成出發打卡'],['🚌','夜�
 function filterCategoryMenu(){const input=document.getElementById('categoryMenuSearch');const grid=document.getElementById('categoryMenuGrid');const status=document.getElementById('categoryMenuSearchStatus');if(!input||!grid)return;const q=input.value.trim().toLocaleLowerCase();let visible=0;grid.querySelectorAll('.category-group').forEach(group=>{let groupVisible=0;group.querySelectorAll('button[data-page]').forEach(button=>{const hay=(button.textContent+' '+(button.dataset.keywords||'')).toLocaleLowerCase();const match=!q||hay.includes(q);button.hidden=!match;if(match){visible++;groupVisible++}});group.hidden=groupVisible===0;const accordion=group.closest('details.category-accordion');if(accordion){accordion.hidden=groupVisible===0;if(q&&groupVisible)accordion.open=true;else if(!q&&accordion.dataset.userToggled!=='true')accordion.open=accordion.dataset.defaultOpen==='true'}});if(status)status.textContent=q?(visible?`找到 ${visible} 個相關功能。點選即可開啟。`:'找不到符合的功能，試試「照片」、「記帳」、「行程」或「備份」。'):'選一個分類，就能找到同類功能。';const clear=document.getElementById('categoryMenuSearchClear');if(clear)clear.hidden=!input.value;}
 function clearCategoryMenuSearch(){const input=document.getElementById('categoryMenuSearch');if(input){input.value='';filterCategoryMenu();input.focus()}}
 function toggleCategoryMenu(force){const menu=document.getElementById('categoryMenu'),backdrop=document.getElementById('categoryMenuBackdrop'),toggle=document.getElementById('categoryMenuToggle');if(!menu||!backdrop)return;const open=typeof force==='boolean'?force:menu.hidden;menu.hidden=!open;backdrop.hidden=!open;if(toggle)toggle.setAttribute('aria-expanded',String(open));}function chooseCategoryPage(id){toggleCategoryMenu(false);showPage(id)}
-function showPage(id){const pages=[...document.querySelectorAll('main .page')];const target=document.getElementById(id);if(!target||!target.classList.contains('page')){console.error('找不到頁面區塊：',id);return}pages.forEach(p=>{const selected=p===target;p.classList.toggle('active',selected);p.setAttribute('aria-hidden',String(!selected))});document.querySelectorAll('nav.rpg-bottom-menu button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));if(!['home','itinerary','adventureMap','food'].includes(id)){document.getElementById('categoryMenuToggle')?.classList.add('active')}else{document.getElementById('categoryMenuToggle')?.classList.remove('active')}toggleCategoryMenu(false);window.scrollTo({top:0,behavior:'auto'});if(id==='weather')loadWeather();if(id==='food')renderFoods();if(id==='expenses'){renderExpenses();if(typeof v2RenderPayerChoices==='function')v2RenderPayerChoices();if(typeof v2RenderSplitChoices==='function')v2RenderSplitChoices()}if(id==='achievements')renderAchievements();if(id==='diary')renderDiaries();if(id==='photos')renderPhotoLibrary();if(id==='photoMap')photoMapRender();if(id==='safetyCenter')safetyRunAudit();if(id==='tasks'||id==='adventureMap')renderRpgMap();if(id==='treasureRewards')renderTreasureRewards();if(id==='shoppingQuest')renderShoppingItems();if(id==='adventureFinale')renderAdventureFinale();if(id==='home')renderCheckinReminder();if(id==='adventurePlaybook')renderAdventurePlaybook();if(id==='emergency')loadEmergencyInfo()}
+function showPage(id){const pages=[...document.querySelectorAll('main .page')];const target=document.getElementById(id);if(!target||!target.classList.contains('page')){console.error('找不到頁面區塊：',id);return}pages.forEach(p=>{const selected=p===target;p.classList.toggle('active',selected);p.setAttribute('aria-hidden',String(!selected))});document.querySelectorAll('nav.rpg-bottom-menu button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));if(!['home','itinerary','adventureMap','food'].includes(id)){document.getElementById('categoryMenuToggle')?.classList.add('active')}else{document.getElementById('categoryMenuToggle')?.classList.remove('active')}toggleCategoryMenu(false);window.scrollTo({top:0,behavior:'auto'});if(id==='weather')loadWeather();if(id==='food')renderFoods();if(id==='expenses'){renderExpenses();if(typeof v2RenderPayerChoices==='function')v2RenderPayerChoices();if(typeof v2RenderSplitChoices==='function')v2RenderSplitChoices()}if(id==='achievements')renderAchievements();if(id==='diary')renderDiaries();if(id==='photos')renderPhotoLibrary();if(id==='photoMap')photoMapRender();if(id==='safetyCenter')safetyRunAudit();if(id==='tasks'||id==='adventureMap')renderRpgMap();if(id==='treasureRewards')renderTreasureRewards();if(id==='shoppingQuest')renderShoppingItems();if(id==='adventureFinale')renderAdventureFinale();if(id==='home'||id==='adventureMap')renderCheckinReminder();if(id==='adventurePlaybook')renderAdventurePlaybook();if(id==='emergency')loadEmergencyInfo()}
 // 旅行回憶錄使用獨立 IndexedDB，完全不讀寫原有 expenses／ach／checks。
 const DIARY_DB_NAME='vietnam-adventure-memories';const DIARY_STORE='entries';const PHOTO_STORE='photoLibrary';let diaryDbPromise=null;let diaryObjectUrls=[];let photoObjectUrls=[];
 function openDiaryDb(){if(!('indexedDB' in window))return Promise.reject(new Error('此瀏覽器不支援本機日記資料庫。'));if(!diaryDbPromise)diaryDbPromise=new Promise((resolve,reject)=>{const req=indexedDB.open(DIARY_DB_NAME,2);req.onupgradeneeded=()=>{const db=req.result;if(!db.objectStoreNames.contains(DIARY_STORE))db.createObjectStore(DIARY_STORE,{keyPath:'id'});if(!db.objectStoreNames.contains(PHOTO_STORE))db.createObjectStore(PHOTO_STORE,{keyPath:'id'})};req.onsuccess=()=>{const db=req.result;db.onversionchange=()=>{db.close();diaryDbPromise=null};resolve(db)};req.onerror=()=>{diaryDbPromise=null;reject(req.error||new Error('無法開啟日記資料庫'))}});return diaryDbPromise}
@@ -2198,7 +2249,6 @@ showPage=function(id){v2OriginalShowPage(id)};
 #categoryMenu .category-group:nth-child(2) button{border-left-color:#ff6b6b!important}
 @media(max-width:560px){#categoryMenu{left:8px!important;right:8px!important;bottom:calc(82px + env(safe-area-inset-bottom))!important;padding:12px!important;max-height:min(78vh,720px)!important}#categoryMenu .category-menu-head{top:-12px!important;margin:-1px -1px 10px!important}#categoryMenu .category-grid{grid-template-columns:minmax(0,1fr)!important;gap:10px!important}#categoryMenu .category-group{padding:11px!important}#categoryMenu .category-group button{min-height:42px!important;font-size:13px!important}}
 </style>
-
 <style id="v2-integration-style">
 #v2hub .v2-hero{background:linear-gradient(145deg,#fff4d1,#f3d99e);border:3px solid #98602b;padding:16px}
 #v2hub .v2-hero-top{display:flex;gap:12px;align-items:center}#v2hub .v2-emblem{display:grid;place-items:center;flex:0 0 54px;height:54px;border:3px solid #98602b;background:#e6edc3;font-size:28px;box-shadow:3px 3px 0 #57351c}#v2hub .v2-hero h2{margin:0;font-size:20px}#v2hub .v2-hero p{font-size:12px;margin:5px 0 0;color:#6e512d}#v2hub .v2-status-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}#v2hub .v2-status-row span{padding:5px 8px;background:#e6edc3;border:1px solid #b2c083;border-radius:4px;font-size:11px;font-weight:800;color:#3d5a32}
@@ -2207,14 +2257,11 @@ showPage=function(id){v2OriginalShowPage(id)};
 #v2hub .v2-progress{margin:10px 0}#v2hub .v2-progress>div:first-child{display:flex;justify-content:space-between;gap:8px;font-size:12px}#v2hub .v2-track{height:12px;background:#e5d4a6;border:1px solid #a77a3e;margin-top:7px}#v2hub .v2-track i{display:block;height:100%;background:#4c8b46}#v2hub .v2-day-details{border:1px solid #c7a365;margin:8px 0;padding:9px;background:#fff7df}#v2hub .v2-day-details summary{font-weight:800;font-size:13px;cursor:pointer}#v2hub .v2-member-chip{display:inline-flex;align-items:center;gap:6px;padding:7px 9px;margin:3px;background:#e8edc8;border:1px solid #9aaa70;font-size:12px}#v2hub .v2-member-chip span{font-size:18px}#v2hub .v2-member-chip small{color:#5f623c}#v2hub .v2-team-add{padding:12px;margin:10px 0;background:#fff5d9;border:1px dashed #b98b48}#v2hub .v2-team-task{display:grid;grid-template-columns:1fr auto;gap:4px 8px;align-items:center;padding:10px 0;border-bottom:1px dashed #c9a36a}#v2hub .v2-team-task label{display:flex;align-items:center;gap:8px;margin:0}#v2hub .v2-team-task small{grid-column:1;color:#766044}#v2hub .v2-team-task>button{grid-column:2;grid-row:1/3;min-height:34px;padding:5px 8px;font-size:11px}#v2hub .v2-team-task.is-done label span{text-decoration:line-through;opacity:.6}#v2hub .v2-memory-preview{padding:10px;background:#fff6db;border:1px solid #c9a66b;max-height:260px;overflow:auto;font-size:12px}#v2hub .v2-memory-item{padding:8px 0;border-bottom:1px dashed #c9a66b}#v2hub .v2-memory-item p{margin:4px 0;white-space:pre-wrap}#v2hub .v2-rpg-level{display:flex;justify-content:space-between;gap:10px;padding:12px;background:#e6edc3;border:1px solid #a1b276}#v2hub .v2-rpg-level small,#v2hub .v2-rpg-level b{display:block}#v2hub .v2-rpg-level b{font-size:17px;margin-top:4px}#v2hub .v2-quest{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px dashed #c9a36a}#v2hub .v2-quest p{margin:3px 0 0;font-size:12px;color:#766044}#v2hub .v2-quest button{flex:0 0 auto;min-height:38px;padding:7px 9px;font-size:11px}#v2hub .v2-quest.is-done{opacity:.65}#v2hub .v2-inline-actions{display:flex;gap:5px}
 @media(max-width:380px){#v2hub .v2-two-col{grid-template-columns:1fr}#v2hub .v2-panel-title{align-items:flex-start}#v2hub .v2-quest{align-items:flex-start;flex-direction:column}#v2hub .v2-quest button{width:100%}}
 </style>
-
-
 <style id="v2-smart-finance-style">
 .v2-finance-panel,.v2-split-panel{border:2px solid #b98b42;background:linear-gradient(145deg,#fff8e5,#f5e4bd)}
 .v2-finance-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.v2-finance-grid>div{min-width:0}.v2-rate-presets{display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 12px}.v2-rate-presets button{flex:1;min-width:130px}.v2-conversion-preview{padding:13px;margin:8px 0 14px;background:#e8efcf;border:2px solid #9aaf68;border-radius:8px;font-weight:800;color:#304d32;overflow-wrap:anywhere}.v2-split-person{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px dashed #d8bd83}.v2-split-person:last-child{border:0}.v2-balance-positive{color:#176b37}.v2-balance-negative{color:#a33b28}.v2-finance-original{font-size:12px;color:#765638;margin-top:3px}.v2-split-select-head{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:8px}.v2-split-select-head>label{margin:0}.v2-split-select-actions{display:flex;gap:6px}.v2-split-select-actions button{padding:6px 10px;font-size:13px}.v2-split-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:8px 0;padding:10px;border:1px solid #d8bd83;border-radius:8px;background:rgba(255,255,255,.65)}.v2-split-choice{display:flex;align-items:center;gap:8px;padding:8px;border:1px solid #e4d5b6;border-radius:7px;background:#fff;min-width:0}.v2-split-choice input{width:18px;height:18px;flex:0 0 auto}.v2-split-choice span{overflow-wrap:anywhere}@media(max-width:420px){.v2-split-choices{grid-template-columns:1fr}}
 @media(max-width:420px){.v2-finance-grid{grid-template-columns:1fr}.v2-rate-presets button{min-width:0}}
 </style>
-
 <script id="v2-smart-finance-script">
 // 第二版本新增功能：沿用第一階段既有 expenses 儲存鍵，不另建一套支出資料庫。
 function v2SetRate(n){document.getElementById('v2ExpenseRate').value=n;v2FinancePreview()}
@@ -2378,11 +2425,6 @@ function exportExpenses(){
 // 同時明確掛到 window，確保舊版 inline 操作與其他頁面呼叫可找到函式。
 window.editExpense = editExpense;
 </script>
-
-
-
-
-
 <script>
 // 安全中心：只讀取既有資料，不清空、不覆蓋、不上傳。
 async function safetyRunAudit(){const host=document.getElementById('safetyInventory');if(!host)return;host.textContent='正在讀取本機資料…';try{const ex=get('expenses',[]),di=await diaryGetAll(),ph=await photoGetAll(),keys=Object.keys(localStorage);const malformed=[];try{if(!Array.isArray(ex))malformed.push('支出資料不是清單格式')}catch(e){malformed.push('支出資料讀取失敗')}host.innerHTML=`<ul><li>localStorage 項目：${keys.length} 個</li><li>支出紀錄：${Array.isArray(ex)?ex.length:'格式異常'} 筆</li><li>旅行日記：${di.length} 篇</li><li>獨立照片：${ph.length} 張</li><li>照片已有座標：${ph.filter(photoMapHasValidCoords).length} 張</li><li>照片尚未定位：${ph.filter(x=>!photoMapHasValidCoords(x)).length} 張</li><li>既有成就紀錄：${Array.isArray(get('ach',[]))?get('ach',[]).length:'格式異常'} 筆</li><li>小隊 EXP：${typeof SQUAD_EXP_KEY!=='undefined'?Number(squadGet(SQUAD_EXP_KEY,0)):'未能讀取'}</li></ul><p>${malformed.length?'⚠️ '+malformed.join('；'):'✓ 基本資料讀取正常。此檢查不等於完整備份驗證。'}</p><p class="small">檢查時間：${new Date().toLocaleString()}</p>`}catch(e){host.textContent='檢查失敗：'+(e.message||'未知錯誤')+'。資料未被修改。'}}
@@ -2429,7 +2471,6 @@ saveDiary=async function(){const before=await diaryGetAll().catch(()=>[]);await 
 const originalSavePhotoForMemoryXP=savePhotoLibrary;
 savePhotoLibrary=async function(){const before=await photoGetAll().catch(()=>[]);await originalSavePhotoForMemoryXP();const after=await photoGetAll().catch(()=>[]);const oldIds=new Set(before.map(x=>x.id));let earned=0;for(const x of after){if(!oldIds.has(x.id))earned+=adventureMemoryAward('photos',x.id,5)}if(earned){const status=document.getElementById('photoStatus');if(status)status.textContent+=` · 照片探索 +${earned} EXP（獨立收藏點數）`}}
 </script>
-
 <script>window.__V410_WORLD_ACTIVE__=true;</script>
 <script id="v2-free-walk-rpg">
 (()=>{
@@ -2522,7 +2563,6 @@ document.querySelectorAll('[data-walk-area]').forEach(b=>b.addEventListener('cli
 loadArea(state.area in areas?state.area:'hanoi');if(!raf)raf=requestAnimationFrame(loop);
 })();
 </script>
-
 <script id="va-unified-system-script">
 (()=>{'use strict';
 const KEY='vietnam-adventure-unified-core-v1',RPG_KEY='vietnam-adventure-walk-rpg-v1',XP_KEY='vietnam-adventure-exp-v1';
@@ -2599,8 +2639,6 @@ const canvas=$('walkRpgCanvas');if(canvas&&window.MutationObserver){const obs=ne
 window.addEventListener('storage',e=>{if(e.key===XP_KEY||e.key===RPG_KEY)refresh()});
 })();
 </script>
-
-
 <script id="ux-navigation-improvements">
 document.addEventListener('DOMContentLoaded',()=>{const input=document.getElementById('categoryMenuSearch');if(input){input.addEventListener('input',filterCategoryMenu);input.addEventListener('keydown',event=>{if(event.key==='Escape'){clearCategoryMenuSearch();toggleCategoryMenu(false)}})}document.addEventListener('keydown',event=>{if(event.key==='Escape'){const menu=document.getElementById('categoryMenu');if(menu&&!menu.hidden)toggleCategoryMenu(false)}});});
 </script>
@@ -2630,7 +2668,6 @@ main .page button:focus-visible,main .page a:focus-visible,main .page summary:fo
 main .page details>summary{min-height:44px;display:flex;align-items:center;cursor:pointer;line-height:1.4}
 main .page h1,main .page h2,main .page h3{scroll-margin-top:12px}
 </style>
-
 <style id="rpg-global-high-contrast-fix">
 /* V4.3 RPG 全站高對比修正：文字與底色分離，優先確保可讀性 */
 :root{
@@ -2737,7 +2774,6 @@ input:focus,select:focus,textarea:focus{border-color:#ffe2a6!important;outline:2
 header h1,.pixel-game-logo{ text-shadow:none!important }
 
 </style>
-
 <style id="v43-weather-page-style">
 .weather-toolbar{display:flex;flex-direction:column;gap:8px}.weather-toolbar p{margin:3px 0}.weather-place-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.weather-place-btn{border:1px solid #555873;background:#303247;color:#f8f4ff;border-radius:9px;padding:10px 6px;font-weight:800}.weather-place-btn.active{background:#ffb86c;color:#282a36;border-color:#ffe0b8;box-shadow:inset 0 0 0 1px #ffe0b8}.weather-current{background:linear-gradient(145deg,#34364b,#252735);color:#fff4d8;border:2px solid #ffb86c}.weather-current .muted,.weather-current .small{color:#d7d4e4}.weather-now-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.weather-big-icon{font-size:52px;line-height:1}.weather-temp{font-size:42px;font-weight:900;line-height:1.1}.weather-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:14px}.weather-metric{background:#ffffff14;border:1px solid #ffffff25;border-radius:10px;padding:10px}.weather-metric b{display:block;font-size:17px;margin-top:3px}.weather-forecast{display:grid;gap:7px}.weather-day{display:grid;grid-template-columns:1.1fr .65fr 1.25fr .9fr;gap:6px;align-items:center;padding:10px 7px;border-bottom:1px solid var(--line);font-size:13px}.weather-day:last-child{border:0}.weather-day strong{font-size:13px}.weather-day .weather-day-icon{font-size:21px}.weather-advice{line-height:1.7}.weather-attribution{padding:0 5px 12px}.weather-error{padding:12px;border-radius:10px;background:#fff0e9;color:#8b351e}.weather-loading{opacity:.7}@media(min-width:560px){.weather-place-tabs{grid-template-columns:repeat(4,minmax(0,1fr))}.weather-metrics{grid-template-columns:repeat(4,minmax(0,1fr))}.weather-day{grid-template-columns:1.1fr .6fr 1.2fr .8fr 1fr}}
 </style>
@@ -2782,8 +2818,6 @@ header h1,.pixel-game-logo{ text-shadow:none!important }
  }
 })();
 </script>
-
-
 <style id="v45-weather-food-contrast-fix">
 /* 天氣頁：深色底搭配高亮文字，避免繼承全站低對比文字色 */
 #weather .notice,
@@ -2893,8 +2927,6 @@ header h1,.pixel-game-logo{ text-shadow:none!important }
   #weather .weather-day > * {min-width:0;overflow-wrap:anywhere}
 }
 </style>
-
-
 <style id="weather-error-text-black-fix">
 /* 天氣連線錯誤提示：文字統一黑色，保留淺色提示底 */
 #weather .weather-error,
@@ -2908,8 +2940,6 @@ header h1,.pixel-game-logo{ text-shadow:none!important }
   border:2px solid #C58A45 !important;
 }
 </style>
-
-
 <script id="v44-readiness-script">
 (function(){
  'use strict';
@@ -2982,8 +3012,6 @@ header h1,.pixel-game-logo{ text-shadow:none!important }
  window.v44UpdateReadiness=update;
 })();
 </script>
-
-
 <script id="walk-rpg-encounter-controller">
 (()=>{'use strict';
 const $=id=>document.getElementById(id);
@@ -3051,8 +3079,6 @@ document.addEventListener('pointerdown',e=>{
 setInterval(refresh,250);
 })();
 </script>
-
-
 <script id="v48-rpg-one-page-tabs-script">
 (()=>{
  'use strict';
@@ -3110,8 +3136,6 @@ setInterval(refresh,250);
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
 </script>
-
-
 <style id="v49-connected-world-integration-style">
 .walk-rpg-world-route{display:flex;flex-wrap:wrap;align-items:center;gap:7px 13px;margin:10px 0;padding:10px 12px;border:2px solid #a8874f;border-radius:10px;background:linear-gradient(90deg,#fff4d5,#e8f3d9);color:#49351d;font-weight:900}
 .walk-rpg-world-route span{padding:4px 8px;border-radius:7px;background:#fff;border:1px solid #d5c18e;font-size:13px}
@@ -3143,7 +3167,6 @@ setInterval(refresh,250);
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',integrate,{once:true});else integrate();
 })();
 </script>
-
 <script id="v411-travel-story-engine">
 (()=>{
 'use strict';
@@ -3166,8 +3189,6 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 const oldShow=window.showPage;if(typeof oldShow==='function'&&!oldShow.__v411Wrapped){window.showPage=function(id){oldShow(id);if(id==='travelStories')render()};window.showPage.__v411Wrapped=true}
 })();
 </script>
-
-
 <style id="v413-category-and-contrast-fix">
 /* V4.13：分類更直覺，移除重複捷徑，統一全站文字對比 */
 #categoryMenu{background:#172033!important;color:#f8fafc!important;border:2px solid #93a4c4!important}
@@ -3200,9 +3221,7 @@ body .action,body .primary,body .pixel-orange-button,body .pixel-green-button{ba
 #taiwanVietnamEmergency h3,#taiwanVietnamEmergency h4{color:#991b1b!important}
 @media(max-width:560px){#categoryMenuGrid .category-accordion>summary{font-size:15px!important;padding:12px!important}#categoryMenuGrid .accordion-hint{font-size:11px!important}#categoryMenuGrid .category-group button{font-size:14px!important;min-height:48px!important}}
 </style>
-
 </body></html>
-
 <style id="six-item-bottom-navigation-fix">
 /* 功能總覽納入底部導覽，形成六個等寬入口；取消原本浮動按鈕定位 */
 nav.rpg-bottom-menu{display:flex!important;gap:2px!important;justify-content:space-around!important;overflow:visible!important;padding-left:5px!important;padding-right:5px!important}
@@ -3215,7 +3234,6 @@ body{padding-bottom:82px!important}
 @media(max-width:380px){nav.rpg-bottom-menu{gap:0!important;padding-left:3px!important;padding-right:3px!important}nav.rpg-bottom-menu button{font-size:9px!important}nav.rpg-bottom-menu button .nav-icon{font-size:20px!important}}
 @media(min-width:700px){nav.rpg-bottom-menu button{flex:0 1 76px!important;min-width:0!important}}
 </style>
-
 <style id="ai-assistant-phase1-style">
 .ai-assistant-panel{border:2px solid #8b79c7!important;background:linear-gradient(145deg,#fffdf7,#f3f0ff)!important;color:#27243b!important}
 .ai-assistant-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.ai-assistant-heading h3{margin:3px 0 5px;font-size:21px}.ai-assistant-heading p{margin:0;color:#625d75;font-size:13px}.ai-assistant-heading small{font-size:10px;letter-spacing:1px;color:#7765b2;font-weight:900}
@@ -3223,7 +3241,6 @@ body{padding-bottom:82px!important}
 .ai-setup-details{margin:14px 0;padding:12px;border:1px solid #d5c9ef;border-radius:11px;background:#fff}.ai-setup-details summary{cursor:pointer;font-weight:900}.ai-setup-details label,.ai-assistant-panel>label{display:block;margin:10px 0 5px;font-weight:800}.ai-setup-details input[type=url],.ai-assistant-panel textarea{width:100%;box-sizing:border-box;border:1px solid #c9c1d9;border-radius:9px;padding:11px;background:#fff;color:#292538}.ai-setup-actions,.ai-chat-actions{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:9px}.ai-data-consent{margin:14px 0;padding:12px;border-radius:10px;background:#f0edfa}.ai-data-consent p{margin:5px 0 9px}.ai-consent-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.ai-consent-grid label{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700}.ai-consent-grid input{width:17px;height:17px;accent-color:#7054b5}.ai-chat-log{display:flex;flex-direction:column;gap:9px;max-height:380px;overflow:auto;padding:10px;border:1px solid #ded8ed;border-radius:11px;background:#fbfaff}.ai-chat-welcome{padding:10px;color:#4d4569}.ai-chat-welcome p{margin:6px 0}.ai-chat-welcome small{color:#756d89}.ai-chat-message{max-width:94%;padding:10px 12px;border-radius:11px;overflow-wrap:anywhere}.ai-chat-message b{font-size:12px}.ai-chat-message p{margin:5px 0 0;white-space:pre-wrap;line-height:1.65;font-size:14px}.ai-user-message{align-self:flex-end;background:#e7e0fa;color:#30264e}.ai-bot-message{align-self:flex-start;background:#fff;border:1px solid #e1dced;color:#292538}.ai-chat-actions .small{flex:1;min-width:170px}.ai-assistant-panel button:disabled{opacity:.55;cursor:wait}
 @media(max-width:520px){.ai-consent-grid{grid-template-columns:1fr}.ai-assistant-heading{flex-direction:column}.ai-chat-actions{align-items:stretch}.ai-chat-actions button{width:100%}}
 </style>
-
 <style id="v410-free-world-style">
 #walkRpgModule .v410-world-banner{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin:10px 0;padding:10px 12px;background:#283d2c;color:#fff0bd;border:3px solid #bd8a3e;box-shadow:3px 3px 0 #3a2517;font-size:13px}
 #walkRpgModule .v410-world-banner strong{font-size:15px}
@@ -3243,7 +3260,6 @@ body{padding-bottom:82px!important}
 #walkRpgModule .v410-world-record b{display:block;font-size:18px}
 @media(max-width:520px){#walkRpgModule .v410-world-record{grid-template-columns:repeat(3,minmax(0,1fr))}#walkRpgModule .v410-near-dialog{max-width:78%;font-size:11px}}
 </style>
-
 <style id="v410-readable-dark-text">
 /* 淺色 RPG 底色一律使用深色文字，提升閱讀對比 */
 #walkRpgModule{color:#111!important}
