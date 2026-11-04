@@ -1575,6 +1575,12 @@ nav.rpg-bottom-menu button:focus-visible{background:#dbeafe!important;color:#142
 <label>金額（VND）</label><input type="number" min="1" step="1" id="vfAmount" placeholder="輸入越南盾金額"/>
 <label>備註</label><input id="vfNote" placeholder="例如：四人各存入公積金"/>
 <button type="button" class="action" onclick="VF.addFund()">儲存公積金異動</button><div id="vfFundHistory"></div></details>
+<details class="vf-details" id="vfSettlement"><summary>🧾 最終結算｜依姓名計算償還與退款</summary>
+<p class="small">先預覽，不會修改資料。確認後才一次記錄尚未償還的墊款與最終退款；已記錄的償還與退款不會重複計算。</p>
+<div id="vfSettlementResult" aria-live="polite">點選「重新計算」查看結算。</div>
+<button type="button" class="secondary" onclick="VF.settlementPreview()">🔄 重新計算結算</button>
+<button type="button" class="action" id="vfSettlementConfirm" onclick="VF.settlementConfirm()" disabled>確認執行償還與退款</button>
+</details>
 <div class="v2-finance-grid">
 <div><label for="v2ExpenseDate">日期</label><input id="v2ExpenseDate" type="date"/></div>
 <div><label for="v2ExpenseCurrency">付款幣別</label><select id="v2ExpenseCurrency" onchange="v2FinancePreview()"><option value="VND">越南盾 VND</option><option value="TWD">新台幣 TWD</option><option value="USD">美元 USD</option></select></div>
@@ -2801,7 +2807,75 @@ const VF=(()=>{
  const originalRender=renderExpenses;
  renderExpenses=function(){originalRender();render()};
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{syncSplit();render()});else {syncSplit();render()}
- return {render,saveNames,addFund,selectSplit};
+
+ document.getElementById('vfSettlement')?.addEventListener('toggle',e=>{if(e.target.open)settlementPreview()});
+ // Final settlement: one source of truth (expenses + fund movements), with a safe preview.
+ let settlementSnapshot=null;
+ const cents=n=>Math.round(Number(n||0)*100);
+ const fmt=n=>(n/100).toLocaleString('zh-TW',{maximumFractionDigits:2});
+ function calculateSettlement(){
+  const d=load(),names=d.people.slice(),rows=names.map(name=>({name,deposit:0,refund:0,repaid:0,advance:0,share:0,refundDue:0,reimburseDue:0})),errors=[];
+  const movements=d.movements,all=records();
+  if(names.length!==4||new Set(names).size!==4||names.some(x=>!x.trim()))errors.push('請先設定四位不同的旅伴姓名。');
+  for(const m of movements){
+   const r=rows[Number(m.person)];if(!r){errors.push('公積金異動存在無效成員。');continue}
+   const v=cents(m.amount);if(v<=0||!Number.isFinite(v)){errors.push('公積金異動存在無效金額。');continue}
+   if(m.kind==='deposit')r.deposit+=v;
+   else if(m.kind==='refund')r.refund+=v;
+   else if(m.kind==='reimburse')r.repaid+=v;
+   else errors.push('發現不支援的公積金異動。');
+  }
+  let fundExpenses=0,personalExpenses=0;
+  for(const x of all){
+   // Older records without reliable payer/split metadata are not silently allocated.
+   if(x.financeVersion!==2||!Array.isArray(x.splitMembers)||!x.splitMembers.length){errors.push('有舊版或未設定分攤人的支出，請先確認明細。');continue}
+   const amount=cents(x.amount),payer=x.payer;
+   if(!Number.isFinite(amount)||amount<=0){errors.push('支出有無效金額。');continue}
+   const indexes=x.splitMembers.map(name=>names.indexOf(name));
+   if(indexes.some(i=>i<0)||new Set(indexes).size!==indexes.length){errors.push('支出含有不在目前四人名單中的分攤姓名，可能曾修改姓名。');continue}
+   const base=Math.floor(amount/indexes.length),remainder=amount%indexes.length;
+   indexes.forEach((i,k)=>rows[i].share+=base+(k<remainder?1:0));
+   if(x.vfFundPaid===true||payer==='__vf_fund__'){fundExpenses+=amount}
+   else {const pi=names.indexOf(payer);if(pi<0){errors.push('支出付款人無法對應目前四人姓名。');continue}rows[pi].advance+=amount;personalExpenses+=amount}
+  }
+  rows.forEach(r=>{
+   r.reimburseDue=r.advance-r.repaid;
+   if(r.reimburseDue<0)errors.push(r.name+' 已償還金額超過記錄的個人墊款。');
+   // After clearing all advances, remaining fund is each member's deposit minus expense share and prior refunds.
+   r.refundDue=r.deposit-r.share-r.refund;
+   if(r.refundDue<0)errors.push(r.name+' 尚需補繳 '+fmt(-r.refundDue)+' VND，無法自動全額退款。');
+  });
+  const fundBalance=rows.reduce((n,r)=>n+r.deposit-r.refund-r.repaid,0)-fundExpenses;
+  const reimburseTotal=rows.reduce((n,r)=>n+Math.max(0,r.reimburseDue),0);
+  const refundTotal=rows.reduce((n,r)=>n+Math.max(0,r.refundDue),0);
+  if(reimburseTotal+refundTotal>fundBalance)errors.push('公積金不足以同時支付墊款償還及退款，請先處理補繳或核對支出。');
+  if(fundBalance<0)errors.push('公積金餘額為負，請先核對資料。');
+  return {rows,errors:[...new Set(errors)],fundBalance,reimburseTotal,refundTotal,expenseCount:all.length};
+ }
+ function settlementPreview(){
+  const el=document.getElementById('vfSettlementResult'),button=document.getElementById('vfSettlementConfirm');
+  if(!el)return;
+  const result=calculateSettlement();settlementSnapshot=result.errors.length?null:JSON.stringify({people:load().people,movements:load().movements,expenses:records()});
+  const rows=result.rows.map(r=>'<tr><td>'+esc(r.name)+'</td><td>'+fmt(r.deposit)+'</td><td>'+fmt(r.share)+'</td><td>'+fmt(Math.max(0,r.reimburseDue))+'</td><td>'+fmt(Math.max(0,r.refundDue))+'</td></tr>').join('');
+  el.innerHTML='<p class="small">單位：VND｜已記錄支出 '+result.expenseCount+' 筆｜公積金目前 '+fmt(result.fundBalance)+'</p><div style="overflow-x:auto"><table style="width:100%;text-align:left"><thead><tr><th>姓名</th><th>存入</th><th>分攤</th><th>待償還</th><th>待退款</th></tr></thead><tbody>'+rows+'</tbody></table></div><p><b>待償還 '+fmt(result.reimburseTotal)+' VND；待退款 '+fmt(result.refundTotal)+' VND</b></p>'+(result.errors.length?'<p style="color:#b45309">⚠️ 尚不能執行：'+result.errors.map(esc).join('；')+'</p>':'<p class="small">核對無誤後可確認執行；所有異動只會寫入公積金帳本，不會再新增旅行支出。</p>');
+  button.disabled=!!result.errors.length||result.reimburseTotal+result.refundTotal===0;
+ }
+ function settlementConfirm(){
+  const current=JSON.stringify({people:load().people,movements:load().movements,expenses:records()});
+  if(!settlementSnapshot||current!==settlementSnapshot){alert('資料已有變更，請先重新計算結算。');settlementPreview();return}
+  const r=calculateSettlement();if(r.errors.length){settlementPreview();return}
+  const total=r.reimburseTotal+r.refundTotal;
+  if(!total){alert('目前沒有待償還或待退款的金額。');return}
+  if(!confirm('即將正式記錄償還 '+fmt(r.reimburseTotal)+' VND、退款 '+fmt(r.refundTotal)+' VND。此操作會修改公積金紀錄，確定嗎？'))return;
+  const d=load(),now=Date.now(),date=new Date().toISOString().slice(0,10);
+  const newMovements=[];
+  r.rows.forEach((x,i)=>{if(x.reimburseDue>0)newMovements.push({id:'vf-settle-'+now+'-r-'+i,kind:'reimburse',person:i,amount:x.reimburseDue/100,date,note:'最終結算：個人墊款償還'});if(x.refundDue>0)newMovements.push({id:'vf-settle-'+now+'-f-'+i,kind:'refund',person:i,amount:x.refundDue/100,date,note:'最終結算：公積金退款'})});
+  const before=d.movements.slice();d.movements.push(...newMovements);
+  if(!save()){d.movements=before;return}
+  settlementSnapshot=null;render();settlementPreview();
+  alert('結算已記錄。請核對公積金餘額與異動明細，並匯出備份。');
+ }
+ return {render,saveNames,addFund,selectSplit,settlementPreview,settlementConfirm};
 })();
 </script>
 
