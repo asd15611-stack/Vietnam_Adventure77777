@@ -2,7 +2,7 @@
 
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#282a36" name="theme-color"/><meta content="越南冒險日記 V5.4 復古旅行手帳回憶錄版" name="application-name"/><link href="./manifest.webmanifest" rel="manifest"/><link href="./icon.svg" rel="icon" type="image/svg+xml"/><title>越南冒險日記 V5.4｜復古旅行手帳回憶錄版</title>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#282a36" name="theme-color"/><meta content="越南冒險日記 V5.5 雙平台手機完整版" name="application-name"/><link href="./manifest.webmanifest" rel="manifest"/><link href="./icon.svg" rel="icon" type="image/svg+xml"/><title>越南冒險日記 V5.5｜雙平台手機完整版</title>
 <style>
 :root{--teal:#087f70;--mint:#e4f6ef;--ink:#173b39;--muted:#637775;--paper:#f5f8f6;--line:#dce8e2}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif}header{padding:22px 18px 18px;background:linear-gradient(135deg,#075f59,#159b83);color:white;border-radius:0 0 24px 24px}header small{opacity:.85}h1{font-size:25px;margin:6px 0}main{padding:14px 14px 90px;max-width:720px;margin:auto}.card,.hero{background:white;border:1px solid var(--line);border-radius:16px;padding:14px;margin:10px 0}.hero{margin-top:0}.muted,.small{color:var(--muted);font-size:13px}.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0}.tile{background:white;border:1px solid var(--line);border-radius:15px;padding:14px;text-align:left;color:var(--ink);font:inherit;min-height:85px}.tile span{display:block;font-size:24px}.tile b{display:block;margin-top:6px}.page{display:none}.page.active{display:block}.section-title{font-size:18px;margin:18px 2px 10px}.daytabs{display:flex;gap:7px;overflow:auto;padding:3px 0 8px}.daytabs button,button{cursor:pointer}.daytabs button,.secondary{border:1px solid var(--line);background:white;border-radius:10px;padding:9px 12px;color:var(--ink)}.daytabs button.active,.primary,.action{background:var(--teal);color:white;border-color:var(--teal)}.event{display:grid;grid-template-columns:65px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.event:last-child{border:0}.time{color:var(--teal);font-weight:800;font-size:13px}.event p{margin:4px 0;font-size:13px;color:var(--muted)}button,input,select,textarea{font:inherit}input,select,textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:11px;background:white;color:var(--ink);margin:5px 0 10px}label{font-size:13px;font-weight:650}.action{border:0;border-radius:11px;padding:11px 14px;font-weight:700}.row{display:flex;gap:8px;align-items:center}.row>*{flex:1}.expense{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}nav{position:fixed;bottom:0;left:0;right:0;background:#ffffffef;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:8px 3px;z-index:5}nav button{border:0;background:transparent;color:var(--muted);font-size:11px;padding:5px 6px;border-radius:10px;min-width:0;white-space:nowrap}nav button.active{background:var(--mint);color:var(--teal);font-weight:700}nav span{display:block;font-size:20px}.notice{background:#fff5df;border-radius:12px;padding:11px;font-size:13px;color:#77571c}.copy{float:right;font-size:12px}.checked{opacity:.6}.checked strong{text-decoration:line-through}.diary-photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:8px 0}.diary-photo-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;border:1px solid var(--line)}.diary-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.diary-actions button{flex:1;min-width:90px}.diary-entry{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}.photo-hint{font-size:12px;color:var(--muted);margin-top:-5px;margin-bottom:10px}
 
@@ -916,8 +916,8 @@ table{max-width:100%;border-collapse:collapse}
   nav{padding:6px 3px calc(6px + env(safe-area-inset-bottom));gap:2px}
   nav button{flex:1 1 0;min-width:0;padding:5px 2px;font-size:clamp(10px,2.8vw,12px);white-space:normal;line-height:1.25}
   nav span{font-size:19px;line-height:1.2}
-  table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
-  th,td{font-size:13px;line-height:1.45;white-space:normal;overflow-wrap:anywhere}
+  table{display:table;width:100%;max-width:100%;table-layout:fixed;overflow-wrap:anywhere}
+  th,td{font-size:13px;line-height:1.45;white-space:normal;overflow-wrap:anywhere;word-break:break-word}
   .v3-home-reminder{
     display:grid!important;
     grid-template-columns:28px minmax(0,1fr);
@@ -1635,14 +1635,42 @@ nav.rpg-bottom-menu button:focus-visible{background:#dbeafe!important;color:#142
 <div class="card"><h3>💾 完整備份</h3><p class="small">包含 localStorage、行程、日記及獨立照片。照片多時檔案會較大。</p><button class="action" onclick="exportBackup()">匯出完整備份</button></div>
 <div class="card"><h3>📦 分類備份</h3><button class="secondary" onclick="exportExpenses()">匯出支出 CSV</button> <button class="secondary" onclick="exportPhotoLibrary()">匯出照片 JSON</button> <button class="secondary" onclick="safetyExportDiary()">匯出日記 JSON</button></div>
 <div class="card"><h3>♻️ 還原前安全檢查</h3><p class="small">先選擇備份檔，只檢查格式與資料筆數，不會匯入。確認檔案正確後，仍需回到「離線與出發檢查」手動執行原有匯入流程。</p><input accept="application/json" id="safetyCheckFile" onchange="safetyPreviewBackup(event)" type="file"/><div aria-live="polite" class="small" id="safetyPreview">尚未選擇備份檔。</div><button class="secondary" onclick="showPage('offline')">前往原有還原功能</button></div>
-<div class="card"><h3>⚠️ 資料保護提醒</h3><ul><li>不要清除 Chrome 網站資料或解除安裝 App，除非已確認備份可用。</li><li>匯入完整備份前，先匯出目前資料。</li><li>照片地圖座標是附加欄位，舊照片與原圖不會被刪除。</li><li>本中心不會自動上傳雲端，也不會替你刪除任何紀錄。</li></ul></div></section>
+<div class="card"><h3>⚠️ 資料保護提醒</h3><ul><li>不要清除 Chrome 網站資料或解除安裝 App，除非已確認備份可用。</li><li>匯入完整備份前，先匯出目前資料。</li><li>照片地圖座標是附加欄位，舊照片與原圖不會被刪除。</li><li>本中心不會自動上傳雲端，也不會替你刪除任何紀錄。</li></ul></div><div class="card v55-backup-card" id="v55BackupPanel">
+<h3>📱 V5.5 跨手機備份與還原</h3>
+<p class="small">手動備份／匯入，可在 iPhone Safari 與 Android Chrome 之間搬移資料。本功能只讀取本機資料，不會自動同步或上傳雲端；不改動 V5.4 的資料庫 schema。</p>
+<div class="v55-backup-stats" id="v55BackupStats" aria-live="polite">按下「檢查並預覽」讀取本機資料數量與預估大小。</div>
+<div class="diary-actions"><button class="action" type="button" onclick="v55PreviewLocal()">🔍 檢查並預覽</button><button class="action" type="button" onclick="v55ExportBackup()">💾 匯出 V5.5 完整備份</button></div>
+<hr class="v55-divider"/>
+<label for="v55ImportFile">選擇另一支手機的 V5.5 備份檔</label><input id="v55ImportFile" type="file" accept="application/json,.json" onchange="v55PreviewImport(event)"/>
+<div id="v55ImportPreview" class="v55-backup-stats" aria-live="polite">尚未選擇備份檔。</div>
+<label for="v55ImportMode">匯入模式</label><select id="v55ImportMode" onchange="v55ResetPreBackup()"><option value="merge" selected>安全合併（預設：保留本機較新或無法判定的資料）</option><option value="restore">完整還原（以備份資料替換相同資料庫／資料鍵）</option></select>
+<p class="small">匯入前會先建立目前手機的完整備份下載。合併只以資料穩定 ID 比對；沒有穩定 ID 的行程／設定衝突會保留本機版本並列入衝突，不會用日期或標題猜測重複。</p>
+<button class="action" type="button" id="v55ImportButton" onclick="v55ImportSelected()" disabled>♻️ 開始安全匯入</button>
+<div id="v55ImportResult" class="v55-backup-stats" aria-live="polite"></div>
+</div>
+</section>
 <section aria-label="旅行人物與故事" class="page" id="travelStories">
 <div class="v411-page-heading"><span>PEOPLE &amp; MOMENTS</span><h2>👥 旅途中的相遇</h2><p>這些是遊戲中的情境故事。選擇你想做的事，留下自己的旅行回憶；每段故事只會記錄一次，不影響原有任務進度。</p></div>
 <div class="v411-story-intro"><b>🌿 慢旅行提醒</b><p>不必趕著完成所有事情。看看街景、和人聊聊天，或只是坐下來喝杯咖啡，也是一段很棒的旅程。</p></div>
 <div aria-live="polite" class="v411-story-list" id="v411StoryList"></div>
 <section class="v411-memory-shelf"><div class="v411-shelf-head"><div><span>YOUR TRAVEL MOMENTS</span><h3>📚 我的相遇紀錄</h3></div><b id="v411MemoryCount">0 則</b></div><div id="v411MemoryList"><p>完成一段人物故事後，回憶會收藏在這裡。</p></div></section>
 </section>
-<section class="page" id="diary"><h2 class="section-title">📖 旅行回憶錄</h2><div class="card memory-timeline-card"><div class="memory-timeline-heading"><div><h3>🧭 每日旅行回憶總覽</h3><p class="small">以日期串起每日行程、完成打卡、相簿照片與日記。只讀取現有資料，不搬動、不複製、不覆蓋任何舊存檔。</p></div><button class="secondary" type="button" onclick="renderTravelMemoryTimeline()">↻ 更新</button></div><div id="travelMemoryTimeline"><p class="muted">正在整理每日旅行紀錄…</p></div></div><div class="notice">日記與相簿照片都儲存在這台裝置的瀏覽器本機資料庫，不會自動上傳雲端。日記會依日期顯示相簿中的同日照片；照片仍分開保存與備份，不會複製或刪除原始相片。清除網站資料或更換裝置可能造成資料遺失，請定期匯出備份。</div><div class="card"><b id="diaryFormTitle">新增一篇回憶</b><input id="diaryEditId" type="hidden"/><label>日期</label><input id="diaryDate" max="2026-11-23" min="2026-11-18" type="date" value="2026-11-18"/><label>地點</label><input id="diaryLocation" placeholder="例如：沙壩、番西邦峰"/><label>心情</label><select id="diaryMood"><option value="😍">😍 開心</option><option value="🥰">🥰 感動</option><option value="😌">😌 放鬆</option><option value="🤩">🤩 興奮</option><option value="😴">😴 疲累</option><option value="🥹">🥹 難忘</option><option value="😐">😐 普通</option></select><label>日記內容</label><textarea id="diaryText" placeholder="今天看見了什麼、吃了什麼、發生哪些難忘的事？" rows="5"></textarea><div class="notice">日記只記錄文字、日期、地點與心情。要拍照或整理照片，請使用底部的「📸 照片」專區；兩者分開保存。</div><div class="diary-actions"><button class="action" onclick="saveDiary()">儲存日記</button><button class="secondary" onclick="resetDiaryForm()">取消／清空表單</button></div><p aria-live="polite" class="small" id="diaryStatus"></p></div><div class="card" id="printableMemoirCard"><h3>📚 V5.4 電影感旅行回憶小冊子</h3><p class="small">把每日行程、已完成打卡、日記與相簿照片排成可列印的小冊子。資料只從本機讀取，不會更動原始紀錄。</p><div class="diary-actions"><button class="action" type="button" onclick="generatePrintableMemoir()">✨ 生成回憶錄小冊子</button><button class="secondary" type="button" onclick="if(document.getElementById('memoirPrintRoot')?.dataset.generated==='true')window.print();else alert('請先生成回憶錄小冊子，再進行列印。')">🖨️ 列印／存成 PDF</button></div><p class="small">版型：A5 直式、單面印刷、四周保留白邊。復古手帳 × 日系清新 × 底片照片；每日加入電影感旁白，原始日記完整保留。生成後再按列印／存成 PDF。</p><p class="small" id="memoirPrintStatus" aria-live="polite">尚未生成。生成後可先預覽，再列印。</p></div><div class="card"><b>回憶錄備份</b><p class="small">備份檔包含日記文字及照片，請存放在自己信任的位置。匯入時會合併日記，不會碰觸原本的支出紀錄。</p><div class="diary-actions"><button class="action" onclick="exportDiaries()">匯出日記與照片</button><button class="secondary" onclick="document.getElementById('diaryImportFile').click()">匯入日記備份</button></div><input accept="application/json,.json" id="diaryImportFile" onchange="importDiaries(event)" style="display:none" type="file"/></div><h3>已保存的日記</h3><div id="diaryList"><p class="muted">正在讀取本機日記…</p></div></section>
+<section class="page" id="diary">
+<section class="card" id="aiTravelVideoCard" style="margin:14px 0;border:1px solid rgba(130,150,180,.35)">
+<h3>🎬 AI 旅行回憶短影片</h3>
+<p class="small">電影感 Cinematic｜60 秒｜無旁白。從原有旅行相簿與日記讀取素材，加入片頭、日期／地點字幕、慢速推近與淡入淡出，製作一段可下載的旅行回憶影片。</p>
+<div class="notice">🔒 安全設計：只讀取原本的日記與照片 IndexedDB，不會搬動、複製、刪除或覆蓋原始紀錄；不會上傳照片。影片製作在目前裝置的瀏覽器內進行。</div>
+<div class="small" id="travelVideoSourceStatus" aria-live="polite">按下「檢查素材」讀取目前相簿與日記數量。</div>
+<div class="diary-actions" style="flex-wrap:wrap">
+<button class="secondary" type="button" onclick="v55CheckVideoSources()">🔎 檢查素材</button>
+<button class="action" id="v55MakeVideoBtn" type="button" onclick="v55GenerateTravelVideo()">✨ 生成 60 秒電影感影片</button>
+</div>
+<div class="small" id="travelVideoProgress" role="status" aria-live="polite">尚未開始製作。</div>
+<video id="travelVideoPreview" controls playsinline style="display:none;width:100%;max-height:420px;border-radius:12px;background:#111;margin-top:10px"></video>
+<div class="diary-actions" id="travelVideoDownloadRow" style="display:none"><a id="travelVideoDownload" class="action" download="越南旅行回憶_60秒.webm" style="display:inline-block;text-decoration:none;padding:10px 14px;border-radius:10px">⬇️ 下載影片（WebM）</a></div>
+<p class="small">格式說明：Chrome／Android 會依瀏覽器支援情況輸出 WebM。此版本不宣稱已支援 MP4 或雲端生成式 AI 影片；無旁白、無預設音樂，避免未授權音源。</p>
+</section>
+<h2 class="section-title">📖 旅行回憶錄</h2><div class="card memory-timeline-card"><div class="memory-timeline-heading"><div><h3>🧭 每日旅行回憶總覽</h3><p class="small">以日期串起每日行程、完成打卡、相簿照片與日記。只讀取現有資料，不搬動、不複製、不覆蓋任何舊存檔。</p></div><button class="secondary" type="button" onclick="renderTravelMemoryTimeline()">↻ 更新</button></div><div id="travelMemoryTimeline"><p class="muted">正在整理每日旅行紀錄…</p></div></div><div class="notice">日記與相簿照片都儲存在這台裝置的瀏覽器本機資料庫，不會自動上傳雲端。日記會依日期顯示相簿中的同日照片；照片仍分開保存與備份，不會複製或刪除原始相片。清除網站資料或更換裝置可能造成資料遺失，請定期匯出備份。</div><div class="card"><b id="diaryFormTitle">新增一篇回憶</b><input id="diaryEditId" type="hidden"/><label>日期</label><input id="diaryDate" max="2026-11-23" min="2026-11-18" type="date" value="2026-11-18"/><label>地點</label><input id="diaryLocation" placeholder="例如：沙壩、番西邦峰"/><label>心情</label><select id="diaryMood"><option value="😍">😍 開心</option><option value="🥰">🥰 感動</option><option value="😌">😌 放鬆</option><option value="🤩">🤩 興奮</option><option value="😴">😴 疲累</option><option value="🥹">🥹 難忘</option><option value="😐">😐 普通</option></select><label>日記內容</label><textarea id="diaryText" placeholder="今天看見了什麼、吃了什麼、發生哪些難忘的事？" rows="5"></textarea><div class="notice">日記只記錄文字、日期、地點與心情。要拍照或整理照片，請使用底部的「📸 照片」專區；兩者分開保存。</div><div class="diary-actions"><button class="action" onclick="saveDiary()">儲存日記</button><button class="secondary" onclick="resetDiaryForm()">取消／清空表單</button></div><p aria-live="polite" class="small" id="diaryStatus"></p></div><div class="card" id="printableMemoirCard"><h3>📚 V5.4 電影感旅行回憶小冊子</h3><p class="small">把每日行程、已完成打卡、日記與相簿照片排成可列印的小冊子。資料只從本機讀取，不會更動原始紀錄。</p><div class="diary-actions"><button class="action" type="button" onclick="generatePrintableMemoir()">✨ 生成回憶錄小冊子</button><button class="secondary" type="button" onclick="if(document.getElementById('memoirPrintRoot')?.dataset.generated==='true')window.print();else alert('請先生成回憶錄小冊子，再進行列印。')">🖨️ 列印／存成 PDF</button></div><p class="small">版型：A5 直式、單面印刷、四周保留白邊。復古手帳 × 日系清新 × 底片照片；每日加入電影感旁白，原始日記完整保留。生成後再按列印／存成 PDF。</p><p class="small" id="memoirPrintStatus" aria-live="polite">尚未生成。生成後可先預覽，再列印。</p></div><div class="card"><b>回憶錄備份</b><p class="small">備份檔包含日記文字及照片，請存放在自己信任的位置。匯入時會合併日記，不會碰觸原本的支出紀錄。</p><div class="diary-actions"><button class="action" onclick="exportDiaries()">匯出日記與照片</button><button class="secondary" onclick="document.getElementById('diaryImportFile').click()">匯入日記備份</button></div><input accept="application/json,.json" id="diaryImportFile" onchange="importDiaries(event)" style="display:none" type="file"/></div><h3>已保存的日記</h3><div id="diaryList"><p class="muted">正在讀取本機日記…</p></div></section>
 <section class="page" id="shoppingQuest"><h2 class="section-title">🛍️ 北越尋寶任務</h2><div class="notice">🎒 把想帶回家的戰利品收進清單！以下是購物靈感，不保證每個商品都能在指定地點買到。資料只保存在這台裝置的瀏覽器。</div>
 <div class="card shopping-summary"><div class="shopping-stat-grid"><div><small>🪙 預算總額</small><b id="shoppingBudgetTotal">NT$ 0</b></div><div><small>💰 已購買實際花費</small><b id="shoppingSpentTotal">NT$ 0</b></div><div><small>🎁 完成項目</small><b id="shoppingCount">0 / 0</b></div><div><small>🏆 完成進度</small><b id="shoppingPercent">0%</b></div></div><div class="shopping-progress"><span id="shoppingProgressBar"></span></div></div>
 <div class="card"><h3>➕ 新增／編輯戰利品</h3><input id="shoppingEditId" type="hidden"/><label for="shoppingName">商品名稱 *</label><input id="shoppingName" maxlength="120" placeholder="例如：越南咖啡粉"/><label for="shoppingCategory">商品分類</label><select id="shoppingCategory"><option>咖啡與飲品</option><option>零食與食品</option><option>手工藝與紀念品</option><option>沙壩特色</option><option>我的自訂項目</option></select><div class="shopping-fields"><div><label for="shoppingBudget">預算（台幣 NT$）</label><input id="shoppingBudget" inputmode="numeric" min="0" placeholder="0" step="1" type="number"/></div><div><label for="shoppingPrice">實際購買金額（台幣 NT$）</label><input id="shoppingPrice" inputmode="numeric" min="0" placeholder="購買後填寫" step="1" type="number"/></div></div><label for="shoppingPlace">購買地點</label><input id="shoppingPlace" maxlength="160" placeholder="例如：河內老城區／沙壩市區"/><label for="shoppingRecipient">🎁 伴手禮送給誰</label><input id="shoppingRecipient" maxlength="240" placeholder="例如：爸爸、媽媽、同事小美（可填多人）"/><label for="shoppingNotes">備註</label><textarea id="shoppingNotes" maxlength="1000" placeholder="品牌、數量、送給誰……" rows="2"></textarea><div class="shopping-form-actions"><button class="action" onclick="saveShoppingItem()" type="button">💾 儲存商品</button><button class="secondary" onclick="resetShoppingForm()" type="button">取消編輯／清空表單</button></div><p aria-live="polite" class="small" id="shoppingFormStatus"></p></div>
@@ -3455,6 +3483,112 @@ body .action,body .primary,body .pixel-orange-button,body .pixel-green-button{ba
 @media(max-width:560px){#categoryMenuGrid .category-accordion>summary{font-size:15px!important;padding:12px!important}#categoryMenuGrid .accordion-hint{font-size:11px!important}#categoryMenuGrid .category-group button{font-size:14px!important;min-height:48px!important}}
 </style>
 <script id="v50-memory-timeline-start">document.addEventListener("DOMContentLoaded",()=>{renderTravelMemoryTimeline()});</script>
+<script>
+
+// V5.5 旅行短影片：只讀取原本的 IndexedDB，使用 Canvas + MediaRecorder 本機合成。
+let v55TravelVideoUrl=null;
+async function v55CheckVideoSources(){
+ const status=document.getElementById('travelVideoSourceStatus');
+ if(!status)return;
+ status.textContent='正在安全讀取原有相簿與日記…';
+ try{
+  const [photos,diaries]=await Promise.all([photoGetAll(),diaryGetAll()]);
+  status.textContent=`已找到 ${photos.length} 張相簿照片、${diaries.length} 篇日記。素材只讀取，不會修改原始資料。`;
+ }catch(e){status.textContent='讀取失敗：'+(e.message||'無法存取本機資料庫')}
+}
+function v55CanvasCover(ctx,img,w,h,zoom=1){
+ const iw=img.width||img.videoWidth||1,ih=img.height||img.videoHeight||1;
+ const scale=Math.max(w/iw,h/ih)*zoom,sw=w/scale,sh=h/scale;
+ const sx=(iw-sw)/2,sy=(ih-sh)/2;
+ ctx.drawImage(img,sx,sy,sw,sh,0,0,w,h);
+}
+function v55DrawCaption(ctx,lines,w,h){
+ const pad=58,boxH=lines.length>1?126:94;
+ const grad=ctx.createLinearGradient(0,h-boxH-40,0,h);
+ grad.addColorStop(0,'rgba(8,12,20,0)');grad.addColorStop(1,'rgba(8,12,20,.82)');
+ ctx.fillStyle=grad;ctx.fillRect(0,h-boxH-40,w,boxH+40);
+ ctx.textAlign='left';ctx.textBaseline='bottom';
+ const safe=lines.filter(Boolean).slice(0,2);
+ safe.forEach((line,i)=>{ctx.font=i===0?'600 30px system-ui, sans-serif':'22px system-ui, sans-serif';ctx.fillStyle=i===0?'#fff':'rgba(255,255,255,.88)';ctx.shadowColor='rgba(0,0,0,.5)';ctx.shadowBlur=5;ctx.fillText(String(line).slice(0,48),pad,h-48-(safe.length-1-i)*40,w-pad*2);});
+ ctx.shadowBlur=0;
+}
+function v55DrawTitle(ctx,w,h,title,sub){
+ ctx.fillStyle='#101923';ctx.fillRect(0,0,w,h);
+ const g=ctx.createLinearGradient(0,0,w,h);g.addColorStop(0,'#1d3443');g.addColorStop(1,'#765b4b');ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
+ ctx.textAlign='center';ctx.fillStyle='#f8f1e7';ctx.font='600 54px system-ui,sans-serif';ctx.fillText(title,w/2,h/2-8,w-100);
+ ctx.fillStyle='rgba(255,255,255,.82)';ctx.font='26px system-ui,sans-serif';ctx.fillText(sub,w/2,h/2+48,w-100);
+}
+async function v55GenerateTravelVideo(){
+ const btn=document.getElementById('v55MakeVideoBtn'),status=document.getElementById('travelVideoProgress');
+ const preview=document.getElementById('travelVideoPreview'),downloadRow=document.getElementById('travelVideoDownloadRow'),downloadLink=document.getElementById('travelVideoDownload');
+ if(!btn||!status)return;
+ if(!('MediaRecorder' in window)||!HTMLCanvasElement.prototype.captureStream){status.textContent='目前瀏覽器不支援本機影片輸出，請改用最新版 Chrome。';return}
+ const mime=['video/webm;codecs=vp9','video/webm;codecs=vp8','video/webm'].find(x=>MediaRecorder.isTypeSupported(x));
+ if(!mime){status.textContent='此瀏覽器沒有可用的 WebM 編碼器，暫時無法輸出影片。';return}
+ btn.disabled=true;preview.style.display='none';downloadRow.style.display='none';status.textContent='正在讀取素材，請保持此頁開啟…';
+ let stream=null,recorder=null,frameId=0;
+ try{
+  const [photos,diaries]=await Promise.all([photoGetAll(),diaryGetAll()]);
+  const entries=[...diaries].sort((a,b)=>(a.date||'').localeCompare(b.date||''));
+  const photoItems=[...photos].filter(x=>x&&x.blob instanceof Blob&&x.blob.type.startsWith('image/')).sort((a,b)=>(a.date||'').localeCompare(b.date||'')||(a.createdAt||0)-(b.createdAt||0));
+  if(!photoItems.length&&!entries.length){status.textContent='目前還沒有可用的日記或照片。先到「旅行照片」加入照片，或在「旅行回憶錄」新增日記，再回來生成。';return}
+  const W=1280,H=720,canvas=document.createElement('canvas');canvas.width=W;canvas.height=H;
+  const ctx=canvas.getContext('2d',{alpha:false});
+  const diaryByDate=new Map(entries.map(x=>[x.date,x]));
+  const scenes=[];
+  // 片頭 5 秒
+  scenes.push({kind:'title',title:'VIETNAM · ADVENTURE',sub:'一段值得珍藏的旅程'});
+  // 以照片為主；沒有照片的日期以日記文字卡補足。
+  if(photoItems.length){
+   const count=10;
+   for(let i=0;i<count;i++){
+    const p=photoItems[Math.floor(i*photoItems.length/count)];
+    const d=diaryByDate.get(p.date)||entries.find(x=>x.date===p.date);
+    scenes.push({kind:'photo',photo:p,date:p.date||'',location:p.location||d?.location||'',text:d?.text||''});
+   }
+  }else{
+   const source=entries.length?entries:[{date:'',location:'越南旅行',text:'把沿途風景與每一刻回憶，收藏成自己的故事。'}];
+   for(let i=0;i<10;i++){const d=source[i%source.length];scenes.push({kind:'diary',date:d.date||'',location:d.location||'旅行回憶',text:d.text||'每一段旅程，都值得被記住。'});}
+  }
+  scenes.push({kind:'title',title:'CẢM ƠN · VIETNAM',sub:'謝謝這段旅程，期待下一次出發'});
+  const images=new Map();
+  for(const scene of scenes){if(scene.photo&&!images.has(scene.photo.id)){try{images.set(scene.photo.id,await createImageBitmap(scene.photo.blob))}catch(e){}}}
+  const totalMs=60000,sceneMs=totalMs/scenes.length,fps=24,framesPerScene=Math.round(sceneMs/1000*fps),chunks=[];
+  stream=canvas.captureStream(fps);recorder=new MediaRecorder(stream,{mimeType:mime,videoBitsPerSecond:5500000});
+  recorder.ondataavailable=e=>{if(e.data&&e.data.size)chunks.push(e.data)};
+  const finished=new Promise((resolve,reject)=>{recorder.onstop=()=>resolve();recorder.onerror=e=>reject(e.error||new Error('影片錄製失敗'))});
+  recorder.start(1000);
+  for(let si=0;si<scenes.length;si++){
+   const scene=scenes[si];
+   for(let f=0;f<framesPerScene;f++){
+    const t=f/Math.max(1,framesPerScene-1);
+    if(scene.kind==='title')v55DrawTitle(ctx,W,H,scene.title,scene.sub);
+    else if(scene.kind==='photo'&&images.has(scene.photo.id)){
+     ctx.fillStyle='#101820';ctx.fillRect(0,0,W,H);v55CanvasCover(ctx,images.get(scene.photo.id),W,H,1+t*.075);
+     // 柔和暗角，保留原照片，不寫回相簿。
+     const vg=ctx.createRadialGradient(W/2,H/2,180,W/2,H/2,850);vg.addColorStop(0,'rgba(0,0,0,0)');vg.addColorStop(1,'rgba(0,0,0,.34)');ctx.fillStyle=vg;ctx.fillRect(0,0,W,H);
+     v55DrawCaption(ctx,[scene.location||'VIETNAM',scene.date||''],W,H);
+    }else{
+     v55DrawTitle(ctx,W,H,scene.location||'旅行回憶',scene.date||'VIETNAM · ADVENTURE');
+     if(scene.text){ctx.fillStyle='rgba(255,255,255,.9)';ctx.font='24px system-ui,sans-serif';ctx.textAlign='center';const txt=String(scene.text).replace(/\s+/g,' ').slice(0,90);ctx.fillText(txt,W/2,H/2+112,W-160)}
+    }
+    // 每個場景前後以黑色透明層淡入淡出。
+    const fade=Math.min(1,t*7,(1-t)*7);if(fade<1){ctx.fillStyle=`rgba(0,0,0,${1-fade})`;ctx.fillRect(0,0,W,H)}
+    if(f%12===0){status.textContent=`正在製作影片：${Math.round(((si+f/framesPerScene)/scenes.length)*100)}%（約 60 秒，請保持頁面在前景）`;}
+    await new Promise(resolve=>{frameId=requestAnimationFrame(()=>resolve())});
+   }
+  }
+  recorder.stop();await finished;
+  const blob=new Blob(chunks,{type:recorder.mimeType||'video/webm'});
+  if(!blob.size)throw new Error('影片檔案是空的，請再試一次。');
+  if(v55TravelVideoUrl)URL.revokeObjectURL(v55TravelVideoUrl);
+  v55TravelVideoUrl=URL.createObjectURL(blob);preview.src=v55TravelVideoUrl;preview.style.display='block';downloadLink.href=v55TravelVideoUrl;downloadLink.download='越南旅行回憶_60秒.webm';downloadRow.style.display='flex';status.textContent=`完成！影片約 60 秒，檔案 ${(blob.size/1024/1024).toFixed(1)} MB。可先預覽，再下載 WebM。`;
+  images.forEach(x=>x.close?.());
+ }catch(e){status.textContent='影片製作未完成：'+(e.message||'未知錯誤')+'。原有日記與照片沒有被修改。';try{if(recorder&&recorder.state!=='inactive')recorder.stop()}catch(_){} }
+ finally{if(frameId)cancelAnimationFrame(frameId);if(stream)stream.getTracks().forEach(t=>t.stop());btn.disabled=false;}
+}
+
+</script>
 </body></html>
 <style id="six-item-bottom-navigation-fix">
 /* 功能總覽納入底部導覽，形成六個等寬入口；取消原本浮動按鈕定位 */
@@ -3914,3 +4048,104 @@ async function generatePrintableMemoir(){
 }
 
 </script>
+
+<style id="v55-cross-platform-backup-style">
+.v55-backup-card{border:2px solid #D6A84B!important;background:#243248!important;color:#F3EBD8!important}
+.v55-backup-card h3{color:#F4C95D!important}
+.v55-backup-stats{margin:10px 0;padding:12px;background:#182437;border:1px solid #71809A;color:#F3EBD8;font-size:14px;line-height:1.7;overflow-wrap:anywhere}
+.v55-backup-stats strong{color:#F4C95D}.v55-divider{border:0;border-top:1px dashed #8794A8;margin:16px 0}
+.v55-backup-card .diary-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.v55-backup-card button{min-height:48px}
+.v55-backup-card select,.v55-backup-card input{width:100%;min-height:46px}
+@media(max-width:420px){.v55-backup-card .diary-actions{grid-template-columns:1fr}.v55-backup-card{padding:12px!important}}
+@media print{#v55BackupPanel{display:none!important}}
+</style>
+
+
+<script id="v55-cross-platform-backup">
+/* V5.5: additive backup layer. V5.4 storage keys, IndexedDB name/version/stores are intentionally unchanged. */
+const V55_BACKUP_FORMAT='vietnam-adventure-cross-platform-backup';
+const V55_BACKUP_VERSION=1;
+let v55SelectedBackup=null;
+let v55ImportSummary=null;
+let v55PreBackupReady=false;
+function v55Esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function v55Bytes(n){if(!Number.isFinite(n)||n<=0)return '0 B';const u=['B','KB','MB','GB'];let i=0,x=n;while(x>=1024&&i<u.length-1){x/=1024;i++}return x.toFixed(i?2:0)+' '+u[i]}
+async function v55ToDataUrl(blob){if(!(blob instanceof Blob))return null;return await blobToDataUrl(blob)}
+async function v55PackLocal(){const localStorageData={};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k!==null)localStorageData[k]=localStorage.getItem(k)}
+ // Capture the live in-memory itinerary as well as its persisted key, without changing it.
+ if(typeof ITINERARY_KEY==='string'&&Array.isArray(days))localStorageData[ITINERARY_KEY]=JSON.stringify(days);
+ const diaryRows=await diaryGetAll(),photoRows=await photoGetAll();
+ const diaries=[],photos=[];let n=0;
+ for(let i=0;i<diaryRows.length;i+=8){for(const row of diaryRows.slice(i,i+8)){const attachments=[];for(const blob of(row.photos||[]))attachments.push(await v55ToDataUrl(blob));diaries.push({...row,photos:attachments});n++}}
+ for(let i=0;i<photoRows.length;i+=8){for(const row of photoRows.slice(i,i+8)){photos.push({...row,blob:await v55ToDataUrl(row.blob)});n++}}
+ const payload={format:V55_BACKUP_FORMAT,version:V55_BACKUP_VERSION,appVersion:'V5.5',createdAt:new Date().toISOString(),source:{userAgent:navigator.userAgent||'unknown',platform:navigator.platform||'unknown'},localStorage:localStorageData,diaries,photos};
+ const canonical=JSON.stringify(payload);const integrity=await v55Digest(canonical);const backup={...payload,integrity};const json=JSON.stringify(backup);return {backup,json,bytes:new Blob([json]).size,diaryCount:diaries.length,photoCount:photos.length,localCount:Object.keys(localStorageData).length,expenseCount:(()=>{try{return JSON.parse(localStorageData.expenses||'[]').length}catch{return 0}})()};}
+async function v55Digest(text){if(globalThis.crypto?.subtle){const bytes=new TextEncoder().encode(text),hash=await crypto.subtle.digest('SHA-256',bytes);return {algorithm:'SHA-256',value:[...new Uint8Array(hash)].map(x=>x.toString(16).padStart(2,'0')).join('')}}
+ // Fallback is explicitly labelled checksum, not cryptographic authentication.
+ let h=2166136261;for(let i=0;i<text.length;i++){h^=text.charCodeAt(i);h=Math.imul(h,16777619)}return {algorithm:'FNV-1a-32-fallback',value:(h>>>0).toString(16).padStart(8,'0')}}
+function v55Download(json,name){const blob=new Blob([json],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);return blob.size}
+async function v55PreviewLocal(){const host=document.getElementById('v55BackupStats');host.textContent='正在分批讀取本機資料與照片附件…';try{const p=await v55PackLocal();host.innerHTML=`<strong>本機備份預覽</strong><br>localStorage：${p.localCount} 個資料鍵<br>支出：${p.expenseCount} 筆<br>日記：${p.diaryCount} 篇（含日記照片附件）<br>獨立相簿：${p.photoCount} 張<br>估計備份大小：${v55Bytes(p.bytes)}<br>完整性：${v55Esc(p.backup.integrity.algorithm)}<br><span>資料僅在此裝置處理，尚未上傳。</span>`;return p}catch(e){host.textContent='預覽失敗：'+(e.message||e);throw e}}
+async function v55ExportBackup(){const host=document.getElementById('v55BackupStats');try{host.textContent='正在建立完整備份，照片會分批讀取…';const p=await v55PackLocal();v55Download(p.json,'越南冒險日記_V5.5_跨手機完整備份.json');host.innerHTML=`<strong>備份檔已交由瀏覽器下載</strong><br>資料鍵 ${p.localCount} 個｜支出 ${p.expenseCount} 筆｜日記 ${p.diaryCount} 篇｜獨立照片 ${p.photoCount} 張<br>檔案大小 ${v55Bytes(p.bytes)}<br>請確認手機／電腦下載清單中確實出現檔案，再移至另一支手機。`}catch(e){host.textContent='備份失敗：'+(e.message||e)+'。原始資料未修改。'}}
+async function v55ValidateBackup(d){if(!d||d.format!==V55_BACKUP_FORMAT||d.version!==V55_BACKUP_VERSION||!d.localStorage||typeof d.localStorage!=='object'||Array.isArray(d.localStorage)||!Array.isArray(d.diaries)||!Array.isArray(d.photos)||!d.integrity?.value)throw new Error('備份格式或必要欄位不完整。');const {integrity,...payload}=d;const actual=await v55Digest(JSON.stringify(payload));if(actual.algorithm!==integrity.algorithm||actual.value!==integrity.value)throw new Error('完整性檢查未通過，檔案可能損毀或被修改；沒有匯入任何資料。');
+ for(const [i,x] of d.diaries.entries()){if(!x||typeof x.id!=='string'||!x.id||typeof x.date!=='string'||!Array.isArray(x.photos))throw new Error(`第 ${i+1} 篇日記缺少穩定 ID 或必要欄位。`);for(const ph of x.photos)if(typeof ph!=='string'||!/^data:[^;]+;base64,/.test(ph))throw new Error('日記照片附件格式錯誤。')}
+ for(const [i,x] of d.photos.entries()){if(!x||typeof x.id!=='string'||!x.id||(x.blob!==null&&(typeof x.blob!=='string'||!/^data:[^;]+;base64,/.test(x.blob))))throw new Error(`第 ${i+1} 張獨立照片缺少 ID 或二進位資料。`)}
+ for(const [k,v] of Object.entries(d.localStorage)){if(typeof k!=='string'||typeof v!=='string')throw new Error('localStorage 備份欄位格式錯誤。');try{JSON.parse(v)}catch{throw new Error(`資料鍵「${k}」不是有效 JSON，已停止匯入。`)}}
+ return true}
+async function v55NormalizeBackup(d){if(d&&d.format==='vietnam-adventure-full-backup'&&d.version===2&&d.localStorage&&typeof d.localStorage==='object'&&Array.isArray(d.diaries)&&Array.isArray(d.photos)){const payload={format:V55_BACKUP_FORMAT,version:V55_BACKUP_VERSION,appVersion:'V5.4 legacy backup v2',createdAt:d.exportedAt||new Date().toISOString(),source:{legacyFormat:d.format,legacyVersion:d.version},localStorage:d.localStorage,diaries:d.diaries,photos:d.photos};return {...payload,integrity:await v55Digest(JSON.stringify(payload))}}return d}
+async function v55PreviewImport(event){const file=event.target.files?.[0],host=document.getElementById('v55ImportPreview'),btn=document.getElementById('v55ImportButton');v55ResetPreBackup();v55SelectedBackup=null;btn.disabled=true;if(!file){host.textContent='尚未選擇備份檔。';return}host.textContent='正在讀取及驗證備份…';try{const text=await file.text(),raw=JSON.parse(text),d=await v55NormalizeBackup(raw);await v55ValidateBackup(d);v55SelectedBackup=d;host.innerHTML=`<strong>備份驗證成功</strong><br>版本：${v55Esc(d.appVersion||'V5.5')}<br>建立時間：${v55Esc(d.createdAt||'未提供')}<br>資料鍵：${Object.keys(d.localStorage).length} 個<br>支出：${(()=>{try{return JSON.parse(d.localStorage.expenses||'[]').length}catch{return '未知'}})()} 筆<br>日記：${d.diaries.length} 篇｜獨立照片：${d.photos.length} 張<br>備份檔案：${v55Bytes(file.size)}<br>完整性：${raw.version===2&&raw.format==='vietnam-adventure-full-backup'?'V5.4 舊版未附 checksum；結構驗證通過':v55Esc(d.integrity.algorithm)+' ✓'}${raw.version===2&&raw.format==='vietnam-adventure-full-backup'?'<br>已辨識 V5.4 舊版完整備份，已在記憶體中轉換格式（不改動原檔）。':''}`;btn.disabled=false}catch(e){host.textContent='備份無法使用：'+(e.message||e);}}
+function v55StableArray(a){return Array.isArray(a)&&a.every(x=>x&&typeof x==='object'&&!Array.isArray(x)&&typeof x.id==='string'&&x.id.length>0)}
+function v55JsonSame(a,b){try{return JSON.stringify(a)===JSON.stringify(b)}catch{return false}}
+function v55MergeArray(current,incoming,stats){if(!v55StableArray(current)||!v55StableArray(incoming)){stats.conflicts++;return current}const out=current.slice(),map=new Map(out.map((x,i)=>[x.id,i]));for(const item of incoming){if(!map.has(item.id)){map.set(item.id,out.length);out.push(item);stats.added++;continue}const i=map.get(item.id),old=out[i];if(v55JsonSame(old,item)){stats.duplicates++;continue}const oldTime=Number(old.updatedAt)||Number(old.createdAt)||0,newTime=Number(item.updatedAt)||Number(item.createdAt)||0;if(newTime>oldTime){out[i]={...old,...item,createdAt:old.createdAt??item.createdAt};stats.updated++}else{stats.conflicts++}}return out}
+function v55MergeLocalValue(key,currentRaw,incomingRaw,stats){if(currentRaw===null){stats.added++;return incomingRaw}if(currentRaw===incomingRaw){stats.duplicates++;return currentRaw}let current,incoming;try{current=JSON.parse(currentRaw);incoming=JSON.parse(incomingRaw)}catch{stats.conflicts++;return currentRaw}if(Array.isArray(current)&&Array.isArray(incoming))return JSON.stringify(v55MergeArray(current,incoming,stats));if(current&&incoming&&typeof current==='object'&&typeof incoming==='object'&&!Array.isArray(current)&&!Array.isArray(incoming)){// Object maps have no confirmed V5.4 per-record ID contract; keep local intact.
+ stats.conflicts++;return currentRaw}stats.conflicts++;return currentRaw}
+function v55BlobifyDiary(x){return {...x,photos:(x.photos||[]).map(dataUrlToBlob)}}
+function v55BlobifyPhoto(x){return {...x,blob:typeof x.blob==='string'?dataUrlToBlob(x.blob):null}}
+function v55TxWrite(storeName,rows,mode){return new Promise((resolve,reject)=>{openDiaryDb().then(db=>{const tx=db.transaction(storeName,'readwrite'),store=tx.objectStore(storeName);if(mode==='replace')store.clear();for(const row of rows)store.put(row);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error||new Error('IndexedDB 寫入失敗'));tx.onabort=()=>reject(tx.error||new Error('IndexedDB 寫入已中止'))}).catch(reject)})}
+async function v55RestoreStores(snapshot,storeName){const db=await openDiaryDb();await new Promise((resolve,reject)=>{const tx=db.transaction(storeName,'readwrite'),store=tx.objectStore(storeName);store.clear();for(const row of snapshot)store.put(row);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error||new Error('回復資料庫失敗'))})}
+async function v55ReadStore(storeName){const db=await openDiaryDb();return await new Promise((resolve,reject)=>{const req=db.transaction(storeName,'readonly').objectStore(storeName).getAll();req.onsuccess=()=>resolve(req.result||[]);req.onerror=()=>reject(req.error)})}
+async function v55ApplyImport(d,mode){const stats={added:0,updated:0,duplicates:0,conflicts:0,failed:0};const beforeLocal={};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k!==null)beforeLocal[k]=localStorage.getItem(k)}const beforeDiaries=await diaryGetAll(),beforePhotos=await photoGetAll();let touchedLocal=false,touchedDiary=false,touchedPhoto=false;
+ try{
+  const incomingDiaries=d.diaries.map(v55BlobifyDiary),incomingPhotos=d.photos.map(v55BlobifyPhoto);
+  let diaryRows=incomingDiaries,photoRows=incomingPhotos;
+  if(mode==='merge'){
+   const curD=beforeDiaries,curP=beforePhotos;diaryRows=curD.slice();photoRows=curP.slice();
+   const mergeDb=(current,incoming)=>{const map=new Map(current.map((x,i)=>[x.id,i]));for(const item of incoming){if(!map.has(item.id)){map.set(item.id,current.length);current.push(item);stats.added++;continue}const i=map.get(item.id),old=current[i];if(old.updatedAt===item.updatedAt&&old.date===item.date&&old.location===item.location&&old.text===item.text){stats.duplicates++;continue}const a=Number(old.updatedAt)||Number(old.createdAt)||0,b=Number(item.updatedAt)||Number(item.createdAt)||0;if(b>a){current[i]={...old,...item,createdAt:old.createdAt??item.createdAt};stats.updated++}else stats.conflicts++}};
+   // Keep photo blobs and metadata intact; timestamps decide same-ID conflicts.
+   mergeDb(diaryRows,incomingDiaries);mergeDb(photoRows,incomingPhotos);
+  }
+  // Pre-restore snapshot is already held in memory. Each store update is a single IDB transaction.
+  await v55TxWrite(DIARY_STORE,diaryRows,mode==='restore'?'replace':'merge');touchedDiary=true;
+  await v55TxWrite(PHOTO_STORE,photoRows,mode==='restore'?'replace':'merge');touchedPhoto=true;
+  if(mode==='restore'){
+   touchedLocal=true;localStorage.clear();for(const [k,v] of Object.entries(d.localStorage)){localStorage.setItem(k,v);stats.updated++}
+  }else{
+   for(const [k,v] of Object.entries(d.localStorage)){const old=localStorage.getItem(k),next=v55MergeLocalValue(k,old,v,stats);if(next!==old){touchedLocal=true;localStorage.setItem(k,next)}}
+  }
+  return stats;
+ }catch(err){stats.failed++;
+  // Best-effort compensating rollback across the separate browser storage engines.
+  try{if(touchedLocal){for(let i=localStorage.length-1;i>=0;i--){const k=localStorage.key(i);if(k!==null&&!Object.prototype.hasOwnProperty.call(beforeLocal,k))localStorage.removeItem(k)}for(const [k,v] of Object.entries(beforeLocal))localStorage.setItem(k,v)}}catch(e){console.error('V5.5 localStorage rollback issue',e)}
+  try{if(touchedDiary)await v55RestoreStores(beforeDiaries,DIARY_STORE)}catch(e){console.error('V5.5 diary rollback issue',e)}
+  try{if(touchedPhoto)await v55RestoreStores(beforePhotos,PHOTO_STORE)}catch(e){console.error('V5.5 photo rollback issue',e)}
+  throw new Error((err.message||err)+'；已啟動回復程序，請立即重新檢查資料安全中心並保留還原前備份。');
+ }
+}
+function v55ResetPreBackup(){v55PreBackupReady=false;const b=document.getElementById('v55ImportButton');if(b)b.textContent='♻️ 開始安全匯入'}
+async function v55ImportSelected(){const d=v55SelectedBackup,mode=document.getElementById('v55ImportMode').value,host=document.getElementById('v55ImportResult'),btn=document.getElementById('v55ImportButton');if(!d){alert('請先選擇並通過驗證的備份檔。');return}if(!v55PreBackupReady){if(!confirm(`第一步：先下載目前手機的完整安全備份（包含日記與照片）。下載開始後，請確認檔案確實出現在下載清單，再按一次本按鈕繼續。要開始備份嗎？`))return;btn.disabled=true;host.textContent='正在建立匯入前安全備份…';try{const pre=await v55PackLocal();v55Download(pre.json,'越南冒險日記_V5.5_匯入前安全備份.json');v55PreBackupReady=true;btn.textContent='✓ 我已確認安全備份下載，繼續匯入';host.innerHTML=`<strong>匯入前安全備份已交由瀏覽器下載</strong><br>檔案大小：${v55Bytes(pre.bytes)}<br>請先到下載清單確認檔案已出現且可保存，再按上方按鈕進行第二步。尚未開始匯入。`}catch(e){host.textContent='無法建立匯入前備份：'+(e.message||e)+'。匯入已停止，原始資料未修改。'}finally{btn.disabled=false}return}
+ if(!confirm(`第二步：你已確認匯入前安全備份已下載。現在執行「${mode==='merge'?'安全合併':'完整還原'}」？`))return;btn.disabled=true;host.textContent='正在執行匯入…';try{const stats=await v55ApplyImport(d,mode);if(typeof d.localStorage[ITINERARY_KEY]==='string'){try{const restored=JSON.parse(localStorage.getItem(ITINERARY_KEY)||'null');if(Array.isArray(restored)&&restored.length){days=restored;dayIndex=0;renderDays()}}catch{}}
+ renderSquad();renderRpgMap();renderExpenses();renderAchievements();renderChecks();renderFoods();updateProgress();await renderDiaries();await renderPhotoLibrary();
+ host.innerHTML=`<strong>匯入完成（${mode==='merge'?'安全合併':'完整還原'}）</strong><br>新增：${stats.added} 筆<br>更新：${stats.updated} 筆<br>重複：${stats.duplicates} 筆<br>衝突（保留本機）：${stats.conflicts} 筆<br>失敗：${stats.failed} 筆<br><span>請再檢查日記、照片、行程及支出；匯入前安全備份已另外下載。</span>`;v55ResetPreBackup();
+ }catch(e){host.textContent='匯入未完成：'+(e.message||e)+'。請保留匯入前安全備份，並檢查資料安全中心。';v55ResetPreBackup()}finally{btn.disabled=false}}
+</script>
+
+
+<style id="v55-responsive-photo-safety">
+/* V5.5 responsive layer: retain image aspect ratio and expose full image in diary/photo reading views. */
+@supports(padding:max(0px)){body{padding-left:max(0px,env(safe-area-inset-left));padding-right:max(0px,env(safe-area-inset-right))}}
+img{max-width:100%;height:auto}
+#diaryList .diary-photo-grid img,#photoLibraryList .diary-photo-grid img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain;background:#172334}
+#memoirPrintRoot img{max-width:100%;height:auto;object-fit:contain}
+@media(max-width:600px){.page{overflow-wrap:anywhere}.row{min-width:0}.diary-photo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.diary-actions button{flex:1 1 100%;min-width:0}nav.rpg-bottom-menu.v3-primary-nav{padding-bottom:calc(6px + env(safe-area-inset-bottom))!important}}
+@media(min-width:700px){#diaryList .diary-photo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
