@@ -2803,38 +2803,6 @@ const VF=(()=>{
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{syncSplit();render()});else {syncSplit();render()}
  return {render,saveNames,addFund,selectSplit};
 })();
-</script><script id="expense-sync-fix-v57">
-/* Read-only diagnostics use the same get('expenses') function as the writer. */
-function expenseSyncRepair(){
- const status=document.getElementById('expenseSyncStatus');if(!status)return;
- try{
-  const rows=get('expenses',[]);
-  if(!Array.isArray(rows))throw new Error('資料格式不正確');
-  status.textContent='目前此頁面的支出資料：'+rows.length+' 筆';
-  // Preserve the original list renderer; do not replace it with a second ledger.
-  const list=document.getElementById('expenseList');
-  if(list && rows.length && list.textContent.includes('尚無支出紀錄')){
-   const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-   list.innerHTML=rows.map((x,i)=>'<div class="expense"><div><b>'+esc(x.memo||x.category||'支出')+'</b><div class="small">'+esc(x.date)+' · '+esc(x.category)+'<div>付款：'+esc(x.payer==='__vf_fund__'?'四人公積金':x.payer||'未填')+'</div><div>分攤：'+esc((x.splitMembers||[]).join('、'))+'</div></div></div><div><b>'+Number(x.amount||0).toLocaleString()+' ₫</b><div><button type="button" class="secondary" onclick="v2BeginExpenseEdit('+i+')">編輯</button><button type="button" class="secondary" onclick="deleteExpense('+i+')">刪除</button></div></div></div>').join('');
-  }
- }catch(e){status.textContent='⚠️ 支出資料讀取失敗：'+e.message}
-}
-(function(){
- const previous=window.renderExpenses;
- if(typeof previous==='function')window.renderExpenses=function(){try{previous()}finally{expenseSyncRepair()}};
- const previousSave=window.v2PersistSmartExpense;
- if(typeof previousSave==='function')window.v2PersistSmartExpense=function(draft){
-  const before=get('expenses',[]).length;
-  const ok=previousSave(draft);
-  const after=get('expenses',[]);
-  expenseSyncRepair();
-  if(ok && (!Array.isArray(after)||!after.length)){
-   document.getElementById('v2ExpenseMessage').textContent='⚠️ 無法讀回支出紀錄；請不要重複送出，先備份資料。';return false;
-  }
-  return ok;
- };
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',expenseSyncRepair);else expenseSyncRepair();
-})();
 </script>
 
 
@@ -3869,50 +3837,46 @@ $('worldApp')?.addEventListener('change',async e=>{if(e.target.id!=='wsRestoreFi
 window.WorldStudio={render};
 })();
 </script>
-<script id="expense-verification-v59">
-/* V5.9: canonical storage verification, avoid false failure and duplicate writes. */
+
+<script id="expense-sync-v60">
+/* V6.0: one-way refresh, no recursive render hooks, no storage mutations. */
 (function(){
- const originalSave=window.v2PersistSmartExpense;
- if(typeof originalSave!=='function')return;
- window.v2PersistSmartExpense=function(draft){
-   const before=get('expenses',[]);
-   if(!Array.isArray(before)){
-     document.getElementById('v2ExpenseMessage').textContent='⚠️ 支出資料格式異常，已停止寫入。';return false;
-   }
-   const editing=typeof v2EditingExpenseIndex!=='undefined'&&v2EditingExpenseIndex!==null;
-   const previousId=editing&&before[v2EditingExpenseIndex]?before[v2EditingExpenseIndex].id:null;
-   const result=originalSave(draft);
-   if(result!==true)return result;
-   const after=get('expenses',[]);
-   const record=Array.isArray(after)?after.find(x=>x&&x.date===draft.date&&Number(x.amount)===Number(draft.amount)&&String(x.memo||'')===String(draft.memo||'')&&(previousId===null||String(x.id)===String(previousId))):null;
-   const msg=document.getElementById('v2ExpenseMessage');
-   if(!record){msg.textContent='⚠️ 尚未確認支出寫入。請勿重複新增，先匯出備份。';return false;}
-   try{renderExpenses()}catch(e){console.error('支出清單顯示錯誤',e)}
-   const count=document.querySelectorAll('#expenseList .expense').length;
-   const status=document.getElementById('expenseSyncStatus');
-   if(status)status.textContent='本機已儲存 '+after.length+' 筆；清單顯示 '+count+' 筆';
-   if(count!==after.length){
-     msg.textContent='⚠️ 支出已儲存 '+after.length+' 筆，但清單顯示 '+count+' 筆。請勿重複新增；可按「重新讀取支出紀錄」。';
-     return true;
-   }
-   msg.textContent='✓ 支出已儲存並顯示（目前 '+after.length+' 筆）。';
-   return true;
- };
- const previousRepair=window.expenseSyncRepair;
- window.expenseSyncRepair=function(){
-   if(typeof previousRepair==='function')previousRepair();
-   const records=get('expenses',[]);
-   if(!Array.isArray(records))return;
-   const list=document.getElementById('expenseList');
-   if(list&&list.querySelectorAll('.expense').length!==records.length){
-     try{renderExpenses()}catch(e){console.error('重新顯示支出失敗',e)}
-   }
-   const status=document.getElementById('expenseSyncStatus');
-   if(status)status.textContent='本機已儲存 '+records.length+' 筆；清單顯示 '+document.querySelectorAll('#expenseList .expense').length+' 筆';
- };
+  let busy=false;
+  window.expenseSyncRepair=function(){
+    const status=document.getElementById('expenseSyncStatus');
+    const list=document.getElementById('expenseList');
+    if(!status||!list)return;
+    if(busy)return;
+    busy=true;
+    try{
+      const records=get('expenses',[]);
+      if(!Array.isArray(records))throw Error('支出資料格式不正確，已停止顯示，原始資料未變更');
+      renderExpenses();
+      const shown=list.querySelectorAll('.expense').length;
+      status.textContent='本機已儲存 '+records.length+' 筆；清單顯示 '+shown+' 筆（已重新讀取）';
+      if(shown!==records.length){
+        status.textContent+='。⚠️ 顯示數量不一致，請先備份，不要重複新增。';
+      }
+    }catch(e){status.textContent='⚠️ 重新讀取失敗：'+(e.message||String(e));console.error(e)}
+    finally{busy=false}
+  };
+  const save=window.v2PersistSmartExpense;
+  if(typeof save==='function'){
+    window.v2PersistSmartExpense=function(draft){
+      const result=save(draft);
+      if(result===true){
+        expenseSyncRepair();
+        const status=document.getElementById('expenseSyncStatus');
+        const msg=document.getElementById('v2ExpenseMessage');
+        if(status&&status.textContent.includes('⚠️')&&msg)msg.textContent='⚠️ 支出已送出，但顯示尚未通過核對。請勿重複新增。';
+      }
+      return result;
+    };
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',expenseSyncRepair);
+  else expenseSyncRepair();
 })();
-</script>
-</body></html>
+</script></body></html>
 <style id="six-item-bottom-navigation-fix">
 /* 功能總覽納入底部導覽，形成六個等寬入口；取消原本浮動按鈕定位 */
 nav.rpg-bottom-menu{display:flex!important;gap:2px!important;justify-content:space-around!important;overflow:visible!important;padding-left:5px!important;padding-right:5px!important}
