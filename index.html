@@ -2,7 +2,7 @@
 
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#282a36" name="theme-color"/><meta content="越南冒險日記 V5.5 雙平台手機完整版" name="application-name"/><link href="./manifest.webmanifest" rel="manifest"/><link href="./icon.svg" rel="icon" type="image/svg+xml"/><title>越南冒險日記 V5.5｜雙平台手機完整版</title>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#282a36" name="theme-color"/><meta content="越南冒險日記 V5.5 雙平台手機完整版" name="application-name"/><link href="./manifest.webmanifest" rel="manifest"/><link href="./icon.svg" rel="icon" type="image/svg+xml"/><title>世界冒險日記 V8.3｜番西邦與下龍灣郵輪探索</title>
 <style>
 :root{--teal:#087f70;--mint:#e4f6ef;--ink:#173b39;--muted:#637775;--paper:#f5f8f6;--line:#dce8e2}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif}header{padding:22px 18px 18px;background:linear-gradient(135deg,#075f59,#159b83);color:white;border-radius:0 0 24px 24px}header small{opacity:.85}h1{font-size:25px;margin:6px 0}main{padding:14px 14px 90px;max-width:720px;margin:auto}.card,.hero{background:white;border:1px solid var(--line);border-radius:16px;padding:14px;margin:10px 0}.hero{margin-top:0}.muted,.small{color:var(--muted);font-size:13px}.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0}.tile{background:white;border:1px solid var(--line);border-radius:15px;padding:14px;text-align:left;color:var(--ink);font:inherit;min-height:85px}.tile span{display:block;font-size:24px}.tile b{display:block;margin-top:6px}.page{display:none}.page.active{display:block}.section-title{font-size:18px;margin:18px 2px 10px}.daytabs{display:flex;gap:7px;overflow:auto;padding:3px 0 8px}.daytabs button,button{cursor:pointer}.daytabs button,.secondary{border:1px solid var(--line);background:white;border-radius:10px;padding:9px 12px;color:var(--ink)}.daytabs button.active,.primary,.action{background:var(--teal);color:white;border-color:var(--teal)}.event{display:grid;grid-template-columns:65px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.event:last-child{border:0}.time{color:var(--teal);font-weight:800;font-size:13px}.event p{margin:4px 0;font-size:13px;color:var(--muted)}button,input,select,textarea{font:inherit}input,select,textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:11px;background:white;color:var(--ink);margin:5px 0 10px}label{font-size:13px;font-weight:650}.action{border:0;border-radius:11px;padding:11px 14px;font-weight:700}.row{display:flex;gap:8px;align-items:center}.row>*{flex:1}.expense{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}nav{position:fixed;bottom:0;left:0;right:0;background:#ffffffef;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:8px 3px;z-index:5}nav button{border:0;background:transparent;color:var(--muted);font-size:11px;padding:5px 6px;border-radius:10px;min-width:0;white-space:nowrap}nav button.active{background:var(--mint);color:var(--teal);font-weight:700}nav span{display:block;font-size:20px}.notice{background:#fff5df;border-radius:12px;padding:11px;font-size:13px;color:#77571c}.copy{float:right;font-size:12px}.checked{opacity:.6}.checked strong{text-decoration:line-through}.diary-photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:8px 0}.diary-photo-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;border:1px solid var(--line)}.diary-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.diary-actions button{flex:1;min-width:90px}.diary-entry{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}.photo-hint{font-size:12px;color:var(--muted);margin-top:-5px;margin-bottom:10px}
 
@@ -1583,6 +1583,14 @@ body.v81-playing nav.rpg-nav{display:none!important}
 /* Browser without orientation lock: rotate the whole game viewport, not the travel app. */
 @media (orientation:portrait){body.v81-playing.v81-rotate #walkRpgModule.v81-fullscreen{inset:auto!important;top:0!important;left:100vw!important;width:100dvh!important;height:100vw!important;transform-origin:top left!important;transform:rotate(90deg)!important}body.v81-playing.v81-rotate #walkRpgModule.v81-fullscreen .walk-rpg-pad{grid-template-columns:repeat(3,38px)!important;grid-template-rows:repeat(2,35px)!important}}
 </style>
+<style id="v85-crisp-landscape">
+/* V8.5 - high-density, aspect-correct landscape RPG viewport. */
+#walkRpgModule.v81-fullscreen .v410-world-wrap{display:flex!important;align-items:center!important;justify-content:center!important;background:#172a31!important}
+#walkRpgModule.v81-fullscreen #walkRpgCanvas{width:100%!important;height:100%!important;object-fit:contain!important;image-rendering:pixelated!important;image-rendering:crisp-edges!important}
+/* The world keeps its native 12:7 composition; no stretching of buildings or characters. */
+#walkRpgModule:not(.v81-fullscreen) #walkRpgCanvas{image-rendering:pixelated!important;image-rendering:crisp-edges!important}
+#walkRpgModule.v81-fullscreen .v81-toolbar{background:rgba(23,42,49,.78);padding:3px!important}
+</style>
 </head><body>
 <header><small>VIETNAM ADVENTURE · 2026</small><h1>🇻🇳 越南旅行日記</h1><p>北越六天五夜｜11/18（三）–11/23（一）</p></header><main>
 <div id="memoirPrintRoot" aria-hidden="true"></div>
@@ -1640,7 +1648,7 @@ body.v81-playing nav.rpg-nav{display:none!important}
 </section><p class="small">點選地圖地點可展開景點資訊、打卡與照片功能。</p>
 <section class="card walk-rpg-card" id="walkRpgModule">
 <div class="walk-rpg-top"><div><h3 style="margin:0">🎮 北越自由探索世界｜NPC 委託冒險</h3><p class="small" style="margin:4px 0 0">鍵盤方向鍵／WASD，或使用手機方向鍵移動；靠近 NPC、任務物件、寶箱或地圖閃光祕密後按「互動」；三個地區已連成同一張冒險世界：走到地圖出口即可前往相鄰地區，不必手動切換。完成 NPC 委託、尋找寶箱與祕密收藏，移動時還可能遇到野生怪物。樹幹、建築與岩石無法穿越。</p></div><b id="walkRpgLevel">探索 EXP 連動中</b></div>
-<div aria-live="polite" class="walk-rpg-world-route"><b>🗺️ 北越連續冒險世界</b><span>河內古城 ⇄ 沙壩山村 ⇄ 下龍港口</span><small>走到場景左右側的發光出口，即可自然進入相鄰地圖。</small></div>
+<div aria-live="polite" class="walk-rpg-world-route"><b>🗺️ 北越連續冒險世界 · 沙壩／下龍灣文化探索</b><span>河內古城 ⇄ 沙壩山村 ⇄ 下龍港口</span><small>走到場景左右側的發光出口，即可自然進入相鄰地圖。</small></div>
 <div aria-label="舊版場景相容控制" class="walk-rpg-areas" hidden="" role="group">
 <button class="active" data-walk-area="hanoi" type="button">🏮 河內古城</button><button data-walk-area="sapa" type="button">⛰️ 沙壩山村</button><button data-walk-area="halong" type="button">⛵ 下龍港口</button>
 </div>
@@ -4369,6 +4377,22 @@ const module=document.getElementById('walkRpgModule');
 if(!canvas||!module)return;
 const ctx=canvas.getContext('2d'); if(!ctx)return;
 const W=canvas.width,H=canvas.height;
+// V8.5: keep logical RPG coordinates unchanged while using a denser backing bitmap.
+// This preserves movement, collision, NPC interaction and saved positions.
+let v85PixelScale=1;
+function v85RefreshResolution(){
+  const dpr=Math.min(3,Math.max(1,window.devicePixelRatio||1));
+  const next=Math.min(3,Math.max(1,Math.round(dpr*2)/2));
+  if(next===v85PixelScale && canvas.width===Math.round(W*next))return;
+  v85PixelScale=next;
+  canvas.width=Math.round(W*next);
+  canvas.height=Math.round(H*next);
+  ctx.setTransform(next,0,0,next,0,0);
+  ctx.imageSmoothingEnabled=false;
+}
+v85RefreshResolution();
+window.addEventListener('resize',v85RefreshResolution,{passive:true});
+window.addEventListener('orientationchange',v85RefreshResolution,{passive:true});
 const WALK_KEY='vietnam-adventure-walk-rpg-v1';
 const CORE_KEY='vietnam-adventure-unified-core-v1';
 const XP_KEY='vietnam-adventure-exp-v1';
@@ -4396,23 +4420,25 @@ const held=new Set(); let raf=0,last=0,nearDialog=null,distanceSinceSave=0,trans
 let worldLog='世界已載入。使用方向鍵／WASD 或手機方向按鈕移動，靠近人物與物件後按 E 互動。';
 const sceneBase=id=>id.startsWith('hanoi')?'hanoi':id.startsWith('sapa')?'sapa':'halong';
 const scenes={
- hanoi:{name:'河內古城',kind:'outdoor',sky:'#91d5e6',ground:'#85b96a',npc:[{id:'guide',x:105,y:250,name:'阿明・古城嚮導',icon:'🧑🏻‍🌾',line:'歡迎來到河內老城！先去巷口找回導覽手冊，再回來領取獎勵。',quest:'guidebook',questName:'古城導覽手冊',questHint:'採集巷口的紙卷，找回導覽手冊。'} ,{id:'culture-silver',x:185,y:155,name:'阿銀・老街工藝師',icon:'🧑🏻‍🎨',line:'銀街的故事藏在西南街市的老招牌裡。',cultureTask:0},{id:'culture-lake',x:575,y:315,name:'阿蓮・湖畔說書人',icon:'👩🏻',line:'來到東南側湖畔，聽我說還劍湖的神劍傳說。',cultureTask:1},{id:'vendor',x:350,y:270,name:'玲玲・街市商人',icon:'👩🏻‍🍳',line:'來看看吧！旅人補給、河粉能量包都準備好了。',shop:true}],
+ hanoi:{name:'河內古城',kind:'outdoor',sky:'#91d5e6',ground:'#85b96a',npc:[{id:'guide',x:90,y:245,name:'阿明・古城嚮導',icon:'🧑🏻‍🌾',line:'歡迎來到河內老城！先去巷口找回導覽手冊，再回來領取獎勵。',quest:'guidebook',questName:'古城導覽手冊',questHint:'採集巷口的紙卷，找回導覽手冊。'} ,{id:'culture-silver',x:175,y:145,name:'阿銀・老街工藝師',icon:'🧑🏻‍🎨',line:'銀街的故事藏在西南街市的老招牌裡。',cultureTask:0},{id:'culture-lake',x:585,y:305,name:'阿蓮・湖畔說書人',icon:'👩🏻',line:'來到東南側湖畔，聽我說還劍湖的神劍傳說。',cultureTask:1},{id:'vendor',x:390,y:325,name:'玲玲・街市商人',icon:'👩🏻‍🍳',line:'來看看吧！旅人補給、河粉能量包都準備好了。',shop:true}],
  buildings:[{id:'hanoi_shop',x:465,y:115,w:78,h:58,label:'街市商店',icon:'🏪'},{id:'hanoi_inn',x:615,y:110,w:78,h:58,label:'還劍湖旅店',icon:'🏨'},{id:'hanoi_guild',x:55,y:110,w:82,h:60,label:'冒險者公會',icon:'🏛️'}],
  nodes:[{id:'hn-herb-1',x:250,y:235,kind:'mountain-herb',name:'街角香草',icon:'🌿'},{id:'hn-paper',x:95,y:315,kind:'quest-guidebook',name:'遺失的導覽手冊',icon:'📜'},{id:'hn-wood',x:650,y:325,kind:'slime-gel',name:'樹下黏液素材',icon:'🟢'},{id:'hn-silver-sign',x:195,y:320,kind:'culture-clue-silver',name:'銀街老招牌',icon:'🪧'},{id:'hn-lake-stone',x:625,y:355,kind:'culture-clue-lake',name:'湖畔神龜石刻',icon:'🐢'}],
  chest:{id:'hn-chest',x:650,y:245},hidden:{id:'hn-secret',x:350,y:375,name:'老街屋頂下的秘密明信片',icon:'💌'},exits:[{x:700,y:360,to:'sapa',spawn:{x:58,y:360},label:'沙壩山路'}]},
  hanoi_shop:{name:'河內街市商店',kind:'interior',parent:'hanoi',npc:[{id:'culture-coffee',x:205,y:215,name:'阿芳・咖啡師',icon:'☕',line:'一起認識河內的蛋咖啡。',cultureTask:2},{id:'shopkeeper',x:365,y:225,name:'玲玲・商店老闆',icon:'👩🏻‍🍳',line:'補給品、旅途點心，還有探險小物！',shop:true}],nodes:[{id:'shop-box',x:160,y:320,kind:'sea-shell',name:'展示櫃旁素材',icon:'🐚'},{id:'hn-coffee-recipe',x:520,y:305,kind:'culture-clue-coffee',name:'蛋咖啡配方卡',icon:'📋'}],doors:[{x:360,y:385,to:'hanoi',spawn:{x:510,y:225},label:'返回街道'}]},
  hanoi_inn:{name:'還劍湖旅店',kind:'interior',parent:'hanoi',npc:[{id:'innkeeper',x:365,y:220,name:'秋・旅店主人',icon:'🧑🏻‍🍳',line:'歡迎入住！休息一下，恢復體力再出發。',inn:true}],doors:[{x:360,y:385,to:'hanoi',spawn:{x:655,y:220},label:'返回街道'}]},
  hanoi_guild:{name:'冒險者公會',kind:'interior',parent:'hanoi',npc:[{id:'guildmaster',x:365,y:210,name:'公會會長・陳',icon:'🧙🏻',line:'公會記錄著北越各地的委託。完成各區探索任務，累積你的冒險聲望。',guild:true}],doors:[{x:360,y:385,to:'hanoi',spawn:{x:100,y:225},label:'返回街道'}]},
- sapa:{name:'沙壩梯田村',kind:'outdoor',sky:'#b7dbe8',ground:'#83b875',npc:[{id:'elder',x:170,y:210,name:'阿桃・山村長者',icon:'👵🏻',line:'山霧裡有珍貴藥草。幫我找回藥草包，再回村口交給我。',quest:'herb-pouch',questName:'山村藥草包',questHint:'在梯田採集發光藥草。'},{id:'craftsman',x:560,y:250,name:'小林・山村工匠',icon:'🧑🏻‍🔧',line:'收集素材後來找我，可以打造更好的裝備。',forge:true}],
+ sapa:{name:'沙壩梯田村',kind:'outdoor',sky:'#b7dbe8',ground:'#83b875',npc:[{id:'elder',x:95,y:235,name:'阿桃・山村長者',icon:'👵🏻',line:'山霧裡有珍貴藥草。幫我找回藥草包，再回村口交給我。',quest:'herb-pouch',questName:'山村藥草包',questHint:'在梯田採集發光藥草。'},{id:'craftsman',x:625,y:265,name:'小林・山村工匠',icon:'🧑🏻‍🔧',line:'收集素材後來找我，可以打造更好的裝備。',forge:true},{id:'sapa-weaver',x:340,y:295,name:'阿梅・山村織布師',icon:'👩🏻‍🎨',line:'村裡的靛藍布染和刺繡工藝很有特色。請找到織布架旁的紋樣，再回來找我。',storyTask:'sapa-weave'}],
  buildings:[{id:'sapa_inn',x:420,y:140,w:82,h:60,label:'雲霧山屋',icon:'🏡'},{id:'sapa_forge',x:565,y:140,w:82,h:60,label:'山村鐵匠舖',icon:'⚒️'}],
- nodes:[{id:'sp-herb',x:300,y:300,kind:'mountain-herb',name:'霧林藥草',icon:'🌿'},{id:'sp-gel',x:80,y:315,kind:'slime-gel',name:'山徑黏液',icon:'🟢'},{id:'sp-ore',x:650,y:350,kind:'sea-shell',name:'山壁礦石',icon:'⛏️'}],
- chest:{id:'sp-chest',x:650,y:220},hidden:{id:'sp-secret',x:320,y:370,name:'梯田深處的山茶花秘境',icon:'🌺'},exits:[{x:20,y:360,to:'hanoi',spawn:{x:642,y:360},label:'河內古城'},{x:700,y:360,to:'halong',spawn:{x:58,y:360},label:'下龍灣港口'}]},
+ nodes:[{id:'sp-herb',x:300,y:300,kind:'mountain-herb',name:'霧林藥草',icon:'🌿'},{id:'sp-gel',x:80,y:315,kind:'slime-gel',name:'山徑黏液',icon:'🟢'},{id:'sp-ore',x:650,y:350,kind:'sea-shell',name:'山壁礦石',icon:'⛏️'},{id:'sp-pattern',x:515,y:330,kind:'story-clue-sapa',name:'靛藍刺繡紋樣',icon:'🧵'}],
+ chest:{id:'sp-chest',x:650,y:220},hidden:{id:'sp-secret',x:320,y:370,name:'梯田深處的山茶花秘境',icon:'🌺'},exits:[{x:20,y:360,to:'hanoi',spawn:{x:642,y:360},label:'河內古城'},{x:700,y:360,to:'halong',spawn:{x:58,y:360},label:'下龍灣港口'},{x:365,y:390,to:'fansipan',spawn:{x:365,y:335},label:'番西邦登山口'}]},
  sapa_inn:{name:'雲霧山屋',kind:'interior',parent:'sapa',npc:[{id:'sapa-host',x:365,y:220,name:'梅・山屋主人',icon:'👩🏻',line:'山路辛苦了，休息可以恢復全部生命值。',inn:true}],doors:[{x:360,y:385,to:'sapa',spawn:{x:455,y:220},label:'返回梯田村'}]},
  sapa_forge:{name:'山村鐵匠舖',kind:'interior',parent:'sapa',npc:[{id:'smith',x:365,y:220,name:'阿強・鐵匠',icon:'🧑🏻‍🔧',line:'把素材和金幣帶來，我會幫你打造裝備。',forge:true}],doors:[{x:360,y:385,to:'sapa',spawn:{x:600,y:220},label:'返回梯田村'}]},
- halong:{name:'下龍灣港口',kind:'outdoor',sky:'#a0d8e8',ground:'#79b98c',npc:[{id:'captain',x:185,y:210,name:'船長・海風',icon:'🧔🏻',line:'港口附近有海灣貝殼。幫我找回羅盤，才能帶你探索祕密海灣。',quest:'compass',questName:'船長的羅盤',questHint:'沿碼頭尋找遺失的羅盤。'},{id:'fisher',x:535,y:280,name:'阿海・漁夫',icon:'🧑🏻‍🌾',line:'退潮時可以撿到海灣素材。'}],
+ halong:{name:'下龍灣港口',kind:'outdoor',sky:'#a0d8e8',ground:'#79b98c',npc:[{id:'captain',x:100,y:245,name:'船長・海風',icon:'🧔🏻',line:'港口附近有海灣貝殼。幫我找回羅盤，才能帶你探索祕密海灣。',quest:'compass',questName:'船長的羅盤',questHint:'沿碼頭尋找遺失的羅盤。'},{id:'fisher',x:625,y:290,name:'阿海・漁夫',icon:'🧑🏻‍🌾',line:'退潮時可以撿到海灣素材。'},{id:'halong-storyteller',x:365,y:160,name:'阿蘭・海灣說書人',icon:'👩🏻‍🦰',line:'下龍灣的龍傳說，和海上的石灰岩島嶼交織在一起。先找港邊的航海圖吧。',storyTask:'halong-map'}],
  buildings:[{id:'halong_inn',x:430,y:145,w:82,h:60,label:'海風旅舍',icon:'🏨'},{id:'halong_guild',x:80,y:145,w:82,h:60,label:'港口公會',icon:'⚓'}],
- nodes:[{id:'hl-shell',x:320,y:330,kind:'sea-shell',name:'潮間帶貝殼',icon:'🐚'},{id:'hl-herb',x:580,y:350,kind:'mountain-herb',name:'海岸香草',icon:'🌿'},{id:'hl-gel',x:650,y:270,kind:'slime-gel',name:'海灣凝膠',icon:'🟢'}],
- chest:{id:'hl-chest',x:650,y:210},hidden:{id:'hl-secret',x:350,y:375,name:'翡翠海灣漂流瓶',icon:'🍾'},exits:[{x:20,y:360,to:'sapa',spawn:{x:642,y:360},label:'返回沙壩'}]},
+ nodes:[{id:'hl-shell',x:320,y:330,kind:'sea-shell',name:'潮間帶貝殼',icon:'🐚'},{id:'hl-herb',x:580,y:350,kind:'mountain-herb',name:'海岸香草',icon:'🌿'},{id:'hl-gel',x:650,y:270,kind:'slime-gel',name:'海灣凝膠',icon:'🟢'},{id:'hl-chart',x:440,y:350,kind:'story-clue-halong',name:'海灣航海圖',icon:'🗺️'}],
+ chest:{id:'hl-chest',x:650,y:210},hidden:{id:'hl-secret',x:350,y:375,name:'翡翠海灣漂流瓶',icon:'🍾'},exits:[{x:20,y:360,to:'sapa',spawn:{x:642,y:360},label:'返回沙壩'},{x:365,y:390,to:'halong_cruise',spawn:{x:365,y:335},label:'登上郵輪'}]},
+ fansipan:{name:'番西邦峰・雲海步道',kind:'outdoor',sky:'#a9d6e8',ground:'#88aa86',npc:[{id:'fp-guide',x:115,y:220,name:'阿山・高山嚮導',icon:'🧑🏻‍🦯',line:'山上天氣變化快，先觀察雲海與山徑標記，再回來交流登山知識。',storyTask:'fansipan-cloud'},{id:'fp-trailkeeper',x:590,y:220,name:'小嵐・山徑守護員',icon:'🧑🏻‍🌾',line:'山上迷霧容易讓人迷路，請先找兩個路標。',v84Quest:'mountain'}],buildings:[],nodes:[{id:'fp-cloud',x:550,y:290,kind:'story-clue-fansipan',name:'雲海觀景標記',icon:'☁️'},{id:'fp-flower',x:280,y:315,kind:'mountain-herb',name:'高山植物觀察',icon:'🌼'},{id:'fp-sign-a',x:95,y:300,kind:'v84-mountain-a',name:'山徑第一路標',icon:'🪧'},{id:'fp-sign-b',x:605,y:345,kind:'v84-mountain-b',name:'雲霧第二路標',icon:'🚩'}],chest:{id:'fp-chest',x:625,y:185},hidden:{id:'fp-secret',x:345,y:365,name:'山頂的晨光',icon:'🌄'},exits:[{x:365,y:390,to:'sapa',spawn:{x:365,y:340},label:'返回沙壩山村'}]},
+ halong_cruise:{name:'下龍灣・郵輪甲板',kind:'outdoor',sky:'#a6d9e8',ground:'#78b5af',npc:[{id:'cruise-guide',x:115,y:230,name:'阿舟・郵輪導覽員',icon:'🧑🏻‍✈️',line:'航行前先確認海灣生態觀察記錄，再回來分享你看到的景色。',storyTask:'cruise-eco'},{id:'cruise-sailor',x:585,y:230,name:'小海・甲板水手',icon:'🧑🏻‍✈️',line:'出航前要確認救生裝備與航線，請幫我巡查。',v84Quest:'sailing'}],buildings:[],nodes:[{id:'cruise-chart',x:555,y:300,kind:'story-clue-cruise',name:'海灣生態觀察板',icon:'🔭'},{id:'cruise-shell',x:310,y:320,kind:'sea-shell',name:'甲板紀念貝殼',icon:'🐚'},{id:'cruise-lifejacket',x:90,y:325,kind:'v84-sailing-a',name:'救生衣檢查架',icon:'🦺'},{id:'cruise-route',x:620,y:345,kind:'v84-sailing-b',name:'甲板航線標示',icon:'🧭'}],chest:{id:'cruise-chest',x:650,y:205},hidden:{id:'cruise-secret',x:350,y:370,name:'海上夕陽觀景點',icon:'🌅'},exits:[{x:365,y:390,to:'halong',spawn:{x:365,y:340},label:'返回下龍灣港口'}]},
  halong_inn:{name:'海風旅舍',kind:'interior',parent:'halong',npc:[{id:'hl-host',x:365,y:220,name:'蘭・旅舍主人',icon:'👩🏻‍🍳',line:'旅人請進，休息後再搭船出海。',inn:true}],doors:[{x:360,y:385,to:'halong',spawn:{x:465,y:225},label:'返回港口'}]},
  halong_guild:{name:'港口公會',kind:'interior',parent:'halong',npc:[{id:'hl-guild',x:365,y:220,name:'航海公會長',icon:'🧙🏻',line:'完成港口委託，取得探索海灣的資格。',guild:true}],doors:[{x:360,y:385,to:'halong',spawn:{x:120,y:225},label:'返回港口'}]}
 };
@@ -4471,9 +4497,30 @@ function rect(x,y,w,h,c){ctx.fillStyle=c;ctx.fillRect(Math.round(x),Math.round(y
 function tree(x,y){rect(x+7,y+17,8,22,'#754a2a');rect(x,y,24,23,'#2e7041');rect(x+4,y-7,18,19,'#4a984e');rect(x+7,y-3,5,5,'#c5df83')}
 function building(b){rect(b.x-4,b.y-6,b.w+8,13,'#714326');rect(b.x,b.y,b.w,b.h,'#e8c47c');rect(b.x+7,b.y+9,b.w-14,12,'#83c8d3');rect(b.x+b.w/2-9,b.y+b.h-24,18,24,'#714326');rect(b.x-7,b.y-9,b.w+14,5,'#f5d778');ctx.fillStyle='#382518';ctx.font='bold 10px monospace';ctx.textAlign='center';ctx.fillText(b.label,b.x+b.w/2,b.y-15)}
 function person(x,y,color='#d86e4b',walking=false,step=0){const sw=walking?Math.round(Math.sin(step)*2):0;rect(x-8+sw,y-13,5,13,'#684329');rect(x+3-sw,y-13,5,13,'#684329');rect(x-10,y-32,20,20,color);rect(x-7,y-43,14,12,'#efbd8d');rect(x-11,y-47,22,6,'#49301d');rect(x-5,y-37,3,3,'#34251c');rect(x+3,y-37,3,3,'#34251c')}
-// V8.0：純視覺路人，沿固定區域緩慢往返，不寫入存檔、不阻擋主角。
+// V8.6：NPC 與路人固定站位；不修改存檔、不阻擋主角。
 const ambientHanoi=[{x:270,y:165,range:30,speed:.00045,phase:0,color:'#b55f68'},{x:425,y:225,range:42,speed:.00035,phase:1.7,color:'#6b78a3'},{x:90,y:365,range:25,speed:.0005,phase:2.8,color:'#b58b48'}];
-function drawAmbient(){if(sceneId()!=='hanoi')return;const now=performance.now();for(const a of ambientHanoi){const x=a.x+Math.sin(now*a.speed+a.phase)*a.range;person(x,a.y,a.color,true,now*.008);ctx.font='10px sans-serif';ctx.fillStyle='#293F4B';ctx.textAlign='center';ctx.fillText('路人',x,a.y-53)}}
+function drawAmbient(){if(sceneId()!=='hanoi')return;const now=performance.now();for(const a of ambientHanoi){const x=a.x;person(x,a.y,a.color,false,0);ctx.font='10px sans-serif';ctx.fillStyle='#293F4B';ctx.textAlign='center';ctx.fillText('路人',x,a.y-53)}}
+function v86Environment(sid){
+ const base=sceneBase(sid);
+ if(sid==='sapa'){
+  for(let i=0;i<5;i++){const y=98+i*34;rect(12,y,130-i*9,8,'#c6d78c');rect(12,y+8,130-i*9,5,'#5d9157');rect(480+i*12,y+10,110-i*12,7,'#e4d28b');}
+  rect(260,108,50,35,'#9c704b');rect(256,104,58,9,'#6e4c3c');rect(282,122,12,21,'#5a4336');
+  for(let i=0;i<9;i++){const x=20+i*73;rect(x,330+(i%3)*6,3,8,'#5c8d4b');rect(x-3,326+(i%3)*6,9,4,i%2?'#f5d57d':'#e6a2a4')}
+ }else if(sid==='fansipan'){
+  for(let i=0;i<6;i++){const x=i*132-25;rect(x,92+(i%2)*12,135,10,'#c3d6d7');rect(x+15,102+(i%2)*12,90,6,'#e8eeee')}
+  rect(275,140,140,10,'#7b8f90');rect(285,150,120,8,'#aebbbc');
+  for(let i=0;i<6;i++){rect(265+i*30,165,5,35,'#6c777b');rect(265+i*30,162,30,5,'#d8d9c8')}
+ }else if(sid==='halong'){
+  rect(0,105,720,40,'#78b9ca');for(let i=0;i<6;i++){const x=i*135+15;rect(x,118,65,5,'#c6e4e0');rect(x+15,126,45,3,'#e4eee1')}
+  for(let i=0;i<4;i++){const x=25+i*175;rect(x,290,7,60,'#7e6248');rect(x+7,300,42,7,'#ad8b60')}
+ }else if(sid==='halong_cruise'){
+  rect(35,108,650,10,'#f0e7d4');rect(45,118,5,55,'#536c79');rect(670,118,5,55,'#536c79');
+  for(let i=0;i<9;i++){rect(55+i*75,120,5,32,'#536c79');rect(55+i*75,148,75,5,'#d6e3df')}
+  rect(305,115,110,24,'#f5e6c3');rect(315,139,90,8,'#647f8d');
+ }else if(sid==='hanoi'){
+  for(let i=0;i<5;i++){const x=32+i*130;rect(x,95,30,7,'#9c6543');rect(x+5,102,20,7,i%2?'#e7a87a':'#e4d1a2')}
+ }
+}
 function drawScene(){
  const sid=sceneId(),sc=scenes[sid],base=sceneBase(sid);
  if(sc.kind==='outdoor'){
@@ -4501,6 +4548,7 @@ function drawScene(){
   }
   if(base==='sapa'){for(let i=0;i<5;i++){rect(310+i*34,95+i*36,230-i*25,8,'#d8c78a');rect(310+i*34,103+i*36,230-i*25,5,'#6b9e52')}tree(80,130);tree(690,130)}
   if(base==='halong'){rect(500,80,220,340,'#58b3cd');for(let y=100;y<415;y+=27)rect(505,y,210,2,'#a5e2e7');rect(465,245,185,20,'#8b5a32');tree(90,125)}
+  v86Environment(sid);
   (sc.buildings||[]).forEach(building);
   drawAmbient();
   (sc.npc||[]).forEach(n=>{person(n.x,n.y);ctx.fillStyle='#3c2a1b';ctx.font='bold 11px monospace';ctx.textAlign='center';ctx.fillText(n.name,n.x,n.y-55)});
@@ -4560,6 +4608,41 @@ function interact(){
     showNear(data.name,hint,[{label:'開始探索',run:hideNear}],data.x,data.y);return;
    }
    window.dispatchEvent(new CustomEvent('wa-culture-npc',{detail:{task:data.cultureTask,npc:data.name}}));return}
+   if(data.storyTask==='fansipan-cloud'||data.storyTask==='cruise-eco'){
+    const isPeak=data.storyTask==='fansipan-cloud';
+    const clue=isPeak?'fp-cloud':'cruise-chart',flag='v83-story-'+data.storyTask;
+    if(state.worldFlags[flag]){showNear(data.name,'這趟探索已完成！你可以繼續欣賞風景，或從出口返回原本的地區。',[{label:'繼續探索',run:hideNear}],data.x,data.y);return;}
+    if(!state.worldGathered[clue]){showNear(data.name,isPeak?'請沿山徑找到「雲海觀景標記」，再回來告訴我觀察到什麼。':'請到甲板另一側調查「海灣生態觀察板」，再回來交流。',[{label:'開始探索',run:hideNear}],data.x,data.y);return;}
+    showNear(data.name,isPeak?'你找到雲海標記了！番西邦峰是越南最高峰，山區天候變化快；遊戲中的路線是虛構探索場景。':'你完成海灣觀察！下龍灣的石灰岩島嶼是自然地景，請欣賞海灣並尊重海洋生態。',[{label:'完成探索',run:()=>{state.worldFlags[flag]=true;giveItem(isPeak?'v83-fansipan-cloud':'v83-cruise-eco',isPeak?'🏔️':'⛵',isPeak?'番西邦雲海紀念卡':'下龍灣郵輪觀察紀念卡',1,'collectible','北越探索紀念');reward(30,15);save();renderStatus();hideNear();setLog('✓ 探索完成！獲得紀念卡、EXP +30、金幣 +15。');}},{label:'稍後再說',run:hideNear}],data.x,data.y);return;
+   }
+  if(data.v84Quest){
+   const mountain=data.v84Quest==='mountain',a=mountain?'fp-sign-a':'cruise-lifejacket',b=mountain?'fp-sign-b':'cruise-route';
+   const key=mountain?'v84-mountain-complete':'v84-sailing-complete';
+   if(state.worldFlags[key]){showNear(data.name,'巡查已完成！謝謝你協助，紀念品已放入背包。',[{label:'繼續冒險',run:hideNear}],data.x,data.y);return}
+   if(!state.worldGathered[a]||!state.worldGathered[b]){
+    const missing=[!state.worldGathered[a]?(mountain?'第一路標':'救生衣檢查架'):null,!state.worldGathered[b]?(mountain?'第二路標':'甲板航線標示'):null].filter(Boolean).join('、');
+    showNear(data.name,'還需要調查：'+missing+'。走到物件附近按「互動」即可記錄。',[{label:'開始巡查',run:hideNear}],data.x,data.y);return;
+   }
+   showNear(data.name,mountain?'兩個山徑路標都確認了！雲霧中也要遵循步道指示，安全第一。':'救生衣與航線標示都檢查完畢！搭船請依船員指示穿戴救生衣。',[
+    {label:'完成巡查',run:()=>{state.worldFlags[key]=true;giveItem(key,mountain?'🏔️':'⚓',mountain?'番西邦山徑守護徽章':'下龍灣甲板巡查徽章',1,'collectible','V8.4 探索巡查任務');reward(35,20);save();renderStatus();hideNear();setLog('✓ 巡查完成！獲得紀念徽章、EXP +35、金幣 +20。')}},
+    {label:'稍後',run:hideNear}],data.x,data.y);return;
+  }
+  if(data.storyTask){
+   const task=data.storyTask,clue=task==='sapa-weave'?'sp-pattern':'hl-chart';
+   const doneKey='v82-story-'+task;
+   if(state.worldFlags[doneKey]){showNear(data.name,'謝謝你的幫忙！你已完成這段地方文化探索，紀念品也已放入背包。',[{label:'繼續探索',run:hideNear}],data.x,data.y);return}
+   if(!state.worldGathered[clue]){
+    showNear(data.name,task==='sapa-weave'?'請沿著梯田找「靛藍刺繡紋樣」，觀察布料上的圖案，再回來找我。':'先到碼頭邊調查「海灣航海圖」，看看島嶼和航線，再回來聽傳說。',[{label:'去尋找線索',run:hideNear}],data.x,data.y);return;
+   }
+   const sapa=task==='sapa-weave';
+   showNear(data.name,sapa?'你找到了紋樣！這裡的手工染布與刺繡，是山村生活和工藝的重要一部分。你願意幫我把紋樣整理進旅行手札嗎？':'你找到航海圖了！下龍灣以石灰岩島嶼景觀聞名；「龍降臨海灣」則是流傳的地方傳說。要把故事收進旅行手札嗎？',[
+    {label:sapa?'收錄山村紋樣':'收錄海灣傳說',run:()=>{
+     state.worldFlags[doneKey]=true;
+     giveItem(sapa?'v82-sapa-weave':'v82-halong-map',sapa?'🧵':'🐉',sapa?'沙壩靛藍紋樣紀念卡':'下龍灣龍傳說紀念卡',1,'collectible','北越地方文化故事任務');
+     reward(30,15);save();renderStatus();hideNear();setLog('✓ 文化委託完成！獲得紀念卡、EXP +30、金幣 +15。');
+    }},{label:'稍後再說',run:hideNear}
+   ],data.x,data.y);return;
+  }
   if(data.quest){questTalk(data);return}
   if(data.shop){showNear(data.name,'街市補給：使用既有 RPG 金幣購買道具。',[{label:'河粉能量包 12G',run:()=>purchase('pho',12,'🍜','河粉能量包','恢復 20 HP','consumable')},{label:'草本藥水 20G',run:()=>purchase('potion',20,'🧪','草本補給藥水','恢復 35 HP','consumable')},{label:'離開',run:hideNear}],data.x,data.y);return}
   if(data.inn){restAtInn(data);return}
@@ -4569,6 +4652,12 @@ function interact(){
  }
  if(type==='building'){const b=data;showNear(b.label,'要進入建築內部探索嗎？',[{label:'進入',run:()=>enterScene(b.id,{x:360,y:350})},{label:'稍後',run:hideNear}],b.x+b.w/2,b.y+b.h);return}
  if(type==='exit'){enterScene(data.to,data.spawn);return}
+ if(type==='node'&&data.kind&&data.kind.startsWith('v84-')){
+  state.worldGathered[data.id]=true;save();
+  const mountain=data.kind.includes('mountain');
+  showNear(data.name,mountain?'你辨認出山徑指示，並將方向記錄進旅行手札。':'你完成一項甲板安全巡查，已將結果記錄下來。',[{label:'繼續探索',run:hideNear}],data.x,data.y);
+  setLog('🔎 已調查「'+data.name+'」，找齊兩項後回報巡查 NPC。');renderStatus();draw();return;
+ }
  if(type==='node'){
   if(data.kind==='culture-clue-silver'){
    state.worldGathered[data.id]=true;save();
@@ -4581,6 +4670,17 @@ function interact(){
    const lake=data.kind==='culture-clue-lake';
    showNear(lake?'🐢 神龜石刻':'☕ 蛋咖啡配方卡',lake?'石刻提到神龜與歸還神劍的傳說。回去找阿蓮，聽她說完整故事。':'卡片上畫著咖啡、蛋黃與糖，還標記了打發的泡沫。回去找阿芳，完成飲食文化委託。',[{label:'記住線索',run:hideNear}],data.x,data.y);
    setLog(lake?'🔎 已取得湖畔傳說線索，回去找阿蓮。':'🔎 已取得蛋咖啡配方線索，回去找阿芳。');renderStatus();draw();return;
+  }
+   if(data.kind==='story-clue-fansipan'||data.kind==='story-clue-cruise'){
+    state.worldGathered[data.id]=true;save();
+    showNear(data.name,data.kind==='story-clue-fansipan'?'山區雲霧繚繞，視野會隨天候改變。已記錄觀景線索，回去找阿山。':'觀察板介紹海灣島嶼與海洋生態。已記錄線索，回去找阿舟。',[{label:'記下線索',run:hideNear}],data.x,data.y);
+    setLog('🔎 已找到「'+data.name+'」，返回 NPC 完成探索。');renderStatus();draw();return;
+   }
+  if(data.kind==='story-clue-sapa'||data.kind==='story-clue-halong'){
+   state.worldGathered[data.id]=true;save();
+   const sapa=data.kind==='story-clue-sapa';
+   showNear(data.name,sapa?'你發現了靛藍布料與手工刺繡紋樣。帶著線索回去找織布師阿梅。':'航海圖標示海灣中的島嶼與航線。帶著線索回去找說書人阿蘭。',[{label:'記下線索',run:hideNear}],data.x,data.y);
+   setLog('🔎 已找到「'+data.name+'」，回去找委託 NPC。');renderStatus();draw();return;
   }
   state.worldGathered[data.id]=true;
   if(data.kind.startsWith('quest-')){const qid=data.kind.slice(6);state.worldQuest[qid]='待回報';giveItem('quest-'+baseArea(),'📜',data.name,1,'collectible','地區任務物品');setLog('🎒 找到「'+data.name+'」！回去找委託 NPC 回報。')}
@@ -4651,6 +4751,8 @@ function move(dt){
  }
 }
 function draw(){
+ ctx.setTransform(v85PixelScale,0,0,v85PixelScale,0,0);
+ ctx.imageSmoothingEnabled=false;
  drawScene();
  const near=nearTarget();if(near){ctx.fillStyle='#fff2bd';ctx.fillRect(player.x-64,player.y-68,128,20);ctx.fillStyle='#4a2e19';ctx.font='bold 11px monospace';ctx.textAlign='center';ctx.fillText('按 E / 互動',player.x,player.y-54)}
 }
