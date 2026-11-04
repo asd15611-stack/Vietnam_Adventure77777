@@ -1402,6 +1402,187 @@ nav.rpg-bottom-menu button:focus-visible{background:#dbeafe!important;color:#142
  #memoirPrintRoot figure,#memoirPrintRoot .memoir-narration,#memoirPrintRoot .memoir-original-diary{break-inside:avoid;page-break-inside:avoid}
 }
 </style>
+
+<style id="v69-readable-contrast-fix">
+/* V6.9: Repair legacy dark-theme !important text declarations on light surfaces. */
+:root{--rpg-text:#293F4B!important;--rpg-muted:#455D66!important;--rpg-title:#293F4B!important;--rpg-panel:#E8EDEA!important;--rpg-panel-2:#DCE7E7!important}
+html body,html body main,html body main .page{color:#293F4B!important}
+/* Trip itinerary and achievement event: the reported regression. */
+html body main .event,html body main .event div,html body main .event b,html body main .event strong,html body main .event p,html body main .event .muted,html body main .event small,
+html body main .event [class*="desc"],html body main .event [class*="note"]{color:#293F4B!important;text-shadow:none!important;opacity:1!important}
+html body main .event p,html body main .event .muted,html body main .event small{color:#455D66!important}
+html body main .event{background:#E8EDEA!important;border-color:#A2B5B8!important}
+/* General light cards, lists and trip/quest descriptions. */
+html body main .card,html body main .hero,html body main .tile,html body main .notice,
+html body main .rpg-map-panel,html body main .quest-stop,html body main .pixel-location{color:#293F4B!important}
+html body main .card p,html body main .card li,html body main .card small,html body main .card label,html body main .card .muted,html body main .card .small,
+html body main .hero p,html body main .hero small,html body main .notice p,
+html body main .quest-stop p,html body main .quest-stop small,html body main .pixel-location small,
+html body main .card [class*="hint"],html body main .card [class*="desc"],html body main .card [class*="note"]{color:#455D66!important;text-shadow:none!important;opacity:1!important}
+html body main .card b,html body main .card strong,html body main .card h2,html body main .card h3,html body main .card h4,
+html body main .hero h2,html body main .hero b,html body main .quest-stop strong{color:#293F4B!important;text-shadow:none!important}
+/* Itinerary and check-in status: subdued green, no pale-on-pale text. */
+html body main .quest-stop.done,html body main .pixel-location.done,html body main .cc-card.is-complete{background:#D4E8D9!important;color:#294E3D!important;border-color:#6D987D!important}
+html body main .quest-stop.done strong,html body main .quest-stop.done small,html body main .pixel-location.done b,html body main .pixel-location.done small{color:#294E3D!important}
+/* Buttons on light backgrounds use dark text, except genuinely dark primary buttons. */
+html body main .secondary,html body main .daytabs button:not(.active),html body main .event button:not(.action):not(.primary),html body main .card button.secondary{background:#D5E2E3!important;color:#293F4B!important;border-color:#789BAA!important;text-shadow:none!important}
+html body main .action,html body main .primary,html body main .daytabs button.active{background:#507B85!important;color:#F5F5F1!important;border-color:#365D68!important;text-shadow:none!important}
+/* Keep legibility on actual dark surfaces, including game dialog and navigation. */
+html body nav.rpg-bottom-menu,html body nav.rpg-bottom-menu button{color:#F5F5F1!important}
+html body nav.rpg-bottom-menu button.active{color:#293F4B!important;background:#B9D2D6!important}
+html body .wa-story-head,html body .wa-story-head *:not(button){color:#F5F5F1!important}
+html body main .wa-story-content,html body main .wa-story-content p,html body main .wa-story-content small,html body main .wa-story-content b{color:#293F4B!important}
+html body main .wa-story-content .cc-note{color:#455D66!important}
+html body main #walkRpgModule .walk-rpg-dialog{background:#D9E5E4!important;color:#293F4B!important}
+@media(prefers-reduced-motion:reduce){.wa-success-pop{animation:none!important}}
+</style>
+<style id="v70-unified-accessible-palette">
+/* V7.0 final design layer. Visual-only: preserve all existing application data and handlers. */
+:root{--teal:#507B85!important;--mint:#D7E7DF!important;--ink:#293F4B!important;--muted:#455D66!important;--paper:#DDE1DC!important;--line:#9DAFB3!important;--accent:#D9897B!important;--shadow:0 2px 0 #AAB9BA!important;color-scheme:light!important}
+html,body,body main,body .page,body .page.active{color:#293F4B!important}
+body{background:#DDE1DC!important;background-image:linear-gradient(145deg,#DDE1DC,#CADADD 60%,#D5D3CD)!important}
+body main{background:linear-gradient(155deg,#DDE1DC,#CFDDE0)!important}
+/* Prior dark-mode sheets used important on nearly every nested element. Reset the actual typography. */
+body main :is(h1,h2,h3,h4,h5,h6,p,li,small,strong,b,label,legend,summary,dt,dd,span),
+body main :is(.small,.muted,.hint,.description,.va-muted,.event p,.photo-hint,.v2-finance-original,.quest-row-text,.v44-checklist-progress),
+body main .page :is(h1,h2,h3,h4,h5,h6,p,li,small,strong,b,label,legend,summary,dt,dd,span){color:#293F4B!important;text-shadow:none!important;opacity:1!important}
+body main :is(.small,.muted,.hint,.description,.event p,.photo-hint,.va-muted,.v2-finance-original),
+body main :is(.small,.muted,.hint,.description,.event p,.photo-hint,.va-muted,.v2-finance-original) :is(span,small,p){color:#455D66!important}
+body main :is(.card,.hero,.tile,.subcard,.va-subcard,.panel,.modal-content,.sheet,.accordion-content,.menu-panel,.list-card,.stat-card,.feature-card,.v2-finance-panel,.v2-split-panel,.v2-conversion-preview,.v2-split-choices,.v2-split-choice,.vf-summary,.vf-details,.va-item,.va-battle-log,.va-equipment>div,.category-accordion,.category-accordion-content,.expense-duplicate-warning,.expense-duplicate-new,.expense-duplicate-item,.walk-rpg-card,.rpg-map-panel),
+body main [class*="-card"]:not(.wa-story-head):not(.wa-success-pop),body main [class*="-panel"]:not(.wa-story-head){background:#E8EDEA!important;background-image:none!important;color:#293F4B!important;border-color:#A2B5B8!important;box-shadow:0 2px 0 #B1BDBB!important}
+body main :is(.section-title,.category-menu-head,.pixel-game-hint,.notice,.walk-rpg-dialog){background:#D4E3E5!important;background-image:none!important;color:#293F4B!important;border-color:#91ACB3!important;text-shadow:none!important;box-shadow:none!important}
+body main :is(.event,.expense,.pixel-quest-row,.quest-stop,.pixel-location,.cc-card,.v44-checklist-item){color:#293F4B!important;border-color:#A2B5B8!important}
+body main :is(input,select,textarea){background:#EFF2EE!important;color:#293F4B!important;border-color:#91A8B0!important;box-shadow:none!important;color-scheme:light!important}
+body main :is(input,textarea)::placeholder{color:#50656D!important;opacity:1!important}
+body main :is(button,.action,.primary,.secondary,.daytabs button){background:#D1E0E3!important;background-image:none!important;color:#293F4B!important;border-color:#789BAA!important;text-shadow:none!important;box-shadow:0 2px 0 #9CAFB5!important}
+body main :is(button,.action,.primary,.secondary,.daytabs button) :is(span,b,strong,small){color:inherit!important;text-shadow:none!important}
+body main :is(.action,.primary,.daytabs button.active,button.active){background:#385F6B!important;color:#F5F5F1!important;border-color:#294A55!important}
+body main :is(.action,.primary,.daytabs button.active,button.active) :is(span,b,strong,small){color:#F5F5F1!important}
+body main :is(button,.action,.primary,.secondary):disabled{background:#C6CFD0!important;color:#52636A!important;opacity:.8!important}
+body main :is(a){color:#245D72!important}
+body main :is(.time,.badge,.tag,.chip){background:#CFDFE3!important;color:#293F4B!important;border-color:#91A8B0!important}
+body main :is(table th){background:#C8D9DD!important;color:#293F4B!important}
+body main :is(table td){background:#E8EDEA!important;color:#293F4B!important;border-color:#A2B5B8!important}
+/* Exact troublesome areas: airport itinerary, location check-in and all map labels. */
+body #adventureMap :is(.pixel-location,.quest-stop,.pixel-location-panels,.quest-checkin,.pixel-map-label,.map-heading,.pixel-game-hint),
+body #adventureMap :is(.pixel-location,.quest-stop,.pixel-location-panels,.quest-checkin,.pixel-map-label,.map-heading,.pixel-game-hint) :is(span,small,strong,b,p,div,label){color:#293F4B!important;text-shadow:none!important}
+body #adventureMap :is(.pixel-location,.quest-stop){background:#D2E2E8!important;border-color:#789BAA!important}
+body #adventureMap :is(.pixel-location.done,.quest-stop.done),body main :is(.cc-card.is-complete,[data-quest-status="done"],.v70-done,.checked){background:#D4E8D9!important;border-color:#6D987D!important;color:#294E3D!important}
+body #adventureMap :is(.pixel-location.done,.quest-stop.done) :is(span,b,strong,small,p),body main .v70-done :is(span,b,strong,small,p){color:#294E3D!important}
+body #adventureMap :is(.pixel-location button,.quest-stop button){background:#385F6B!important;color:#F5F5F1!important;border-color:#294A55!important}
+body #adventureMap :is(.pixel-location button,.quest-stop button) :is(span,b,small,strong){color:#F5F5F1!important}
+body #adventureMap :is(.pixel-location.done button,.quest-stop.done button){background:#B6D3BE!important;color:#294E3D!important;border-color:#6D987D!important}
+body #adventureMap :is(.pixel-location.done button,.quest-stop.done button) :is(span,b,small,strong){color:#294E3D!important}
+body #adventureMap .pixel-map-scene{border-color:#527581!important}
+/* Check-in / itinerary card status is readable even when legacy classes are applied. */
+body #checklist :is(div,article,li),body #checkinReminderList :is(div,article,li){color:#293F4B!important}
+body #checklist :is(.checked,.done,[data-complete="true"]),body #checkinReminderList :is(.checked,.done,[data-complete="true"]){background:#D4E8D9!important;color:#294E3D!important}
+/* Finance uses meaningful color, not one generic shade. */
+body #expenses .vf-merged-totals{background:#E6D7D1!important;border:2px solid #D9897B!important;padding:12px!important}
+body #expenses .vf-merged-totals :is(h2,b,strong,span){color:#713B35!important}
+body #expenses .vf-summary,body #expenses #vfSettlementResult{background:#C8DDE5!important;color:#293F4B!important;border:2px solid #789BAA!important;padding:12px!important}
+body #expenses :is(.vf-details,#vfFund,#vfSettlement,.v2-split-panel){background:#E5E9E5!important;border-color:#A2B5B8!important}
+body #expenses :is(.vf-details>summary,#vfFund>summary,#vfSettlement>summary){background:#CADDE5!important;color:#293F4B!important;padding:10px!important}
+body #expenses :is(.v70-finance-expense){background:#F0D7D1!important;border:2px solid #D9897B!important;color:#713B35!important}
+body #expenses :is(.v70-finance-income,.v70-finance-refund){background:#D4E8D9!important;border:2px solid #82A992!important;color:#294E3D!important}
+body #expenses .v70-finance-pending{background:#F1E3C2!important;border:2px solid #C6A66D!important;color:#73541F!important}
+body #expenses .v70-finance-fund{background:#CADDE5!important;border:2px solid #789BAA!important;color:#293F4B!important}
+body #expenses .v70-finance-expense :is(span,b,strong,small,p){color:#713B35!important}
+body #expenses :is(.v70-finance-income,.v70-finance-refund) :is(span,b,strong,small,p){color:#294E3D!important}
+body #expenses .v70-finance-pending :is(span,b,strong,small,p){color:#73541F!important}
+body #expenses .v70-finance-fund :is(span,b,strong,small,p){color:#293F4B!important}
+body #expenses :is(.v70-finance-expense,.v70-finance-income,.v70-finance-refund,.v70-finance-pending,.v70-finance-fund){padding:9px!important;margin:5px 0!important}
+/* RPG: keep terrain colorful, dialogue dark and text truly light. */
+body #walkRpgModule .wa-story-head,body #walkRpgModule .wa-story-head :is(span,b,strong,small){background:#293F4B!important;color:#F5F5F1!important}
+body #walkRpgModule .wa-story-head button{background:#CADDE5!important;color:#293F4B!important}
+body #walkRpgModule .wa-story-content,body #walkRpgModule #cultureChapter{background:#E8EEEC!important;color:#293F4B!important}
+body #walkRpgModule .wa-success-pop,body #walkRpgModule .wa-success-pop :is(span,b,strong){background:#D4E8D9!important;color:#294E3D!important}
+body #walkRpgModule :is(.walk-rpg-world-route,.walk-rpg-status,.walk-rpg-dialog){background:#D4E3E5!important;color:#293F4B!important}
+/* Existing bottom navigation only; no extra entry. */
+body nav.rpg-bottom-menu,body nav.rpg-nav{background:#293F4B!important;border-color:#789BAA!important}
+body nav.rpg-bottom-menu button,body nav.rpg-nav button{background:transparent!important;color:#F5F5F1!important;text-shadow:none!important}
+body nav.rpg-bottom-menu button :is(span,small,b),body nav.rpg-nav button :is(span,small,b){color:#F5F5F1!important}
+body nav.rpg-bottom-menu button.active,body nav.rpg-nav button.active{background:#789BAA!important;color:#142F3A!important}
+body nav.rpg-bottom-menu button.active :is(span,small,b),body nav.rpg-nav button.active :is(span,small,b){color:#142F3A!important}
+/* Protect decorative artwork, colored SVG and pixel world. */
+body :is(canvas,svg,img){filter:none}
+@media(prefers-reduced-motion:reduce){body .wa-success-pop{animation:none!important}}
+</style>
+<style id="v71-checkin-contrast-fix">
+/* V7.1: exact check-in reminder component; overrides legacy dark panels and global button rules. */
+body #checkinReminderList .v71-checkin-list{background:#DDE5E5!important;border:2px solid #789BAA!important;border-radius:12px!important;padding:14px!important;color:#293F4B!important;box-shadow:0 3px 0 #9FAFB2!important}
+body #checkinReminderList .v71-checkin-list .home-task-section-title{color:#293F4B!important;border-bottom:2px solid #A2B5B8!important;padding-bottom:10px!important;margin-bottom:4px!important}
+body #checkinReminderList .v71-checkin-list .home-task-section-title b{color:#293F4B!important;font-size:17px!important;text-shadow:none!important}
+body #checkinReminderList .v71-checkin-list .home-task-section-title small{color:#455D66!important;background:#C7DADD!important;border:1px solid #91ABB3!important;padding:4px 8px!important;border-radius:8px!important;font-weight:800!important}
+body #checkinReminderList .v71-checkin-item{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;padding:11px 8px!important;margin:5px 0!important;border:1px solid #A7BFC5!important;border-radius:9px!important;background:#E8EDEA!important;color:#293F4B!important;box-shadow:none!important}
+body #checkinReminderList .v71-checkin-item:nth-of-type(even){background:#D5E3E6!important}
+body #checkinReminderList .v71-checkin-name{flex:1 1 auto!important;min-width:0!important;color:#293F4B!important;font-size:16px!important;font-weight:800!important;line-height:1.5!important;text-shadow:none!important;opacity:1!important}
+body #checkinReminderList .v71-checkin-item button.v71-checkin-go{flex:0 0 auto!important;width:auto!important;min-width:88px!important;min-height:43px!important;padding:9px 13px!important;background:#385F6B!important;color:#F5F5F1!important;border:2px solid #293F4B!important;border-radius:8px!important;box-shadow:0 2px 0 #293F4B!important;text-shadow:none!important;font-size:14px!important;font-weight:800!important;opacity:1!important}
+body #checkinReminderList .v71-checkin-item button.v71-checkin-go:focus-visible{outline:3px solid #D9897B!important;outline-offset:2px!important}
+@media(max-width:360px){body #checkinReminderList .v71-checkin-name{font-size:14px!important}body #checkinReminderList .v71-checkin-item button.v71-checkin-go{min-width:72px!important;padding:8px!important}}
+</style>
+<style id="v72-home-colors">
+/* V7.2 HOME PALETTE — scoped, high contrast, no changes to application logic */
+#home{color:#293F4B!important;background:transparent!important}
+#home .v411-welcome{background:linear-gradient(125deg,#C9DCE2 0%,#DDE1DC 58%,#D5D3CD 100%)!important;border:2px solid #8DA8B0!important;box-shadow:0 4px 0 #A6B8BA!important;color:#293F4B!important}
+#home .v411-welcome-copy,#home .v411-welcome h2,#home .v411-welcome p{color:#293F4B!important;text-shadow:none!important}
+#home .v411-welcome p{color:#435963!important}
+#home .v411-kicker{background:#D9E8EA!important;color:#293F4B!important;border:1px solid #91ACB3!important}
+#home .v411-welcome-art{background:linear-gradient(140deg,#AFC9D2,#D8E3DB)!important;border:1px solid #92ADB2!important;box-shadow:none!important}
+#home .v50-adventure-bridge{background:linear-gradient(135deg,#D9E5E4,#D5D3CD)!important;border:2px solid #8FA8AE!important;box-shadow:0 4px 0 #ABB9B9!important;color:#293F4B!important}
+#home .v50-bridge-copy,#home .v50-bridge-copy h2,#home .v50-bridge-copy p,#home .v50-bridge-kicker{color:#293F4B!important;text-shadow:none!important}
+#home .v50-journey-flow span{background:#C7D9DD!important;color:#293F4B!important;border:1px solid #93ADB2!important}
+#home .v50-journey-flow i{color:#527581!important}
+#home .v50-primary-action{background:#385F6B!important;color:#F5F5F1!important;border:2px solid #293F4B!important;text-shadow:none!important}
+#home .v50-secondary-action{background:#D4E5DC!important;color:#294E3D!important;border:2px solid #739889!important;text-shadow:none!important}
+#home .v411-launch .v414-home-category{background:#E4EAE7!important;color:#293F4B!important;border:2px solid #9CB2B7!important;box-shadow:0 3px 0 #B0BCBA!important;text-shadow:none!important}
+#home .v411-launch .v414-home-category:nth-child(2){background:#D5E2E5!important}
+#home .v411-launch .v414-home-category:nth-child(3){background:#E8E4DE!important}
+#home .v411-launch .v414-home-category:nth-child(4){background:#DCE7DF!important}
+#home .v411-launch .v414-home-category b,#home .v411-launch .v414-home-category small{color:#293F4B!important;text-shadow:none!important}
+#home .v411-launch .v414-home-category small{color:#4C626C!important}
+#home .v3-home-overview{background:#E5E9E5!important;color:#293F4B!important;border:2px solid #9BAEB2!important;box-shadow:0 3px 0 #B2BFBE!important}
+#home .v3-home-overview h2,#home .v3-home-overview p,#home .v3-home-overview strong,#home .v3-home-overview b,#home .v3-home-overview small,#home .v3-home-overview .v3-eyebrow{color:#293F4B!important;text-shadow:none!important}
+#home .v3-trip-facts>div{background:#D5E2E3!important;border:1px solid #9AB1B5!important;color:#293F4B!important}
+#home .v44-readiness{background:#E1EBE7!important;color:#293F4B!important;border:2px solid #9CB6A5!important}
+#home .v44-readiness-head,#home .v44-readiness-stats,#home .v44-readiness-head small{color:#293F4B!important}
+#home .v44-progress-track{background:#C2D3D5!important;border-color:#8FA7AD!important}
+#home .v44-progress-track span{background:#729E87!important}
+#home .v3-home-reminder{background:#DCE5E3!important;color:#293F4B!important;border:1px solid #9AB0B4!important}
+#home .v3-home-reminder strong,#home .v3-home-reminder p{color:#293F4B!important}
+#home .v3-quick-section{background:#DDE5E5!important;color:#293F4B!important;border:2px solid #9AAFB4!important}
+#home .v3-quick-heading,#home .v3-quick-heading small{color:#293F4B!important;text-shadow:none!important}
+#home .v3-quick-card{background:#E8EDEA!important;color:#293F4B!important;border:2px solid #A2B5B8!important;box-shadow:0 3px 0 #B3BDBA!important}
+#home .v3-quick-card strong,#home .v3-quick-card small{color:#293F4B!important;text-shadow:none!important}
+#home .v3-quick-card small{color:#4C626C!important}
+#home .notice{background:#E7E8DE!important;color:#293F4B!important;border:2px solid #A2B5B8!important}
+#home button:focus-visible{outline:3px solid #D9897B!important;outline-offset:3px}
+
+</style>
+
+<style id="v81-landscape-rpg">
+/* V8.1: full-screen landscape gameplay, original travel UI untouched */
+body.v81-playing{overflow:hidden!important}
+body.v81-playing nav.rpg-nav{display:none!important}
+#walkRpgModule.v81-fullscreen{position:fixed!important;inset:0!important;width:100vw!important;height:100dvh!important;max-width:none!important;max-height:none!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:#293F4B!important;z-index:2147483600!important;overflow:hidden!important;display:block!important;isolation:isolate}
+#walkRpgModule.v81-fullscreen .v410-world-wrap{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;overflow:hidden!important;margin:0!important;padding:0!important;touch-action:none!important}
+#walkRpgModule.v81-fullscreen #walkRpgCanvas{width:100%!important;height:100%!important;max-height:none!important;min-height:0!important;aspect-ratio:auto!important;object-fit:fill!important;border:0!important;margin:0!important;display:block!important}
+#walkRpgModule.v81-fullscreen .walk-rpg-controls{position:absolute!important;inset:auto 0 0 0!important;z-index:30!important;display:flex!important;justify-content:space-between!important;align-items:end!important;width:100%!important;margin:0!important;padding:8px max(14px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(14px,env(safe-area-inset-left))!important;background:transparent!important;border:0!important;box-shadow:none!important;pointer-events:none!important}
+#walkRpgModule.v81-fullscreen .walk-rpg-controls button,#walkRpgModule.v81-fullscreen .walk-rpg-pad{pointer-events:auto!important}
+#walkRpgModule.v81-fullscreen .walk-rpg-pad{grid-template-columns:repeat(3,clamp(36px,6vw,52px))!important;grid-template-rows:repeat(2,clamp(33px,6vh,44px))!important;padding:4px!important;gap:3px!important}
+#walkRpgModule.v81-fullscreen .walk-rpg-pad button{width:100%!important;height:100%!important;min-width:0!important;min-height:0!important}
+#walkRpgModule.v81-fullscreen .walk-rpg-interact{flex:0 0 auto!important;width:auto!important;min-width:90px!important;max-width:140px!important;padding:8px!important;font-size:13px!important;min-height:46px!important}
+#walkRpgModule.v81-fullscreen > :not(.v410-world-wrap):not(.walk-rpg-controls):not(.wa-story-overlay):not(.v81-toolbar):not(.v410-near-dialog){display:none!important}
+#walkRpgModule.v81-fullscreen .wa-story-overlay{z-index:70!important}
+#walkRpgModule.v81-fullscreen .v410-near-dialog{z-index:65!important}
+#walkRpgModule .v81-toolbar{display:none}
+#walkRpgModule.v81-fullscreen .v81-toolbar{display:flex!important;position:absolute;right:max(10px,env(safe-area-inset-right));top:max(8px,env(safe-area-inset-top));z-index:80;gap:7px;align-items:center;pointer-events:auto}
+#walkRpgModule.v81-fullscreen .v81-toolbar button{border:2px solid #9CB6A5!important;background:#293F4B!important;color:#fff!important;padding:6px 10px!important;min-height:34px!important;font-size:13px!important;box-shadow:none!important}
+#walkRpgModule.v81-fullscreen .v410-near-dialog{max-width:46%!important}
+#walkRpgModule.v81-fullscreen .wa-story-overlay .wa-story-content{max-height:38vh!important;overflow:auto!important}
+/* Browser without orientation lock: rotate the whole game viewport, not the travel app. */
+@media (orientation:portrait){body.v81-playing.v81-rotate #walkRpgModule.v81-fullscreen{inset:auto!important;top:0!important;left:100vw!important;width:100dvh!important;height:100vw!important;transform-origin:top left!important;transform:rotate(90deg)!important}body.v81-playing.v81-rotate #walkRpgModule.v81-fullscreen .walk-rpg-pad{grid-template-columns:repeat(3,38px)!important;grid-template-rows:repeat(2,35px)!important}}
+</style>
 </head><body>
 <header><small>VIETNAM ADVENTURE · 2026</small><h1>🇻🇳 越南旅行日記</h1><p>北越六天五夜｜11/18（三）–11/23（一）</p></header><main>
 <div id="memoirPrintRoot" aria-hidden="true"></div>
@@ -2054,7 +2235,7 @@ const GPS_TARGETS={hanoi:{name:'河內',lat:21.0285,lon:105.8542,radius:2500},sa
 function distanceMeters(a,b,c,d){const R=6371000,rad=x=>x*Math.PI/180,dl=rad(c-a),dn=rad(d-b),v=Math.sin(dl/2)**2+Math.cos(rad(a))*Math.cos(rad(c))*Math.sin(dn/2)**2;return 2*R*Math.asin(Math.sqrt(v))}
 const CHECKIN_WATCH_STATE_KEY='vietnamCheckinWatchState_v1';
 let checkinWatchId=null,checkinLastAlerted={};
-function renderCheckinReminder(){const host=document.getElementById('checkinReminderList');if(!host)return;const saved=get(QUEST_KEY,{});const pending=RPG_DESTINATIONS.filter(q=>!saved[q.id]?.done);host.innerHTML=pending.length?`<div class="home-task-section"><div class="home-task-section-title"><b>🧭 尚未打卡的景點</b><small>${pending.length} 個待完成</small></div>${pending.map(q=>`<div class="row" style="align-items:center;justify-content:space-between"><span>${q.icon} ${escapeQuest(q.name)}</span><button type="button" class="secondary" onclick="showPage('adventureMap');openRpgLocation('${q.id}')">去打卡</button></div>`).join('')}</div>`:'<div class="notice">🎉 目前列出的景點都已完成打卡！如果只是忘記按，仍可進入地圖補登。 </div>';const btn=document.getElementById('checkinWatchButton');if(btn)btn.textContent=checkinWatchId===null?'🛰️ 開啟到達提醒':'⏸️ 關閉到達提醒'}
+function renderCheckinReminder(){const host=document.getElementById('checkinReminderList');if(!host)return;const saved=get(QUEST_KEY,{});const pending=RPG_DESTINATIONS.filter(q=>!saved[q.id]?.done);host.innerHTML=pending.length?`<div class="home-task-section v71-checkin-list"><div class="home-task-section-title"><b>🧭 尚未打卡的景點</b><small>${pending.length} 個待完成</small></div>${pending.map(q=>`<div class="v71-checkin-item"><span class="v71-checkin-name">${q.icon} ${escapeQuest(q.name)}</span><button type="button" class="v71-checkin-go" onclick="showPage('adventureMap');openRpgLocation('${q.id}')">去打卡</button></div>`).join('')}</div>`:'<div class="notice">🎉 目前列出的景點都已完成打卡！如果只是忘記按，仍可進入地圖補登。 </div>';const btn=document.getElementById('checkinWatchButton');if(btn)btn.textContent=checkinWatchId===null?'🛰️ 開啟到達提醒':'⏸️ 關閉到達提醒'}
 function toggleCheckinWatch(){if(checkinWatchId!==null){navigator.geolocation.clearWatch(checkinWatchId);checkinWatchId=null;const st=document.getElementById('checkinWatchStatus');if(st)st.textContent='到達提醒已關閉。';renderCheckinReminder();return}if(!navigator.geolocation){const st=document.getElementById('checkinWatchStatus');if(st)st.textContent='此瀏覽器不支援 GPS 定位，請使用景點清單手動打卡。';return}const st=document.getElementById('checkinWatchStatus');if(st)st.textContent='正在等待定位權限…請允許瀏覽器使用位置。';checkinWatchId=navigator.geolocation.watchPosition(pos=>{const {latitude:lat,longitude:lon,accuracy:acc}=pos.coords;const inNorthVietnam=lat>=20&&lat<=23.6&&lon>=102&&lon<=108.5;if(!inNorthVietnam){if(st)st.textContent='🧪 目前位置不在北越範圍，提醒保持測試／未確認狀態，不會自動打卡。';return}if(acc>3000){if(st)st.textContent=`定位精度約 ${Math.round(acc)} 公尺，尚不足以判斷接近目的地。`;return}const nearby=Object.entries(GPS_TARGETS).map(([id,t])=>({id,...t,distance:distanceMeters(lat,lon,t.lat,t.lon)})).filter(x=>x.distance<=x.radius).sort((a,b)=>a.distance-b.distance)[0];if(nearby){if(checkinLastAlerted[nearby.id])return;checkinLastAlerted[nearby.id]=true;if(st)st.textContent=`📍 你已接近「${nearby.name}」（約 ${Math.round(nearby.distance)} 公尺）。請點下面按鈕確認打卡；系統不會擅自替你完成打卡。`;const host=document.getElementById('checkinReminderList');if(host){const card=document.createElement('div');card.className='notice';card.innerHTML=`<b>🔔 到達提醒：${escapeQuest(nearby.name)}</b><p>你可能已抵達目的地。請確認現場位置後再打卡。</p><button type="button" class="action" onclick="showPage('adventureMap');openRpgLocation('${nearby.id}')">查看景點並打卡</button>`;host.prepend(card)}}else{if(st)st.textContent='🛰️ 到達提醒已開啟：目前尚未接近河內、沙壩或下龍灣的設定範圍。請保持網頁在前景。'}},err=>{checkinWatchId=null;const msg=err.code===1?'你未允許定位權限':err.code===2?'目前無法取得位置':'定位逾時';if(st)st.textContent=`⚠️ ${msg}。到達提醒未啟動，仍可使用景點清單手動打卡。`;renderCheckinReminder()},{enableHighAccuracy:true,maximumAge:10000,timeout:20000});renderCheckinReminder()}
 function renderTreasureRewards(){const host=document.getElementById('treasureRewardGrid');if(!host)return;const rewards=squadGet(LOCATION_REWARD_KEY,{});const found=LOCATION_LOOT.filter(x=>rewards[x.id]?.found);const summary=document.getElementById('treasureRewardSummary');if(summary)summary.textContent=`已發現 ${found.length} / ${LOCATION_LOOT.length} 種景點專屬寶藏。未發現的寶藏會保持神祕，完成對應景點打卡後有機會獲得。`;host.innerHTML=LOCATION_LOOT.map(x=>{const got=!!rewards[x.id]?.found;return `<div class="loot-codex-item ${got?'found':'locked'}"><span class="codex-icon">${got?x.icon:'❔'}</span><b>${got?escapeQuest(x.name):'？？？ 未發現'}</b><small>${got?escapeQuest(x.note):'完成「'+escapeQuest(x.place)+'」景點打卡，有機會獲得'}</small><small class="codex-status">${got?'✅ 已獲得':'🔒 尚未發現'}</small></div>`}).join('');}
 
@@ -3802,6 +3983,22 @@ body.world-mode:not(:has(#worldApp[hidden])) #worldToggle{display:none!important
 <style id="world-v1-style">
 #worldToggle{position:fixed;top:12px;right:12px;z-index:2147483500;border:3px solid #f2c35e!important;background:#254f38!important;color:#fff7d8!important;padding:10px 13px!important;font-size:14px!important;box-shadow:3px 3px 0 #302017!important;max-width:48vw}
 #worldApp{position:relative;z-index:2147483400;min-height:100vh;background:linear-gradient(#8bc4db,#c8dfad 200px,#e9d8a3);color:#302315;font-family:system-ui,'Noto Sans TC',sans-serif;padding:18px 12px 100px}#worldApp[hidden]{display:none!important}body.world-mode>main,body.world-mode>.reference-splash,body.world-mode>nav,body.world-mode>#categoryMenu,body.world-mode>#categoryMenuBackdrop{display:none!important}body.world-mode{background:#e9d8a3!important}#worldApp .world-shell{max-width:900px;margin:auto}#worldApp .world-head{padding:22px 18px;background:#46321f;color:#fff0b5;border:4px solid #e1b45d;box-shadow:5px 5px #2b2119;margin-bottom:16px}#worldApp h1{margin:4px 0;font-size:clamp(24px,5vw,34px)}#worldApp h2{font-size:21px;margin:8px 0 14px}#worldApp h3{font-size:17px;margin:8px 0}#worldApp .world-card{background:#fff1c8;border:3px solid #76502b;padding:15px;margin:12px 0;box-shadow:4px 4px #5b4029}#worldApp .world-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}#worldApp button{font-family:inherit!important;font-size:15px!important;min-height:43px!important;padding:9px 12px!important;background:#3d764a!important;color:#fff8dc!important;border:2px solid #2d4a31!important;border-radius:3px!important;box-shadow:2px 2px #35251b!important;cursor:pointer}#worldApp button.alt{background:#eed28b!important;color:#392716!important;border-color:#825a32!important}#worldApp button:disabled{opacity:.45}#worldApp input,#worldApp textarea,#worldApp select{font-family:inherit!important;width:100%;border:2px solid #97713f!important;background:#fff9e8!important;color:#302315!important;border-radius:3px!important;margin:5px 0 12px!important;padding:10px!important;box-shadow:none!important;font-size:16px!important}#worldApp label{font-size:14px!important;color:#513d25!important}#worldApp .world-actions{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}#worldApp .world-actions button{flex:1}#worldApp .world-muted{color:#68583f;font-size:13px}#worldApp .world-stat{display:flex;justify-content:space-between;gap:8px;border-bottom:1px dashed #c1a16b;padding:9px 0}#worldApp .world-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}#worldApp .world-tabs button{flex:1;min-width:100px}#worldApp .world-tabs button.selected{background:#b7772e!important}#worldApp .world-scene{display:block;width:100%;max-width:680px;aspect-ratio:16/10;background:#7dbb73;border:4px solid #62452a;image-rendering:pixelated;touch-action:none}#worldApp .world-controls{display:grid;grid-template-columns:repeat(3,54px);gap:5px;width:max-content;margin:10px auto}#worldApp .world-controls button{min-height:48px!important}#worldApp .world-controls .empty{visibility:hidden}#worldApp .world-quest{padding:10px;border:2px solid #b18a4e;background:#fff8dd;margin:8px 0}#worldApp .world-quest.done{background:#dbeac1}#worldApp .world-notice{padding:10px;background:#fff6df;border-left:5px solid #b67e36;font-size:14px}#worldApp .world-pill{display:inline-block;background:#dceabf;border:1px solid #759050;padding:3px 8px;font-size:12px;margin:2px}#worldApp .world-formrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px}#worldApp [hidden]{display:none!important}@media(max-width:420px){#worldToggle{top:5px;right:5px;font-size:12px!important;padding:7px!important}#worldApp{padding:12px 8px 95px}#worldApp .world-card{padding:11px}}
+
+/* V7.3 世界總部選擇冒險世界：明確高對比，僅影響世界總部 */
+#worldApp{background:linear-gradient(155deg,#D6E2E5,#DDE1DC 55%,#CAD8D6)!important;color:#293F4B!important}
+#worldApp .world-head{background:#293F4B!important;color:#F5F5F1!important;border-color:#789BAA!important}
+#worldApp .world-head h1,#worldApp .world-head small,#worldApp #worldSubtitle{color:#F5F5F1!important;text-shadow:none!important}
+#worldApp .world-card{background:#E8EDEA!important;color:#293F4B!important;border:2px solid #9AAEB4!important;box-shadow:3px 3px 0 #A5B3B4!important}
+#worldApp .world-card h2,#worldApp .world-card h3{color:#293F4B!important;text-shadow:none!important}
+#worldApp .world-muted,#worldApp .world-card .world-muted{color:#455D66!important}
+#worldApp .world-notice{background:#D2E2E8!important;color:#293F4B!important;border-left:5px solid #789BAA!important}
+#worldApp .world-grid>.world-card{background:#D5E3E6!important;border-color:#8CA7B0!important}
+#worldApp .world-grid>.world-card h3{color:#293F4B!important}
+#worldApp .world-actions button,#worldApp button[data-act="open"]{background:#385F6B!important;color:#F5F5F1!important;border-color:#293F4B!important;text-shadow:none!important}
+#worldApp .world-actions button.alt{background:#D4E8D9!important;color:#294E3D!important;border-color:#719B84!important}
+#worldApp input,#worldApp select,#worldApp textarea{background:#F1F2EF!important;color:#293F4B!important;border-color:#789BAA!important}
+#worldApp label{color:#293F4B!important}
+#worldApp .world-card .world-card{background:#D5E3E6!important}
 </style>
 <button id="worldToggle" type="button" onclick="WorldDiary.toggle()">🌍 世界旅行總部</button>
 <div id="worldApp" hidden><div class="world-shell"><header class="world-head" style="display:block!important"><small>WORLD ADVENTURE DIARY · V5.0 · FREE OFFLINE RPG</small><h1>🌍 世界冒險日記</h1><div id="worldSubtitle">一個 APP，無數個冒險世界</div></header><div id="worldContent"></div></div></div>
@@ -3950,7 +4147,132 @@ window.WorldStudio={render};
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',expenseSyncRepair);
   else expenseSyncRepair();
 })();
-</script></body></html>
+</script><script id="v70-visual-only-finance-classification">
+/* Visual-only badges for generated finance rows; never reads/writes storage or amounts. */
+(function(){'use strict';
+ const root=document.getElementById('expenses');if(!root)return;
+ const classes=['v70-finance-expense','v70-finance-income','v70-finance-refund','v70-finance-pending','v70-finance-fund'];
+ function paint(){
+  const nodes=root.querySelectorAll('#expenseList .expense,#expenseList article,#vfFundHistory > div,#vfFundHistory > article,#vfSettlementResult > div,.vf-summary > div');
+  nodes.forEach(el=>{
+   const text=(el.textContent||'').replace(/\s+/g,' ').slice(0,220);
+   let cl='';
+   if(/退款|退還|退回/.test(text))cl='v70-finance-refund';
+   else if(/待償還|待還|未償還|墊付|墊款/.test(text))cl='v70-finance-pending';
+   else if(/存入公積金|公積金存入|公積金餘額/.test(text))cl='v70-finance-fund';
+   else if(/收入|入帳|收款/.test(text))cl='v70-finance-income';
+   else if(el.closest('#expenseList')||/支出|消費|付款/.test(text))cl='v70-finance-expense';
+   const current=classes.find(c=>el.classList.contains(c));
+   if(current!==cl){classes.forEach(c=>el.classList.remove(c));if(cl)el.classList.add(cl)}
+  });
+ }
+ let scheduled=false;
+ const obs=new MutationObserver(()=>{if(scheduled)return;scheduled=true;requestAnimationFrame(()=>{scheduled=false;paint()})});
+ obs.observe(root,{childList:true,subtree:true,characterData:true});paint();
+})();
+</script>
+
+<style id="v75-mobile-compact-dialog-style">
+/* V7.5: mobile-first single-panel dialogue; keep original quest engine and storage intact */
+#walkRpgModule .wa-story-overlay{bottom:4px;left:6px;right:6px;z-index:40}
+#walkRpgModule .wa-story-head{padding:5px 9px!important;min-height:34px!important;font-size:12px!important;line-height:1.3!important;background:#293F4B!important;color:#F5F5F1!important}
+#walkRpgModule .wa-story-head button{min-height:28px!important;padding:3px 8px!important;font-size:12px!important}
+#walkRpgModule .wa-story-content{max-height:174px!important;overflow-y:auto!important;background:#E8EEEC!important;scrollbar-width:thin}
+#walkRpgModule .wa-story-overlay:not(.collapsed) .wa-story-content{display:block!important}
+#walkRpgModule .wa-story-overlay .cc-note,#walkRpgModule .wa-story-overlay .cc-progress,#walkRpgModule .wa-story-overlay #cultureChapter>.cc-row,#walkRpgModule .wa-story-overlay #cultureChapter>.cc-card:nth-of-type(2),#walkRpgModule .wa-story-overlay #cultureChapter>p{display:none!important}
+#walkRpgModule .wa-story-overlay #cultureChapter{padding:5px 8px!important;margin:0!important;background:#E8EEEC!important}
+#walkRpgModule .wa-story-overlay #cultureChapter .cc-card{padding:6px 8px!important;margin:2px 0!important;border:0!important;background:transparent!important}
+#walkRpgModule .wa-story-overlay #cultureChapter h4{font-size:14px!important;margin:0 0 3px!important;color:#293F4B!important}
+#walkRpgModule .wa-story-overlay #cultureChapter .cc-dialog{padding:6px 8px!important;margin:3px 0!important;font-size:14px!important;line-height:1.45!important;background:#D5E3E6!important;color:#293F4B!important}
+#walkRpgModule .wa-story-overlay #cultureChapter p{margin:3px 0!important;font-size:13px!important;line-height:1.4!important;color:#293F4B!important}
+#walkRpgModule .wa-story-overlay #cultureChapter button{font-size:13px!important;line-height:1.25!important;min-height:34px!important;padding:5px 9px!important;margin:3px 0!important;box-shadow:none!important}
+#walkRpgModule .wa-story-overlay #cultureChapter .cc-choice{display:block;width:100%;text-align:left}
+#walkRpgModule .wa-story-overlay .cc-tag{font-size:10px!important;padding:1px 5px!important}
+#walkRpgModule .wa-story-overlay #cultureChapter #ccFeedback{font-size:12px!important}
+#walkRpgModule .wa-story-overlay .cc-success{padding:5px!important;font-size:13px!important}
+#walkRpgModule .wa-story-overlay .wa-mini-next{display:block!important;width:100%;min-height:32px!important;background:#9CB6A5!important;color:#293F4B!important;border:1px solid #527581!important;font-size:13px!important;padding:5px!important;margin-top:4px!important}
+@media(max-width:480px){
+ #walkRpgModule .wa-story-content{max-height:min(160px,29vh)!important}
+ #walkRpgModule .wa-game-stage #walkRpgCanvas{max-height:53vh!important}
+ #walkRpgModule .wa-story-head{font-size:11px!important}
+ #walkRpgModule .wa-story-overlay #cultureChapter .cc-dialog{font-size:13px!important}
+ #walkRpgModule .walk-rpg-controls button{min-height:44px!important;touch-action:manipulation}
+}
+@media(max-height:650px){#walkRpgModule .wa-story-content{max-height:125px!important}}
+#walkRpgModule .wa-story-overlay #cultureChapter .cc-choice{display:block;width:100%;text-align:left;white-space:normal;overflow-wrap:anywhere;min-height:40px!important;margin:5px 0!important}
+#walkRpgModule .wa-story-content{overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+</style>
+<script id="v75-mobile-compact-dialog-script">
+(()=>{'use strict';
+function init(){
+ const dock=document.getElementById('waStoryOverlay');if(!dock)return;
+ const panel=document.getElementById('cultureChapter');if(!panel)return;
+ const title=dock.querySelector('.wa-story-head span');
+ const toggle=dock.querySelector('#waStoryToggle');
+ // Each dialogue step is shown in the same compact box; the original task buttons still handle completion.
+ let currentKey='',step=0,refreshing=false;
+ function refresh(){
+  if(refreshing)return;refreshing=true;
+  try{
+   const card=panel.querySelector('.cc-card');if(!card)return;
+   const intro=card.querySelector('.cc-dialog');
+   const question=[...card.querySelectorAll('p')].find(el=>el.textContent.includes('線索問題'));
+   const choices=[...card.querySelectorAll('[data-cc-answer]')];
+   const start=card.querySelector('#ccStart');
+   const success=card.querySelector('.cc-success');
+   const key=[card.querySelector('h4')?.textContent||'',!!start,!!success,choices.length].join('|');
+   if(key!==currentKey){currentKey=key;step=0;}
+   let next=card.querySelector('.wa-mini-next');if(next)next.remove();
+   if(intro)intro.style.display=step===0?'':'none';
+   if(question)question.style.display=step===1?'':'none';
+   if(start)start.style.display=step===1?'':'none';
+   choices.forEach(b=>{b.style.display=step>=2?'block':'none'});
+   if(success){success.style.display='';step=0;}
+   else if(!choices.length && !start){if(intro)intro.style.display='';}
+   const max=choices.length?2:start?1:0;
+   if(!success && step<max){
+    next=document.createElement('button');next.type='button';next.className='wa-mini-next';
+    next.textContent=step===0?'下一句 ▸':'查看全部選項 ▸';
+    next.addEventListener('click',()=>{step++;refresh();dock.querySelector('.wa-story-content').scrollTop=0});
+    card.appendChild(next);
+   }
+   if(title && !dock.classList.contains('collapsed'))title.textContent='💬 '+(card.querySelector('h4')?.textContent||'河內文化故事');
+  }finally{refreshing=false;}
+ }
+ const observer=new MutationObserver(()=>{if(!refreshing)queueMicrotask(refresh)});
+ observer.observe(panel,{childList:true,subtree:false});
+ window.addEventListener('wa-culture-open',()=>{currentKey='';step=0;setTimeout(refresh,0)});
+ toggle?.addEventListener('click',()=>{if(!dock.classList.contains('collapsed'))refresh()});
+ refresh();
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(init,0));else setTimeout(init,0);
+})();
+</script>
+
+
+<script id="v81-landscape-rpg-script">
+(()=>{'use strict';
+const id='walkRpgModule';let active=false,originalParent=null,nextSibling=null;
+function module(){return document.getElementById(id)}
+function toolbar(){const m=module();if(!m)return;let bar=m.querySelector('.v81-toolbar');if(bar)return;bar=document.createElement('div');bar.className='v81-toolbar';bar.innerHTML='<button type="button" id="v81-exit">✕ 離開 RPG</button>';m.appendChild(bar);bar.querySelector('button').addEventListener('click',exit)}
+async function enter(){const m=module();if(!m||active)return;toolbar();active=true;originalParent=m.parentNode;nextSibling=m.nextSibling;document.body.appendChild(m);m.classList.add('v81-fullscreen');document.body.classList.add('v81-playing');document.body.classList.remove('v81-rotate');
+try{if(m.requestFullscreen)await m.requestFullscreen({navigationUI:'hide'})}catch(e){console.info('瀏覽器不支援全螢幕，改用網頁滿版',e)}
+try{if(screen.orientation&&screen.orientation.lock)await screen.orientation.lock('landscape')}catch(e){console.info('瀏覽器不支援鎖定橫向，啟用畫面旋轉備援',e)}
+if(matchMedia('(orientation:portrait)').matches)document.body.classList.add('v81-rotate');
+window.dispatchEvent(new Event('resize'))}
+async function exit(){if(!active)return;active=false;if(document.fullscreenElement){try{await document.exitFullscreen()}catch(e){}}try{screen.orientation?.unlock?.()}catch(e){}
+const m=module();if(m&&originalParent){if(nextSibling&&nextSibling.parentNode===originalParent)originalParent.insertBefore(m,nextSibling);else originalParent.appendChild(m);m.classList.remove('v81-fullscreen')}
+document.body.classList.remove('v81-playing','v81-rotate');window.dispatchEvent(new Event('resize'))}
+document.addEventListener('fullscreenchange',()=>{if(active&&!document.fullscreenElement){/* Keep CSS full-screen as a graceful fallback */}});
+window.addEventListener('orientationchange',()=>{if(active)document.body.classList.toggle('v81-rotate',matchMedia('(orientation:portrait)').matches)});
+function bind(){toolbar();const m=module();if(!m)return;let btn=document.getElementById('v81-enter');if(!btn){btn=document.createElement('button');btn.type='button';btn.id='v81-enter';btn.className='action';btn.textContent='⛶ 橫向全螢幕遊玩';btn.style.cssText='display:block;margin:8px 0 12px;width:100%;min-height:48px';m.parentNode.insertBefore(btn,m)}btn.addEventListener('click',enter);
+// Opening the RPG page remains safe; user gesture is required for orientation/fullscreen APIs.
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind);else bind();
+window.v81EnterRpg=enter;window.v81ExitRpg=exit;
+})();
+</script>
+</body></html>
 <style id="six-item-bottom-navigation-fix">
 /* 功能總覽納入底部導覽，形成六個等寬入口；取消原本浮動按鈕定位 */
 nav.rpg-bottom-menu{display:flex!important;gap:2px!important;justify-content:space-around!important;overflow:visible!important;padding-left:5px!important;padding-right:5px!important}
@@ -4069,18 +4391,18 @@ state.worldChests=state.worldChests&&typeof state.worldChests==='object'?state.w
 state.worldHidden=state.worldHidden&&typeof state.worldHidden==='object'?state.worldHidden:{};
 state.worldQuest=state.worldQuest&&typeof state.worldQuest==='object'?state.worldQuest:{};
 state.worldFlags=state.worldFlags&&typeof state.worldFlags==='object'?state.worldFlags:{};
-let player={x:85,y:350,face:'down',walking:false,step:0};
+let player={x:345,y:335,face:'down',walking:false,step:0};
 const held=new Set(); let raf=0,last=0,nearDialog=null,distanceSinceSave=0,transitionLockUntil=0;
 let worldLog='世界已載入。使用方向鍵／WASD 或手機方向按鈕移動，靠近人物與物件後按 E 互動。';
 const sceneBase=id=>id.startsWith('hanoi')?'hanoi':id.startsWith('sapa')?'sapa':'halong';
 const scenes={
- hanoi:{name:'河內古城',kind:'outdoor',sky:'#91d5e6',ground:'#85b96a',npc:[{id:'guide',x:190,y:205,name:'阿明・古城嚮導',icon:'🧑🏻‍🌾',line:'歡迎來到河內老城！先去巷口找回導覽手冊，再回來領取獎勵。',quest:'guidebook',questName:'古城導覽手冊',questHint:'採集巷口的紙卷，找回導覽手冊。'} ,{id:'vendor',x:545,y:255,name:'玲玲・街市商人',icon:'👩🏻‍🍳',line:'來看看吧！旅人補給、河粉能量包都準備好了。',shop:true}],
- buildings:[{id:'hanoi_shop',x:430,y:145,w:78,h:58,label:'街市商店',icon:'🏪'},{id:'hanoi_inn',x:550,y:145,w:78,h:58,label:'還劍湖旅店',icon:'🏨'},{id:'hanoi_guild',x:80,y:155,w:82,h:60,label:'冒險者公會',icon:'🏛️'}],
- nodes:[{id:'hn-herb-1',x:285,y:300,kind:'mountain-herb',name:'街角香草',icon:'🌿'},{id:'hn-paper',x:340,y:170,kind:'quest-guidebook',name:'遺失的導覽手冊',icon:'📜'},{id:'hn-wood',x:640,y:350,kind:'slime-gel',name:'樹下黏液素材',icon:'🟢'}],
- chest:{id:'hn-chest',x:650,y:220},hidden:{id:'hn-secret',x:325,y:375,name:'老街屋頂下的秘密明信片',icon:'💌'},exits:[{x:700,y:360,to:'sapa',spawn:{x:58,y:360},label:'沙壩山路'}]},
- hanoi_shop:{name:'河內街市商店',kind:'interior',parent:'hanoi',npc:[{id:'shopkeeper',x:365,y:225,name:'玲玲・商店老闆',icon:'👩🏻‍🍳',line:'補給品、旅途點心，還有探險小物！',shop:true}],nodes:[{id:'shop-box',x:160,y:320,kind:'sea-shell',name:'展示櫃旁素材',icon:'🐚'}],doors:[{x:360,y:385,to:'hanoi',spawn:{x:470,y:220},label:'返回街道'}]},
- hanoi_inn:{name:'還劍湖旅店',kind:'interior',parent:'hanoi',npc:[{id:'innkeeper',x:365,y:220,name:'秋・旅店主人',icon:'🧑🏻‍🍳',line:'歡迎入住！休息一下，恢復體力再出發。',inn:true}],doors:[{x:360,y:385,to:'hanoi',spawn:{x:590,y:220},label:'返回街道'}]},
- hanoi_guild:{name:'冒險者公會',kind:'interior',parent:'hanoi',npc:[{id:'guildmaster',x:365,y:210,name:'公會會長・陳',icon:'🧙🏻',line:'公會記錄著北越各地的委託。完成各區探索任務，累積你的冒險聲望。',guild:true}],doors:[{x:360,y:385,to:'hanoi',spawn:{x:120,y:230},label:'返回街道'}]},
+ hanoi:{name:'河內古城',kind:'outdoor',sky:'#91d5e6',ground:'#85b96a',npc:[{id:'guide',x:105,y:250,name:'阿明・古城嚮導',icon:'🧑🏻‍🌾',line:'歡迎來到河內老城！先去巷口找回導覽手冊，再回來領取獎勵。',quest:'guidebook',questName:'古城導覽手冊',questHint:'採集巷口的紙卷，找回導覽手冊。'} ,{id:'culture-silver',x:185,y:155,name:'阿銀・老街工藝師',icon:'🧑🏻‍🎨',line:'銀街的故事藏在西南街市的老招牌裡。',cultureTask:0},{id:'culture-lake',x:575,y:315,name:'阿蓮・湖畔說書人',icon:'👩🏻',line:'來到東南側湖畔，聽我說還劍湖的神劍傳說。',cultureTask:1},{id:'vendor',x:350,y:270,name:'玲玲・街市商人',icon:'👩🏻‍🍳',line:'來看看吧！旅人補給、河粉能量包都準備好了。',shop:true}],
+ buildings:[{id:'hanoi_shop',x:465,y:115,w:78,h:58,label:'街市商店',icon:'🏪'},{id:'hanoi_inn',x:615,y:110,w:78,h:58,label:'還劍湖旅店',icon:'🏨'},{id:'hanoi_guild',x:55,y:110,w:82,h:60,label:'冒險者公會',icon:'🏛️'}],
+ nodes:[{id:'hn-herb-1',x:250,y:235,kind:'mountain-herb',name:'街角香草',icon:'🌿'},{id:'hn-paper',x:95,y:315,kind:'quest-guidebook',name:'遺失的導覽手冊',icon:'📜'},{id:'hn-wood',x:650,y:325,kind:'slime-gel',name:'樹下黏液素材',icon:'🟢'},{id:'hn-silver-sign',x:195,y:320,kind:'culture-clue-silver',name:'銀街老招牌',icon:'🪧'},{id:'hn-lake-stone',x:625,y:355,kind:'culture-clue-lake',name:'湖畔神龜石刻',icon:'🐢'}],
+ chest:{id:'hn-chest',x:650,y:245},hidden:{id:'hn-secret',x:350,y:375,name:'老街屋頂下的秘密明信片',icon:'💌'},exits:[{x:700,y:360,to:'sapa',spawn:{x:58,y:360},label:'沙壩山路'}]},
+ hanoi_shop:{name:'河內街市商店',kind:'interior',parent:'hanoi',npc:[{id:'culture-coffee',x:205,y:215,name:'阿芳・咖啡師',icon:'☕',line:'一起認識河內的蛋咖啡。',cultureTask:2},{id:'shopkeeper',x:365,y:225,name:'玲玲・商店老闆',icon:'👩🏻‍🍳',line:'補給品、旅途點心，還有探險小物！',shop:true}],nodes:[{id:'shop-box',x:160,y:320,kind:'sea-shell',name:'展示櫃旁素材',icon:'🐚'},{id:'hn-coffee-recipe',x:520,y:305,kind:'culture-clue-coffee',name:'蛋咖啡配方卡',icon:'📋'}],doors:[{x:360,y:385,to:'hanoi',spawn:{x:510,y:225},label:'返回街道'}]},
+ hanoi_inn:{name:'還劍湖旅店',kind:'interior',parent:'hanoi',npc:[{id:'innkeeper',x:365,y:220,name:'秋・旅店主人',icon:'🧑🏻‍🍳',line:'歡迎入住！休息一下，恢復體力再出發。',inn:true}],doors:[{x:360,y:385,to:'hanoi',spawn:{x:655,y:220},label:'返回街道'}]},
+ hanoi_guild:{name:'冒險者公會',kind:'interior',parent:'hanoi',npc:[{id:'guildmaster',x:365,y:210,name:'公會會長・陳',icon:'🧙🏻',line:'公會記錄著北越各地的委託。完成各區探索任務，累積你的冒險聲望。',guild:true}],doors:[{x:360,y:385,to:'hanoi',spawn:{x:100,y:225},label:'返回街道'}]},
  sapa:{name:'沙壩梯田村',kind:'outdoor',sky:'#b7dbe8',ground:'#83b875',npc:[{id:'elder',x:170,y:210,name:'阿桃・山村長者',icon:'👵🏻',line:'山霧裡有珍貴藥草。幫我找回藥草包，再回村口交給我。',quest:'herb-pouch',questName:'山村藥草包',questHint:'在梯田採集發光藥草。'},{id:'craftsman',x:560,y:250,name:'小林・山村工匠',icon:'🧑🏻‍🔧',line:'收集素材後來找我，可以打造更好的裝備。',forge:true}],
  buildings:[{id:'sapa_inn',x:420,y:140,w:82,h:60,label:'雲霧山屋',icon:'🏡'},{id:'sapa_forge',x:565,y:140,w:82,h:60,label:'山村鐵匠舖',icon:'⚒️'}],
  nodes:[{id:'sp-herb',x:300,y:300,kind:'mountain-herb',name:'霧林藥草',icon:'🌿'},{id:'sp-gel',x:80,y:315,kind:'slime-gel',name:'山徑黏液',icon:'🟢'},{id:'sp-ore',x:650,y:350,kind:'sea-shell',name:'山壁礦石',icon:'⛏️'}],
@@ -4142,23 +4464,45 @@ function showQuestBoard(){
 function enterScene(id,spawn){
  if(!scenes[id])return;
  save();state.worldScene=id;state.area=sceneBase(id);transitionLockUntil=performance.now()+900;
- const old=state.worldPlayers[id];player={x:spawn?.x??old?.x??85,y:spawn?.y??old?.y??350,face:spawn?.face||old?.face||'down',walking:false,step:0};
+ const old=state.worldPlayers[id];player={x:spawn?.x??old?.x??345,y:spawn?.y??old?.y??335,face:spawn?.face||old?.face||'down',walking:false,step:0};
  hideNear();setLog('🚪 進入「'+scenes[id].name+'」。每個場景的探索紀錄都會自動保存。');save();renderStatus();draw();
 }
 function rect(x,y,w,h,c){ctx.fillStyle=c;ctx.fillRect(Math.round(x),Math.round(y),Math.round(w),Math.round(h))}
 function tree(x,y){rect(x+7,y+17,8,22,'#754a2a');rect(x,y,24,23,'#2e7041');rect(x+4,y-7,18,19,'#4a984e');rect(x+7,y-3,5,5,'#c5df83')}
 function building(b){rect(b.x-4,b.y-6,b.w+8,13,'#714326');rect(b.x,b.y,b.w,b.h,'#e8c47c');rect(b.x+7,b.y+9,b.w-14,12,'#83c8d3');rect(b.x+b.w/2-9,b.y+b.h-24,18,24,'#714326');rect(b.x-7,b.y-9,b.w+14,5,'#f5d778');ctx.fillStyle='#382518';ctx.font='bold 10px monospace';ctx.textAlign='center';ctx.fillText(b.label,b.x+b.w/2,b.y-15)}
 function person(x,y,color='#d86e4b',walking=false,step=0){const sw=walking?Math.round(Math.sin(step)*2):0;rect(x-8+sw,y-13,5,13,'#684329');rect(x+3-sw,y-13,5,13,'#684329');rect(x-10,y-32,20,20,color);rect(x-7,y-43,14,12,'#efbd8d');rect(x-11,y-47,22,6,'#49301d');rect(x-5,y-37,3,3,'#34251c');rect(x+3,y-37,3,3,'#34251c')}
+// V8.0：純視覺路人，沿固定區域緩慢往返，不寫入存檔、不阻擋主角。
+const ambientHanoi=[{x:270,y:165,range:30,speed:.00045,phase:0,color:'#b55f68'},{x:425,y:225,range:42,speed:.00035,phase:1.7,color:'#6b78a3'},{x:90,y:365,range:25,speed:.0005,phase:2.8,color:'#b58b48'}];
+function drawAmbient(){if(sceneId()!=='hanoi')return;const now=performance.now();for(const a of ambientHanoi){const x=a.x+Math.sin(now*a.speed+a.phase)*a.range;person(x,a.y,a.color,true,now*.008);ctx.font='10px sans-serif';ctx.fillStyle='#293F4B';ctx.textAlign='center';ctx.fillText('路人',x,a.y-53)}}
 function drawScene(){
  const sid=sceneId(),sc=scenes[sid],base=sceneBase(sid);
  if(sc.kind==='outdoor'){
   rect(0,0,W,H,sc.sky);rect(0,80,W,H-80,sc.ground);
   for(let i=0;i<18;i++){let x=(i*97+21)%W,y=105+(i*59)%280;rect(x,y,17,5,'#b4d77b');rect(x+5,y+5,6,4,'#6d9e54')}
   rect(0,350,W,48,'#d5b77b');rect(0,355,W,4,'#a78550');rect(0,395,W,25,'#5d9c5d');
-  if(base==='hanoi'){rect(0,85,150,90,'#5aaabe');rect(0,170,150,7,'#dce7be');tree(240,115);tree(320,275);tree(675,115)}
+  if(base==='hanoi'){
+   // V7.9 四區分散式街區：銀器工坊／咖啡商店／街市／還劍湖。
+   // 所有裝飾只繪製，不建立新碰撞，確保手機方向鍵可以通行。
+   rect(0,182,720,30,'#e4c89a');rect(320,80,32,340,'#e4c89a');
+   rect(15,92,255,8,'#b28c5e');rect(15,100,255,7,'#e8d7b4');
+   rect(425,92,270,8,'#b28c5e');
+   rect(26,280,235,8,'#b28c5e');
+   rect(500,252,180,142,'#b8d4bd');
+   rect(510,262,155,120,'#71b6c6');rect(520,272,135,100,'#85c9d5');
+   rect(535,287,26,10,'#a3e0df');rect(608,345,26,10,'#a3e0df');
+   tree(275,105);tree(275,305);tree(440,285);tree(670,295);
+   ctx.textAlign='center';ctx.font='bold 11px monospace';ctx.fillStyle='#293F4B';
+   ctx.fillText('銀街工藝區',195,89);ctx.fillText('咖啡生活區',485,89);
+   ctx.fillText('老街市集',115,280);ctx.fillText('還劍湖畔',585,246);
+   rect(125,117,50,9,'#82573d');rect(131,124,38,13,'#d7a65c');
+   rect(25,300,38,24,'#bd8757');rect(29,303,30,7,'#f0d58a');
+   rect(380,290,36,23,'#b67e4b');rect(384,293,28,7,'#eacb79');
+   rect(550,285,18,9,'#c5b48d');
+  }
   if(base==='sapa'){for(let i=0;i<5;i++){rect(310+i*34,95+i*36,230-i*25,8,'#d8c78a');rect(310+i*34,103+i*36,230-i*25,5,'#6b9e52')}tree(80,130);tree(690,130)}
   if(base==='halong'){rect(500,80,220,340,'#58b3cd');for(let y=100;y<415;y+=27)rect(505,y,210,2,'#a5e2e7');rect(465,245,185,20,'#8b5a32');tree(90,125)}
   (sc.buildings||[]).forEach(building);
+  drawAmbient();
   (sc.npc||[]).forEach(n=>{person(n.x,n.y);ctx.fillStyle='#3c2a1b';ctx.font='bold 11px monospace';ctx.textAlign='center';ctx.fillText(n.name,n.x,n.y-55)});
   (sc.nodes||[]).forEach(n=>{if(state.worldGathered[n.id])return;ctx.font='24px monospace';ctx.textAlign='center';ctx.fillText(n.icon,n.x,n.y);ctx.font='10px monospace';ctx.fillStyle='#3b2b1b';ctx.fillText('採集',n.x,n.y+15)});
   if(sc.chest&&!state.worldChests[sc.chest.id]){rect(sc.chest.x-17,sc.chest.y-12,34,24,'#925326');rect(sc.chest.x-14,sc.chest.y-8,28,7,'#e9bb4f');rect(sc.chest.x-3,sc.chest.y-7,6,14,'#59351d');ctx.fillStyle='#fff1a1';ctx.font='17px monospace';ctx.fillText('✦',sc.chest.x,sc.chest.y-18)}
@@ -4206,6 +4550,16 @@ function interact(){
  const target=nearTarget();if(!target){setLog('再靠近 NPC、建築門口、素材、寶箱或閃光祕境後按 E。');hideNear();return}
  const {type,data}=target;
  if(type==='npc'){
+  if(Number.isInteger(data.cultureTask)){
+   if(data.cultureTask===0&&!state.worldGathered['hn-silver-sign']){
+    showNear(data.name,'🪧 銀街的老招牌藏有線索。請往東走，在街角調查招牌，再回來找我。',[{label:'開始尋找',run:hideNear}],data.x,data.y);return;
+   }
+   const clueId=data.cultureTask===1?'hn-lake-stone':data.cultureTask===2?'hn-coffee-recipe':null;
+   if(clueId&&!state.worldGathered[clueId]){
+    const hint=data.cultureTask===1?'沿湖畔找找神龜石刻，調查後再來聽故事。':'先到咖啡館展示區尋找蛋咖啡配方卡，調查材料後再回來。';
+    showNear(data.name,hint,[{label:'開始探索',run:hideNear}],data.x,data.y);return;
+   }
+   window.dispatchEvent(new CustomEvent('wa-culture-npc',{detail:{task:data.cultureTask,npc:data.name}}));return}
   if(data.quest){questTalk(data);return}
   if(data.shop){showNear(data.name,'街市補給：使用既有 RPG 金幣購買道具。',[{label:'河粉能量包 12G',run:()=>purchase('pho',12,'🍜','河粉能量包','恢復 20 HP','consumable')},{label:'草本藥水 20G',run:()=>purchase('potion',20,'🧪','草本補給藥水','恢復 35 HP','consumable')},{label:'離開',run:hideNear}],data.x,data.y);return}
   if(data.inn){restAtInn(data);return}
@@ -4216,6 +4570,18 @@ function interact(){
  if(type==='building'){const b=data;showNear(b.label,'要進入建築內部探索嗎？',[{label:'進入',run:()=>enterScene(b.id,{x:360,y:350})},{label:'稍後',run:hideNear}],b.x+b.w/2,b.y+b.h);return}
  if(type==='exit'){enterScene(data.to,data.spawn);return}
  if(type==='node'){
+  if(data.kind==='culture-clue-silver'){
+   state.worldGathered[data.id]=true;save();
+   setLog('🔎 找到銀街老招牌！上面寫著 Hàng Bạc，旁邊刻有銀飾圖樣。回去找阿銀解開文化委託。');
+   showNear('🪧 銀街老招牌','你發現招牌上的 Hàng Bạc 字樣，以及銀飾與金屬工藝圖樣。這是阿銀委託的重要線索。',[{label:'收下線索',run:hideNear}],data.x,data.y);
+   renderStatus();draw();return;
+  }
+  if(data.kind==='culture-clue-lake'||data.kind==='culture-clue-coffee'){
+   state.worldGathered[data.id]=true;save();
+   const lake=data.kind==='culture-clue-lake';
+   showNear(lake?'🐢 神龜石刻':'☕ 蛋咖啡配方卡',lake?'石刻提到神龜與歸還神劍的傳說。回去找阿蓮，聽她說完整故事。':'卡片上畫著咖啡、蛋黃與糖，還標記了打發的泡沫。回去找阿芳，完成飲食文化委託。',[{label:'記住線索',run:hideNear}],data.x,data.y);
+   setLog(lake?'🔎 已取得湖畔傳說線索，回去找阿蓮。':'🔎 已取得蛋咖啡配方線索，回去找阿芳。');renderStatus();draw();return;
+  }
   state.worldGathered[data.id]=true;
   if(data.kind.startsWith('quest-')){const qid=data.kind.slice(6);state.worldQuest[qid]='待回報';giveItem('quest-'+baseArea(),'📜',data.name,1,'collectible','地區任務物品');setLog('🎒 找到「'+data.name+'」！回去找委託 NPC 回報。')}
   else{giveItem(data.kind,data.kind==='mountain-herb'?'🌿':data.kind==='sea-shell'?'🐚':'🟢',data.name,1,'material');reward(5,0);setLog('🌿 採集成功：'+data.name+' ×1，探索 EXP +5。素材已放入共用背包。')}
@@ -4228,6 +4594,13 @@ function interact(){
   state.worldHidden[data.id]=true;giveItem('world-secret-'+baseArea(),data.icon,data.name,1,'collectible');reward(15,10);save();setLog('✨ 發現隱藏地點「'+data.name+'」！EXP +15、金幣 +10。');hideNear();renderStatus();draw();return;
  }
 }
+window.addEventListener('wa-culture-complete',e=>{
+ const rewards={'老街的商行紀錄':['silver','🪙','銀街工藝徽章'],'還劍湖的神劍傳說':['lake','🐢','還劍湖傳說書籤'],'咖啡館的一天':['coffee','☕','河內蛋咖啡紀念卡']};
+ const row=rewards[e.detail?.title];if(!row)return;
+ const flag='v80-culture-reward-'+row[0];if(state.worldFlags[flag])return;
+ giveItem('v80-'+row[0],row[1],row[2],1,'collectible','河內文化探索委託紀念品');
+ state.worldFlags[flag]=true;save();setLog('🎁 已獲得 '+row[2]+'，可在冒險者背包查看。');
+});
 function purchase(id,cost,icon,name,desc,type){
  const d=getCore();if(d.gold<cost){setLog('金幣不足，需要 '+cost+' G；目前有 '+d.gold+' G。');return}
  d.gold-=cost;const row=d.inventory[id]||(d.inventory[id]={id,icon,name,desc,type,qty:0,sources:[]});row.qty=(Number(row.qty)||0)+1;row.sources=Array.isArray(row.sources)?row.sources:[];row.sources.push('v410-shop-'+Date.now());saveCore(d);setLog('購買成功：'+name+' ×1，已更新共用背包。');renderStatus();
@@ -4286,7 +4659,7 @@ function loop(t){const dt=Math.min(.04,(t-last)/1000||0);last=t;move(dt);draw();
 const keyMap={ArrowUp:'up',w:'up',W:'up',ArrowDown:'down',s:'down',S:'down',ArrowLeft:'left',a:'left',A:'left',ArrowRight:'right',d:'right',D:'right'};
 function keydown(e){
  const page=$('adventureMap');if(!page?.classList.contains('active'))return;
- if(e.target&&/^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(e.target.tagName)&&!e.target.closest('#walkRpgModule'))return;
+ if(e.target&&/^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(e.target.tagName))return;
  const dir=keyMap[e.key];if(dir){held.add(dir);e.preventDefault()}
  if(['e','E','Enter'].includes(e.key)){interact();e.preventDefault()}
 }
@@ -4510,3 +4883,118 @@ img{max-width:100%;height:auto}
 @media(max-width:600px){.page{overflow-wrap:anywhere}.row{min-width:0}.diary-photo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.diary-actions button{flex:1 1 100%;min-width:0}nav.rpg-bottom-menu.v3-primary-nav{padding-bottom:calc(6px + env(safe-area-inset-bottom))!important}}
 @media(min-width:700px){#diaryList .diary-photo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 </style>
+
+<style id="culture-chapter-v1-style">
+#cultureChapter{font-family:system-ui,'Noto Sans TC',sans-serif!important;background:#F5F5F1!important;color:#293F4B!important;border:2px solid #789BAA!important;border-radius:14px!important;padding:15px!important;margin:16px 0!important;box-shadow:0 3px 0 #9CB6A5!important;line-height:1.65!important}
+#cultureChapter *{box-sizing:border-box;text-shadow:none!important}#cultureChapter h3,#cultureChapter h4{color:#293F4B!important;margin:0 0 8px!important}#cultureChapter p{margin:6px 0 12px;color:#293F4B!important}#cultureChapter .cc-note{font-size:13px;color:#334B56!important}#cultureChapter .cc-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:10px 0}#cultureChapter button{font-family:inherit!important;background:#293F4B!important;color:#fff!important;border:2px solid #293F4B!important;border-radius:9px!important;padding:10px 12px!important;font-size:14px!important;box-shadow:none!important;min-height:44px;white-space:normal}#cultureChapter button:disabled{opacity:.5;cursor:not-allowed}#cultureChapter button.cc-secondary{background:#fff!important;color:#293F4B!important}#cultureChapter .cc-card{border:1px solid #A8B8B9;border-radius:10px;padding:12px;background:#E5EDEB;margin:10px 0}#cultureChapter .cc-dialog{background:#D5E2E6;border-left:5px solid #789BAA;padding:12px;border-radius:8px;margin:10px 0;color:#293F4B!important}#cultureChapter .cc-choice{display:block;width:100%;margin:7px 0;text-align:left}#cultureChapter .cc-tag{display:inline-block;background:#D5D3CD;color:#293F4B;padding:2px 8px;border-radius:6px;font-size:12px;font-weight:700}#cultureChapter [hidden]{display:none!important}#cultureChapter .cc-success{background:#D4E8D9;border-left:5px solid #507F61;padding:10px;border-radius:8px}#cultureChapter .cc-progress{height:9px;border-radius:9px;background:#C5D3D5;overflow:hidden}#cultureChapter .cc-progress span{display:block;height:100%;background:#507F61;transition:width .2s}#cultureChapter .cc-journal{white-space:pre-line}#cultureChapter button:focus-visible{outline:3px solid #D9897B!important;outline-offset:2px}
+</style>
+<script id="culture-chapter-v1-script">
+(()=>{'use strict';
+const KEY='world-adventure-culture-hanoi-ch1-v1';
+const tasks=[
+ {title:'老街的商行紀錄',type:'歷史文化',npc:'河內老街店主',intro:'你已調查銀街老招牌，發現 Hàng Bạc 字樣及銀飾圖案。請運用找到的線索，協助阿銀辨認老街的傳統行業。',question:'「Hàng Bạc」這個街名，傳統上與哪一類行業有關？',choices:['銀器與金銀工藝','海上捕魚','山區採茶'],correct:0,success:'答對了！Hàng Bạc（銀街）與銀器及金銀工藝的歷史有關。河內老城區的街名反映了過去的商業分工，但今天的店鋪種類可能已不同。',journal:'【河內老城區｜歷史文化】\n河內老城區常被稱為「三十六行街」，是一種歷史與文化稱呼，不代表今天只有三十六條街。部分 Hàng 街名保留了過去商業行業的記憶。'},
+ {title:'還劍湖的神劍傳說',type:'民間傳說',npc:'湖畔說書人',intro:'湖邊的說書人正在講述黎利與神劍的故事。你需要分辨傳說與史實。',question:'依照還劍湖的民間傳說，黎利最後將神劍歸還給誰？',choices:['山村工匠','神龜','港口船長'],correct:1,success:'答對了！傳說中，黎利將神劍歸還給湖中的神龜，因此湖名與「還劍」相連。這是地方傳說，遊戲不將超自然情節當成已證實的歷史。',journal:'【還劍湖｜民間傳說】\n還劍湖與黎利歸還神劍給神龜的傳說密切相關。傳說與可考證的歷史應分開理解。'},
+ {title:'咖啡館的一天',type:'飲食生活',npc:'咖啡館老闆',intro:'老闆準備向旅人介紹越南蛋咖啡。幫忙辨認這項河內特色飲品吧。',question:'越南蛋咖啡（cà phê trứng）常見的特色是什麼？',choices:['加入打發的蛋黃與糖形成綿密泡沫','只使用鹽水沖泡','一定加入珍珠'],correct:0,success:'答對了！蛋咖啡通常使用蛋黃與糖等材料製作綿密奶泡，再搭配咖啡。不同店家的配方可能不同。',journal:'【河內蛋咖啡｜飲食文化】\n蛋咖啡是河內知名的特色飲品之一，常以蛋黃、糖等材料製作綿密泡沫搭配咖啡。各店配方不盡相同。'}
+];
+let state={done:[],current:0,started:false};try{const v=JSON.parse(localStorage.getItem(KEY)||'null');if(v&&Array.isArray(v.done)){state.done=v.done.filter(x=>Number.isInteger(x)&&x>=0&&x<tasks.length);state.current=Math.max(0,Math.min(2,Number(v.current)||0));state.started=!!v.started}}catch{}
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){const e1=document.getElementById('ccFeedback');if(e1)e1.textContent='瀏覽器未能保存文化任務進度，請先確認儲存空間。'}}
+function render(){const root=document.getElementById('cultureChapter');if(!root)return;const done=state.done.length;const t=tasks[state.current];root.innerHTML=`<div class="cc-row" style="justify-content:space-between"><h3>📖 第一章｜河內：遺失的旅行手札</h3><span class="cc-tag">NPC 互動版</span></div><p class="cc-note">在上方自由探索地圖走動；這裡可以與文化故事 NPC 互動、解開線索，並閱讀旅行手札。走近河內古城的阿銀或阿蓮，或進入街市商店找阿芳，按「互動」即可開啟對應文化故事。</p><div class="cc-progress" aria-label="文化任務進度"><span style="width:${done/3*100}%"></span></div><p class="cc-note">文化篇章完成 ${done} / 3（不影響真實旅遊打卡與原有 RPG 經驗）</p><div class="cc-row">${tasks.map((q,i)=>`<button type="button" class="${i===state.current?'':'cc-secondary'}" data-cc-task="${i}">${state.done.includes(i)?'✓ ':''}${esc(q.title)}</button>`).join('')}</div><div class="cc-card"><span class="cc-tag">${esc(t.type)}</span><h4 style="margin-top:8px!important">${esc(t.title)}</h4><div class="cc-dialog"><b>${esc(t.npc)}：</b> ${esc(t.intro)}</div>${state.done.includes(state.current)?`<div class="cc-success">✓ 已完成此篇故事。<p>${esc(t.success)}</p></div>`:!state.started?`<button type="button" id="ccStart">💬 與 NPC 對話並調查線索</button>`:`<p><b>🔎 線索問題：</b>${esc(t.question)}</p>${t.choices.map((c,i)=>`<button type="button" class="cc-choice" data-cc-answer="${i}">${i+1}. ${esc(c)}</button>`).join('')}`}<div id="ccFeedback" role="status" aria-live="polite"></div></div><div class="cc-card"><h4>📚 已解鎖的文化手札</h4>${done?state.done.slice().sort((a,b)=>a-b).map(i=>`<details style="margin:8px 0"><summary style="cursor:pointer;font-weight:700">${esc(tasks[i].title)}｜${esc(tasks[i].type)}</summary><p class="cc-journal">${esc(tasks[i].journal)}</p></details>`).join(''):'<p class="cc-note">完成文化委託後，這裡會留下可重新閱讀的故事與景點知識。</p>'}</div><p class="cc-note">文化資訊為遊戲內的簡介；「民間傳說」與歷史文化分開標示。NPC 委託為遊戲原創，並非真實發生的事件。</p>`;
+root.querySelectorAll('[data-cc-task]').forEach(b=>b.addEventListener('click',()=>{state.current=Number(b.dataset.ccTask);state.started=false;save();render()}));
+root.querySelector('#ccStart')?.addEventListener('click',()=>{state.started=true;save();render()});
+root.querySelectorAll('[data-cc-answer]').forEach(b=>b.addEventListener('click',()=>{const i=Number(b.dataset.ccAnswer);if(i===t.correct){if(!state.done.includes(state.current))state.done.push(state.current);state.started=false;save();render();window.dispatchEvent(new CustomEvent('wa-culture-complete',{detail:{title:t.title}}))}else{const f=root.querySelector('#ccFeedback');f.textContent='這個線索還不太對，再看看其他答案。可以重新嘗試，不會扣除獎勵。';f.style.color='#8B3D35'}}));}
+window.addEventListener('wa-culture-npc',e=>{const i=Number(e.detail?.task);if(!Number.isInteger(i)||i<0||i>=tasks.length)return;state.current=i;state.started=!state.done.includes(i);save();render();window.dispatchEvent(new CustomEvent('wa-culture-open',{detail:{task:i,npc:e.detail?.npc||''}}))});
+function init(){if(document.getElementById('cultureChapter'))return;const module=document.getElementById('walkRpgModule');if(!module)return;const panel=document.createElement('section');panel.id='cultureChapter';panel.setAttribute('aria-label','河內文化故事第一章');module.appendChild(panel);render()}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+
+<style id="v68-comfort-rpg-immersive">
+:root{--teal:#507B85!important;--mint:#D8E8E1!important;--ink:#293F4B!important;--muted:#4C626C!important;--paper:#DDE1DC!important;--line:#A7B8B8!important;--accent:#D9897B!important;--shadow:0 3px 0 #9BAFB2!important}
+html,body{background:#DDE1DC!important;color:#293F4B!important;font-family:system-ui,'Noto Sans TC',sans-serif!important}
+body{background-image:linear-gradient(150deg,#DDE1DC,#C8D9DD 65%,#D5D3CD)!important;background-attachment:fixed!important}
+main{background:linear-gradient(165deg,#DDE1DC,#C9D9DC)!important;border-color:#9BAEB2!important;box-shadow:none!important}
+.card,.hero,.tile,.rpg-map-panel,.walk-rpg-card,.notice,.category-menu,.va-hub-pane{background:#E8EDEA!important;color:#293F4B!important;border-color:#A2B5B8!important;box-shadow:0 3px 0 #B1BDBB!important}
+.card h2,.card h3,.card h4,.hero h2,.section-title,.map-heading h2{color:#293F4B!important;text-shadow:none!important}
+.section-title{background:#C8DADD!important;border-color:#789BAA!important;box-shadow:none!important;color:#293F4B!important}
+.notice,.pixel-game-hint,.walk-rpg-dialog{background:#D9E5E4!important;color:#293F4B!important;border-color:#91ACB3!important}
+input,textarea,select{background:#EFF2EE!important;color:#293F4B!important;border-color:#9EAFB3!important}
+button,.action,.secondary,.primary{font-family:system-ui,'Noto Sans TC',sans-serif!important}
+.action,.primary{background:#507B85!important;color:#F5F5F1!important;border-color:#365D68!important;text-shadow:none!important}
+.secondary{background:#D5E2E3!important;color:#293F4B!important;border-color:#789BAA!important}
+nav.rpg-bottom-menu{background:#293F4B!important;border-color:#789BAA!important;box-shadow:0 -3px 0 #789BAA!important}
+nav.rpg-bottom-menu button{color:#F5F5F1!important;text-shadow:none!important}
+nav.rpg-bottom-menu button.active{background:#789BAA!important;color:#fff!important}
+#categoryMenuToggle{color:#F5F5F1!important;text-shadow:none!important}
+.pixel-map-scene{border-color:#527581!important}
+.quest-stop.done,.pixel-location.done,.cc-card.is-complete,[data-quest-status="done"]{background:#D4E8D9!important;border-color:#6D987D!important;color:#294E3D!important}
+#walkRpgModule{position:relative;overflow:visible!important}
+.wa-game-stage{position:relative;width:100%;isolation:isolate}
+.wa-game-stage #walkRpgCanvas{display:block;width:100%;height:auto;max-height:65vh;object-fit:contain;background:#789BAA;border:3px solid #527581}
+.wa-story-overlay{position:absolute;bottom:8px;left:8px;right:8px;z-index:12;pointer-events:none}
+.wa-story-overlay>*{pointer-events:auto}
+.wa-story-head{display:flex;align-items:center;gap:8px;background:#293F4B;color:#F5F5F1;padding:8px 10px;border:2px solid #9CB6A5;border-radius:9px 9px 0 0;font-weight:800;font-size:14px}
+.wa-story-head button{margin-left:auto;background:#789BAA!important;color:#fff!important;border:1px solid #DDE1DC!important;border-radius:6px!important;padding:5px 10px!important;box-shadow:none!important;font-size:13px!important;min-height:32px}
+.wa-story-content{max-height:min(230px,39vh);overflow-y:auto;overscroll-behavior:contain;background:#E8EEEC;border:2px solid #789BAA;border-top:0;border-radius:0 0 9px 9px;box-shadow:0 4px 8px #293F4B44}
+.wa-story-overlay.collapsed .wa-story-content{display:none!important}
+.wa-story-overlay.collapsed .wa-story-head{border-radius:9px}
+.wa-story-overlay #cultureChapter{margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:10px!important;background:#E8EEEC!important}
+.wa-story-overlay #cultureChapter h3{font-size:16px!important}
+.wa-story-overlay #cultureChapter .cc-note{font-size:12px!important;margin:5px 0!important}
+.wa-story-overlay #cultureChapter .cc-card{padding:9px!important;margin:6px 0!important}
+.wa-story-overlay #cultureChapter .cc-dialog{padding:8px!important;margin:6px 0!important}
+.wa-story-overlay #cultureChapter button{font-size:13px!important;padding:6px 8px!important;min-height:36px!important}
+.wa-story-overlay #cultureChapter .cc-row{margin:5px 0!important}
+.wa-story-overlay #cultureChapter .cc-card:has(.cc-success){background:#D4E8D9!important;border-color:#6D987D!important}
+.wa-story-overlay #cultureChapter .cc-success{font-weight:700}
+.wa-success-pop{position:absolute;left:50%;top:22%;transform:translate(-50%,-50%);z-index:25;padding:13px 19px;background:#D4E8D9;color:#294E3D;border:3px solid #507F61;box-shadow:4px 4px 0 #293F4B;font-size:19px;font-weight:900;pointer-events:none;animation:wa-win .85s steps(5,end) both}
+@keyframes wa-win{0%{opacity:0;transform:translate(-50%,-35%) scale(.85)}30%,80%{opacity:1;transform:translate(-50%,-55%) scale(1.04)}100%{opacity:0;transform:translate(-50%,-75%) scale(1)}}
+@media(prefers-reduced-motion:reduce){.wa-success-pop{animation:none;opacity:1}}
+@media(max-width:480px){.wa-story-overlay{left:5px;right:5px;bottom:5px}.wa-story-content{max-height:205px}.wa-story-head{font-size:12px;padding:6px}.wa-story-overlay #cultureChapter .cc-row button{flex:1 1 42%;font-size:12px!important}}
+</style>
+<script id="v68-inworld-story-and-navigation">
+(()=>{'use strict';
+function init(){
+ const canvas=document.getElementById('walkRpgCanvas'),panel=document.getElementById('cultureChapter');
+ if(!canvas||!panel||document.getElementById('waStoryOverlay'))return;
+ const stage=document.createElement('div');stage.className='wa-game-stage';
+ canvas.parentNode.insertBefore(stage,canvas);stage.appendChild(canvas);
+ const dock=document.createElement('section');dock.className='wa-story-overlay';dock.id='waStoryOverlay';dock.setAttribute('aria-label','遊戲內河內文化劇情');
+ dock.classList.add('collapsed');dock.innerHTML='<div class="wa-story-head"><span>📖 河內文化故事｜與 NPC 探索</span><button type="button" id="waStoryToggle" aria-expanded="false">展開 ▴</button></div><div class="wa-story-content" id="waStoryContent"></div>';
+ stage.appendChild(dock);dock.querySelector('#waStoryContent').appendChild(panel);
+ dock.querySelector('#waStoryToggle').addEventListener('click',e=>{const collapsed=dock.classList.toggle('collapsed');e.currentTarget.textContent=collapsed?'展開 ▴':'收合 ▾';e.currentTarget.setAttribute('aria-expanded',String(!collapsed))});
+ const food=document.querySelector('nav.rpg-bottom-menu button[data-page="food"]');
+ if(food){food.dataset.page='expenses';food.setAttribute('aria-label','記帳');food.setAttribute('onclick',"showPage('expenses')");food.innerHTML='<span aria-hidden="true" class="nav-icon">💰</span><span>記帳</span>'}
+ window.addEventListener('wa-culture-open',e=>{dock.classList.remove('collapsed');const btn=dock.querySelector('#waStoryToggle');btn.textContent='收合 ▾';btn.setAttribute('aria-expanded','true');dock.querySelector('.wa-story-head span').textContent='💬 '+e.detail.npc+'｜文化委託';});
+ window.addEventListener('wa-culture-complete',e=>{const toast=document.createElement('div');toast.className='wa-success-pop';toast.setAttribute('role','status');toast.textContent='✓ 任務完成！';stage.appendChild(toast);if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)setTimeout(()=>toast.remove(),950);else setTimeout(()=>toast.remove(),2400)});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+
+<!-- V7.7: completed cultural quizzes automatically dismiss the in-game dialogue on mobile and desktop. -->
+<style id="v77-auto-dismiss-style">
+#walkRpgModule #waStoryOverlay.v77-dismissed{display:none!important}
+</style>
+<script id="v77-auto-dismiss-script">
+(()=>{'use strict';
+ let pending=null;
+ function dock(){return document.getElementById('waStoryOverlay')}
+ window.addEventListener('wa-culture-open',()=>{
+   if(pending!==null){clearTimeout(pending);pending=null}
+   dock()?.classList.remove('v77-dismissed');
+ });
+ window.addEventListener('wa-culture-complete',()=>{
+   if(pending!==null)clearTimeout(pending);
+   // The existing quest engine has already saved the correct answer and shown its completion toast.
+   // Close the whole overlay after a short confirmation; don't erase any saved quest state.
+   pending=setTimeout(()=>{
+     pending=null;
+     const el=dock();if(!el)return;
+     el.classList.add('collapsed','v77-dismissed');
+     const toggle=el.querySelector('#waStoryToggle');
+     if(toggle){toggle.textContent='展開 ▴';toggle.setAttribute('aria-expanded','false')}
+   },850);
+ });
+})();
+</script>
