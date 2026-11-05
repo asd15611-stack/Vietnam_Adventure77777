@@ -2,7 +2,7 @@
 
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#282a36" name="theme-color"/><meta content="世界冒險日記 V9.6" name="application-name"/><link href="./manifest.webmanifest" rel="manifest"/><link href="./icon.svg" rel="icon" type="image/svg+xml"/><title>世界冒險日記 V9.26.3｜六格底部導覽測試版</title>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#282a36" name="theme-color"/><meta content="世界冒險日記 V9.6" name="application-name"/><link href="./manifest.webmanifest" rel="manifest"/><link href="./icon.svg" rel="icon" type="image/svg+xml"/><title>世界冒險日記 V9.26.3｜五格底部導覽測試版</title>
 <style>
 :root{--teal:#087f70;--mint:#e4f6ef;--ink:#173b39;--muted:#637775;--paper:#f5f8f6;--line:#dce8e2}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif}header{padding:22px 18px 18px;background:linear-gradient(135deg,#075f59,#159b83);color:white;border-radius:0 0 24px 24px}header small{opacity:.85}h1{font-size:25px;margin:6px 0}main{padding:14px 14px 90px;max-width:720px;margin:auto}.card,.hero{background:white;border:1px solid var(--line);border-radius:16px;padding:14px;margin:10px 0}.hero{margin-top:0}.muted,.small{color:var(--muted);font-size:13px}.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0}.tile{background:white;border:1px solid var(--line);border-radius:15px;padding:14px;text-align:left;color:var(--ink);font:inherit;min-height:85px}.tile span{display:block;font-size:24px}.tile b{display:block;margin-top:6px}.page{display:none}.page.active{display:block}.section-title{font-size:18px;margin:18px 2px 10px}.daytabs{display:flex;gap:7px;overflow:auto;padding:3px 0 8px}.daytabs button,button{cursor:pointer}.daytabs button,.secondary{border:1px solid var(--line);background:white;border-radius:10px;padding:9px 12px;color:var(--ink)}.daytabs button.active,.primary,.action{background:var(--teal);color:white;border-color:var(--teal)}.event{display:grid;grid-template-columns:65px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.event:last-child{border:0}.time{color:var(--teal);font-weight:800;font-size:13px}.event p{margin:4px 0;font-size:13px;color:var(--muted)}button,input,select,textarea{font:inherit}input,select,textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:11px;background:white;color:var(--ink);margin:5px 0 10px}label{font-size:13px;font-weight:650}.action{border:0;border-radius:11px;padding:11px 14px;font-weight:700}.row{display:flex;gap:8px;align-items:center}.row>*{flex:1}.expense{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}nav{position:fixed;bottom:0;left:0;right:0;background:#ffffffef;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:8px 3px;z-index:5}nav button{border:0;background:transparent;color:var(--muted);font-size:11px;padding:5px 6px;border-radius:10px;min-width:0;white-space:nowrap}nav button.active{background:var(--mint);color:var(--teal);font-weight:700}nav span{display:block;font-size:20px}.notice{background:#fff5df;border-radius:12px;padding:11px;font-size:13px;color:#77571c}.copy{float:right;font-size:12px}.checked{opacity:.6}.checked strong{text-decoration:line-through}.diary-photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:8px 0}.diary-photo-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;border:1px solid var(--line)}.diary-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.diary-actions button{flex:1;min-width:90px}.diary-entry{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}.photo-hint{font-size:12px;color:var(--muted);margin-top:-5px;margin-bottom:10px}
 
@@ -1928,17 +1928,64 @@ body.v922-modal-open{overflow:hidden!important}
 #restaurantGuideList .v928-photo-link{display:block;text-align:center;padding:7px 5px;border:1px solid #bca077;border-radius:8px;background:#f8eedb;color:#493519;font-weight:750;font-size:12px;text-decoration:none;line-height:1.35}
 #restaurantGuideList .v928-photo-link:focus-visible{outline:3px solid #8b632e;outline-offset:2px}
 #restaurantGuideList .v928-photo-link:hover{background:#f1dfbf}
+</style>
+<style id="wa-weather-style">
+.wa-weather{margin:0 0 14px;padding:14px 16px;border-radius:17px;background:linear-gradient(115deg,#173b39,#246b71);color:#fff;box-shadow:0 5px 18px #0002}
+.wa-weather-top,.wa-weather-main{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.wa-weather-top{font-size:13px;opacity:.92}.wa-weather-main{margin:9px 0}
+.wa-weather-temp{font-size:34px;font-weight:800;line-height:1.15}
+.wa-weather-icon{font-size:32px}.wa-weather-meta{font-size:12px;line-height:1.7;opacity:.95}
+.wa-weather button{background:#ffffff24;border:1px solid #ffffff55;color:white;border-radius:10px;padding:6px 10px;cursor:pointer;font-size:12px}
+.wa-weather-status{font-size:11px;opacity:.85;margin-top:5px}
+</style>
+<style id="v927-quality-ui">
+.v927-dashboard{display:grid;gap:12px;margin:0 0 14px}.v927-header{display:flex;align-items:baseline;justify-content:space-between;gap:10px;color:var(--ink,#173b39)}.v927-header span{font-weight:900;font-size:19px}.v927-header small{font-size:11px;color:var(--muted,#637775)}
+.v927-next{padding:16px;border:1px solid #dce8e2;border-radius:16px;background:#f1f8f5;color:#173b39}.v927-next span{font-size:12px}.v927-next strong{display:block;font-size:21px;margin:6px 0}.v927-next p{font-size:13px;margin:0}
+.v927-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.v927-actions button{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;padding:13px;border-radius:14px;border:1px solid #d5e4dd;background:#fff;color:#173b39;min-width:0;min-height:98px}.v927-actions button span{font-size:23px}.v927-actions button b{font-size:15px}.v927-actions button small{font-size:11px;color:#526d69}
+.v927-tools,.v927-overview{border:1px solid #dce8e2;border-radius:13px;background:#fff;overflow:hidden}.v927-tools summary,.v927-overview>summary{cursor:pointer;padding:12px;font-size:14px;font-weight:700;color:#173b39}.v927-tools summary span{float:right;font-size:11px}.v927-tool-links{padding:0 12px 12px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.v927-tool-links button{font-size:13px;padding:10px 6px;border-radius:9px;background:#f1f7f4;color:#173b39;border:1px solid #dce8e2}.v927-overview>section{margin:0 10px 10px}
+@media(max-width:380px){.v927-header{display:block}.v927-header small{display:block}.v927-actions button{min-height:90px}}
+</style><style id="v929-rpg-guide-style">#v929RpgGuide{background:#e7efe9!important;color:#24363c!important;border:1px solid #b7cfc3;border-radius:14px;padding:12px 14px;margin:0 0 14px;line-height:1.6}#v929RpgGuide .v929-guide-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}#v929RpgGuide .v929-guide-head span{font-size:12px;color:#455d59!important}#v929RpgGuide details{margin-top:7px}#v929RpgGuide summary{cursor:pointer;font-weight:700;color:#173b39!important}#v929RpgGuide .v929-guide-body{padding-top:8px}#v929RpgGuide p{margin:5px 0;color:#24363c!important}#v929RpgGuide .v929-guide-note{font-size:12px;color:#43565c!important}@media(max-width:420px){#v929RpgGuide .v929-guide-head{display:block}}</style><style id="v939-travel-first">
+#home .v939-core-actions button{min-height:92px}
+#home .v939-secondary{display:grid;gap:8px;background:#f1f5f1;color:#24363c;border:1px solid #b4c6c1;border-radius:13px;padding:12px}
+#home .v939-secondary>span{font-size:13px;font-weight:800;color:#24363c}
+#home .v939-secondary-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+#home .v939-secondary-links button{background:#e2ebe5;color:#24363c;-webkit-text-fill-color:#24363c;border:1px solid #b4c6c1;border-radius:10px;min-height:42px;font-size:13px;font-weight:700;padding:8px 4px}
+#home .v939-trip-count{margin-top:9px;font-size:12px;font-weight:700;color:#304a43}
+@media(max-width:370px){#home .v939-secondary-links button{font-size:12px}}
+</style><style id="v940-day-hub-style">.v940-day-hub{background:#f1f5f1!important;color:#24363c!important;border:1px solid #b4c6c1!important}.v940-day-hub :is(strong,span,p,div){color:#24363c}.v940-hub-top{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}.v940-hub-top span{font-size:12px}.v940-day-item{display:flex;gap:10px;align-items:flex-start;border-top:1px solid #b4c6c1;padding:9px 0}.v940-day-time{min-width:54px;font-weight:800}.v940-day-name{font-weight:700}.v940-day-note{font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}.v940-hub-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}.v940-hub-actions button{background:#dce9e1!important;color:#24363c!important;-webkit-text-fill-color:#24363c!important;border:1px solid #b4c6c1!important;min-height:40px}.v940-day-hub .small{font-size:12px;margin:9px 0 0}</style><style id="v947-navigation-cleanup">.v947-safety-shortcut{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:12px;background:#edf3ee;border:1px solid #b4c6c1;border-radius:12px;color:#24363c}.v947-safety-shortcut button{background:#d3e5dc;color:#24363c;border:1px solid #9fb8ad;border-radius:9px;padding:9px 12px;font-weight:700}.v947-safety-main{color:#24363c}.v947-safety-main details{margin:12px 0}.v947-legacy{padding:12px;border:1px solid #b4c6c1;border-radius:10px;background:#f1f5f1;color:#24363c}.v947-legacy summary{cursor:pointer;font-weight:700;color:#24363c}.v947-legacy button{margin:5px 3px}</style><style id="v949-ui-refinement">
+/* V9.49: consolidate navigation without changing legacy business logic */
+.v949-safety-guide{margin:12px 0;padding:12px 14px;border:1px solid #b6c9c0;border-radius:12px;background:#edf4ee;color:#24363c}
+.v949-safety-guide strong,.v949-safety-guide p{color:#24363c}
+.v949-safety-guide p{margin:6px 0 0;font-size:.88rem;line-height:1.55}
+#categoryMenu .category-group button{min-height:44px}
+#home .v927-dashboard .v927-tool-links button{min-height:44px}
+@media(max-width:420px){#home .v927-dashboard .v927-actions>button{min-height:78px}}
 </style></head><body>
 <header><small>VIETNAM ADVENTURE · 2026</small><h1>🇻🇳 越南旅行日記</h1><p>北越六天五夜｜11/18（三）–11/23（一）</p></header><main>
 <div aria-hidden="true" id="memoirPrintRoot"></div>
 <section class="page active" id="home">
-<section aria-label="旅行世界首頁" class="v411-welcome">
-<div class="v411-welcome-copy"><span class="v411-kicker">VIETNAM · SLOW TRAVEL JOURNAL</span><h2>把每一段旅程，變成自己的故事。</h2><p>慢慢探索北越、認識沿途的人，收藏風景、美食與不期而遇的回憶。</p></div>
-<div aria-label="越南山水旅行插畫" class="v411-welcome-art" role="img"><span>⛰️</span><span>🌿</span><span>🏡</span><span>🛶</span></div>
+
+<section aria-label="冒險首頁快捷入口" class="v927-dashboard">
+<div class="v927-header"><span>🌍 世界冒險日記</span><small>你的旅行與冒險，都在這裡</small></div>
+<div aria-label="目前旅程概況" class="v927-next" id="v939TripFocus"><span>🧭 北越旅程 · 2026/11/18–11/23</span><strong id="v939TripHeadline">旅行資訊一眼掌握</strong><p id="v939TripSub">先看行程與交通住宿，需要時再記帳或寫日記。</p><div aria-live="polite" class="v939-trip-count" id="v939TripCountdown"></div></div>
+<div aria-label="10秒旅行快捷操作" class="v927-actions v939-core-actions v950-quick" id="v950Quick">
+<button onclick="showPage('itinerary')" type="button"><span>🗓️</span><b>今天行程</b><small>時間・集合提醒</small></button>
+<button onclick="showPage('places')" type="button"><span>📍</span><b>一鍵找導航</b><small>飯店・交通・地點</small></button>
+<button onclick="v950OpenExpense()" type="button"><span>💰</span><b>快速記帳</b><small>立即新增支出</small></button>
+<button onclick="v950OpenRecords()" type="button"><span>📖</span><b>旅行紀錄</b><small>日記・照片・回憶</small></button>
+</div>
+<section aria-label="目前所在地天氣" class="wa-weather" id="waWeather">
+<div class="wa-weather-top"><strong>🌤️ 當地即時天氣</strong><button id="waWeatherRefresh" type="button">↻ 更新天氣</button></div>
+<div class="wa-weather-main"><div><div id="waWeatherCity">正在準備定位…</div><div class="wa-weather-temp" id="waWeatherTemp">--°C</div><div id="waWeatherDesc">等待天氣資料</div></div><div aria-hidden="true" class="wa-weather-icon" id="waWeatherIcon">🌤️</div></div>
+<div class="wa-weather-meta" id="waWeatherMeta">體感 --°C · 濕度 --% · 降雨機率 --%</div>
+<div aria-live="polite" class="wa-weather-status" id="waWeatherStatus" role="status">首次使用需要允許瀏覽器定位。</div>
 </section>
-<!-- V9.25: removed duplicate decorative introduction; original destination remains in quick launch -->
-<section aria-label="四大功能分類入口" class="v411-launch"><button class="v414-home-category" onclick="showPage('adventureMap')" type="button"><span>📍</span><b>打卡與行程</b><small>景點、GPS 打卡、每日安排</small></button><button class="v414-home-category" onclick="toggleCategoryMenu(true)" type="button"><span>🎮</span><b>遊戲與冒險</b><small>自由探索、戰鬥、背包</small></button><button class="v414-home-category" onclick="showPage('diary')" type="button"><span>📖</span><b>旅行紀錄</b><small>人物故事、日記、照片、回憶</small></button><button class="v414-home-category" onclick="showPage('expenses')" type="button"><span>🧰</span><b>旅行工具</b><small>美食、翻譯、記帳、購物</small></button></section>
-<section aria-label="旅程總覽" class="v3-home-overview v43-home-overview">
+<div class="v939-secondary"><span>其他常用功能</span><div class="v939-secondary-links"><button onclick="showPage('adventureMap')" type="button">📍 打卡</button><button onclick="showPage('photos')" type="button">📷 相簿</button><button onclick="showPage('loot')" type="button">🎮 RPG</button></div></div>
+<details class="v927-tools"><summary>🧰 旅行工具與其他功能 <span>展開</span></summary><div class="v927-tool-links">
+<button onclick="showPage('food')" type="button">🍜 美食圖鑑</button><button onclick="showPage('translate')" type="button">🗣️ 旅遊翻譯</button><button onclick="showPage('shoppingQuest')" type="button">🛍️ 必買清單</button><button onclick="toggleCategoryMenu(true)" type="button">☰ 全部功能</button>
+</div><details class="v928-health"><summary>🛡️ 查看本機資料健康狀態</summary><div class="v928-health-content"><p id="v928HealthResult" role="status">展開後開始檢查。</p><p class="v928-note">僅檢查儲存環境與項目數，不讀取日記、照片或 RPG 內容，也不會清除資料。此檢查不等於完整備份驗證。</p></div></details></details>
+<div class="v947-safety-shortcut"><span>🛡️ 備份與安全還原已集中至資料安全中心。</span><button onclick="showPage('safetyCenter')" type="button">開啟資料安全中心</button></div></section>
+<details class="v927-overview"><summary>🧳 出發準備與旅程詳細資訊</summary><section aria-label="旅程總覽" class="v3-home-overview v43-home-overview">
 <div class="v3-home-title-row"><div><span class="v3-eyebrow">YOUR NORTH VIETNAM QUEST</span><h2>準備好出發冒險了嗎？</h2><p>北越六天五夜・4 人小隊</p></div><span aria-hidden="true" class="v3-home-badge">🇻🇳</span></div>
 <div class="v3-trip-facts"><div><small>出發日期</small><strong>11/18（三）</strong></div><div><small>旅程天數</small><strong>6 天 5 夜</strong></div><div><small>旅遊地區</small><strong>河內・沙壩・下龍灣</strong></div></div>
 <section aria-label="出發準備進度" class="v44-readiness card" id="v44Readiness">
@@ -1949,6 +1996,7 @@ body.v922-modal-open{overflow:hidden!important}
 </section>
 <div class="v3-home-reminder v414-home-secondary"><span aria-hidden="true">📌</span><div><strong>出發前準備中</strong><p>查看每日行程、交通集合時間與待辦任務，讓旅程更安心。</p></div><button onclick="showPage('itinerary')" type="button">查看行程</button></div>
 </section>
+</details>
 <!-- 新增 RPG 指揮中心：只讀取既有進度，簽到資料使用獨立新鍵保存。 -->
 <!-- 首頁只保留主視覺與冒險地圖；小隊與戰利品獨立為底部選單頁面。 -->
 <div class="notice">飯店地址、交通時間與預訂資料請出發前逐項核對。GPS 只有在北越景點附近才會確認為真實地點；其他位置會明確標示測試模式／未確認地點。</div></section>
@@ -1965,7 +2013,7 @@ body.v922-modal-open{overflow:hidden!important}
 <div id="checkinReminderList"></div>
 </section></details><p class="small">點選地圖地點可展開景點資訊、打卡與照片功能。</p>
 </section>
-<section class="page" id="loot"><h2 class="section-title">🎮 北越像素冒險世界｜完整 RPG</h2><p class="small">已植入 V20 驚喜冒險遊戲。旅行行程、記帳、照片與其他功能保留。</p><iframe allow="fullscreen" id="integratedNorthVietnamRPG" loading="eager" referrerpolicy="no-referrer" srcdoc="&lt;!doctype html&gt;&lt;html lang=&quot;zh-Hant&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no&quot;&gt;&lt;title&gt;北越像素冒險世界 V20｜生活探索冒險整合測試版&lt;/title&gt;&lt;style&gt;*{box-sizing:border-box}body{margin:0;background:#182b27;color:#fff;font-family:system-ui,'Noto Sans TC',sans-serif;overflow:hidden}#wrap{position:fixed;inset:0;display:grid;place-items:center;background:radial-gradient(#496c5b,#182b27)}canvas{display:block;width:min(100vw,calc(100vh * 1.77778));height:min(100vh,calc(100vw / 1.77778));image-rendering:pixelated;box-shadow:0 12px 55px #0008}#hint{position:fixed;top:10px;left:12px;background:#142d28c9;border:2px solid #e6c78d;border-radius:8px;padding:7px 10px;font-size:12px;pointer-events:none}#pad{position:fixed;bottom:15px;left:15px;display:grid;grid-template-columns:repeat(3,44px);gap:3px}button{touch-action:none;background:#213e38d9;border:2px solid #dfc98b;border-radius:10px;color:white;font-size:21px;width:44px;height:44px}#act{position:fixed;right:20px;bottom:25px;width:72px;height:72px;border-radius:50%;font-size:16px;font-weight:bold}#dialog{display:none;position:fixed;left:50%;bottom:12px;transform:translateX(-50%);width:min(600px,90vw);background:#fff4d5;color:#2e392f;border:4px solid #7d5139;box-shadow:0 5px 0 #3d332a;padding:12px 16px;font-size:15px;line-height:1.6;border-radius:7px;z-index:5}#dialog strong{display:block;color:#8c4a2d}#dialog button{float:right;background:#527a5a;width:auto;height:auto;padding:4px 12px;font-size:13px;margin-top:5px}#note{position:fixed;top:10px;right:10px;background:#203c34bb;padding:6px 10px;border-radius:8px;font-size:12px}@media (pointer:fine){#pad,#act{opacity:.65}}@media (max-width:640px){#hint{font-size:10px;max-width:70vw}#note{font-size:10px}#pad{bottom:8px;left:8px;grid-template-columns:repeat(3,39px)}#pad button{width:39px;height:39px}#act{right:10px;bottom:12px;width:58px;height:58px}}#location{position:fixed;top:49px;left:12px;background:#142d28d9;border:1px solid #e6c78d;border-radius:7px;padding:5px 9px;font-size:12px;pointer-events:none}#toast{position:fixed;left:50%;top:16%;transform:translateX(-50%);background:#fff4d5;color:#3a4034;border:3px solid #805c40;padding:9px 15px;border-radius:7px;display:none;pointer-events:none;font-weight:bold;z-index:6}#act{font-size:14px} @media(max-width:640px){#location{top:38px;font-size:10px}} #journalBtn{position:fixed;top:85px;right:10px;width:auto;height:auto;font-size:13px;padding:7px 10px;z-index:7}#journal{position:fixed;z-index:12;inset:8% 12%;overflow:auto;background:#fff1d0;color:#3d392c;border:5px solid #75523b;border-radius:10px;padding:18px;box-shadow:0 0 0 100vmax #0009}#journal[hidden],#battle[hidden]{display:none}#journal h3{margin-top:0}#journal p{line-height:1.65}#journal button{width:auto;height:auto;padding:7px 12px;font-size:14px}#battle{position:fixed;z-index:15;inset:0;display:grid;place-items:center;background:#102c2cd9}.battleCard{width:min(520px,92vw);max-height:90vh;overflow:auto;text-align:center;background:#f8e9c5;color:#463a2c;border:5px solid #8d6545;border-radius:12px;padding:16px}.battleCard h3{margin:4px 0}.battleCard p{min-height:42px}.battleCard button{width:auto;height:auto;padding:8px 12px;font-size:15px;background:#426d60}.battleActions{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}#battleSprite{font-size:62px;text-shadow:3px 4px #b5a18a}.battleStats{font-weight:bold;margin:10px}@media(max-width:640px){#journalBtn{top:70px;font-size:11px;padding:4px 7px}#journal{inset:5% 5%;font-size:13px}} .battleBars{margin:12px auto;max-width:350px;text-align:left}.barLabel{font-size:12px;font-weight:700;margin:4px 0}.meter{height:11px;border:1px solid #6c5b46;background:#c7b69a;border-radius:8px;overflow:hidden}.meter i{display:block;height:100%;transition:width .2s}#specialBtn:disabled{opacity:.5;cursor:not-allowed}#dialog{white-space:pre-line}#postActions{display:flex;gap:7px;flex-wrap:wrap;margin-top:7px}#postActions button{float:none;margin:0;font-size:13px}#postActions:empty{display:none}
+<section class="page" id="loot"><div aria-label="RPG 冒險操作指南" class="v929-rpg-guide" id="v929RpgGuide"><div class="v929-guide-head"><strong>🧭 冒險快速指南 · 新增探索發現</strong><span>探索 → 互動 → 戰鬥 → 成長</span></div><details><summary>查看操作與冒險流程</summary><div class="v929-guide-body"><p>① 選擇地區並移動角色，尋找 NPC、寶箱及特殊地點。</p><p>② 靠近可互動物件，依遊戲畫面提示進行互動。</p><p>③ 遇到敵人時留意 HP，完成戰鬥後檢查獎勵與背包。</p><p>④ 返回遊戲地圖，繼續探索未完成的任務。</p><p class="v929-guide-note">電腦版可嘗試方向鍵／WASD；手機版請使用遊戲畫面中的觸控操作。不同 RPG 模式的按鍵可能不同，以實際畫面為準。</p></div></details></div><h2 class="section-title">🎮 北越像素冒險世界｜完整 RPG</h2><p class="small">已植入 V20 驚喜冒險遊戲。旅行行程、記帳、照片與其他功能保留。</p><iframe allow="fullscreen" id="integratedNorthVietnamRPG" loading="eager" referrerpolicy="no-referrer" srcdoc="&lt;!doctype html&gt;&lt;html lang=&quot;zh-Hant&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no&quot;&gt;&lt;title&gt;北越像素冒險世界 V20｜生活探索冒險整合測試版&lt;/title&gt;&lt;style&gt;*{box-sizing:border-box}body{margin:0;background:#182b27;color:#fff;font-family:system-ui,'Noto Sans TC',sans-serif;overflow:hidden}#wrap{position:fixed;inset:0;display:grid;place-items:center;background:radial-gradient(#496c5b,#182b27)}canvas{display:block;width:min(100vw,calc(100vh * 1.77778));height:min(100vh,calc(100vw / 1.77778));image-rendering:pixelated;box-shadow:0 12px 55px #0008}#hint{position:fixed;top:10px;left:12px;background:#142d28c9;border:2px solid #e6c78d;border-radius:8px;padding:7px 10px;font-size:12px;pointer-events:none}#pad{position:fixed;bottom:15px;left:15px;display:grid;grid-template-columns:repeat(3,44px);gap:3px}button{touch-action:none;background:#213e38d9;border:2px solid #dfc98b;border-radius:10px;color:white;font-size:21px;width:44px;height:44px}#act{position:fixed;right:20px;bottom:25px;width:72px;height:72px;border-radius:50%;font-size:16px;font-weight:bold}#dialog{display:none;position:fixed;left:50%;bottom:12px;transform:translateX(-50%);width:min(600px,90vw);background:#fff4d5;color:#2e392f;border:4px solid #7d5139;box-shadow:0 5px 0 #3d332a;padding:12px 16px;font-size:15px;line-height:1.6;border-radius:7px;z-index:5}#dialog strong{display:block;color:#8c4a2d}#dialog button{float:right;background:#527a5a;width:auto;height:auto;padding:4px 12px;font-size:13px;margin-top:5px}#note{position:fixed;top:10px;right:10px;background:#203c34bb;padding:6px 10px;border-radius:8px;font-size:12px}@media (pointer:fine){#pad,#act{opacity:.65}}@media (max-width:640px){#hint{font-size:10px;max-width:70vw}#note{font-size:10px}#pad{bottom:8px;left:8px;grid-template-columns:repeat(3,39px)}#pad button{width:39px;height:39px}#act{right:10px;bottom:12px;width:58px;height:58px}}#location{position:fixed;top:49px;left:12px;background:#142d28d9;border:1px solid #e6c78d;border-radius:7px;padding:5px 9px;font-size:12px;pointer-events:none}#toast{position:fixed;left:50%;top:16%;transform:translateX(-50%);background:#fff4d5;color:#3a4034;border:3px solid #805c40;padding:9px 15px;border-radius:7px;display:none;pointer-events:none;font-weight:bold;z-index:6}#act{font-size:14px} @media(max-width:640px){#location{top:38px;font-size:10px}} #journalBtn{position:fixed;top:85px;right:10px;width:auto;height:auto;font-size:13px;padding:7px 10px;z-index:7}#journal{position:fixed;z-index:12;inset:8% 12%;overflow:auto;background:#fff1d0;color:#3d392c;border:5px solid #75523b;border-radius:10px;padding:18px;box-shadow:0 0 0 100vmax #0009}#journal[hidden],#battle[hidden]{display:none}#journal h3{margin-top:0}#journal p{line-height:1.65}#journal button{width:auto;height:auto;padding:7px 12px;font-size:14px}#battle{position:fixed;z-index:15;inset:0;display:grid;place-items:center;background:#102c2cd9}.battleCard{width:min(520px,92vw);max-height:90vh;overflow:auto;text-align:center;background:#f8e9c5;color:#463a2c;border:5px solid #8d6545;border-radius:12px;padding:16px}.battleCard h3{margin:4px 0}.battleCard p{min-height:42px}.battleCard button{width:auto;height:auto;padding:8px 12px;font-size:15px;background:#426d60}.battleActions{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}#battleSprite{font-size:62px;text-shadow:3px 4px #b5a18a}.battleStats{font-weight:bold;margin:10px}@media(max-width:640px){#journalBtn{top:70px;font-size:11px;padding:4px 7px}#journal{inset:5% 5%;font-size:13px}} .battleBars{margin:12px auto;max-width:350px;text-align:left}.barLabel{font-size:12px;font-weight:700;margin:4px 0}.meter{height:11px;border:1px solid #6c5b46;background:#c7b69a;border-radius:8px;overflow:hidden}.meter i{display:block;height:100%;transition:width .2s}#specialBtn:disabled{opacity:.5;cursor:not-allowed}#dialog{white-space:pre-line}#postActions{display:flex;gap:7px;flex-wrap:wrap;margin-top:7px}#postActions button{float:none;margin:0;font-size:13px}#postActions:empty{display:none}
 /* V12.1: 遊戲操作區禁止長按選字、拖曳及系統觸控選單 */
 html,body,#wrap,#game,#pad,#pad button,#act,#hint,#note,#location,#toast {
   -webkit-user-select:none;user-select:none;
@@ -2587,10 +2635,10 @@ function near(){
 }
 function nearExit(){return exits.find(e=&gt;Math.abs(e.x-player.x)+Math.abs(e.y-player.y)&lt;=1)}
 function showToast(message){const el=document.getElementById('toast');el.textContent=message;el.style.display='block';toastUntil=performance.now()+1600}
-function interact(){if(combat||!document.getElementById('journal').hidden||!document.getElementById('lifePanel').hidden)return;if(dialog){closeDialog();return}const e=nearExit();if(e){setup(e.target,[e.tx,e.ty]);showToast('已抵達 '+names[e.target]);return}const tr=treasureNear();if(tr){openTreasure(tr);return}let n=near();if(!n)return;if(postNpc(n))return;if(sceneId==='cruise'&amp;&amp;n.name==='郵輪服務員'&amp;&amp;finalReady()){startFinal();return}dialog=true;document.getElementById('speaker').textContent=n.name;document.getElementById('words').textContent=(sceneId==='cruise'&amp;&amp;n.name==='郵輪服務員')?finalStory():storyText(n);talkStory(n);document.getElementById('dialog').style.display='block'}
+function interact(){if(combat||!document.getElementById('journal').hidden||!document.getElementById('lifePanel').hidden)return;if(dialog){closeDialog();return}const e=nearExit();if(e){setup(e.target,[e.tx,e.ty]);showToast('已抵達 '+names[e.target]);return}const tr=treasureNear();if(tr){openTreasure(tr);return}let n=near();if(!n)return;if(postNpc(n))return;if(sceneId==='cruise'&amp;&amp;n.name==='郵輪服務員'&amp;&amp;finalReady()){startFinal();return}dialog=true;document.getElementById('speaker').textContent=n.name;document.getElementById('words').textContent=(sceneId==='cruise'&amp;&amp;n.name==='郵輪服務員')?finalStory():storyText(n);talkStory(n);if(typeof v931NpcDiscovery==='function'){const clue=v931NpcDiscovery(n);if(clue)document.getElementById('words').textContent+='\n\n'+clue;}document.getElementById('dialog').style.display='block'}
 function closeDialog(){dialog=false;document.getElementById('postActions').replaceChildren();document.getElementById('dialog').style.display='none'}
 function canMove(x,y){if(x&lt;2||y&lt;2||x&gt;39||y&gt;23||blocked.has(x+','+y))return false;return !npcs.some(n=&gt;n.x===x&amp;&amp;n.y===y)}
-function update(dt){if(dialog||combat||!document.getElementById('journal').hidden||!document.getElementById('lifePanel').hidden)return;updateVillagers(frameTime);stepAcc+=dt;let dirs=[['up',0,-1],['down',0,1],['left',-1,0],['right',1,0]];if(stepAcc&gt;=105){for(const [d,dx,dy] of dirs)if(keys.has(d)){player.dir=d;if(canMove(player.x+dx,player.y+dy)){player.x+=dx;player.y+=dy;player.walk++;tryWildEncounter();let e=exits.find(e=&gt;e.x===player.x&amp;&amp;e.y===player.y);if(e){setup(e.target,[e.tx,e.ty]);showToast('已抵達 '+names[e.target])}}stepAcc=0;break}}}
+function update(dt){if(dialog||combat||!document.getElementById('journal').hidden||!document.getElementById('lifePanel').hidden)return;updateVillagers(frameTime);stepAcc+=dt;let dirs=[['up',0,-1],['down',0,1],['left',-1,0],['right',1,0]];if(stepAcc&gt;=105){for(const [d,dx,dy] of dirs)if(keys.has(d)){player.dir=d;if(canMove(player.x+dx,player.y+dy)){player.x+=dx;player.y+=dy;player.walk++;tryWildEncounter();v930DiscoverStep();let e=exits.find(e=&gt;e.x===player.x&amp;&amp;e.y===player.y);if(e){setup(e.target,[e.tx,e.ty]);showToast('已抵達 '+names[e.target])}}stepAcc=0;break}}}
 function render(){let cam=camera();c.save();c.translate(-cam.x,-cam.y);for(let y=0;y&lt;H;y++)for(let x=0;x&lt;W;x++)tile(x,y,world[y][x]);for(const d of decor)drawDecor(d);landmarks();sceneDetails();for(const b of buildings)house(b);if(pond)drawPond();for(const [x,y] of trees)tree(x,y);for(const p of props)prop(p);for(const b of banners)lantern(b.x,b.y);
 for(const e of exits){let x=e.x*T,y=e.y*T;rect(x+2,y+4,28,25,'#e4cb80');rect(x+5,y+7,22,19,'#577f68');rect(x+11,y+10,10,13,'#f6e9b7');rect(x+14,y+24,4,6,'#745c42')}
 for(const t of treasures)drawTreasure(t);
@@ -2640,7 +2688,7 @@ function lifeInfo(s){const p=document.createElement('p');p.textContent=s;lifeCon
 function openLife(tab='home'){if(combat||dialog||!document.getElementById('journal').hidden)return;lifeTab=tab;lifePanel.hidden=false;keys.clear();renderLife()}
 function closeLife(){lifePanel.hidden=true;keys.clear()}
 function lifeBusy(){return combat||dialog||!document.getElementById('journal').hidden}
-function lifeGather(){const k=sceneId+'_'+todayLife(),count=life.harvest[k]||0;if(count&gt;=4){showToast('今天這裡已採集四次');return}const list=lifeResources[sceneId];const item=list[count%list.length];life.harvest[k]=count+1;giveItem(item,1);saveLife();showToast('🌿 採集 '+item+' ×1')}
+function lifeGather(){const k=sceneId+'_'+todayLife(),count=life.harvest[k]||0;if(count&gt;=4){showToast('🌿 今日採集已達上限（4/4），明天再來');if(lifeTab==='gather')renderLife();return}const list=lifeResources[sceneId];const item=list[count%list.length];life.harvest[k]=count+1;giveItem(item,1);saveLife();showToast('🌿 獲得 '+item+' ×1｜今日 '+(count+1)+'/4');if(lifeTab==='gather')renderLife()}
 function lifeFishing(){if(!lifeFish[sceneId]){showToast('請到下龍港口或郵輪釣魚');return}const k=sceneId+'_'+todayLife(),count=life.fishDay[k]||0;if(count&gt;=3){showToast('今天釣魚次數已用完');return}life.fishDay[k]=count+1;const item=lifeFish[sceneId][count%2];giveItem(item,1);saveLife();showToast('🎣 釣到 '+item+' ×1')}
 function lifeCook(r){for(const [k,n] of Object.entries(r.need))if(!hasItem(k,n)){showToast('缺少材料：'+k);return}for(const [k,n] of Object.entries(r.need))takeItem(k,n);life.recipes[r.name]=(life.recipes[r.name]||0)+1;progress.hp=Math.min(maxHp(),progress.hp+r.heal);saveStory();saveLife();showToast('🍳 '+r.name+' 恢復 '+r.heal+' HP')}
 function lifeRest(){progress.hp=maxHp();rpg.mp=maxMp();life.home.rest++;saveStory();saveRpg();saveLife();showToast('🛏️ 已休息，HP/MP 恢復')}
@@ -2656,12 +2704,12 @@ function renderLife(){lifeTabs.replaceChildren();lifeContent.replaceChildren();f
  if(lifeTab==='home'){
  lifeInfo(names[sceneId]+' · '+lifePeriodName()+' · '+lifeWeather()+' · 🪙 '+life.coins+' 金幣');
  lifeInfo('生活資源：'+(Object.entries(life.inventory).filter(([,n])=&gt;n&gt;0).map(([k,n])=&gt;k+' ×'+n).join('、')||'空'));
- lifeLine('🏡 室內探索','從目前地區選擇建築進入（室內事件版）',lifeRooms[sceneId].map(room=&gt;['進入 '+room,()=&gt;lifeVisit(room)]));
+ lifeLine('🏡 室內探索','從目前地區選擇建築進入，可自由走動與互動',lifeRooms[sceneId].map(room=&gt;['進入 '+room,()=&gt;lifeVisit(room)]));
  if(sceneId==='hanoi'||sceneId==='sapa'||sceneId==='cruise')lifeLine('🛏️ 休息','恢復全部 HP 與 MP',[['休息',lifeRest]]);
  if(sceneId==='hanoi')lifeLine('🛒 河內市集','8 金幣購買米 ×1、香草 ×1',[['購買食材',lifeTradeBuy]]);
  lifeLine('🎊 今日城鎮活動',lifePeriodName()+'的'+({hanoi:'古城市集',sapa:'梯田巡禮',fansipan:'雲海觀景',halong:'漁港生活',cruise:'甲板茶會'}[sceneId]),[['參加活動',lifeEvent]]);
  }else if(lifeTab==='gather'){
- lifeInfo('採集與釣魚採每日次數限制，無須先擊敗魔王。');lifeLine('🌿 '+names[sceneId]+'採集','每日最多 4 次',[['採集一次',lifeGather]]);
+ lifeInfo('🌿 今日採集 '+(life.harvest[sceneId+'_'+todayLife()]||0)+'/4 次｜材料：'+(Object.entries(life.inventory).filter(([,n])=&gt;n&gt;0).map(([k,n])=&gt;k+' ×'+n).join('、')||'尚無')+'。採集後此處立即更新。');lifeLine('🌿 '+names[sceneId]+'採集','每日最多 4 次，取得材料會存入生活背包',[['採集一次',lifeGather]]);
  if(lifeFish[sceneId])lifeLine('🎣 海灣釣魚','每日最多 3 次',[['拋竿釣魚',lifeFishing]]);
  }else if(lifeTab==='craft'){
  lifeInfo('料理立即消耗材料並恢復 HP；材料可採集、釣魚或購買。');for(const r of recipes)lifeLine('🍳 '+r.name,'材料：'+Object.entries(r.need).map(([k,n])=&gt;k+' ×'+n).join('、')+'｜恢復 '+r.heal+' HP',[['製作',()=&gt;lifeCook(r)]]);
@@ -2698,6 +2746,89 @@ render=function(){originalRender();const p=lifePeriod();if(p===2){c.fillStyle='r
 document.getElementById('lifeBtn').addEventListener('click',()=&gt;lifePanel.hidden?openLife():closeLife());
 document.getElementById('lifeClose').addEventListener('click',closeLife);
 window.addEventListener('keydown',e=&gt;{if(e.key==='Escape'&amp;&amp;!lifePanel.hidden){closeLife();e.preventDefault()}if((e.key==='l'||e.key==='L')&amp;&amp;!lifeBusy()){lifePanel.hidden?openLife():closeLife();e.preventDefault()}});
+
+/* V9.34: Actual walkable interior and contextual world gathering. No old save keys are deleted. */
+const v934={room:null,x:8,y:7,dir:'up',steps:0};
+const v934Walls=new Set();
+/* V9.35: room-specific floorplans and interactable residents. */
+function v935Profile(){
+ const room=v934.room||'';
+ if(/民宿|之家|客艙|旅館|飯店/.test(room))return {kind:'lodging',floor:'#d6b98b',accent:'#b4d1c9',spots:[{x:4,y:3,id:'bed',name:'床鋪'},{x:11,y:3,id:'cook',name:'料理台'},{x:4,y:9,id:'cabinet',name:'行李櫃'},{x:11,y:9,id:'npc',name:'民宿主人'},{x:8,y:11,id:'door',name:'出口'}]};
+ if(/市集|商店|雜貨|店|攤/.test(room))return {kind:'shop',floor:'#e1cba2',accent:'#f0bd68',spots:[{x:4,y:3,id:'shelf',name:'商品架'},{x:11,y:3,id:'trade',name:'交易櫃台'},{x:4,y:9,id:'cabinet',name:'收納箱'},{x:11,y:9,id:'npc',name:'店主'},{x:8,y:11,id:'door',name:'出口'}]};
+ if(/廚|餐|茶|咖啡/.test(room))return {kind:'kitchen',floor:'#c6a487',accent:'#e9ba76',spots:[{x:4,y:3,id:'cook',name:'爐灶'},{x:11,y:3,id:'table',name:'餐桌'},{x:4,y:9,id:'shelf',name:'食材櫃'},{x:11,y:9,id:'npc',name:'料理師'},{x:8,y:11,id:'door',name:'出口'}]};
+ return {kind:'house',floor:'#c6b8a0',accent:'#9ec2aa',spots:[{x:4,y:3,id:'table',name:'木桌'},{x:11,y:3,id:'shelf',name:'展示櫃'},{x:4,y:9,id:'plant',name:'盆栽'},{x:11,y:9,id:'npc',name:'居民'},{x:8,y:11,id:'door',name:'出口'}]};
+}
+
+function v934Enter(room){
+ if(combat)return;
+ v934.room=room;v934.x=8;v934.y=7;v934.dir='up';v934.steps=0;
+ life.indoorVisits[room]=(life.indoorVisits[room]||0)+1;saveLife();
+ closeLife();keys.clear();
+ document.getElementById('location').textContent='🏠 '+room+' · 方向鍵移動／交談互動';
+ document.getElementById('act').textContent='互動';
+ showToast('🏠 已進入 '+room+'，走近家具按「互動」');
+}
+function v934Leave(){const room=v934.room;v934.room=null;keys.clear();document.getElementById('act').textContent='交談';document.getElementById('location').textContent='📍 '+names[sceneId]+' · 走到道路盡頭可切換地區';showToast('🚪 已離開 '+room)}
+function v934Object(){return v935Profile().spots.find(o=&gt;Math.abs(o.x-v934.x)+Math.abs(o.y-v934.y)&lt;=1)}
+function v934Action(){
+ const o=v934Object();if(!o){showToast('靠近床鋪、料理台、櫃子、盆栽或門口再互動');return}
+ if(o.id==='door'){v934Leave();return}
+ if(o.id==='bed'){lifeRest();showToast('🛏️ 休息完成，HP／MP 已恢復');return}
+ if(o.id==='cook'){openLife('craft');return}
+ if(o.id==='cabinet'){openLife('records');return}
+ if(o.id==='npc'){showGameDialog('💬 '+o.name,'歡迎來到 '+v934.room+'！\n這裡的每個角落都有自己的故事。你可以走近家具、採集物件並使用生活功能。');return}
+ if(o.id==='trade'){if(sceneId==='hanoi')lifeTradeBuy();else showGameDialog('🛒 交易櫃台','店主正在整理貨品，這個地區目前沒有可購買的商品。');return}
+ if(o.id==='shelf'||o.id==='table'){showGameDialog('🔎 '+o.name,'你仔細觀察了 '+o.name+'，發現這裡充滿當地生活的氣息。');return}
+ if(o.id==='plant'){showGameDialog('🪴 室內盆栽','窗邊的植物長得很好。想採集材料，請到戶外草叢旁按「互動」，或在生活 → 採集查看當日次數。');return}
+}
+function v934Draw(){
+ const profile=v935Profile();const w=960,h=540;c.fillStyle='#2b2b31';c.fillRect(0,0,w,h);
+ const ox=150,oy=22,t=40;
+ for(let y=0;y&lt;12;y++)for(let x=0;x&lt;16;x++){
+  c.fillStyle=(x+y)%2?'#b89a7c':profile.floor;c.fillRect(ox+x*t,oy+y*t,t,t);
+  c.strokeStyle='#b5976c';c.strokeRect(ox+x*t,oy+y*t,t,t);
+ }
+ c.fillStyle='#65452f';c.fillRect(ox,oy,16*t,16);c.fillRect(ox,oy,16,12*t);c.fillRect(ox+15*t,oy,16,12*t);
+ function furniture(x,y,color,label){c.fillStyle='#573b2c';c.fillRect(ox+x*t-4,oy+y*t-4,t+8,t+8);c.fillStyle=color;c.fillRect(ox+x*t,oy+y*t,t,t);c.font='bold 15px sans-serif';c.fillStyle='#2b241d';c.textAlign='center';c.fillText(label,ox+(x+.5)*t,oy+(y+.65)*t);c.textAlign='left'}
+ profile.spots.forEach(o=&gt;furniture(o.x,o.y,o.id==='door'?'#e9d39e':profile.accent,o.name.slice(0,1)));
+ c.fillStyle='#3e678b';c.fillRect(ox+v934.x*t+7,oy+v934.y*t+18,26,23);c.fillStyle='#efc29a';c.fillRect(ox+v934.x*t+10,oy+v934.y*t+3,20,20);c.fillStyle='#48342d';c.fillRect(ox+v934.x*t+9,oy+v934.y*t+1,22,8);
+ c.fillStyle='#142d28';c.fillRect(0,500,960,40);c.fillStyle='#fff1d1';c.font='bold 18px sans-serif';c.fillText('🏠 '+v934.room+'　｜　方向鍵移動，靠近物件按互動',20,526);
+ const o=v934Object();if(o){c.fillStyle='#fff1d1';c.fillRect(ox+v934.x*t-26,oy+v934.y*t-28,110,23);c.fillStyle='#3a3027';c.font='bold 14px sans-serif';c.fillText('E '+o.name,ox+v934.x*t-20,oy+v934.y*t-11)}
+}
+const v934OldUpdate=update;
+update=function(dt){
+ if(!v934.room){v934OldUpdate(dt);return}
+ if(dialog||combat||!document.getElementById('lifePanel').hidden||!document.getElementById('journal').hidden)return;
+ stepAcc+=dt;if(stepAcc&lt;125)return;
+ const dirs=[['up',0,-1],['down',0,1],['left',-1,0],['right',1,0]];
+ for(const [d,dx,dy] of dirs)if(keys.has(d)){
+  v934.dir=d;const x=v934.x+dx,y=v934.y+dy;
+  const furniture=v935Profile().spots.filter(o=&gt;o.id!=='door').map(o=&gt;o.x+','+o.y);
+  if(x&gt;=1&amp;&amp;x&lt;=14&amp;&amp;y&gt;=1&amp;&amp;y&lt;=11&amp;&amp;!furniture.includes(x+','+y)){v934.x=x;v934.y=y;v934.steps++}
+  stepAcc=0;break;
+ }
+};
+const v934OldRender=render;
+render=function(){if(v934.room)v934Draw();else v934OldRender()};
+const v934OldInteract=interact;
+interact=function(){if(v934.room){if(dialog){closeDialog();return}if(!document.getElementById('lifePanel').hidden)return;v934Action();return}
+ if(!combat&amp;&amp;!dialog&amp;&amp;document.getElementById('lifePanel').hidden){
+  const p=props.find(p=&gt;Math.abs(p.x-player.x)+Math.abs(p.y-player.y)&lt;=1&amp;&amp;['flower','flowers','bush','tuft','tree'].includes(p.kind));
+  if(p){lifeGather();return}
+ }
+ v934OldInteract();
+};
+lifeVisit=function(room){v934Enter(room)};
+const v934OldGather=lifeGather;
+lifeGather=function(){
+ const key=sceneId+'_'+todayLife(),before=life.harvest[key]||0;
+ v934OldGather();const after=life.harvest[key]||0;
+ if(after&gt;before){const item=lifeResources[sceneId][before%lifeResources[sceneId].length];
+  showGameDialog('🌿 採集成功','獲得 '+item+' ×1\n今天已採集 '+after+' / 4 次。\n材料已加入「生活 → 物資」存檔。');
+ }
+};
+// Existing menu action handlers reference lifeGather dynamically; existing saves remain intact.
+
 &lt;/script&gt;
 &lt;script id=&quot;adventure-bag-v910-script&quot;&gt;
 (function(){
@@ -2730,6 +2861,194 @@ window.addEventListener('keydown',e=&gt;{if(e.key==='Escape'&amp;&amp;!lifePanel
  document.addEventListener('keydown',e=&gt;{if(e.key==='Escape'&amp;&amp;!panel.hidden)panel.hidden=true});
 })();
 &lt;/script&gt;
+&lt;style id=&quot;v930-discovery-css&quot;&gt;
+#v930Discovery{position:absolute;left:10px;bottom:10px;z-index:15;max-width:min(320px,85%);font:12px/1.5 system-ui,sans-serif;color:#23363b;background:#f0f6f2;border:1px solid #a5bdb3;border-radius:12px;padding:8px 10px;box-shadow:0 3px 12px #0004}
+#v930Discovery summary{cursor:pointer;font-weight:700}#v930Discovery p{margin:6px 0 0}
+&lt;/style&gt;
+&lt;script id=&quot;v930-discovery-script&quot;&gt;
+(function(){
+const KEY='worldAdventureRpgDiscoveriesV930';
+const events={
+ hanoi:[['湖畔的紙條','你發現一張寫著古城故事的小紙條。'],['老街的香氣','轉角傳來咖啡香，旅途多了一段溫暖回憶。']],
+ sapa:[['山村織紋','你觀察到一段精巧的織布紋樣。'],['梯田的風','微風吹過梯田，留下值得記錄的風景。']],
+ fansipan:[['雲海剪影','雲層短暫散開，山巒的輪廓映入眼簾。'],['山頂的鈴聲','遠方傳來清脆鈴聲，提醒你放慢腳步。']],
+ halong:[['海灣貝殼','你在港口邊發現一枚漂亮的貝殼。'],['龍灣傳說','一段關於海灣的古老故事引起你的好奇。']],
+ cruise:[['甲板星光','夜色裡，水面映出點點星光。'],['航海日誌','你讀到一則旅人留下的航行筆記。']]
+};
+let discovered={};try{const d=JSON.parse(localStorage.getItem(KEY)||'{}');if(d&amp;&amp;typeof d==='object'&amp;&amp;!Array.isArray(d))discovered=d}catch(e){}
+let steps=0;
+function updatePanel(){const el=document.getElementById('v930DiscoveryText');if(!el)return;const list=Object.entries(discovered).flatMap(([region,ids])=&gt;Array.isArray(ids)?ids.map(id=&gt;({region,id})):[]).filter(x=&gt;events[x.region]?.[x.id]);el.textContent=list.length?list.map(x=&gt;'✦ '+events[x.region][x.id][0]).join(' · '):'探索地圖時，有機會發現隱藏故事。';document.getElementById('v930DiscoveryCount').textContent=list.length+'/10';}
+window.v930DiscoverStep=function(){if(!events[sceneId]||combat||dialog)return;if(++steps%18!==0)return;const available=events[sceneId].map((e,i)=&gt;i).filter(i=&gt;!(discovered[sceneId]||[]).includes(i));if(!available.length)return;const i=available[Math.floor(Math.random()*available.length)];if(Math.random()&gt;0.6)return;const ev=events[sceneId][i];discovered[sceneId]=[...(discovered[sceneId]||[]),i];try{localStorage.setItem(KEY,JSON.stringify(discovered))}catch(e){}updatePanel();showToast('🔎 發現：'+ev[0]);const p=document.getElementById('v930DiscoveryText');if(p)p.textContent=ev[0]+'｜'+ev[1];};
+function init(){const root=document.createElement('details');root.id='v930Discovery';root.innerHTML='&lt;summary&gt;🔎 探索發現 &lt;span id=&quot;v930DiscoveryCount&quot;&gt;0/10&lt;/span&gt;&lt;/summary&gt;&lt;p id=&quot;v930DiscoveryText&quot;&gt;探索地圖時，有機會發現隱藏故事。&lt;/p&gt;';document.body.appendChild(root);updatePanel()}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+&lt;/script&gt;
+&lt;style id=&quot;v931-compact-battle&quot;&gt;
+/* Only shrink the monster information panel; retain the full battle scene and action buttons. */
+#walkWildBattle .walk-wild-monster{width:min(400px,74%)!important;max-width:400px!important;grid-template-columns:52px minmax(0,1fr)!important;gap:8px!important;padding:8px 10px!important;margin:4px 2% 0 0!important;border-width:3px!important;box-shadow:3px 3px 0 #0005!important}
+#walkWildBattle .walk-wild-monster&gt;span{font-size:clamp(32px,7vw,48px)!important}
+#walkWildBattle .walk-wild-monster b{font-size:clamp(13px,3vw,17px)!important}
+#walkWildBattle .walk-wild-monster small{font-size:12px!important;margin:3px 0!important}
+#walkWildBattle .walk-wild-monster .walk-wild-hp{height:11px!important}
+@media(max-width:420px){#walkWildBattle .walk-wild-monster{width:min(310px,88%)!important;grid-template-columns:42px minmax(0,1fr)!important;padding:6px 8px!important}}
+&lt;/style&gt;
+&lt;script id=&quot;v931-npc-discovery&quot;&gt;
+(function(){
+'use strict';
+const KEY='worldAdventureRpgNpcCluesV931',DISC='worldAdventureRpgDiscoveriesV930';
+const names={hanoi:'河內線索',sapa:'沙壩線索',fansipan:'番西邦線索',halong:'下龍灣線索',cruise:'航海線索'};
+let done={};try{const d=JSON.parse(localStorage.getItem(KEY)||'{}');if(d&amp;&amp;typeof d==='object'&amp;&amp;!Array.isArray(d))done=d}catch(e){}
+function discoveries(){try{const d=JSON.parse(localStorage.getItem(DISC)||'{}');return d&amp;&amp;typeof d==='object'?d:{}}catch(e){return {}}}
+function count(){return Object.values(done).filter(Boolean).length}
+function update(){const el=document.getElementById('v931ClueStatus');if(el)el.textContent='已交付 '+count()+' / 5 個地區線索';}
+window.v931NpcDiscovery=function(n){
+ const region=sceneId;
+ if(!names[region])return '';
+ const ch=chapters.find(x=&gt;x.id===region);
+ if(!ch||n.name!==ch.speaker)return '';
+ if(done[region])return '🔎 探索線索已交付：'+names[region]+'。';
+ const found=discoveries()[region];
+ if(!Array.isArray(found)||found.length===0)return '🔎 支線委託：先在這個地區探索，發現至少一段隱藏故事，再來與我分享。';
+ done[region]=true;
+ try{localStorage.setItem(KEY,JSON.stringify(done))}catch(e){done[region]=false;return '🔎 已找到線索，但目前無法儲存委託進度，請檢查儲存空間後重試。'}
+ update();showToast('📜 '+names[region]+'已交付！');
+ return '📜 支線委託完成：你分享了這個地區的探索故事，獲得「'+names[region]+'」紀錄（'+count()+'/5）。這是獨立的冒險進度，不影響原本星印與 EXP。';
+};
+function init(){const panel=document.getElementById('v930Discovery');if(!panel)return;const p=document.createElement('p');p.id='v931ClueStatus';p.style.cssText='margin:7px 0 0;font-weight:700;color:#23363b';panel.appendChild(p);const hint=document.createElement('p');hint.textContent='📜 找到隱藏故事後，與當地章節 NPC 交談，交付地區線索。';hint.style.cssText='margin:5px 0 0;color:#23363b';panel.appendChild(hint);update()}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+&lt;/script&gt;
+
+&lt;style id=&quot;v933-story-css&quot;&gt;
+#v933Story{margin-top:9px;padding:8px;border:1px solid #9bb5aa;border-radius:9px;background:#e7f1e9;color:#213a32;font:12px/1.55 system-ui,sans-serif}
+#v933Story b,#v933Story p,#v933Story small{color:#213a32}#v933Story p{margin:5px 0}#v933Story button{background:#d4e8d9;color:#20362b;border:1px solid #8caa98;border-radius:7px;padding:6px 9px;font-weight:700}
+/* Compact battle styling must be inside the RPG iframe, not on the parent page. */
+#walkWildBattle.walk-wild-battle{inset:auto!important;top:50%!important;left:50%!important;right:auto!important;bottom:auto!important;transform:translate(-50%,-50%)!important;width:min(350px,calc(100vw - 28px))!important;height:auto!important;max-height:82dvh!important;min-height:0!important;padding:12px!important;margin:0!important;gap:8px!important;justify-content:flex-start!important;overflow-y:auto!important;border:3px solid #e6bd61!important;border-radius:12px!important;box-shadow:0 0 0 100vmax rgba(9,15,24,.65),0 14px 35px rgba(0,0,0,.5)!important}
+#walkWildBattle .walk-wild-monster{width:100%!important;grid-template-columns:45px minmax(0,1fr)!important;gap:7px!important;align-self:stretch!important;margin:0!important;padding:7px!important;border-width:2px!important}
+#walkWildBattle .walk-wild-monster&gt;span{font-size:36px!important}#walkWildBattle .walk-wild-monster b{font-size:14px!important}#walkWildBattle .walk-wild-monster small{font-size:11px!important}
+#walkWildBattle .walk-wild-player{width:100%!important;align-self:stretch!important;margin:0!important;padding:6px 8px!important;font-size:13px!important}
+#walkWildBattle .walk-wild-log{max-height:55px!important;min-height:0!important;font-size:12px!important}#walkWildBattle .walk-wild-actions button{min-height:38px!important;padding:5px 3px!important;font-size:13px!important}
+&lt;/style&gt;
+&lt;script id=&quot;v933-story-script&quot;&gt;
+(function(){'use strict';
+const CLUES='worldAdventureRpgNpcCluesV931', KEY='worldAdventureRpgStoryRewardsV933';
+const chapters=[
+ ['hanoi','🏮 古城故事','老街守護徽章','老街的記憶不會消失，因為有人願意聆聽。'],
+ ['sapa','🌾 山村故事','山村織紋護符','山路上的每一條織紋，都藏著一段旅人的故事。'],
+ ['fansipan','🏔️ 雲頂故事','雲海紀念羽','站上高處才發現，冒險不只在終點。'],
+ ['halong','🐉 海灣故事','龍灣傳說貝殼','海風吹過港口，傳說也跟著再次啟航。'],
+ ['cruise','🚢 航海故事','星光航海章','船上的星光，是這趟冒險最安靜的寶藏。']
+];
+function read(k){try{let x=JSON.parse(localStorage.getItem(k)||'{}');return x&amp;&amp;typeof x==='object'&amp;&amp;!Array.isArray(x)?x:{}}catch(e){return {}}}
+function state(){return read(KEY)}
+function clues(){return read(CLUES)}
+function paint(){const root=document.getElementById('v933Story');if(!root)return;const c=clues(),r=state();const completed=chapters.filter(x=&gt;c[x[0]]).length,claimed=chapters.filter(x=&gt;r[x[0]]).length;
+ const status=root.querySelector('[data-status]');status.textContent='地區委託 '+completed+'/5｜紀念戰利品 '+claimed+'/5';
+ const list=root.querySelector('[data-list]');list.replaceChildren();
+ chapters.forEach(([id,name,item,story])=&gt;{const p=document.createElement('p');const label=document.createElement('span');label.textContent=(r[id]?'🎁 已收藏 ':c[id]?'✨ 可領取 ':'🔒 尚未解鎖 ')+name+'｜'+item;p.appendChild(label);
+ if(c[id]&amp;&amp;!r[id]){const b=document.createElement('button');b.type='button';b.textContent='領取紀念戰利品';b.addEventListener('click',()=&gt;{const next=state();if(next[id])return paint();next[id]={item,story,at:new Date().toISOString()};try{localStorage.setItem(KEY,JSON.stringify(next))}catch(e){alert('無法儲存，請檢查儲存空間');return}paint()});p.appendChild(document.createTextNode(' '));p.appendChild(b)}
+ if(r[id]){const sm=document.createElement('small');sm.textContent='｜'+story;p.appendChild(sm)}list.appendChild(p)});
+ const special=root.querySelector('[data-special]');special.textContent=completed&gt;=5?'🌟 最終章解鎖：五地線索匯集成完整冒險故事！':completed&gt;=3?'🌟 跨地區劇情解鎖：不同地方的故事，正在串成同一條冒險路線。':'📜 完成 3 個地區委託，解鎖跨地區劇情；完成 5 個，解鎖最終章。';
+}
+function init(){const parent=document.getElementById('v930Discovery');if(!parent)return;const panel=document.createElement('div');panel.id='v933Story';const heading=document.createElement('b');heading.textContent='📖 NPC 故事與特殊戰利品';const status=document.createElement('p');status.dataset.status='';const list=document.createElement('div');list.dataset.list='';const special=document.createElement('p');special.dataset.special='';panel.append(heading,status,list,special);parent.appendChild(panel);paint();
+ const original=window.v931NpcDiscovery;if(typeof original==='function'){window.v931NpcDiscovery=function(n){const result=original(n);paint();return result}};
+ parent.addEventListener('toggle',()=&gt;{if(parent.open)paint()});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+&lt;/script&gt;
+
+&lt;script id=&quot;v937-life-interaction&quot;&gt;
+/* V9.37: physical indoor plant gathering with visible sprite feedback. */
+(function(){
+  const previousAction=v934Action;
+  let harvestFx=null;
+  v934Action=function(){
+    const target=v934Object();
+    if(v934.room &amp;&amp; target &amp;&amp; target.id==='plant'){
+      const key=sceneId+'_'+todayLife();
+      const before=life.harvest[key]||0;
+      const item=lifeResources[sceneId][before%lifeResources[sceneId].length];
+      lifeGather();
+      const after=life.harvest[key]||0;
+      if(after&gt;before){
+        harvestFx={at:performance.now(),item:item,x:v934.x,y:v934.y};
+        showToast('🌿 '+item+' +1｜今日 '+after+'/4');
+      }else{
+        showToast('🌱 今日採集已達上限（4/4），明天再來');
+      }
+      return;
+    }
+    return previousAction();
+  };
+  const previousDraw=v934Draw;
+  v934Draw=function(){
+    previousDraw();
+    if(!harvestFx || !v934.room)return;
+    const elapsed=performance.now()-harvestFx.at;
+    if(elapsed&gt;1400){harvestFx=null;return;}
+    const cx=150+harvestFx.x*40+20,cy=22+harvestFx.y*40+4;
+    c.save();
+    c.font='bold 17px sans-serif';c.textAlign='center';
+    c.fillStyle='#14392c';c.fillRect(cx-86,cy-59,172,27);
+    c.fillStyle='#f7f5dc';c.fillText('🌿 '+harvestFx.item+' +1',cx,cy-40);
+    for(let i=0;i&lt;6;i++){
+      const a=(i/6)*Math.PI*2;
+      const r=9+elapsed/38;
+      c.fillStyle=i%2?'#f3df8c':'#7bd39a';
+      c.fillRect(cx+Math.cos(a)*r-3,cy+Math.sin(a)*r-3,6,6);
+    }
+    c.restore();
+  };
+})();
+&lt;/script&gt;
+
+&lt;style id=&quot;v938-life-play-style&quot;&gt;
+#v938Kitchen{position:fixed;z-index:35;left:50%;top:50%;transform:translate(-50%,-50%);width:min(340px,calc(100vw - 28px));max-height:75dvh;overflow:auto;background:#fff2d5;color:#302b23;border:3px solid #78533d;border-radius:12px;padding:12px;box-shadow:0 0 0 100vmax #0008,0 10px 30px #0007;font:14px/1.5 system-ui,sans-serif}
+#v938Kitchen[hidden]{display:none!important}#v938Kitchen h3{margin:0 0 7px;color:#302b23}#v938Kitchen p{margin:5px 0;color:#453b2d}#v938Kitchen button{width:auto;height:auto;min-height:36px;font-size:13px;padding:6px 9px;margin:3px;background:#315e50;color:white;border:2px solid #a98950}#v938Kitchen button:disabled{opacity:.5}#v938Kitchen .v938row{padding:7px 0;border-top:1px solid #b9a98c}
+#v938Kitchen .v938close{float:right}#v938Kitchen .v938bag{background:#e7d9b9;border-radius:6px;padding:6px}
+&lt;/style&gt;
+&lt;div id=&quot;v938Kitchen&quot; hidden role=&quot;dialog&quot; aria-label=&quot;生活料理與食物背包&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;v938close&quot; id=&quot;v938Close&quot;&gt;關閉 ✕&lt;/button&gt;&lt;h3&gt;🍳 料理台&lt;/h3&gt;&lt;p&gt;走到料理台，消耗材料做出食物；食物會放入生活背包，之後可以食用恢復 HP。&lt;/p&gt;&lt;div id=&quot;v938KitchenContent&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;script id=&quot;v938-life-play-script&quot;&gt;
+(function(){'use strict';
+const panel=document.getElementById('v938Kitchen'),body=document.getElementById('v938KitchenContent');
+let fx=null;
+const cookedPrefix='料理：';
+function qty(k){return Number(life.inventory[k]||0)}
+function requirements(r){return Object.entries(r.need).map(([k,n])=&gt;k+' ×'+n+'（有 '+qty(k)+'）').join('、')}
+function cooked(){return recipes.filter(r=&gt;qty(cookedPrefix+r.name)&gt;0)}
+function drawMenu(){
+ body.replaceChildren();
+ const heading=document.createElement('p');heading.textContent='🧺 目前材料：'+(Object.entries(life.inventory).filter(([k,n])=&gt;n&gt;0&amp;&amp;!k.startsWith(cookedPrefix)).map(([k,n])=&gt;k+' ×'+n).join('、')||'尚無');heading.className='v938bag';body.append(heading);
+ recipes.forEach(r=&gt;{const row=document.createElement('div');row.className='v938row';const title=document.createElement('strong');title.textContent='🍲 '+r.name+'｜恢復 '+r.heal+' HP';const p=document.createElement('p');p.textContent='需要：'+requirements(r);const btn=document.createElement('button');btn.textContent='製作料理';btn.disabled=!Object.entries(r.need).every(([k,n])=&gt;qty(k)&gt;=n);btn.onclick=()=&gt;{
+  if(!Object.entries(r.need).every(([k,n])=&gt;qty(k)&gt;=n)){showToast('材料不足');drawMenu();return}
+  // Keep the original inventory and recipe progression format, but defer HP recovery until eating.
+  for(const [k,n] of Object.entries(r.need))takeItem(k,n);
+  giveItem(cookedPrefix+r.name,1);life.recipes[r.name]=(life.recipes[r.name]||0)+1;
+  saveLife();fx={at:performance.now(),label:'🍳 '+r.name+' +1',x:v934.x,y:v934.y};
+  showToast('🍳 做好 '+r.name+' ×1！已放入生活背包');drawMenu();
+ };row.append(title,p,btn);body.append(row)});
+ const label=document.createElement('h3');label.textContent='🎒 食物背包｜點選食用';body.append(label);
+ const available=cooked();if(!available.length){const p=document.createElement('p');p.textContent='還沒有做好的料理';body.append(p)}
+ available.forEach(r=&gt;{const row=document.createElement('div');row.className='v938row';const b=document.createElement('button');b.textContent='食用 '+r.name+' ×'+qty(cookedPrefix+r.name);b.onclick=()=&gt;{
+  if(qty(cookedPrefix+r.name)&lt;1)return;
+  if(progress.hp&gt;=maxHp()){showToast('❤️ HP 已滿，先留著食物吧');return}
+  if(!takeItem(cookedPrefix+r.name,1))return;
+  const old=progress.hp;progress.hp=Math.min(maxHp(),progress.hp+r.heal);saveLife();saveStory();
+  showToast('❤️ 食用 '+r.name+'，HP +'+(progress.hp-old));drawMenu();
+ };row.append(b);body.append(row)})
+}
+function open(){if(!v934.room)return;drawMenu();panel.hidden=false;keys.clear()}
+function close(){panel.hidden=true;keys.clear()}
+document.getElementById('v938Close').addEventListener('click',close);
+const oldAction=v934Action;
+v934Action=function(){if(!panel.hidden)return;const target=v934.room?v934Object():null;if(target&amp;&amp;target.id==='cook'){open();return}return oldAction()};
+const oldDraw=v934Draw;
+v934Draw=function(){oldDraw();if(!fx||!v934.room)return;const dt=performance.now()-fx.at;if(dt&gt;1500){fx=null;return}
+ const cx=150+fx.x*40+20,cy=22+fx.y*40-8;c.save();c.fillStyle='#20392d';c.fillRect(cx-85,cy-43,170,28);c.font='bold 15px sans-serif';c.fillStyle='#fff5db';c.textAlign='center';c.fillText(fx.label,cx,cy-24);for(let i=0;i&lt;7;i++){const a=i*6.28/7,r=9+dt/36;c.fillStyle=i%2?'#ffe0a0':'#f5a36d';c.fillRect(cx+Math.cos(a)*r,cy+Math.sin(a)*r,5,5)}c.restore()};
+const oldLeave=v934Leave;v934Leave=function(){close();return oldLeave()};
+})();
+&lt;/script&gt;
 &lt;/body&gt;&lt;/html&gt;" style="display:block;width:100%;height:min(76dvh,760px);min-height:440px;border:3px solid #7b6042;border-radius:12px;background:#182b27;" title="北越像素冒險世界 V20"></iframe><div class="row"><button id="integratedRpgFullscreen" onclick="(function(){var f=document.getElementById('integratedNorthVietnamRPG');if(f.requestFullscreen)f.requestFullscreen();else if(f.webkitRequestFullscreen)f.webkitRequestFullscreen();})()" type="button">⛶ 全螢幕遊玩</button></div><button onclick="var f=document.getElementById('integratedNorthVietnamRPG');f.srcdoc=f.srcdoc;" style="padding:9px 14px;margin:8px 0;" type="button">↻ 重新載入 V20 畫面</button></section>
 <section class="page" id="weather"><h2 class="section-title">🌦️ 越南旅遊天氣</h2>
 <div class="notice">即時連線查詢北越四個地點的天氣與未來 7 天預報。番西邦峰使用山頂高度參數估算，山區天氣變化快，出發前仍請以景區公告與現場狀況為準。</div>
@@ -2744,15 +3063,14 @@ window.addEventListener('keydown',e=&gt;{if(e.key==='Escape'&amp;&amp;!lifePanel
 <div class="card"><h3>🧳 旅遊提醒</h3><div class="weather-advice" id="weatherAdvice">天氣載入後會顯示穿著與行程提醒。</div></div>
 <p class="small weather-attribution">天氣資料來源：Open-Meteo。預報需連接網路；資料更新時間以 API 回傳為準。此功能不會讀取或修改你的行程、日記、照片或其他本機資料。</p>
 </section>
-<section class="page" id="itinerary"><details class="v919-optional" id="v924ItineraryTasks"><summary>📜 每日行程任務與進度</summary><section aria-label="冒險任務與行程進度" class="card merged-quest-panel" id="adventureMapTasks"><h2 class="section-title">📜 行程任務</h2><div class="notice">勾選每日行程任務，完成狀態會同步更新行程進度。</div><div class="pixel-quest-board"><div id="pixelQuestList"></div><button class="pixel-green-button" onclick="showPage('achievements')">🏆 查看成就</button><button class="pixel-orange-button" onclick="showPage('diary')">📖 旅行回憶錄</button></div></section></details><h2 class="section-title">🗓️ 我的冒險行程</h2><div class="notice">點日期查看當天行程；編輯後自動保存在本機。</div><div class="card itinerary-progress-card"><h3>🎮 冒險進度</h3><div class="itinerary-progress-text" id="itineraryOverallProgress">尚未開始</div><div class="itinerary-progress-track"><span id="itineraryOverallBar"></span></div><div class="today-quest-panel" id="todayQuestPanel"></div></div><div class="daytabs" id="daytabs"></div><div class="diary-actions v920-day-tools"><button class="action" onclick="addItineraryDay()" title="新增日期">＋ 新增</button><button class="secondary" onclick="renameItineraryDay()" title="修改日期或標題">✎ 修改</button><button class="secondary" onclick="deleteItineraryDay()" title="刪除整天（需確認）">▤ 刪除</button></div><div id="daycontent"></div><div class="card" hidden="" id="itineraryEditor"><h3 id="itineraryEditorTitle">新增行程</h3><input id="itineraryEditIndex" type="hidden"/><label>時間</label><input id="itineraryTime" placeholder="例如：09:30／上午"/><label>行程名稱 *</label><input id="itineraryEventName" placeholder="例如：還劍湖散步"/><label>備註／說明</label><textarea id="itineraryEventNote" placeholder="集合時間、地址、預約資訊、提醒事項…" rows="3"></textarea><div class="diary-actions"><button class="action" onclick="saveItineraryEvent()">保存行程</button><button class="secondary" onclick="cancelItineraryEdit()">取消</button></div></div><p aria-live="polite" class="small" id="itinerarySaveStatus">行程資料會保存在本機瀏覽器。</p></section>
-<section class="page" id="places"><h2 class="section-title">📍 飯店與重要地點</h2><div id="placeslist"></div><div class="notice">導航連結需要網路。地址請以訂房或車票確認資料為準。</div></section>
+<section class="page" id="itinerary"><details class="v919-optional" id="v924ItineraryTasks"><summary>📜 每日行程任務與進度</summary><section aria-label="冒險任務與行程進度" class="card merged-quest-panel" id="adventureMapTasks"><h2 class="section-title">📜 行程任務</h2><div class="notice">勾選每日行程任務，完成狀態會同步更新行程進度。</div><div class="pixel-quest-board"><div id="pixelQuestList"></div><button class="pixel-green-button" onclick="showPage('achievements')">🏆 查看成就</button><button class="pixel-orange-button" onclick="showPage('diary')">📖 旅行回憶錄</button></div></section></details><h2 class="section-title">🗓️ 我的冒險行程</h2><div class="notice">點日期查看當天行程；編輯後自動保存在本機。</div><div class="card itinerary-progress-card"><h3>🎮 冒險進度</h3><div class="itinerary-progress-text" id="itineraryOverallProgress">尚未開始</div><div class="itinerary-progress-track"><span id="itineraryOverallBar"></span></div><div class="today-quest-panel" id="todayQuestPanel"></div></div><section aria-label="當日行程速覽" class="card v940-day-hub"><div class="v940-hub-top"><strong>🧭 當日行程速覽</strong><span id="v940DayLabel">依下方選擇的日期更新</span></div><div aria-live="polite" id="v940DaySummary" role="status">正在讀取行程…</div><div class="v940-hub-actions"><button class="secondary" onclick="showPage('places')" type="button">📍 飯店／集合地點</button><button class="secondary" id="v940CopyDay" type="button">📋 複製當日行程</button></div><p class="small">集合時間、地址以你儲存的行程與正式憑證為準；導航需要網路。</p></section><div class="daytabs" id="daytabs"></div><div class="diary-actions v920-day-tools"><button class="action" onclick="addItineraryDay()" title="新增日期">＋ 新增</button><button class="secondary" onclick="renameItineraryDay()" title="修改日期或標題">✎ 修改</button><button class="secondary" onclick="deleteItineraryDay()" title="刪除整天（需確認）">▤ 刪除</button></div><div id="daycontent"></div><div class="card" hidden="" id="itineraryEditor"><h3 id="itineraryEditorTitle">新增行程</h3><input id="itineraryEditIndex" type="hidden"/><label>時間</label><input id="itineraryTime" placeholder="例如：09:30／上午"/><label>行程名稱 *</label><input id="itineraryEventName" placeholder="例如：還劍湖散步"/><label>備註／說明</label><textarea id="itineraryEventNote" placeholder="集合時間、地址、預約資訊、提醒事項…" rows="3"></textarea><div class="diary-actions"><button class="action" onclick="saveItineraryEvent()">保存行程</button><button class="secondary" onclick="cancelItineraryEdit()">取消</button></div></div><p aria-live="polite" class="small" id="itinerarySaveStatus">行程資料會保存在本機瀏覽器。</p></section>
+<section class="page" id="places"><p class="v950-page-hint">選擇下方飯店或重要地點，即可查看原有導航連結；開啟地圖需要網路。</p><h2 class="section-title">📍 飯店與重要地點</h2><div id="placeslist"></div><div class="notice">導航連結需要網路。地址請以訂房或車票確認資料為準。</div></section>
 <section class="page" id="translate"><h2 class="section-title">🗣️ 旅遊翻譯</h2><div class="card"><b>自由輸入翻譯（需要網路）</b><p class="small">輸入中文，翻譯成越南文。翻譯結果請自行確認。</p><label>輸入要翻譯的中文</label><textarea id="translateInput" placeholder="例如：我們四個人，請問可以現在入住嗎？" rows="3"></textarea><button class="action" id="translateBtn" onclick="translateFreeText()">翻譯成越南文</button><p class="small" id="translateStatus"></p><div id="translateResultCard" style="display:none"><textarea id="translateResult" readonly="" rows="3"></textarea><button class="secondary" onclick="copyText(document.getElementById('translateResult').value)">複製越南文</button></div></div><div class="card"><b>離線常用句</b><div class="row"><button class="secondary" id="vibtn" onclick="setLang('vi')">中文 ↔ 越文</button><button class="secondary" id="enbtn" onclick="setLang('en')">中文 ↔ 英文</button></div><label>搜尋中文或外文</label><input id="phraseSearch" oninput="renderPhrases()" placeholder="例如：飯店、How much..."/><div id="phrases"></div><p class="small">常用句可離線查看；自由輸入翻譯需要網路。</p></div></section>
 <section class="page" id="food"><h2 class="section-title">🍜 旅行美食圖鑑</h2>
 <div aria-label="美食分類" class="v9265-food-nav" role="group"><button class="active" data-food-tab="discover" onclick="v9265FoodTab('discover')" type="button">🍜 找美食</button><button data-food-tab="want" onclick="v9265FoodTab('want')" type="button">♡ 想吃</button><button data-food-tab="eaten" onclick="v9265FoodTab('eaten')" type="button">✓ 吃過</button></div>
 <div class="v9265-food-pane" id="v9265FoodDiscover"><details class="v9268-fold"><summary>🍜 展開北越料理推薦與搜尋</summary><div class="card v43-food-panel" id="vietnamMustEatPanel"><h3>🇻🇳 越南必吃推薦｜北越美食圖鑑</h3><p class="small">先看推薦、加入「想吃」清單；吃過後可在下方收藏中打卡。推薦項目不會自動新增，按下收藏才會加入。</p><div class="row"><div><label for="mustEatSearch">🔎 搜尋必吃美食</label><input id="mustEatSearch" oninput="renderMustEat()" placeholder="例如：河粉、咖啡、米線" type="search"/></div><div><label for="mustEatCategory">分類</label><select id="mustEatCategory" onchange="renderMustEat()"><option value="全部">全部推薦</option><option value="主食">主食／米線</option><option value="小吃">街頭小吃</option><option value="飲品">飲品</option><option value="甜點">甜點</option></select></div></div><div id="mustEatList"></div></div></details>
 <div class="card v43-food-panel" id="restaurantGuidePanel">
 <h3>🍜 北越店家推薦</h3>
-
 <div class="diary-actions" style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0">
 <button class="action" id="restTabAll" onclick="setRestaurantRegion('全部')" type="button">全部</button>
 <button class="secondary" id="restTabHanoi" onclick="setRestaurantRegion('河內')" type="button">河內</button>
@@ -2858,25 +3176,11 @@ window.addEventListener('keydown',e=&gt;{if(e.key==='Escape'&amp;&amp;!lifePanel
 <div class="event"><div style="font-size:25px">🚠</div><div><b>番西邦峰</b><p class="muted">搭乘登山纜車，欣賞高山景觀</p><p class="small">沙壩主線</p><button class="secondary" onclick="toggleSideAch(3)">完成打卡</button></div></div>
 <div class="event"><div style="font-size:25px">🚢</div><div><b>下龍灣郵輪</b><p class="muted">記錄登船體驗、船上活動與海灣風景</p><p class="small">海上支線</p><button class="secondary" onclick="toggleSideAch(4)">完成打卡</button></div></div>
 </div></div></section>
-<section class="page" id="offline"><h2 class="section-title">📴 離線與出發檢查</h2><div class="card"><p>勾選完成的準備事項，紀錄會保存在這個瀏覽器。</p><div aria-live="polite" class="v44-checklist-progress" id="v44ChecklistProgress">已完成 0 / 8 項</div><div aria-label="出發檢查完成度" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="v44-progress-track" id="v44ChecklistBar" role="progressbar"><span id="v44ChecklistFill"></span></div><div id="checklist"></div></div><div class="card"><b>🧰 全功能備份與還原</b><p class="small">完整備份包含行程、支出、美食、成就、任務清單、小隊資料、日記文字與照片專區。照片會轉成備份資料，因此檔案可能很大；請保存到安全位置。匯入會合併資料，不會清空現有紀錄。</p><button class="action" onclick="exportBackup()">匯出完整備份（含日記與照片）</button> <button class="secondary" onclick="document.getElementById('importFile').click()">匯入完整備份</button><input accept="application/json" id="importFile" onchange="importBackup(event)" style="display:none" type="file"/></div></section>
-<section class="page" id="safetyCenter"><h2 class="section-title">🛡️ 資料安全中心</h2><div class="notice">所有檢查均為唯讀，不會清除、覆蓋或上傳資料。此 App 的資料目前保存在這台裝置的瀏覽器；請定期下載備份並自行保存。</div>
+<section class="page" id="offline"><h2 class="section-title">📴 離線與出發檢查</h2><div class="card"><p>勾選完成的準備事項，紀錄會保存在這個瀏覽器。</p><div aria-live="polite" class="v44-checklist-progress" id="v44ChecklistProgress">已完成 0 / 8 項</div><div aria-label="出發檢查完成度" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="v44-progress-track" id="v44ChecklistBar" role="progressbar"><span id="v44ChecklistFill"></span></div><div id="checklist"></div></div><div class="card"><h3>🛡️ 資料備份與還原</h3><p class="small">備份與安全還原統一在資料安全中心操作。</p><button class="action" onclick="showPage('safetyCenter')" type="button">前往資料安全中心</button></div></section>
+<section class="page" id="safetyCenter"><h2 class="section-title">🛡️ 資料安全中心</h2><div class="v949-safety-guide" role="note"><strong>資料安全建議</strong><p>先下載整合備份並妥善保存，再檢查備份檔；還原僅適合在獨立測試環境驗證，請勿直接使用重要旅行資料測試。</p></div><div class="notice">所有檢查均為唯讀，不會清除、覆蓋或上傳資料。此 App 的資料目前保存在這台裝置的瀏覽器；請定期下載備份並自行保存。</div>
 <div class="card"><h3>📊 本機資料概況</h3><div id="safetyInventory">按下「檢查資料」讀取本機資料概況。</div><button class="action" onclick="safetyRunAudit()">🔍 檢查資料</button></div>
-<div class="card"><h3>💾 完整備份</h3><p class="small">包含 localStorage、行程、日記及獨立照片。照片多時檔案會較大。</p><button class="action" onclick="exportBackup()">匯出完整備份</button></div>
-<div class="card"><h3>📦 分類備份</h3><button class="secondary" onclick="exportExpenses()">匯出支出 CSV</button> <button class="secondary" onclick="exportPhotoLibrary()">匯出照片 JSON</button> <button class="secondary" onclick="safetyExportDiary()">匯出日記 JSON</button></div>
-<div class="card"><h3>♻️ 還原前安全檢查</h3><p class="small">先選擇備份檔，只檢查格式與資料筆數，不會匯入。確認檔案正確後，仍需回到「離線與出發檢查」手動執行原有匯入流程。</p><input accept="application/json" id="safetyCheckFile" onchange="safetyPreviewBackup(event)" type="file"/><div aria-live="polite" class="small" id="safetyPreview">尚未選擇備份檔。</div><button class="secondary" onclick="showPage('offline')">前往原有還原功能</button></div>
-<div class="card"><h3>⚠️ 資料保護提醒</h3><ul><li>不要清除 Chrome 網站資料或解除安裝 App，除非已確認備份可用。</li><li>匯入完整備份前，先匯出目前資料。</li><li>照片地圖座標是附加欄位，舊照片與原圖不會被刪除。</li><li>本中心不會自動上傳雲端，也不會替你刪除任何紀錄。</li></ul></div><div class="card v55-backup-card" id="v55BackupPanel">
-<h3>📱 V5.5 跨手機備份與還原</h3>
-<p class="small">手動備份／匯入，可在 iPhone Safari 與 Android Chrome 之間搬移資料。本功能只讀取本機資料，不會自動同步或上傳雲端；不改動 V5.4 的資料庫 schema。</p>
-<div aria-live="polite" class="v55-backup-stats" id="v55BackupStats">按下「檢查並預覽」讀取本機資料數量與預估大小。</div>
-<div class="diary-actions"><button class="action" onclick="v55PreviewLocal()" type="button">🔍 檢查並預覽</button><button class="action" onclick="v55ExportBackup()" type="button">💾 匯出 V5.5 完整備份</button></div>
-<hr class="v55-divider"/>
-<label for="v55ImportFile">選擇另一支手機的 V5.5 備份檔</label><input accept="application/json,.json" id="v55ImportFile" onchange="v55PreviewImport(event)" type="file"/>
-<div aria-live="polite" class="v55-backup-stats" id="v55ImportPreview">尚未選擇備份檔。</div>
-<label for="v55ImportMode">匯入模式</label><select id="v55ImportMode" onchange="v55ResetPreBackup()"><option selected="" value="merge">安全合併（預設：保留本機較新或無法判定的資料）</option><option value="restore">完整還原（以備份資料替換相同資料庫／資料鍵）</option></select>
-<p class="small">匯入前會先建立目前手機的完整備份下載。合併只以資料穩定 ID 比對；沒有穩定 ID 的行程／設定衝突會保留本機版本並列入衝突，不會用日期或標題猜測重複。</p>
-<button class="action" disabled="" id="v55ImportButton" onclick="v55ImportSelected()" type="button">♻️ 開始安全匯入</button>
-<div aria-live="polite" class="v55-backup-stats" id="v55ImportResult"></div>
-</div>
+<div class="card v947-safety-main" id="v947SafetyMain"><h3>🛡️ 備份與安全還原</h3><p class="small">先下載整合備份，再檢查格式與差異；安全還原僅新增不存在的資料，不覆蓋現有紀錄。尚未完成手機實測，請先用測試資料驗證。</p><details class="v941-backup"><summary>💾 匯出本機資料備份（JSON）</summary><div class="v941-backup-body"><p>可下載此網站目前網址下的 localStorage 資料。<strong>照片、IndexedDB、瀏覽器快取與其他網址的存檔不包含在內。</strong>請勿將備份檔公開分享。</p><button id="v941Export" type="button">下載 localStorage 備份</button><button id="v942Export" style="margin-left:6px;margin-top:8px" type="button">下載 localStorage＋IndexedDB 備份</button><details id="v943Preview" style="margin-top:12px;padding:12px;border:1px solid #A2B9AE;border-radius:12px;background:#F1F5F1;color:#24363C"><summary style="font-weight:700;cursor:pointer;color:#24363C">🔎 檢查備份檔與還原預覽（不會修改資料）</summary><p style="color:#43565C">選擇本站匯出的 JSON 備份，查看資料項目與可能的覆蓋風險。本功能只讀取檔案，不會還原或上傳。</p><input accept=".json,application/json" aria-label="選擇世界冒險日記備份 JSON" id="v943File" style="max-width:100%;color:#24363C" type="file"/><div aria-live="polite" id="v943Result" role="status" style="margin-top:10px;white-space:pre-wrap;overflow-wrap:anywhere;color:#24363C">尚未選擇檔案。</div></details><details class="v941-backup" id="v945Panel"><summary>🛡️ V9.45｜安全還原（僅新增、不覆蓋）</summary><div class="v941-backup-body"><p>先選擇 V9.42 整合備份。系統只加入目前沒有的 localStorage 項目及不存在的 IndexedDB 資料庫；所有同名資料庫與同名項目都會跳過。還原前請先另行匯出目前資料備份。</p><input accept=".json,application/json" aria-label="選擇整合備份 JSON" id="v945File" type="file"/><button id="v945Inspect" type="button">① 檢查可新增資料</button><pre aria-live="polite" id="v945Report" style="white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;color:#24363c;background:#e2ebe5;padding:10px;border-radius:8px">尚未選擇檔案</pre><label style="display:flex;gap:8px;align-items:center;color:#24363c"><input id="v945Consent" type="checkbox"/>我已另行備份目前資料，了解僅新增且不覆蓋的限制</label><button disabled="" id="v945Restore" type="button">② 確認新增安全資料</button><p><small>不支援跨來源自動合併、覆蓋舊紀錄、CacheStorage 還原或原有資料庫內逐筆合併。若部分操作失敗，已新增的資料可能保留；請查看結果，不要重複盲目操作。</small></p></div></details><details id="v944Audit" style="margin-top:12px;padding:12px;border:1px solid #A2B9AE;border-radius:12px;background:#F1F5F1;color:#24363C"><summary style="font-weight:700;cursor:pointer;color:#24363C">🧾 V9.44 備份差異詳細報告（唯讀）</summary><p style="color:#43565C">選擇 V9.42 整合備份，檢查哪些 localStorage 項目新增、相同或不同，並比對 IndexedDB 資料庫／資料表名稱。只檢查，不還原。</p><input accept=".json,application/json" aria-label="選擇備份檔進行差異檢查" id="v944File" style="max-width:100%;color:#24363C" type="file"/><pre aria-live="polite" id="v944Result" role="status" style="white-space:pre-wrap;overflow-wrap:anywhere;color:#24363C;font:inherit">尚未選擇檔案。</pre><button disabled="" id="v944Download" type="button">下載差異報告 TXT</button><p style="color:#43565C;font-size:12px">報告包含儲存鍵名及資料庫名稱，可能涉及隱私；不會包含儲存值或照片內容。檔案不會上傳。</p></details><p aria-live="polite" id="v942Status" role="status">完整備份會讀取本站可列出的 IndexedDB 資料庫；如瀏覽器不支援列舉，將明確提示，不會產生假完整備份。</p><p aria-live="polite" id="v941Status" role="status">尚未匯出</p><small>此版本只有匯出功能，不會清除、覆蓋或匯入原有資料。</small></div></details><details class="v947-legacy"><summary>進階：舊版與分類備份匯出</summary><p class="small">供舊版格式相容，請勿與新版整合備份混用。</p><button onclick="exportBackup()" type="button">匯出舊版完整備份</button><button onclick="exportExpenses()" type="button">匯出支出 CSV</button><button onclick="exportPhotoLibrary()" type="button">匯出照片 JSON</button><button onclick="safetyExportDiary()" type="button">匯出日記 JSON</button></details></div>
+<div class="card"><h3>⚠️ 資料保護提醒</h3><ul><li>不要清除 Chrome 網站資料或解除安裝 App，除非已確認備份可用。</li><li>匯入完整備份前，先匯出目前資料。</li><li>照片地圖座標是附加欄位，舊照片與原圖不會被刪除。</li><li>本中心不會自動上傳雲端，也不會替你刪除任何紀錄。</li></ul></div><details class="card v947-legacy" id="v55BackupPanel"><summary>進階：V5.5 舊版備份匯出</summary><p class="small">舊版匯入入口已移除，避免混用不同還原方式。僅保留匯出供相容性使用。</p><div class="v55-backup-stats" id="v55BackupStats">可檢查舊版資料數量。</div><button onclick="v55PreviewLocal()" type="button">檢查舊版資料</button><button onclick="v55ExportBackup()" type="button">匯出 V5.5 備份</button></details>
 </section>
 <section aria-label="旅行人物與故事" class="page" id="travelStories">
 <div class="v411-page-heading"><span>PEOPLE &amp; MOMENTS</span><h2>👥 旅途中的相遇</h2><p>這些是遊戲中的情境故事。選擇你想做的事，留下自己的旅行回憶；每段故事只會記錄一次，不影響原有任務進度。</p></div>
@@ -2884,7 +3188,7 @@ window.addEventListener('keydown',e=&gt;{if(e.key==='Escape'&amp;&amp;!lifePanel
 <div aria-live="polite" class="v411-story-list" id="v411StoryList"></div>
 <section class="v411-memory-shelf"><div class="v411-shelf-head"><div><span>YOUR TRAVEL MOMENTS</span><h3>📚 我的相遇紀錄</h3></div><b id="v411MemoryCount">0 則</b></div><div id="v411MemoryList"><p>完成一段人物故事後，回憶會收藏在這裡。</p></div></section>
 </section>
-<section class="page" id="diary"><details class="v9267-studio" id="v9266MemoryPanel"><summary>🎬 旅行回憶製作室 <span style="font-size:.78em;opacity:.8">素材・小冊子・影片</span></summary><div aria-label="旅行回憶製作室" class="v9267-tabs" role="tablist"><button aria-selected="true" data-v9267-tab="assets" type="button">📦 素材</button><button aria-selected="false" data-v9267-tab="book" type="button">📖 小冊子</button><button aria-selected="false" data-v9267-tab="video" type="button">🎬 短影片</button></div><div class="v9267-pane" data-v9267-pane="assets"><div class="v9266-memory-inner"><p class="small">只讀取原有旅行資料，不搬移照片；可將喜歡的紀錄標為 ⭐ 精選。可切換至小冊子與短影片，使用既有的生成工具。</p><div class="v9266-memory-actions"><button onclick="v9266Refresh()" type="button">↻ 更新素材</button><button class="secondary" onclick="v9266Export()" type="button">匯出素材清單</button></div><div aria-live="polite" class="small" id="v9266MemoryStats">展開後點「更新素材」</div><div aria-label="回憶素材分類" class="v9266-memory-filters" role="group"><button class="active" data-mem-kind="all" onclick="v9266Filter('all')" type="button">全部</button><button data-mem-kind="photo" onclick="v9266Filter('photo')" type="button">照片</button><button data-mem-kind="food" onclick="v9266Filter('food')" type="button">美食</button><button data-mem-kind="checkin" onclick="v9266Filter('checkin')" type="button">打卡</button><button data-mem-kind="unlock" onclick="v9266Filter('unlock')" type="button">解鎖</button><button data-mem-kind="diary" onclick="v9266Filter('diary')" type="button">日記</button></div><div class="v9266-memory-list" id="v9266MemoryList"></div></div></div><div class="v9267-pane" data-v9267-pane="book" hidden=""><details class="v920-diary-extra" open=""><summary>📚 旅行回憶小冊子</summary><div class="card" id="printableMemoirCard"><h3>📚 V5.4 電影感旅行回憶小冊子</h3><p class="small">把每日行程、已完成打卡、日記與相簿照片排成可列印的小冊子。資料只從本機讀取，不會更動原始紀錄。</p><div class="diary-actions"><button class="action" onclick="generatePrintableMemoir()" type="button">✨ 生成回憶錄小冊子</button><button class="secondary" onclick="if(document.getElementById('memoirPrintRoot')?.dataset.generated==='true')window.print();else alert('請先生成回憶錄小冊子，再進行列印。')" type="button">🖨️ 列印／存成 PDF</button></div><p class="small">版型：A5 直式、單面印刷、四周保留白邊。復古手帳 × 日系清新 × 底片照片；每日加入電影感旁白，原始日記完整保留。生成後再按列印／存成 PDF。</p><p aria-live="polite" class="small" id="memoirPrintStatus">尚未生成。生成後可先預覽，再列印。</p></div></details></div><div class="v9267-pane" data-v9267-pane="video" hidden=""><details class="v920-diary-extra" open=""><summary>🎬 AI 旅行回憶短影片</summary><section class="card" id="aiTravelVideoCard" style="margin:14px 0;border:1px solid rgba(130,150,180,.35)">
+<section class="page" id="diary"><div class="v950-records-bar" aria-label="旅行紀錄快速切換"><strong>📖 旅行紀錄</strong><div><button type="button" onclick="v950StartDiary()">✍️ 寫日記</button><button type="button" onclick="showPage('photos')">📷 看照片／新增照片</button></div></div><details class="v9267-studio" id="v9266MemoryPanel"><summary>🎬 旅行回憶製作室 <span style="font-size:.78em;opacity:.8">素材・小冊子・影片</span></summary><div aria-label="旅行回憶製作室" class="v9267-tabs" role="tablist"><button aria-selected="true" data-v9267-tab="assets" type="button">📦 素材</button><button aria-selected="false" data-v9267-tab="book" type="button">📖 小冊子</button><button aria-selected="false" data-v9267-tab="video" type="button">🎬 短影片</button></div><div class="v9267-pane" data-v9267-pane="assets"><div class="v9266-memory-inner"><p class="small">只讀取原有旅行資料，不搬移照片；可將喜歡的紀錄標為 ⭐ 精選。可切換至小冊子與短影片，使用既有的生成工具。</p><div class="v9266-memory-actions"><button onclick="v9266Refresh()" type="button">↻ 更新素材</button><button class="secondary" onclick="v9266Export()" type="button">匯出素材清單</button></div><div aria-live="polite" class="small" id="v9266MemoryStats">展開後點「更新素材」</div><div aria-label="回憶素材分類" class="v9266-memory-filters" role="group"><button class="active" data-mem-kind="all" onclick="v9266Filter('all')" type="button">全部</button><button data-mem-kind="photo" onclick="v9266Filter('photo')" type="button">照片</button><button data-mem-kind="food" onclick="v9266Filter('food')" type="button">美食</button><button data-mem-kind="checkin" onclick="v9266Filter('checkin')" type="button">打卡</button><button data-mem-kind="unlock" onclick="v9266Filter('unlock')" type="button">解鎖</button><button data-mem-kind="diary" onclick="v9266Filter('diary')" type="button">日記</button></div><div class="v9266-memory-list" id="v9266MemoryList"></div></div></div><div class="v9267-pane" data-v9267-pane="book" hidden=""><details class="v920-diary-extra" open=""><summary>📚 旅行回憶小冊子</summary><div class="card" id="printableMemoirCard"><h3>📚 V5.4 電影感旅行回憶小冊子</h3><p class="small">把每日行程、已完成打卡、日記與相簿照片排成可列印的小冊子。資料只從本機讀取，不會更動原始紀錄。</p><div class="diary-actions"><button class="action" onclick="generatePrintableMemoir()" type="button">✨ 生成回憶錄小冊子</button><button class="secondary" onclick="if(document.getElementById('memoirPrintRoot')?.dataset.generated==='true')window.print();else alert('請先生成回憶錄小冊子，再進行列印。')" type="button">🖨️ 列印／存成 PDF</button></div><p class="small">版型：A5 直式、單面印刷、四周保留白邊。復古手帳 × 日系清新 × 底片照片；每日加入電影感旁白，原始日記完整保留。生成後再按列印／存成 PDF。</p><p aria-live="polite" class="small" id="memoirPrintStatus">尚未生成。生成後可先預覽，再列印。</p></div></details></div><div class="v9267-pane" data-v9267-pane="video" hidden=""><details class="v920-diary-extra" open=""><summary>🎬 AI 旅行回憶短影片</summary><section class="card" id="aiTravelVideoCard" style="margin:14px 0;border:1px solid rgba(130,150,180,.35)">
 <h3>🎬 AI 旅行回憶短影片</h3>
 <p class="small">電影感 Cinematic｜60 秒｜無旁白。從原有旅行相簿與日記讀取素材，加入片頭、日期／地點字幕、慢速推近與淡入淡出，製作一段可下載的旅行回憶影片。</p>
 <div class="notice">🔒 安全設計：只讀取原本的日記與照片 IndexedDB，不會搬動、複製、刪除或覆蓋原始紀錄；不會上傳照片。影片製作在目前裝置的瀏覽器內進行。</div>
@@ -2901,7 +3205,7 @@ window.addEventListener('keydown',e=&gt;{if(e.key==='Escape'&amp;&amp;!lifePanel
 <div class="v920-diary-head"><h2>📖 旅行日記</h2><button class="action" onclick="v920OpenDiaryForm()" type="button">＋ 新增日記</button></div><div class="v920-diary-filter"><label for="v920DiaryDate">查看日期</label><select id="v920DiaryDate" onchange="v920FilterDiaries()"><option value="all">全部日期</option></select></div><div id="v920DiaryListWrap"><h3>已保存的日記</h3><div id="diaryList"><p class="muted">正在讀取本機日記…</p></div></div><details class="v920-diary-editor" id="v920DiaryEditor"><summary>✎ 新增／編輯日記</summary><div class="card"><b id="diaryFormTitle">新增一篇回憶</b><input id="diaryEditId" type="hidden"/><label>日期</label><input id="diaryDate" max="2026-11-23" min="2026-11-18" type="date" value="2026-11-18"/><label>地點</label><input id="diaryLocation" placeholder="例如：沙壩、番西邦峰"/><label>心情</label><select id="diaryMood"><option value="😍">😍 開心</option><option value="🥰">🥰 感動</option><option value="😌">😌 放鬆</option><option value="🤩">🤩 興奮</option><option value="😴">😴 疲累</option><option value="🥹">🥹 難忘</option><option value="😐">😐 普通</option></select><label>日記內容</label><textarea id="diaryText" placeholder="今天看見了什麼、吃了什麼、發生哪些難忘的事？" rows="5"></textarea><div class="notice">日記只記錄文字、日期、地點與心情。要拍照或整理照片，請使用底部的「📸 照片」專區；兩者分開保存。</div><div class="diary-actions"><button class="action" onclick="saveDiary()">儲存日記</button><button class="secondary" onclick="resetDiaryForm()">取消／清空表單</button></div><p aria-live="polite" class="small" id="diaryStatus"></p></div></details><details class="v920-diary-extra"><summary>🧭 每日旅行回憶總覽</summary><div class="card memory-timeline-card"><div class="memory-timeline-heading"><div><h3>🧭 每日旅行回憶總覽</h3><p class="small">以日期串起每日行程、完成打卡、相簿照片與日記。只讀取現有資料，不搬動、不複製、不覆蓋任何舊存檔。</p></div><button class="secondary" onclick="renderTravelMemoryTimeline()" type="button">↻ 更新</button></div><div id="travelMemoryTimeline"><p class="muted">正在整理每日旅行紀錄…</p></div></div></details><details class="v920-diary-extra"><summary>💾 日記備份與匯入</summary><div class="card"><b>回憶錄備份</b><p class="small">備份檔包含日記文字及照片，請存放在自己信任的位置。匯入時會合併日記，不會碰觸原本的支出紀錄。</p><div class="diary-actions"><button class="action" onclick="exportDiaries()">匯出日記與照片</button><button class="secondary" onclick="document.getElementById('diaryImportFile').click()">匯入日記備份</button></div><input accept="application/json,.json" id="diaryImportFile" onchange="importDiaries(event)" style="display:none" type="file"/></div></details></section><section class="page" id="shoppingQuest"><h2 class="section-title">🛍️ 北越尋寶任務</h2>
 <details class="v9271-summary"><summary>📊 預算與購買統計 <span id="v9271SummaryHint"></span></summary><div class="card shopping-summary"><div class="shopping-stat-grid"><div><small>🪙 預算總額</small><b id="shoppingBudgetTotal">NT$ 0</b></div><div><small>💰 已購買實際花費</small><b id="shoppingSpentTotal">NT$ 0</b></div><div><small>🎁 完成項目</small><b id="shoppingCount">0 / 0</b></div><div><small>🏆 完成進度</small><b id="shoppingPercent">0%</b></div></div><div class="shopping-progress"><span id="shoppingProgressBar"></span></div></div>
 </details><details class="v9268-fold" id="v9268ShoppingEditor"><summary>➕ 新增／編輯必買商品</summary><div class="card"><input id="shoppingEditId" type="hidden"/><label for="shoppingName">商品名稱 *</label><input id="shoppingName" maxlength="120" placeholder="例如：越南咖啡粉"/><label for="shoppingCategory">商品分類</label><select id="shoppingCategory"><option>咖啡與飲品</option><option>零食與食品</option><option>手工藝與紀念品</option><option>沙壩特色</option><option>我的自訂項目</option></select><div class="shopping-fields"><div><label for="shoppingBudget">預算（台幣 NT$）</label><input id="shoppingBudget" inputmode="numeric" min="0" placeholder="0" step="1" type="number"/></div><div><label for="shoppingPrice">實際購買金額（台幣 NT$）</label><input id="shoppingPrice" inputmode="numeric" min="0" placeholder="購買後填寫" step="1" type="number"/></div></div><label for="shoppingPlace">購買地點</label><input id="shoppingPlace" maxlength="160" placeholder="例如：河內老城區／沙壩市區"/><label for="shoppingRecipient">🎁 伴手禮送給誰</label><input id="shoppingRecipient" maxlength="240" placeholder="例如：爸爸、媽媽、同事小美（可填多人）"/><label for="shoppingNotes">備註</label><textarea id="shoppingNotes" maxlength="1000" placeholder="品牌、數量、送給誰……" rows="2"></textarea><div class="shopping-form-actions"><button class="action" onclick="saveShoppingItem()" type="button">💾 儲存商品</button><button class="secondary" onclick="resetShoppingForm()" type="button">取消編輯／清空表單</button></div><p aria-live="polite" class="small" id="shoppingFormStatus"></p></div></details>
-<div class="card"><div class="v9271-tabs" role="group" aria-label="購物清單狀態"><button type="button" class="v9271-tab is-active" data-status="未購買" onclick="v9271SetShoppingTab('未購買')">🛍️ 想買</button><button type="button" class="v9271-tab" data-status="已購買" onclick="v9271SetShoppingTab('已購買')">✅ 已買</button><button type="button" class="v9271-tab" data-status="全部狀態" onclick="v9271SetShoppingTab('全部狀態')">全部</button></div><label for="shoppingCategoryFilter" class="v9271-filter-label">商品分類</label><select id="shoppingCategoryFilter" onchange="renderShoppingItems()"><option value="全部分類">全部分類</option><option>咖啡與飲品</option><option>零食與食品</option><option>手工藝與紀念品</option><option>沙壩特色</option><option>我的自訂項目</option></select><label for="shoppingStatusFilter" class="v9271-sr">購買狀態</label><select id="shoppingStatusFilter" class="v9271-sr" onchange="renderShoppingItems()"><option value="全部狀態">全部狀態</option><option value="未購買" selected>尚未購買</option><option value="已購買">已買到</option></select><div aria-live="polite" class="shopping-items" id="shoppingItems"></div></div></section>
+<div class="card"><div aria-label="購物清單狀態" class="v9271-tabs" role="group"><button class="v9271-tab is-active" data-status="未購買" onclick="v9271SetShoppingTab('未購買')" type="button">🛍️ 想買</button><button class="v9271-tab" data-status="已購買" onclick="v9271SetShoppingTab('已購買')" type="button">✅ 已買</button><button class="v9271-tab" data-status="全部狀態" onclick="v9271SetShoppingTab('全部狀態')" type="button">全部</button></div><label class="v9271-filter-label" for="shoppingCategoryFilter">商品分類</label><select id="shoppingCategoryFilter" onchange="renderShoppingItems()"><option value="全部分類">全部分類</option><option>咖啡與飲品</option><option>零食與食品</option><option>手工藝與紀念品</option><option>沙壩特色</option><option>我的自訂項目</option></select><label class="v9271-sr" for="shoppingStatusFilter">購買狀態</label><select class="v9271-sr" id="shoppingStatusFilter" onchange="renderShoppingItems()"><option value="全部狀態">全部狀態</option><option selected="" value="未購買">尚未購買</option><option value="已購買">已買到</option></select><div aria-live="polite" class="shopping-items" id="shoppingItems"></div></div></section>
 <section class="page" id="emergency">
 <h2 class="section-title">🆘 注意事項與緊急應變中心</h2>
 <div class="notice"><b>先確保人身安全。</b> 若有立即危險，移到安全且有人員的地方，並聯絡當地緊急服務或請飯店人員協助。此頁是旅行輔助資訊，不能取代警方、醫療人員或官方公告。</div>
@@ -2959,44 +3263,44 @@ window.addEventListener('keydown',e=&gt;{if(e.key==='Escape'&amp;&amp;!lifePanel
 <p class="small">終章已解鎖。請繼續定期匯出備份；此頁不會刪除或覆寫任何既有紀錄。</p>
 </div>
 </section>
-</main><nav aria-label="主要導覽" class="rpg-nav rpg-bottom-menu v3-primary-nav">
+</main><nav aria-label="主要導覽" class="rpg-nav rpg-bottom-menu v3-primary-nav v950-nav">
 <button aria-label="首頁" class="active" data-page="home" onclick="showPage('home')"><span aria-hidden="true" class="nav-icon">🏠</span><span>首頁</span></button>
-<button aria-label="我的行程" data-page="itinerary" onclick="showPage('itinerary')"><span aria-hidden="true" class="nav-icon">🗓️</span><span>行程</span></button><button aria-label="記帳與分帳" data-page="expenses" onclick="showPage('expenses')"><span aria-hidden="true" class="nav-icon">💰</span><span>記帳</span></button>
-<button aria-label="景點打卡與旅行任務" data-page="adventureMap" onclick="showPage('adventureMap')"><span aria-hidden="true" class="nav-icon">📍</span><span>打卡</span></button>
+<button aria-label="今天行程" data-page="itinerary" onclick="showPage('itinerary')"><span aria-hidden="true" class="nav-icon">🗓️</span><span>行程</span></button>
+<button aria-label="快速記帳" data-page="expenses" onclick="v950OpenExpense()"><span aria-hidden="true" class="nav-icon">💰</span><span>記帳</span></button>
+<button aria-label="旅行紀錄" data-page="diary" onclick="v950OpenRecords()"><span aria-hidden="true" class="nav-icon">📖</span><span>紀錄</span></button>
 <button aria-controls="categoryMenu" aria-expanded="false" aria-label="更多功能" id="categoryMenuToggle" onclick="toggleCategoryMenu()" type="button"><span aria-hidden="true" class="nav-icon">☰</span><span>更多</span></button>
 </nav>
 <div class="category-menu-backdrop" hidden="" id="categoryMenuBackdrop" onclick="toggleCategoryMenu(false)"></div>
 <section aria-label="功能分類選單" class="category-menu" hidden="" id="categoryMenu">
 <div class="category-menu-head"><b>🧭 功能分類</b><button aria-label="關閉功能總覽" class="category-close" onclick="toggleCategoryMenu(false)" type="button">✕</button></div>
-<button class="category-photo-shortcut" data-keywords="旅行相簿 照片 相片 攝影 地圖 集章" data-page="photos" onclick="chooseCategoryPage('photos')" type="button">📸 旅行相簿<small>拍照・照片地圖・景點集章</small></button>
+
 <p class="category-menu-tip">功能依用途整理好了：打卡找「打卡與行程」，遊戲找「遊戲與冒險」。</p>
 <div class="category-grid" id="categoryMenuGrid">
-<details class="category-accordion" open=""><summary>📍 打卡與行程<span class="accordion-hint">景點、每日安排、出發檢查</span></summary><div class="category-accordion-content"><section class="category-group">
-<button data-keywords="打卡 景點 地圖 探索 河內 沙壩 下龍灣 位置 GPS 任務 待辦 完成 清單" data-page="adventureMap" onclick="chooseCategoryPage('adventureMap')">📍 景點打卡・旅行任務</button>
-<button data-keywords="行程 日期 時間 交通 每天 排程" data-page="itinerary" onclick="chooseCategoryPage('itinerary')">🗓️ 每日行程</button>
-<button data-keywords="飯店 住宿 地址 地點 酒店" data-page="places" onclick="chooseCategoryPage('places')">🏨 飯店與重要地點</button>
-<button data-keywords="天氣 預報 氣溫 降雨 風速 河內 沙壩 番西邦峰 下龍灣" data-page="weather" onclick="chooseCategoryPage('weather')">🌦️ 越南旅遊天氣</button>
-<button data-keywords="離線 出發 檢查 網路 備用 清單" data-page="offline" onclick="chooseCategoryPage('offline')">🧳 行前檢查清單</button>
+<details class="category-accordion" open=""><summary>📍 景點與準備<span class="accordion-hint">打卡、住宿、出發檢查</span></summary><div class="category-accordion-content"><section class="category-group">
+<button data-keywords="打卡 景點 地圖 探索 河內 沙壩 下龍灣 位置 GPS 任務 待辦 完成 清單" data-page="adventureMap" onclick="chooseCategoryPage('adventureMap')" type="button">📍 景點打卡・旅行任務</button>
+
+<button data-keywords="飯店 住宿 地址 地點 酒店" data-page="places" onclick="chooseCategoryPage('places')" type="button">🏨 飯店與重要地點</button>
+<button data-keywords="離線 出發 檢查 網路 備用 清單" data-page="offline" onclick="chooseCategoryPage('offline')" type="button">🧳 行前檢查清單</button>
 </section></div></details>
 <details class="category-accordion"><summary>🎮 遊戲與冒險<span class="accordion-hint">任務、戰鬥、獎勵、等級</span></summary><div class="category-accordion-content"><section class="category-group">
-<button data-keywords="RPG 遊戲 戰鬥 背包 裝備 道具 戰利品 圖鑑 怪物" data-page="loot" onclick="chooseCategoryPage('loot')">🎮 北越 RPG 冒險世界</button>
-<button data-keywords="成就 等級 EXP 經驗值 獎章" data-page="achievements" onclick="chooseCategoryPage('achievements')">🏆 成就與冒險等級</button>
+<button data-keywords="RPG 遊戲 戰鬥 背包 裝備 道具 戰利品 圖鑑 怪物" data-page="loot" onclick="chooseCategoryPage('loot')" type="button">🎮 RPG 冒險（附加遊戲）</button>
+<button data-keywords="成就 等級 EXP 經驗值 獎章" data-page="achievements" onclick="chooseCategoryPage('achievements')" type="button">🏆 成就與冒險等級</button>
 </section></div></details>
-<details class="category-accordion"><summary>📖 旅行紀錄<span class="accordion-hint">人物、日記、照片、回憶</span></summary><div class="category-accordion-content"><section class="category-group">
-<button data-keywords="日記 回憶 文字 記錄 旅行故事" data-page="diary" onclick="chooseCategoryPage('diary')">📖 旅行日記</button>
-<button data-keywords="結局 終章 旅程紀念" data-page="adventureFinale" onclick="chooseCategoryPage('adventureFinale')">🎁 旅程終章紀念</button>
-</section></div></details>
+<details class="category-accordion"><summary>📖 相簿與回憶<span class="accordion-hint">照片、旅程紀念</span></summary><div class="category-accordion-content"><section class="category-group">
+
+<button data-keywords="結局 終章 旅程紀念" data-page="adventureFinale" onclick="chooseCategoryPage('adventureFinale')" type="button">🎁 旅程終章紀念</button>
+<button data-keywords="旅行相簿 照片 相片 攝影 地圖 集章" data-page="photos" onclick="chooseCategoryPage('photos')" type="button">📸 旅行相簿與照片地圖</button></section></div></details>
 <details class="category-accordion"><summary>🍜 美食與翻譯<span class="accordion-hint">吃什麼、怎麼說</span></summary><div class="category-accordion-content"><section class="category-group">
-<button data-keywords="美食 食物 餐廳 吃 必吃 菜單" data-page="food" onclick="chooseCategoryPage('food')">🍜 北越美食圖鑑</button>
-<button data-keywords="翻譯 越南文 語言 對話 常用句" data-page="translate" onclick="chooseCategoryPage('translate')">🗣️ 旅遊翻譯</button>
+<button data-keywords="美食 食物 餐廳 吃 必吃 菜單" data-page="food" onclick="chooseCategoryPage('food')" type="button">🍜 北越美食圖鑑</button>
+<button data-keywords="翻譯 越南文 語言 對話 常用句" data-page="translate" onclick="chooseCategoryPage('translate')" type="button">🗣️ 旅遊翻譯</button>
 </section></div></details>
-<details class="category-accordion"><summary>💰 記帳與購物<span class="accordion-hint">記帳、分帳、必買清單</span></summary><div class="category-accordion-content"><section class="category-group">
-<button data-keywords="記帳 錢 費用 花費 支出 付款 分帳 結算 匯率" data-page="expenses" onclick="chooseCategoryPage('expenses')">💰 記帳與分帳</button>
-<button data-keywords="購物 必買 清單 伴手禮 商品 買東西" data-page="shoppingQuest" onclick="chooseCategoryPage('shoppingQuest')">🎁 必買與伴手禮清單</button>
+<details class="category-accordion"><summary>🛍️ 購物清單<span class="accordion-hint">必買與伴手禮</span></summary><div class="category-accordion-content"><section class="category-group">
+
+<button data-keywords="購物 必買 清單 伴手禮 商品 買東西" data-page="shoppingQuest" onclick="chooseCategoryPage('shoppingQuest')" type="button">🎁 必買與伴手禮清單</button>
 </section></div></details>
 <details class="category-accordion"><summary>🛡️ 安全與備份<span class="accordion-hint">緊急聯絡、資料保護</span></summary><div class="category-accordion-content"><section class="category-group">
-<button data-keywords="緊急 SOS 求助 電話 聯絡 醫院 警察" data-page="emergency" onclick="chooseCategoryPage('emergency')">🆘 緊急聯絡與應變</button>
-<button data-keywords="安全 備份 還原 資料 存檔 匯入 匯出" data-page="safetyCenter" onclick="chooseCategoryPage('safetyCenter')">🔐 資料安全與備份還原</button>
+<button data-keywords="緊急 SOS 求助 電話 聯絡 醫院 警察" data-page="emergency" onclick="chooseCategoryPage('emergency')" type="button">🆘 緊急聯絡與應變</button>
+<button data-keywords="安全 備份 還原 資料 存檔 匯入 匯出" data-page="safetyCenter" onclick="chooseCategoryPage('safetyCenter')" type="button">🔐 資料安全與備份還原</button>
 </section></div></details>
 </div></section>
 <style id="v43-category-accordion-style">
@@ -5306,7 +5610,7 @@ window.addEventListener('load',()=>setTimeout(renderV96Rewards,350));
 })();</script>
 <!-- V9.7: legacy trailing style/script nodes moved inside document, order preserved -->
 <style id="six-item-bottom-navigation-fix">
-/* 功能總覽納入底部導覽，形成六個等寬入口；取消原本浮動按鈕定位 */
+/* 功能總覽納入底部導覽，形成五個等寬入口；取消原本浮動按鈕定位 */
 nav.rpg-bottom-menu{display:flex!important;gap:2px!important;justify-content:space-around!important;overflow:visible!important;padding-left:5px!important;padding-right:5px!important}
 nav.rpg-bottom-menu button{position:relative!important;flex:1 1 0!important;min-width:0!important;max-width:none!important;padding:3px 1px 5px!important;font-size:10px!important;white-space:nowrap!important}
 nav.rpg-bottom-menu button .nav-icon{font-size:22px!important;line-height:1.15!important}
@@ -6186,7 +6490,7 @@ async function v55NormalizeBackup(d){if(d&&d.format==='vietnam-adventure-full-ba
 async function v55PreviewImport(event){const file=event.target.files?.[0],host=document.getElementById('v55ImportPreview'),btn=document.getElementById('v55ImportButton');v55ResetPreBackup();v55SelectedBackup=null;btn.disabled=true;if(!file){host.textContent='尚未選擇備份檔。';return}host.textContent='正在讀取及驗證備份…';try{const text=await file.text(),raw=JSON.parse(text),d=await v55NormalizeBackup(raw);await v55ValidateBackup(d);v55SelectedBackup=d;host.innerHTML=`<strong>備份驗證成功</strong><br>版本：${v55Esc(d.appVersion||'V5.5')}<br>建立時間：${v55Esc(d.createdAt||'未提供')}<br>資料鍵：${Object.keys(d.localStorage).length} 個<br>支出：${(()=>{try{return JSON.parse(d.localStorage.expenses||'[]').length}catch{return '未知'}})()} 筆<br>日記：${d.diaries.length} 篇｜獨立照片：${d.photos.length} 張<br>備份檔案：${v55Bytes(file.size)}<br>完整性：${raw.version===2&&raw.format==='vietnam-adventure-full-backup'?'V5.4 舊版未附 checksum；結構驗證通過':v55Esc(d.integrity.algorithm)+' ✓'}${raw.version===2&&raw.format==='vietnam-adventure-full-backup'?'<br>已辨識 V5.4 舊版完整備份，已在記憶體中轉換格式（不改動原檔）。':''}`;btn.disabled=false}catch(e){host.textContent='備份無法使用：'+(e.message||e);}}
 function v55StableArray(a){return Array.isArray(a)&&a.every(x=>x&&typeof x==='object'&&!Array.isArray(x)&&typeof x.id==='string'&&x.id.length>0)}
 function v55JsonSame(a,b){try{return JSON.stringify(a)===JSON.stringify(b)}catch{return false}}
-function v55MergeArray(current,incoming,stats){if(!v55StableArray(current)||!v55StableArray(incoming)){stats.conflicts++;return current}const out=current.slice(),map=new Map(out.map((x,i)=>[x.id,i]));for(const item of incoming){if(!map.has(item.id)){map.set(item.id,out.length);out.push(item);stats.added++;continue}const i=map.get(item.id),old=out[i];if(v55JsonSame(old,item)){stats.duplicates++;continue}const oldTime=Number(old.updatedAt)||Number(old.createdAt)||0,newTime=Number(item.updatedAt)||Number(item.createdAt)||0;if(newTime>oldTime){out[i]={...old,...item,createdAt:old.createdAt??item.createdAt};stats.updated++}else{stats.conflicts++}}return out}
+function v55MergeArray(current,incoming,stats){if(!v55StableArray(current)||!v55StableArray(incoming)){stats.conflicts++;return current}const out=current.slice(),map=new Map(out.map((x,i)=>[x.id,i]));for(const item of incoming){if(!map.has(item.id)){map.set(item.id,out.length);out.push(item);stats.added++;continue}const i=map.get(item.id),old=out[i];if(v55JsonSame(old,item)){stats.duplicates++;continue}const oldTime=Number(old.updatedAt)||Number(old.createdAt)||0,newTime=Number(item.updatedAt)||Number(item.createdAt)||0;{stats.conflicts++}}return out}
 function v55MergeLocalValue(key,currentRaw,incomingRaw,stats){if(currentRaw===null){stats.added++;return incomingRaw}if(currentRaw===incomingRaw){stats.duplicates++;return currentRaw}let current,incoming;try{current=JSON.parse(currentRaw);incoming=JSON.parse(incomingRaw)}catch{stats.conflicts++;return currentRaw}if(Array.isArray(current)&&Array.isArray(incoming))return JSON.stringify(v55MergeArray(current,incoming,stats));if(current&&incoming&&typeof current==='object'&&typeof incoming==='object'&&!Array.isArray(current)&&!Array.isArray(incoming)){// Object maps have no confirmed V5.4 per-record ID contract; keep local intact.
  stats.conflicts++;return currentRaw}stats.conflicts++;return currentRaw}
 function v55BlobifyDiary(x){return {...x,photos:(x.photos||[]).map(dataUrlToBlob)}}
@@ -6194,24 +6498,20 @@ function v55BlobifyPhoto(x){return {...x,blob:typeof x.blob==='string'?dataUrlTo
 function v55TxWrite(storeName,rows,mode){return new Promise((resolve,reject)=>{openDiaryDb().then(db=>{const tx=db.transaction(storeName,'readwrite'),store=tx.objectStore(storeName);if(mode==='replace')store.clear();for(const row of rows)store.put(row);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error||new Error('IndexedDB 寫入失敗'));tx.onabort=()=>reject(tx.error||new Error('IndexedDB 寫入已中止'))}).catch(reject)})}
 async function v55RestoreStores(snapshot,storeName){const db=await openDiaryDb();await new Promise((resolve,reject)=>{const tx=db.transaction(storeName,'readwrite'),store=tx.objectStore(storeName);store.clear();for(const row of snapshot)store.put(row);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error||new Error('回復資料庫失敗'))})}
 async function v55ReadStore(storeName){const db=await openDiaryDb();return await new Promise((resolve,reject)=>{const req=db.transaction(storeName,'readonly').objectStore(storeName).getAll();req.onsuccess=()=>resolve(req.result||[]);req.onerror=()=>reject(req.error)})}
-async function v55ApplyImport(d,mode){const stats={added:0,updated:0,duplicates:0,conflicts:0,failed:0};const beforeLocal={};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k!==null)beforeLocal[k]=localStorage.getItem(k)}const beforeDiaries=await diaryGetAll(),beforePhotos=await photoGetAll();let touchedLocal=false,touchedDiary=false,touchedPhoto=false;
+async function v55ApplyImport(d,mode){if(mode!=='merge')throw new Error('為保護現有資料，已停用覆蓋式完整還原。');const stats={added:0,updated:0,duplicates:0,conflicts:0,failed:0};const beforeLocal={};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k!==null)beforeLocal[k]=localStorage.getItem(k)}const beforeDiaries=await diaryGetAll(),beforePhotos=await photoGetAll();let touchedLocal=false,touchedDiary=false,touchedPhoto=false;
  try{
   const incomingDiaries=d.diaries.map(v55BlobifyDiary),incomingPhotos=d.photos.map(v55BlobifyPhoto);
   let diaryRows=incomingDiaries,photoRows=incomingPhotos;
   if(mode==='merge'){
    const curD=beforeDiaries,curP=beforePhotos;diaryRows=curD.slice();photoRows=curP.slice();
-   const mergeDb=(current,incoming)=>{const map=new Map(current.map((x,i)=>[x.id,i]));for(const item of incoming){if(!map.has(item.id)){map.set(item.id,current.length);current.push(item);stats.added++;continue}const i=map.get(item.id),old=current[i];if(old.updatedAt===item.updatedAt&&old.date===item.date&&old.location===item.location&&old.text===item.text){stats.duplicates++;continue}const a=Number(old.updatedAt)||Number(old.createdAt)||0,b=Number(item.updatedAt)||Number(item.createdAt)||0;if(b>a){current[i]={...old,...item,createdAt:old.createdAt??item.createdAt};stats.updated++}else stats.conflicts++}};
+   const mergeDb=(current,incoming)=>{const map=new Map(current.map((x,i)=>[x.id,i]));for(const item of incoming){if(!map.has(item.id)){map.set(item.id,current.length);current.push(item);stats.added++;continue}const i=map.get(item.id),old=current[i];if(old.updatedAt===item.updatedAt&&old.date===item.date&&old.location===item.location&&old.text===item.text){stats.duplicates++;continue}const a=Number(old.updatedAt)||Number(old.createdAt)||0,b=Number(item.updatedAt)||Number(item.createdAt)||0;stats.conflicts++}};
    // Keep photo blobs and metadata intact; timestamps decide same-ID conflicts.
    mergeDb(diaryRows,incomingDiaries);mergeDb(photoRows,incomingPhotos);
   }
   // Pre-restore snapshot is already held in memory. Each store update is a single IDB transaction.
-  await v55TxWrite(DIARY_STORE,diaryRows,mode==='restore'?'replace':'merge');touchedDiary=true;
-  await v55TxWrite(PHOTO_STORE,photoRows,mode==='restore'?'replace':'merge');touchedPhoto=true;
-  if(mode==='restore'){
-   touchedLocal=true;localStorage.clear();for(const [k,v] of Object.entries(d.localStorage)){localStorage.setItem(k,v);stats.updated++}
-  }else{
-   for(const [k,v] of Object.entries(d.localStorage)){const old=localStorage.getItem(k),next=v55MergeLocalValue(k,old,v,stats);if(next!==old){touchedLocal=true;localStorage.setItem(k,next)}}
-  }
+  await v55TxWrite(DIARY_STORE,diaryRows,'merge');touchedDiary=true;
+  await v55TxWrite(PHOTO_STORE,photoRows,'merge');touchedPhoto=true;
+  for(const [k,v] of Object.entries(d.localStorage)){const old=localStorage.getItem(k),next=v55MergeLocalValue(k,old,v,stats);if(next!==old){touchedLocal=true;localStorage.setItem(k,next)}}
   return stats;
  }catch(err){stats.failed++;
   // Best-effort compensating rollback across the separate browser storage engines.
@@ -6222,7 +6522,7 @@ async function v55ApplyImport(d,mode){const stats={added:0,updated:0,duplicates:
  }
 }
 function v55ResetPreBackup(){v55PreBackupReady=false;const b=document.getElementById('v55ImportButton');if(b)b.textContent='♻️ 開始安全匯入'}
-async function v55ImportSelected(){const d=v55SelectedBackup,mode=document.getElementById('v55ImportMode').value,host=document.getElementById('v55ImportResult'),btn=document.getElementById('v55ImportButton');if(!d){alert('請先選擇並通過驗證的備份檔。');return}if(!v55PreBackupReady){if(!confirm(`第一步：先下載目前手機的完整安全備份（包含日記與照片）。下載開始後，請確認檔案確實出現在下載清單，再按一次本按鈕繼續。要開始備份嗎？`))return;btn.disabled=true;host.textContent='正在建立匯入前安全備份…';try{const pre=await v55PackLocal();v55Download(pre.json,'越南冒險日記_V5.5_匯入前安全備份.json');v55PreBackupReady=true;btn.textContent='✓ 我已確認安全備份下載，繼續匯入';host.innerHTML=`<strong>匯入前安全備份已交由瀏覽器下載</strong><br>檔案大小：${v55Bytes(pre.bytes)}<br>請先到下載清單確認檔案已出現且可保存，再按上方按鈕進行第二步。尚未開始匯入。`}catch(e){host.textContent='無法建立匯入前備份：'+(e.message||e)+'。匯入已停止，原始資料未修改。'}finally{btn.disabled=false}return}
+async function v55ImportSelected(){const d=v55SelectedBackup,mode='merge',host=document.getElementById('v55ImportResult'),btn=document.getElementById('v55ImportButton');if(!d){alert('請先選擇並通過驗證的備份檔。');return}if(!v55PreBackupReady){if(!confirm(`第一步：先下載目前手機的完整安全備份（包含日記與照片）。下載開始後，請確認檔案確實出現在下載清單，再按一次本按鈕繼續。要開始備份嗎？`))return;btn.disabled=true;host.textContent='正在建立匯入前安全備份…';try{const pre=await v55PackLocal();v55Download(pre.json,'越南冒險日記_V5.5_匯入前安全備份.json');v55PreBackupReady=true;btn.textContent='✓ 我已確認安全備份下載，繼續匯入';host.innerHTML=`<strong>匯入前安全備份已交由瀏覽器下載</strong><br>檔案大小：${v55Bytes(pre.bytes)}<br>請先到下載清單確認檔案已出現且可保存，再按上方按鈕進行第二步。尚未開始匯入。`}catch(e){host.textContent='無法建立匯入前備份：'+(e.message||e)+'。匯入已停止，原始資料未修改。'}finally{btn.disabled=false}return}
  if(!confirm(`第二步：你已確認匯入前安全備份已下載。現在執行「${mode==='merge'?'安全合併':'完整還原'}」？`))return;btn.disabled=true;host.textContent='正在執行匯入…';try{const stats=await v55ApplyImport(d,mode);if(typeof d.localStorage[ITINERARY_KEY]==='string'){try{const restored=JSON.parse(localStorage.getItem(ITINERARY_KEY)||'null');if(Array.isArray(restored)&&restored.length){days=restored;dayIndex=0;renderDays()}}catch{}}
  renderSquad();renderRpgMap();renderExpenses();renderAchievements();renderChecks();renderFoods();updateProgress();await renderDiaries();await renderPhotoLibrary();
  host.innerHTML=`<strong>匯入完成（${mode==='merge'?'安全合併':'完整還原'}）</strong><br>新增：${stats.added} 筆<br>更新：${stats.updated} 筆<br>重複：${stats.duplicates} 筆<br>衝突（保留本機）：${stats.conflicts} 筆<br>失敗：${stats.failed} 筆<br><span>請再檢查日記、照片、行程及支出；匯入前安全備份已另外下載。</span>`;v55ResetPreBackup();
@@ -6596,5 +6896,300 @@ window.v9266Pick=function(id){const p=picks();if(p[id])delete p[id];else p[id]=t
 window.v9266Export=function(){if(!items.length){alert('請先點「更新素材」');return}const fav=picks();const payload={format:'world-adventure-memory-index',version:'9.26.6',notice:'此檔只包含素材索引與精選標記，不包含照片原檔。請另外使用相簿備份匯出照片。',exportedAt:new Date().toISOString(),items:items.map(x=>({...x,featured:!!fav[x.id]}))};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='旅行回憶素材清單_V9.26.6.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000)};
 const panel=document.getElementById('v9266MemoryPanel');if(panel)panel.addEventListener('toggle',()=>{if(panel.open&&!items.length)refresh()});
 })();
-</script><script id="v9267-studio-tabs">(function(){document.addEventListener('click',function(ev){var b=ev.target.closest('[data-v9267-tab]');if(!b)return;var root=b.closest('#v9266MemoryPanel');if(!root)return;var key=b.getAttribute('data-v9267-tab');root.querySelectorAll('[data-v9267-tab]').forEach(function(x){x.setAttribute('aria-selected',String(x===b));});root.querySelectorAll('[data-v9267-pane]').forEach(function(x){x.hidden=x.getAttribute('data-v9267-pane')!==key;});});})();</script></body>
+</script><script id="v9267-studio-tabs">(function(){document.addEventListener('click',function(ev){var b=ev.target.closest('[data-v9267-tab]');if(!b)return;var root=b.closest('#v9266MemoryPanel');if(!root)return;var key=b.getAttribute('data-v9267-tab');root.querySelectorAll('[data-v9267-tab]').forEach(function(x){x.setAttribute('aria-selected',String(x===b));});root.querySelectorAll('[data-v9267-pane]').forEach(function(x){x.hidden=x.getAttribute('data-v9267-pane')!==key;});});})();</script>
+<script id="wa-weather-script">
+(function(){
+'use strict';
+const KEY='worldAdventureWeatherCacheV1';
+const $=id=>document.getElementById(id);
+const codes={0:['晴朗','☀️'],1:['大致晴朗','🌤️'],2:['局部多雲','⛅'],3:['陰天','☁️'],45:['有霧','🌫️'],48:['霧凇','🌫️'],51:['毛毛雨','🌦️'],53:['毛毛雨','🌦️'],55:['毛毛雨','🌧️'],61:['小雨','🌦️'],63:['下雨','🌧️'],65:['大雨','🌧️'],71:['小雪','🌨️'],73:['下雪','🌨️'],75:['大雪','❄️'],80:['陣雨','🌦️'],81:['陣雨','🌧️'],82:['強陣雨','🌧️'],95:['雷雨','⛈️'],96:['雷雨','⛈️'],99:['強雷雨','⛈️']};
+function status(t){$('waWeatherStatus').textContent=t}
+function render(d,old){
+ $('waWeatherCity').textContent='📍 '+(d.city||'目前位置');
+ $('waWeatherTemp').textContent=Math.round(d.temp)+'°C';
+ const info=codes[d.code]||['天氣更新中','🌤️'];
+ $('waWeatherDesc').textContent=info[0];$('waWeatherIcon').textContent=info[1];
+ $('waWeatherMeta').textContent='體感 '+Math.round(d.feels)+'°C · 濕度 '+d.humidity+'% · 降雨機率 '+(d.rain==null?'--':d.rain)+'%';
+ status((old?'離線／暫存天氣 · ':'最新取得 · ')+new Date(d.at).toLocaleString('zh-TW',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}));
+}
+let running=false;
+async function update(){
+ if(running)return;running=true;
+ try{
+  if(!window.isSecureContext){throw Error('定位需要 HTTPS 安全網站，請使用 GitHub Pages 開啟');}
+  if(!navigator.geolocation)throw Error('此瀏覽器不支援定位');
+  status('正在取得目前位置…');
+  const pos=await new Promise((resolve,reject)=>navigator.geolocation.getCurrentPosition(resolve,reject,{enableHighAccuracy:false,timeout:14000,maximumAge:300000}));
+  const lat=pos.coords.latitude,lon=pos.coords.longitude;
+  status('正在取得最新天氣…');
+  const url='https://api.open-meteo.com/v1/forecast?latitude='+encodeURIComponent(lat)+'&longitude='+encodeURIComponent(lon)+'&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code&hourly=precipitation_probability&forecast_days=1&timezone=auto';
+  const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw Error('天氣服務暫時無法連線');
+  const data=await response.json(),c=data.current;
+  if(!c||typeof c.temperature_2m!=='number')throw Error('天氣資料不完整');
+  let rain=null;
+  if(data.hourly?.time?.length){
+   const t=c.time.slice(0,13),i=data.hourly.time.findIndex(x=>x.startsWith(t));
+   if(i>=0)rain=data.hourly.precipitation_probability[i];
+  }
+  let city='目前位置';
+  try{
+   const r=await fetch('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude='+encodeURIComponent(lat)+'&longitude='+encodeURIComponent(lon)+'&localityLanguage=zh',{signal:AbortSignal.timeout(6000)});
+   if(r.ok){const g=await r.json();city=g.city||g.locality||g.principalSubdivision||city;}
+  }catch(_){}
+  const result={city,temp:c.temperature_2m,feels:c.apparent_temperature,humidity:c.relative_humidity_2m,rain,code:c.weather_code,at:Date.now()};
+  try{localStorage.setItem(KEY,JSON.stringify(result))}catch(_){}
+  render(result,false);
+ }catch(e){
+  let cached=null;try{cached=JSON.parse(localStorage.getItem(KEY)||'null')}catch(_){}
+  if(cached&&Number.isFinite(cached.temp))render(cached,true);
+  else {$('waWeatherCity').textContent='📍 尚未取得位置';$('waWeatherDesc').textContent='請點「更新天氣」重試'}
+  const msg=e.code===1?'定位未授權，請在瀏覽器允許位置存取':e.code===2?'無法取得位置，請確認定位服務':e.code===3?'定位逾時，請重試':(e.message||'暫時無法更新');
+  status(msg+(cached?'（目前顯示上次天氣）':''));
+ }finally{running=false}
+}
+function init(){
+ if(!$('waWeather'))return;
+ $('waWeatherRefresh').addEventListener('click',update);
+ try{const d=JSON.parse(localStorage.getItem(KEY)||'null');if(d&&Number.isFinite(d.temp))render(d,true)}catch(_){}
+ update();
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&Date.now()-lastCheck>15*60*1000){lastCheck=Date.now();update()}});
+}
+let lastCheck=Date.now();
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+<style id="v927-contextual-contrast">
+/* Contextual contrast: light surfaces -> dark text; dark surfaces -> light text.
+   Never force one text color across all elements. */
+:root{--paper:#E1E9E5;--ink:#24363C;--muted:#43565C;--line:#B4C6C1}
+html,body,main{background-color:#E1E9E5;color:#24363C}
+body{background-image:linear-gradient(150deg,#E1E9E5,#D8E5E0 65%,#E7ECE7)}
+/* Clearly identified light UI surfaces */
+#home .v927-dashboard .v927-actions>button,
+#home .v927-dashboard .v927-next,
+#home .v927-dashboard .v927-tools,
+#home .v927-dashboard .v927-overview,
+#home .v927-dashboard .v927-tool-links button,
+.wa-weather{background:#F1F5F1!important;color:#24363C!important;border-color:#B4C6C1!important;text-shadow:none!important;-webkit-text-fill-color:#24363C!important}
+#home .v927-dashboard .v927-actions>button :is(b,small,span,strong),
+#home .v927-dashboard .v927-next :is(b,small,span,strong,p),
+#home .v927-dashboard .v927-tools :is(b,small,span,strong,p,summary),
+#home .v927-dashboard .v927-overview :is(b,small,span,strong,p,summary),
+.wa-weather :is(div,strong,span){color:#24363C!important;-webkit-text-fill-color:#24363C!important;text-shadow:none!important}
+.wa-weather button{background:#D5E6DD!important;color:#24363C!important;-webkit-text-fill-color:#24363C!important;border:1px solid #A2B9AE!important}
+/* Dark blocks retain their dark design and get readable light text */
+#categoryMenu,#categoryMenu .category-menu-head{background:#172033!important;color:#F8FAFC!important}
+#categoryMenu :is(b,strong,span,small,p),#categoryMenu .category-menu-head b{color:#F8FAFC!important;-webkit-text-fill-color:#F8FAFC!important}
+#categoryMenu .category-menu-tip{background:#26344D!important;color:#F1F5F9!important}
+/* Light form controls; preserve original dark game controls and canvas artwork */
+input:not([type=checkbox]):not([type=radio]),textarea,select{background:#F7F9F6;color:#24363C;border-color:#B4C6C1}
+input::placeholder,textarea::placeholder{color:#52666A}
+/* Ensure homepage four action cards are not overridden by older white text declarations */
+#home .v927-dashboard .v927-actions>button,
+#home .v927-dashboard .v927-actions>button *{color:#24363C!important;-webkit-text-fill-color:#24363C!important}
+</style>
+<style id="v928-health-style">
+.v928-health{margin:0 12px 12px;border:1px solid #B4C6C1;border-radius:12px;background:#F1F5F1;color:#24363C}
+.v928-health>summary{padding:12px;cursor:pointer;font-weight:700;color:#24363C}
+.v928-health-content{padding:0 12px 12px;color:#24363C;font-size:13px;line-height:1.6}
+.v928-health-content p{margin:6px 0;color:#24363C}
+.v928-health-content .v928-note{font-size:12px;color:#43565C}
+</style>
+<script id="v928-health-script">
+(function(){'use strict';
+function inspect(){
+ const output=document.getElementById('v928HealthResult');if(!output)return;
+ const lines=[];
+ try{const count=localStorage.length;lines.push('✓ localStorage 可讀取：'+count+' 個儲存項目');}
+ catch(e){lines.push('⚠ localStorage 無法讀取：請檢查瀏覽器儲存權限');}
+ lines.push(('indexedDB' in window)?'✓ 瀏覽器支援 IndexedDB（尚未驗證資料庫內容）':'⚠ 瀏覽器不支援 IndexedDB');
+ lines.push(window.isSecureContext?'✓ 目前是安全連線環境':'⚠ 非安全連線，定位與部分功能可能受限');
+ output.textContent=lines.join('｜');
+}
+function init(){const el=document.querySelector('.v928-health');if(el)el.addEventListener('toggle',()=>{if(el.open)inspect()});}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+<style id="v932-compact-monster-dialog">
+/* V9.32: battle is a centered compact dialog, not a fullscreen scene */
+#walkWildBattle.walk-wild-battle{
+ inset:auto!important;top:50%!important;left:50%!important;right:auto!important;bottom:auto!important;
+ transform:translate(-50%,-50%)!important;
+ width:min(350px,calc(100vw - 28px))!important;height:auto!important;
+ max-height:min(82dvh,650px)!important;min-height:0!important;
+ padding:12px!important;margin:0!important;gap:8px!important;
+ justify-content:flex-start!important;overflow-y:auto!important;overscroll-behavior:contain!important;
+ border:3px solid #e6bd61!important;border-radius:12px!important;
+ box-shadow:0 0 0 100vmax rgba(9,15,24,.65),0 14px 35px rgba(0,0,0,.5)!important;
+}
+#walkWildBattle .walk-wild-title{min-height:0!important;padding:6px 8px!important;font-size:15px!important;gap:5px!important}
+#walkWildBattle .walk-wild-monster{width:100%!important;grid-template-columns:45px minmax(0,1fr)!important;gap:7px!important;align-self:stretch!important;margin:0!important;padding:7px!important;border-width:2px!important;box-shadow:2px 2px 0 #382719!important}
+#walkWildBattle .walk-wild-monster>span{font-size:36px!important}
+#walkWildBattle .walk-wild-monster b{font-size:14px!important}
+#walkWildBattle .walk-wild-monster small{font-size:11px!important;margin:2px 0!important}
+#walkWildBattle .walk-wild-hp{height:9px!important;border-width:1px!important}
+#walkWildBattle .walk-wild-player{width:100%!important;grid-template-columns:34px minmax(0,1fr)!important;gap:6px!important;align-self:stretch!important;margin:0!important;padding:6px 8px!important;border-width:2px!important;font-size:13px!important;box-shadow:2px 2px 0 #382719!important}
+#walkWildBattle .walk-wild-player-avatar{font-size:29px!important}
+#walkWildBattle .walk-wild-log{min-height:0!important;max-height:55px!important;padding:6px 8px!important;font-size:12px!important;border-width:2px!important}
+#walkWildBattle .walk-wild-actions{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6px!important}
+#walkWildBattle .walk-wild-actions button{min-height:38px!important;padding:5px 3px!important;font-size:13px!important;border-width:2px!important;box-shadow:2px 2px 0 #17291d!important}
+@media(max-height:560px){#walkWildBattle.walk-wild-battle{max-height:94dvh!important;padding:7px!important;gap:5px!important}#walkWildBattle .walk-wild-monster>span{font-size:29px!important}#walkWildBattle .walk-wild-actions button{min-height:32px!important}}
+</style>
+<script id="v939-trip-status">(function(){
+function updateTripStatus(){
+ var headline=document.getElementById('v939TripHeadline'), sub=document.getElementById('v939TripSub'),count=document.getElementById('v939TripCountdown');
+ if(!headline||!sub||!count)return;
+ var now=new Date(),today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+ var start=new Date(2026,10,18),end=new Date(2026,10,23);
+ var days=Math.round((start-today)/86400000);
+ if(days>0){headline.textContent='出發前的旅行準備';sub.textContent='先確認每日行程、住宿與集合地點。';count.textContent='距離北越出發還有 '+days+' 天';}
+ else if(today<=end){var d=Math.round((today-start)/86400000)+1;headline.textContent='北越旅程 · 第 '+d+' 天';sub.textContent='今天的行程、住宿和記帳都在下方。';count.textContent='旅行中 · 11/18–11/23';}
+ else{headline.textContent='收藏這趟旅行的回憶';sub.textContent='可以整理日記、相簿、支出，或從全部功能開啟其他旅程。';count.textContent='北越行程已結束 · 既有資料仍保留';}
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',updateTripStatus);else updateTripStatus();
+})();</script><script id="v940-day-hub-script">(function(){'use strict';
+function el(tag,cls,content){const n=document.createElement(tag);if(cls)n.className=cls;if(content!==undefined)n.textContent=String(content);return n}
+function render(){const box=document.getElementById('v940DaySummary'),label=document.getElementById('v940DayLabel');if(!box||!label)return;box.replaceChildren();try{if(typeof days==='undefined'||typeof dayIndex==='undefined'||!Array.isArray(days)){box.textContent='行程尚未載入';return}const d=days[dayIndex];if(!d){box.textContent='請選擇日期';return}label.textContent=(d.date||'日期未定')+' · '+(d.title||'未命名行程');const ev=Array.isArray(d.events)?d.events:[];if(!ev.length){box.textContent='這天尚未安排活動，可從下方新增行程。';return}const done=ev.filter((x,i)=>typeof isItineraryTaskDone==='function'&&isItineraryTaskDone(dayIndex,i)).length;box.append(el('p','small','已完成 '+done+' / '+ev.length+' 項'));ev.forEach((e,i)=>{const row=el('div','v940-day-item'),time=el('span','v940-day-time',e[0]||'未定'),detail=el('div','');detail.append(el('div','v940-day-name',(typeof isItineraryTaskDone==='function'&&isItineraryTaskDone(dayIndex,i)?'✓ ':'')+(e[1]||'未命名')));if(e[2])detail.append(el('div','v940-day-note',e[2]));row.append(time,detail);box.append(row)})}catch(err){box.textContent='暫時無法顯示速覽，原本的每日行程仍可使用。'}}
+function copy(){try{const d=days[dayIndex];if(!d)return;const lines=[(d.date||'')+' '+(d.title||''),...(d.events||[]).map(e=>(e[0]||'未定')+' '+(e[1]||'')+(e[2]?'｜'+e[2]:''))];const t=lines.join('\n');if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(()=>alert('當日行程已複製')).catch(()=>prompt('請手動複製行程：',t))}else prompt('請手動複製行程：',t)}catch(e){alert('請先選擇行程日期')}}
+function init(){const b=document.getElementById('v940CopyDay'),target=document.getElementById('daycontent');if(b)b.addEventListener('click',copy);if(target){const observer=new MutationObserver(render);observer.observe(target,{childList:true,subtree:false})}render()}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();</script><style id="v941-backup-style">.v941-backup{margin:12px 0;border:1px solid #a7bdb4;border-radius:12px;background:#f1f5f1;color:#24363c;padding:10px}.v941-backup summary{cursor:pointer;font-weight:750;color:#24363c}.v941-backup-body{padding:8px 3px;color:#24363c}.v941-backup-body p,.v941-backup-body small,.v941-backup-body strong{color:#24363c}.v941-backup-body button{background:#234b43!important;color:#fff!important;border:1px solid #234b43;border-radius:9px;padding:11px 14px;font-weight:700;min-height:42px}</style>
+<script id="v941-backup-script">(function(){'use strict';function init(){var btn=document.getElementById('v941Export'),status=document.getElementById('v941Status');if(!btn)return;btn.addEventListener('click',function(){try{var data={},failed=[];for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);try{data[k]=localStorage.getItem(k)}catch(e){failed.push(k)}}if(failed.length)throw Error('有 '+failed.length+' 筆資料無法讀取，已取消不完整備份');var payload={format:'world-adventure-localstorage-backup',version:1,createdAt:new Date().toISOString(),origin:location.origin,scope:'localStorage only; IndexedDB and images stored elsewhere are excluded',count:Object.keys(data).length,data:data};var blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='世界冒險日記_localStorage備份_'+new Date().toISOString().slice(0,10)+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url)},1000);status.textContent='已送出下載：'+payload.count+' 筆 localStorage 項目。請確認瀏覽器確實儲存檔案；此檔不包含 IndexedDB 或外部照片。'}catch(e){status.textContent='備份未完成：'+(e&&e.message?e.message:'瀏覽器限制')}})}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init()})();</script><script id="v942-combined-export">(function(){'use strict';
+const MAX_DEPTH=80;
+function encode(v,depth=0){if(depth>MAX_DEPTH)throw Error('資料巢狀層數過深');if(v===undefined)return {__waType:'Undefined'};if(v===null||typeof v==='string'||typeof v==='boolean')return v;if(typeof v==='number')return Number.isFinite(v)?v:{__waType:'Number',value:String(v)};if(typeof v==='bigint')return {__waType:'BigInt',value:String(v)};if(v instanceof Date)return {__waType:'Date',value:v.toISOString()};if(v instanceof ArrayBuffer)return {__waType:'ArrayBuffer',bytes:Array.from(new Uint8Array(v))};if(ArrayBuffer.isView(v))return {__waType:'TypedArray',kind:v.constructor.name,bytes:Array.from(new Uint8Array(v.buffer,v.byteOffset,v.byteLength))};if(v instanceof Blob)throw Error('含有 Blob/照片資料，需使用非同步編碼');if(Array.isArray(v))return v.map(x=>encode(x,depth+1));if(v instanceof Map)return {__waType:'Map',entries:Array.from(v,([k,x])=>[encode(k,depth+1),encode(x,depth+1)])};if(v instanceof Set)return {__waType:'Set',values:Array.from(v,x=>encode(x,depth+1))};if(v&&typeof v==='object'){const out={};for(const k of Object.keys(v))out[k]=encode(v[k],depth+1);return out}throw Error('無法安全備份的資料型態：'+typeof v)}
+async function encodeAsync(v,depth=0){if(depth>MAX_DEPTH)throw Error('資料巢狀層數過深');if(v instanceof Blob){const bytes=Array.from(new Uint8Array(await v.arrayBuffer()));return {__waType:'Blob',mime:v.type,bytes}}if(Array.isArray(v))return Promise.all(v.map(x=>encodeAsync(x,depth+1)));if(v instanceof Map){return {__waType:'Map',entries:await Promise.all(Array.from(v,async([k,x])=>[await encodeAsync(k,depth+1),await encodeAsync(x,depth+1)]))}}if(v instanceof Set){return {__waType:'Set',values:await Promise.all(Array.from(v,x=>encodeAsync(x,depth+1)))}}if(v&&typeof v==='object'&&!(v instanceof Date)&&!(v instanceof ArrayBuffer)&&!ArrayBuffer.isView(v)){const out={};for(const k of Object.keys(v))out[k]=await encodeAsync(v[k],depth+1);return out}return encode(v,depth)}
+function readStore(db,name){return new Promise((resolve,reject)=>{let tx;try{tx=db.transaction(name,'readonly')}catch(e){reject(e);return}const store=tx.objectStore(name),rows=[];const req=store.openCursor();req.onsuccess=()=>{const c=req.result;if(c){rows.push({key:c.key,value:c.value});c.continue()}};req.onerror=()=>reject(req.error||Error('讀取游標失敗'));tx.onabort=()=>reject(tx.error||Error('交易中斷'));tx.onerror=()=>reject(tx.error||Error('交易失敗'));tx.oncomplete=()=>resolve({name,keyPath:store.keyPath,autoIncrement:store.autoIncrement,indexes:Array.from(store.indexNames,n=>{const i=store.index(n);return {name:n,keyPath:i.keyPath,unique:i.unique,multiEntry:i.multiEntry}}),rows})})}
+function openDB(name){return new Promise((resolve,reject)=>{const req=indexedDB.open(name);req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error||Error('資料庫開啟失敗'));req.onblocked=()=>reject(Error('資料庫被其他分頁鎖定'))})}
+async function backup(){if(!window.indexedDB||typeof indexedDB.databases!=='function')throw Error('此瀏覽器無法列舉 IndexedDB，為避免漏備份，已停止。請用支援的瀏覽器測試。');const names=await indexedDB.databases();if(!Array.isArray(names))throw Error('無法取得 IndexedDB 清單');const local={};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);local[k]=localStorage.getItem(k)}const dbs=[];for(const info of names){if(!info.name)throw Error('發現無名稱資料庫，無法確認完整性');const db=await openDB(info.name);try{const stores=[];for(const n of Array.from(db.objectStoreNames)){const raw=await readStore(db,n);const rows=[];for(const r of raw.rows)rows.push({key:await encodeAsync(r.key),value:await encodeAsync(r.value)});stores.push({...raw,rows})}dbs.push({name:info.name,version:db.version,stores})}finally{db.close()}}return {format:'world-adventure-readonly-backup',version:2,createdAt:new Date().toISOString(),origin:location.origin,scope:'localStorage + enumerable IndexedDB; CacheStorage, service workers, other origins and files outside databases excluded',localStorage:local,indexedDB:dbs,counts:{localStorage:Object.keys(local).length,databases:dbs.length,stores:dbs.reduce((a,d)=>a+d.stores.length,0),records:dbs.reduce((a,d)=>a+d.stores.reduce((b,st)=>b+st.rows.length,0),0)}}}
+function init(){const b=document.getElementById('v942Export'),status=document.getElementById('v942Status');if(!b||!status)return;b.addEventListener('click',async()=>{b.disabled=true;status.textContent='正在唯讀檢查並匯出資料，請勿關閉頁面…';try{const data=await backup();const blob=new Blob([JSON.stringify(data)],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='世界冒險日記_本機資料備份_'+new Date().toISOString().slice(0,10)+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);status.textContent='已送出下載：localStorage '+data.counts.localStorage+' 項、IndexedDB '+data.counts.databases+' 個資料庫／'+data.counts.records+' 筆紀錄。請確認檔案已儲存。這不包含瀏覽器快取或其他網站來源。'}catch(e){status.textContent='備份未完成，未輸出不完整檔案：'+(e&&e.message||String(e))}finally{b.disabled=false}})}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();</script><script id="v943-readonly-preview">
+(()=>{'use strict';
+const LIMIT=120*1024*1024;
+const el=id=>document.getElementById(id);
+const isObj=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
+function validate(d){
+ if(!isObj(d)||d.format!=='world-adventure-readonly-backup'||d.version!==2)throw Error('檔案不是 V9.42 整合備份格式；請選擇本站匯出的完整備份 JSON。');
+ if(!isObj(d.localStorage)||!Array.isArray(d.indexedDB))throw Error('備份結構缺少 localStorage 或 IndexedDB 清單。');
+ const keys=Object.keys(d.localStorage);
+ if(keys.some(k=>typeof d.localStorage[k]!=='string'))throw Error('localStorage 項目包含非字串值。');
+ let stores=0,records=0;
+ const dbNames=new Set();
+ for(const db of d.indexedDB){
+  if(!isObj(db)||typeof db.name!=='string'||!db.name||!Array.isArray(db.stores)||dbNames.has(db.name))throw Error('IndexedDB 資料庫名稱或結構不正確／重複。');
+  dbNames.add(db.name);const sn=new Set();
+  for(const st of db.stores){
+   if(!isObj(st)||typeof st.name!=='string'||!st.name||sn.has(st.name)||!Array.isArray(st.rows))throw Error('資料表名稱或紀錄結構不正確／重複。');
+   sn.add(st.name);stores++;
+   for(const row of st.rows){if(!isObj(row)||!Object.prototype.hasOwnProperty.call(row,'key')||!Object.prototype.hasOwnProperty.call(row,'value'))throw Error('資料表紀錄缺少 key 或 value。');records++}
+  }
+ }
+ if(isObj(d.counts)&&(d.counts.localStorage!==keys.length||d.counts.databases!==d.indexedDB.length||d.counts.stores!==stores||d.counts.records!==records))throw Error('備份宣告的筆數與實際內容不一致，請勿用於還原。');
+ return {keys,stores,records};
+}
+async function preview(file){
+ if(!file)return;
+ const result=el('v943Result');
+ if(file.size>LIMIT)throw Error('檔案超過 120 MB，為避免手機記憶體不足，預覽已停止。');
+ result.textContent='正在本機讀取並檢查備份…';
+ const d=JSON.parse(await file.text());const v=validate(d);
+ const current=Object.keys(localStorage);
+ const overlaps=v.keys.filter(k=>Object.prototype.hasOwnProperty.call(localStorage,k));
+ let dbInfo='目前瀏覽器無法列舉 IndexedDB，無法判斷資料庫名稱衝突。';
+ if(window.indexedDB&&typeof indexedDB.databases==='function'){
+  try{const now=await indexedDB.databases();const names=new Set(now.map(x=>x.name));const hits=d.indexedDB.filter(x=>names.has(x.name));dbInfo='與目前網站同名的 IndexedDB：'+hits.length+' 個'+(hits.length?'（'+hits.slice(0,8).map(x=>x.name).join('、')+(hits.length>8?'…':'')+'）':'');}
+  catch(e){dbInfo='無法讀取現有 IndexedDB 清單：'+e.message}
+ }
+ const originNote=d.origin===location.origin?'備份來源與目前網址來源相同。':'注意：備份來源 '+String(d.origin||'未標示')+'，與目前網址 '+location.origin+' 不同。';
+ result.textContent='✅ 備份格式與基本結構檢查通過（不代表已驗證還原成功）\n'
+  +'備份日期：'+String(d.createdAt||'未標示')+'\n'
+  +'localStorage：'+v.keys.length+' 項；目前網站：'+current.length+' 項\n'
+  +'同名 localStorage 項目：'+overlaps.length+' 項\n'
+  +'IndexedDB：'+d.indexedDB.length+' 個資料庫、'+v.stores+' 個資料表、'+v.records+' 筆紀錄\n'
+  +dbInfo+'\n'+originNote+'\n\n⚠️ 若未來直接覆蓋還原，同名資料可能遺失。本版本不提供還原按鈕、不會更動任何存檔。\n請妥善保管備份，可能含個人照片、行程與消費紀錄。';
+}
+function init(){const input=el('v943File'),out=el('v943Result');if(!input||!out)return;input.addEventListener('change',async()=>{try{await preview(input.files&&input.files[0])}catch(e){out.textContent='❌ 備份檢查未通過：'+(e&&e.message||String(e))}})}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script><script id="v944-backup-diff-readonly">
+(()=>{'use strict';
+const $=id=>document.getElementById(id);let report='';
+const obj=v=>v&&typeof v==='object'&&!Array.isArray(v);
+function validate(d){
+ if(!obj(d)||d.format!=='world-adventure-readonly-backup'||d.version!==2||!obj(d.localStorage)||!Array.isArray(d.indexedDB))throw Error('不是 V9.42 整合備份格式');
+ const ks=Object.keys(d.localStorage);if(ks.some(k=>typeof d.localStorage[k]!=='string'))throw Error('localStorage 格式錯誤');
+ let stores=0,records=0;const seen=new Set();
+ for(const db of d.indexedDB){if(!obj(db)||typeof db.name!=='string'||!db.name||seen.has(db.name)||!Array.isArray(db.stores))throw Error('資料庫格式錯誤');seen.add(db.name);const sn=new Set();for(const st of db.stores){if(!obj(st)||typeof st.name!=='string'||!st.name||sn.has(st.name)||!Array.isArray(st.rows))throw Error('資料表格式錯誤');sn.add(st.name);stores++;for(const r of st.rows){if(!obj(r)||!Object.prototype.hasOwnProperty.call(r,'key')||!Object.prototype.hasOwnProperty.call(r,'value'))throw Error('資料列格式錯誤');records++}}}
+ if(obj(d.counts)&&(d.counts.localStorage!==ks.length||d.counts.databases!==d.indexedDB.length||d.counts.stores!==stores||d.counts.records!==records))throw Error('資料筆數與備份宣告不一致');return {ks,stores,records};
+}
+async function run(file){if(!file)return;if(file.size>120*1024*1024)throw Error('檔案超過 120MB，停止檢查');const d=JSON.parse(await file.text()),v=validate(d);const current={};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);current[k]=localStorage.getItem(k)}
+ const added=[],same=[],changed=[];for(const k of v.ks){if(!Object.prototype.hasOwnProperty.call(current,k))added.push(k);else if(current[k]===d.localStorage[k])same.push(k);else changed.push(k)}const onlyNow=Object.keys(current).filter(k=>!Object.prototype.hasOwnProperty.call(d.localStorage,k));
+ let dbStatus='此瀏覽器不支援 IndexedDB 資料庫列舉，無法比較資料庫名稱。',dbDetail=[];
+ if(window.indexedDB&&typeof indexedDB.databases==='function'){try{const existing=await indexedDB.databases();const names=new Set(existing.map(x=>x.name));dbDetail=d.indexedDB.map(db=>({name:db.name,exists:names.has(db.name),stores:db.stores.length,records:db.stores.reduce((n,st)=>n+st.rows.length,0)}));dbStatus='同名資料庫 '+dbDetail.filter(x=>x.exists).length+' / '+dbDetail.length+' 個。注意：未逐筆比較 IndexedDB 內容。'}catch(e){dbStatus='無法取得資料庫清單：'+e.message}}
+ const lines=['世界冒險日記 V9.44｜唯讀備份差異報告','產生時間：'+new Date().toLocaleString(),'備份時間：'+String(d.createdAt||'未標示'),'來源：'+String(d.origin||'未標示'),'目前網址：'+location.origin,'','【localStorage】','備份 '+v.ks.length+' 項；現有 '+Object.keys(current).length+' 項','備份有／目前無：'+added.length,'同名且內容相同：'+same.length,'同名但內容不同（覆蓋風險）：'+changed.length,'目前有／備份無：'+onlyNow.length,'','【IndexedDB】','備份 '+d.indexedDB.length+' 個資料庫、'+v.stores+' 個資料表、'+v.records+' 筆紀錄',dbStatus,'','【同名但內容不同的 localStorage 鍵】',...(changed.length?changed:['（無）']),'','【備份有但目前沒有的鍵】',...(added.length?added:['（無）']),'','【目前有但備份沒有的鍵】',...(onlyNow.length?onlyNow:['（無）']),'','【IndexedDB 資料庫名稱】',...(dbDetail.length?dbDetail.map(x=>(x.exists?'同名：':'新名稱：')+x.name+'，'+x.stores+' 表／'+x.records+' 筆'):['無法比對或備份無資料庫']),'','⚠️ 這是格式及名稱／字串比較，不代表資料完整性、來源真實性或還原成功。沒有執行任何還原、刪除或覆蓋。'];report=lines.join('\n');$('v944Result').textContent=report;$('v944Download').disabled=false;
+}
+function init(){const f=$('v944File'),b=$('v944Download'),out=$('v944Result');if(!f||!b||!out)return;f.addEventListener('change',async()=>{report='';b.disabled=true;out.textContent='正在本機檢查…';try{await run(f.files&&f.files[0])}catch(e){out.textContent='❌ 檢查停止：'+(e&&e.message||String(e))}});b.addEventListener('click',()=>{if(!report)return;const blob=new Blob([report],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='世界冒險日記_V9.44_備份差異報告.txt';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000)})}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script><script id="v945-safe-additive-restore">(()=>{'use strict';
+const $=id=>document.getElementById(id), has=(o,k)=>Object.prototype.hasOwnProperty.call(o,k);
+let plan=null,busy=false;const maxBytes=120*1024*1024;
+function assert(x,msg){if(!x)throw Error(msg)}
+function plain(v){return v!==null&&typeof v==='object'&&!Array.isArray(v)}
+function decode(v,depth=0){assert(depth<80,'資料過深');if(Array.isArray(v))return v.map(x=>decode(x,depth+1));if(!plain(v))return v;if(has(v,'__waType')){switch(v.__waType){case 'Undefined':return undefined;case 'Number':return Number(v.value);case 'BigInt':return BigInt(v.value);case 'Date':return new Date(v.value);case 'ArrayBuffer':return Uint8Array.from(v.bytes).buffer;case 'Blob':return new Blob([Uint8Array.from(v.bytes)],{type:v.mime||''});case 'TypedArray':{const buf=Uint8Array.from(v.bytes).buffer;const constructors={Uint8Array,Int8Array,Uint16Array,Int16Array,Uint32Array,Int32Array,Float32Array,Float64Array,Uint8ClampedArray,DataView};const C=constructors[v.kind];assert(C,'不支援的陣列類型 '+v.kind);return new C(buf)}case 'Map':return new Map(v.entries.map(([k,x])=>[decode(k,depth+1),decode(x,depth+1)]));case 'Set':return new Set(v.values.map(x=>decode(x,depth+1)));default:throw Error('不支援的資料型態 '+v.__waType)}}const out={};for(const k of Object.keys(v)){assert(k!=='__proto__'&&k!=='constructor'&&k!=='prototype','不安全的屬性');Object.defineProperty(out,k,{value:decode(v[k],depth+1),enumerable:true,writable:true,configurable:true})}return out}
+function validate(d){assert(plain(d)&&d.format==='world-adventure-readonly-backup'&&d.version===2,'請選 V9.42 整合備份');assert(plain(d.localStorage)&&Array.isArray(d.indexedDB),'備份結構不完整');const keys=Object.keys(d.localStorage);assert(keys.every(k=>typeof d.localStorage[k]==='string'),'localStorage 值有誤');const names=new Set();let stores=0,records=0;for(const db of d.indexedDB){assert(plain(db)&&typeof db.name==='string'&&db.name&&Number.isInteger(db.version)&&db.version>0&&Array.isArray(db.stores)&&!names.has(db.name),'資料庫結構有誤');names.add(db.name);const seen=new Set();for(const st of db.stores){assert(plain(st)&&typeof st.name==='string'&&st.name&&!seen.has(st.name)&&Array.isArray(st.rows)&&Array.isArray(st.indexes),'資料表結構有誤');seen.add(st.name);stores++;for(const r of st.rows){assert(plain(r)&&has(r,'key')&&has(r,'value'),'紀錄缺少鍵值');records++}}}if(plain(d.counts))assert(d.counts.localStorage===keys.length&&d.counts.databases===d.indexedDB.length&&d.counts.stores===stores&&d.counts.records===records,'備份筆數不一致');return {keys,stores,records}}
+async function inspect(){plan=null;$('v945Restore').disabled=true;const f=$('v945File').files[0];assert(f,'請先選擇 JSON 備份');assert(f.size<=maxBytes,'檔案超過 120MB');const d=JSON.parse(await f.text());const info=validate(d);assert(window.indexedDB&&typeof indexedDB.databases==='function','瀏覽器無法列出 IndexedDB，已停止以避免覆蓋');const existing=new Set((await indexedDB.databases()).map(x=>x.name));const localNew=info.keys.filter(k=>localStorage.getItem(k)===null);const localSkip=info.keys.filter(k=>localStorage.getItem(k)!==null);const dbNew=d.indexedDB.filter(x=>!existing.has(x.name));const dbSkip=d.indexedDB.filter(x=>existing.has(x.name));plan={d,localNew,localSkip,dbNew,dbSkip,file:f};$('v945Report').textContent='檢查通過（不代表備份來源真實或還原已成功）\n新增 localStorage：'+localNew.length+' 項；跳過同名：'+localSkip.length+' 項\n新增 IndexedDB：'+dbNew.length+' 個；跳過同名：'+dbSkip.length+' 個\n新增資料庫紀錄：'+dbNew.reduce((n,db)=>n+db.stores.reduce((a,st)=>a+st.rows.length,0),0)+' 筆\n備份來源：'+String(d.origin||'未標示')+'\n目前來源：'+location.origin+'\n注意：只有新增，絕不覆蓋現有同名資料。';$('v945Restore').disabled=!$('v945Consent').checked}
+function restoreDB(dbSpec){return new Promise((resolve,reject)=>{let request,created=false,finished=false;const fail=e=>{if(finished)return;finished=true;reject(e instanceof Error?e:Error(String(e)))};try{request=indexedDB.open(dbSpec.name,dbSpec.version);request.onupgradeneeded=()=>{try{const db=request.result;assert(db.objectStoreNames.length===0,'資料庫已存在，取消');for(const st of dbSpec.stores){const store=db.createObjectStore(st.name,{keyPath:st.keyPath??null,autoIncrement:!!st.autoIncrement});for(const idx of st.indexes){assert(plain(idx)&&typeof idx.name==='string'&&idx.name,'索引結構有誤');store.createIndex(idx.name,idx.keyPath,{unique:!!idx.unique,multiEntry:!!idx.multiEntry})}}created=true}catch(e){request.transaction.abort();fail(e)}};request.onerror=()=>fail(request.error||Error('開啟資料庫失敗'));request.onblocked=()=>fail(Error('其他分頁正在使用資料庫'));request.onsuccess=()=>{const db=request.result;if(!created){db.close();fail(Error('資料庫已存在，已停止避免覆蓋：'+dbSpec.name));return}try{if(!dbSpec.stores.length){db.close();finished=true;resolve();return}const tx=db.transaction(dbSpec.stores.map(x=>x.name),'readwrite');tx.oncomplete=()=>{db.close();if(!finished){finished=true;resolve()}};tx.onabort=()=>{db.close();fail(tx.error||Error('寫入交易中斷'))};tx.onerror=()=>{};for(const st of dbSpec.stores){const os=tx.objectStore(st.name);for(const r of st.rows){const value=decode(r.value);if(st.keyPath===null||st.keyPath===undefined)os.add(value,decode(r.key));else os.add(value)}}}catch(e){db.close();fail(e)}}}catch(e){fail(e)}})}
+async function restore(){assert(plan,'請先檢查備份');assert($('v945Consent').checked,'請確認已另行備份');const p=plan;assert($('v945File').files[0]===p.file,'備份檔已變更，請重新檢查');const now=new Set((await indexedDB.databases()).map(x=>x.name));const dbReady=p.dbNew.filter(x=>!now.has(x.name));const dbSkipped=p.dbNew.length-dbReady.length;let dbDone=0,localDone=0;const errors=[];for(const db of dbReady){try{await restoreDB(db);dbDone++}catch(e){errors.push(db.name+'：'+e.message)}}for(const k of p.localNew){try{if(localStorage.getItem(k)===null){localStorage.setItem(k,p.d.localStorage[k]);localDone++}}catch(e){errors.push('localStorage '+k+'：'+e.message)}}$('v945Report').textContent='還原操作結束（僅新增）\n新增 localStorage：'+localDone+' 項\n新增 IndexedDB：'+dbDone+' 個\n因已存在而跳過的新增資料庫：'+dbSkipped+' 個\n原有同名項目／資料庫：全部保留\n'+(errors.length?'⚠ 發生錯誤：\n'+errors.join('\n'):'未回報寫入錯誤。請重新整理並確認資料。')+'\n⚠ 若部分失敗，已新增資料不會自動刪除。';plan=null;$('v945Restore').disabled=true}
+function init(){const a=$('v945Inspect'),b=$('v945Restore'),c=$('v945Consent'),f=$('v945File'),out=$('v945Report');if(!a||!b||!c||!f)return;f.addEventListener('change',()=>{plan=null;b.disabled=true;out.textContent='備份已選擇，請按「檢查可新增資料」'});c.addEventListener('change',()=>{b.disabled=busy||!plan||!c.checked});a.addEventListener('click',async()=>{if(busy)return;busy=true;a.disabled=true;b.disabled=true;out.textContent='正在檢查…';try{await inspect()}catch(e){out.textContent='❌ 無法檢查：'+e.message}finally{busy=false;a.disabled=false}});b.addEventListener('click',async()=>{if(busy||!plan)return;if(!confirm('確定只新增備份中不存在的資料？同名項目將保留目前版本，且失敗時不會自動回復已新增項目。'))return;busy=true;a.disabled=true;b.disabled=true;out.textContent='正在新增資料，請勿關閉頁面…';try{await restore()}catch(e){out.textContent='❌ 還原中止：'+e.message+'。部分資料可能已新增，請重新檢查。'}finally{busy=false;a.disabled=false}})}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();</script>
+<style id="v950-ten-second-ux">
+/* V9.50: preserve existing colors and data; prioritise the four travel actions */
+#home .v927-dashboard .v950-quick{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;margin:12px 0 16px!important}
+#home .v950-quick>button{min-height:98px!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;padding:14px!important;gap:4px!important;background:#f1f5f1!important;color:#24363c!important;border:1px solid #b4c6c1!important;border-radius:15px!important;box-shadow:0 2px 6px rgba(18,35,30,.07)!important;text-align:left!important}
+#home .v950-quick>button span{font-size:25px!important;line-height:1.1!important}
+#home .v950-quick>button b{font-size:16px!important;color:#24363c!important;-webkit-text-fill-color:#24363c!important}
+#home .v950-quick>button small{font-size:12px!important;color:#43565c!important;-webkit-text-fill-color:#43565c!important}
+#home #waWeather{margin-top:12px!important}
+.v950-nav{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:0!important;justify-content:space-around!important}
+.v950-nav>button{min-width:0!important;width:100%!important;padding:7px 1px!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:2px!important;font-size:11px!important}
+.v950-nav>button .nav-icon{font-size:19px!important}
+.v950-records-bar{background:#f1f5f1;color:#24363c;border:1px solid #b4c6c1;border-radius:14px;padding:13px;margin:10px 0 16px}
+.v950-records-bar>strong{display:block;margin-bottom:10px;color:#24363c}
+.v950-records-bar>div{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.v950-records-bar button{background:#d5e6dd!important;color:#24363c!important;border:1px solid #a2b9ae!important;border-radius:9px;padding:10px 5px;font-weight:700}
+.v950-page-hint{background:#f1f5f1;color:#24363c;padding:10px;border-radius:10px}
+@media(max-width:360px){.v950-nav>button{font-size:10px!important}.v950-nav>button .nav-icon{font-size:17px!important}#home .v950-quick>button{padding:10px!important;min-height:91px!important}}
+</style>
+<script id="v950-quick-functions">
+function v950OpenExpense(){showPage('expenses');setTimeout(function(){var el=document.getElementById('v2ExpenseOriginal');if(el){el.scrollIntoView({behavior:'smooth',block:'center'});}},80)}
+function v950OpenRecords(){showPage('diary');}
+function v950StartDiary(){var d=document.getElementById('v920DiaryEditor');if(d){d.open=true;d.scrollIntoView({behavior:'smooth',block:'start'});}else{showPage('diary');}}
+</script>
+
+<style>
+.v951-readiness{margin:12px 0;padding:12px;border:1px solid var(--line,#dce8e2);border-radius:12px;background:var(--paper,#f5f8f6);color:var(--ink,#173b39)}
+.v951-readiness strong{display:block;margin-bottom:6px}.v951-readiness p{margin:4px 0;font-size:.91rem;line-height:1.5}.v951-readiness button{margin-top:6px}
+</style>
+<script>
+(function(){'use strict';
+function boot(){
+ var home=document.getElementById('v939TripFocus');if(!home||document.getElementById('v951TravelStatus'))return;
+ var panel=document.createElement('div');panel.id='v951TravelStatus';panel.className='v951-readiness';panel.setAttribute('aria-live','polite');
+ panel.innerHTML='<strong>🧭 旅行狀態與離線提醒</strong><p id="v951Connection"></p><p id="v951Next"></p><button type="button" id="v951GoToday">🗓️ 查看今日行程</button>';
+ home.insertAdjacentElement('afterend',panel);
+ document.getElementById('v951GoToday').addEventListener('click',function(){if(typeof showPage==='function')showPage('itinerary')});
+ function update(){
+  var online=navigator.onLine;document.getElementById('v951Connection').textContent=online?'🌐 目前顯示連線狀態：在線（不代表外部服務一定可用）':'📴 目前離線：已保存資料可嘗試查看；導航與即時天氣需網路';
+  var today=new Date(),date=[today.getFullYear(),String(today.getMonth()+1).padStart(2,'0'),String(today.getDate()).padStart(2,'0')].join('-');
+  var tab=[...document.querySelectorAll('#daytabs button')].find(function(x){return (x.getAttribute('data-date')||x.textContent||'').includes(date)});
+  document.getElementById('v951Next').textContent=tab?'📅 找到今日行程日期：'+tab.textContent.trim()+'；點下方查看完整內容。':'📅 今天 '+date+'；請進入行程頁確認下一個安排（不推測尚未讀取的行程）。';
+ }
+ window.addEventListener('online',update);window.addEventListener('offline',update);update();
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+</script>
+</body>
 </html>
+
+<!-- V9.52: 底部導覽精簡為首頁、行程、記帳、紀錄、更多；首頁導航快捷與地點頁面保留。 -->
