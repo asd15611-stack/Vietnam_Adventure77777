@@ -1801,6 +1801,57 @@ html,body,#wrap,#game,#pad,#pad button,#act,#hint,#note,#location,#toast {
  }
 }
 &lt;/style&gt;
+&lt;style id=&quot;v913-three-buttons-unified&quot;&gt;
+/* Same size, spacing and appearance for all three native RPG controls. */
+#journalBtn, #lifeBtn, #adventureBagBtn {
+ position:fixed!important;
+ right:12px!important;
+ left:auto!important;
+ width:108px!important;
+ min-width:108px!important;
+ max-width:108px!important;
+ height:44px!important;
+ min-height:44px!important;
+ max-height:44px!important;
+ padding:6px 8px!important;
+ margin:0!important;
+ box-sizing:border-box!important;
+ display:flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ gap:4px!important;
+ white-space:nowrap!important;
+ word-break:keep-all!important;
+ writing-mode:horizontal-tb!important;
+ font:500 15px/1.2 system-ui,&#x27;Noto Sans TC&#x27;,sans-serif!important;
+ color:#fff!important;
+ background:#284b43!important;
+ border:2px solid #e5c98d!important;
+ border-radius:12px!important;
+ box-shadow:none!important;
+ text-align:center!important;
+ z-index:9!important;
+}
+#journalBtn {top:85px!important}
+#lifeBtn {top:137px!important}
+#adventureBagBtn {top:189px!important}
+@media(max-width:640px) {
+ #journalBtn,#lifeBtn,#adventureBagBtn {
+  right:10px!important;
+  width:108px!important;
+  min-width:108px!important;
+  max-width:108px!important;
+  height:44px!important;
+  min-height:44px!important;
+  max-height:44px!important;
+  padding:6px 8px!important;
+  font-size:15px!important;
+ }
+ #journalBtn {top:85px!important}
+ #lifeBtn {top:137px!important}
+ #adventureBagBtn {top:189px!important}
+}
+&lt;/style&gt;
 &lt;/head&gt;&lt;body&gt;&lt;div id=&quot;wrap&quot;&gt;&lt;canvas id=&quot;game&quot; width=&quot;960&quot; height=&quot;540&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;div id=&quot;hint&quot;&gt;🇻🇳 北越像素冒險 · 方向鍵 / WASD · E 互動&lt;/div&gt;&lt;div id=&quot;note&quot;&gt;V20 生活探索世界&lt;/div&gt;&lt;div id=&quot;location&quot;&gt;河內古城&lt;/div&gt;&lt;div id=&quot;toast&quot;&gt;&lt;/div&gt;&lt;button id=&quot;lifeBtn&quot; type=&quot;button&quot;&gt;🏡 生活&lt;/button&gt;&lt;button id=&quot;adventureBagBtn&quot; type=&quot;button&quot; aria-controls=&quot;adventureBagPanel&quot;&gt;🎒 背包&lt;/button&gt;&lt;section id=&quot;adventureBagPanel&quot; hidden role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-label=&quot;冒險背包&quot;&gt;&lt;div class=&quot;adventureBagHeader&quot;&gt;&lt;h2&gt;🎒 冒險背包&lt;/h2&gt;&lt;button id=&quot;adventureBagClose&quot; type=&quot;button&quot;&gt;✕ 返回遊戲&lt;/button&gt;&lt;/div&gt;&lt;p&gt;戰利品、裝備、生活物資集中查看。原有存檔不會變更。&lt;/p&gt;&lt;div id=&quot;adventureBagTabs&quot; role=&quot;tablist&quot;&gt;&lt;button type=&quot;button&quot; data-bag-tab=&quot;loot&quot;&gt;⚔️ 戰利品&lt;/button&gt;&lt;button type=&quot;button&quot; data-bag-tab=&quot;equipment&quot;&gt;🛡️ 裝備&lt;/button&gt;&lt;button type=&quot;button&quot; data-bag-tab=&quot;supplies&quot;&gt;🏡 物資&lt;/button&gt;&lt;/div&gt;&lt;div id=&quot;adventureBagItems&quot;&gt;&lt;/div&gt;&lt;/section&gt;&lt;div id=&quot;lifePanel&quot; hidden&gt;&lt;button id=&quot;lifeClose&quot; type=&quot;button&quot;&gt;✕ 返回遊戲&lt;/button&gt;&lt;h2&gt;🏡 冒險生活手冊&lt;/h2&gt;&lt;div id=&quot;lifeTabs&quot; class=&quot;lifeTabs&quot;&gt;&lt;/div&gt;&lt;div id=&quot;lifeContent&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;button id=&quot;journalBtn&quot; aria-label=&quot;冒險日誌&quot;&gt;📖 故事&lt;/button&gt;&lt;div id=&quot;journal&quot; hidden&gt;&lt;h3&gt;📖 北越傳說：失落的五枚星印&lt;/h3&gt;&lt;div id=&quot;journalText&quot;&gt;&lt;/div&gt;&lt;button id=&quot;journalClose&quot;&gt;返回冒險&lt;/button&gt;&lt;/div&gt;&lt;div id=&quot;battle&quot; hidden&gt;&lt;div class=&quot;battleCard&quot;&gt;&lt;h3 id=&quot;battleTitle&quot;&gt;神祕生物出現！&lt;/h3&gt;&lt;div id=&quot;battleSprite&quot; aria-hidden=&quot;true&quot;&gt;✦&lt;/div&gt;&lt;p id=&quot;battleText&quot;&gt;&lt;/p&gt;&lt;div class=&quot;battleStats&quot; id=&quot;battleStats&quot;&gt;&lt;/div&gt;&lt;div id=&quot;battleBars&quot; class=&quot;battleBars&quot;&gt;&lt;/div&gt;&lt;div class=&quot;battleActions&quot;&gt;&lt;button id=&quot;attackBtn&quot;&gt;⚔️ 攻擊&lt;/button&gt;&lt;button id=&quot;skillBtn&quot;&gt;✨ 星光斬&lt;/button&gt;&lt;button id=&quot;specialBtn&quot;&gt;🌟 星印技能&lt;/button&gt;&lt;button id=&quot;guardBtn&quot;&gt;🛡️ 防禦&lt;/button&gt;&lt;button id=&quot;leaveBtn&quot;&gt;🏃 離開&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;pad&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;button data-dir=&quot;up&quot;&gt;▲&lt;/button&gt;&lt;span&gt;&lt;/span&gt;&lt;button data-dir=&quot;left&quot;&gt;◀&lt;/button&gt;&lt;button data-dir=&quot;down&quot;&gt;▼&lt;/button&gt;&lt;button data-dir=&quot;right&quot;&gt;▶&lt;/button&gt;&lt;/div&gt;&lt;button id=&quot;act&quot;&gt;交談&lt;/button&gt;&lt;div id=&quot;dialog&quot;&gt;&lt;strong id=&quot;speaker&quot;&gt;&lt;/strong&gt;&lt;span id=&quot;words&quot;&gt;&lt;/span&gt;&lt;div id=&quot;postActions&quot;&gt;&lt;/div&gt;&lt;button id=&quot;close&quot;&gt;繼續探索&lt;/button&gt;&lt;/div&gt;&lt;script&gt;
  &#x27;use strict&#x27;;
 const canvas=document.getElementById(&#x27;game&#x27;),c=canvas.getContext(&#x27;2d&#x27;);c.imageSmoothingEnabled=false;
