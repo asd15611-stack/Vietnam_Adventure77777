@@ -7233,6 +7233,34 @@ function boot(){
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 })();
 </script>
+
+<style id="v962-more-menu-last-wins">
+/* 最後載入的專用修正：覆蓋舊版 body 內後續 CSS 的深底深字衝突。 */
+#categoryMenu.category-menu{background:#F5F6F3!important;color:#25343A!important}
+#categoryMenu .category-menu-head{background:#25343A!important;color:#FFFFFF!important}
+#categoryMenu .category-menu-head b{color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important}
+#categoryMenu .category-menu-tip{background:#E9ECE9!important;color:#25343A!important;-webkit-text-fill-color:#25343A!important}
+#categoryMenu #categoryMenuGrid .category-accordion{background:#F5F6F3!important;border:1px solid #82978A!important}
+#categoryMenu #categoryMenuGrid .category-accordion>summary{background:#344F49!important;color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important;border-bottom:0!important}
+#categoryMenu #categoryMenuGrid .category-accordion[open]>summary{background:#25343A!important;color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important;border-bottom:3px solid #D5A45B!important}
+#categoryMenu #categoryMenuGrid .category-accordion>summary .accordion-hint{color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important;opacity:1!important}
+#categoryMenu #categoryMenuGrid .category-accordion-content,
+#categoryMenu #categoryMenuGrid .category-group{background:#F5F6F3!important;color:#25343A!important;border-color:#D9DEDA!important}
+#categoryMenu #categoryMenuGrid .category-group button,
+#categoryMenu #categoryMenuGrid .category-group button:nth-of-type(odd),
+#categoryMenu #categoryMenuGrid .category-group button:nth-of-type(even){
+ background:#E9ECE9!important;color:#25343A!important;-webkit-text-fill-color:#25343A!important;
+ border:1px solid #C4CFC8!important;border-left:4px solid #344F49!important;
+ text-shadow:none!important;box-shadow:none!important;opacity:1!important;
+}
+#categoryMenu #categoryMenuGrid .category-group button:nth-of-type(even){background:#DCE5DF!important}
+#categoryMenu #categoryMenuGrid .category-group button:active,
+#categoryMenu #categoryMenuGrid .category-group button:focus-visible{background:#D5A45B!important;color:#25343A!important;-webkit-text-fill-color:#25343A!important}
+#categoryMenu #categoryMenuGrid .category-group button:disabled{background:#E9ECE9!important;color:#52615D!important;-webkit-text-fill-color:#52615D!important;opacity:.8!important}
+#categoryMenu #categoryMenuGrid .category-group button .menu-pending-badge{background:#344F49!important;color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important}
+#categoryMenu .category-close{background:#E9ECE9!important;color:#25343A!important;-webkit-text-fill-color:#25343A!important}
+</style>
+
 </body>
 </html>
 
