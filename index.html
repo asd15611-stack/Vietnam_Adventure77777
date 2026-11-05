@@ -1674,7 +1674,11 @@ nav.rpg-nav button span{font-size:12px!important;line-height:1.25}
  #loot iframe{display:block;width:100%!important;max-width:100%;border:0}
 }
 </style>
-</head><body>
+<style id="v912-bottom-nav-cleanup">
+nav.rpg-bottom-menu > button.rpg-direct-entry {display:none!important}
+nav.rpg-bottom-menu {flex-wrap:nowrap!important}
+nav.rpg-bottom-menu > button:not([style*="display: none"]) {min-width:0!important}
+</style></head><body>
 <header><small>VIETNAM ADVENTURE · 2026</small><h1>🇻🇳 越南旅行日記</h1><p>北越六天五夜｜11/18（三）–11/23（一）</p></header><main>
 <div aria-hidden="true" id="memoirPrintRoot"></div>
 <section class="page active" id="home"><button onclick="showPage('loot')" style="display:block;width:100%;padding:14px;margin:12px 0;border-radius:12px;background:#2f675b;color:#fff;font-weight:800;font-size:17px;border:2px solid #dfc98b;" type="button">🎮 進入北越 RPG 冒險世界 V20</button>
@@ -1760,6 +1764,42 @@ html,body,#wrap,#game,#pad,#pad button,#act,#hint,#note,#location,#toast {
 #adventureBagItems .adventureBagItem{background:#ebdfbd;border-radius:12px;padding:12px;margin:10px 0}
 #adventureBagItems .adventureBagItem strong{display:block;font-size:18px}
 @media(max-width:390px){#adventureBagPanel{inset:2% 2%;padding:12px}#adventureBagPanel .adventureBagHeader{align-items:flex-start}#adventureBagPanel .adventureBagHeader button{font-size:13px!important}#adventureBagBtn{top:174px;right:7px}}
+&lt;/style&gt;
+
+&lt;style id=&quot;v912-rpg-controls-consistency&quot;&gt;
+/* Align the backpack control with the native Story/Life controls. */
+#adventureBagBtn {
+ position:fixed!important;
+ right:12px!important;
+ top:174px!important;
+ box-sizing:border-box!important;
+ width:108px!important;
+ min-width:0!important;
+ max-width:108px!important;
+ height:42px!important;
+ min-height:0!important;
+ padding:6px 8px!important;
+ margin:0!important;
+ font-size:15px!important;
+ line-height:26px!important;
+ font-weight:inherit!important;
+ text-align:center!important;
+ white-space:nowrap!important;
+ border-radius:12px!important;
+ border-width:2px!important;
+ box-shadow:none!important;
+}
+@media(max-width:640px) {
+ #adventureBagBtn {
+  right:12px!important;
+  top:174px!important;
+  width:108px!important;
+  max-width:108px!important;
+  height:42px!important;
+  padding:6px 8px!important;
+  font-size:15px!important;
+ }
+}
 &lt;/style&gt;
 &lt;/head&gt;&lt;body&gt;&lt;div id=&quot;wrap&quot;&gt;&lt;canvas id=&quot;game&quot; width=&quot;960&quot; height=&quot;540&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;div id=&quot;hint&quot;&gt;🇻🇳 北越像素冒險 · 方向鍵 / WASD · E 互動&lt;/div&gt;&lt;div id=&quot;note&quot;&gt;V20 生活探索世界&lt;/div&gt;&lt;div id=&quot;location&quot;&gt;河內古城&lt;/div&gt;&lt;div id=&quot;toast&quot;&gt;&lt;/div&gt;&lt;button id=&quot;lifeBtn&quot; type=&quot;button&quot;&gt;🏡 生活&lt;/button&gt;&lt;button id=&quot;adventureBagBtn&quot; type=&quot;button&quot; aria-controls=&quot;adventureBagPanel&quot;&gt;🎒 背包&lt;/button&gt;&lt;section id=&quot;adventureBagPanel&quot; hidden role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-label=&quot;冒險背包&quot;&gt;&lt;div class=&quot;adventureBagHeader&quot;&gt;&lt;h2&gt;🎒 冒險背包&lt;/h2&gt;&lt;button id=&quot;adventureBagClose&quot; type=&quot;button&quot;&gt;✕ 返回遊戲&lt;/button&gt;&lt;/div&gt;&lt;p&gt;戰利品、裝備、生活物資集中查看。原有存檔不會變更。&lt;/p&gt;&lt;div id=&quot;adventureBagTabs&quot; role=&quot;tablist&quot;&gt;&lt;button type=&quot;button&quot; data-bag-tab=&quot;loot&quot;&gt;⚔️ 戰利品&lt;/button&gt;&lt;button type=&quot;button&quot; data-bag-tab=&quot;equipment&quot;&gt;🛡️ 裝備&lt;/button&gt;&lt;button type=&quot;button&quot; data-bag-tab=&quot;supplies&quot;&gt;🏡 物資&lt;/button&gt;&lt;/div&gt;&lt;div id=&quot;adventureBagItems&quot;&gt;&lt;/div&gt;&lt;/section&gt;&lt;div id=&quot;lifePanel&quot; hidden&gt;&lt;button id=&quot;lifeClose&quot; type=&quot;button&quot;&gt;✕ 返回遊戲&lt;/button&gt;&lt;h2&gt;🏡 冒險生活手冊&lt;/h2&gt;&lt;div id=&quot;lifeTabs&quot; class=&quot;lifeTabs&quot;&gt;&lt;/div&gt;&lt;div id=&quot;lifeContent&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;button id=&quot;journalBtn&quot; aria-label=&quot;冒險日誌&quot;&gt;📖 故事&lt;/button&gt;&lt;div id=&quot;journal&quot; hidden&gt;&lt;h3&gt;📖 北越傳說：失落的五枚星印&lt;/h3&gt;&lt;div id=&quot;journalText&quot;&gt;&lt;/div&gt;&lt;button id=&quot;journalClose&quot;&gt;返回冒險&lt;/button&gt;&lt;/div&gt;&lt;div id=&quot;battle&quot; hidden&gt;&lt;div class=&quot;battleCard&quot;&gt;&lt;h3 id=&quot;battleTitle&quot;&gt;神祕生物出現！&lt;/h3&gt;&lt;div id=&quot;battleSprite&quot; aria-hidden=&quot;true&quot;&gt;✦&lt;/div&gt;&lt;p id=&quot;battleText&quot;&gt;&lt;/p&gt;&lt;div class=&quot;battleStats&quot; id=&quot;battleStats&quot;&gt;&lt;/div&gt;&lt;div id=&quot;battleBars&quot; class=&quot;battleBars&quot;&gt;&lt;/div&gt;&lt;div class=&quot;battleActions&quot;&gt;&lt;button id=&quot;attackBtn&quot;&gt;⚔️ 攻擊&lt;/button&gt;&lt;button id=&quot;skillBtn&quot;&gt;✨ 星光斬&lt;/button&gt;&lt;button id=&quot;specialBtn&quot;&gt;🌟 星印技能&lt;/button&gt;&lt;button id=&quot;guardBtn&quot;&gt;🛡️ 防禦&lt;/button&gt;&lt;button id=&quot;leaveBtn&quot;&gt;🏃 離開&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;pad&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;button data-dir=&quot;up&quot;&gt;▲&lt;/button&gt;&lt;span&gt;&lt;/span&gt;&lt;button data-dir=&quot;left&quot;&gt;◀&lt;/button&gt;&lt;button data-dir=&quot;down&quot;&gt;▼&lt;/button&gt;&lt;button data-dir=&quot;right&quot;&gt;▶&lt;/button&gt;&lt;/div&gt;&lt;button id=&quot;act&quot;&gt;交談&lt;/button&gt;&lt;div id=&quot;dialog&quot;&gt;&lt;strong id=&quot;speaker&quot;&gt;&lt;/strong&gt;&lt;span id=&quot;words&quot;&gt;&lt;/span&gt;&lt;div id=&quot;postActions&quot;&gt;&lt;/div&gt;&lt;button id=&quot;close&quot;&gt;繼續探索&lt;/button&gt;&lt;/div&gt;&lt;script&gt;
  &#x27;use strict&#x27;;
@@ -2082,7 +2122,7 @@ try{let v=JSON.parse(localStorage.getItem(RPG_KEY)||&#x27;null&#x27;);if(v&amp;&
 function maxHp(){return 20+(rpg.level-1)*4}
 function maxMp(){return 5+Math.floor((rpg.level-1)/2)}
 progress.hp=Math.max(1,Math.min(maxHp(),progress.hp));rpg.mp=Math.min(maxMp(),rpg.mp);
-function saveRpg(){try{localStorage.setItem(RPG_KEY,JSON.stringify(rpg))}catch(e){}}
+function saveRpg(){try{localStorage.setItem(RPG_KEY,JSON.stringify(rpg));document.dispatchEvent(new Event(&#x27;adventure-rpg-inventory-updated&#x27;))}catch(e){}}
 function expNeeded(){return 12+rpg.level*8}
 function gainExp(amount){rpg.exp+=amount;let gained=0;while(rpg.level&lt;99&amp;&amp;rpg.exp&gt;=expNeeded()){rpg.exp-=expNeeded();rpg.level++;gained++;progress.hp=maxHp();rpg.mp=maxMp()}saveRpg();saveStory();return gained}
 function drinkPotion(){if(combat)return;if(rpg.potions&lt;1){showToast(&#x27;沒有恢復藥草了&#x27;);return}if(progress.hp&gt;=maxHp()){showToast(&#x27;目前體力已滿&#x27;);return}rpg.potions--;progress.hp=Math.min(maxHp(),progress.hp+12);saveRpg();saveStory();journal();showToast(&#x27;🌿 使用藥草，恢復 12 點體力&#x27;)}
@@ -2388,7 +2428,8 @@ window.addEventListener(&#x27;keydown&#x27;,e=&gt;{if(e.key===&#x27;Escape&#x27;
   const growth=read(&#x27;north_vietnam_pixel_rpg_v10_growth&#x27;)||{}, life=read(&#x27;north_vietnam_pixel_rpg_v20_life&#x27;)||{}, core=read(&#x27;vietnam-adventure-unified-core-v1&#x27;)||{};
   let rows=[];
   if(active===&#x27;loot&#x27;){
-   rows=Object.entries(growth.bag||{}).map(([name,qty])=&gt;({name,qty}));
+   rows=Object.entries(growth.bag||{}).filter(([name,qty])=&gt;name&amp;&amp;name!==&#x27;undefined&#x27;&amp;&amp;Number(qty)&gt;0).map(([name,qty])=&gt;({name,qty}));
+   rows.push({name:&#x27;🌿 恢復藥草&#x27;,qty:growth.potions??0});
    if(!rows.length)rows=(read(&#x27;vietnam-adventure-loot-v1&#x27;)||[]).map(v=&gt;({name:(v.icon||&#x27;&#x27;)+&#x27; &#x27;+(v.name||&#x27;戰利品&#x27;),qty:1}));
   }else if(active===&#x27;equipment&#x27;){
    rows=Object.entries(core.equipment||{}).filter(([slot,v])=&gt;v&amp;&amp;typeof v===&#x27;object&#x27;).map(([slot,v])=&gt;({name:(v.icon||&#x27;&#x27;)+&#x27; &#x27;+(v.name||slot),qty:&#x27;已裝備&#x27;}));
@@ -2399,6 +2440,7 @@ window.addEventListener(&#x27;keydown&#x27;,e=&gt;{if(e.key===&#x27;Escape&#x27;
   items.innerHTML=rows.length?rows.map(v=&gt;&#x27;&lt;div class=&quot;adventureBagItem&quot;&gt;&lt;strong&gt;&#x27;+safe(v.name)+&#x27;&lt;/strong&gt;&lt;span&gt;數量／狀態：&#x27;+safe(v.qty)+&#x27;&lt;/span&gt;&lt;/div&gt;&#x27;).join(&#x27;&#x27;):&#x27;&lt;div class=&quot;adventureBagItem&quot;&gt;目前沒有可顯示的物品。&lt;/div&gt;&#x27;;
   tabs.querySelectorAll(&#x27;[data-bag-tab]&#x27;).forEach(b=&gt;b.setAttribute(&#x27;aria-selected&#x27;,String(b.dataset.bagTab===active)));
  }
+ document.addEventListener(&#x27;adventure-rpg-inventory-updated&#x27;,()=&gt;{if(!panel.hidden)render()});
  open.addEventListener(&#x27;click&#x27;,()=&gt;{render();panel.hidden=false});
  close.addEventListener(&#x27;click&#x27;,()=&gt;{panel.hidden=true});
  tabs.addEventListener(&#x27;click&#x27;,e=&gt;{const b=e.target.closest(&#x27;[data-bag-tab]&#x27;);if(!b)return;active=b.dataset.bagTab;render()});
@@ -2642,7 +2684,7 @@ window.addEventListener(&#x27;keydown&#x27;,e=&gt;{if(e.key===&#x27;Escape&#x27;
 </section>
 </main><nav aria-label="主要導覽" class="rpg-nav rpg-bottom-menu v3-primary-nav">
 <button aria-label="首頁" class="active" data-page="home" onclick="showPage('home')"><span aria-hidden="true" class="nav-icon">🏠</span><span>首頁</span></button>
-<button class="rpg-direct-entry" data-page="loot" onclick="showPage('loot')" type="button">🎮 RPG</button><button aria-label="我的行程" data-page="itinerary" onclick="showPage('itinerary')"><span aria-hidden="true" class="nav-icon">🗓️</span><span>行程</span></button><button aria-label="記帳與分帳" data-page="expenses" onclick="showPage('expenses')"><span aria-hidden="true" class="nav-icon">💰</span><span>記帳</span></button>
+<button aria-label="我的行程" data-page="itinerary" onclick="showPage('itinerary')"><span aria-hidden="true" class="nav-icon">🗓️</span><span>行程</span></button><button aria-label="記帳與分帳" data-page="expenses" onclick="showPage('expenses')"><span aria-hidden="true" class="nav-icon">💰</span><span>記帳</span></button>
 <button aria-label="景點打卡與旅行任務" data-page="adventureMap" onclick="showPage('adventureMap')"><span aria-hidden="true" class="nav-icon">📍</span><span>打卡</span></button>
 <button aria-label="北越美食" data-page="food" onclick="showPage('food')"><span aria-hidden="true" class="nav-icon">🍜</span><span>美食</span></button>
 <button aria-controls="categoryMenu" aria-expanded="false" aria-label="更多功能" id="categoryMenuToggle" onclick="toggleCategoryMenu()" type="button"><span aria-hidden="true" class="nav-icon">☰</span><span>更多</span><span aria-label="未完成任務數" class="menu-pending-badge" id="morePendingBadge">0</span></button>
