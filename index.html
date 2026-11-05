@@ -1686,7 +1686,7 @@ nav.rpg-bottom-menu > button:not([style*="display: none"]) {min-width:0!importan
 #encounterBondHub .bond-step{background:#f3f7ef;padding:14px;border-radius:12px;margin:10px 0;color:#233a32}
 #encounterBondHub .bond-result{border-left:4px solid #467c64;padding:12px;background:#eaf3e8;margin:12px 0}
 #encounterBondHub .bond-tag{font-size:12px;color:#3b6354}
-</style></head><body>
+</style><style id="v915-hide-retired-bond-hub">#encounterBondHub{display:none!important}</style></head><body>
 <header><small>VIETNAM ADVENTURE · 2026</small><h1>🇻🇳 越南旅行日記</h1><p>北越六天五夜｜11/18（三）–11/23（一）</p></header><main>
 <div aria-hidden="true" id="memoirPrintRoot"></div>
 <section class="page active" id="home">
@@ -2684,11 +2684,11 @@ window.addEventListener(&#x27;keydown&#x27;,e=&gt;{if(e.key===&#x27;Escape&#x27;
 <h2 class="section-title">🎲 冒險互動中心｜每日驚喜</h2>
 <div class="notice">每日任務、集章、四人職業、照片挑戰與旅行事件都使用獨立的新儲存鍵。這些互動不會覆蓋既有日記、照片、支出、行程、成就或 RPG 存檔。每日隱藏任務與旅行事件依裝置日期更新；集章及職業羈絆由你手動確認。</div>
 <section aria-live="polite" class="card" id="playbookPendingSummary"><h3>📌 未完成任務總覽</h3><p style="font-size:1.35rem;font-weight:800;margin:6px 0"><span id="playbookPendingTotal">0</span> 項尚未完成</p><div class="small" id="playbookPendingBreakdown">正在整理任務進度…</div></section>
-<section class="card"><h3>🎴 ① 今日隱藏任務 <span class="small" id="hiddenQuestPendingCount"></span></h3><p class="small">每天自動抽出三個小挑戰。可以完成或跳過；完成獲得本互動中心的冒險點數，不會改動原有 EXP。</p><div id="hiddenQuestList"></div><p aria-live="polite" class="small" id="hiddenQuestStatus"></p></section>
+<section class="card"><h3>🎴 ① 今日隱藏任務（待改版） <span class="small" id="hiddenQuestPendingCount"></span></h3><p class="small">每天自動抽出三個小挑戰。可以完成或跳過；完成獲得本互動中心的冒險點數，不會改動原有 EXP。</p><div id="hiddenQuestList"></div><p aria-live="polite" class="small" id="hiddenQuestStatus"></p></section>
 <section class="card"><h3>🗺️ ② 北越集章冒險 <span class="small" id="stampPendingCount"></span></h3><p class="small">在河內、沙壩、下龍灣留下紀念印章。印章是旅行紀念紀錄，不代表 GPS 已驗證真實到訪。</p><div class="loot-codex-grid" id="northStampGrid"></div><p class="small" id="stampSummary"></p></section>
-<section class="card"><h3>🧑‍🤝‍🧑 ③ 四人旅行小隊｜合作任務與紀念獎勵</h3><p class="small">四位隊員各完成一項旅行分工，即可累積 1 點團隊默契。累積 1、3、5 點解鎖不同的旅行紀念稱號與回憶卡；不影響 RPG 戰鬥能力，也不會強制四人同時操作。</p><div id="partyRoleList"></div><div class="row" style="flex-wrap:wrap"><button class="action" onclick="savePartyRoles()" type="button">💾 儲存隊伍設定</button><button class="secondary" hidden="" id="nextPartyRoundBtn" onclick="startNextPartyRound()" type="button">🔄 開始下一輪團隊挑戰</button></div><p aria-live="polite" class="small" id="partyBondStatus"></p><div aria-live="polite" class="notice" id="partyBondRewards"></div></section>
+<section class="card"><h3>🧑‍🤝‍🧑 ③ 四人旅行小隊｜合作任務與紀念獎勵（待改版）</h3><p class="small">四位隊員各完成一項旅行分工，即可累積 1 點團隊默契。累積 1、3、5 點解鎖不同的旅行紀念稱號與回憶卡；不影響 RPG 戰鬥能力，也不會強制四人同時操作。</p><div id="partyRoleList"></div><div class="row" style="flex-wrap:wrap"><button class="action" onclick="savePartyRoles()" type="button">💾 儲存隊伍設定</button><button class="secondary" hidden="" id="nextPartyRoundBtn" onclick="startNextPartyRound()" type="button">🔄 開始下一輪團隊挑戰</button></div><p aria-live="polite" class="small" id="partyBondStatus"></p><div aria-live="polite" class="notice" id="partyBondRewards"></div></section>
 <section class="card"><h3>📸 ④ 照片任務與回憶彩蛋 <span class="small" id="photoPendingCount"></span></h3><p class="small">完成主題照片後勾選任務，再前往照片專區保存照片。這裡只記錄任務狀態，不會搬動、刪除或複製你的照片。</p><div id="photoMissionList"></div><button class="action" onclick="showPage('photos')" type="button">📸 前往旅行照片</button><p class="small" id="photoMissionSummary"></p></section>
-<section class="card"><h3>🎲 ⑤ 今日旅行突發事件 <span class="small" id="eventPendingCount"></span></h3><p class="small">這是遊戲內的趣味挑戰，不是對真實事件的預測。請以安全、體力、預算和既定行程為優先；不適合時可略過。</p><div aria-live="polite" class="notice" id="travelEventCard"></div><div class="row" style="flex-wrap:wrap"><button class="action" onclick="drawTravelEvent()" type="button">🎲 抽取今日事件</button><button class="secondary" onclick="resolveTravelEvent('done')" type="button">完成事件</button><button class="secondary" onclick="resolveTravelEvent('skip')" type="button">略過事件</button></div><p class="small" id="travelEventStatus"></p></section>
+<section class="card"><h3>🎲 ⑤ 今日旅行突發事件（待改版） <span class="small" id="eventPendingCount"></span></h3><p class="small">這是遊戲內的趣味挑戰，不是對真實事件的預測。請以安全、體力、預算和既定行程為優先；不適合時可略過。</p><div aria-live="polite" class="notice" id="travelEventCard"></div><div class="row" style="flex-wrap:wrap"><button class="action" onclick="drawTravelEvent()" type="button">🎲 抽取今日事件</button><button class="secondary" onclick="resolveTravelEvent('done')" type="button">完成事件</button><button class="secondary" onclick="resolveTravelEvent('skip')" type="button">略過事件</button></div><p class="small" id="travelEventStatus"></p></section>
 <section class="card"><h3>⭐ 互動中心紀錄</h3><p>冒險點數：<b id="playbookXP">0</b>　·　今日任務完成：<b id="playbookQuestDone">0/3</b>　·　集章：<b id="playbookStampCount">0/3</b></p><p class="small">此處的點數是獨立趣味統計，不會加入既有 RPG 等級，避免重複計算或改變你原本的進度。</p></section>
 </section>
 <section class="page" id="emergency">
@@ -2771,7 +2771,7 @@ window.addEventListener(&#x27;keydown&#x27;,e=&gt;{if(e.key===&#x27;Escape&#x27;
 </section></div></details>
 <details class="category-accordion"><summary>🎮 遊戲與冒險<span class="accordion-hint">任務、戰鬥、獎勵、等級</span></summary><div class="category-accordion-content"><section class="category-group">
 <button data-keywords="RPG 遊戲 戰鬥 背包 裝備 道具 戰利品 圖鑑 怪物" data-page="loot" onclick="chooseCategoryPage('loot')">🎮 北越 RPG 冒險世界</button>
-<button data-keywords="人物 故事 NPC 居民 對話 相遇 羈絆 隨機 互動 事件 劇情" data-page="encounterBondHub" onclick="chooseCategoryPage('encounterBondHub')">📖 奇遇與羈絆</button>
+
 <button data-keywords="成就 等級 EXP 經驗值 獎章" data-page="achievements" onclick="chooseCategoryPage('achievements')">🏆 成就與冒險等級</button>
 </section></div></details>
 <details class="category-accordion"><summary>📖 旅行紀錄<span class="accordion-hint">人物、日記、照片、回憶</span></summary><div class="category-accordion-content"><section class="category-group">
