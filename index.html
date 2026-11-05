@@ -1743,7 +1743,73 @@ body.v922-modal-open{overflow:hidden!important}
 #rpgMap .v921-map-pin .pixel-pin{font-size:19px!important}
 #rpgMap .pixel-map-scene{height:clamp(250px,66vw,350px)!important;min-height:250px!important}
 #rpgMap .pixel-location.v921-map-pin:focus-visible{outline:3px solid #fff!important;outline-offset:3px}
-</style><style id="v924-layout">#adventureMap>.section-title{margin-bottom:8px}#adventureMap #v919MapDetails{margin:4px 0 10px}#adventureMap #v919MapDetails>summary{font-size:15px}#v924QuickList{margin:6px 0 12px}#v924ItineraryTasks{margin-bottom:12px}#adventureMap #checkinReminderCard{padding:10px}#adventureMap .pixel-game-hint{padding:7px}</style></head><body>
+</style><style id="v924-layout">#adventureMap>.section-title{margin-bottom:8px}#adventureMap #v919MapDetails{margin:4px 0 10px}#adventureMap #v919MapDetails>summary{font-size:15px}#v924QuickList{margin:6px 0 12px}#v924ItineraryTasks{margin-bottom:12px}#adventureMap #checkinReminderCard{padding:10px}#adventureMap .pixel-game-hint{padding:7px}</style><style id="v925-phase1-compact">
+/* V9.25 Phase 1: compact, non-destructive mobile presentation */
+@media(max-width:700px){
+  #home .v411-welcome{padding:12px 14px!important;margin:6px 0 10px!important;min-height:0!important}
+  #home .v411-welcome h1,#home .v411-welcome h2{font-size:1.12rem!important;line-height:1.3!important;margin:4px 0!important}
+  #home .v411-welcome p{font-size:.82rem!important;line-height:1.45!important;margin:5px 0!important}
+  #home .v411-welcome .v411-hero-art,#home .v411-welcome .v411-art{max-height:92px!important;overflow:hidden}
+  #home .v411-launch{padding:8px!important;margin:8px 0!important;gap:7px!important}
+  #home .v411-launch button,#home .v411-launch a{min-height:42px!important;padding:8px!important}
+  #home .v3-home-overview{padding:10px!important;margin:8px 0!important}
+  #itinerary .itinerary-progress-card{padding:9px 12px!important;margin:7px 0!important;min-height:0!important}
+  #itinerary #daytabs{display:flex!important;overflow-x:auto!important;gap:5px!important;padding:5px 1px!important;scroll-snap-type:x proximity;scrollbar-width:thin}
+  #itinerary #daytabs > *{flex:0 0 auto!important;min-width:43px!important;max-width:85px!important;min-height:39px!important;padding:5px 8px!important;scroll-snap-align:start}
+  #itinerary .v920-day-tools{display:flex!important;flex-wrap:wrap!important;gap:6px!important;margin:6px 0!important}
+  #itinerary .v920-day-tools button{flex:0 0 auto!important;min-height:35px!important;padding:6px 10px!important;font-size:.85rem!important}
+  #itinerary #daycontent{margin-top:6px!important}
+  nav.rpg-bottom-menu{gap:0!important}
+  nav.rpg-bottom-menu>button{min-width:0!important;padding:6px 3px!important;font-size:.73rem!important}
+  nav.rpg-bottom-menu .nav-icon{font-size:1.15rem!important}
+}
+@media(prefers-reduced-motion:reduce){#itinerary #daytabs{scroll-behavior:auto!important}}
+</style>
+<style id="v925-stage2-style">
+/* V9.25 第二階段：只調整介面呈現，不修改資料與儲存程式 */
+#expenses .card, #photos .card, #photoMap .card, #diary .card {margin-top:8px;margin-bottom:8px;padding:12px}
+#expenses h2,#photos h2,#photoMap h2,#diary h2 {margin:6px 0 10px}
+#expenses .v2-finance-panel {padding:12px}
+#expenses .v2-finance-panel h3 {margin:0 0 7px;font-size:1rem}
+#expenses .v2-finance-panel .small {line-height:1.4}
+#expenses .v919-settlement-bottom {margin-top:10px}
+#expenses .v925-optional,#photos .v925-optional {border:1px solid var(--line,#dce8e2);border-radius:12px;background:var(--paper,#f5f8f6);margin:9px 0;padding:0;overflow:visible}
+#expenses .v925-optional>summary,#photos .v925-optional>summary {cursor:pointer;padding:12px;font-weight:700;list-style-position:inside;min-height:44px}
+#expenses .v925-optional[open],#photos .v925-optional[open] {padding-bottom:8px}
+#expenses .v925-optional .card,#photos .v925-optional .card {margin:4px 8px 8px}
+#photos .notice {font-size:.85rem;line-height:1.45;padding:9px 12px}
+#photos .v925-photo-shortcuts {display:flex;gap:8px;margin:8px 0 10px}
+#photos .v925-photo-shortcuts button {flex:1;min-height:42px;padding:8px;font-size:.9rem}
+#photos .v925-photo-add .card {border:0;box-shadow:none}
+#photos img,#photoMap img {max-width:100%;object-fit:cover}
+#photos .photo-thumb,#photos .photo-card img,#photoMap .photo-thumb {max-height:124px}
+#diary .v920-diary-head {margin:5px 0 8px}
+#diary .v920-diary-filter {margin:4px 0 8px}
+#diary .v920-diary-extra {margin:8px 0}
+#diary .v920-diary-extra>summary {min-height:42px;padding:10px}
+#photoMap .v920-photo-top {margin:6px 0 8px}
+#photoMap .v920-photo-extra {margin:8px 0}
+@media(max-width:600px){
+ #expenses .v2-finance-panel,#expenses .card,#photos .card,#photoMap .card,#diary .card {padding:10px}
+ #expenses button,#photos button,#photoMap button,#diary button {max-width:100%}
+ #photos .v925-photo-shortcuts button {font-size:.84rem}
+}
+</style><style id="v9252-photo-compact">
+#photos .v9252-photo-nav,#photoMap .v9252-photo-nav,#photoChallenges .v9252-photo-nav{display:flex;gap:7px;flex-wrap:wrap;margin:6px 0 10px}
+.v9252-photo-nav button{flex:1 1 auto;min-height:38px;padding:8px 10px!important;border-radius:10px;font-size:13px!important;white-space:nowrap}
+#photos .v9252-photo-hint{font-size:12px;line-height:1.45;margin:4px 0 10px;color:var(--muted,#5d6b69)}
+#photos .card,#photoMap .card,#photoChallenges .card{margin-top:8px;margin-bottom:8px}
+#photos .v9252-photo-backup{margin-top:12px;border-top:1px solid rgba(120,120,120,.22);padding-top:8px}
+#photos .v9252-photo-backup summary{cursor:pointer;font-weight:600;font-size:13px;padding:6px 0}
+#photos .v9252-photo-backup .diary-actions{display:flex;flex-wrap:wrap;gap:8px;padding:8px 0}
+#photos .v9252-photo-backup .diary-actions button{flex:1;min-width:120px}
+#photos #photoLibraryList img{max-height:155px;object-fit:cover}
+#photoMap .v920-photo-top p.small{margin:4px 0 7px;font-size:12px}
+@media(max-width:380px){.v9252-photo-nav button{font-size:12px!important;padding:7px!important}}
+</style>
+<style id="v9253-style">
+#v9253-arrival[hidden]{display:none!important}#v9253-arrival{position:fixed;inset:0;z-index:2147483000;background:rgba(0,0,0,.72);display:flex;align-items:flex-end;justify-content:center;padding:14px;box-sizing:border-box}#v9253-arrival .v9253-sheet{width:min(100%,430px);background:#fff9e9;color:#282018;border:3px solid #725133;border-radius:18px;padding:17px;box-shadow:0 10px 45px #0008;max-height:85dvh;overflow:auto}#v9253-arrival button{min-height:44px}#v9253-arrival .v9253-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}#v9253-arrival .v9253-actions button:first-child{grid-column:1/-1}#v9253-arrival .v9253-sheet p{line-height:1.55}#v9253-arrival .v9253-sheet h3{margin:4px 0 10px}#v9253-gps-bar{padding:9px 11px;margin:8px 0;border-radius:12px;border:1px solid #a4b88c;background:#eff5df;color:#1f4228;font-size:13px}#v9253-gps-bar button{margin:4px 4px 0 0;padding:7px 10px;font-size:13px;min-height:36px}#v9253-arrival-status{font-size:13px;min-height:18px}#v9253-photo-hint{font-size:12px;color:#5b554c}
+</style><style id="v9254-style">#v9253-gps-bar>div{display:flex;flex-wrap:wrap;gap:4px}#v9253-gps-bar button{flex:1 1 42%;min-width:125px}#v9253-arrival .v9254-fields{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}#v9253-arrival .v9254-fields label{font-size:12px;font-weight:700}#v9253-arrival .v9254-fields select,#v9253-arrival .v9254-fields input{display:block;width:100%;box-sizing:border-box;margin-top:4px;min-height:40px;background:#fff;color:#242424;border:1px solid #9b8e7b;border-radius:8px;padding:5px}#v9253-arrival .v9253-sheet{max-height:88dvh}@media(max-width:370px){#v9253-arrival .v9254-fields{grid-template-columns:1fr}}</style></head><body>
 <header><small>VIETNAM ADVENTURE · 2026</small><h1>🇻🇳 越南旅行日記</h1><p>北越六天五夜｜11/18（三）–11/23（一）</p></header><main>
 <div aria-hidden="true" id="memoirPrintRoot"></div>
 <section class="page active" id="home">
@@ -1751,18 +1817,7 @@ body.v922-modal-open{overflow:hidden!important}
 <div class="v411-welcome-copy"><span class="v411-kicker">VIETNAM · SLOW TRAVEL JOURNAL</span><h2>把每一段旅程，變成自己的故事。</h2><p>慢慢探索北越、認識沿途的人，收藏風景、美食與不期而遇的回憶。</p></div>
 <div aria-label="越南山水旅行插畫" class="v411-welcome-art" role="img"><span>⛰️</span><span>🌿</span><span>🏡</span><span>🛶</span></div>
 </section>
-<section aria-label="旅行與 RPG 融合入口" class="v50-adventure-bridge">
-<div class="v50-bridge-copy">
-<span class="v50-bridge-kicker">TRAVEL IS YOUR ADVENTURE</span>
-<h2>走進越南，也走進自己的冒險故事。</h2>
-<p>探索景點、觸發遭遇、完成任務，再把沿途風景收藏成回憶。</p>
-<div aria-label="旅行冒險流程" class="v50-journey-flow"><span>🗺️ 探索</span><i>›</i><span>⚔️ 挑戰</span><i>›</i><span>🏆 成長</span><i>›</i><span>📖 收藏</span></div>
-</div>
-<div class="v50-bridge-actions">
-<button class="v50-primary-action" onclick="showPage('adventureMap')" type="button">前往景點打卡 →</button>
-
-</div>
-</section>
+<!-- V9.25: removed duplicate decorative introduction; original destination remains in quick launch -->
 <section aria-label="四大功能分類入口" class="v411-launch"><button class="v414-home-category" onclick="showPage('adventureMap')" type="button"><span>📍</span><b>打卡與行程</b><small>景點、GPS 打卡、每日安排</small></button><button class="v414-home-category" onclick="toggleCategoryMenu(true)" type="button"><span>🎮</span><b>遊戲與冒險</b><small>自由探索、戰鬥、背包</small></button><button class="v414-home-category" onclick="showPage('diary')" type="button"><span>📖</span><b>旅行紀錄</b><small>人物故事、日記、照片、回憶</small></button><button class="v414-home-category" onclick="showPage('expenses')" type="button"><span>🧰</span><b>旅行工具</b><small>美食、翻譯、記帳、購物</small></button></section>
 <section aria-label="旅程總覽" class="v3-home-overview v43-home-overview">
 <div class="v3-home-title-row"><div><span class="v3-eyebrow">YOUR NORTH VIETNAM QUEST</span><h2>準備好出發冒險了嗎？</h2><p>北越六天五夜・4 人小隊</p></div><span aria-hidden="true" class="v3-home-badge">🇻🇳</span></div>
@@ -1775,11 +1830,10 @@ body.v922-modal-open{overflow:hidden!important}
 </section>
 <div class="v3-home-reminder v414-home-secondary"><span aria-hidden="true">📌</span><div><strong>出發前準備中</strong><p>查看每日行程、交通集合時間與待辦任務，讓旅程更安心。</p></div><button onclick="showPage('itinerary')" type="button">查看行程</button></div>
 </section>
-
 <!-- 新增 RPG 指揮中心：只讀取既有進度，簽到資料使用獨立新鍵保存。 -->
 <!-- 首頁只保留主視覺與冒險地圖；小隊與戰利品獨立為底部選單頁面。 -->
 <div class="notice">飯店地址、交通時間與預訂資料請出發前逐項核對。GPS 只有在北越景點附近才會確認為真實地點；其他位置會明確標示測試模式／未確認地點。</div></section>
-<section class="page" id="adventureMap"><h2 class="section-title">📍 景點打卡</h2><details class="v919-optional" id="v919MapDetails" open><summary>🗺️ 冒險地圖・點選景點直接打卡</summary><section aria-label="RPG 行程地圖" class="rpg-map-panel card">
+<section class="page" id="adventureMap"><h2 class="section-title">📍 景點打卡</h2><div id="v9253-gps-bar">📍 智慧照片集章：<span id="v9253-gps-state">尚未啟用定位提醒</span><div><button type="button" class="secondary" onclick="v9253Start()">🛰️ 開啟抵達提醒</button><button type="button" class="secondary" onclick="v9253Stop()">停止定位</button><button type="button" class="secondary" onclick="v9254Retry()">🔄 重新定位</button><button type="button" class="action" onclick="v9254Manual()">📸 手動集章／補登</button></div><small>GPS 自動提醒先支援三個地區；8 個景點都可手動拍照集章或回飯店補登。僅在網頁開啟時偵測。</small></div><details class="v919-optional" id="v919MapDetails" open=""><summary>🗺️ 冒險地圖・點選景點直接打卡</summary><section aria-label="RPG 行程地圖" class="rpg-map-panel card">
 <div class="map-heading"><div><small>MAIN QUEST · 北越冒險</small><h2>🗺️ 我的冒險地圖</h2></div><b id="mapQuestCount">0 / 0 已探索</b></div>
 <button class="main-map-quest" onclick="document.getElementById('rpgMap').scrollIntoView({behavior:'smooth',block:'center'});document.getElementById('rpgMap').classList.add('map-focus');setTimeout(()=&gt;document.getElementById('rpgMap').classList.remove('map-focus'),1200)">🗺️ 地圖闖關 <small>河內 → 沙壩 → 下龍灣</small></button>
 <div class="pixel-game-hint">📍 點選位置查看景點與打卡</div><div class="pixel-map-wrap"><div class="rpg-map-path" id="rpgMap"><div class="notice">正在載入北越冒險地圖…若未顯示地圖，請確認瀏覽器允許執行此 HTML 的 JavaScript。</div></div><div aria-hidden="true" class="pixel-pet">🐈 🐾</div></div>
@@ -1792,7 +1846,7 @@ body.v922-modal-open{overflow:hidden!important}
 <div id="checkinReminderList"></div>
 </section></details><p class="small">點選地圖地點可展開景點資訊、打卡與照片功能。</p>
 </section>
-<section class="page" id="loot"><h2 class="section-title">🎮 北越像素冒險世界｜完整 RPG</h2><p class="small">已植入 V20 驚喜冒險遊戲。旅行行程、記帳、照片與其他功能保留。</p><iframe allow="fullscreen" id="integratedNorthVietnamRPG" loading="eager" referrerpolicy="no-referrer" srcdoc="&lt;!doctype html&gt;&lt;html lang=&quot;zh-Hant&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no&quot;&gt;&lt;title&gt;北越像素冒險世界 V20｜生活探索冒險整合測試版&lt;/title&gt;&lt;style&gt;*{box-sizing:border-box}body{margin:0;background:#182b27;color:#fff;font-family:system-ui,&#x27;Noto Sans TC&#x27;,sans-serif;overflow:hidden}#wrap{position:fixed;inset:0;display:grid;place-items:center;background:radial-gradient(#496c5b,#182b27)}canvas{display:block;width:min(100vw,calc(100vh * 1.77778));height:min(100vh,calc(100vw / 1.77778));image-rendering:pixelated;box-shadow:0 12px 55px #0008}#hint{position:fixed;top:10px;left:12px;background:#142d28c9;border:2px solid #e6c78d;border-radius:8px;padding:7px 10px;font-size:12px;pointer-events:none}#pad{position:fixed;bottom:15px;left:15px;display:grid;grid-template-columns:repeat(3,44px);gap:3px}button{touch-action:none;background:#213e38d9;border:2px solid #dfc98b;border-radius:10px;color:white;font-size:21px;width:44px;height:44px}#act{position:fixed;right:20px;bottom:25px;width:72px;height:72px;border-radius:50%;font-size:16px;font-weight:bold}#dialog{display:none;position:fixed;left:50%;bottom:12px;transform:translateX(-50%);width:min(600px,90vw);background:#fff4d5;color:#2e392f;border:4px solid #7d5139;box-shadow:0 5px 0 #3d332a;padding:12px 16px;font-size:15px;line-height:1.6;border-radius:7px;z-index:5}#dialog strong{display:block;color:#8c4a2d}#dialog button{float:right;background:#527a5a;width:auto;height:auto;padding:4px 12px;font-size:13px;margin-top:5px}#note{position:fixed;top:10px;right:10px;background:#203c34bb;padding:6px 10px;border-radius:8px;font-size:12px}@media (pointer:fine){#pad,#act{opacity:.65}}@media (max-width:640px){#hint{font-size:10px;max-width:70vw}#note{font-size:10px}#pad{bottom:8px;left:8px;grid-template-columns:repeat(3,39px)}#pad button{width:39px;height:39px}#act{right:10px;bottom:12px;width:58px;height:58px}}#location{position:fixed;top:49px;left:12px;background:#142d28d9;border:1px solid #e6c78d;border-radius:7px;padding:5px 9px;font-size:12px;pointer-events:none}#toast{position:fixed;left:50%;top:16%;transform:translateX(-50%);background:#fff4d5;color:#3a4034;border:3px solid #805c40;padding:9px 15px;border-radius:7px;display:none;pointer-events:none;font-weight:bold;z-index:6}#act{font-size:14px} @media(max-width:640px){#location{top:38px;font-size:10px}} #journalBtn{position:fixed;top:85px;right:10px;width:auto;height:auto;font-size:13px;padding:7px 10px;z-index:7}#journal{position:fixed;z-index:12;inset:8% 12%;overflow:auto;background:#fff1d0;color:#3d392c;border:5px solid #75523b;border-radius:10px;padding:18px;box-shadow:0 0 0 100vmax #0009}#journal[hidden],#battle[hidden]{display:none}#journal h3{margin-top:0}#journal p{line-height:1.65}#journal button{width:auto;height:auto;padding:7px 12px;font-size:14px}#battle{position:fixed;z-index:15;inset:0;display:grid;place-items:center;background:#102c2cd9}.battleCard{width:min(520px,92vw);max-height:90vh;overflow:auto;text-align:center;background:#f8e9c5;color:#463a2c;border:5px solid #8d6545;border-radius:12px;padding:16px}.battleCard h3{margin:4px 0}.battleCard p{min-height:42px}.battleCard button{width:auto;height:auto;padding:8px 12px;font-size:15px;background:#426d60}.battleActions{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}#battleSprite{font-size:62px;text-shadow:3px 4px #b5a18a}.battleStats{font-weight:bold;margin:10px}@media(max-width:640px){#journalBtn{top:70px;font-size:11px;padding:4px 7px}#journal{inset:5% 5%;font-size:13px}} .battleBars{margin:12px auto;max-width:350px;text-align:left}.barLabel{font-size:12px;font-weight:700;margin:4px 0}.meter{height:11px;border:1px solid #6c5b46;background:#c7b69a;border-radius:8px;overflow:hidden}.meter i{display:block;height:100%;transition:width .2s}#specialBtn:disabled{opacity:.5;cursor:not-allowed}#dialog{white-space:pre-line}#postActions{display:flex;gap:7px;flex-wrap:wrap;margin-top:7px}#postActions button{float:none;margin:0;font-size:13px}#postActions:empty{display:none}
+<section class="page" id="loot"><h2 class="section-title">🎮 北越像素冒險世界｜完整 RPG</h2><p class="small">已植入 V20 驚喜冒險遊戲。旅行行程、記帳、照片與其他功能保留。</p><iframe allow="fullscreen" id="integratedNorthVietnamRPG" loading="eager" referrerpolicy="no-referrer" srcdoc="&lt;!doctype html&gt;&lt;html lang=&quot;zh-Hant&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no&quot;&gt;&lt;title&gt;北越像素冒險世界 V20｜生活探索冒險整合測試版&lt;/title&gt;&lt;style&gt;*{box-sizing:border-box}body{margin:0;background:#182b27;color:#fff;font-family:system-ui,'Noto Sans TC',sans-serif;overflow:hidden}#wrap{position:fixed;inset:0;display:grid;place-items:center;background:radial-gradient(#496c5b,#182b27)}canvas{display:block;width:min(100vw,calc(100vh * 1.77778));height:min(100vh,calc(100vw / 1.77778));image-rendering:pixelated;box-shadow:0 12px 55px #0008}#hint{position:fixed;top:10px;left:12px;background:#142d28c9;border:2px solid #e6c78d;border-radius:8px;padding:7px 10px;font-size:12px;pointer-events:none}#pad{position:fixed;bottom:15px;left:15px;display:grid;grid-template-columns:repeat(3,44px);gap:3px}button{touch-action:none;background:#213e38d9;border:2px solid #dfc98b;border-radius:10px;color:white;font-size:21px;width:44px;height:44px}#act{position:fixed;right:20px;bottom:25px;width:72px;height:72px;border-radius:50%;font-size:16px;font-weight:bold}#dialog{display:none;position:fixed;left:50%;bottom:12px;transform:translateX(-50%);width:min(600px,90vw);background:#fff4d5;color:#2e392f;border:4px solid #7d5139;box-shadow:0 5px 0 #3d332a;padding:12px 16px;font-size:15px;line-height:1.6;border-radius:7px;z-index:5}#dialog strong{display:block;color:#8c4a2d}#dialog button{float:right;background:#527a5a;width:auto;height:auto;padding:4px 12px;font-size:13px;margin-top:5px}#note{position:fixed;top:10px;right:10px;background:#203c34bb;padding:6px 10px;border-radius:8px;font-size:12px}@media (pointer:fine){#pad,#act{opacity:.65}}@media (max-width:640px){#hint{font-size:10px;max-width:70vw}#note{font-size:10px}#pad{bottom:8px;left:8px;grid-template-columns:repeat(3,39px)}#pad button{width:39px;height:39px}#act{right:10px;bottom:12px;width:58px;height:58px}}#location{position:fixed;top:49px;left:12px;background:#142d28d9;border:1px solid #e6c78d;border-radius:7px;padding:5px 9px;font-size:12px;pointer-events:none}#toast{position:fixed;left:50%;top:16%;transform:translateX(-50%);background:#fff4d5;color:#3a4034;border:3px solid #805c40;padding:9px 15px;border-radius:7px;display:none;pointer-events:none;font-weight:bold;z-index:6}#act{font-size:14px} @media(max-width:640px){#location{top:38px;font-size:10px}} #journalBtn{position:fixed;top:85px;right:10px;width:auto;height:auto;font-size:13px;padding:7px 10px;z-index:7}#journal{position:fixed;z-index:12;inset:8% 12%;overflow:auto;background:#fff1d0;color:#3d392c;border:5px solid #75523b;border-radius:10px;padding:18px;box-shadow:0 0 0 100vmax #0009}#journal[hidden],#battle[hidden]{display:none}#journal h3{margin-top:0}#journal p{line-height:1.65}#journal button{width:auto;height:auto;padding:7px 12px;font-size:14px}#battle{position:fixed;z-index:15;inset:0;display:grid;place-items:center;background:#102c2cd9}.battleCard{width:min(520px,92vw);max-height:90vh;overflow:auto;text-align:center;background:#f8e9c5;color:#463a2c;border:5px solid #8d6545;border-radius:12px;padding:16px}.battleCard h3{margin:4px 0}.battleCard p{min-height:42px}.battleCard button{width:auto;height:auto;padding:8px 12px;font-size:15px;background:#426d60}.battleActions{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}#battleSprite{font-size:62px;text-shadow:3px 4px #b5a18a}.battleStats{font-weight:bold;margin:10px}@media(max-width:640px){#journalBtn{top:70px;font-size:11px;padding:4px 7px}#journal{inset:5% 5%;font-size:13px}} .battleBars{margin:12px auto;max-width:350px;text-align:left}.barLabel{font-size:12px;font-weight:700;margin:4px 0}.meter{height:11px;border:1px solid #6c5b46;background:#c7b69a;border-radius:8px;overflow:hidden}.meter i{display:block;height:100%;transition:width .2s}#specialBtn:disabled{opacity:.5;cursor:not-allowed}#dialog{white-space:pre-line}#postActions{display:flex;gap:7px;flex-wrap:wrap;margin-top:7px}#postActions button{float:none;margin:0;font-size:13px}#postActions:empty{display:none}
 /* V12.1: 遊戲操作區禁止長按選字、拖曳及系統觸控選單 */
 html,body,#wrap,#game,#pad,#pad button,#act,#hint,#note,#location,#toast {
   -webkit-user-select:none;user-select:none;
@@ -1882,7 +1936,7 @@ html,body,#wrap,#game,#pad,#pad button,#act,#hint,#note,#location,#toast {
  white-space:nowrap!important;
  word-break:keep-all!important;
  writing-mode:horizontal-tb!important;
- font:500 15px/1.2 system-ui,&#x27;Noto Sans TC&#x27;,sans-serif!important;
+ font:500 15px/1.2 system-ui,'Noto Sans TC',sans-serif!important;
  color:#fff!important;
  background:#284b43!important;
  border:2px solid #e5c98d!important;
@@ -1912,95 +1966,95 @@ html,body,#wrap,#game,#pad,#pad button,#act,#hint,#note,#location,#toast {
 }
 &lt;/style&gt;
 &lt;/head&gt;&lt;body&gt;&lt;div id=&quot;wrap&quot;&gt;&lt;canvas id=&quot;game&quot; width=&quot;960&quot; height=&quot;540&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;div id=&quot;hint&quot;&gt;🇻🇳 北越像素冒險 · 方向鍵 / WASD · E 互動&lt;/div&gt;&lt;div id=&quot;note&quot;&gt;V20 生活探索世界&lt;/div&gt;&lt;div id=&quot;location&quot;&gt;河內古城&lt;/div&gt;&lt;div id=&quot;toast&quot;&gt;&lt;/div&gt;&lt;button id=&quot;lifeBtn&quot; type=&quot;button&quot;&gt;🏡 生活&lt;/button&gt;&lt;button id=&quot;adventureBagBtn&quot; type=&quot;button&quot; aria-controls=&quot;adventureBagPanel&quot;&gt;🎒 背包&lt;/button&gt;&lt;section id=&quot;adventureBagPanel&quot; hidden role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-label=&quot;冒險背包&quot;&gt;&lt;div class=&quot;adventureBagHeader&quot;&gt;&lt;h2&gt;🎒 冒險背包&lt;/h2&gt;&lt;button id=&quot;adventureBagClose&quot; type=&quot;button&quot;&gt;✕ 返回遊戲&lt;/button&gt;&lt;/div&gt;&lt;p&gt;戰利品、裝備、生活物資集中查看。原有存檔不會變更。&lt;/p&gt;&lt;div id=&quot;adventureBagTabs&quot; role=&quot;tablist&quot;&gt;&lt;button type=&quot;button&quot; data-bag-tab=&quot;loot&quot;&gt;⚔️ 戰利品&lt;/button&gt;&lt;button type=&quot;button&quot; data-bag-tab=&quot;equipment&quot;&gt;🛡️ 裝備&lt;/button&gt;&lt;button type=&quot;button&quot; data-bag-tab=&quot;supplies&quot;&gt;🏡 物資&lt;/button&gt;&lt;/div&gt;&lt;div id=&quot;adventureBagItems&quot;&gt;&lt;/div&gt;&lt;/section&gt;&lt;div id=&quot;lifePanel&quot; hidden&gt;&lt;button id=&quot;lifeClose&quot; type=&quot;button&quot;&gt;✕ 返回遊戲&lt;/button&gt;&lt;h2&gt;🏡 冒險生活手冊&lt;/h2&gt;&lt;div id=&quot;lifeTabs&quot; class=&quot;lifeTabs&quot;&gt;&lt;/div&gt;&lt;div id=&quot;lifeContent&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;button id=&quot;journalBtn&quot; aria-label=&quot;冒險日誌&quot;&gt;📖 故事&lt;/button&gt;&lt;div id=&quot;journal&quot; hidden&gt;&lt;h3&gt;📖 北越傳說：失落的五枚星印&lt;/h3&gt;&lt;div id=&quot;journalText&quot;&gt;&lt;/div&gt;&lt;button id=&quot;journalClose&quot;&gt;返回冒險&lt;/button&gt;&lt;/div&gt;&lt;div id=&quot;battle&quot; hidden&gt;&lt;div class=&quot;battleCard&quot;&gt;&lt;h3 id=&quot;battleTitle&quot;&gt;神祕生物出現！&lt;/h3&gt;&lt;div id=&quot;battleSprite&quot; aria-hidden=&quot;true&quot;&gt;✦&lt;/div&gt;&lt;p id=&quot;battleText&quot;&gt;&lt;/p&gt;&lt;div class=&quot;battleStats&quot; id=&quot;battleStats&quot;&gt;&lt;/div&gt;&lt;div id=&quot;battleBars&quot; class=&quot;battleBars&quot;&gt;&lt;/div&gt;&lt;div class=&quot;battleActions&quot;&gt;&lt;button id=&quot;attackBtn&quot;&gt;⚔️ 攻擊&lt;/button&gt;&lt;button id=&quot;skillBtn&quot;&gt;✨ 星光斬&lt;/button&gt;&lt;button id=&quot;specialBtn&quot;&gt;🌟 星印技能&lt;/button&gt;&lt;button id=&quot;guardBtn&quot;&gt;🛡️ 防禦&lt;/button&gt;&lt;button id=&quot;leaveBtn&quot;&gt;🏃 離開&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;pad&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;button data-dir=&quot;up&quot;&gt;▲&lt;/button&gt;&lt;span&gt;&lt;/span&gt;&lt;button data-dir=&quot;left&quot;&gt;◀&lt;/button&gt;&lt;button data-dir=&quot;down&quot;&gt;▼&lt;/button&gt;&lt;button data-dir=&quot;right&quot;&gt;▶&lt;/button&gt;&lt;/div&gt;&lt;button id=&quot;act&quot;&gt;交談&lt;/button&gt;&lt;div id=&quot;dialog&quot;&gt;&lt;strong id=&quot;speaker&quot;&gt;&lt;/strong&gt;&lt;span id=&quot;words&quot;&gt;&lt;/span&gt;&lt;div id=&quot;postActions&quot;&gt;&lt;/div&gt;&lt;button id=&quot;close&quot;&gt;繼續探索&lt;/button&gt;&lt;/div&gt;&lt;script&gt;
- &#x27;use strict&#x27;;
-const canvas=document.getElementById(&#x27;game&#x27;),c=canvas.getContext(&#x27;2d&#x27;);c.imageSmoothingEnabled=false;
+ 'use strict';
+const canvas=document.getElementById('game'),c=canvas.getContext('2d');c.imageSmoothingEnabled=false;
 const T=32,W=42,H=26;
-let world=[],blocked=new Set(),buildings=[],pond=null,trees=[],props=[],npcs=[],decor=[],banners=[],exits=[],sceneId=&#x27;hanoi&#x27;,theme={};
-const player={x:20,y:12,dir:&#x27;down&#x27;,walk:0};const keys=new Set();let last=0,stepAcc=0,dialog=false,toastUntil=0,frameTime=0;
-function block(x,y,w=1,h=1){for(let yy=y;yy&lt;y+h;yy++)for(let xx=x;xx&lt;x+w;xx++)blocked.add(xx+&#x27;,&#x27;+yy)}
+let world=[],blocked=new Set(),buildings=[],pond=null,trees=[],props=[],npcs=[],decor=[],banners=[],exits=[],sceneId='hanoi',theme={};
+const player={x:20,y:12,dir:'down',walk:0};const keys=new Set();let last=0,stepAcc=0,dialog=false,toastUntil=0,frameTime=0;
+function block(x,y,w=1,h=1){for(let yy=y;yy&lt;y+h;yy++)for(let xx=x;xx&lt;x+w;xx++)blocked.add(xx+','+yy)}
 function ground(x,y,w,h,type){for(let yy=y;yy&lt;y+h;yy++)for(let xx=x;xx&lt;x+w;xx++)if(world[yy]?.[xx])world[yy][xx]=type}
-function building(x,y,w,h,col,roof,label,type=&#x27;home&#x27;){buildings.push({x,y,w,h,col,roof,label,type});block(x,y,w,h)}
+function building(x,y,w,h,col,roof,label,type='home'){buildings.push({x,y,w,h,col,roof,label,type});block(x,y,w,h)}
 function treeAt(x,y){trees.push([x,y]);block(x,y)}
 function propAt(x,y,kind){props.push({x,y,kind});block(x,y)}
-function npc(x,y,name,msg,shirt=&#x27;#a95248&#x27;){
- npcs.push({x,y,homeX:x,homeY:y,name,msg,shirt,hair:&#x27;#392e2a&#x27;,dir:&#x27;down&#x27;,walk:0,
+function npc(x,y,name,msg,shirt='#a95248'){
+ npcs.push({x,y,homeX:x,homeY:y,name,msg,shirt,hair:'#392e2a',dir:'down',walk:0,
   moveAt:0,waitUntil:0,route:[],routeIndex:0,seed:npcs.length+1});
 }
 function exitAt(x,y,target,tx,ty,label){exits.push({x,y,target,tx,ty,label})}
-const names={hanoi:&#x27;河內古城&#x27;,sapa:&#x27;沙壩山村&#x27;,fansipan:&#x27;番西邦高山&#x27;,halong:&#x27;下龍灣港口&#x27;,cruise:&#x27;郵輪甲板&#x27;};
+const names={hanoi:'河內古城',sapa:'沙壩山村',fansipan:'番西邦高山',halong:'下龍灣港口',cruise:'郵輪甲板'};
 function setup(id,spawn){sceneId=id;blocked=new Set();buildings=[];pond=null;trees=[];props=[];npcs=[];decor=[];banners=[];exits=[];
-world=Array.from({length:H},(_,y)=&gt;Array.from({length:W},(_,x)=&gt;x&gt;=2&amp;&amp;x&lt;=39&amp;&amp;y&gt;=2&amp;&amp;y&lt;=23?&#x27;grass&#x27;:&#x27;edge&#x27;));
-theme={grass:&#x27;#82ab75&#x27;,stone:&#x27;#c8bda2&#x27;,soil:&#x27;#a99b73&#x27;,edge:&#x27;#5a7d65&#x27;,sky:&#x27;#80ac95&#x27;};
-if(id===&#x27;hanoi&#x27;){
-ground(2,10,38,5,&#x27;stone&#x27;);ground(18,2,6,22,&#x27;stone&#x27;);ground(3,15,14,6,&#x27;soil&#x27;);ground(25,16,13,6,&#x27;soil&#x27;);ground(3,3,13,6,&#x27;stone&#x27;);ground(26,3,12,6,&#x27;stone&#x27;);
-building(4,4,5,5,&#x27;#e5b34f&#x27;,&#x27;#b95d49&#x27;,&#x27;河內咖啡館&#x27;,&#x27;cafe&#x27;);building(10,4,5,5,&#x27;#dfc47e&#x27;,&#x27;#608d78&#x27;,&#x27;傳統雜貨店&#x27;,&#x27;shop&#x27;);building(27,4,5,5,&#x27;#e4a85d&#x27;,&#x27;#a64f47&#x27;,&#x27;法式老屋&#x27;);building(33,4,5,5,&#x27;#e6d48f&#x27;,&#x27;#527f75&#x27;,&#x27;河內麵包店&#x27;,&#x27;bread&#x27;);building(5,17,6,5,&#x27;#e6c075&#x27;,&#x27;#a45d49&#x27;,&#x27;民居&#x27;);building(29,17,6,5,&#x27;#d8ad62&#x27;,&#x27;#a55c4b&#x27;,&#x27;傳統茶館&#x27;,&#x27;shop&#x27;);
+world=Array.from({length:H},(_,y)=&gt;Array.from({length:W},(_,x)=&gt;x&gt;=2&amp;&amp;x&lt;=39&amp;&amp;y&gt;=2&amp;&amp;y&lt;=23?'grass':'edge'));
+theme={grass:'#82ab75',stone:'#c8bda2',soil:'#a99b73',edge:'#5a7d65',sky:'#80ac95'};
+if(id==='hanoi'){
+ground(2,10,38,5,'stone');ground(18,2,6,22,'stone');ground(3,15,14,6,'soil');ground(25,16,13,6,'soil');ground(3,3,13,6,'stone');ground(26,3,12,6,'stone');
+building(4,4,5,5,'#e5b34f','#b95d49','河內咖啡館','cafe');building(10,4,5,5,'#dfc47e','#608d78','傳統雜貨店','shop');building(27,4,5,5,'#e4a85d','#a64f47','法式老屋');building(33,4,5,5,'#e6d48f','#527f75','河內麵包店','bread');building(5,17,6,5,'#e6c075','#a45d49','民居');building(29,17,6,5,'#d8ad62','#a55c4b','傳統茶館','shop');
 pond={x:13,y:17,w:4,h:4};block(13,17,4,4);
 [[3,7],[16,5],[24,6],[38,8],[4,16],[12,21],[25,19],[37,19],[3,22],[38,22]].forEach(a=&gt;treeAt(...a));
-[[16,12,&#x27;cart&#x27;],[25,12,&#x27;flower&#x27;],[12,12,&#x27;bench&#x27;],[30,12,&#x27;bench&#x27;],[19,7,&#x27;lamp&#x27;],[23,17,&#x27;lamp&#x27;]].forEach(a=&gt;propAt(...a));
-npc(10,11,&#x27;咖啡店阿姨&#x27;,&#x27;河內的早晨，最適合坐在街邊喝蛋咖啡。慢慢走，才能發現老城的味道。&#x27;);npc(29,14,&#x27;麵包店老闆&#x27;,&#x27;法國麵包外皮酥脆，搭配香草和醃菜，是我們熟悉的街頭美食。&#x27;,&#x27;#467a73&#x27;);
-banners=[{x:7,y:9},{x:13,y:9},{x:29,y:9},{x:35,y:9}];exitAt(39,12,&#x27;sapa&#x27;,3,12,&#x27;前往沙壩山村&#x27;);
-}else if(id===&#x27;sapa&#x27;){
-theme={grass:&#x27;#74a477&#x27;,stone:&#x27;#c6b18a&#x27;,soil:&#x27;#ad9467&#x27;,edge:&#x27;#3b6a54&#x27;};
+[[16,12,'cart'],[25,12,'flower'],[12,12,'bench'],[30,12,'bench'],[19,7,'lamp'],[23,17,'lamp']].forEach(a=&gt;propAt(...a));
+npc(10,11,'咖啡店阿姨','河內的早晨，最適合坐在街邊喝蛋咖啡。慢慢走，才能發現老城的味道。');npc(29,14,'麵包店老闆','法國麵包外皮酥脆，搭配香草和醃菜，是我們熟悉的街頭美食。','#467a73');
+banners=[{x:7,y:9},{x:13,y:9},{x:29,y:9},{x:35,y:9}];exitAt(39,12,'sapa',3,12,'前往沙壩山村');
+}else if(id==='sapa'){
+theme={grass:'#74a477',stone:'#c6b18a',soil:'#ad9467',edge:'#3b6a54'};
 // 山村：曲折山徑、階梯梯田與零散山屋，非十字街道
-world=Array.from({length:H},(_,y)=&gt;Array.from({length:W},(_,x)=&gt;x&gt;=2&amp;&amp;x&lt;=39&amp;&amp;y&gt;=2&amp;&amp;y&lt;=23?&#x27;grass&#x27;:&#x27;edge&#x27;));
-for(let y=3;y&lt;23;y++){let cx=y&lt;9?11:y&lt;15?11+(y-9)*2:y&lt;20?23+(y-15):28;ground(cx-2,y,6,1,&#x27;stone&#x27;)}
-ground(2,11,37,3,&#x27;stone&#x27;);ground(4,4,11,3,&#x27;soil&#x27;);ground(27,17,11,5,&#x27;soil&#x27;);ground(4,17,12,5,&#x27;soil&#x27;);
-building(5,5,7,4,&#x27;#c59a65&#x27;,&#x27;#614c3e&#x27;,&#x27;山村木屋&#x27;);building(30,18,7,4,&#x27;#ba9871&#x27;,&#x27;#635243&#x27;,&#x27;織布工坊&#x27;,&#x27;shop&#x27;);building(5,18,6,4,&#x27;#c7a579&#x27;,&#x27;#6e5742&#x27;,&#x27;梯田農家&#x27;);
+world=Array.from({length:H},(_,y)=&gt;Array.from({length:W},(_,x)=&gt;x&gt;=2&amp;&amp;x&lt;=39&amp;&amp;y&gt;=2&amp;&amp;y&lt;=23?'grass':'edge'));
+for(let y=3;y&lt;23;y++){let cx=y&lt;9?11:y&lt;15?11+(y-9)*2:y&lt;20?23+(y-15):28;ground(cx-2,y,6,1,'stone')}
+ground(2,11,37,3,'stone');ground(4,4,11,3,'soil');ground(27,17,11,5,'soil');ground(4,17,12,5,'soil');
+building(5,5,7,4,'#c59a65','#614c3e','山村木屋');building(30,18,7,4,'#ba9871','#635243','織布工坊','shop');building(5,18,6,4,'#c7a579','#6e5742','梯田農家');
 [[3,4],[16,4],[25,5],[35,6],[4,16],[16,19],[38,17],[38,22]].forEach(a=&gt;treeAt(...a));
-[[16,12,&#x27;flower&#x27;],[25,12,&#x27;cart&#x27;],[20,9,&#x27;flower&#x27;],[27,20,&#x27;flower&#x27;]].forEach(a=&gt;propAt(...a));
-npc(14,11,&#x27;織布阿姨&#x27;,&#x27;沙壩的靛藍染布和刺繡，是代代相傳的手藝。&#x27;,&#x27;#7a5c98&#x27;);npc(30,14,&#x27;梯田農夫&#x27;,&#x27;這裡的梯田依山而建，四季都有不同的風景。&#x27;,&#x27;#587d62&#x27;);
-exitAt(2,12,&#x27;hanoi&#x27;,38,12,&#x27;返回河內&#x27;);exitAt(39,12,&#x27;fansipan&#x27;,3,12,&#x27;前往番西邦&#x27;);
-}else if(id===&#x27;fansipan&#x27;){
-theme={grass:&#x27;#899d96&#x27;,stone:&#x27;#c1c5c0&#x27;,soil:&#x27;#879c98&#x27;,edge:&#x27;#647f87&#x27;};
-world=Array.from({length:H},(_,y)=&gt;Array.from({length:W},(_,x)=&gt;x&gt;=2&amp;&amp;x&lt;=39&amp;&amp;y&gt;=2&amp;&amp;y&lt;=23?&#x27;grass&#x27;:&#x27;edge&#x27;));
+[[16,12,'flower'],[25,12,'cart'],[20,9,'flower'],[27,20,'flower']].forEach(a=&gt;propAt(...a));
+npc(14,11,'織布阿姨','沙壩的靛藍染布和刺繡，是代代相傳的手藝。','#7a5c98');npc(30,14,'梯田農夫','這裡的梯田依山而建，四季都有不同的風景。','#587d62');
+exitAt(2,12,'hanoi',38,12,'返回河內');exitAt(39,12,'fansipan',3,12,'前往番西邦');
+}else if(id==='fansipan'){
+theme={grass:'#899d96',stone:'#c1c5c0',soil:'#879c98',edge:'#647f87'};
+world=Array.from({length:H},(_,y)=&gt;Array.from({length:W},(_,x)=&gt;x&gt;=2&amp;&amp;x&lt;=39&amp;&amp;y&gt;=2&amp;&amp;y&lt;=23?'grass':'edge'));
 // 高山：大面積岩坡、斜向登山步道、稀疏建築
-for(let y=3;y&lt;23;y++){let cx=Math.round(9+y*.85+Math.sin(y*.5)*3);ground(cx-2,y,6,1,&#x27;stone&#x27;)}
-ground(2,11,38,3,&#x27;stone&#x27;);ground(5,4,12,5,&#x27;soil&#x27;);ground(28,16,10,6,&#x27;soil&#x27;);
-building(7,5,8,4,&#x27;#d4d0bd&#x27;,&#x27;#71838c&#x27;,&#x27;高山纜車站&#x27;,&#x27;shop&#x27;);building(30,18,7,4,&#x27;#d5d0c5&#x27;,&#x27;#667780&#x27;,&#x27;山頂休息站&#x27;,&#x27;cafe&#x27;);
-[[3,5],[36,5],[4,19],[38,20]].forEach(a=&gt;treeAt(...a));[[17,12,&#x27;bench&#x27;],[28,12,&#x27;bench&#x27;],[24,8,&#x27;lamp&#x27;]].forEach(a=&gt;propAt(...a));
-npc(14,11,&#x27;登山嚮導&#x27;,&#x27;這裡是番西邦高山，氣溫和能見度可能快速變化。&#x27;,&#x27;#52718d&#x27;);npc(30,14,&#x27;纜車站員&#x27;,&#x27;雲海出現時，山巒會像浮在天空中。&#x27;,&#x27;#987352&#x27;);
-exitAt(2,12,&#x27;sapa&#x27;,38,12,&#x27;返回沙壩&#x27;);exitAt(39,12,&#x27;halong&#x27;,3,12,&#x27;前往下龍灣&#x27;);
-}else if(id===&#x27;halong&#x27;){
-theme={grass:&#x27;#83b1a4&#x27;,stone:&#x27;#c5b8a0&#x27;,soil:&#x27;#b6aa8b&#x27;,edge:&#x27;#368ca0&#x27;};
+for(let y=3;y&lt;23;y++){let cx=Math.round(9+y*.85+Math.sin(y*.5)*3);ground(cx-2,y,6,1,'stone')}
+ground(2,11,38,3,'stone');ground(5,4,12,5,'soil');ground(28,16,10,6,'soil');
+building(7,5,8,4,'#d4d0bd','#71838c','高山纜車站','shop');building(30,18,7,4,'#d5d0c5','#667780','山頂休息站','cafe');
+[[3,5],[36,5],[4,19],[38,20]].forEach(a=&gt;treeAt(...a));[[17,12,'bench'],[28,12,'bench'],[24,8,'lamp']].forEach(a=&gt;propAt(...a));
+npc(14,11,'登山嚮導','這裡是番西邦高山，氣溫和能見度可能快速變化。','#52718d');npc(30,14,'纜車站員','雲海出現時，山巒會像浮在天空中。','#987352');
+exitAt(2,12,'sapa',38,12,'返回沙壩');exitAt(39,12,'halong',3,12,'前往下龍灣');
+}else if(id==='halong'){
+theme={grass:'#83b1a4',stone:'#c5b8a0',soil:'#b6aa8b',edge:'#368ca0'};
 // 港口：上半幅是海，右側碼頭突出至海面，岸上僅兩棟建築
-world=Array.from({length:H},(_,y)=&gt;Array.from({length:W},(_,x)=&gt;x&gt;=2&amp;&amp;x&lt;=39&amp;&amp;y&gt;=2&amp;&amp;y&lt;=23?(y&lt;10?&#x27;water&#x27;:&#x27;grass&#x27;):&#x27;edge&#x27;));
-ground(2,11,38,4,&#x27;stone&#x27;);ground(18,5,7,9,&#x27;wood&#x27;);ground(5,17,11,5,&#x27;soil&#x27;);ground(28,17,10,5,&#x27;soil&#x27;);
-for(let y=2;y&lt;10;y++)for(let x=2;x&lt;40;x++)if(world[y][x]===&#x27;water&#x27;)block(x,y);
-building(5,18,8,4,&#x27;#e4c78a&#x27;,&#x27;#658f91&#x27;,&#x27;港口服務站&#x27;,&#x27;shop&#x27;);building(30,18,7,4,&#x27;#e1bb82&#x27;,&#x27;#5d8c91&#x27;,&#x27;港邊咖啡館&#x27;,&#x27;cafe&#x27;);
-[[3,17],[16,20],[27,20],[38,21]].forEach(a=&gt;treeAt(...a));[[14,12,&#x27;cart&#x27;],[28,12,&#x27;bench&#x27;],[21,9,&#x27;lamp&#x27;]].forEach(a=&gt;propAt(...a));
-npc(12,11,&#x27;港口導覽員&#x27;,&#x27;下龍灣的石灰岩島嶼，是海水與地質作用共同塑造的景色。&#x27;,&#x27;#438c91&#x27;);npc(30,14,&#x27;漁村居民&#x27;,&#x27;在海灣裡，可以看到傳統漁船與海上生活的故事。&#x27;,&#x27;#9d7054&#x27;);
-exitAt(2,12,&#x27;fansipan&#x27;,38,12,&#x27;返回番西邦&#x27;);exitAt(39,12,&#x27;cruise&#x27;,3,12,&#x27;登上郵輪&#x27;);
-}else if(id===&#x27;cruise&#x27;){
-theme={grass:&#x27;#b6c4b9&#x27;,stone:&#x27;#d1b995&#x27;,soil:&#x27;#bba27d&#x27;,edge:&#x27;#318399&#x27;};
+world=Array.from({length:H},(_,y)=&gt;Array.from({length:W},(_,x)=&gt;x&gt;=2&amp;&amp;x&lt;=39&amp;&amp;y&gt;=2&amp;&amp;y&lt;=23?(y&lt;10?'water':'grass'):'edge'));
+ground(2,11,38,4,'stone');ground(18,5,7,9,'wood');ground(5,17,11,5,'soil');ground(28,17,10,5,'soil');
+for(let y=2;y&lt;10;y++)for(let x=2;x&lt;40;x++)if(world[y][x]==='water')block(x,y);
+building(5,18,8,4,'#e4c78a','#658f91','港口服務站','shop');building(30,18,7,4,'#e1bb82','#5d8c91','港邊咖啡館','cafe');
+[[3,17],[16,20],[27,20],[38,21]].forEach(a=&gt;treeAt(...a));[[14,12,'cart'],[28,12,'bench'],[21,9,'lamp']].forEach(a=&gt;propAt(...a));
+npc(12,11,'港口導覽員','下龍灣的石灰岩島嶼，是海水與地質作用共同塑造的景色。','#438c91');npc(30,14,'漁村居民','在海灣裡，可以看到傳統漁船與海上生活的故事。','#9d7054');
+exitAt(2,12,'fansipan',38,12,'返回番西邦');exitAt(39,12,'cruise',3,12,'登上郵輪');
+}else if(id==='cruise'){
+theme={grass:'#b6c4b9',stone:'#d1b995',soil:'#bba27d',edge:'#318399'};
 // 郵輪：周圍全是海，中央是長條形木甲板與船艙
-world=Array.from({length:H},(_,y)=&gt;Array.from({length:W},(_,x)=&gt;x&gt;=3&amp;&amp;x&lt;=38&amp;&amp;y&gt;=7&amp;&amp;y&lt;=18?&#x27;wood&#x27;:&#x27;water&#x27;));
-for(let y=0;y&lt;H;y++)for(let x=0;x&lt;W;x++)if(world[y][x]===&#x27;water&#x27;)block(x,y);
-ground(3,11,36,4,&#x27;stone&#x27;);ground(16,8,9,10,&#x27;stone&#x27;);
-building(17,8,8,4,&#x27;#e8e0cc&#x27;,&#x27;#638a96&#x27;,&#x27;郵輪主船艙&#x27;,&#x27;home&#x27;);
-[[9,10,&#x27;bench&#x27;],[31,10,&#x27;bench&#x27;],[11,16,&#x27;flower&#x27;],[29,16,&#x27;flower&#x27;],[20,15,&#x27;lamp&#x27;]].forEach(a=&gt;propAt(...a));
-npc(12,12,&#x27;郵輪服務員&#x27;,&#x27;歡迎登船！海灣的日落很值得慢慢欣賞。&#x27;,&#x27;#527c91&#x27;);npc(30,14,&#x27;海灣船員&#x27;,&#x27;請留意甲板安全，也一起守護海洋環境。&#x27;,&#x27;#8d6557&#x27;);
-exitAt(3,12,&#x27;halong&#x27;,38,12,&#x27;返回下龍灣&#x27;);
+world=Array.from({length:H},(_,y)=&gt;Array.from({length:W},(_,x)=&gt;x&gt;=3&amp;&amp;x&lt;=38&amp;&amp;y&gt;=7&amp;&amp;y&lt;=18?'wood':'water'));
+for(let y=0;y&lt;H;y++)for(let x=0;x&lt;W;x++)if(world[y][x]==='water')block(x,y);
+ground(3,11,36,4,'stone');ground(16,8,9,10,'stone');
+building(17,8,8,4,'#e8e0cc','#638a96','郵輪主船艙','home');
+[[9,10,'bench'],[31,10,'bench'],[11,16,'flower'],[29,16,'flower'],[20,15,'lamp']].forEach(a=&gt;propAt(...a));
+npc(12,12,'郵輪服務員','歡迎登船！海灣的日落很值得慢慢欣賞。','#527c91');npc(30,14,'海灣船員','請留意甲板安全，也一起守護海洋環境。','#8d6557');
+exitAt(3,12,'halong',38,12,'返回下龍灣');
 
 }
-for(let y=2;y&lt;24;y++)for(let x=2;x&lt;40;x++){let r=rnd(x,y,11);if(world[y][x]===&#x27;grass&#x27;&amp;&amp;r&gt;.88&amp;&amp;!blocked.has(x+&#x27;,&#x27;+y))decor.push({x,y,kind:r&gt;.95?&#x27;flowers&#x27;:&#x27;tuft&#x27;});if(world[y][x]===&#x27;soil&#x27;&amp;&amp;r&gt;.95&amp;&amp;!blocked.has(x+&#x27;,&#x27;+y))decor.push({x,y,kind:&#x27;pot&#x27;})}
+for(let y=2;y&lt;24;y++)for(let x=2;x&lt;40;x++){let r=rnd(x,y,11);if(world[y][x]==='grass'&amp;&amp;r&gt;.88&amp;&amp;!blocked.has(x+','+y))decor.push({x,y,kind:r&gt;.95?'flowers':'tuft'});if(world[y][x]==='soil'&amp;&amp;r&gt;.95&amp;&amp;!blocked.has(x+','+y))decor.push({x,y,kind:'pot'})}
 // Only place villagers on valid, distinct walkable tiles.
 const occupied=new Set();
 for(const n of npcs){
- if(blocked.has(n.x+&#x27;,&#x27;+n.y)||occupied.has(n.x+&#x27;,&#x27;+n.y)){
+ if(blocked.has(n.x+','+n.y)||occupied.has(n.x+','+n.y)){
   let found=null;
   for(let radius=1;radius&lt;10&amp;&amp;!found;radius++)for(let dy=-radius;dy&lt;=radius&amp;&amp;!found;dy++)for(let dx=-radius;dx&lt;=radius;dx++){
    const xx=n.homeX+dx,yy=n.homeY+dy;
-   if(xx&gt;=2&amp;&amp;xx&lt;=39&amp;&amp;yy&gt;=2&amp;&amp;yy&lt;=23&amp;&amp;!blocked.has(xx+&#x27;,&#x27;+yy)&amp;&amp;!occupied.has(xx+&#x27;,&#x27;+yy)&amp;&amp;world[yy]?.[xx]!==&#x27;water&#x27;){found=[xx,yy];break}
+   if(xx&gt;=2&amp;&amp;xx&lt;=39&amp;&amp;yy&gt;=2&amp;&amp;yy&lt;=23&amp;&amp;!blocked.has(xx+','+yy)&amp;&amp;!occupied.has(xx+','+yy)&amp;&amp;world[yy]?.[xx]!=='water'){found=[xx,yy];break}
   }
   if(found){n.x=found[0];n.y=found[1]}
  }
- occupied.add(n.x+&#x27;,&#x27;+n.y);
+ occupied.add(n.x+','+n.y);
  n.route=makePatrol(n);n.routeIndex=0;n.moveAt=performance.now()+900+n.seed*520;
 }
 placeTreasure();
-if(spawn){player.x=spawn[0];player.y=spawn[1]}else{player.x=20;player.y=12}player.dir=&#x27;down&#x27;;document.getElementById(&#x27;location&#x27;).textContent=&#x27;📍 &#x27;+names[id]+&#x27; · 走到道路盡頭可切換地區&#x27;;
+if(spawn){player.x=spawn[0];player.y=spawn[1]}else{player.x=20;player.y=12}player.dir='down';document.getElementById('location').textContent='📍 '+names[id]+' · 走到道路盡頭可切換地區';
 }
-// Deterministic short walking loops around each NPC&#x27;s home position.
+// Deterministic short walking loops around each NPC's home position.
 // Paths are searched over actual collision tiles, not drawn decorations.
 function makePatrol(n){
  const points=[[n.x,n.y]];
@@ -2008,26 +2062,26 @@ function makePatrol(n){
  for(const [dx,dy] of candidates){
   const x=n.x+dx,y=n.y+dy;
   if(Math.abs(x-n.homeX)+Math.abs(y-n.homeY)&gt;5)continue;
-  if(x&lt;2||x&gt;39||y&lt;2||y&gt;23||blocked.has(x+&#x27;,&#x27;+y)||world[y]?.[x]===&#x27;water&#x27;)continue;
+  if(x&lt;2||x&gt;39||y&lt;2||y&gt;23||blocked.has(x+','+y)||world[y]?.[x]==='water')continue;
   points.push([x,y]);
   if(points.length===4)break;
  }
  return points.length&gt;1?points:[points[0]];
 }
 function findNpcStep(n,tx,ty){
- const start=n.x+&#x27;,&#x27;+n.y,queue=[[n.x,n.y]],prev=new Map([[start,null]]);
- const occupied=new Set(npcs.filter(o=&gt;o!==n).map(o=&gt;o.x+&#x27;,&#x27;+o.y));
- occupied.add(player.x+&#x27;,&#x27;+player.y);
+ const start=n.x+','+n.y,queue=[[n.x,n.y]],prev=new Map([[start,null]]);
+ const occupied=new Set(npcs.filter(o=&gt;o!==n).map(o=&gt;o.x+','+o.y));
+ occupied.add(player.x+','+player.y);
  for(let i=0;i&lt;queue.length&amp;&amp;i&lt;120;i++){
   const [x,y]=queue[i];if(x===tx&amp;&amp;y===ty)break;
   for(const [dx,dy] of [[0,1],[1,0],[-1,0],[0,-1]]){
-   const xx=x+dx,yy=y+dy,k=xx+&#x27;,&#x27;+yy;
-   if(xx&lt;2||xx&gt;39||yy&lt;2||yy&gt;23||blocked.has(k)||occupied.has(k)||prev.has(k)||world[yy]?.[xx]===&#x27;water&#x27;)continue;
+   const xx=x+dx,yy=y+dy,k=xx+','+yy;
+   if(xx&lt;2||xx&gt;39||yy&lt;2||yy&gt;23||blocked.has(k)||occupied.has(k)||prev.has(k)||world[yy]?.[xx]==='water')continue;
    prev.set(k,[x,y]);queue.push([xx,yy]);
   }
  }
- let key=tx+&#x27;,&#x27;+ty;if(!prev.has(key))return null;
- let current=[tx,ty];while(prev.get(current.join(&#x27;,&#x27;))&amp;&amp;prev.get(current.join(&#x27;,&#x27;)).join(&#x27;,&#x27;)!==start){current=prev.get(current.join(&#x27;,&#x27;))}
+ let key=tx+','+ty;if(!prev.has(key))return null;
+ let current=[tx,ty];while(prev.get(current.join(','))&amp;&amp;prev.get(current.join(',')).join(',')!==start){current=prev.get(current.join(','))}
  return current;
 }
 function updateVillagers(now){
@@ -2035,9 +2089,9 @@ function updateVillagers(now){
  updateLifeRoutes();
  for(const n of npcs){
   if(now&lt;n.moveAt||now&lt;n.waitUntil)continue;
-  // Don&#x27;t walk away while the player is trying to speak.
+  // Don't walk away while the player is trying to speak.
   if(Math.abs(n.x-player.x)+Math.abs(n.y-player.y)&lt;=1){n.moveAt=now+900;continue}
-  if(n.route.length&lt;2){n.dir=[&#x27;down&#x27;,&#x27;left&#x27;,&#x27;up&#x27;,&#x27;right&#x27;][Math.floor(now/1700+n.seed)%4];n.moveAt=now+1500;continue}
+  if(n.route.length&lt;2){n.dir=['down','left','up','right'][Math.floor(now/1700+n.seed)%4];n.moveAt=now+1500;continue}
   let target=n.route[n.routeIndex];
   if(n.x===target[0]&amp;&amp;n.y===target[1]){
    n.routeIndex=(n.routeIndex+1)%n.route.length;
@@ -2047,51 +2101,51 @@ function updateVillagers(now){
   const step=findNpcStep(n,target[0],target[1]);
   if(!step){n.routeIndex=(n.routeIndex+1)%n.route.length;n.moveAt=now+1100;continue}
   const dx=step[0]-n.x,dy=step[1]-n.y;
-  n.dir=dx&gt;0?&#x27;right&#x27;:dx&lt;0?&#x27;left&#x27;:dy&gt;0?&#x27;down&#x27;:&#x27;up&#x27;;
+  n.dir=dx&gt;0?'right':dx&lt;0?'left':dy&gt;0?'down':'up';
   n.x=step[0];n.y=step[1];n.walk++;
   n.moveAt=now+330+(n.seed%3)*65;
  }
 }
 function rnd(x,y,s=1){let n=Math.sin(x*127.1+y*311.7+s*79.7)*43758.5453;return n-Math.floor(n)}
 function rect(x,y,w,h,color){c.fillStyle=color;c.fillRect(Math.round(x),Math.round(y),w,h)}
-function tile(x,y,t){let px=x*T,py=y*T,r=rnd(x,y);let color=t===&#x27;grass&#x27;?theme.grass:t===&#x27;stone&#x27;?theme.stone:t===&#x27;soil&#x27;?theme.soil:t===&#x27;water&#x27;?&#x27;#398ea5&#x27;:t===&#x27;wood&#x27;?&#x27;#b99a70&#x27;:theme.edge;rect(px,py,T,T,color);if(t===&#x27;water&#x27;){rect(px+5+(r*12|0),py+11,14,2,&#x27;#79c6ca&#x27;);rect(px+18,py+23,8,2,&#x27;#65b5bf&#x27;)}if(t===&#x27;wood&#x27;){rect(px,py+14,32,2,&#x27;#896f55&#x27;);rect(px+((y%2)*16),py,2,14,&#x27;#947658&#x27;);rect(px+((y%2)*16+16)%32,py+16,2,16,&#x27;#947658&#x27;)}if(t===&#x27;stone&#x27;){rect(px,py+15,32,1,&#x27;#a99e89&#x27;);rect(px+(y%2?9:19),py,1,15,&#x27;#ada38f&#x27;);rect(px+(y%2?23:6),py+16,1,16,&#x27;#ada38f&#x27;);if(r&gt;.75)rect(px+5,py+7,3,2,&#x27;#b9b099&#x27;)}else if(t===&#x27;grass&#x27;||t===&#x27;soil&#x27;){if(r&gt;.3){rect(px+5+(r*14|0),py+9,2,5,t===&#x27;grass&#x27;?&#x27;#5e9461&#x27;:&#x27;#b5a67c&#x27;);rect(px+9+(r*14|0),py+11,2,3,t===&#x27;grass&#x27;?&#x27;#60945e&#x27;:&#x27;#c1af86&#x27;)}}else{rect(px,py,32,3,&#x27;#4c6c57&#x27;)}}
-function houseV6(b){let x=b.x*T,y=b.y*T,w=b.w*T,h=b.h*T;rect(x+5,y+8,w-10,h-6,&#x27;#685b4b&#x27;);rect(x+8,y+11,w-16,h-14,b.col);for(let j=0;j&lt;3;j++){rect(x+12+j*15,y+13,6,3,&#x27;#fff0ba&#x27;)}rect(x,y+1,w,37,&#x27;#533f39&#x27;);rect(x+5,y,w-10,33,b.roof);for(let i=0;i&lt;5;i++)rect(x+8,y+8+i*5,w-16,1,&#x27;#ffffff26&#x27;);rect(x+5,y+35,w-10,4,&#x27;#f5d8a0&#x27;);for(let i=0;i&lt;2;i++){let wx=x+25+i*(w-62);rect(wx,y+57,26,35,&#x27;#f6e0a7&#x27;);rect(wx+3,y+60,20,29,&#x27;#568b84&#x27;);rect(wx+12,y+60,2,29,&#x27;#dfd8a8&#x27;);rect(wx+3,y+72,20,2,&#x27;#dfd8a8&#x27;)}rect(x+w/2-15,y+h-46,30,46,&#x27;#604d43&#x27;);rect(x+w/2-11,y+h-41,22,41,&#x27;#8b654a&#x27;);rect(x+w/2+6,y+h-20,3,3,&#x27;#f4d078&#x27;);rect(x+12,y+h-48,w-24,6,&#x27;#a96e4b&#x27;);if(b.type===&#x27;cafe&#x27;||b.type===&#x27;bread&#x27;){rect(x+19,y+41,w-38,15,b.type===&#x27;cafe&#x27;?&#x27;#487c67&#x27;:&#x27;#b65d4e&#x27;);rect(x+24,y+44,w-48,8,&#x27;#f4e4a9&#x27;);rect(x+27,y+47,w-54,2,&#x27;#9e6747&#x27;)}
+function tile(x,y,t){let px=x*T,py=y*T,r=rnd(x,y);let color=t==='grass'?theme.grass:t==='stone'?theme.stone:t==='soil'?theme.soil:t==='water'?'#398ea5':t==='wood'?'#b99a70':theme.edge;rect(px,py,T,T,color);if(t==='water'){rect(px+5+(r*12|0),py+11,14,2,'#79c6ca');rect(px+18,py+23,8,2,'#65b5bf')}if(t==='wood'){rect(px,py+14,32,2,'#896f55');rect(px+((y%2)*16),py,2,14,'#947658');rect(px+((y%2)*16+16)%32,py+16,2,16,'#947658')}if(t==='stone'){rect(px,py+15,32,1,'#a99e89');rect(px+(y%2?9:19),py,1,15,'#ada38f');rect(px+(y%2?23:6),py+16,1,16,'#ada38f');if(r&gt;.75)rect(px+5,py+7,3,2,'#b9b099')}else if(t==='grass'||t==='soil'){if(r&gt;.3){rect(px+5+(r*14|0),py+9,2,5,t==='grass'?'#5e9461':'#b5a67c');rect(px+9+(r*14|0),py+11,2,3,t==='grass'?'#60945e':'#c1af86')}}else{rect(px,py,32,3,'#4c6c57')}}
+function houseV6(b){let x=b.x*T,y=b.y*T,w=b.w*T,h=b.h*T;rect(x+5,y+8,w-10,h-6,'#685b4b');rect(x+8,y+11,w-16,h-14,b.col);for(let j=0;j&lt;3;j++){rect(x+12+j*15,y+13,6,3,'#fff0ba')}rect(x,y+1,w,37,'#533f39');rect(x+5,y,w-10,33,b.roof);for(let i=0;i&lt;5;i++)rect(x+8,y+8+i*5,w-16,1,'#ffffff26');rect(x+5,y+35,w-10,4,'#f5d8a0');for(let i=0;i&lt;2;i++){let wx=x+25+i*(w-62);rect(wx,y+57,26,35,'#f6e0a7');rect(wx+3,y+60,20,29,'#568b84');rect(wx+12,y+60,2,29,'#dfd8a8');rect(wx+3,y+72,20,2,'#dfd8a8')}rect(x+w/2-15,y+h-46,30,46,'#604d43');rect(x+w/2-11,y+h-41,22,41,'#8b654a');rect(x+w/2+6,y+h-20,3,3,'#f4d078');rect(x+12,y+h-48,w-24,6,'#a96e4b');if(b.type==='cafe'||b.type==='bread'){rect(x+19,y+41,w-38,15,b.type==='cafe'?'#487c67':'#b65d4e');rect(x+24,y+44,w-48,8,'#f4e4a9');rect(x+27,y+47,w-54,2,'#9e6747')}
 // Distinctive Hanoi details: shuttered windows, balconies, shopfronts and lanterns
-for(let i=0;i&lt;2;i++){let wx=x+25+i*(w-62);rect(wx-3,y+54,4,40,&#x27;#8e6650&#x27;);rect(wx+25,y+54,4,40,&#x27;#8e6650&#x27;);rect(wx-4,y+92,34,4,&#x27;#745440&#x27;)}
-rect(x+11,y+40,w-22,3,&#x27;#f6dfa7&#x27;);rect(x+15,y+98,w-30,5,&#x27;#927458&#x27;);
-if(b.type===&#x27;cafe&#x27;||b.type===&#x27;shop&#x27;||b.type===&#x27;bread&#x27;){
-rect(x+13,y+h-49,32,11,&#x27;#e9d59d&#x27;);rect(x+16,y+h-47,26,7,&#x27;#78543f&#x27;);
-rect(x+w-27,y+h-58,5,18,&#x27;#76513f&#x27;);rect(x+w-32,y+h-60,15,13,&#x27;#d3a64e&#x27;);rect(x+w-30,y+h-58,11,9,&#x27;#f6d18a&#x27;);
+for(let i=0;i&lt;2;i++){let wx=x+25+i*(w-62);rect(wx-3,y+54,4,40,'#8e6650');rect(wx+25,y+54,4,40,'#8e6650');rect(wx-4,y+92,34,4,'#745440')}
+rect(x+11,y+40,w-22,3,'#f6dfa7');rect(x+15,y+98,w-30,5,'#927458');
+if(b.type==='cafe'||b.type==='shop'||b.type==='bread'){
+rect(x+13,y+h-49,32,11,'#e9d59d');rect(x+16,y+h-47,26,7,'#78543f');
+rect(x+w-27,y+h-58,5,18,'#76513f');rect(x+w-32,y+h-60,15,13,'#d3a64e');rect(x+w-30,y+h-58,11,9,'#f6d18a');
 }
-rect(x+10,y+h-12,w-20,4,&#x27;#6e6755&#x27;);}
-function tree(x,y){x*=T;y*=T;rect(x+12,y+18,9,18,&#x27;#755b41&#x27;);rect(x+2,y+2,28,25,&#x27;#355f4c&#x27;);rect(x+6,y-4,20,27,&#x27;#4b8557&#x27;);rect(x-3,y+9,15,17,&#x27;#548d5d&#x27;);rect(x+15,y+4,14,11,&#x27;#6da16b&#x27;);rect(x+8,y+1,6,4,&#x27;#8cbf7c&#x27;)}
-function drawPond(){let x=pond.x*T,y=pond.y*T,w=pond.w*T,h=pond.h*T;rect(x-6,y-6,w+12,h+12,&#x27;#b6aa8a&#x27;);rect(x,y,w,h,&#x27;#5498a2&#x27;);rect(x+8,y+10,w-16,h-20,&#x27;#67b2b7&#x27;);for(let i=0;i&lt;7;i++){let xx=x+8+i*16;rect(xx,y+22+(i%3)*23,12,2,&#x27;#a3d9cc&#x27;)}rect(x+30,y+55,12,6,&#x27;#7cae71&#x27;);rect(x+33,y+52,5,3,&#x27;#b9cc8e&#x27;);let t=performance.now()/450;for(let i=0;i&lt;4;i++){let yy=y+20+i*25;rect(x+18+((t*3+i*23)%70),yy,12,2,&#x27;#c5eee0&#x27;)}}
-function prop(p){let x=p.x*T,y=p.y*T;if(p.kind===&#x27;cart&#x27;){rect(x+1,y+12,30,16,&#x27;#b66c4e&#x27;);rect(x+3,y+5,26,9,&#x27;#e8c86b&#x27;);rect(x+3,y+27,6,5,&#x27;#4b4541&#x27;);rect(x+23,y+27,6,5,&#x27;#4b4541&#x27;);rect(x+7,y+8,6,4,&#x27;#8ba85b&#x27;)}if(p.kind===&#x27;flower&#x27;){rect(x+5,y+18,22,13,&#x27;#a86548&#x27;);for(let i=0;i&lt;4;i++){rect(x+5+i*6,y+8+(i%2)*3,6,7,i%2?&#x27;#f3cc75&#x27;:&#x27;#e58c80&#x27;);rect(x+7+i*6,y+16,3,6,&#x27;#4d9159&#x27;)}}if(p.kind===&#x27;bench&#x27;){rect(x+1,y+10,30,6,&#x27;#a16b47&#x27;);rect(x+1,y+19,30,7,&#x27;#9b6445&#x27;);rect(x+4,y+25,4,7,&#x27;#554e43&#x27;);rect(x+24,y+25,4,7,&#x27;#554e43&#x27;)}if(p.kind===&#x27;lamp&#x27;){rect(x+13,y+8,6,24,&#x27;#474d45&#x27;);rect(x+7,y+4,18,12,&#x27;#5a5644&#x27;);rect(x+10,y+6,12,8,&#x27;#ffe4a0&#x27;);rect(x+9,y+2,14,3,&#x27;#454a41&#x27;)}}
-function personV6(x,y,shirt,hair,dir=&#x27;down&#x27;,walk=0){x=x*T+4;y=y*T-7;rect(x+7,y+27,16,5,&#x27;#485c4a66&#x27;);rect(x+9,y+22,5,9,&#x27;#3d5367&#x27;);rect(x+17,y+22,5,9,&#x27;#3d5367&#x27;);if(walk%2){rect(x+9,y+28,5,4,&#x27;#3d5367&#x27;);rect(x+17,y+25,5,6,&#x27;#35475b&#x27;)}else rect(x+17,y+28,5,4,&#x27;#35475b&#x27;);rect(x+7,y+11,17,15,shirt);rect(x+4,y+14,4,10,&#x27;#d9aa82&#x27;);rect(x+24,y+14,4,10,&#x27;#d9aa82&#x27;);rect(x+9,y+1,14,13,&#x27;#e9b991&#x27;);rect(x+7,y-1,18,7,hair);rect(x+6,y+3,4,6,hair);rect(x+23,y+3,4,6,hair);if(dir!==&#x27;up&#x27;){rect(x+12,y+8,2,2,&#x27;#483a36&#x27;);rect(x+19,y+8,2,2,&#x27;#483a36&#x27;)}else rect(x+9,y+4,14,9,hair)}
-function drawDecor(d){let x=d.x*T,y=d.y*T;if(d.kind===&#x27;flowers&#x27;){rect(x+9,y+19,3,9,&#x27;#4b8b55&#x27;);rect(x+18,y+17,3,10,&#x27;#4b8b55&#x27;);rect(x+7,y+16,7,6,&#x27;#f5c77a&#x27;);rect(x+16,y+14,7,6,&#x27;#f2a2a0&#x27;);rect(x+11,y+12,3,3,&#x27;#fff2be&#x27;)}else if(d.kind===&#x27;pot&#x27;){rect(x+11,y+19,12,11,&#x27;#a9684a&#x27;);rect(x+9,y+17,16,3,&#x27;#d88d60&#x27;);rect(x+14,y+8,4,12,&#x27;#4d8254&#x27;);rect(x+9,y+11,9,5,&#x27;#6d9f65&#x27;);rect(x+17,y+9,8,5,&#x27;#75a86b&#x27;)}else{rect(x+10,y+22,2,5,&#x27;#4b8d5d&#x27;);rect(x+15,y+19,2,8,&#x27;#55965f&#x27;);rect(x+19,y+22,2,5,&#x27;#4b8d5d&#x27;)}}
-function lantern(x,y){x*=T;y*=T;rect(x+14,y-6,2,9,&#x27;#66483a&#x27;);rect(x+8,y+2,15,15,&#x27;#b94f3e&#x27;);rect(x+10,y+4,11,11,&#x27;#e8a75b&#x27;);rect(x+14,y+17,2,6,&#x27;#9a5940&#x27;);rect(x+8,y+2,15,2,&#x27;#e8c480&#x27;)}
+rect(x+10,y+h-12,w-20,4,'#6e6755');}
+function tree(x,y){x*=T;y*=T;rect(x+12,y+18,9,18,'#755b41');rect(x+2,y+2,28,25,'#355f4c');rect(x+6,y-4,20,27,'#4b8557');rect(x-3,y+9,15,17,'#548d5d');rect(x+15,y+4,14,11,'#6da16b');rect(x+8,y+1,6,4,'#8cbf7c')}
+function drawPond(){let x=pond.x*T,y=pond.y*T,w=pond.w*T,h=pond.h*T;rect(x-6,y-6,w+12,h+12,'#b6aa8a');rect(x,y,w,h,'#5498a2');rect(x+8,y+10,w-16,h-20,'#67b2b7');for(let i=0;i&lt;7;i++){let xx=x+8+i*16;rect(xx,y+22+(i%3)*23,12,2,'#a3d9cc')}rect(x+30,y+55,12,6,'#7cae71');rect(x+33,y+52,5,3,'#b9cc8e');let t=performance.now()/450;for(let i=0;i&lt;4;i++){let yy=y+20+i*25;rect(x+18+((t*3+i*23)%70),yy,12,2,'#c5eee0')}}
+function prop(p){let x=p.x*T,y=p.y*T;if(p.kind==='cart'){rect(x+1,y+12,30,16,'#b66c4e');rect(x+3,y+5,26,9,'#e8c86b');rect(x+3,y+27,6,5,'#4b4541');rect(x+23,y+27,6,5,'#4b4541');rect(x+7,y+8,6,4,'#8ba85b')}if(p.kind==='flower'){rect(x+5,y+18,22,13,'#a86548');for(let i=0;i&lt;4;i++){rect(x+5+i*6,y+8+(i%2)*3,6,7,i%2?'#f3cc75':'#e58c80');rect(x+7+i*6,y+16,3,6,'#4d9159')}}if(p.kind==='bench'){rect(x+1,y+10,30,6,'#a16b47');rect(x+1,y+19,30,7,'#9b6445');rect(x+4,y+25,4,7,'#554e43');rect(x+24,y+25,4,7,'#554e43')}if(p.kind==='lamp'){rect(x+13,y+8,6,24,'#474d45');rect(x+7,y+4,18,12,'#5a5644');rect(x+10,y+6,12,8,'#ffe4a0');rect(x+9,y+2,14,3,'#454a41')}}
+function personV6(x,y,shirt,hair,dir='down',walk=0){x=x*T+4;y=y*T-7;rect(x+7,y+27,16,5,'#485c4a66');rect(x+9,y+22,5,9,'#3d5367');rect(x+17,y+22,5,9,'#3d5367');if(walk%2){rect(x+9,y+28,5,4,'#3d5367');rect(x+17,y+25,5,6,'#35475b')}else rect(x+17,y+28,5,4,'#35475b');rect(x+7,y+11,17,15,shirt);rect(x+4,y+14,4,10,'#d9aa82');rect(x+24,y+14,4,10,'#d9aa82');rect(x+9,y+1,14,13,'#e9b991');rect(x+7,y-1,18,7,hair);rect(x+6,y+3,4,6,hair);rect(x+23,y+3,4,6,hair);if(dir!=='up'){rect(x+12,y+8,2,2,'#483a36');rect(x+19,y+8,2,2,'#483a36')}else rect(x+9,y+4,14,9,hair)}
+function drawDecor(d){let x=d.x*T,y=d.y*T;if(d.kind==='flowers'){rect(x+9,y+19,3,9,'#4b8b55');rect(x+18,y+17,3,10,'#4b8b55');rect(x+7,y+16,7,6,'#f5c77a');rect(x+16,y+14,7,6,'#f2a2a0');rect(x+11,y+12,3,3,'#fff2be')}else if(d.kind==='pot'){rect(x+11,y+19,12,11,'#a9684a');rect(x+9,y+17,16,3,'#d88d60');rect(x+14,y+8,4,12,'#4d8254');rect(x+9,y+11,9,5,'#6d9f65');rect(x+17,y+9,8,5,'#75a86b')}else{rect(x+10,y+22,2,5,'#4b8d5d');rect(x+15,y+19,2,8,'#55965f');rect(x+19,y+22,2,5,'#4b8d5d')}}
+function lantern(x,y){x*=T;y*=T;rect(x+14,y-6,2,9,'#66483a');rect(x+8,y+2,15,15,'#b94f3e');rect(x+10,y+4,11,11,'#e8a75b');rect(x+14,y+17,2,6,'#9a5940');rect(x+8,y+2,15,2,'#e8c480')}
 
 function landmarks(){
-if(sceneId===&#x27;sapa&#x27;){
+if(sceneId==='sapa'){
 // 梯田以山坡帶狀階梯繪製
-for(let i=0;i&lt;7;i++){let x=26*T+i*8,y=3*T+i*19;rect(x,y,290-i*17,9,i%2?&#x27;#91b86d&#x27;:&#x27;#a3c979&#x27;);rect(x,y+9,290-i*17,3,&#x27;#587c4d&#x27;)}
-for(let i=0;i&lt;5;i++){let x=3*T+i*7,y=17*T+i*20;rect(x,y,180-i*13,8,&#x27;#a6c578&#x27;);rect(x,y+8,180-i*13,3,&#x27;#6e8d57&#x27;)}
-}else if(sceneId===&#x27;fansipan&#x27;){
+for(let i=0;i&lt;7;i++){let x=26*T+i*8,y=3*T+i*19;rect(x,y,290-i*17,9,i%2?'#91b86d':'#a3c979');rect(x,y+9,290-i*17,3,'#587c4d')}
+for(let i=0;i&lt;5;i++){let x=3*T+i*7,y=17*T+i*20;rect(x,y,180-i*13,8,'#a6c578');rect(x,y+8,180-i*13,3,'#6e8d57')}
+}else if(sceneId==='fansipan'){
 // 高山岩峰、雲帶與山頂旗標
-for(let i=0;i&lt;6;i++){let x=(3+i*6)*T,y=(3+(i%3))*T;rect(x,y+32,100,27,&#x27;#667e83&#x27;);rect(x+22,y+12,62,20,&#x27;#82979b&#x27;);rect(x+42,y,22,12,&#x27;#e4e8df&#x27;)}
-for(let i=0;i&lt;4;i++){let x=(5+i*9)*T,y=(18+(i%2))*T;rect(x,y,110,16,&#x27;#a9b9b8&#x27;);rect(x+17,y-8,70,10,&#x27;#d8ded7&#x27;)}
-rect(25*T,5*T,5,110,&#x27;#505d61&#x27;);rect(25*T+5,5*T,50,26,&#x27;#c04f49&#x27;);rect(25*T+12,5*T+8,30,8,&#x27;#f1d789&#x27;);
-}else if(sceneId===&#x27;halong&#x27;){
+for(let i=0;i&lt;6;i++){let x=(3+i*6)*T,y=(3+(i%3))*T;rect(x,y+32,100,27,'#667e83');rect(x+22,y+12,62,20,'#82979b');rect(x+42,y,22,12,'#e4e8df')}
+for(let i=0;i&lt;4;i++){let x=(5+i*9)*T,y=(18+(i%2))*T;rect(x,y,110,16,'#a9b9b8');rect(x+17,y-8,70,10,'#d8ded7')}
+rect(25*T,5*T,5,110,'#505d61');rect(25*T+5,5*T,50,26,'#c04f49');rect(25*T+12,5*T+8,30,8,'#f1d789');
+}else if(sceneId==='halong'){
 // 遠方喀斯特海島及碼頭樁柱
-for(let i=0;i&lt;5;i++){let x=(3+i*8)*T,y=(4+(i%2))*T;rect(x+10,y,62,15,&#x27;#427d76&#x27;);rect(x,y+15,85,42,&#x27;#396f70&#x27;);rect(x+17,y-16,40,17,&#x27;#568d7e&#x27;)}
-for(let x=18;x&lt;25;x+=2){rect(x*T,9*T,8,110,&#x27;#806c56&#x27;);rect(x*T+2,9*T,4,110,&#x27;#b39872&#x27;)}
-rect(19*T,6*T,5,85,&#x27;#69584b&#x27;);rect(19*T+5,6*T+5,48,23,&#x27;#d7ad67&#x27;);
-}else if(sceneId===&#x27;cruise&#x27;){
+for(let i=0;i&lt;5;i++){let x=(3+i*8)*T,y=(4+(i%2))*T;rect(x+10,y,62,15,'#427d76');rect(x,y+15,85,42,'#396f70');rect(x+17,y-16,40,17,'#568d7e')}
+for(let x=18;x&lt;25;x+=2){rect(x*T,9*T,8,110,'#806c56');rect(x*T+2,9*T,4,110,'#b39872')}
+rect(19*T,6*T,5,85,'#69584b');rect(19*T+5,6*T+5,48,23,'#d7ad67');
+}else if(sceneId==='cruise'){
 // 船身輪廓、護欄、海浪
-rect(2*T,7*T,37*T,11*T,&#x27;#e1d6bc&#x27;);rect(3*T,7*T,36*T,11*T,&#x27;#b89d78&#x27;);
-for(let x=3;x&lt;39;x+=2){rect(x*T,7*T,4,15,&#x27;#e8e6dc&#x27;);rect(x*T,18*T-15,4,15,&#x27;#e8e6dc&#x27;)}
-rect(3*T,7*T,36*T,5,&#x27;#f0eee2&#x27;);rect(3*T,18*T-5,36*T,5,&#x27;#f0eee2&#x27;);
-rect(37*T,9*T,32,7,&#x27;#f0eee2&#x27;);rect(37*T,16*T,32,7,&#x27;#f0eee2&#x27;);
+rect(2*T,7*T,37*T,11*T,'#e1d6bc');rect(3*T,7*T,36*T,11*T,'#b89d78');
+for(let x=3;x&lt;39;x+=2){rect(x*T,7*T,4,15,'#e8e6dc');rect(x*T,18*T-15,4,15,'#e8e6dc')}
+rect(3*T,7*T,36*T,5,'#f0eee2');rect(3*T,18*T-5,36*T,5,'#f0eee2');
+rect(37*T,9*T,32,7,'#f0eee2');rect(37*T,16*T,32,7,'#f0eee2');
 }
 }
 
@@ -2100,36 +2154,36 @@ rect(37*T,9*T,32,7,&#x27;#f0eee2&#x27;);rect(37*T,16*T,32,7,&#x27;#f0eee2&#x27;)
 function sceneDetails(){
  const t=frameTime/1000;
  function dot(x,y,w,h,color){rect(x*T,y*T,w,h,color)}
- function cloth(x,y,color){let X=x*T,Y=y*T;rect(X,Y,5,33,&#x27;#6b5947&#x27;);rect(X+46,Y,5,33,&#x27;#6b5947&#x27;);rect(X+5,Y+3,41,3,&#x27;#c8b58a&#x27;);rect(X+10,Y+6,14,22,color);rect(X+27,Y+6,15,19,&#x27;#ead49e&#x27;);rect(X+13,Y+10,8,2,&#x27;#f0c9a0&#x27;)}
- function boat(x,y){let X=x*T,Y=y*T;rect(X,Y+13,75,10,&#x27;#694f43&#x27;);rect(X+10,Y+23,54,6,&#x27;#443e3a&#x27;);rect(X+35,Y-18,3,31,&#x27;#6c5548&#x27;);rect(X+38,Y-15,25,25,&#x27;#f2e3bc&#x27;);rect(X+3,Y+12,8,2,&#x27;#e8c58d&#x27;)}
- function terrace(x,y,len){let X=x*T,Y=y*T;rect(X,Y,len,8,&#x27;#bedc86&#x27;);rect(X,Y+8,len,4,&#x27;#6c9758&#x27;);for(let i=8;i&lt;len-8;i+=17)rect(X+i,Y+2,2,6,&#x27;#7aa75e&#x27;)}
- function rock(x,y){let X=x*T,Y=y*T;rect(X+5,Y+12,27,16,&#x27;#647e82&#x27;);rect(X+12,Y+4,17,10,&#x27;#8da5a6&#x27;);rect(X+17,Y+3,8,4,&#x27;#e4e8e4&#x27;);rect(X+7,Y+23,26,5,&#x27;#536e75&#x27;)}
- function wave(x,y){let X=x*T,Y=y*T;rect(X,Y+Math.round(Math.sin(t*1.8+x)*2),23,2,&#x27;#8fd0cf&#x27;);rect(X+29,Y+5,12,2,&#x27;#72bdc6&#x27;)}
- if(sceneId===&#x27;hanoi&#x27;){
+ function cloth(x,y,color){let X=x*T,Y=y*T;rect(X,Y,5,33,'#6b5947');rect(X+46,Y,5,33,'#6b5947');rect(X+5,Y+3,41,3,'#c8b58a');rect(X+10,Y+6,14,22,color);rect(X+27,Y+6,15,19,'#ead49e');rect(X+13,Y+10,8,2,'#f0c9a0')}
+ function boat(x,y){let X=x*T,Y=y*T;rect(X,Y+13,75,10,'#694f43');rect(X+10,Y+23,54,6,'#443e3a');rect(X+35,Y-18,3,31,'#6c5548');rect(X+38,Y-15,25,25,'#f2e3bc');rect(X+3,Y+12,8,2,'#e8c58d')}
+ function terrace(x,y,len){let X=x*T,Y=y*T;rect(X,Y,len,8,'#bedc86');rect(X,Y+8,len,4,'#6c9758');for(let i=8;i&lt;len-8;i+=17)rect(X+i,Y+2,2,6,'#7aa75e')}
+ function rock(x,y){let X=x*T,Y=y*T;rect(X+5,Y+12,27,16,'#647e82');rect(X+12,Y+4,17,10,'#8da5a6');rect(X+17,Y+3,8,4,'#e4e8e4');rect(X+7,Y+23,26,5,'#536e75')}
+ function wave(x,y){let X=x*T,Y=y*T;rect(X,Y+Math.round(Math.sin(t*1.8+x)*2),23,2,'#8fd0cf');rect(X+29,Y+5,12,2,'#72bdc6')}
+ if(sceneId==='hanoi'){
   // Street lantern strings and market details stay in the broad pedestrian zone.
-  for(const x of [7,13,29,35]){let X=x*T,Y=9*T;rect(X-6,Y-8,43,2,&#x27;#82674e&#x27;);rect(X+12,Y-7,2,8,&#x27;#74503c&#x27;);rect(X+8,Y,12,15,&#x27;#cb5746&#x27;);rect(X+10,Y+3,8,9,&#x27;#f6b96e&#x27;)}
-  for(const x of [8,32]){let X=x*T,Y=15*T;rect(X,Y+8,36,5,&#x27;#865e45&#x27;);rect(X+3,Y+13,5,16,&#x27;#6e5947&#x27;);rect(X+28,Y+13,5,16,&#x27;#6e5947&#x27;);rect(X+5,Y+3,7,5,&#x27;#e2ad65&#x27;);rect(X+16,Y+2,7,6,&#x27;#b6d27d&#x27;);rect(X+25,Y+4,6,5,&#x27;#d87c55&#x27;)}
- }else if(sceneId===&#x27;sapa&#x27;){
+  for(const x of [7,13,29,35]){let X=x*T,Y=9*T;rect(X-6,Y-8,43,2,'#82674e');rect(X+12,Y-7,2,8,'#74503c');rect(X+8,Y,12,15,'#cb5746');rect(X+10,Y+3,8,9,'#f6b96e')}
+  for(const x of [8,32]){let X=x*T,Y=15*T;rect(X,Y+8,36,5,'#865e45');rect(X+3,Y+13,5,16,'#6e5947');rect(X+28,Y+13,5,16,'#6e5947');rect(X+5,Y+3,7,5,'#e2ad65');rect(X+16,Y+2,7,6,'#b6d27d');rect(X+25,Y+4,6,5,'#d87c55')}
+ }else if(sceneId==='sapa'){
   for(let i=0;i&lt;5;i++)terrace(28+i*.22,3.2+i*.64,245-i*20);
   for(let i=0;i&lt;3;i++)terrace(3.1+i*.25,17.1+i*.75,140-i*17);
-  cloth(27.5,15.4,&#x27;#466d8a&#x27;);
+  cloth(27.5,15.4,'#466d8a');
   // distant wooden fence around the terraced village
-  for(let x=17;x&lt;25;x++){let X=x*T,Y=20*T;rect(X+6,Y+11,3,17,&#x27;#795b45&#x27;);rect(X,Y+14,32,3,&#x27;#b39062&#x27;)}
- }else if(sceneId===&#x27;fansipan&#x27;){
+  for(let x=17;x&lt;25;x++){let X=x*T,Y=20*T;rect(X+6,Y+11,3,17,'#795b45');rect(X,Y+14,32,3,'#b39062')}
+ }else if(sceneId==='fansipan'){
   for(const [x,y] of [[4,7],[34,8],[7,19],[33,20],[28,6]])rock(x,y);
-  for(let i=0;i&lt;4;i++){let X=(6+i*9)*T+Math.sin(t*.45+i)*8,Y=(4+(i%2)*16)*T;rect(X,Y,74,9,&#x27;#e2e8e5bb&#x27;);rect(X+13,Y-5,43,6,&#x27;#edf0ebbb&#x27;)}
+  for(let i=0;i&lt;4;i++){let X=(6+i*9)*T+Math.sin(t*.45+i)*8,Y=(4+(i%2)*16)*T;rect(X,Y,74,9,'#e2e8e5bb');rect(X+13,Y-5,43,6,'#edf0ebbb')}
   // cable-car line and a tiny suspended cabin in the upper sky
-  rect(17*T,4*T,11*T,2,&#x27;#576c70&#x27;);let cx=(18+((t*.12)%8))*T;rect(cx,4*T+2,3,10,&#x27;#5c6867&#x27;);rect(cx-10,4*T+12,25,20,&#x27;#b95c4b&#x27;);rect(cx-6,4*T+15,17,10,&#x27;#b8d6d5&#x27;);
- }else if(sceneId===&#x27;halong&#x27;){
+  rect(17*T,4*T,11*T,2,'#576c70');let cx=(18+((t*.12)%8))*T;rect(cx,4*T+2,3,10,'#5c6867');rect(cx-10,4*T+12,25,20,'#b95c4b');rect(cx-6,4*T+15,17,10,'#b8d6d5');
+ }else if(sceneId==='halong'){
   for(let i=0;i&lt;7;i++)wave(3+i*5,3+(i%3)*1.6);
   for(let i=0;i&lt;3;i++)boat(4+i*9,7.1+(i%2)*.4);
-  // Rope posts along the harbor&#x27;s edge
-  for(let x=5;x&lt;17;x+=3){let X=x*T,Y=10*T;rect(X,Y,7,18,&#x27;#866b52&#x27;);rect(X-3,Y,13,4,&#x27;#c4a57b&#x27;)}
- }else if(sceneId===&#x27;cruise&#x27;){
+  // Rope posts along the harbor's edge
+  for(let x=5;x&lt;17;x+=3){let X=x*T,Y=10*T;rect(X,Y,7,18,'#866b52');rect(X-3,Y,13,4,'#c4a57b')}
+ }else if(sceneId==='cruise'){
   for(let i=0;i&lt;7;i++){wave(1+i*6,3+(i%2)*1.7);wave(2+i*6,20+(i%2))}
   // sun loungers on the deck, leaving the main central walkway open
-  for(const x of [7,11,29,33]){let X=x*T,Y=8*T;rect(X,Y+10,50,12,&#x27;#e7dfc7&#x27;);rect(X+4,Y+12,42,8,&#x27;#6fa4aa&#x27;);rect(X+2,Y+23,4,8,&#x27;#7a6b58&#x27;);rect(X+44,Y+23,4,8,&#x27;#7a6b58&#x27;)}
-  for(const x of [8,31]){let X=x*T,Y=16*T;rect(X,Y+3,36,7,&#x27;#e9d4b1&#x27;);rect(X+4,Y+10,4,18,&#x27;#766958&#x27;);rect(X+29,Y+10,4,18,&#x27;#766958&#x27;)}
+  for(const x of [7,11,29,33]){let X=x*T,Y=8*T;rect(X,Y+10,50,12,'#e7dfc7');rect(X+4,Y+12,42,8,'#6fa4aa');rect(X+2,Y+23,4,8,'#7a6b58');rect(X+44,Y+23,4,8,'#7a6b58')}
+  for(const x of [8,31]){let X=x*T,Y=16*T;rect(X,Y+3,36,7,'#e9d4b1');rect(X+4,Y+10,4,18,'#766958');rect(X+29,Y+10,4,18,'#766958')}
  }
 }
 
@@ -2137,121 +2191,121 @@ function sceneDetails(){
 // V7: Art-only replacement. All tile collision, dialogue, NPC patrol and exits stay unchanged.
 function house(b){
  const x=b.x*T,y=b.y*T,w=b.w*T,h=b.h*T;
- const mountain=sceneId===&#x27;sapa&#x27;, summit=sceneId===&#x27;fansipan&#x27;, port=sceneId===&#x27;halong&#x27;, ship=sceneId===&#x27;cruise&#x27;;
- const edge=ship?&#x27;#f3eee0&#x27;:mountain?&#x27;#493d36&#x27;:&#x27;#795746&#x27;;
+ const mountain=sceneId==='sapa', summit=sceneId==='fansipan', port=sceneId==='halong', ship=sceneId==='cruise';
+ const edge=ship?'#f3eee0':mountain?'#493d36':'#795746';
  // Raised ground shadow, masonry/planks and side depth.
- rect(x+8,y+h-7,w-8,9,&#x27;#34443d66&#x27;);rect(x+5,y+30,w-4,h-34,&#x27;#514b43&#x27;);
+ rect(x+8,y+h-7,w-8,9,'#34443d66');rect(x+5,y+30,w-4,h-34,'#514b43');
  rect(x+8,y+33,w-16,h-38,b.col);
  for(let j=0;j&lt;Math.max(2,Math.floor((h-55)/16));j++){
-  rect(x+10,y+49+j*16,w-20,1,mountain?&#x27;#aa845e&#x27;:ship?&#x27;#d4cfbd&#x27;:&#x27;#eacb9a&#x27;);
+  rect(x+10,y+49+j*16,w-20,1,mountain?'#aa845e':ship?'#d4cfbd':'#eacb9a');
  }
  // Scene-specific roof silhouette, not the same flat rectangle for every house.
  if(mountain){
-  rect(x-5,y+22,w+10,16,&#x27;#4b4038&#x27;);
+  rect(x-5,y+22,w+10,16,'#4b4038');
   for(let i=0;i&lt;8;i++)rect(x+4+i*(w-8)/8,y+12-i%2*3,(w-8)/8+2,18,b.roof);
-  rect(x+13,y+7,w-26,8,&#x27;#79604a&#x27;);
+  rect(x+13,y+7,w-26,8,'#79604a');
  }else if(summit){
-  rect(x-3,y+11,w+6,28,&#x27;#576d76&#x27;);rect(x+5,y+7,w-10,25,b.roof);
-  rect(x+12,y+12,w-24,5,&#x27;#c7d9d9&#x27;);
+  rect(x-3,y+11,w+6,28,'#576d76');rect(x+5,y+7,w-10,25,b.roof);
+  rect(x+12,y+12,w-24,5,'#c7d9d9');
  }else if(ship){
-  rect(x-3,y+12,w+6,27,&#x27;#e6e7e0&#x27;);rect(x+3,y+8,w-6,27,b.roof);
-  rect(x+12,y+4,w-24,5,&#x27;#f7f4e7&#x27;);
+  rect(x-3,y+12,w+6,27,'#e6e7e0');rect(x+3,y+8,w-6,27,b.roof);
+  rect(x+12,y+4,w-24,5,'#f7f4e7');
  }else{
   rect(x-3,y+11,w+6,27,edge);rect(x+3,y+5,w-6,29,b.roof);
-  rect(x+8,y+8,w-16,3,&#x27;#e5b579&#x27;);
-  for(let i=0;i&lt;Math.floor(w/22);i++)rect(x+8+i*22,y+25,15,3,&#x27;#edce98&#x27;);
+  rect(x+8,y+8,w-16,3,'#e5b579');
+  for(let i=0;i&lt;Math.floor(w/22);i++)rect(x+8+i*22,y+25,15,3,'#edce98');
  }
  // Deep windows, shutter highlights and continuous shopfront ledge.
  const count=Math.max(2,Math.min(4,Math.floor(w/68)));
  for(let i=0;i&lt;count;i++){
   const wx=x+17+i*(w-34)/count;
-  rect(wx-3,y+54,29,37,&#x27;#644f43&#x27;);rect(wx,y+57,23,31,ship?&#x27;#9ed0d2&#x27;:&#x27;#548f87&#x27;);
-  rect(wx+10,y+57,3,31,&#x27;#e9d6a8&#x27;);rect(wx,y+71,23,3,&#x27;#e9d6a8&#x27;);
-  rect(wx-6,y+53,4,39,mountain?&#x27;#83634d&#x27;:&#x27;#a66d4e&#x27;);rect(wx+25,y+53,4,39,mountain?&#x27;#83634d&#x27;:&#x27;#a66d4e&#x27;);
-  rect(wx-5,y+92,33,5,&#x27;#6b594a&#x27;);
+  rect(wx-3,y+54,29,37,'#644f43');rect(wx,y+57,23,31,ship?'#9ed0d2':'#548f87');
+  rect(wx+10,y+57,3,31,'#e9d6a8');rect(wx,y+71,23,3,'#e9d6a8');
+  rect(wx-6,y+53,4,39,mountain?'#83634d':'#a66d4e');rect(wx+25,y+53,4,39,mountain?'#83634d':'#a66d4e');
+  rect(wx-5,y+92,33,5,'#6b594a');
  }
  rect(x+8,y+h-52,w-16,6,edge);
  const doorX=x+w/2-15;
- rect(doorX-3,y+h-48,36,48,&#x27;#56473f&#x27;);rect(doorX,y+h-45,30,45,ship?&#x27;#829b9d&#x27;:&#x27;#916d50&#x27;);
- rect(doorX+22,y+h-23,3,4,&#x27;#f7d58b&#x27;);
- rect(x+8,y+h-8,w-16,5,&#x27;#b2a086&#x27;);
- if(b.type===&#x27;cafe&#x27;||b.type===&#x27;shop&#x27;||b.type===&#x27;bread&#x27;){
-  rect(x+9,y+37,w-18,17,b.type===&#x27;cafe&#x27;?&#x27;#417d72&#x27;:b.type===&#x27;bread&#x27;?&#x27;#ba6753&#x27;:&#x27;#9e7753&#x27;);
-  for(let i=0;i&lt;Math.floor((w-18)/18);i++)rect(x+11+i*18,y+51,11,7,i%2?&#x27;#f5dca4&#x27;:&#x27;#f4eee0&#x27;);
-  rect(x+12,y+42,w-24,3,&#x27;#f2dcad&#x27;);
+ rect(doorX-3,y+h-48,36,48,'#56473f');rect(doorX,y+h-45,30,45,ship?'#829b9d':'#916d50');
+ rect(doorX+22,y+h-23,3,4,'#f7d58b');
+ rect(x+8,y+h-8,w-16,5,'#b2a086');
+ if(b.type==='cafe'||b.type==='shop'||b.type==='bread'){
+  rect(x+9,y+37,w-18,17,b.type==='cafe'?'#417d72':b.type==='bread'?'#ba6753':'#9e7753');
+  for(let i=0;i&lt;Math.floor((w-18)/18);i++)rect(x+11+i*18,y+51,11,7,i%2?'#f5dca4':'#f4eee0');
+  rect(x+12,y+42,w-24,3,'#f2dcad');
  }
- if(mountain){for(let i=0;i&lt;4;i++)rect(x+12+i*19,y+h-18,13,3,&#x27;#735640&#x27;)}
- if(ship){for(let i=0;i&lt;3;i++)rect(x+16+i*27,y+43,16,7,&#x27;#c3dadd&#x27;)}
+ if(mountain){for(let i=0;i&lt;4;i++)rect(x+12+i*19,y+h-18,13,3,'#735640')}
+ if(ship){for(let i=0;i&lt;3;i++)rect(x+16+i*27,y+43,16,7,'#c3dadd')}
 }
-function person(x,y,shirt,hair,dir=&#x27;down&#x27;,walk=0){
+function person(x,y,shirt,hair,dir='down',walk=0){
  const X=x*T+4,Y=y*T-8,walking=walk%2===1;
  // Tiny soft contact shadow; 32px sprite with readable 4-direction pose.
- rect(X+5,Y+31,22,3,&#x27;#233c3666&#x27;);
- rect(X+8,Y+23+(walking?1:0),7,9,&#x27;#35485b&#x27;);
- rect(X+17,Y+23+(walking?0:1),7,9,&#x27;#35485b&#x27;);
- rect(X+8,Y+29+(walking?1:0),7,3,&#x27;#453e3a&#x27;);rect(X+17,Y+29+(walking?0:1),7,3,&#x27;#453e3a&#x27;);
- rect(X+7,Y+13,19,13,shirt);rect(X+9,Y+24,15,3,&#x27;#dbc6a0&#x27;);
- const arm=dir===&#x27;left&#x27;?1:dir===&#x27;right&#x27;?-1:0;
- rect(X+3,Y+15+(walking?2:0),5,9,&#x27;#d6a17b&#x27;);rect(X+26,Y+15+(walking?0:2),5,9,&#x27;#d6a17b&#x27;);
- rect(X+9,Y+2,15,13,&#x27;#e5b38c&#x27;);rect(X+7,Y,19,7,hair);
+ rect(X+5,Y+31,22,3,'#233c3666');
+ rect(X+8,Y+23+(walking?1:0),7,9,'#35485b');
+ rect(X+17,Y+23+(walking?0:1),7,9,'#35485b');
+ rect(X+8,Y+29+(walking?1:0),7,3,'#453e3a');rect(X+17,Y+29+(walking?0:1),7,3,'#453e3a');
+ rect(X+7,Y+13,19,13,shirt);rect(X+9,Y+24,15,3,'#dbc6a0');
+ const arm=dir==='left'?1:dir==='right'?-1:0;
+ rect(X+3,Y+15+(walking?2:0),5,9,'#d6a17b');rect(X+26,Y+15+(walking?0:2),5,9,'#d6a17b');
+ rect(X+9,Y+2,15,13,'#e5b38c');rect(X+7,Y,19,7,hair);
  rect(X+7,Y+5,4,8,hair);rect(X+23,Y+5,4,8,hair);
- if(dir===&#x27;down&#x27;){rect(X+12,Y+10,2,2,&#x27;#463833&#x27;);rect(X+20,Y+10,2,2,&#x27;#463833&#x27;);rect(X+16,Y+13,3,1,&#x27;#a96d60&#x27;)}
- else if(dir===&#x27;up&#x27;){rect(X+10,Y+5,14,9,hair);rect(X+11,Y+14,12,2,&#x27;#bd856e&#x27;)}
- else{rect(X+(dir===&#x27;left&#x27;?10:21),Y+10,2,2,&#x27;#463833&#x27;);rect(X+(dir===&#x27;left&#x27;?8:24),Y+6,3,6,hair)}
+ if(dir==='down'){rect(X+12,Y+10,2,2,'#463833');rect(X+20,Y+10,2,2,'#463833');rect(X+16,Y+13,3,1,'#a96d60')}
+ else if(dir==='up'){rect(X+10,Y+5,14,9,hair);rect(X+11,Y+14,12,2,'#bd856e')}
+ else{rect(X+(dir==='left'?10:21),Y+10,2,2,'#463833');rect(X+(dir==='left'?8:24),Y+6,3,6,hair)}
  // A subtle outfit stripe makes each NPC feel more like a pixel sprite.
- rect(X+10,Y+18,13,2,&#x27;#f5e5b455&#x27;);
+ rect(X+10,Y+18,13,2,'#f5e5b455');
 }
 
 
-// V8 story system. All saved state is isolated from the original travel application&#x27;s keys.
-const STORY_KEY=&#x27;north_vietnam_pixel_rpg_v8_story&#x27;;
+// V8 story system. All saved state is isolated from the original travel application's keys.
+const STORY_KEY='north_vietnam_pixel_rpg_v8_story';
 const chapters=[
- {id:&#x27;hanoi&#x27;,title:&#x27;第一章｜還劍湖的微光&#x27;,speaker:&#x27;咖啡店阿姨&#x27;,intro:&#x27;河內老城的夜裡，還劍湖傳說中的微光再次出現。有人說，五枚守護星印散落在北越。&#x27;,detail:&#x27;阿姨遞給你一張泛黃的路線圖：「先去沙壩吧，山村的織布師知道第一條線索。」&#x27;,reward:&#x27;河內的湖光星印&#x27;},
- {id:&#x27;sapa&#x27;,title:&#x27;第二章｜梯田間的風&#x27;,speaker:&#x27;織布阿姨&#x27;,intro:&#x27;村裡的染布圖案藏著山風的路徑，傳說守護靈曾在梯田旁留下記號。&#x27;,detail:&#x27;「靛藍線條指向番西邦的雲海。別急著走，先聽聽山村的故事。」&#x27;,reward:&#x27;沙壩的山風星印&#x27;},
- {id:&#x27;fansipan&#x27;,title:&#x27;第三章｜雲上的約定&#x27;,speaker:&#x27;登山嚮導&#x27;,intro:&#x27;在番西邦，雲霧遮住了古老石刻；嚮導帶你辨認山脊上的星形紋路。&#x27;,detail:&#x27;「這不是登山競賽。尊重山、注意安全，才能看清雲海裡的訊息。」&#x27;,reward:&#x27;番西邦的雲海星印&#x27;},
- {id:&#x27;halong&#x27;,title:&#x27;第四章｜龍落之灣&#x27;,speaker:&#x27;港口導覽員&#x27;,intro:&#x27;下龍灣的龍之傳說與石灰岩島嶼交織，港口流傳著第四枚星印的故事。&#x27;,detail:&#x27;「龍的故事是傳說，海灣的岩石卻是真實地質歲月的作品。最後的線索在船上。」&#x27;,reward:&#x27;下龍灣的海潮星印&#x27;},
- {id:&#x27;cruise&#x27;,title:&#x27;終章｜星光航行&#x27;,speaker:&#x27;郵輪服務員&#x27;,intro:&#x27;夜幕降臨，郵輪甲板上浮現最後一道星光。五地的旅程終於連成一條線。&#x27;,detail:&#x27;「旅途的寶藏不是打敗所有敵人，而是你一路認識的人、看過的風景。」&#x27;,reward:&#x27;郵輪的星夜星印&#x27;}
+ {id:'hanoi',title:'第一章｜還劍湖的微光',speaker:'咖啡店阿姨',intro:'河內老城的夜裡，還劍湖傳說中的微光再次出現。有人說，五枚守護星印散落在北越。',detail:'阿姨遞給你一張泛黃的路線圖：「先去沙壩吧，山村的織布師知道第一條線索。」',reward:'河內的湖光星印'},
+ {id:'sapa',title:'第二章｜梯田間的風',speaker:'織布阿姨',intro:'村裡的染布圖案藏著山風的路徑，傳說守護靈曾在梯田旁留下記號。',detail:'「靛藍線條指向番西邦的雲海。別急著走，先聽聽山村的故事。」',reward:'沙壩的山風星印'},
+ {id:'fansipan',title:'第三章｜雲上的約定',speaker:'登山嚮導',intro:'在番西邦，雲霧遮住了古老石刻；嚮導帶你辨認山脊上的星形紋路。',detail:'「這不是登山競賽。尊重山、注意安全，才能看清雲海裡的訊息。」',reward:'番西邦的雲海星印'},
+ {id:'halong',title:'第四章｜龍落之灣',speaker:'港口導覽員',intro:'下龍灣的龍之傳說與石灰岩島嶼交織，港口流傳著第四枚星印的故事。',detail:'「龍的故事是傳說，海灣的岩石卻是真實地質歲月的作品。最後的線索在船上。」',reward:'下龍灣的海潮星印'},
+ {id:'cruise',title:'終章｜星光航行',speaker:'郵輪服務員',intro:'夜幕降臨，郵輪甲板上浮現最後一道星光。五地的旅程終於連成一條線。',detail:'「旅途的寶藏不是打敗所有敵人，而是你一路認識的人、看過的風景。」',reward:'郵輪的星夜星印'}
 ];
 let progress={done:[],battles:0,hp:20};
-try{const saved=JSON.parse(localStorage.getItem(STORY_KEY)||&#x27;null&#x27;);if(saved&amp;&amp;Array.isArray(saved.done))progress={done:saved.done.filter(x=&gt;chapters.some(c=&gt;c.id===x)),battles:Math.max(0,Number(saved.battles)||0),hp:Math.max(1,Math.min(20,Number(saved.hp)||20))}}catch(e){}
+try{const saved=JSON.parse(localStorage.getItem(STORY_KEY)||'null');if(saved&amp;&amp;Array.isArray(saved.done))progress={done:saved.done.filter(x=&gt;chapters.some(c=&gt;c.id===x)),battles:Math.max(0,Number(saved.battles)||0),hp:Math.max(1,Math.min(20,Number(saved.hp)||20))}}catch(e){}
 function saveStory(){try{localStorage.setItem(STORY_KEY,JSON.stringify(progress))}catch(e){}}
 function chapter(){return chapters.find(x=&gt;x.id===sceneId)}
 function nextChapter(){return chapters.find(x=&gt;!progress.done.includes(x.id))}
-function storyText(n){const ch=chapter(),next=nextChapter();if(ch&amp;&amp;n.name===ch.speaker){if(progress.done.includes(sceneId))return ch.detail+&#x27;\n\n【這一章已完成】\n\n&#x27;+lifeText(n);if(next&amp;&amp;next.id!==sceneId)return &#x27;你還沒有取得前一地區的線索。先去 &#x27;+names[next.id]+&#x27; 尋找 &#x27;+next.speaker+&#x27;。&#x27;;return ch.intro+&#x27;\n\n&#x27;+ch.detail+&#x27;\n\n✨ 獲得：&#x27;+ch.reward}return lifeText(n)+&#x27;\n\n（你可以繼續探索，或找這個地區的故事人物。）&#x27;}
-function talkStory(n){const ch=chapter(),next=nextChapter();if(ch&amp;&amp;next&amp;&amp;next.id===sceneId&amp;&amp;n.name===ch.speaker){progress.done.push(sceneId);saveStory();showToast(&#x27;✨ 獲得 &#x27;+ch.reward);if(progress.done.length===5)showToast(&#x27;🌟 五枚星印已集齊！&#x27;)} }
-function journal(){const done=progress.done.length;document.getElementById(&#x27;journalText&#x27;).innerHTML=&#x27;&lt;p&gt;已收集星印：&lt;b&gt;&#x27;+done+&#x27; / 5&lt;/b&gt;　·　特殊區域勝利：&lt;b&gt;&#x27;+progress.battles+&#x27;&lt;/b&gt;&lt;/p&gt;&#x27;+chapters.map((ch,i)=&gt;&#x27;&lt;p&gt;&#x27;+(progress.done.includes(ch.id)?&#x27;✨&#x27;:&#x27;◇&#x27;)+&#x27; &lt;b&gt;&#x27;+ch.title+&#x27;&lt;/b&gt;：&#x27;+(progress.done.includes(ch.id)?ch.reward:(nextChapter()?.id===ch.id?&#x27;前往 &#x27;+names[ch.id]+&#x27; 與 &#x27;+ch.speaker+&#x27; 交談&#x27;:&#x27;尚未解鎖&#x27;))+&#x27;&lt;/p&gt;&#x27;).join(&#x27;&#x27;)+&#x27;&lt;p&gt;故事與怪獸皆為原創奇幻內容。怪獸僅在沙壩、番西邦、下龍灣的野外探索時隨機出現；城鎮與郵輪是安全區。&lt;/p&gt;&#x27;;document.getElementById(&#x27;journalText&#x27;).innerHTML+=journalGrowth()+endingCard()+postJournal();document.getElementById(&#x27;potionBtn&#x27;).addEventListener(&#x27;click&#x27;,drinkPotion);document.getElementById(&#x27;journal&#x27;).hidden=false;keys.clear()}
+function storyText(n){const ch=chapter(),next=nextChapter();if(ch&amp;&amp;n.name===ch.speaker){if(progress.done.includes(sceneId))return ch.detail+'\n\n【這一章已完成】\n\n'+lifeText(n);if(next&amp;&amp;next.id!==sceneId)return '你還沒有取得前一地區的線索。先去 '+names[next.id]+' 尋找 '+next.speaker+'。';return ch.intro+'\n\n'+ch.detail+'\n\n✨ 獲得：'+ch.reward}return lifeText(n)+'\n\n（你可以繼續探索，或找這個地區的故事人物。）'}
+function talkStory(n){const ch=chapter(),next=nextChapter();if(ch&amp;&amp;next&amp;&amp;next.id===sceneId&amp;&amp;n.name===ch.speaker){progress.done.push(sceneId);saveStory();showToast('✨ 獲得 '+ch.reward);if(progress.done.length===5)showToast('🌟 五枚星印已集齊！')} }
+function journal(){const done=progress.done.length;document.getElementById('journalText').innerHTML='&lt;p&gt;已收集星印：&lt;b&gt;'+done+' / 5&lt;/b&gt;　·　特殊區域勝利：&lt;b&gt;'+progress.battles+'&lt;/b&gt;&lt;/p&gt;'+chapters.map((ch,i)=&gt;'&lt;p&gt;'+(progress.done.includes(ch.id)?'✨':'◇')+' &lt;b&gt;'+ch.title+'&lt;/b&gt;：'+(progress.done.includes(ch.id)?ch.reward:(nextChapter()?.id===ch.id?'前往 '+names[ch.id]+' 與 '+ch.speaker+' 交談':'尚未解鎖'))+'&lt;/p&gt;').join('')+'&lt;p&gt;故事與怪獸皆為原創奇幻內容。怪獸僅在沙壩、番西邦、下龍灣的野外探索時隨機出現；城鎮與郵輪是安全區。&lt;/p&gt;';document.getElementById('journalText').innerHTML+=journalGrowth()+endingCard()+postJournal();document.getElementById('potionBtn').addEventListener('click',drinkPotion);document.getElementById('journal').hidden=false;keys.clear()}
 // V10: 独立冒險者進度，不更動 V8 星印存檔鍵。
-const RPG_KEY=&#x27;north_vietnam_pixel_rpg_v10_growth&#x27;;
-const monsterDrops={&#x27;山霧小靈&#x27;:&#x27;山霧露珠&#x27;,&#x27;梯田跳跳菇&#x27;:&#x27;梯田孢子&#x27;,&#x27;雲朵守護獸&#x27;:&#x27;雲絮&#x27;,&#x27;山岩小獸&#x27;:&#x27;岩晶&#x27;,&#x27;潮汐小龍&#x27;:&#x27;龍鱗碎片&#x27;,&#x27;海灣泡泡靈&#x27;:&#x27;海灣珍珠&#x27;};
+const RPG_KEY='north_vietnam_pixel_rpg_v10_growth';
+const monsterDrops={'山霧小靈':'山霧露珠','梯田跳跳菇':'梯田孢子','雲朵守護獸':'雲絮','山岩小獸':'岩晶','潮汐小龍':'龍鱗碎片','海灣泡泡靈':'海灣珍珠'};
 let rpg={level:1,exp:0,wins:0,seen:{},defeated:{},bag:{},potions:3,mp:5};
-try{let v=JSON.parse(localStorage.getItem(RPG_KEY)||&#x27;null&#x27;);if(v&amp;&amp;typeof v===&#x27;object&#x27;){
- for(const k of [&#x27;level&#x27;,&#x27;exp&#x27;,&#x27;wins&#x27;,&#x27;potions&#x27;,&#x27;mp&#x27;])if(Number.isFinite(v[k]))rpg[k]=Math.max(0,Math.floor(v[k]));
- for(const k of [&#x27;seen&#x27;,&#x27;defeated&#x27;,&#x27;bag&#x27;])if(v[k]&amp;&amp;typeof v[k]===&#x27;object&#x27;&amp;&amp;!Array.isArray(v[k]))rpg[k]=v[k];
+try{let v=JSON.parse(localStorage.getItem(RPG_KEY)||'null');if(v&amp;&amp;typeof v==='object'){
+ for(const k of ['level','exp','wins','potions','mp'])if(Number.isFinite(v[k]))rpg[k]=Math.max(0,Math.floor(v[k]));
+ for(const k of ['seen','defeated','bag'])if(v[k]&amp;&amp;typeof v[k]==='object'&amp;&amp;!Array.isArray(v[k]))rpg[k]=v[k];
  rpg.level=Math.max(1,Math.min(99,rpg.level));
 }}catch(e){}
 function maxHp(){return 20+(rpg.level-1)*4}
 function maxMp(){return 5+Math.floor((rpg.level-1)/2)}
 progress.hp=Math.max(1,Math.min(maxHp(),progress.hp));rpg.mp=Math.min(maxMp(),rpg.mp);
-function saveRpg(){try{localStorage.setItem(RPG_KEY,JSON.stringify(rpg));document.dispatchEvent(new Event(&#x27;adventure-rpg-inventory-updated&#x27;))}catch(e){}}
+function saveRpg(){try{localStorage.setItem(RPG_KEY,JSON.stringify(rpg));document.dispatchEvent(new Event('adventure-rpg-inventory-updated'))}catch(e){}}
 function expNeeded(){return 12+rpg.level*8}
 function gainExp(amount){rpg.exp+=amount;let gained=0;while(rpg.level&lt;99&amp;&amp;rpg.exp&gt;=expNeeded()){rpg.exp-=expNeeded();rpg.level++;gained++;progress.hp=maxHp();rpg.mp=maxMp()}saveRpg();saveStory();return gained}
-function drinkPotion(){if(combat)return;if(rpg.potions&lt;1){showToast(&#x27;沒有恢復藥草了&#x27;);return}if(progress.hp&gt;=maxHp()){showToast(&#x27;目前體力已滿&#x27;);return}rpg.potions--;progress.hp=Math.min(maxHp(),progress.hp+12);saveRpg();saveStory();journal();showToast(&#x27;🌿 使用藥草，恢復 12 點體力&#x27;)}
+function drinkPotion(){if(combat)return;if(rpg.potions&lt;1){showToast('沒有恢復藥草了');return}if(progress.hp&gt;=maxHp()){showToast('目前體力已滿');return}rpg.potions--;progress.hp=Math.min(maxHp(),progress.hp+12);saveRpg();saveStory();journal();showToast('🌿 使用藥草，恢復 12 點體力')}
 function journalGrowth(){
  const monsters=Object.values(encounter).flat();
- return &#x27;&lt;hr&gt;&lt;h3&gt;⚔️ 冒險者成長&lt;/h3&gt;&lt;p&gt;等級 Lv.&#x27;+rpg.level+&#x27;　經驗 &#x27;+rpg.exp+&#x27;/&#x27;+expNeeded()+&#x27; EXP　勝利 &#x27;+rpg.wins+&#x27; 次&lt;/p&gt;&lt;p&gt;❤️ 體力 &#x27;+progress.hp+&#x27;/&#x27;+maxHp()+&#x27;　✨ 技能能量 &#x27;+rpg.mp+&#x27;/&#x27;+maxMp()+&#x27;　🌿 恢復藥草 &#x27;+rpg.potions+&#x27; 個&lt;/p&gt;&lt;button id=&quot;potionBtn&quot; type=&quot;button&quot;&gt;🌿 使用恢復藥草（+12 HP）&lt;/button&gt;&lt;h3&gt;📖 怪獸圖鑑&lt;/h3&gt;&#x27;+monsters.map(m=&gt;&#x27;&lt;p&gt;&#x27;+(rpg.seen[m.name]?&#x27;🔎 &#x27;+m.emoji+&#x27; &#x27;+m.name+&#x27;　擊敗 &#x27;+(rpg.defeated[m.name]||0)+&#x27; 次&#x27;:&#x27;❔ 尚未發現的怪獸&#x27;)+&#x27;&lt;/p&gt;&#x27;).join(&#x27;&#x27;)+&#x27;&lt;h3&gt;🎒 戰利品&lt;/h3&gt;&lt;p&gt;&#x27;+(Object.entries(rpg.bag).filter(([k,v])=&gt;v&gt;0).map(([k,v])=&gt;k+&#x27; × &#x27;+v).join(&#x27;、&#x27;)||&#x27;尚未取得&#x27;)+&#x27;&lt;/p&gt;&#x27;;
+ return '&lt;hr&gt;&lt;h3&gt;⚔️ 冒險者成長&lt;/h3&gt;&lt;p&gt;等級 Lv.'+rpg.level+'　經驗 '+rpg.exp+'/'+expNeeded()+' EXP　勝利 '+rpg.wins+' 次&lt;/p&gt;&lt;p&gt;❤️ 體力 '+progress.hp+'/'+maxHp()+'　✨ 技能能量 '+rpg.mp+'/'+maxMp()+'　🌿 恢復藥草 '+rpg.potions+' 個&lt;/p&gt;&lt;button id=&quot;potionBtn&quot; type=&quot;button&quot;&gt;🌿 使用恢復藥草（+12 HP）&lt;/button&gt;&lt;h3&gt;📖 怪獸圖鑑&lt;/h3&gt;'+monsters.map(m=&gt;'&lt;p&gt;'+(rpg.seen[m.name]?'🔎 '+m.emoji+' '+m.name+'　擊敗 '+(rpg.defeated[m.name]||0)+' 次':'❔ 尚未發現的怪獸')+'&lt;/p&gt;').join('')+'&lt;h3&gt;🎒 戰利品&lt;/h3&gt;&lt;p&gt;'+(Object.entries(rpg.bag).filter(([k,v])=&gt;v&gt;0).map(([k,v])=&gt;k+' × '+v).join('、')||'尚未取得')+'&lt;/p&gt;';
 }
 let combat=null;
 const V11_KEY=&quot;north_vietnam_pixel_rpg_v11_boss&quot;;
 let bossWins={};try{bossWins=JSON.parse(localStorage.getItem(V11_KEY)||&quot;{}&quot;)||{}}catch(e){}
 // V12 ending is stored separately; previous chapter, boss, and growth keys stay unchanged.
-const END_KEY=&#x27;north_vietnam_pixel_rpg_v12_ending&#x27;;
-let ending={cleared:false,clearedAt:&#x27;&#x27;,level:0,wins:0};
-try{const v=JSON.parse(localStorage.getItem(END_KEY)||&#x27;null&#x27;);if(v&amp;&amp;typeof v===&#x27;object&#x27;)ending={...ending,...v}}catch(e){}
-function allBossesWon(){return [&#x27;sapa&#x27;,&#x27;fansipan&#x27;,&#x27;halong&#x27;].every(id=&gt;bossWins[id]===true)}
+const END_KEY='north_vietnam_pixel_rpg_v12_ending';
+let ending={cleared:false,clearedAt:'',level:0,wins:0};
+try{const v=JSON.parse(localStorage.getItem(END_KEY)||'null');if(v&amp;&amp;typeof v==='object')ending={...ending,...v}}catch(e){}
+function allBossesWon(){return ['sapa','fansipan','halong'].every(id=&gt;bossWins[id]===true)}
 function finalReady(){return progress.done.length===5&amp;&amp;allBossesWon()&amp;&amp;!ending.cleared}
-function finalStory(){return ending.cleared?&#x27;🌟 五枚星印已重聚。謝謝你守護這段旅程！你可以繼續自由探索。&#x27;:finalReady()?&#x27;🌟 五枚星印在夜空中共鳴。三位守護者的試煉已經完成。\n\n郵輪服務員：「星光深處還有最後一道考驗。準備好後，再跟我交談，就能挑戰星夜守護者。」&#x27;:&#x27;五枚星印與三位地區守護者的試煉完成後，請回到這片甲板。&#x27;}
-function startFinal(){if(!finalReady()||combat)return;const hp=68;combat={name:&#x27;星夜守護者&#x27;,emoji:&#x27;🌌&#x27;,hp,hpMax:hp,attack:8,exp:75,drop:&#x27;星夜紀念徽章&#x27;,guard:false,boss:true,final:true,turn:0};document.getElementById(&#x27;battle&#x27;).hidden=false;document.getElementById(&#x27;battleTitle&#x27;).textContent=&#x27;🌌 最終試煉：星夜守護者&#x27;;document.getElementById(&#x27;battleSprite&#x27;).textContent=&#x27;🌌&#x27;;document.getElementById(&#x27;battleText&#x27;).textContent=&#x27;五枚星印閃耀！這是最後的試煉，無法逃跑。&#x27;;renderBattle();keys.clear()}
-function endingCard(){return &#x27;&lt;hr&gt;&lt;h3&gt;🌟 星印最終章&lt;/h3&gt;&lt;p&gt;三大首領：&#x27;+[&#x27;sapa&#x27;,&#x27;fansipan&#x27;,&#x27;halong&#x27;].map(id=&gt;(bossWins[id]?&#x27;✅ &#x27;:&#x27;◇ &#x27;)+bossList[id].name).join(&#x27;、&#x27;)+&#x27;&lt;/p&gt;&#x27;+(ending.cleared?&#x27;&lt;p&gt;&lt;b&gt;🏆 北越傳說已通關！&lt;/b&gt;&lt;/p&gt;&lt;p&gt;通關等級 Lv.&#x27;+ending.level+&#x27;　累積勝利 &#x27;+ending.wins+&#x27; 次&lt;/p&gt;&lt;p&gt;✨ 你已守護五枚星印，冒險並未結束：所有地圖仍可自由探索。&lt;/p&gt;&#x27;:allBossesWon()&amp;&amp;progress.done.length===5?&#x27;&lt;p&gt;✨ 前往郵輪甲板，與郵輪服務員交談，迎接最後的試煉。&lt;/p&gt;&#x27;:&#x27;&lt;p&gt;完成五枚星印與三大首領後，最終章將在郵輪甲板開啟。&lt;/p&gt;&#x27;)}
+function finalStory(){return ending.cleared?'🌟 五枚星印已重聚。謝謝你守護這段旅程！你可以繼續自由探索。':finalReady()?'🌟 五枚星印在夜空中共鳴。三位守護者的試煉已經完成。\n\n郵輪服務員：「星光深處還有最後一道考驗。準備好後，再跟我交談，就能挑戰星夜守護者。」':'五枚星印與三位地區守護者的試煉完成後，請回到這片甲板。'}
+function startFinal(){if(!finalReady()||combat)return;const hp=68;combat={name:'星夜守護者',emoji:'🌌',hp,hpMax:hp,attack:8,exp:75,drop:'星夜紀念徽章',guard:false,boss:true,final:true,turn:0};document.getElementById('battle').hidden=false;document.getElementById('battleTitle').textContent='🌌 最終試煉：星夜守護者';document.getElementById('battleSprite').textContent='🌌';document.getElementById('battleText').textContent='五枚星印閃耀！這是最後的試煉，無法逃跑。';renderBattle();keys.clear()}
+function endingCard(){return '&lt;hr&gt;&lt;h3&gt;🌟 星印最終章&lt;/h3&gt;&lt;p&gt;三大首領：'+['sapa','fansipan','halong'].map(id=&gt;(bossWins[id]?'✅ ':'◇ ')+bossList[id].name).join('、')+'&lt;/p&gt;'+(ending.cleared?'&lt;p&gt;&lt;b&gt;🏆 北越傳說已通關！&lt;/b&gt;&lt;/p&gt;&lt;p&gt;通關等級 Lv.'+ending.level+'　累積勝利 '+ending.wins+' 次&lt;/p&gt;&lt;p&gt;✨ 你已守護五枚星印，冒險並未結束：所有地圖仍可自由探索。&lt;/p&gt;':allBossesWon()&amp;&amp;progress.done.length===5?'&lt;p&gt;✨ 前往郵輪甲板，與郵輪服務員交談，迎接最後的試煉。&lt;/p&gt;':'&lt;p&gt;完成五枚星印與三大首領後，最終章將在郵輪甲板開啟。&lt;/p&gt;')}
 const bossList={sapa:{name:&quot;梯田守護靈&quot;,emoji:&quot;🌾&quot;,hp:32,attack:5,exp:22,drop:&quot;山風護符&quot;},fansipan:{name:&quot;雲巔石巨人&quot;,emoji:&quot;🗿&quot;,hp:43,attack:7,exp:32,drop:&quot;雲海徽章&quot;},halong:{name:&quot;海灣龍影&quot;,emoji:&quot;🐲&quot;,hp:50,attack:8,exp:42,drop:&quot;龍灣之心&quot;}};
 function unlockedSpecial(){return rpg.level&gt;=3}
 function unlockedStar(){return progress.done.length&gt;=5&amp;&amp;rpg.level&gt;=5}
@@ -2261,9 +2315,9 @@ function startBoss(){const b=bossList[sceneId];if(!b||combat)return;combat={...b
 
 // 野外怪獸不常駐地圖。移動達到一定步數後才進行機率判定。
 const encounter={
- sapa:[{name:&#x27;山霧小靈&#x27;,emoji:&#x27;🌿&#x27;,hp:12,attack:3},{name:&#x27;梯田跳跳菇&#x27;,emoji:&#x27;🍄&#x27;,hp:10,attack:2}],
- fansipan:[{name:&#x27;雲朵守護獸&#x27;,emoji:&#x27;☁️&#x27;,hp:16,attack:4},{name:&#x27;山岩小獸&#x27;,emoji:&#x27;🪨&#x27;,hp:14,attack:3}],
- halong:[{name:&#x27;潮汐小龍&#x27;,emoji:&#x27;🐉&#x27;,hp:18,attack:4},{name:&#x27;海灣泡泡靈&#x27;,emoji:&#x27;🫧&#x27;,hp:13,attack:3}]
+ sapa:[{name:'山霧小靈',emoji:'🌿',hp:12,attack:3},{name:'梯田跳跳菇',emoji:'🍄',hp:10,attack:2}],
+ fansipan:[{name:'雲朵守護獸',emoji:'☁️',hp:16,attack:4},{name:'山岩小獸',emoji:'🪨',hp:14,attack:3}],
+ halong:[{name:'潮汐小龍',emoji:'🐉',hp:18,attack:4},{name:'海灣泡泡靈',emoji:'🫧',hp:13,attack:3}]
 };
 let wildSteps=0,encounterCooldown=5;
 function adventureTile(){return null} // 不顯示固定怪獸標記
@@ -2273,7 +2327,7 @@ function wildArea(){
  if(npcs.some(n=&gt;Math.abs(n.x-player.x)+Math.abs(n.y-player.y)&lt;=2))return false;
  if(exits.some(e=&gt;Math.abs(e.x-player.x)+Math.abs(e.y-player.y)&lt;=2))return false;
  // 在沙壩山路、梯田，以及其他野外的可通行地面皆能遇敵。
- return [&#x27;grass&#x27;,&#x27;soil&#x27;,&#x27;stone&#x27;].includes(world[player.y]?.[player.x]);
+ return ['grass','soil','stone'].includes(world[player.y]?.[player.x]);
 }
 function tryWildEncounter(){
  if(bossAvailable()&amp;&amp;wildArea()&amp;&amp;Math.random()&lt;0.065){startBoss();return}
@@ -2287,57 +2341,57 @@ function startCombat(){
  const pool=encounter[sceneId];if(!pool||combat)return;
  const monster=pool[Math.floor(Math.random()*pool.length)];
  combat={...monster,hp:monster.hp,hpMax:monster.hp,guard:false,turn:0};rpg.seen[monster.name]=(rpg.seen[monster.name]||0)+1;saveRpg();
- document.getElementById(&#x27;battle&#x27;).hidden=false;
- document.getElementById(&#x27;battleTitle&#x27;).textContent=&#x27;野生的 &#x27;+monster.name+&#x27; 出現了！&#x27;;
- document.getElementById(&#x27;battleSprite&#x27;).textContent=monster.emoji;
- document.getElementById(&#x27;battleText&#x27;).textContent=&#x27;野外探險遇到了奇幻生物！你可以戰鬥、防禦或離開。&#x27;;
+ document.getElementById('battle').hidden=false;
+ document.getElementById('battleTitle').textContent='野生的 '+monster.name+' 出現了！';
+ document.getElementById('battleSprite').textContent=monster.emoji;
+ document.getElementById('battleText').textContent='野外探險遇到了奇幻生物！你可以戰鬥、防禦或離開。';
  renderBattle();keys.clear()
 }
-function renderBattle(){document.getElementById(&#x27;battleStats&#x27;).textContent=&#x27;Lv.&#x27;+rpg.level+&#x27;　❤️ &#x27;+progress.hp+&#x27;/&#x27;+maxHp()+&#x27;　✨ &#x27;+rpg.mp+&#x27;/&#x27;+maxMp()+&#x27;　｜　&#x27;+combat.name+&#x27; &#x27;+Math.max(0,combat.hp)+&#x27;/&#x27;+combat.hpMax;document.getElementById(&quot;specialBtn&quot;).textContent=unlockedStar()?&quot;🌟 五星共鳴 (3 MP)&quot;:unlockedSpecial()?&quot;💫 旋風斬 (3 MP)&quot;:&quot;🔒 Lv.3 解鎖&quot;;document.getElementById(&quot;specialBtn&quot;).disabled=!unlockedSpecial();battleBars()}
-function endCombat(message){combat=null;encounterCooldown=12;wildSteps=0;document.getElementById(&#x27;battle&#x27;).hidden=true;showToast(message)}
+function renderBattle(){document.getElementById('battleStats').textContent='Lv.'+rpg.level+'　❤️ '+progress.hp+'/'+maxHp()+'　✨ '+rpg.mp+'/'+maxMp()+'　｜　'+combat.name+' '+Math.max(0,combat.hp)+'/'+combat.hpMax;document.getElementById(&quot;specialBtn&quot;).textContent=unlockedStar()?&quot;🌟 五星共鳴 (3 MP)&quot;:unlockedSpecial()?&quot;💫 旋風斬 (3 MP)&quot;:&quot;🔒 Lv.3 解鎖&quot;;document.getElementById(&quot;specialBtn&quot;).disabled=!unlockedSpecial();battleBars()}
+function endCombat(message){combat=null;encounterCooldown=12;wildSteps=0;document.getElementById('battle').hidden=true;showToast(message)}
 function battleTurn(type){
  if(!combat)return;
- if(type===&#x27;leave&#x27;){if(combat.boss){document.getElementById(&#x27;battleText&#x27;).textContent=&#x27;首領戰不能逃跑！&#x27;;return}endCombat(&#x27;你平安離開了冒險區&#x27;);return}
- let dmg=0,detail=&#x27;&#x27;,defending=type===&#x27;guard&#x27;;
- if(type===&#x27;special&#x27;){
-  if(!unlockedSpecial()){document.getElementById(&#x27;battleText&#x27;).textContent=&#x27;Lv.3 才能學會旋風斬。&#x27;;return}
-  if(rpg.mp&lt;3){document.getElementById(&#x27;battleText&#x27;).textContent=&#x27;能量不足！防禦可恢復能量。&#x27;;return}
-  rpg.mp-=3;dmg=(unlockedStar()?13:9)+rpg.level*2+Math.floor(Math.random()*4);detail=(unlockedStar()?&#x27;🌟 五星共鳴&#x27;:&#x27;💫 旋風斬&#x27;)+&#x27;造成 &#x27;+dmg+&#x27; 點傷害。&#x27;;
- }else if(type===&#x27;skill&#x27;){
-  if(rpg.mp&lt;2){document.getElementById(&#x27;battleText&#x27;).textContent=&#x27;技能能量不足！可以防禦恢復 1 點能量。&#x27;;return}
-  rpg.mp-=2;dmg=6+rpg.level*2+Math.floor(Math.random()*3);detail=&#x27;✨ 星光斬造成 &#x27;+dmg+&#x27; 點傷害。&#x27;;
- }else if(type===&#x27;attack&#x27;){
-  dmg=3+rpg.level+Math.floor(Math.random()*4);detail=&#x27;⚔️ 攻擊造成 &#x27;+dmg+&#x27; 點傷害。&#x27;;
+ if(type==='leave'){if(combat.boss){document.getElementById('battleText').textContent='首領戰不能逃跑！';return}endCombat('你平安離開了冒險區');return}
+ let dmg=0,detail='',defending=type==='guard';
+ if(type==='special'){
+  if(!unlockedSpecial()){document.getElementById('battleText').textContent='Lv.3 才能學會旋風斬。';return}
+  if(rpg.mp&lt;3){document.getElementById('battleText').textContent='能量不足！防禦可恢復能量。';return}
+  rpg.mp-=3;dmg=(unlockedStar()?13:9)+rpg.level*2+Math.floor(Math.random()*4);detail=(unlockedStar()?'🌟 五星共鳴':'💫 旋風斬')+'造成 '+dmg+' 點傷害。';
+ }else if(type==='skill'){
+  if(rpg.mp&lt;2){document.getElementById('battleText').textContent='技能能量不足！可以防禦恢復 1 點能量。';return}
+  rpg.mp-=2;dmg=6+rpg.level*2+Math.floor(Math.random()*3);detail='✨ 星光斬造成 '+dmg+' 點傷害。';
+ }else if(type==='attack'){
+  dmg=3+rpg.level+Math.floor(Math.random()*4);detail='⚔️ 攻擊造成 '+dmg+' 點傷害。';
  }else{
-  rpg.mp=Math.min(maxMp(),rpg.mp+2);detail=&#x27;🛡️ 防禦成功，恢復 2 點技能能量。&#x27;;
+  rpg.mp=Math.min(maxMp(),rpg.mp+2);detail='🛡️ 防禦成功，恢復 2 點技能能量。';
  }
  combat.turn=(combat.turn||0)+1;combat.hp-=dmg;
  if(combat.hp&lt;=0){
   const name=combat.name,exp=combat.exp||5+Math.floor(combat.hpMax/3),drop=combat.drop||monsterDrops[name];
   progress.battles++;rpg.wins++;rpg.defeated[name]=(rpg.defeated[name]||0)+1;
-  let loot=&#x27;&#x27;;if(combat.boss||Math.random()&lt;.7){rpg.bag[drop]=(rpg.bag[drop]||0)+1;loot=&#x27;，獲得 &#x27;+drop}
-  if(Math.random()&lt;.22){rpg.potions++;loot+=&#x27;，獲得恢復藥草&#x27;}
+  let loot='';if(combat.boss||Math.random()&lt;.7){rpg.bag[drop]=(rpg.bag[drop]||0)+1;loot='，獲得 '+drop}
+  if(Math.random()&lt;.22){rpg.potions++;loot+='，獲得恢復藥草'}
   if(combat.boss&amp;&amp;!combat.final){bossWins[sceneId]=true;try{localStorage.setItem(V11_KEY,JSON.stringify(bossWins))}catch(e){}}
   const levels=gainExp(exp);if(combat.final){ending={cleared:true,clearedAt:new Date().toISOString(),level:rpg.level,wins:rpg.wins};try{localStorage.setItem(END_KEY,JSON.stringify(ending))}catch(e){}}progress.hp=Math.min(maxHp(),progress.hp+3);rpg.mp=Math.min(maxMp(),rpg.mp+1);
-  saveRpg();saveStory();const summary=(combat.final?&#x27;🌟 北越傳說・星印最終章 完成！\n五枚星印重新照亮北越，旅途的回憶成為真正的寶藏。\n你仍然可以自由探索五大地區。\n\n&#x27;:&#x27;&#x27;)+&#x27;✨ &#x27;+(combat.boss?&#x27;首領討伐成功！&#x27;:&#x27;戰鬥勝利！&#x27;)+&#x27;\n獲得 &#x27;+exp+&#x27; EXP&#x27;+loot+(levels?&#x27;\n🎉 升級至 Lv.&#x27;+rpg.level:&#x27;&#x27;)+&#x27;\n總勝利 &#x27;+rpg.wins+&#x27; 次&#x27;;endCombat(&#x27;✨ 勝利！&#x27;);document.getElementById(&#x27;speaker&#x27;).textContent=&#x27;🏆 戰鬥結算&#x27;;document.getElementById(&#x27;words&#x27;).textContent=summary;dialog=true;document.getElementById(&#x27;dialog&#x27;).style.display=&#x27;block&#x27;;return;
+  saveRpg();saveStory();const summary=(combat.final?'🌟 北越傳說・星印最終章 完成！\n五枚星印重新照亮北越，旅途的回憶成為真正的寶藏。\n你仍然可以自由探索五大地區。\n\n':'')+'✨ '+(combat.boss?'首領討伐成功！':'戰鬥勝利！')+'\n獲得 '+exp+' EXP'+loot+(levels?'\n🎉 升級至 Lv.'+rpg.level:'')+'\n總勝利 '+rpg.wins+' 次';endCombat('✨ 勝利！');document.getElementById('speaker').textContent='🏆 戰鬥結算';document.getElementById('words').textContent=summary;dialog=true;document.getElementById('dialog').style.display='block';return;
  }
- let base=combat.attack,move=&#x27;普通攻擊&#x27;;
- if(combat.name===&#x27;梯田跳跳菇&#x27;&amp;&amp;combat.turn%3===0){base+=2;move=&#x27;孢子飛彈&#x27;}
- if(combat.name===&#x27;山霧小靈&#x27;&amp;&amp;combat.turn%3===0){base+=1;move=&#x27;迷霧衝擊&#x27;}
- if(combat.name===&#x27;雲朵守護獸&#x27;&amp;&amp;combat.turn%3===0){base+=3;move=&#x27;雷雲突襲&#x27;}
- if(combat.name===&#x27;山岩小獸&#x27;&amp;&amp;combat.turn%3===0){base+=3;move=&#x27;碎岩重擊&#x27;}
- if(combat.name===&#x27;潮汐小龍&#x27;&amp;&amp;combat.turn%3===0){base+=4;move=&#x27;潮汐吐息&#x27;}
- if(combat.name===&#x27;海灣泡泡靈&#x27;&amp;&amp;combat.turn%3===0){base+=2;move=&#x27;泡泡爆破&#x27;}
- if(combat.boss&amp;&amp;combat.turn%3===0){base+=4;move=&#x27;守護者奧義&#x27;}
+ let base=combat.attack,move='普通攻擊';
+ if(combat.name==='梯田跳跳菇'&amp;&amp;combat.turn%3===0){base+=2;move='孢子飛彈'}
+ if(combat.name==='山霧小靈'&amp;&amp;combat.turn%3===0){base+=1;move='迷霧衝擊'}
+ if(combat.name==='雲朵守護獸'&amp;&amp;combat.turn%3===0){base+=3;move='雷雲突襲'}
+ if(combat.name==='山岩小獸'&amp;&amp;combat.turn%3===0){base+=3;move='碎岩重擊'}
+ if(combat.name==='潮汐小龍'&amp;&amp;combat.turn%3===0){base+=4;move='潮汐吐息'}
+ if(combat.name==='海灣泡泡靈'&amp;&amp;combat.turn%3===0){base+=2;move='泡泡爆破'}
+ if(combat.boss&amp;&amp;combat.turn%3===0){base+=4;move='守護者奧義'}
  const hurt=defending?Math.max(1,Math.floor(base/3)):Math.max(1,base-Math.floor((rpg.level-1)/3));
  progress.hp=Math.max(0,progress.hp-hurt);
- if(progress.hp===0){progress.hp=maxHp();rpg.mp=maxMp();saveRpg();saveStory();endCombat(&#x27;體力耗盡，你回到安全區休息並恢復體力&#x27;);return}
- saveRpg();saveStory();document.getElementById(&#x27;battleText&#x27;).textContent=detail+&#x27; &#x27;+combat.name+&#x27; 使用「&#x27;+move+&#x27;」反擊 &#x27;+hurt+&#x27; 點。&#x27;;renderBattle();
+ if(progress.hp===0){progress.hp=maxHp();rpg.mp=maxMp();saveRpg();saveStory();endCombat('體力耗盡，你回到安全區休息並恢復體力');return}
+ saveRpg();saveStory();document.getElementById('battleText').textContent=detail+' '+combat.name+' 使用「'+move+'」反擊 '+hurt+' 點。';renderBattle();
 }
 // V13: 通關後生活委託、隱藏寶箱與 NPC 商店。獨立儲存，不修改既有進度鍵。
-const POST_KEY=&#x27;north_vietnam_pixel_rpg_v13_postgame&#x27;;
+const POST_KEY='north_vietnam_pixel_rpg_v13_postgame';
 let post={chests:{},quests:{},trades:0};
-try{const v=JSON.parse(localStorage.getItem(POST_KEY)||&#x27;null&#x27;);if(v&amp;&amp;typeof v===&#x27;object&#x27;)post={chests:v.chests||{},quests:v.quests||{},trades:Number(v.trades)||0}}catch(e){}
+try{const v=JSON.parse(localStorage.getItem(POST_KEY)||'null');if(v&amp;&amp;typeof v==='object')post={chests:v.chests||{},quests:v.quests||{},trades:Number(v.trades)||0}}catch(e){}
 function savePost(){try{localStorage.setItem(POST_KEY,JSON.stringify(post))}catch(e){}}
 const chestSites={hanoi:[[22,20],[7,15]],sapa:[[23,18],[8,15]],fansipan:[[34,7],[9,18]],halong:[[36,16],[8,15]],cruise:[[35,16],[6,16]]};
 let treasures=[];
@@ -2345,60 +2399,60 @@ function placeTreasure(){treasures=[];const sites=chestSites[sceneId]||[];for(le
  const [sx,sy]=sites[i];let best=null;
  for(let r=0;r&lt;9&amp;&amp;!best;r++)for(let dy=-r;dy&lt;=r&amp;&amp;!best;dy++)for(let dx=-r;dx&lt;=r;dx++){
  const x=sx+dx,y=sy+dy;
- if(x&lt;3||x&gt;38||y&lt;3||y&gt;22||blocked.has(x+&#x27;,&#x27;+y)||world[y]?.[x]===&#x27;water&#x27;||exits.some(e=&gt;e.x===x&amp;&amp;e.y===y)||npcs.some(n=&gt;Math.abs(n.homeX-x)+Math.abs(n.homeY-y)&lt;2)||treasures.some(t=&gt;t.x===x&amp;&amp;t.y===y))continue;
- best={x,y,id:sceneId+&#x27;_&#x27;+i};break;
+ if(x&lt;3||x&gt;38||y&lt;3||y&gt;22||blocked.has(x+','+y)||world[y]?.[x]==='water'||exits.some(e=&gt;e.x===x&amp;&amp;e.y===y)||npcs.some(n=&gt;Math.abs(n.homeX-x)+Math.abs(n.homeY-y)&lt;2)||treasures.some(t=&gt;t.x===x&amp;&amp;t.y===y))continue;
+ best={x,y,id:sceneId+'_'+i};break;
  }
  if(best)treasures.push(best);
  }}
 function treasureNear(){return ending.cleared?treasures.find(t=&gt;!post.chests[t.id]&amp;&amp;Math.abs(t.x-player.x)+Math.abs(t.y-player.y)&lt;=1):null}
-function openTreasure(t){if(!t||post.chests[t.id])return;post.chests[t.id]=true;const n=1+Math.floor(Math.random()*2);rpg.potions+=n;const loot=[&#x27;古城紀念幣&#x27;,&#x27;梯田香草&#x27;,&#x27;雲海水晶&#x27;,&#x27;海灣貝殼&#x27;,&#x27;星光船票&#x27;][Object.keys(names).indexOf(sceneId)];rpg.bag[loot]=(rpg.bag[loot]||0)+1;saveRpg();savePost();showGameDialog(&#x27;🎁 隱藏寶箱&#x27;,&#x27;找到 &#x27;+loot+&#x27; × 1，恢復藥草 × &#x27;+n+&#x27;！\n寶箱已開啟，不會重複領取。&#x27;)}
-function postDay(){const d=new Date();return d.getFullYear()+&#x27;-&#x27;+String(d.getMonth()+1).padStart(2,&#x27;0&#x27;)+&#x27;-&#x27;+String(d.getDate()).padStart(2,&#x27;0&#x27;)}
-const questNPC={hanoi:&#x27;咖啡店阿姨&#x27;,sapa:&#x27;織布阿姨&#x27;,fansipan:&#x27;登山嚮導&#x27;,halong:&#x27;港口導覽員&#x27;,cruise:&#x27;郵輪服務員&#x27;};
-const questTitles={hanoi:&#x27;古城散步&#x27;,sapa:&#x27;山林巡守&#x27;,fansipan:&#x27;高山巡守&#x27;,halong:&#x27;海灣巡守&#x27;,cruise:&#x27;甲板巡禮&#x27;};
-function questKey(){return postDay()+&#x27;_&#x27;+sceneId}
+function openTreasure(t){if(!t||post.chests[t.id])return;post.chests[t.id]=true;const n=1+Math.floor(Math.random()*2);rpg.potions+=n;const loot=['古城紀念幣','梯田香草','雲海水晶','海灣貝殼','星光船票'][Object.keys(names).indexOf(sceneId)];rpg.bag[loot]=(rpg.bag[loot]||0)+1;saveRpg();savePost();showGameDialog('🎁 隱藏寶箱','找到 '+loot+' × 1，恢復藥草 × '+n+'！\n寶箱已開啟，不會重複領取。')}
+function postDay(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+const questNPC={hanoi:'咖啡店阿姨',sapa:'織布阿姨',fansipan:'登山嚮導',halong:'港口導覽員',cruise:'郵輪服務員'};
+const questTitles={hanoi:'古城散步',sapa:'山林巡守',fansipan:'高山巡守',halong:'海灣巡守',cruise:'甲板巡禮'};
+function questKey(){return postDay()+'_'+sceneId}
 function questInfo(){const key=questKey();return post.quests[key]||null}
 function questCount(){const mons=encounter[sceneId]||[];return mons.reduce((a,m)=&gt;a+(rpg.defeated[m.name]||0),0)}
-function questText(){const q=questInfo();if(!q)return &#x27;今天的「&#x27;+questTitles[sceneId]+&#x27;」委託還沒接取。&#x27;;if(q.done)return &#x27;今天的委託已完成，明天再來看看吧。&#x27;;if(q.type===&#x27;walk&#x27;)return &#x27;今日散步：&#x27;+Math.min(20,player.walk-q.start)+&#x27; / 20 步&#x27;;return &#x27;今日野外守護：&#x27;+Math.min(2,questCount()-q.start)+&#x27; / 2 隻&#x27;}
-function questAction(){const key=questKey();let q=questInfo();if(!q){q={type:encounter[sceneId]?&#x27;battle&#x27;:&#x27;walk&#x27;,start:encounter[sceneId]?questCount():player.walk,done:false};post.quests[key]=q;savePost();showGameDialog(&#x27;📜 &#x27;+questTitles[sceneId],&#x27;已接取今日委託！\n&#x27;+questText());return}
- if(q.done){showGameDialog(&#x27;📜 今日委託&#x27;,&#x27;今天已經完成，明天再來吧！&#x27;);return}
- const count=q.type===&#x27;walk&#x27;?player.walk-q.start:questCount()-q.start;
- const need=q.type===&#x27;walk&#x27;?20:2;
- if(count&lt;need){showGameDialog(&#x27;📜 &#x27;+questTitles[sceneId],questText()+&#x27;\n繼續探索後再回來交付。&#x27;);return}
- q.done=true;rpg.potions+=2;rpg.bag[&#x27;冒險委託徽記&#x27;]=(rpg.bag[&#x27;冒險委託徽記&#x27;]||0)+1;saveRpg();savePost();showGameDialog(&#x27;🏆 委託完成&#x27;,&#x27;獲得恢復藥草 × 2、冒險委託徽記 × 1！\n明天可以接取新的委託。&#x27;)
+function questText(){const q=questInfo();if(!q)return '今天的「'+questTitles[sceneId]+'」委託還沒接取。';if(q.done)return '今天的委託已完成，明天再來看看吧。';if(q.type==='walk')return '今日散步：'+Math.min(20,player.walk-q.start)+' / 20 步';return '今日野外守護：'+Math.min(2,questCount()-q.start)+' / 2 隻'}
+function questAction(){const key=questKey();let q=questInfo();if(!q){q={type:encounter[sceneId]?'battle':'walk',start:encounter[sceneId]?questCount():player.walk,done:false};post.quests[key]=q;savePost();showGameDialog('📜 '+questTitles[sceneId],'已接取今日委託！\n'+questText());return}
+ if(q.done){showGameDialog('📜 今日委託','今天已經完成，明天再來吧！');return}
+ const count=q.type==='walk'?player.walk-q.start:questCount()-q.start;
+ const need=q.type==='walk'?20:2;
+ if(count&lt;need){showGameDialog('📜 '+questTitles[sceneId],questText()+'\n繼續探索後再回來交付。');return}
+ q.done=true;rpg.potions+=2;rpg.bag['冒險委託徽記']=(rpg.bag['冒險委託徽記']||0)+1;saveRpg();savePost();showGameDialog('🏆 委託完成','獲得恢復藥草 × 2、冒險委託徽記 × 1！\n明天可以接取新的委託。')
 }
-function tradeAction(){const goods=[&#x27;山霧露珠&#x27;,&#x27;梯田孢子&#x27;,&#x27;雲絮&#x27;,&#x27;岩晶&#x27;,&#x27;龍鱗碎片&#x27;,&#x27;海灣珍珠&#x27;];const available=goods.find(k=&gt;(rpg.bag[k]||0)&gt;=2);if(!available){showGameDialog(&#x27;🛍️ 冒險商店&#x27;,&#x27;帶來任意一種怪獸素材 × 2，就能交換恢復藥草 × 1。\n目前素材不足。&#x27;);return}
- rpg.bag[available]-=2;rpg.potions++;post.trades++;saveRpg();savePost();showGameDialog(&#x27;🛍️ 交換成功&#x27;,&#x27;交出 &#x27;+available+&#x27; × 2\n獲得恢復藥草 × 1。&#x27;)}
-function showGameDialog(title,msg,actions=[]){dialog=true;keys.clear();document.getElementById(&#x27;speaker&#x27;).textContent=title;document.getElementById(&#x27;words&#x27;).textContent=msg;const area=document.getElementById(&#x27;postActions&#x27;);area.replaceChildren();for(const [label,fn] of actions){const b=document.createElement(&#x27;button&#x27;);b.textContent=label;b.type=&#x27;button&#x27;;b.addEventListener(&#x27;click&#x27;,fn);area.appendChild(b)}document.getElementById(&#x27;dialog&#x27;).style.display=&#x27;block&#x27;}
+function tradeAction(){const goods=['山霧露珠','梯田孢子','雲絮','岩晶','龍鱗碎片','海灣珍珠'];const available=goods.find(k=&gt;(rpg.bag[k]||0)&gt;=2);if(!available){showGameDialog('🛍️ 冒險商店','帶來任意一種怪獸素材 × 2，就能交換恢復藥草 × 1。\n目前素材不足。');return}
+ rpg.bag[available]-=2;rpg.potions++;post.trades++;saveRpg();savePost();showGameDialog('🛍️ 交換成功','交出 '+available+' × 2\n獲得恢復藥草 × 1。')}
+function showGameDialog(title,msg,actions=[]){dialog=true;keys.clear();document.getElementById('speaker').textContent=title;document.getElementById('words').textContent=msg;const area=document.getElementById('postActions');area.replaceChildren();for(const [label,fn] of actions){const b=document.createElement('button');b.textContent=label;b.type='button';b.addEventListener('click',fn);area.appendChild(b)}document.getElementById('dialog').style.display='block'}
 // V14: 依裝置當地時間切換居民的日常節奏；只改巡邏與對話，不改任務、星印或戰鬥資料。
 const dailyLife={
- hanoi:{&#x27;咖啡店阿姨&#x27;:[&#x27;清晨的咖啡香飄出巷口，我正準備今天第一壺咖啡。&#x27;,&#x27;午後客人喜歡坐在騎樓下聊天，你也可以慢慢逛老街。&#x27;,&#x27;夜裡街燈亮了，記得看看河內老屋的陽台。&#x27;],&#x27;麵包店老闆&#x27;:[&#x27;剛出爐的麵包最香，早上總是忙得團團轉。&#x27;,&#x27;下午我會整理麵包籃，順便跟鄰居聊聊天。&#x27;,&#x27;收攤前我會清點材料，明天再做新鮮麵包。&#x27;]},
- sapa:{&#x27;織布阿姨&#x27;:[&#x27;早晨我先整理靛藍布線，再開始織布。&#x27;,&#x27;午後光線好，最適合看看布上的刺繡花紋。&#x27;,&#x27;天色暗了，織布也該休息，山村夜晚很安靜。&#x27;],&#x27;梯田農夫&#x27;:[&#x27;清晨我會先到田邊看看水流。&#x27;,&#x27;午後在梯田間工作，走山路要留意腳下。&#x27;,&#x27;忙完一天，回家喝杯熱茶最舒服。&#x27;]},
- fansipan:{&#x27;登山嚮導&#x27;:[&#x27;早上先確認天氣和路況，山裡不能大意。&#x27;,&#x27;午後雲霧變化很快，請留意視線。&#x27;,&#x27;傍晚山風變冷，記得保暖。&#x27;],&#x27;纜車站員&#x27;:[&#x27;早班要先檢查設備與乘車動線。&#x27;,&#x27;午後遊客較多，我會提醒大家排隊與安全。&#x27;,&#x27;最後一班結束後，站內會整理設備。&#x27;]},
- halong:{&#x27;港口導覽員&#x27;:[&#x27;早晨港口最熱鬧，船隻正準備出航。&#x27;,&#x27;午後海風徐徐，適合欣賞海灣的石灰岩島嶼。&#x27;,&#x27;夕陽映在海面上，港口也慢慢安靜了。&#x27;],&#x27;漁村居民&#x27;:[&#x27;清晨先整理漁具，看看今天的潮水。&#x27;,&#x27;午後我會在港邊修補漁網。&#x27;,&#x27;傍晚把小船繫好，準備回家。&#x27;]},
- cruise:{&#x27;郵輪服務員&#x27;:[&#x27;早上要整理甲板，迎接今天的旅客。&#x27;,&#x27;午後我會準備茶點，大家可以看看海景。&#x27;,&#x27;夜晚請小心甲板濕滑，星光也很漂亮。&#x27;],&#x27;海灣船員&#x27;:[&#x27;早班先巡查船舷與安全設備。&#x27;,&#x27;午後我會整理甲板，提醒旅客注意安全。&#x27;,&#x27;夜航時要保持走道暢通，謝謝你一起維護環境。&#x27;]}
+ hanoi:{'咖啡店阿姨':['清晨的咖啡香飄出巷口，我正準備今天第一壺咖啡。','午後客人喜歡坐在騎樓下聊天，你也可以慢慢逛老街。','夜裡街燈亮了，記得看看河內老屋的陽台。'],'麵包店老闆':['剛出爐的麵包最香，早上總是忙得團團轉。','下午我會整理麵包籃，順便跟鄰居聊聊天。','收攤前我會清點材料，明天再做新鮮麵包。']},
+ sapa:{'織布阿姨':['早晨我先整理靛藍布線，再開始織布。','午後光線好，最適合看看布上的刺繡花紋。','天色暗了，織布也該休息，山村夜晚很安靜。'],'梯田農夫':['清晨我會先到田邊看看水流。','午後在梯田間工作，走山路要留意腳下。','忙完一天，回家喝杯熱茶最舒服。']},
+ fansipan:{'登山嚮導':['早上先確認天氣和路況，山裡不能大意。','午後雲霧變化很快，請留意視線。','傍晚山風變冷，記得保暖。'],'纜車站員':['早班要先檢查設備與乘車動線。','午後遊客較多，我會提醒大家排隊與安全。','最後一班結束後，站內會整理設備。']},
+ halong:{'港口導覽員':['早晨港口最熱鬧，船隻正準備出航。','午後海風徐徐，適合欣賞海灣的石灰岩島嶼。','夕陽映在海面上，港口也慢慢安靜了。'],'漁村居民':['清晨先整理漁具，看看今天的潮水。','午後我會在港邊修補漁網。','傍晚把小船繫好，準備回家。']},
+ cruise:{'郵輪服務員':['早上要整理甲板，迎接今天的旅客。','午後我會準備茶點，大家可以看看海景。','夜晚請小心甲板濕滑，星光也很漂亮。'],'海灣船員':['早班先巡查船舷與安全設備。','午後我會整理甲板，提醒旅客注意安全。','夜航時要保持走道暢通，謝謝你一起維護環境。']}
 };
 function lifePeriod(){const h=new Date().getHours();return h&lt;11?0:h&lt;17?1:2}
 function lifeDialogue(n){const lines=dailyLife[sceneId]?.[n.name];return lines?lines[lifePeriod()]:n.msg}
-function lifeText(n){return lifeDialogue(n)+&#x27;\n\n&#x27;+(lifePeriod()===0?&#x27;☀️ 早晨時光&#x27;:lifePeriod()===1?&#x27;🌤️ 午後時光&#x27;:&#x27;🌙 夜晚時光&#x27;)}
+function lifeText(n){return lifeDialogue(n)+'\n\n'+(lifePeriod()===0?'☀️ 早晨時光':lifePeriod()===1?'🌤️ 午後時光':'🌙 夜晚時光')}
 function updateLifeRoutes(){const period=lifePeriod();for(const n of npcs){
   if(n.lifePeriod===period)continue;n.lifePeriod=period;
   // 早晨靠近工作處、午後稍遠散步、晚上回到原位附近；路徑仍由碰撞尋路處理。
   const old=n.route.slice();const candidates=period===0?[[0,0],[1,0],[0,1]]:period===1?[[0,0],[2,0],[1,1],[0,2]]:[[0,0],[-1,0],[0,-1]];
-  const points=[];for(const [dx,dy] of candidates){const x=n.homeX+dx,y=n.homeY+dy;if(x&gt;=2&amp;&amp;x&lt;=39&amp;&amp;y&gt;=2&amp;&amp;y&lt;=23&amp;&amp;!blocked.has(x+&#x27;,&#x27;+y)&amp;&amp;world[y]?.[x]!==&#x27;water&#x27;)points.push([x,y]);}
+  const points=[];for(const [dx,dy] of candidates){const x=n.homeX+dx,y=n.homeY+dy;if(x&gt;=2&amp;&amp;x&lt;=39&amp;&amp;y&gt;=2&amp;&amp;y&lt;=23&amp;&amp;!blocked.has(x+','+y)&amp;&amp;world[y]?.[x]!=='water')points.push([x,y]);}
   n.route=points.length?points:old;n.routeIndex=0;n.moveAt=frameTime+300+n.seed*110;
  }}
 function postNpc(n){if(!ending.cleared)return false;
- const actions=[];if(n.name===questNPC[sceneId])actions.push([&#x27;📜 今日委託&#x27;,questAction]);
- if([&#x27;麵包店老闆&#x27;,&#x27;梯田農夫&#x27;,&#x27;纜車站員&#x27;,&#x27;漁村居民&#x27;,&#x27;海灣船員&#x27;].includes(n.name))actions.push([&#x27;🛍️ 素材交換&#x27;,tradeAction]);
+ const actions=[];if(n.name===questNPC[sceneId])actions.push(['📜 今日委託',questAction]);
+ if(['麵包店老闆','梯田農夫','纜車站員','漁村居民','海灣船員'].includes(n.name))actions.push(['🛍️ 素材交換',tradeAction]);
  if(!actions.length)return false;
- showGameDialog(n.name,lifeText(n)+&#x27;\n\n&#x27;+(actions[0][0].includes(&#x27;委託&#x27;)?questText():&#x27;可用兩份同種怪獸素材換一份恢復藥草。&#x27;),actions);return true
+ showGameDialog(n.name,lifeText(n)+'\n\n'+(actions[0][0].includes('委託')?questText():'可用兩份同種怪獸素材換一份恢復藥草。'),actions);return true
 }
-function postJournal(){if(!ending.cleared)return &#x27;&lt;hr&gt;&lt;h3&gt;🌿 通關後自由冒險&lt;/h3&gt;&lt;p&gt;完成最終首領後，解鎖每日委託、隱藏寶箱和 NPC 素材交換。&lt;/p&gt;&#x27;;
+function postJournal(){if(!ending.cleared)return '&lt;hr&gt;&lt;h3&gt;🌿 通關後自由冒險&lt;/h3&gt;&lt;p&gt;完成最終首領後，解鎖每日委託、隱藏寶箱和 NPC 素材交換。&lt;/p&gt;';
  const opened=Object.keys(post.chests).filter(k=&gt;post.chests[k]).length;
- const today=Object.keys(names).map(id=&gt;{const q=post.quests[postDay()+&#x27;_&#x27;+id];return &#x27;&lt;p&gt;&#x27;+names[id]+&#x27;：&#x27;+(!q?&#x27;尚未接取&#x27;:q.done?&#x27;✅ 已完成&#x27;:&#x27;進行中&#x27;)+&#x27;&lt;/p&gt;&#x27;}).join(&#x27;&#x27;);
- return &#x27;&lt;hr&gt;&lt;h3&gt;🌿 通關後自由冒險&lt;/h3&gt;&lt;p&gt;每日委託：找各地故事 NPC 接取，野外打怪 2 隻或安全區散步 20 步。&lt;/p&gt;&#x27;+today+&#x27;&lt;p&gt;🎁 已開寶箱 &#x27;+opened+&#x27; / 10　｜　🛍️ 素材交換 &#x27;+post.trades+&#x27; 次&lt;/p&gt;&lt;p&gt;寶箱在地圖中以金色小箱顯示，靠近後按互動即可開啟。&lt;/p&gt;&#x27;
+ const today=Object.keys(names).map(id=&gt;{const q=post.quests[postDay()+'_'+id];return '&lt;p&gt;'+names[id]+'：'+(!q?'尚未接取':q.done?'✅ 已完成':'進行中')+'&lt;/p&gt;'}).join('');
+ return '&lt;hr&gt;&lt;h3&gt;🌿 通關後自由冒險&lt;/h3&gt;&lt;p&gt;每日委託：找各地故事 NPC 接取，野外打怪 2 隻或安全區散步 20 步。&lt;/p&gt;'+today+'&lt;p&gt;🎁 已開寶箱 '+opened+' / 10　｜　🛍️ 素材交換 '+post.trades+' 次&lt;/p&gt;&lt;p&gt;寶箱在地圖中以金色小箱顯示，靠近後按互動即可開啟。&lt;/p&gt;'
 }
-function drawTreasure(t){if(!ending.cleared||post.chests[t.id])return;const x=t.x*T+4,y=t.y*T+9;rect(x,y+10,24,13,&#x27;#80502e&#x27;);rect(x+2,y+1,20,12,&#x27;#d8a74f&#x27;);rect(x+4,y+4,16,5,&#x27;#f5d37b&#x27;);rect(x+10,y+2,4,20,&#x27;#6b4a2f&#x27;);rect(x+10,y+13,4,4,&#x27;#fff1b0&#x27;)}
+function drawTreasure(t){if(!ending.cleared||post.chests[t.id])return;const x=t.x*T+4,y=t.y*T+9;rect(x,y+10,24,13,'#80502e');rect(x+2,y+1,20,12,'#d8a74f');rect(x+4,y+4,16,5,'#f5d37b');rect(x+10,y+2,4,20,'#6b4a2f');rect(x+10,y+13,4,4,'#fff1b0')}
 function camera(){return {x:Math.max(0,Math.min(W*T-960,player.x*T-480)),y:Math.max(0,Math.min(H*T-540,player.y*T-270))}}
 function near(){
  const front={up:[0,-1],down:[0,1],left:[-1,0],right:[1,0]}[player.dir];
@@ -2413,148 +2467,148 @@ function near(){
  return best;
 }
 function nearExit(){return exits.find(e=&gt;Math.abs(e.x-player.x)+Math.abs(e.y-player.y)&lt;=1)}
-function showToast(message){const el=document.getElementById(&#x27;toast&#x27;);el.textContent=message;el.style.display=&#x27;block&#x27;;toastUntil=performance.now()+1600}
-function interact(){if(combat||!document.getElementById(&#x27;journal&#x27;).hidden||!document.getElementById(&#x27;lifePanel&#x27;).hidden)return;if(dialog){closeDialog();return}const e=nearExit();if(e){setup(e.target,[e.tx,e.ty]);showToast(&#x27;已抵達 &#x27;+names[e.target]);return}const tr=treasureNear();if(tr){openTreasure(tr);return}let n=near();if(!n)return;if(postNpc(n))return;if(sceneId===&#x27;cruise&#x27;&amp;&amp;n.name===&#x27;郵輪服務員&#x27;&amp;&amp;finalReady()){startFinal();return}dialog=true;document.getElementById(&#x27;speaker&#x27;).textContent=n.name;document.getElementById(&#x27;words&#x27;).textContent=(sceneId===&#x27;cruise&#x27;&amp;&amp;n.name===&#x27;郵輪服務員&#x27;)?finalStory():storyText(n);talkStory(n);document.getElementById(&#x27;dialog&#x27;).style.display=&#x27;block&#x27;}
-function closeDialog(){dialog=false;document.getElementById(&#x27;postActions&#x27;).replaceChildren();document.getElementById(&#x27;dialog&#x27;).style.display=&#x27;none&#x27;}
-function canMove(x,y){if(x&lt;2||y&lt;2||x&gt;39||y&gt;23||blocked.has(x+&#x27;,&#x27;+y))return false;return !npcs.some(n=&gt;n.x===x&amp;&amp;n.y===y)}
-function update(dt){if(dialog||combat||!document.getElementById(&#x27;journal&#x27;).hidden||!document.getElementById(&#x27;lifePanel&#x27;).hidden)return;updateVillagers(frameTime);stepAcc+=dt;let dirs=[[&#x27;up&#x27;,0,-1],[&#x27;down&#x27;,0,1],[&#x27;left&#x27;,-1,0],[&#x27;right&#x27;,1,0]];if(stepAcc&gt;=105){for(const [d,dx,dy] of dirs)if(keys.has(d)){player.dir=d;if(canMove(player.x+dx,player.y+dy)){player.x+=dx;player.y+=dy;player.walk++;tryWildEncounter();let e=exits.find(e=&gt;e.x===player.x&amp;&amp;e.y===player.y);if(e){setup(e.target,[e.tx,e.ty]);showToast(&#x27;已抵達 &#x27;+names[e.target])}}stepAcc=0;break}}}
+function showToast(message){const el=document.getElementById('toast');el.textContent=message;el.style.display='block';toastUntil=performance.now()+1600}
+function interact(){if(combat||!document.getElementById('journal').hidden||!document.getElementById('lifePanel').hidden)return;if(dialog){closeDialog();return}const e=nearExit();if(e){setup(e.target,[e.tx,e.ty]);showToast('已抵達 '+names[e.target]);return}const tr=treasureNear();if(tr){openTreasure(tr);return}let n=near();if(!n)return;if(postNpc(n))return;if(sceneId==='cruise'&amp;&amp;n.name==='郵輪服務員'&amp;&amp;finalReady()){startFinal();return}dialog=true;document.getElementById('speaker').textContent=n.name;document.getElementById('words').textContent=(sceneId==='cruise'&amp;&amp;n.name==='郵輪服務員')?finalStory():storyText(n);talkStory(n);document.getElementById('dialog').style.display='block'}
+function closeDialog(){dialog=false;document.getElementById('postActions').replaceChildren();document.getElementById('dialog').style.display='none'}
+function canMove(x,y){if(x&lt;2||y&lt;2||x&gt;39||y&gt;23||blocked.has(x+','+y))return false;return !npcs.some(n=&gt;n.x===x&amp;&amp;n.y===y)}
+function update(dt){if(dialog||combat||!document.getElementById('journal').hidden||!document.getElementById('lifePanel').hidden)return;updateVillagers(frameTime);stepAcc+=dt;let dirs=[['up',0,-1],['down',0,1],['left',-1,0],['right',1,0]];if(stepAcc&gt;=105){for(const [d,dx,dy] of dirs)if(keys.has(d)){player.dir=d;if(canMove(player.x+dx,player.y+dy)){player.x+=dx;player.y+=dy;player.walk++;tryWildEncounter();let e=exits.find(e=&gt;e.x===player.x&amp;&amp;e.y===player.y);if(e){setup(e.target,[e.tx,e.ty]);showToast('已抵達 '+names[e.target])}}stepAcc=0;break}}}
 function render(){let cam=camera();c.save();c.translate(-cam.x,-cam.y);for(let y=0;y&lt;H;y++)for(let x=0;x&lt;W;x++)tile(x,y,world[y][x]);for(const d of decor)drawDecor(d);landmarks();sceneDetails();for(const b of buildings)house(b);if(pond)drawPond();for(const [x,y] of trees)tree(x,y);for(const p of props)prop(p);for(const b of banners)lantern(b.x,b.y);
-for(const e of exits){let x=e.x*T,y=e.y*T;rect(x+2,y+4,28,25,&#x27;#e4cb80&#x27;);rect(x+5,y+7,22,19,&#x27;#577f68&#x27;);rect(x+11,y+10,10,13,&#x27;#f6e9b7&#x27;);rect(x+14,y+24,4,6,&#x27;#745c42&#x27;)}
+for(const e of exits){let x=e.x*T,y=e.y*T;rect(x+2,y+4,28,25,'#e4cb80');rect(x+5,y+7,22,19,'#577f68');rect(x+11,y+10,10,13,'#f6e9b7');rect(x+14,y+24,4,6,'#745c42')}
 for(const t of treasures)drawTreasure(t);
-let actors=[...npcs.map(n=&gt;({...n,player:false})),{...player,shirt:&#x27;#d8a75b&#x27;,hair:&#x27;#3e3330&#x27;,player:true}].sort((a,b)=&gt;a.y-b.y);for(const a of actors)person(a.x,a.y,a.shirt,a.hair,a.dir||&#x27;down&#x27;,a.walk||0);
-let n=near(),e=nearExit(),tr=treasureNear();if(!dialog&amp;&amp;(n||e||tr)){let x=(e?e.x:tr?tr.x:n.x)*T-33,y=(e?e.y:tr?tr.y:n.y)*T-39;rect(x,y,112,22,&#x27;#fff3d2&#x27;);rect(x+2,y+2,108,18,&#x27;#75563d&#x27;);c.fillStyle=&#x27;#fff7df&#x27;;c.font=&#x27;bold 12px sans-serif&#x27;;c.fillText(e?&#x27;E &#x27;+e.label:tr?&#x27;E 開啟寶箱&#x27;:&#x27;E &#x27;+n.name+&#x27; · 交談&#x27;,x+6,y+15)}c.restore();rect(0,500,960,40,&#x27;#1c382dcb&#x27;);c.fillStyle=&#x27;#fff2d1&#x27;;c.font=&#x27;bold 17px sans-serif&#x27;;c.fillText(names[sceneId]+&#x27; · 北越像素冒險&#x27;,22,526);c.font=&#x27;14px sans-serif&#x27;;c.fillText(&#x27;📖 故事 · ✨ 星印 · 野外隨機遇敵&#x27;,720,526)}
-function loop(t){let dt=Math.min(50,t-last);last=t;frameTime=t;update(dt);render();if(toastUntil&amp;&amp;t&gt;toastUntil){document.getElementById(&#x27;toast&#x27;).style.display=&#x27;none&#x27;;toastUntil=0}requestAnimationFrame(loop)}
-setup(&#x27;hanoi&#x27;);requestAnimationFrame(loop);
-const mapping={ArrowUp:&#x27;up&#x27;,ArrowDown:&#x27;down&#x27;,ArrowLeft:&#x27;left&#x27;,ArrowRight:&#x27;right&#x27;,w:&#x27;up&#x27;,s:&#x27;down&#x27;,a:&#x27;left&#x27;,d:&#x27;right&#x27;};
-window.addEventListener(&#x27;keydown&#x27;,e=&gt;{let k=mapping[e.key];if(k){keys.add(k);e.preventDefault()}if(e.key===&#x27;e&#x27;||e.key===&#x27;E&#x27;||e.key===&#x27; &#x27;){interact();e.preventDefault()}if(e.key===&#x27;j&#x27;||e.key===&#x27;J&#x27;){journal();e.preventDefault()}});window.addEventListener(&#x27;keyup&#x27;,e=&gt;{let k=mapping[e.key];if(k)keys.delete(k)});window.addEventListener(&#x27;blur&#x27;,()=&gt;keys.clear());document.querySelectorAll(&#x27;[data-dir]&#x27;).forEach(b=&gt;{const d=b.dataset.dir;b.addEventListener(&#x27;pointerdown&#x27;,e=&gt;{e.preventDefault();keys.add(d);b.setPointerCapture(e.pointerId)});for(const ev of [&#x27;pointerup&#x27;,&#x27;pointercancel&#x27;,&#x27;lostpointercapture&#x27;])b.addEventListener(ev,()=&gt;keys.delete(d))});
+let actors=[...npcs.map(n=&gt;({...n,player:false})),{...player,shirt:'#d8a75b',hair:'#3e3330',player:true}].sort((a,b)=&gt;a.y-b.y);for(const a of actors)person(a.x,a.y,a.shirt,a.hair,a.dir||'down',a.walk||0);
+let n=near(),e=nearExit(),tr=treasureNear();if(!dialog&amp;&amp;(n||e||tr)){let x=(e?e.x:tr?tr.x:n.x)*T-33,y=(e?e.y:tr?tr.y:n.y)*T-39;rect(x,y,112,22,'#fff3d2');rect(x+2,y+2,108,18,'#75563d');c.fillStyle='#fff7df';c.font='bold 12px sans-serif';c.fillText(e?'E '+e.label:tr?'E 開啟寶箱':'E '+n.name+' · 交談',x+6,y+15)}c.restore();rect(0,500,960,40,'#1c382dcb');c.fillStyle='#fff2d1';c.font='bold 17px sans-serif';c.fillText(names[sceneId]+' · 北越像素冒險',22,526);c.font='14px sans-serif';c.fillText('📖 故事 · ✨ 星印 · 野外隨機遇敵',720,526)}
+function loop(t){let dt=Math.min(50,t-last);last=t;frameTime=t;update(dt);render();if(toastUntil&amp;&amp;t&gt;toastUntil){document.getElementById('toast').style.display='none';toastUntil=0}requestAnimationFrame(loop)}
+setup('hanoi');requestAnimationFrame(loop);
+const mapping={ArrowUp:'up',ArrowDown:'down',ArrowLeft:'left',ArrowRight:'right',w:'up',s:'down',a:'left',d:'right'};
+window.addEventListener('keydown',e=&gt;{let k=mapping[e.key];if(k){keys.add(k);e.preventDefault()}if(e.key==='e'||e.key==='E'||e.key===' '){interact();e.preventDefault()}if(e.key==='j'||e.key==='J'){journal();e.preventDefault()}});window.addEventListener('keyup',e=&gt;{let k=mapping[e.key];if(k)keys.delete(k)});window.addEventListener('blur',()=&gt;keys.clear());document.querySelectorAll('[data-dir]').forEach(b=&gt;{const d=b.dataset.dir;b.addEventListener('pointerdown',e=&gt;{e.preventDefault();keys.add(d);b.setPointerCapture(e.pointerId)});for(const ev of ['pointerup','pointercancel','lostpointercapture'])b.addEventListener(ev,()=&gt;keys.delete(d))});
 // V12.1: 僅攔截遊戲方向控制的長按選取與右鍵選單；不影響日誌閱讀。
-const gameControlTarget = el =&gt; !!(el &amp;&amp; el.closest &amp;&amp; el.closest(&#x27;#pad, #act, #game&#x27;));
-document.addEventListener(&#x27;contextmenu&#x27;, e =&gt; {if(gameControlTarget(e.target))e.preventDefault()});
-document.addEventListener(&#x27;selectstart&#x27;, e =&gt; {if(gameControlTarget(e.target))e.preventDefault()});
-document.addEventListener(&#x27;dragstart&#x27;, e =&gt; {if(gameControlTarget(e.target))e.preventDefault()});
-document.querySelectorAll(&#x27;#pad button&#x27;).forEach(b=&gt;{
-  b.addEventListener(&#x27;touchstart&#x27;,e=&gt;e.preventDefault(),{passive:false});
-  b.addEventListener(&#x27;touchmove&#x27;,e=&gt;e.preventDefault(),{passive:false});
+const gameControlTarget = el =&gt; !!(el &amp;&amp; el.closest &amp;&amp; el.closest('#pad, #act, #game'));
+document.addEventListener('contextmenu', e =&gt; {if(gameControlTarget(e.target))e.preventDefault()});
+document.addEventListener('selectstart', e =&gt; {if(gameControlTarget(e.target))e.preventDefault()});
+document.addEventListener('dragstart', e =&gt; {if(gameControlTarget(e.target))e.preventDefault()});
+document.querySelectorAll('#pad button').forEach(b=&gt;{
+  b.addEventListener('touchstart',e=&gt;e.preventDefault(),{passive:false});
+  b.addEventListener('touchmove',e=&gt;e.preventDefault(),{passive:false});
 });
-document.getElementById(&#x27;act&#x27;).addEventListener(&#x27;click&#x27;,interact);document.getElementById(&#x27;close&#x27;).addEventListener(&#x27;click&#x27;,closeDialog);document.getElementById(&#x27;journalBtn&#x27;).addEventListener(&#x27;click&#x27;,journal);document.getElementById(&#x27;journalClose&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;document.getElementById(&#x27;journal&#x27;).hidden=true);document.getElementById(&#x27;attackBtn&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;battleTurn(&#x27;attack&#x27;));document.getElementById(&#x27;guardBtn&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;battleTurn(&#x27;guard&#x27;));document.getElementById(&#x27;skillBtn&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;battleTurn(&#x27;skill&#x27;));document.getElementById(&#x27;specialBtn&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;battleTurn(&#x27;special&#x27;));document.getElementById(&#x27;leaveBtn&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;battleTurn(&#x27;leave&#x27;));
+document.getElementById('act').addEventListener('click',interact);document.getElementById('close').addEventListener('click',closeDialog);document.getElementById('journalBtn').addEventListener('click',journal);document.getElementById('journalClose').addEventListener('click',()=&gt;document.getElementById('journal').hidden=true);document.getElementById('attackBtn').addEventListener('click',()=&gt;battleTurn('attack'));document.getElementById('guardBtn').addEventListener('click',()=&gt;battleTurn('guard'));document.getElementById('skillBtn').addEventListener('click',()=&gt;battleTurn('skill'));document.getElementById('specialBtn').addEventListener('click',()=&gt;battleTurn('special'));document.getElementById('leaveBtn').addEventListener('click',()=&gt;battleTurn('leave'));
 
 // V15–V20 integrated expansion. Existing V8/V10/V11/V12/V13 keys are read, never reset.
-const LIFE_KEY=&#x27;north_vietnam_pixel_rpg_v20_life&#x27;;
-const lifeDefault=()=&gt;({version:20,coins:30,inventory:{&#x27;米&#x27;:2,&#x27;香草&#x27;:1},friendship:{},gifts:{},harvest:{},fishDay:{},puzzles:{},recipes:{},home:{rest:0,stored:{}},events:{},indoorVisits:{},quests:{},achievements:{},weatherSeed:0});
+const LIFE_KEY='north_vietnam_pixel_rpg_v20_life';
+const lifeDefault=()=&gt;({version:20,coins:30,inventory:{'米':2,'香草':1},friendship:{},gifts:{},harvest:{},fishDay:{},puzzles:{},recipes:{},home:{rest:0,stored:{}},events:{},indoorVisits:{},quests:{},achievements:{},weatherSeed:0});
 let life=lifeDefault();
-try{const raw=JSON.parse(localStorage.getItem(LIFE_KEY)||&#x27;null&#x27;);if(raw&amp;&amp;typeof raw===&#x27;object&#x27;){
- life={...life,...raw};for(const k of [&#x27;inventory&#x27;,&#x27;friendship&#x27;,&#x27;gifts&#x27;,&#x27;harvest&#x27;,&#x27;fishDay&#x27;,&#x27;puzzles&#x27;,&#x27;recipes&#x27;,&#x27;events&#x27;,&#x27;indoorVisits&#x27;,&#x27;quests&#x27;,&#x27;achievements&#x27;])if(!life[k]||typeof life[k]!==&#x27;object&#x27;||Array.isArray(life[k]))life[k]={};
- if(!life.home||typeof life.home!==&#x27;object&#x27;)life.home={rest:0,stored:{}};if(!life.home.stored||typeof life.home.stored!==&#x27;object&#x27;)life.home.stored={};
+try{const raw=JSON.parse(localStorage.getItem(LIFE_KEY)||'null');if(raw&amp;&amp;typeof raw==='object'){
+ life={...life,...raw};for(const k of ['inventory','friendship','gifts','harvest','fishDay','puzzles','recipes','events','indoorVisits','quests','achievements'])if(!life[k]||typeof life[k]!=='object'||Array.isArray(life[k]))life[k]={};
+ if(!life.home||typeof life.home!=='object')life.home={rest:0,stored:{}};if(!life.home.stored||typeof life.home.stored!=='object')life.home.stored={};
  life.coins=Math.max(0,Number(life.coins)||0);
 }}catch(e){}
-function saveLife(){try{localStorage.setItem(LIFE_KEY,JSON.stringify(life))}catch(e){showToast(&#x27;⚠️ 儲存失敗，請備份資料&#x27;)}}
+function saveLife(){try{localStorage.setItem(LIFE_KEY,JSON.stringify(life))}catch(e){showToast('⚠️ 儲存失敗，請備份資料')}}
 function todayLife(){return postDay()}
 function hasItem(k,n=1){return (life.inventory[k]||0)&gt;=n}
 function giveItem(k,n=1){life.inventory[k]=(life.inventory[k]||0)+n;saveLife()}
 function takeItem(k,n=1){if(!hasItem(k,n))return false;life.inventory[k]-=n;saveLife();return true}
-const lifeResources={hanoi:[&#x27;咖啡豆&#x27;,&#x27;香草&#x27;],sapa:[&#x27;山野藥草&#x27;,&#x27;米&#x27;],fansipan:[&#x27;雲頂花&#x27;,&#x27;山野藥草&#x27;],halong:[&#x27;貝殼&#x27;,&#x27;海鹽&#x27;],cruise:[&#x27;海鹽&#x27;,&#x27;咖啡豆&#x27;]};
-const lifeFish={halong:[&#x27;海灣小魚&#x27;,&#x27;銀鱗魚&#x27;],cruise:[&#x27;海灣小魚&#x27;,&#x27;星光魚&#x27;]};
-const lifeRooms={hanoi:[&#x27;河內咖啡館&#x27;,&#x27;河內麵包店&#x27;,&#x27;傳統雜貨店&#x27;,&#x27;冒險者之家&#x27;],sapa:[&#x27;織布工坊&#x27;,&#x27;山村民宿&#x27;],fansipan:[&#x27;纜車休息站&#x27;,&#x27;山頂小屋&#x27;],halong:[&#x27;漁港小屋&#x27;,&#x27;海灣雜貨鋪&#x27;],cruise:[&#x27;郵輪客艙&#x27;,&#x27;甲板餐廳&#x27;]};
-const recipes=[{name:&#x27;香草飯糰&#x27;,need:{米:1,香草:1},heal:8},{name:&#x27;山野藥茶&#x27;,need:{山野藥草:2},heal:12},{name:&#x27;海灣烤魚&#x27;,need:{海灣小魚:1,海鹽:1},heal:15},{name:&#x27;河內咖啡&#x27;,need:{咖啡豆:2},heal:6}];
-const puzzlePlaces={hanoi:&#x27;老城陽台的星形花磚&#x27;,sapa:&#x27;梯田石階上的風向符號&#x27;,fansipan:&#x27;雲巔遺跡的古老石刻&#x27;,halong:&#x27;海蝕洞口的潮汐刻痕&#x27;,cruise:&#x27;甲板羅盤的星夜刻度&#x27;};
-function lifePeriodName(){return [&#x27;早晨&#x27;,&#x27;午後&#x27;,&#x27;夜晚&#x27;][lifePeriod()]}
-function lifeWeather(){const d=new Date(),n=d.getFullYear()*372+(d.getMonth()+1)*31+d.getDate()+Object.keys(names).indexOf(sceneId)*17;return [&#x27;☀️ 晴朗&#x27;,&#x27;☁️ 多雲&#x27;,&#x27;🌦️ 陣雨&#x27;,&#x27;🌫️ 薄霧&#x27;][n%4]}
-let lifeTab=&#x27;home&#x27;;const lifePanel=document.getElementById(&#x27;lifePanel&#x27;),lifeContent=document.getElementById(&#x27;lifeContent&#x27;),lifeTabs=document.getElementById(&#x27;lifeTabs&#x27;);
-const tabDefs=[[&#x27;home&#x27;,&#x27;🏠 生活&#x27;],[&#x27;gather&#x27;,&#x27;🌿 採集&#x27;],[&#x27;craft&#x27;,&#x27;🍳 料理&#x27;],[&#x27;people&#x27;,&#x27;💝 居民&#x27;],[&#x27;explore&#x27;,&#x27;🗝️ 探索&#x27;],[&#x27;quests&#x27;,&#x27;📜 支線&#x27;],[&#x27;records&#x27;,&#x27;🏆 紀錄&#x27;],[&#x27;save&#x27;,&#x27;💾 備份&#x27;]];
-function addLifeButton(container,label,fn){const b=document.createElement(&#x27;button&#x27;);b.type=&#x27;button&#x27;;b.textContent=label;b.addEventListener(&#x27;click&#x27;,()=&gt;{fn();if(!lifePanel.hidden)renderLife()});container.appendChild(b);return b}
-function lifeLine(title,body,actions=[]){const wrap=document.createElement(&#x27;div&#x27;);wrap.className=&#x27;item&#x27;;const p=document.createElement(&#x27;p&#x27;);const strong=document.createElement(&#x27;strong&#x27;);strong.textContent=title;p.append(strong,document.createTextNode(body?&#x27;｜&#x27;+body:&#x27;&#x27;));wrap.appendChild(p);for(const [label,fn] of actions)addLifeButton(wrap,label,fn);lifeContent.appendChild(wrap)}
-function lifeInfo(s){const p=document.createElement(&#x27;p&#x27;);p.textContent=s;lifeContent.appendChild(p)}
-function openLife(tab=&#x27;home&#x27;){if(combat||dialog||!document.getElementById(&#x27;journal&#x27;).hidden)return;lifeTab=tab;lifePanel.hidden=false;keys.clear();renderLife()}
+const lifeResources={hanoi:['咖啡豆','香草'],sapa:['山野藥草','米'],fansipan:['雲頂花','山野藥草'],halong:['貝殼','海鹽'],cruise:['海鹽','咖啡豆']};
+const lifeFish={halong:['海灣小魚','銀鱗魚'],cruise:['海灣小魚','星光魚']};
+const lifeRooms={hanoi:['河內咖啡館','河內麵包店','傳統雜貨店','冒險者之家'],sapa:['織布工坊','山村民宿'],fansipan:['纜車休息站','山頂小屋'],halong:['漁港小屋','海灣雜貨鋪'],cruise:['郵輪客艙','甲板餐廳']};
+const recipes=[{name:'香草飯糰',need:{米:1,香草:1},heal:8},{name:'山野藥茶',need:{山野藥草:2},heal:12},{name:'海灣烤魚',need:{海灣小魚:1,海鹽:1},heal:15},{name:'河內咖啡',need:{咖啡豆:2},heal:6}];
+const puzzlePlaces={hanoi:'老城陽台的星形花磚',sapa:'梯田石階上的風向符號',fansipan:'雲巔遺跡的古老石刻',halong:'海蝕洞口的潮汐刻痕',cruise:'甲板羅盤的星夜刻度'};
+function lifePeriodName(){return ['早晨','午後','夜晚'][lifePeriod()]}
+function lifeWeather(){const d=new Date(),n=d.getFullYear()*372+(d.getMonth()+1)*31+d.getDate()+Object.keys(names).indexOf(sceneId)*17;return ['☀️ 晴朗','☁️ 多雲','🌦️ 陣雨','🌫️ 薄霧'][n%4]}
+let lifeTab='home';const lifePanel=document.getElementById('lifePanel'),lifeContent=document.getElementById('lifeContent'),lifeTabs=document.getElementById('lifeTabs');
+const tabDefs=[['home','🏠 生活'],['gather','🌿 採集'],['craft','🍳 料理'],['people','💝 居民'],['explore','🗝️ 探索'],['quests','📜 支線'],['records','🏆 紀錄'],['save','💾 備份']];
+function addLifeButton(container,label,fn){const b=document.createElement('button');b.type='button';b.textContent=label;b.addEventListener('click',()=&gt;{fn();if(!lifePanel.hidden)renderLife()});container.appendChild(b);return b}
+function lifeLine(title,body,actions=[]){const wrap=document.createElement('div');wrap.className='item';const p=document.createElement('p');const strong=document.createElement('strong');strong.textContent=title;p.append(strong,document.createTextNode(body?'｜'+body:''));wrap.appendChild(p);for(const [label,fn] of actions)addLifeButton(wrap,label,fn);lifeContent.appendChild(wrap)}
+function lifeInfo(s){const p=document.createElement('p');p.textContent=s;lifeContent.appendChild(p)}
+function openLife(tab='home'){if(combat||dialog||!document.getElementById('journal').hidden)return;lifeTab=tab;lifePanel.hidden=false;keys.clear();renderLife()}
 function closeLife(){lifePanel.hidden=true;keys.clear()}
-function lifeBusy(){return combat||dialog||!document.getElementById(&#x27;journal&#x27;).hidden}
-function lifeGather(){const k=sceneId+&#x27;_&#x27;+todayLife(),count=life.harvest[k]||0;if(count&gt;=4){showToast(&#x27;今天這裡已採集四次&#x27;);return}const list=lifeResources[sceneId];const item=list[count%list.length];life.harvest[k]=count+1;giveItem(item,1);saveLife();showToast(&#x27;🌿 採集 &#x27;+item+&#x27; ×1&#x27;)}
-function lifeFishing(){if(!lifeFish[sceneId]){showToast(&#x27;請到下龍港口或郵輪釣魚&#x27;);return}const k=sceneId+&#x27;_&#x27;+todayLife(),count=life.fishDay[k]||0;if(count&gt;=3){showToast(&#x27;今天釣魚次數已用完&#x27;);return}life.fishDay[k]=count+1;const item=lifeFish[sceneId][count%2];giveItem(item,1);saveLife();showToast(&#x27;🎣 釣到 &#x27;+item+&#x27; ×1&#x27;)}
-function lifeCook(r){for(const [k,n] of Object.entries(r.need))if(!hasItem(k,n)){showToast(&#x27;缺少材料：&#x27;+k);return}for(const [k,n] of Object.entries(r.need))takeItem(k,n);life.recipes[r.name]=(life.recipes[r.name]||0)+1;progress.hp=Math.min(maxHp(),progress.hp+r.heal);saveStory();saveLife();showToast(&#x27;🍳 &#x27;+r.name+&#x27; 恢復 &#x27;+r.heal+&#x27; HP&#x27;)}
-function lifeRest(){progress.hp=maxHp();rpg.mp=maxMp();life.home.rest++;saveStory();saveRpg();saveLife();showToast(&#x27;🛏️ 已休息，HP/MP 恢復&#x27;)}
-function lifeGift(name){const key=todayLife()+&#x27;_&#x27;+name;if(life.gifts[key]){showToast(&#x27;今天已送過禮物&#x27;);return}if(!takeItem(&#x27;香草&#x27;,1)){showToast(&#x27;需要香草 ×1 才能送禮&#x27;);return}life.gifts[key]=true;life.friendship[name]=Math.min(100,(life.friendship[name]||0)+10);saveLife();showToast(&#x27;💝 &#x27;+name+&#x27; 好感度 +10&#x27;)}
-function lifeTradeBuy(){if(life.coins&lt;8){showToast(&#x27;金幣不足&#x27;);return}life.coins-=8;giveItem(&#x27;米&#x27;,1);giveItem(&#x27;香草&#x27;,1);saveLife();showToast(&#x27;🛒 買到米、香草各一份&#x27;)}
-function lifePuzzle(){const key=sceneId;if(life.puzzles[key]){showToast(&#x27;這裡的祕密已經解開&#x27;);return}if((life.inventory[&#x27;山野藥草&#x27;]||0)&lt;1 &amp;&amp; sceneId===&#x27;fansipan&#x27;){showToast(&#x27;番西邦需要山野藥草 ×1&#x27;);return}if(sceneId===&#x27;fansipan&#x27;)takeItem(&#x27;山野藥草&#x27;,1);life.puzzles[key]=true;life.coins+=15;giveItem(&#x27;祕境星屑&#x27;,1);saveLife();showToast(&#x27;🗝️ 解謎成功！金幣 +15、祕境星屑 +1&#x27;)}
-function lifeSideQuest(){const key=sceneId+&#x27;_&#x27;+todayLife();const q=life.quests[key];if(!q){life.quests[key]={stage:&#x27;accepted&#x27;,start:player.walk};saveLife();showToast(&#x27;📜 已接取地區生活委託&#x27;);return}if(q.stage===&#x27;done&#x27;){showToast(&#x27;今天已完成委託&#x27;);return}if(Math.max(0,player.walk-q.start)&lt;12){showToast(&#x27;還需要散步 &#x27;+(12-Math.max(0,player.walk-q.start))+&#x27; 步&#x27;);return}q.stage=&#x27;done&#x27;;life.coins+=20;giveItem(&#x27;居民感謝信&#x27;,1);saveLife();showToast(&#x27;🎉 委託完成，金幣 +20&#x27;)}
-function lifeEvent(){const k=sceneId+&#x27;_&#x27;+todayLife();if(life.events[k]){showToast(&#x27;今天已參加過活動&#x27;);return}life.events[k]=true;life.coins+=5;saveLife();showToast(&#x27;🎊 參加生活活動，金幣 +5&#x27;)}
-function storeItem(k){if(!takeItem(k,1))return;life.home.stored[k]=(life.home.stored[k]||0)+1;saveLife();showToast(&#x27;📦 已存放 &#x27;+k)}
-function retrieveItem(k){if((life.home.stored[k]||0)&lt;1)return;life.home.stored[k]--;giveItem(k,1);saveLife();showToast(&#x27;📦 已取出 &#x27;+k)}
-function lifeVisit(room){life.indoorVisits[room]=(life.indoorVisits[room]||0)+1;saveLife();showGameDialog(&#x27;🏠 &#x27;+room,&#x27;你走進室內，看到溫暖的燈光與居民生活的痕跡。\n（本版為室內事件場景；尚未提供可自由走動的獨立室內地圖。）&#x27;,room.includes(&#x27;之家&#x27;)||room.includes(&#x27;民宿&#x27;)||room.includes(&#x27;客艙&#x27;)?[[&#x27;🛏️ 休息恢復&#x27;,()=&gt;{lifeRest();closeDialog()}]]:[]);closeLife()}
-function renderLife(){lifeTabs.replaceChildren();lifeContent.replaceChildren();for(const [id,label] of tabDefs){const b=addLifeButton(lifeTabs,label,()=&gt;lifeTab=id);if(lifeTab===id)b.classList.add(&#x27;selected&#x27;)}
- if(lifeTab===&#x27;home&#x27;){
- lifeInfo(names[sceneId]+&#x27; · &#x27;+lifePeriodName()+&#x27; · &#x27;+lifeWeather()+&#x27; · 🪙 &#x27;+life.coins+&#x27; 金幣&#x27;);
- lifeInfo(&#x27;生活資源：&#x27;+(Object.entries(life.inventory).filter(([,n])=&gt;n&gt;0).map(([k,n])=&gt;k+&#x27; ×&#x27;+n).join(&#x27;、&#x27;)||&#x27;空&#x27;));
- lifeLine(&#x27;🏡 室內探索&#x27;,&#x27;從目前地區選擇建築進入（室內事件版）&#x27;,lifeRooms[sceneId].map(room=&gt;[&#x27;進入 &#x27;+room,()=&gt;lifeVisit(room)]));
- if(sceneId===&#x27;hanoi&#x27;||sceneId===&#x27;sapa&#x27;||sceneId===&#x27;cruise&#x27;)lifeLine(&#x27;🛏️ 休息&#x27;,&#x27;恢復全部 HP 與 MP&#x27;,[[&#x27;休息&#x27;,lifeRest]]);
- if(sceneId===&#x27;hanoi&#x27;)lifeLine(&#x27;🛒 河內市集&#x27;,&#x27;8 金幣購買米 ×1、香草 ×1&#x27;,[[&#x27;購買食材&#x27;,lifeTradeBuy]]);
- lifeLine(&#x27;🎊 今日城鎮活動&#x27;,lifePeriodName()+&#x27;的&#x27;+({hanoi:&#x27;古城市集&#x27;,sapa:&#x27;梯田巡禮&#x27;,fansipan:&#x27;雲海觀景&#x27;,halong:&#x27;漁港生活&#x27;,cruise:&#x27;甲板茶會&#x27;}[sceneId]),[[&#x27;參加活動&#x27;,lifeEvent]]);
- }else if(lifeTab===&#x27;gather&#x27;){
- lifeInfo(&#x27;採集與釣魚採每日次數限制，無須先擊敗魔王。&#x27;);lifeLine(&#x27;🌿 &#x27;+names[sceneId]+&#x27;採集&#x27;,&#x27;每日最多 4 次&#x27;,[[&#x27;採集一次&#x27;,lifeGather]]);
- if(lifeFish[sceneId])lifeLine(&#x27;🎣 海灣釣魚&#x27;,&#x27;每日最多 3 次&#x27;,[[&#x27;拋竿釣魚&#x27;,lifeFishing]]);
- }else if(lifeTab===&#x27;craft&#x27;){
- lifeInfo(&#x27;料理立即消耗材料並恢復 HP；材料可採集、釣魚或購買。&#x27;);for(const r of recipes)lifeLine(&#x27;🍳 &#x27;+r.name,&#x27;材料：&#x27;+Object.entries(r.need).map(([k,n])=&gt;k+&#x27; ×&#x27;+n).join(&#x27;、&#x27;)+&#x27;｜恢復 &#x27;+r.heal+&#x27; HP&#x27;,[[&#x27;製作&#x27;,()=&gt;lifeCook(r)]]);
- }else if(lifeTab===&#x27;people&#x27;){
- lifeInfo(&#x27;每位 NPC 每天可送一次香草，好感度 +10。好感度保存在 V20 獨立存檔。&#x27;);for(const n of npcs)lifeLine(&#x27;💝 &#x27;+n.name,&#x27;好感度 &#x27;+(life.friendship[n.name]||0)+&#x27;/100&#x27;+((life.friendship[n.name]||0)&gt;=30?&#x27;｜已解鎖居民小故事&#x27;:&#x27;｜持續互動可解鎖故事&#x27;),[[&#x27;送香草&#x27;,()=&gt;lifeGift(n.name)]]);
- }else if(lifeTab===&#x27;explore&#x27;){
- lifeInfo(&#x27;五地各有一個祕密線索；解謎後可獲得金幣與祕境星屑。&#x27;);lifeLine(&#x27;🗝️ &#x27;+puzzlePlaces[sceneId],life.puzzles[sceneId]?&#x27;已解開&#x27;:&#x27;尚未解開&#x27;+(sceneId===&#x27;fansipan&#x27;?&#x27;（需要山野藥草）&#x27;:&#x27;&#x27;),[[&#x27;調查線索&#x27;,lifePuzzle]]);
- lifeInfo(&#x27;已解鎖祕境：&#x27;+Object.keys(life.puzzles).filter(k=&gt;life.puzzles[k]).length+&#x27;/5。這是探索解謎事件，並非可走動的洞窟地圖。&#x27;);
- }else if(lifeTab===&#x27;quests&#x27;){
- const q=life.quests[sceneId+&#x27;_&#x27;+todayLife()];lifeLine(&#x27;📜 &#x27;+names[sceneId]+&#x27;生活委託&#x27;,!q?&#x27;尚未接取：散步 12 步&#x27;:q.stage===&#x27;done&#x27;?&#x27;今日已完成&#x27;:&#x27;散步 &#x27;+Math.min(12,Math.max(0,player.walk-q.start))+&#x27;/12 步&#x27;,[[&#x27;接取／交付&#x27;,lifeSideQuest]]);
- lifeInfo(&#x27;這是 V20 生活支線，與 V13 通關後每日戰鬥委託分開保存；主線不需通關即可接取。&#x27;);
- }else if(lifeTab===&#x27;records&#x27;){
- lifeInfo(&#x27;角色 Lv.&#x27;+rpg.level+&#x27;｜星印 &#x27;+progress.done.length+&#x27;/5｜三地魔王 &#x27;+Object.keys(bossWins).filter(k=&gt;bossWins[k]).length+&#x27;/3｜最終首領 &#x27;+(ending.cleared?&#x27;已通關&#x27;:&#x27;未通關&#x27;));
- lifeInfo(&#x27;探索祕境 &#x27;+Object.keys(life.puzzles).filter(k=&gt;life.puzzles[k]).length+&#x27;/5｜料理次數 &#x27;+Object.values(life.recipes).reduce((a,b)=&gt;a+b,0)+&#x27;｜已參加活動 &#x27;+Object.keys(life.events).length+&#x27; 次&#x27;);
- lifeInfo(&#x27;📦 冒險者置物箱：&#x27;+(Object.entries(life.home.stored).filter(([,n])=&gt;n&gt;0).map(([k,n])=&gt;k+&#x27; ×&#x27;+n).join(&#x27;、&#x27;)||&#x27;空&#x27;));
- for(const [k,n] of Object.entries(life.inventory).filter(([,n])=&gt;n&gt;0))lifeLine(k,&#x27;持有 &#x27;+n,[[&#x27;存放 1 個&#x27;,()=&gt;storeItem(k)]]);
- for(const [k,n] of Object.entries(life.home.stored).filter(([,n])=&gt;n&gt;0))lifeLine(&#x27;📦 &#x27;+k,&#x27;存放 &#x27;+n,[[&#x27;取出 1 個&#x27;,()=&gt;retrieveItem(k)]]);
- }else if(lifeTab===&#x27;save&#x27;){
- lifeInfo(&#x27;原 V8/V10/V11/V12/V13 存檔鍵保持不變。請定期下載完整備份，換瀏覽器或換網址時可匯入。&#x27;);
- lifeLine(&#x27;💾 完整 RPG 備份&#x27;,&#x27;匯出目前已知的六組 RPG 存檔&#x27;,[[&#x27;下載 JSON 備份&#x27;,exportLifeBackup]]);
- const input=document.createElement(&#x27;input&#x27;);input.type=&#x27;file&#x27;;input.accept=&#x27;.json,application/json&#x27;;input.addEventListener(&#x27;change&#x27;,e=&gt;importLifeBackup(e.target.files?.[0]));lifeContent.appendChild(input);
- lifeInfo(&#x27;匯入前請先下載目前備份；匯入會覆蓋這六組 RPG 存檔，並重新載入頁面，僅覆蓋列出的 RPG 存檔鍵；請先備份。&#x27;);
+function lifeBusy(){return combat||dialog||!document.getElementById('journal').hidden}
+function lifeGather(){const k=sceneId+'_'+todayLife(),count=life.harvest[k]||0;if(count&gt;=4){showToast('今天這裡已採集四次');return}const list=lifeResources[sceneId];const item=list[count%list.length];life.harvest[k]=count+1;giveItem(item,1);saveLife();showToast('🌿 採集 '+item+' ×1')}
+function lifeFishing(){if(!lifeFish[sceneId]){showToast('請到下龍港口或郵輪釣魚');return}const k=sceneId+'_'+todayLife(),count=life.fishDay[k]||0;if(count&gt;=3){showToast('今天釣魚次數已用完');return}life.fishDay[k]=count+1;const item=lifeFish[sceneId][count%2];giveItem(item,1);saveLife();showToast('🎣 釣到 '+item+' ×1')}
+function lifeCook(r){for(const [k,n] of Object.entries(r.need))if(!hasItem(k,n)){showToast('缺少材料：'+k);return}for(const [k,n] of Object.entries(r.need))takeItem(k,n);life.recipes[r.name]=(life.recipes[r.name]||0)+1;progress.hp=Math.min(maxHp(),progress.hp+r.heal);saveStory();saveLife();showToast('🍳 '+r.name+' 恢復 '+r.heal+' HP')}
+function lifeRest(){progress.hp=maxHp();rpg.mp=maxMp();life.home.rest++;saveStory();saveRpg();saveLife();showToast('🛏️ 已休息，HP/MP 恢復')}
+function lifeGift(name){const key=todayLife()+'_'+name;if(life.gifts[key]){showToast('今天已送過禮物');return}if(!takeItem('香草',1)){showToast('需要香草 ×1 才能送禮');return}life.gifts[key]=true;life.friendship[name]=Math.min(100,(life.friendship[name]||0)+10);saveLife();showToast('💝 '+name+' 好感度 +10')}
+function lifeTradeBuy(){if(life.coins&lt;8){showToast('金幣不足');return}life.coins-=8;giveItem('米',1);giveItem('香草',1);saveLife();showToast('🛒 買到米、香草各一份')}
+function lifePuzzle(){const key=sceneId;if(life.puzzles[key]){showToast('這裡的祕密已經解開');return}if((life.inventory['山野藥草']||0)&lt;1 &amp;&amp; sceneId==='fansipan'){showToast('番西邦需要山野藥草 ×1');return}if(sceneId==='fansipan')takeItem('山野藥草',1);life.puzzles[key]=true;life.coins+=15;giveItem('祕境星屑',1);saveLife();showToast('🗝️ 解謎成功！金幣 +15、祕境星屑 +1')}
+function lifeSideQuest(){const key=sceneId+'_'+todayLife();const q=life.quests[key];if(!q){life.quests[key]={stage:'accepted',start:player.walk};saveLife();showToast('📜 已接取地區生活委託');return}if(q.stage==='done'){showToast('今天已完成委託');return}if(Math.max(0,player.walk-q.start)&lt;12){showToast('還需要散步 '+(12-Math.max(0,player.walk-q.start))+' 步');return}q.stage='done';life.coins+=20;giveItem('居民感謝信',1);saveLife();showToast('🎉 委託完成，金幣 +20')}
+function lifeEvent(){const k=sceneId+'_'+todayLife();if(life.events[k]){showToast('今天已參加過活動');return}life.events[k]=true;life.coins+=5;saveLife();showToast('🎊 參加生活活動，金幣 +5')}
+function storeItem(k){if(!takeItem(k,1))return;life.home.stored[k]=(life.home.stored[k]||0)+1;saveLife();showToast('📦 已存放 '+k)}
+function retrieveItem(k){if((life.home.stored[k]||0)&lt;1)return;life.home.stored[k]--;giveItem(k,1);saveLife();showToast('📦 已取出 '+k)}
+function lifeVisit(room){life.indoorVisits[room]=(life.indoorVisits[room]||0)+1;saveLife();showGameDialog('🏠 '+room,'你走進室內，看到溫暖的燈光與居民生活的痕跡。\n（本版為室內事件場景；尚未提供可自由走動的獨立室內地圖。）',room.includes('之家')||room.includes('民宿')||room.includes('客艙')?[['🛏️ 休息恢復',()=&gt;{lifeRest();closeDialog()}]]:[]);closeLife()}
+function renderLife(){lifeTabs.replaceChildren();lifeContent.replaceChildren();for(const [id,label] of tabDefs){const b=addLifeButton(lifeTabs,label,()=&gt;lifeTab=id);if(lifeTab===id)b.classList.add('selected')}
+ if(lifeTab==='home'){
+ lifeInfo(names[sceneId]+' · '+lifePeriodName()+' · '+lifeWeather()+' · 🪙 '+life.coins+' 金幣');
+ lifeInfo('生活資源：'+(Object.entries(life.inventory).filter(([,n])=&gt;n&gt;0).map(([k,n])=&gt;k+' ×'+n).join('、')||'空'));
+ lifeLine('🏡 室內探索','從目前地區選擇建築進入（室內事件版）',lifeRooms[sceneId].map(room=&gt;['進入 '+room,()=&gt;lifeVisit(room)]));
+ if(sceneId==='hanoi'||sceneId==='sapa'||sceneId==='cruise')lifeLine('🛏️ 休息','恢復全部 HP 與 MP',[['休息',lifeRest]]);
+ if(sceneId==='hanoi')lifeLine('🛒 河內市集','8 金幣購買米 ×1、香草 ×1',[['購買食材',lifeTradeBuy]]);
+ lifeLine('🎊 今日城鎮活動',lifePeriodName()+'的'+({hanoi:'古城市集',sapa:'梯田巡禮',fansipan:'雲海觀景',halong:'漁港生活',cruise:'甲板茶會'}[sceneId]),[['參加活動',lifeEvent]]);
+ }else if(lifeTab==='gather'){
+ lifeInfo('採集與釣魚採每日次數限制，無須先擊敗魔王。');lifeLine('🌿 '+names[sceneId]+'採集','每日最多 4 次',[['採集一次',lifeGather]]);
+ if(lifeFish[sceneId])lifeLine('🎣 海灣釣魚','每日最多 3 次',[['拋竿釣魚',lifeFishing]]);
+ }else if(lifeTab==='craft'){
+ lifeInfo('料理立即消耗材料並恢復 HP；材料可採集、釣魚或購買。');for(const r of recipes)lifeLine('🍳 '+r.name,'材料：'+Object.entries(r.need).map(([k,n])=&gt;k+' ×'+n).join('、')+'｜恢復 '+r.heal+' HP',[['製作',()=&gt;lifeCook(r)]]);
+ }else if(lifeTab==='people'){
+ lifeInfo('每位 NPC 每天可送一次香草，好感度 +10。好感度保存在 V20 獨立存檔。');for(const n of npcs)lifeLine('💝 '+n.name,'好感度 '+(life.friendship[n.name]||0)+'/100'+((life.friendship[n.name]||0)&gt;=30?'｜已解鎖居民小故事':'｜持續互動可解鎖故事'),[['送香草',()=&gt;lifeGift(n.name)]]);
+ }else if(lifeTab==='explore'){
+ lifeInfo('五地各有一個祕密線索；解謎後可獲得金幣與祕境星屑。');lifeLine('🗝️ '+puzzlePlaces[sceneId],life.puzzles[sceneId]?'已解開':'尚未解開'+(sceneId==='fansipan'?'（需要山野藥草）':''),[['調查線索',lifePuzzle]]);
+ lifeInfo('已解鎖祕境：'+Object.keys(life.puzzles).filter(k=&gt;life.puzzles[k]).length+'/5。這是探索解謎事件，並非可走動的洞窟地圖。');
+ }else if(lifeTab==='quests'){
+ const q=life.quests[sceneId+'_'+todayLife()];lifeLine('📜 '+names[sceneId]+'生活委託',!q?'尚未接取：散步 12 步':q.stage==='done'?'今日已完成':'散步 '+Math.min(12,Math.max(0,player.walk-q.start))+'/12 步',[['接取／交付',lifeSideQuest]]);
+ lifeInfo('這是 V20 生活支線，與 V13 通關後每日戰鬥委託分開保存；主線不需通關即可接取。');
+ }else if(lifeTab==='records'){
+ lifeInfo('角色 Lv.'+rpg.level+'｜星印 '+progress.done.length+'/5｜三地魔王 '+Object.keys(bossWins).filter(k=&gt;bossWins[k]).length+'/3｜最終首領 '+(ending.cleared?'已通關':'未通關'));
+ lifeInfo('探索祕境 '+Object.keys(life.puzzles).filter(k=&gt;life.puzzles[k]).length+'/5｜料理次數 '+Object.values(life.recipes).reduce((a,b)=&gt;a+b,0)+'｜已參加活動 '+Object.keys(life.events).length+' 次');
+ lifeInfo('📦 冒險者置物箱：'+(Object.entries(life.home.stored).filter(([,n])=&gt;n&gt;0).map(([k,n])=&gt;k+' ×'+n).join('、')||'空'));
+ for(const [k,n] of Object.entries(life.inventory).filter(([,n])=&gt;n&gt;0))lifeLine(k,'持有 '+n,[['存放 1 個',()=&gt;storeItem(k)]]);
+ for(const [k,n] of Object.entries(life.home.stored).filter(([,n])=&gt;n&gt;0))lifeLine('📦 '+k,'存放 '+n,[['取出 1 個',()=&gt;retrieveItem(k)]]);
+ }else if(lifeTab==='save'){
+ lifeInfo('原 V8/V10/V11/V12/V13 存檔鍵保持不變。請定期下載完整備份，換瀏覽器或換網址時可匯入。');
+ lifeLine('💾 完整 RPG 備份','匯出目前已知的六組 RPG 存檔',[['下載 JSON 備份',exportLifeBackup]]);
+ const input=document.createElement('input');input.type='file';input.accept='.json,application/json';input.addEventListener('change',e=&gt;importLifeBackup(e.target.files?.[0]));lifeContent.appendChild(input);
+ lifeInfo('匯入前請先下載目前備份；匯入會覆蓋這六組 RPG 存檔，並重新載入頁面，僅覆蓋列出的 RPG 存檔鍵；請先備份。');
  }
 }
 const backupKeys=[STORY_KEY,RPG_KEY,V11_KEY,END_KEY,POST_KEY,LIFE_KEY];
-function exportLifeBackup(){const data={format:&#x27;north-vietnam-pixel-rpg-backup&#x27;,version:20,exportedAt:new Date().toISOString(),saves:{}};for(const k of backupKeys)data.saves[k]=localStorage.getItem(k);const blob=new Blob([JSON.stringify(data,null,2)],{type:&#x27;application/json&#x27;});const a=document.createElement(&#x27;a&#x27;);a.href=URL.createObjectURL(blob);a.download=&#x27;北越像素冒險世界_V20_完整備份_&#x27;+todayLife()+&#x27;.json&#x27;;a.click();setTimeout(()=&gt;URL.revokeObjectURL(a.href),1500)}
-async function importLifeBackup(file){if(!file)return;try{const v=JSON.parse(await file.text());if(v.format!==&#x27;north-vietnam-pixel-rpg-backup&#x27;||!v.saves||typeof v.saves!==&#x27;object&#x27;)throw Error(&#x27;不是相容備份&#x27;);const keys=backupKeys.filter(k=&gt;typeof v.saves[k]===&#x27;string&#x27;);if(!keys.length)throw Error(&#x27;沒有可匯入的資料&#x27;);for(const k of keys)JSON.parse(v.saves[k]);if(!confirm(&#x27;將匯入 &#x27;+keys.length+&#x27; 組 RPG 存檔並覆蓋目前對應資料，確定嗎？&#x27;))return;for(const k of keys)localStorage.setItem(k,v.saves[k]);location.reload()}catch(e){alert(&#x27;匯入失敗：&#x27;+e.message)}}
+function exportLifeBackup(){const data={format:'north-vietnam-pixel-rpg-backup',version:20,exportedAt:new Date().toISOString(),saves:{}};for(const k of backupKeys)data.saves[k]=localStorage.getItem(k);const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='北越像素冒險世界_V20_完整備份_'+todayLife()+'.json';a.click();setTimeout(()=&gt;URL.revokeObjectURL(a.href),1500)}
+async function importLifeBackup(file){if(!file)return;try{const v=JSON.parse(await file.text());if(v.format!=='north-vietnam-pixel-rpg-backup'||!v.saves||typeof v.saves!=='object')throw Error('不是相容備份');const keys=backupKeys.filter(k=&gt;typeof v.saves[k]==='string');if(!keys.length)throw Error('沒有可匯入的資料');for(const k of keys)JSON.parse(v.saves[k]);if(!confirm('將匯入 '+keys.length+' 組 RPG 存檔並覆蓋目前對應資料，確定嗎？'))return;for(const k of keys)localStorage.setItem(k,v.saves[k]);location.reload()}catch(e){alert('匯入失敗：'+e.message)}}
 // Hook existing NPC dialogue without changing chapter or postgame flags.
 const originalPostNpc=postNpc;
-postNpc=function(n){if(originalPostNpc(n))return true;if(!ending.cleared){const f=life.friendship[n.name]||0;if(f&gt;=30){showGameDialog(n.name,lifeText(n)+&#x27;\n\n💝 友情故事：謝謝你常常來找我。北越最美的是人情味！&#x27;,[[&#x27;🎁 送香草&#x27;,()=&gt;{lifeGift(n.name);closeDialog()}]]);return true}}return false};
+postNpc=function(n){if(originalPostNpc(n))return true;if(!ending.cleared){const f=life.friendship[n.name]||0;if(f&gt;=30){showGameDialog(n.name,lifeText(n)+'\n\n💝 友情故事：謝謝你常常來找我。北越最美的是人情味！',[['🎁 送香草',()=&gt;{lifeGift(n.name);closeDialog()}]]);return true}}return false};
 // Add evening tint, lamp glow and weather HUD; this never changes collision or encounters.
 const originalRender=render;
-render=function(){originalRender();const p=lifePeriod();if(p===2){c.fillStyle=&#x27;rgba(20,25,64,0.23)&#x27;;c.fillRect(0,0,960,500)}else if(p===0){c.fillStyle=&#x27;rgba(255,215,135,0.045)&#x27;;c.fillRect(0,0,960,500)}c.font=&#x27;13px sans-serif&#x27;;c.fillStyle=&#x27;#fff0bf&#x27;;c.fillText(lifeWeather()+&#x27; · &#x27;+lifePeriodName(),490,526)};
-document.getElementById(&#x27;lifeBtn&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;lifePanel.hidden?openLife():closeLife());
-document.getElementById(&#x27;lifeClose&#x27;).addEventListener(&#x27;click&#x27;,closeLife);
-window.addEventListener(&#x27;keydown&#x27;,e=&gt;{if(e.key===&#x27;Escape&#x27;&amp;&amp;!lifePanel.hidden){closeLife();e.preventDefault()}if((e.key===&#x27;l&#x27;||e.key===&#x27;L&#x27;)&amp;&amp;!lifeBusy()){lifePanel.hidden?openLife():closeLife();e.preventDefault()}});
+render=function(){originalRender();const p=lifePeriod();if(p===2){c.fillStyle='rgba(20,25,64,0.23)';c.fillRect(0,0,960,500)}else if(p===0){c.fillStyle='rgba(255,215,135,0.045)';c.fillRect(0,0,960,500)}c.font='13px sans-serif';c.fillStyle='#fff0bf';c.fillText(lifeWeather()+' · '+lifePeriodName(),490,526)};
+document.getElementById('lifeBtn').addEventListener('click',()=&gt;lifePanel.hidden?openLife():closeLife());
+document.getElementById('lifeClose').addEventListener('click',closeLife);
+window.addEventListener('keydown',e=&gt;{if(e.key==='Escape'&amp;&amp;!lifePanel.hidden){closeLife();e.preventDefault()}if((e.key==='l'||e.key==='L')&amp;&amp;!lifeBusy()){lifePanel.hidden?openLife():closeLife();e.preventDefault()}});
 &lt;/script&gt;
 &lt;script id=&quot;adventure-bag-v910-script&quot;&gt;
 (function(){
- &#x27;use strict&#x27;;
- const panel=document.getElementById(&#x27;adventureBagPanel&#x27;), open=document.getElementById(&#x27;adventureBagBtn&#x27;), close=document.getElementById(&#x27;adventureBagClose&#x27;), tabs=document.getElementById(&#x27;adventureBagTabs&#x27;), items=document.getElementById(&#x27;adventureBagItems&#x27;);
+ 'use strict';
+ const panel=document.getElementById('adventureBagPanel'), open=document.getElementById('adventureBagBtn'), close=document.getElementById('adventureBagClose'), tabs=document.getElementById('adventureBagTabs'), items=document.getElementById('adventureBagItems');
  if(!panel||!open||!close||!tabs||!items)return;
- let active=&#x27;loot&#x27;;
- function read(key){try{return JSON.parse(localStorage.getItem(key)||&#x27;null&#x27;)}catch(e){return null}}
- function safe(value){return String(value??&#x27;&#x27;).replace(/[&amp;&lt;&gt;&quot;&#x27;]/g,c=&gt;({&#x27;&amp;&#x27;:&#x27;&amp;amp;&#x27;,&#x27;&lt;&#x27;:&#x27;&amp;lt;&#x27;,&#x27;&gt;&#x27;:&#x27;&amp;gt;&#x27;,&#x27;&quot;&#x27;:&#x27;&amp;quot;&#x27;,&quot;&#x27;&quot;:&#x27;&amp;#39;&#x27;}[c]))}
+ let active='loot';
+ function read(key){try{return JSON.parse(localStorage.getItem(key)||'null')}catch(e){return null}}
+ function safe(value){return String(value??'').replace(/[&amp;&lt;&gt;&quot;']/g,c=&gt;({'&amp;':'&amp;amp;','&lt;':'&amp;lt;','&gt;':'&amp;gt;','&quot;':'&amp;quot;',&quot;'&quot;:'&amp;#39;'}[c]))}
  function render(){
-  const growth=read(&#x27;north_vietnam_pixel_rpg_v10_growth&#x27;)||{}, life=read(&#x27;north_vietnam_pixel_rpg_v20_life&#x27;)||{}, core=read(&#x27;vietnam-adventure-unified-core-v1&#x27;)||{};
+  const growth=read('north_vietnam_pixel_rpg_v10_growth')||{}, life=read('north_vietnam_pixel_rpg_v20_life')||{}, core=read('vietnam-adventure-unified-core-v1')||{};
   let rows=[];
-  if(active===&#x27;loot&#x27;){
-   rows=Object.entries(growth.bag||{}).filter(([name,qty])=&gt;name&amp;&amp;name!==&#x27;undefined&#x27;&amp;&amp;Number(qty)&gt;0).map(([name,qty])=&gt;({name,qty}));
-   rows.push({name:&#x27;🌿 恢復藥草&#x27;,qty:growth.potions??0});
-   if(!rows.length)rows=(read(&#x27;vietnam-adventure-loot-v1&#x27;)||[]).map(v=&gt;({name:(v.icon||&#x27;&#x27;)+&#x27; &#x27;+(v.name||&#x27;戰利品&#x27;),qty:1}));
-  }else if(active===&#x27;equipment&#x27;){
-   rows=Object.entries(core.equipment||{}).filter(([slot,v])=&gt;v&amp;&amp;typeof v===&#x27;object&#x27;).map(([slot,v])=&gt;({name:(v.icon||&#x27;&#x27;)+&#x27; &#x27;+(v.name||slot),qty:&#x27;已裝備&#x27;}));
+  if(active==='loot'){
+   rows=Object.entries(growth.bag||{}).filter(([name,qty])=&gt;name&amp;&amp;name!=='undefined'&amp;&amp;Number(qty)&gt;0).map(([name,qty])=&gt;({name,qty}));
+   rows.push({name:'🌿 恢復藥草',qty:growth.potions??0});
+   if(!rows.length)rows=(read('vietnam-adventure-loot-v1')||[]).map(v=&gt;({name:(v.icon||'')+' '+(v.name||'戰利品'),qty:1}));
+  }else if(active==='equipment'){
+   rows=Object.entries(core.equipment||{}).filter(([slot,v])=&gt;v&amp;&amp;typeof v==='object').map(([slot,v])=&gt;({name:(v.icon||'')+' '+(v.name||slot),qty:'已裝備'}));
   }else{
    rows=Object.entries(life.inventory||{}).map(([name,qty])=&gt;({name,qty}));
-   rows.push({name:&#x27;生活金幣&#x27;,qty:life.coins??0});
+   rows.push({name:'生活金幣',qty:life.coins??0});
   }
-  items.innerHTML=rows.length?rows.map(v=&gt;&#x27;&lt;div class=&quot;adventureBagItem&quot;&gt;&lt;strong&gt;&#x27;+safe(v.name)+&#x27;&lt;/strong&gt;&lt;span&gt;數量／狀態：&#x27;+safe(v.qty)+&#x27;&lt;/span&gt;&lt;/div&gt;&#x27;).join(&#x27;&#x27;):&#x27;&lt;div class=&quot;adventureBagItem&quot;&gt;目前沒有可顯示的物品。&lt;/div&gt;&#x27;;
-  tabs.querySelectorAll(&#x27;[data-bag-tab]&#x27;).forEach(b=&gt;b.setAttribute(&#x27;aria-selected&#x27;,String(b.dataset.bagTab===active)));
+  items.innerHTML=rows.length?rows.map(v=&gt;'&lt;div class=&quot;adventureBagItem&quot;&gt;&lt;strong&gt;'+safe(v.name)+'&lt;/strong&gt;&lt;span&gt;數量／狀態：'+safe(v.qty)+'&lt;/span&gt;&lt;/div&gt;').join(''):'&lt;div class=&quot;adventureBagItem&quot;&gt;目前沒有可顯示的物品。&lt;/div&gt;';
+  tabs.querySelectorAll('[data-bag-tab]').forEach(b=&gt;b.setAttribute('aria-selected',String(b.dataset.bagTab===active)));
  }
- document.addEventListener(&#x27;adventure-rpg-inventory-updated&#x27;,()=&gt;{if(!panel.hidden)render()});
- open.addEventListener(&#x27;click&#x27;,()=&gt;{render();panel.hidden=false});
- close.addEventListener(&#x27;click&#x27;,()=&gt;{panel.hidden=true});
- tabs.addEventListener(&#x27;click&#x27;,e=&gt;{const b=e.target.closest(&#x27;[data-bag-tab]&#x27;);if(!b)return;active=b.dataset.bagTab;render()});
- document.addEventListener(&#x27;keydown&#x27;,e=&gt;{if(e.key===&#x27;Escape&#x27;&amp;&amp;!panel.hidden)panel.hidden=true});
+ document.addEventListener('adventure-rpg-inventory-updated',()=&gt;{if(!panel.hidden)render()});
+ open.addEventListener('click',()=&gt;{render();panel.hidden=false});
+ close.addEventListener('click',()=&gt;{panel.hidden=true});
+ tabs.addEventListener('click',e=&gt;{const b=e.target.closest('[data-bag-tab]');if(!b)return;active=b.dataset.bagTab;render()});
+ document.addEventListener('keydown',e=&gt;{if(e.key==='Escape'&amp;&amp;!panel.hidden)panel.hidden=true});
 })();
 &lt;/script&gt;
 &lt;/body&gt;&lt;/html&gt;" style="display:block;width:100%;height:min(76dvh,760px);min-height:440px;border:3px solid #7b6042;border-radius:12px;background:#182b27;" title="北越像素冒險世界 V20"></iframe><div class="row"><button id="integratedRpgFullscreen" onclick="(function(){var f=document.getElementById('integratedNorthVietnamRPG');if(f.requestFullscreen)f.requestFullscreen();else if(f.webkitRequestFullscreen)f.webkitRequestFullscreen();})()" type="button">⛶ 全螢幕遊玩</button></div><button onclick="var f=document.getElementById('integratedNorthVietnamRPG');f.srcdoc=f.srcdoc;" style="padding:9px 14px;margin:8px 0;" type="button">↻ 重新載入 V20 畫面</button></section>
@@ -2608,7 +2662,6 @@ window.addEventListener(&#x27;keydown&#x27;,e=&gt;{if(e.key===&#x27;Escape&#x27;
 <label>金額（VND）</label><input id="vfAmount" min="1" placeholder="輸入越南盾金額" step="1" type="number"/>
 <label>備註</label><input id="vfNote" placeholder="例如：四人各存入公積金"/>
 <button class="action" onclick="VF.addFund()" type="button">儲存公積金異動</button><div id="vfFundHistory"></div></details>
-
 <div class="v2-finance-grid">
 <div><label for="v2ExpenseDate">日期</label><input id="v2ExpenseDate" type="date"/></div>
 <div><label for="v2ExpenseCurrency">付款幣別</label><select id="v2ExpenseCurrency" onchange="v2FinancePreview()"><option value="VND">越南盾 VND</option><option value="TWD">新台幣 TWD</option><option value="USD">美元 USD</option></select></div>
@@ -2632,16 +2685,16 @@ window.addEventListener(&#x27;keydown&#x27;,e=&gt;{if(e.key===&#x27;Escape&#x27;
 </div>
 <details class="card v2-split-panel"><summary>👥 分帳結算與統計</summary><h3>分帳明細</h3><p class="small">依照每筆支出實際填寫的分帳成員計算應分攤金額；舊紀錄若沒有分帳成員，會列為未設定，不會猜測。</p><div id="v2SplitSummary">尚無分帳資料。</div></details>
 <details class="card" id="expenseInsights"><summary>📊 支出分析</summary><h3>每日與類別統計</h3><div class="row"><div><label for="expenseSummaryDate">每日支出日期</label><input id="expenseSummaryDate" onchange="renderExpenseInsights()" type="date"/></div><div><small>當日合計</small><h3 id="dailyExpenseTotal">0 ₫</h3></div></div><h4>類別分布</h4><div class="small" id="expenseCategoryBreakdown">尚無支出資料。</div></details>
-<div class="card" hidden="" id="legacyExpenseCard"><div aria-hidden="true" hidden="" id="legacyExpenseForm"><label>日期</label><input id="expenseDate" type="date"/><label>金額（越南盾）</label><input id="amount" min="1" placeholder="例如 150000" type="number"/><label>類別</label><select id="category"><option>餐飲</option><option>交通</option><option>住宿</option><option>購物</option><option>按摩休閒</option><option>門票活動</option><option>其他</option></select><div class="row"><div><label>付款方式</label><select id="payment"><option>現金</option><option>信用卡</option><option>其他</option></select></div><div><label>參考匯率（VND／TWD）</label><input id="rate" min="1" type="number" value="800"/></div></div><label>付款人</label><input id="payer" placeholder="例如：小呂"/><label>分帳成員</label><input id="splitMembers" placeholder="例如：小呂, 小王, 小美"/><label>備註</label><input id="memo" placeholder="例如：河粉、計程車"/><div class="row" style="flex-wrap:wrap"><button class="action" id="expenseSubmitButton" onclick="addExpense()" type="button">＋ 儲存支出</button><button class="secondary" id="expenseCancelEditButton" onclick="cancelExpenseEdit()" style="display:none" type="button">取消編輯</button></div></div></div><div aria-live="polite" class="expense-duplicate-warning" id="expenseDuplicateWarning" role="alert" style="display:none"></div><h3>🧾 支出紀錄（與智慧旅費同步）</h3><p aria-live="polite" class="small" id="expenseSyncStatus">正在檢查支出資料…</p><p class="small">提醒：直接開啟不同 HTML 檔案時，瀏覽器可能使用不同儲存空間；此處只顯示目前頁面可讀取的紀錄，不代表舊版紀錄已遺失。</p><div class="card" id="expenseList"></div><button class="secondary" onclick="expenseSyncRepair()" type="button">🔄 重新讀取支出紀錄</button><button class="secondary" onclick="exportExpenses()">匯出記帳 CSV 備份</button> <button class="secondary" onclick="clearExpenses()">清除全部紀錄</button><div class="card v919-settlement-bottom"><details class="vf-details" id="vfSettlement"><summary>🧾 最終結算｜依姓名計算償還與退款</summary>
+<details class="v925-optional card" id="v925LegacyExpense"><summary>🧾 舊版記帳表單（需要時展開）</summary><div class="card" hidden="" id="legacyExpenseCard"><div aria-hidden="true" hidden="" id="legacyExpenseForm"><label>日期</label><input id="expenseDate" type="date"/><label>金額（越南盾）</label><input id="amount" min="1" placeholder="例如 150000" type="number"/><label>類別</label><select id="category"><option>餐飲</option><option>交通</option><option>住宿</option><option>購物</option><option>按摩休閒</option><option>門票活動</option><option>其他</option></select><div class="row"><div><label>付款方式</label><select id="payment"><option>現金</option><option>信用卡</option><option>其他</option></select></div><div><label>參考匯率（VND／TWD）</label><input id="rate" min="1" type="number" value="800"/></div></div><label>付款人</label><input id="payer" placeholder="例如：小呂"/><label>分帳成員</label><input id="splitMembers" placeholder="例如：小呂, 小王, 小美"/><label>備註</label><input id="memo" placeholder="例如：河粉、計程車"/><div class="row" style="flex-wrap:wrap"><button class="action" id="expenseSubmitButton" onclick="addExpense()" type="button">＋ 儲存支出</button><button class="secondary" id="expenseCancelEditButton" onclick="cancelExpenseEdit()" style="display:none" type="button">取消編輯</button></div></div></div></details><div aria-live="polite" class="expense-duplicate-warning" id="expenseDuplicateWarning" role="alert" style="display:none"></div><h3>🧾 支出紀錄（與智慧旅費同步）</h3><p aria-live="polite" class="small" id="expenseSyncStatus">正在檢查支出資料…</p><p class="small">提醒：直接開啟不同 HTML 檔案時，瀏覽器可能使用不同儲存空間；此處只顯示目前頁面可讀取的紀錄，不代表舊版紀錄已遺失。</p><div class="card" id="expenseList"></div><button class="secondary" onclick="expenseSyncRepair()" type="button">🔄 重新讀取支出紀錄</button><button class="secondary" onclick="exportExpenses()">匯出記帳 CSV 備份</button> <button class="secondary" onclick="clearExpenses()">清除全部紀錄</button><div class="card v919-settlement-bottom"><details class="vf-details" id="vfSettlement"><summary>🧾 最終結算｜依姓名計算償還與退款</summary>
 <p class="small">先預覽，不會修改資料。確認後才一次記錄尚未償還的墊款與最終退款；已記錄的償還與退款不會重複計算。</p>
 <div aria-live="polite" id="vfSettlementResult">點選「重新計算」查看結算。</div>
 <button class="secondary" onclick="VF.settlementPreview()" type="button">🔄 重新計算結算</button>
 <button class="action" disabled="" id="vfSettlementConfirm" onclick="VF.settlementConfirm()" type="button">確認執行償還與退款</button>
 </details></div></section>
 <section class="page" id="photos">
-<h2 class="section-title">📸 旅行照片</h2>
-<div class="notice">這裡專門保存照片，不會自動附加到日記。照片獨立儲存在本機瀏覽器；請定期匯出照片備份。</div>
-<div class="card">
+<h2 class="section-title">📸 旅行照片</h2><nav class="v9252-photo-nav" aria-label="照片專區功能"><button class="action" onclick="document.getElementById('v925PhotoAdd').open=true;document.getElementById('v925PhotoAdd').scrollIntoView({block:'nearest',behavior:'smooth'})" type="button">＋ 新增</button><button class="secondary" onclick="showPage('photoMap')" type="button">🗺️ 地圖</button><button class="secondary" onclick="showPage('photoChallenges')" type="button">🏆 攝影任務</button></nav>
+<div class="notice" style="margin:7px 0;padding:9px">📍 到達景點後可一鍵拍照，系統會把照片歸到對應景點；也能在「景點打卡」頁啟用 GPS 抵達提醒。<button class="secondary" type="button" onclick="showPage('adventureMap')" style="padding:6px 9px">前往景點地圖</button></div><p class="v9252-photo-hint">照片獨立保存在本機，不會自動加入日記。請定期備份。</p>
+<details class="v925-optional v925-photo-add" id="v925PhotoAdd"><summary>＋ 新增照片／手機拍照</summary><div class="card">
 <b>新增照片</b>
 <label for="photoDate">拍攝日期</label><input id="photoDate" max="2026-11-23" min="2026-11-18" type="date" value="2026-11-18"/>
 <label for="photoLocation">拍攝地點（選填）</label><input id="photoLocation" placeholder="例如：還劍湖、沙壩、下龍灣"/>
@@ -2650,11 +2703,11 @@ window.addEventListener(&#x27;keydown&#x27;,e=&gt;{if(e.key===&#x27;Escape&#x27;
 <p class="small">可一次選多張照片。照片只會加入照片專區，不會建立日記。</p>
 <button class="action" onclick="savePhotoLibrary()">儲存照片</button>
 <p aria-live="polite" class="small" id="photoStatus"></p>
-</div>
+</div></details>
 <div class="card">
 <div class="row"><h3 style="margin:0">我的旅行相簿</h3><span class="small" id="photoCount">0 張照片</span></div>
 <div id="photoLibraryList"><p class="muted">正在讀取照片…</p></div>
-<div class="diary-actions"><button class="action" onclick="exportPhotoLibrary()">匯出照片備份</button><button class="secondary" onclick="document.getElementById('photoImportFile').click()">匯入照片備份</button></div>
+<details class="v9252-photo-backup"><summary>🛡️ 照片備份與匯入</summary><div class="diary-actions"><button class="action" onclick="exportPhotoLibrary()">匯出照片備份</button><button class="secondary" onclick="document.getElementById('photoImportFile').click()">匯入照片備份</button></div></details>
 <input accept="application/json,.json" id="photoImportFile" onchange="importPhotoLibrary(event)" style="display:none" type="file"/>
 </div>
 </section>
@@ -2675,9 +2728,7 @@ window.addEventListener(&#x27;keydown&#x27;,e=&gt;{if(e.key===&#x27;Escape&#x27;
 <div class="event"><div style="font-size:25px">🚢</div><div><b>下龍灣郵輪</b><p class="muted">記錄登船體驗、船上活動與海灣風景</p><p class="small">海上支線</p><button class="secondary" onclick="toggleSideAch(4)">完成打卡</button></div></div>
 </div></div></section>
 <section class="page" id="offline"><h2 class="section-title">📴 離線與出發檢查</h2><div class="card"><p>勾選完成的準備事項，紀錄會保存在這個瀏覽器。</p><div aria-live="polite" class="v44-checklist-progress" id="v44ChecklistProgress">已完成 0 / 8 項</div><div aria-label="出發檢查完成度" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="v44-progress-track" id="v44ChecklistBar" role="progressbar"><span id="v44ChecklistFill"></span></div><div id="checklist"></div></div><div class="card"><b>🧰 全功能備份與還原</b><p class="small">完整備份包含行程、支出、美食、成就、任務清單、小隊資料、日記文字與照片專區。照片會轉成備份資料，因此檔案可能很大；請保存到安全位置。匯入會合併資料，不會清空現有紀錄。</p><button class="action" onclick="exportBackup()">匯出完整備份（含日記與照片）</button> <button class="secondary" onclick="document.getElementById('importFile').click()">匯入完整備份</button><input accept="application/json" id="importFile" onchange="importBackup(event)" style="display:none" type="file"/></div></section>
-<section class="page" id="photoMap"><h2 class="section-title">🗺️ 旅行照片地圖</h2>
-
-
+<section class="page" id="photoMap"><h2 class="section-title">🗺️ 旅行照片地圖</h2><nav class="v9252-photo-nav" aria-label="照片地圖快捷操作"><button class="secondary" onclick="showPage('photos')" type="button">← 相簿</button><button class="secondary" onclick="showPage('photoChallenges')" type="button">🏆 攝影任務</button></nav>
 <div class="v920-photo-top"><div aria-label="照片地圖顯示模式" class="v920-view-tabs" role="group"><button class="active" data-mode="list" onclick="v920PhotoView('list')" type="button">📋 照片清單</button><button data-mode="map" onclick="v920PhotoView('map')" type="button">🗺️ 地圖</button></div><p class="small">文字與底色已加強對比；照片與座標仍保存在原本資料庫。</p></div><div id="v920PhotoListView"><div class="card v920-photo-card"><h3>📷 尚未定位的照片</h3><div id="photoMapUnlocated"></div></div></div><div hidden="" id="v920PhotoMapView"><div class="card v920-photo-card"><h3>🧭 北越照片分布</h3><p class="small">此為依座標繪製的簡易離線示意圖，不載入外部地圖圖磚。點選標記可查看照片。</p><div id="photoMapCanvas" style="min-height:260px;border:1px solid #777;border-radius:12px;padding:8px;background:linear-gradient(135deg,#263b3b,#35475a);color:#fff;overflow:hidden"></div><div class="notice" id="photoMapPreview" style="display:none;margin-top:10px"></div><p class="small" id="photoMapSummary"></p></div></div><details class="v920-photo-extra"><summary>📍 為照片新增／修改 GPS 座標</summary><div class="card v920-photo-card"><h3>📍 為照片補上座標</h3><label for="photoMapSelect">選擇一張照片</label><select id="photoMapSelect"><option value="">讀取照片中…</option></select><label for="photoMapLat">緯度</label><input id="photoMapLat" placeholder="例如 21.0285" step="any" type="number"/><label for="photoMapLng">經度</label><input id="photoMapLng" placeholder="例如 105.8542" step="any" type="number"/><p class="small">可從手機照片資訊或地圖分享位置取得座標。北越範圍參考：河內約 21.03, 105.85；沙壩約 22.34, 103.84；下龍灣約 20.95, 107.08。以上僅供定位參考，請依照片實際拍攝地點填寫。</p><button class="action" onclick="photoMapSaveCoords()">保存這張照片座標</button><p aria-live="polite" class="small" id="photoMapStatus"></p></div></details><details class="v920-photo-extra"><summary>⭐ 探索收藏點數</summary><div class="card v920-photo-card"><h3>⭐ 探索收藏點數</h3><p>照片座標收藏：<b id="photoMapXp">0</b> EXP</p><p class="small">每張照片首次補上有效座標時，會在獨立收藏紀錄中獲得 5 EXP；不會改動原有 RPG 等級或舊成就。</p></div></details></section>
 <section class="page" id="safetyCenter"><h2 class="section-title">🛡️ 資料安全中心</h2><div class="notice">所有檢查均為唯讀，不會清除、覆蓋或上傳資料。此 App 的資料目前保存在這台裝置的瀏覽器；請定期下載備份並自行保存。</div>
 <div class="card"><h3>📊 本機資料概況</h3><div id="safetyInventory">按下「檢查資料」讀取本機資料概況。</div><button class="action" onclick="safetyRunAudit()">🔍 檢查資料</button></div>
@@ -2705,7 +2756,6 @@ window.addEventListener(&#x27;keydown&#x27;,e=&gt;{if(e.key===&#x27;Escape&#x27;
 <section class="v411-memory-shelf"><div class="v411-shelf-head"><div><span>YOUR TRAVEL MOMENTS</span><h3>📚 我的相遇紀錄</h3></div><b id="v411MemoryCount">0 則</b></div><div id="v411MemoryList"><p>完成一段人物故事後，回憶會收藏在這裡。</p></div></section>
 </section>
 <section class="page" id="diary">
-
 <div class="v920-diary-head"><h2>📖 旅行日記</h2><button class="action" onclick="v920OpenDiaryForm()" type="button">＋ 新增日記</button></div><div class="v920-diary-filter"><label for="v920DiaryDate">查看日期</label><select id="v920DiaryDate" onchange="v920FilterDiaries()"><option value="all">全部日期</option></select></div><div id="v920DiaryListWrap"><h3>已保存的日記</h3><div id="diaryList"><p class="muted">正在讀取本機日記…</p></div></div><details class="v920-diary-editor" id="v920DiaryEditor"><summary>✎ 新增／編輯日記</summary><div class="card"><b id="diaryFormTitle">新增一篇回憶</b><input id="diaryEditId" type="hidden"/><label>日期</label><input id="diaryDate" max="2026-11-23" min="2026-11-18" type="date" value="2026-11-18"/><label>地點</label><input id="diaryLocation" placeholder="例如：沙壩、番西邦峰"/><label>心情</label><select id="diaryMood"><option value="😍">😍 開心</option><option value="🥰">🥰 感動</option><option value="😌">😌 放鬆</option><option value="🤩">🤩 興奮</option><option value="😴">😴 疲累</option><option value="🥹">🥹 難忘</option><option value="😐">😐 普通</option></select><label>日記內容</label><textarea id="diaryText" placeholder="今天看見了什麼、吃了什麼、發生哪些難忘的事？" rows="5"></textarea><div class="notice">日記只記錄文字、日期、地點與心情。要拍照或整理照片，請使用底部的「📸 照片」專區；兩者分開保存。</div><div class="diary-actions"><button class="action" onclick="saveDiary()">儲存日記</button><button class="secondary" onclick="resetDiaryForm()">取消／清空表單</button></div><p aria-live="polite" class="small" id="diaryStatus"></p></div></details><details class="v920-diary-extra"><summary>🧭 每日旅行回憶總覽</summary><div class="card memory-timeline-card"><div class="memory-timeline-heading"><div><h3>🧭 每日旅行回憶總覽</h3><p class="small">以日期串起每日行程、完成打卡、相簿照片與日記。只讀取現有資料，不搬動、不複製、不覆蓋任何舊存檔。</p></div><button class="secondary" onclick="renderTravelMemoryTimeline()" type="button">↻ 更新</button></div><div id="travelMemoryTimeline"><p class="muted">正在整理每日旅行紀錄…</p></div></div></details><details class="v920-diary-extra"><summary>🎬 AI 旅行回憶短影片</summary><section class="card" id="aiTravelVideoCard" style="margin:14px 0;border:1px solid rgba(130,150,180,.35)">
 <h3>🎬 AI 旅行回憶短影片</h3>
 <p class="small">電影感 Cinematic｜60 秒｜無旁白。從原有旅行相簿與日記讀取素材，加入片頭、日期／地點字幕、慢速推近與淡入淡出，製作一段可下載的旅行回憶影片。</p>
@@ -2724,11 +2774,11 @@ window.addEventListener(&#x27;keydown&#x27;,e=&gt;{if(e.key===&#x27;Escape&#x27;
 <div class="card"><h3>➕ 新增／編輯戰利品</h3><input id="shoppingEditId" type="hidden"/><label for="shoppingName">商品名稱 *</label><input id="shoppingName" maxlength="120" placeholder="例如：越南咖啡粉"/><label for="shoppingCategory">商品分類</label><select id="shoppingCategory"><option>咖啡與飲品</option><option>零食與食品</option><option>手工藝與紀念品</option><option>沙壩特色</option><option>我的自訂項目</option></select><div class="shopping-fields"><div><label for="shoppingBudget">預算（台幣 NT$）</label><input id="shoppingBudget" inputmode="numeric" min="0" placeholder="0" step="1" type="number"/></div><div><label for="shoppingPrice">實際購買金額（台幣 NT$）</label><input id="shoppingPrice" inputmode="numeric" min="0" placeholder="購買後填寫" step="1" type="number"/></div></div><label for="shoppingPlace">購買地點</label><input id="shoppingPlace" maxlength="160" placeholder="例如：河內老城區／沙壩市區"/><label for="shoppingRecipient">🎁 伴手禮送給誰</label><input id="shoppingRecipient" maxlength="240" placeholder="例如：爸爸、媽媽、同事小美（可填多人）"/><label for="shoppingNotes">備註</label><textarea id="shoppingNotes" maxlength="1000" placeholder="品牌、數量、送給誰……" rows="2"></textarea><div class="shopping-form-actions"><button class="action" onclick="saveShoppingItem()" type="button">💾 儲存商品</button><button class="secondary" onclick="resetShoppingForm()" type="button">取消編輯／清空表單</button></div><p aria-live="polite" class="small" id="shoppingFormStatus"></p></div>
 <div class="card"><h3>🎒 戰利品清單</h3><label for="shoppingCategoryFilter">分類篩選</label><select id="shoppingCategoryFilter" onchange="renderShoppingItems()"><option value="全部分類">全部分類</option><option>咖啡與飲品</option><option>零食與食品</option><option>手工藝與紀念品</option><option>沙壩特色</option><option>我的自訂項目</option></select><label for="shoppingStatusFilter">購買狀態</label><select id="shoppingStatusFilter" onchange="renderShoppingItems()"><option value="全部狀態">全部狀態</option><option value="未購買">尚未購買</option><option value="已購買">已買到</option></select><div aria-live="polite" class="shopping-items" id="shoppingItems"></div></div></section>
 <section class="page" id="photoChallenges">
-<h2 class="section-title">📸 旅行攝影挑戰</h2>
+<h2 class="section-title">📸 旅行攝影挑戰</h2><nav class="v9252-photo-nav" aria-label="攝影任務快捷操作"><button class="secondary" onclick="showPage('photos')" type="button">← 相簿</button><button class="secondary" onclick="showPage('photoMap')" type="button">🗺️ 地圖</button></nav>
 <p class="small">完成主題後勾選；原有完成紀錄和旅行相簿照片都會保留。</p>
 <section class="card"><h3>📷 照片主題任務 <span class="small" id="photoPendingCount"></span></h3>
 <div id="photoMissionList"></div><p class="small" id="photoMissionSummary"></p>
-<button class="action" type="button" onclick="showPage('photos')">📸 前往旅行照片</button></section>
+</section>
 <section class="card"><h3>🗺️ 北越照片集章</h3><p class="small">河內、沙壩、下龍灣各留下一張紀念照。已完成的照片印章沿用舊紀錄。</p>
 <div class="loot-codex-grid" id="northStampGrid"></div><p class="small" id="stampSummary"></p></section>
 </section>
@@ -2812,11 +2862,9 @@ window.addEventListener(&#x27;keydown&#x27;,e=&gt;{if(e.key===&#x27;Escape&#x27;
 </section></div></details>
 <details class="category-accordion"><summary>🎮 遊戲與冒險<span class="accordion-hint">任務、戰鬥、獎勵、等級</span></summary><div class="category-accordion-content"><section class="category-group">
 <button data-keywords="RPG 遊戲 戰鬥 背包 裝備 道具 戰利品 圖鑑 怪物" data-page="loot" onclick="chooseCategoryPage('loot')">🎮 北越 RPG 冒險世界</button>
-
 <button data-keywords="成就 等級 EXP 經驗值 獎章" data-page="achievements" onclick="chooseCategoryPage('achievements')">🏆 成就與冒險等級</button>
 </section></div></details>
 <details class="category-accordion"><summary>📖 旅行紀錄<span class="accordion-hint">人物、日記、照片、回憶</span></summary><div class="category-accordion-content"><section class="category-group">
-
 <button data-keywords="日記 回憶 文字 記錄 旅行故事" data-page="diary" onclick="chooseCategoryPage('diary')">📖 旅行日記</button>
 <button data-keywords="照片 相片 圖片 相簿 上傳" data-page="photos" onclick="chooseCategoryPage('photos')">📸 旅行相簿</button>
 <button data-keywords="攝影 挑戰 照片任務 拍照" data-page="photoChallenges" onclick="chooseCategoryPage('photoChallenges')">📸 旅行攝影挑戰</button>
@@ -3321,11 +3369,10 @@ async function renderTravelMemoryTimeline(){
    const done=g.events.filter(x=>x.done).length;
    const dayTitle=g.day?.title||'旅行紀錄';
    const placeText=g.day?.title||g.diaries[0]?.location||g.photos[0]?.location||'';
-   const eventHtml=g.events.length?g.events.map(e=>`<div class="memory-line"><span class="memory-time">${memoryEscape(e.time)}</span><span>${e.done?'✅':'◻️'} <b>${memoryEscape(e.name)}</b>${e.note?`<div class="small">${memoryEscape(e.note)}</div>`:''}</span></div>`).join(''):'<div class="memory-empty">這天尚未建立每日行程。</div>';
    const checkinHtml=g.checkins.length?g.checkins.map(x=>`<div class="memory-line"><span>📍</span><span><b>${memoryEscape(x.name)}</b><div class="small">${x.record.gpsVerified?'GPS 驗證打卡':'手動打卡'}${x.record.checkedAt?' · '+memoryEscape(new Date(x.record.checkedAt).toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'})):''}</div>${x.record.photo?`<img src="${memoryEscape(x.record.photo)}" alt="${memoryEscape(x.name)}打卡照片" style="width:100%;max-width:150px;border-radius:9px;margin-top:5px">`:''}</span></div>`).join(''):'<div class="memory-empty">這天尚無已完成的景點打卡紀錄。</div>';
    const diaryHtml=g.diaries.length?g.diaries.map(e=>`<article class="memory-line"><span>${memoryEscape(e.mood||'📖')}</span><span><b>${memoryEscape(e.location||'旅行日記')}</b><div>${memoryEscape(e.text||'（沒有文字內容）')}</div><button class="secondary" type="button" onclick="editDiary('${memoryEscape(e.id)}')">編輯日記</button></span></article>`).join(''):'<div class="memory-empty">還沒有這一天的日記。</div>';
    const photoHtml=g.photos.length?`<div class="memory-photo-strip">${g.photos.map(p=>{if(!(p.blob instanceof Blob))return '';const url=URL.createObjectURL(p.blob);memoryTimelineUrls.push(url);return `<img src="${url}" alt="${memoryEscape(p.name||'旅行照片')}" title="${memoryEscape(p.location||p.name||'旅行照片')}">`}).join('')}</div>`:'<div class="memory-empty">還沒有這一天的相簿照片。</div>';
-   return `<article class="memory-day"><div class="memory-day-head"><div><div class="memory-day-date">${memoryEscape(memoryDateLabel(g.key))}</div><div class="memory-day-title">${memoryEscape(dayTitle)}</div></div><span class="memory-stat">完成 ${done}/${g.events.length} 行程</span></div><div class="memory-stats"><span class="memory-stat">📍 ${g.checkins.length} 個景點打卡</span><span class="memory-stat">📸 ${g.photos.length} 張照片</span><span class="memory-stat">📖 ${g.diaries.length} 篇日記</span></div><div class="memory-section"><h4>🗓️ 每日行程</h4>${eventHtml}</div><div class="memory-section"><h4>📍 景點打卡</h4>${checkinHtml}</div><div class="memory-section"><h4>📸 當日照片</h4>${photoHtml}</div><div class="memory-section"><h4>📖 當日日記</h4>${diaryHtml}</div><div class="memory-actions"><button class="action" type="button" onclick="memoryAddDiary('${g.key}','${encodeURIComponent(placeText)}')">＋ 寫下這天的日記</button><button class="secondary" type="button" onclick="memoryAddPhoto('${g.key}','${encodeURIComponent(placeText)}')">📷 新增這天的照片</button>${g.day?`<button class="secondary" type="button" onclick="dayIndex=${g.day.index};showPage('itinerary');renderDays()">查看當日行程</button>`:''}</div></article>`;
+   return `<article class="memory-day"><div class="memory-day-head"><div><div class="memory-day-date">${memoryEscape(memoryDateLabel(g.key))}</div><div class="memory-day-title">${memoryEscape(dayTitle)}</div></div><span class="memory-stat">完成 ${done}/${g.events.length} 行程</span></div><div class="memory-stats"><span class="memory-stat">📍 ${g.checkins.length} 個景點打卡</span><span class="memory-stat">📸 ${g.photos.length} 張照片</span><span class="memory-stat">📖 ${g.diaries.length} 篇日記</span></div><div class="memory-section"><h4>📍 景點打卡</h4>${checkinHtml}</div><div class="memory-section"><h4>📸 當日照片</h4>${photoHtml}</div><div class="memory-section"><h4>📖 當日日記</h4>${diaryHtml}</div><div class="memory-actions"><button class="action" type="button" onclick="memoryAddDiary('${g.key}','${encodeURIComponent(placeText)}')">＋ 寫下這天的日記</button><button class="secondary" type="button" onclick="memoryAddPhoto('${g.key}','${encodeURIComponent(placeText)}')">📷 新增這天的照片</button>${g.day?`<button class="secondary" type="button" onclick="dayIndex=${g.day.index};showPage('itinerary');renderDays()">查看當日行程</button>`:''}</div></article>`;
   }).join('');
  }catch(err){console.error('旅行回憶整合載入失敗',err);host.innerHTML='<div class="memory-empty">目前無法讀取旅行資料，原有日記與照片沒有被修改。請重新整理頁面再試。</div>'}
 }
@@ -5115,7 +5162,6 @@ function renderV96Rewards(){
 window.addEventListener('load',()=>setTimeout(renderV96Rewards,350));
 })();</script>
 <!-- V9.7: legacy trailing style/script nodes moved inside document, order preserved -->
-
 <style id="six-item-bottom-navigation-fix">
 /* 功能總覽納入底部導覽，形成六個等寬入口；取消原本浮動按鈕定位 */
 nav.rpg-bottom-menu{display:flex!important;gap:2px!important;justify-content:space-around!important;overflow:visible!important;padding-left:5px!important;padding-right:5px!important}
@@ -6207,5 +6253,64 @@ function v920RefreshDiaryDates(){const host=document.getElementById('diaryList')
  v920FilterDiaries();
 }
 (function(){let last='';const observer=new MutationObserver(()=>{const host=document.getElementById('diaryList');if(!host)return;const signature=host.childElementCount+'|'+host.textContent.length;if(signature!==last){last=signature;v920RefreshDiaryDates();}});const start=()=>{const host=document.getElementById('diaryList');if(host){observer.observe(host,{childList:true,subtree:false});v920RefreshDiaryDates();}};if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();})();
+</script><div id="v9253-arrival" role="dialog" aria-modal="true" aria-labelledby="v9253-title" hidden>
+<div class="v9253-sheet"><div style="display:flex;justify-content:space-between;align-items:center"><strong>📍 景點抵達提醒</strong><button type="button" class="secondary" onclick="v9253Dismiss()" aria-label="關閉">✕</button></div><h3 id="v9253-title">🎉 抵達景點</h3><p id="v9253-description">要不要留下這次旅行的回憶？</p><div class="v9254-fields"><label>景點 <select id="v9254-place" onchange="v9254SelectPlace()"><option value="hanoi">河內</option><option value="hoankiem">還劍湖</option><option value="trainstreet">河內火車街</option><option value="sapa">沙壩</option><option value="catcat">貓貓村</option><option value="fansipan">番西邦峰</option><option value="halong">下龍灣</option><option value="cruise">下龍灣郵輪</option></select></label><label>拍攝／補登日期 <input id="v9254-date" type="date"></label></div><div class="v9253-actions"><button type="button" class="action" onclick="v9253ChoosePhoto()">📸 拍照／選擇照片集章</button><button type="button" class="secondary" onclick="v9253OpenLocation()">🗺️ 查看景點</button><button type="button" class="secondary" onclick="v9253Dismiss()">稍後再說</button></div><p id="v9253-photo-hint">照片儲存在本機相簿，並關聯到這個景點；不會自動打卡或修改 RPG 紀錄。</p><p id="v9253-arrival-status" role="status"></p><input type="file" accept="image/*" id="v9253-photo-input" style="display:none" onchange="v9253SavePhoto(this)"></div></div><script id="v9253-script">
+/* V9.25.3 additive arrival-photo flow. Never delete or migrate old data. */
+(function(){
+ 'use strict';
+ const KEY='world-adventure-photo-arrival-v9253';
+ const AREAS={hanoi:{name:'河內',lat:21.0285,lon:105.8542,radius:2200},sapa:{name:'沙壩',lat:22.3364,lon:103.8438,radius:2300},halong:{name:'下龍灣',lat:20.9101,lon:107.1839,radius:3500}};
+ const PLACES={...AREAS,hoankiem:{name:'還劍湖'},trainstreet:{name:'河內火車街'},catcat:{name:'貓貓村'},fansipan:{name:'番西邦峰'},cruise:{name:'下龍灣郵輪'}};
+ let entryMode='gps';
+ let watchId=null,activeId=null,accuracyLast=null;
+ const $=id=>document.getElementById(id);
+ const today=()=>{const d=new Date();return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')};
+ function load(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch{return {}}}
+ function save(data){try{localStorage.setItem(KEY,JSON.stringify(data));return true}catch{return false}}
+ function status(t){const el=$('v9253-gps-state');if(el)el.textContent=t}
+ function distance(a,b,c,d){const r=Math.PI/180,R=6371000,x=(c-a)*r,y=(d-b)*r,z=Math.sin(x/2)**2+Math.cos(a*r)*Math.cos(c*r)*Math.sin(y/2)**2;return 2*R*Math.asin(Math.sqrt(z))}
+ function show(id,meters){entryMode='gps';if(!AREAS[id]||$('v9253-arrival')?.hidden===false)return;activeId=id;const picker=$('v9254-place');if(picker)picker.value=id;const date=$('v9254-date');if(date)date.value=today();const modal=$('v9253-arrival');if(!modal)return;$('v9253-title').textContent='🎉 你已接近'+AREAS[id].name+'！';$('v9253-description').textContent='GPS 顯示距離地區參考點約 '+Math.round(meters)+' 公尺。要拍照並自動歸類到「'+AREAS[id].name+'」嗎？（定位僅供提醒，不代表已完成 GPS 打卡）';$('v9253-arrival-status').textContent='';modal.hidden=false}
+ window.v9253Dismiss=function(){const modal=$('v9253-arrival');if(modal)modal.hidden=true;activeId=null};
+ window.v9253OpenLocation=function(){const id=activeId;window.v9253Dismiss();if(id){if(typeof showPage==='function')showPage('adventureMap');if(typeof openRpgLocation==='function')openRpgLocation(id)}};
+ window.v9253ChoosePhoto=function(){if(!$('v9253-photo-input')||!activeId)return;$('v9253-photo-input').click()};
+ window.v9253SavePhoto=async function(input){const file=input?.files?.[0],id=activeId;if(!file||!id||!PLACES[id])return;if(!file.type.startsWith('image/')||file.size>15*1024*1024){$('v9253-arrival-status').textContent='請選擇 15MB 以下的圖片。';input.value='';return}
+  const label=$('v9253-arrival-status');label.textContent='正在儲存照片…';const stampDate=$('v9254-date')?.value||today();
+  try{if(typeof photoPut!=='function')throw new Error('找不到原有照片資料庫');
+   const photoId='photo-arrival-'+Date.now()+'-'+Math.random().toString(36).slice(2,9);
+   await photoPut({id:photoId,date:stampDate,location:PLACES[id].name,name:file.name||'景點集章照片',blob:file,createdAt:Date.now()});
+   const d=load();d.photoLinks=d.photoLinks||{};d.photoLinks[photoId]={placeId:id,placeName:PLACES[id].name,date:stampDate,method:entryMode};d.stamps=d.stamps||{};d.stamps[id]={photoId,date:stampDate,method:entryMode};
+   if(!save(d))label.textContent='照片已儲存至相簿，但分類索引未能保存；請檢查本機空間。';
+   else label.textContent='✅ 照片已分類至「'+PLACES[id].name+'」並完成'+(entryMode==='gps'?'GPS 提醒':'手動補登')+'照片集章！';
+   input.value='';if(typeof renderPhotoLibrary==='function')await renderPhotoLibrary();
+   // Existing PLAYBOOK stamps keep their own format. Add metadata only if not already stamped.
+   if(typeof playbookLoad==='function'&&typeof playbookSave==='function'){
+    const p=playbookLoad();p.stamps=p.stamps||{};if(!p.stamps[id]){p.stamps[id]={date:stampDate,photoId:photoId,method:entryMode};playbookSave(p)}
+    if(typeof renderPhotoChallenges==='function')renderPhotoChallenges();
+   }
+  }catch(e){label.textContent='⚠️ 照片未完成儲存：'+(e?.message||'請重試')} };
+
+ window.v9254Manual=function(){
+  const modal=$('v9253-arrival'),select=$('v9254-place'),date=$('v9254-date');if(!modal||!select)return;
+  entryMode='manual';activeId=select.value||'hanoi';if(!PLACES[activeId])activeId='hanoi';
+  if(date&&!date.value)date.value=today();
+  $('v9253-title').textContent='📸 '+PLACES[activeId].name+'・補登照片集章';
+  $('v9253-description').textContent='手動選擇景點與日期，拍照或選取相簿照片。此紀錄標示「手動補登」，不代表 GPS 已驗證抵達。';
+  $('v9253-arrival-status').textContent='';modal.hidden=false;
+ };
+ window.v9254SelectPlace=function(){if(entryMode==='manual')window.v9254Manual()};
+ window.v9254Retry=function(){window.v9253Stop();window.v9253Start()};
+ window.v9253Stop=function(){if(watchId!==null){navigator.geolocation?.clearWatch(watchId);watchId=null}status('已停止定位提醒')};
+ window.v9253Start=function(){if(watchId!==null){status('定位提醒已啟用');return}if(!navigator.geolocation){status('裝置不支援 GPS');return}if(!window.isSecureContext){status('定位需要 HTTPS 安全網站；請使用 GitHub Pages 測試，勿覆蓋正式版');return}
+  status('等待定位授權…');watchId=navigator.geolocation.watchPosition(pos=>{const {latitude,longitude,accuracy}=pos.coords;accuracyLast=accuracy;
+   if(!Number.isFinite(accuracy)||accuracy>350){status('定位誤差約 '+Math.round(accuracy)+' 公尺，暫不觸發提醒');return}
+   const match=Object.entries(AREAS).map(([id,v])=>({id,meters:distance(latitude,longitude,v.lat,v.lon),radius:v.radius})).filter(x=>x.meters<=x.radius).sort((a,b)=>a.meters-b.meters)[0];
+   if(!match){status('定位已啟用，目前不在三個地區的提醒範圍');return}
+   status('已接近'+AREAS[match.id].name+'（約 '+Math.round(match.meters)+' 公尺）');
+   const d=load(),key=today()+'|'+match.id;d.alerted=d.alerted||{};if(d.alerted[key])return;
+   d.alerted[key]=Date.now();if(!save(d)){status('無法儲存提醒狀態，請檢查本機空間');return}show(match.id,match.meters);
+  },err=>{watchId=null;status(err.code===1?'未授權定位；仍可手動打卡':'定位失敗，請檢查 GPS 與網路設定')},{enableHighAccuracy:true,maximumAge:15000,timeout:20000});
+ };
+ // Do not start GPS without explicit user action. Background PWA geofencing is not promised.
+})();
 </script></body>
 </html>
