@@ -2720,23 +2720,23 @@ window.addEventListener('keydown',e=&gt;{if(e.key==='Escape'&amp;&amp;!lifePanel
 <button class="action" disabled="" id="vfSettlementConfirm" onclick="VF.settlementConfirm()" type="button">確認執行償還與退款</button>
 </details></div></section>
 <section class="page" id="photos"><h2 class="section-title">📸 旅行相簿</h2>
-<div class="v9256-toolbar"><button type="button" class="action" onclick="v9256OpenPhotoTab('album');document.getElementById('v925PhotoAdd').open=true">＋ 新增照片</button></div>
+<div class="v9256-toolbar"><button type="button" class="action" onclick="v9261PhotoAction('camera')">📷 拍照</button><button type="button" class="secondary" onclick="v9261PhotoAction('gallery')">🖼️ 選照片</button><button type="button" class="secondary" onclick="v9261PhotoAction('options')">⚙️ 更多</button></div>
 <div class="v9256-tabs" role="group" aria-label="旅行照片檢視方式"><button type="button" data-tab="album" class="active" onclick="v9256OpenPhotoTab('album')">📸 相簿</button><button type="button" data-tab="map" onclick="v9256OpenPhotoTab('map')">🗺️ 地圖</button><button type="button" data-tab="places" onclick="v9256OpenPhotoTab('places')">📍 景點</button></div>
-<div id="v9256Album" class="v9256-pane"><nav class="v9252-photo-nav" aria-label="照片專區功能"><button class="action" onclick="document.getElementById('v925PhotoAdd').open=true;document.getElementById('v925PhotoAdd').scrollIntoView({block:'nearest',behavior:'smooth'})" type="button">＋ 新增</button><button class="secondary" onclick="v9256OpenPhotoTab('map')" type="button">🗺️ 地圖</button></nav>
-<div class="notice" style="margin:7px 0;padding:9px">📍 到達景點後可一鍵拍照，系統會把照片歸到對應景點；也能在「景點打卡」頁啟用 GPS 抵達提醒。<button class="secondary" type="button" onclick="showPage('adventureMap')" style="padding:6px 9px">前往景點地圖</button></div><p class="v9252-photo-hint">照片獨立保存在本機，不會自動加入日記。請定期備份。</p>
-<details class="v925-optional v925-photo-add" id="v925PhotoAdd"><summary>＋ 新增照片／手機拍照</summary><div class="card">
+<div id="v9256Album" class="v9256-pane">
+
+<details class="v925-optional v925-photo-add" id="v925PhotoAdd"><summary>📷 拍照設定與儲存</summary><div class="card">
 <b>新增照片</b>
 <label for="photoDate">拍攝日期</label><input id="photoDate" max="2026-11-23" min="2026-11-18" type="date" value="2026-11-18"/>
 <label for="photoLocation">拍攝地點（選填）</label><input id="photoLocation" placeholder="例如：還劍湖、沙壩、下龍灣"/>
-<label for="photoCamera">📷 用手機拍照</label><input accept="image/*" capture="environment" id="photoCamera" multiple="" type="file"/>
-<label for="photoFiles">🖼️ 從裝置選擇照片</label><input accept="image/*" id="photoFiles" multiple="" type="file"/>
-<p class="small">可一次選多張照片。照片先安全存入 APP，接著可用 Android 分享介面保存至手機；不支援時仍可下載。</p>
+<input aria-label="開啟手機相機" accept="image/*" capture="environment" id="photoCamera" type="file" class="v9261-hidden-file" onchange="v9261PhotoSelected('camera')"/>
+<input aria-label="從手機相簿選擇照片" accept="image/*" id="photoFiles" multiple="" type="file" class="v9261-hidden-file" onchange="v9261PhotoSelected('gallery')"/>
+<p class="small" id="v9261SelectedHint">拍照或選照片後，按下方「儲存到 APP」。</p>
 <button class="action" onclick="savePhotoLibrary()">儲存到 APP</button>
-<p aria-live="polite" class="small" id="photoStatus"></p><div id="v9259AfterSave" hidden><button class="action" type="button" onclick="shareTravelPhotoById(this.dataset.photoId)">📲 將剛拍的照片分享到手機</button><p class="small">多張照片可在下方逐張分享；請在 Android 分享選單選擇可用的儲存方式。</p></div>
+<p aria-live="polite" class="small" id="photoStatus"></p><div id="v9259AfterSave" hidden><button class="action" type="button" onclick="shareTravelPhotoById(this.dataset.photoId)">📲 保存到手機相簿</button></div>
 </div></details>
 <div class="card">
 <div class="row"><h3 style="margin:0">我的旅行相簿</h3><span class="small" id="photoCount">0 張照片</span></div>
-<p class="small">📱 APP 照片不會自動同步 Android 相簿。優先使用「分享到手機」開啟系統分享選單；可選擇手機提供的保存方式。若無法使用，請按「下載照片」。</p><div class="diary-actions"><button class="secondary" type="button" onclick="downloadAllTravelPhotos()">📦 全部下載 ZIP</button></div><p class="small" id="photoPhoneSaveStatus" aria-live="polite"></p><div id="photoLibraryList"><p class="muted">正在讀取照片…</p></div>
+<details class="v9261-backup-tools"><summary>📦 批次下載與備份</summary><button class="secondary" type="button" onclick="downloadAllTravelPhotos()">全部下載 ZIP</button></details><p class="small" id="photoPhoneSaveStatus" aria-live="polite"></p><div id="photoLibraryList"><p class="muted">正在讀取照片…</p></div>
 <details class="v9252-photo-backup"><summary>🛡️ 照片備份與匯入</summary><div class="diary-actions"><button class="action" onclick="exportPhotoLibrary()">匯出照片備份</button><button class="secondary" onclick="document.getElementById('photoImportFile').click()">匯入照片備份</button></div></details>
 <input accept="application/json,.json" id="photoImportFile" onchange="importPhotoLibrary(event)" style="display:none" type="file"/>
 </div>
@@ -2994,9 +2994,9 @@ async function photoPut(item){const db=await openDiaryDb();return new Promise((r
 async function photoDelete(id){const db=await openDiaryDb();return new Promise((resolve,reject)=>{const tx=db.transaction(PHOTO_STORE,'readwrite');tx.objectStore(PHOTO_STORE).delete(id);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}
 function releasePhotoUrls(){photoObjectUrls.forEach(u=>URL.revokeObjectURL(u));photoObjectUrls=[]}
 function photoUrl(blob){if(!(blob instanceof Blob))return '';const u=URL.createObjectURL(blob);photoObjectUrls.push(u);return u}
-async function savePhotoLibrary(){const status=document.getElementById('photoStatus');const files=[...(document.getElementById('photoCamera').files||[]),...(document.getElementById('photoFiles').files||[])].filter(f=>f.type.startsWith('image/'));if(!files.length){status.textContent='請先拍照或選擇照片。';return}if(files.some(f=>f.size>15*1024*1024)){status.textContent='有照片超過 15 MB，請先縮小照片後再加入。';return}try{const date=document.getElementById('photoDate').value||'2026-11-18';const location=document.getElementById('photoLocation').value.trim();for(const file of files){const id='photo-'+Date.now()+'-'+Math.random().toString(36).slice(2,9);await photoPut({id,date,location,name:file.name||'旅行照片',blob:file,createdAt:Date.now()});window.v9259LastPhotoId=id}document.getElementById('photoCamera').value='';document.getElementById('photoFiles').value='';status.textContent='已存入 APP '+files.length+' 張照片。尚未確認手機相簿已保存。';await renderPhotoLibrary();const latest=window.v9259LastPhotoId;if(latest){const wrap=document.getElementById('v9259AfterSave');if(wrap){wrap.hidden=false;wrap.querySelector('button').dataset.photoId=latest}}}catch(e){status.textContent='照片儲存失敗：'+(e.message||'請檢查裝置儲存空間。')}}
+async function savePhotoLibrary(){const status=document.getElementById('photoStatus');const files=[...(document.getElementById('photoCamera').files||[]),...(document.getElementById('photoFiles').files||[])].filter(f=>f.type.startsWith('image/'));if(!files.length){status.textContent='請先拍照或選擇照片。';return}if(files.some(f=>f.size>15*1024*1024)){status.textContent='有照片超過 15 MB，請先縮小照片後再加入。';return}try{const date=document.getElementById('photoDate').value||'2026-11-18';const location=document.getElementById('photoLocation').value.trim();for(const file of files){const id='photo-'+Date.now()+'-'+Math.random().toString(36).slice(2,9);await photoPut({id,date,location,name:file.name||'旅行照片',blob:file,createdAt:Date.now()});window.v9259LastPhotoId=id}document.getElementById('photoCamera').value='';document.getElementById('photoFiles').value='';status.textContent='已存入 APP '+files.length+' 張。可再點「保存到手機相簿」。';await renderPhotoLibrary();const latest=window.v9259LastPhotoId;if(latest){const wrap=document.getElementById('v9259AfterSave');if(wrap){wrap.hidden=false;wrap.querySelector('button').dataset.photoId=latest}}}catch(e){status.textContent='照片儲存失敗：'+(e.message||'請檢查裝置儲存空間。')}}
 async function deletePhotoLibrary(id){if(!confirm('確定刪除這張照片？此操作無法復原。'))return;try{await photoDelete(id);await renderPhotoLibrary()}catch(e){alert('刪除失敗：'+e.message)}}
-async function renderPhotoLibrary(){const host=document.getElementById('photoLibraryList');if(!host)return;try{releasePhotoUrls();const items=await photoGetAll();document.getElementById('photoCount').textContent=items.length+' 張照片';if(!items.length){host.innerHTML='<p class="muted">相簿還是空的。請從上方拍照或選擇照片。</p>';return}host.innerHTML='<div class="diary-photo-grid">'+items.map(x=>`<article class="card" style="margin:0;padding:8px"><img src="${photoUrl(x.blob)}" alt="${escapeDiaryHtml(x.name||'旅行照片')}" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px"><div class="small">${escapeDiaryHtml(x.date||'未填日期')}</div><b>${escapeDiaryHtml(x.location||'旅行照片')}</b><div class="diary-actions"><button class="action" onclick="shareTravelPhotoById(this.dataset.photoId)" data-photo-id="${escapeDiaryHtml(x.id)}">📲 分享到手機</button><button class="action" onclick="downloadTravelPhotoById(this.dataset.photoId)" data-photo-id="${escapeDiaryHtml(x.id)}">📥 下載照片</button><button class="secondary" onclick="deletePhotoLibrary('${escapeDiaryHtml(x.id)}')">刪除</button></div></article>`).join('')+'</div>'}catch(e){host.innerHTML='<div class="notice">無法讀取照片專區：'+escapeDiaryHtml(e.message||'未知錯誤')+'</div>'}}
+async function renderPhotoLibrary(){const host=document.getElementById('photoLibraryList');if(!host)return;try{releasePhotoUrls();const items=await photoGetAll();document.getElementById('photoCount').textContent=items.length+' 張照片';if(!items.length){host.innerHTML='<p class="muted">相簿還是空的。請從上方拍照或選擇照片。</p>';return}host.innerHTML='<div class="diary-photo-grid">'+items.map(x=>`<article class="card" style="margin:0;padding:8px"><img src="${photoUrl(x.blob)}" alt="${escapeDiaryHtml(x.name||'旅行照片')}" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px"><div class="small">${escapeDiaryHtml(x.date||'未填日期')}</div><b>${escapeDiaryHtml(x.location||'旅行照片')}</b><div class="diary-actions"><button class="action" onclick="shareTravelPhotoById(this.dataset.photoId)" data-photo-id="${escapeDiaryHtml(x.id)}">📲 保存到手機</button><details class="v9261-item-more"><summary>⋯ 更多</summary><button class="secondary" onclick="downloadTravelPhotoById(this.dataset.photoId)" data-photo-id="${escapeDiaryHtml(x.id)}">📥 下載</button><button class="secondary" onclick="deletePhotoLibrary('${escapeDiaryHtml(x.id)}')">刪除</button></details></div></article>`).join('')+'</div>'}catch(e){host.innerHTML='<div class="notice">無法讀取照片專區：'+escapeDiaryHtml(e.message||'未知錯誤')+'</div>'}}
 // V9.25.9: Web Share API 僅開啟 Android 分享介面；無法得知是否真正存入系統相簿。
 async function shareTravelPhotoById(id){
  const msg=document.getElementById('photoPhoneSaveStatus');
@@ -3005,11 +3005,11 @@ async function shareTravelPhotoById(id){
   if(i<0||!(items[i].blob instanceof Blob))throw Error('找不到照片');
   const x=items[i],file=new File([x.blob],travelPhotoFilename(x,i+1),{type:x.blob.type||'image/jpeg'});
   if(!navigator.share||!navigator.canShare||!navigator.canShare({files:[file]})){
-   if(msg)msg.textContent='此瀏覽器不支援照片分享，已改為下載。請確認下載資料夾。';
+   if(msg)msg.textContent='此瀏覽器不支援照片分享，已改為下載。請到手機「檔案／下載」確認；下載檔不一定立即顯示在系統相簿。';
    travelPhotoDownload(x.blob,file.name);return;
   }
   await navigator.share({files:[file],title:'世界冒險日記照片'});
-  if(msg)msg.textContent='分享介面已關閉。請自行確認照片是否已存入手機相簿；APP 無法驗證保存結果。';
+  if(msg)msg.textContent='分享介面已關閉。請開啟 Android 系統相簿，確認照片確實出現；若沒有，請重試或使用下載照片。APP 無法讀取手機相簿確認結果。';
  }catch(e){
   if(msg)msg.textContent=e.name==='AbortError'?'已取消分享；APP 裡的照片仍安全保留。':'分享未完成：'+(e.message||'請改用下載照片。');
  }
@@ -6425,5 +6425,39 @@ function v9257OpenAdventure(kind='stamps'){
  if(d)d.scrollIntoView({block:'nearest',behavior:'smooth'});
 }
 </script>
-</body>
+<style id="v9261-photo-compact-style">
+#photos .v9261-hidden-file{display:none!important}
+#photos .v9256-toolbar{display:grid;grid-template-columns:1.1fr 1.1fr .8fr;gap:6px;margin:6px 0}
+#photos .v9256-toolbar button{min-height:40px;padding:7px 4px!important;font-size:13px!important}
+#photos .v9256-tabs{margin:5px 0 9px}
+#photos .v9256-tabs button{min-height:36px;padding:5px 3px!important;font-size:13px!important}
+#photos .v925-optional .card{margin:4px 0;padding:10px}
+#photos .v925-optional label{margin-top:5px}
+#photos .v925-optional input{margin:3px 0 5px}
+#photos .v9261-backup-tools{margin:4px 0 8px;font-size:13px}
+#photos .v9261-item-more{display:inline-block;font-size:12px}
+#photos .v9261-item-more summary{cursor:pointer;padding:7px}
+#photos .diary-photo-grid article .diary-actions{display:flex;gap:5px;flex-wrap:wrap}
+#photos .diary-photo-grid article .diary-actions button{min-height:34px;padding:5px 7px!important;font-size:12px!important}
+#photos .v925-photo-add summary{cursor:pointer}
+</style>
+<script>
+function v9261PhotoAction(action){
+ const details=document.getElementById('v925PhotoAdd');
+ if(action==='options'){if(details){details.open=!details.open;if(details.open)details.scrollIntoView({block:'nearest'});}return;}
+ if(typeof v9256OpenPhotoTab==='function')v9256OpenPhotoTab('album');
+ const target=document.getElementById(action==='camera'?'photoCamera':'photoFiles');
+ if(target)target.click();
+}
+function v9261PhotoSelected(source){
+ const field=document.getElementById(source==='camera'?'photoCamera':'photoFiles');
+ const count=field&&field.files?field.files.length:0;
+ if(!count)return;
+ const other=document.getElementById(source==='camera'?'photoFiles':'photoCamera');
+ if(other)other.value='';
+ const details=document.getElementById('v925PhotoAdd');if(details)details.open=true;
+ const hint=document.getElementById('v9261SelectedHint');if(hint)hint.textContent='已選 '+count+' 張照片，請按「儲存到 APP」。';
+ if(details)details.scrollIntoView({block:'nearest',behavior:'smooth'});
+}
+</script></body>
 </html>
