@@ -1678,10 +1678,18 @@ nav.rpg-nav button span{font-size:12px!important;line-height:1.25}
 nav.rpg-bottom-menu > button.rpg-direct-entry {display:none!important}
 nav.rpg-bottom-menu {flex-wrap:nowrap!important}
 nav.rpg-bottom-menu > button:not([style*="display: none"]) {min-width:0!important}
+</style><style id="v914-bond-ui">
+#encounterBondHub .bond-links{display:grid;grid-template-columns:1fr;gap:10px}
+#encounterBondHub .bond-links button,#encounterBondHub .bond-choice{width:100%;min-height:46px;white-space:normal;word-break:keep-all;border-radius:12px;padding:12px;text-align:left;background:#e5f4e9;color:#163b33;border:1px solid #9dbeb0;font-weight:700}
+#encounterBondHub .bond-choice{margin:7px 0}
+#encounterBondHub .bond-choice:focus-visible{outline:3px solid #d6a454}
+#encounterBondHub .bond-step{background:#f3f7ef;padding:14px;border-radius:12px;margin:10px 0;color:#233a32}
+#encounterBondHub .bond-result{border-left:4px solid #467c64;padding:12px;background:#eaf3e8;margin:12px 0}
+#encounterBondHub .bond-tag{font-size:12px;color:#3b6354}
 </style></head><body>
 <header><small>VIETNAM ADVENTURE · 2026</small><h1>🇻🇳 越南旅行日記</h1><p>北越六天五夜｜11/18（三）–11/23（一）</p></header><main>
 <div aria-hidden="true" id="memoirPrintRoot"></div>
-<section class="page active" id="home"><button onclick="showPage('loot')" style="display:block;width:100%;padding:14px;margin:12px 0;border-radius:12px;background:#2f675b;color:#fff;font-weight:800;font-size:17px;border:2px solid #dfc98b;" type="button">🎮 進入北越 RPG 冒險世界 V20</button>
+<section class="page active" id="home">
 <section aria-label="旅行世界首頁" class="v411-welcome">
 <div class="v411-welcome-copy"><span class="v411-kicker">VIETNAM · SLOW TRAVEL JOURNAL</span><h2>把每一段旅程，變成自己的故事。</h2><p>慢慢探索北越、認識沿途的人，收藏風景、美食與不期而遇的回憶。</p></div>
 <div aria-label="越南山水旅行插畫" class="v411-welcome-art" role="img"><span>⛰️</span><span>🌿</span><span>🏡</span><span>🛶</span></div>
@@ -1695,10 +1703,10 @@ nav.rpg-bottom-menu > button:not([style*="display: none"]) {min-width:0!importan
 </div>
 <div class="v50-bridge-actions">
 <button class="v50-primary-action" onclick="showPage('adventureMap')" type="button">前往景點打卡 →</button>
-<button class="v50-secondary-action" onclick="showPage('loot')" type="button">進入 RPG 冒險中心</button>
+
 </div>
 </section>
-<section aria-label="四大功能分類入口" class="v411-launch"><button class="v414-home-category" onclick="showPage('adventureMap')" type="button"><span>📍</span><b>打卡與行程</b><small>景點、GPS 打卡、每日安排</small></button><button class="v414-home-category" onclick="showPage('loot')" type="button"><span>🎮</span><b>遊戲與冒險</b><small>自由探索、戰鬥、背包</small></button><button class="v414-home-category" onclick="showPage('diary')" type="button"><span>📖</span><b>旅行紀錄</b><small>人物故事、日記、照片、回憶</small></button><button class="v414-home-category" onclick="showPage('expenses')" type="button"><span>🧰</span><b>旅行工具</b><small>美食、翻譯、記帳、購物</small></button></section>
+<section aria-label="四大功能分類入口" class="v411-launch"><button class="v414-home-category" onclick="showPage('adventureMap')" type="button"><span>📍</span><b>打卡與行程</b><small>景點、GPS 打卡、每日安排</small></button><button class="v414-home-category" onclick="toggleCategoryMenu(true)" type="button"><span>🎮</span><b>遊戲與冒險</b><small>自由探索、戰鬥、背包</small></button><button class="v414-home-category" onclick="showPage('diary')" type="button"><span>📖</span><b>旅行紀錄</b><small>人物故事、日記、照片、回憶</small></button><button class="v414-home-category" onclick="showPage('expenses')" type="button"><span>🧰</span><b>旅行工具</b><small>美食、翻譯、記帳、購物</small></button></section>
 <section aria-label="旅程總覽" class="v3-home-overview v43-home-overview">
 <div class="v3-home-title-row"><div><span class="v3-eyebrow">YOUR NORTH VIETNAM QUEST</span><h2>準備好出發冒險了嗎？</h2><p>北越六天五夜・4 人小隊</p></div><span aria-hidden="true" class="v3-home-badge">🇻🇳</span></div>
 <div class="v3-trip-facts"><div><small>出發日期</small><strong>11/18（三）</strong></div><div><small>旅程天數</small><strong>6 天 5 夜</strong></div><div><small>旅遊地區</small><strong>河內・沙壩・下龍灣</strong></div></div>
@@ -1732,6 +1740,13 @@ nav.rpg-bottom-menu > button:not([style*="display: none"]) {min-width:0!importan
 <button class="main-map-quest" onclick="document.getElementById('rpgMap').scrollIntoView({behavior:'smooth',block:'center'});document.getElementById('rpgMap').classList.add('map-focus');setTimeout(()=&gt;document.getElementById('rpgMap').classList.remove('map-focus'),1200)">🗺️ 地圖闖關 <small>河內 → 沙壩 → 下龍灣</small></button>
 <div class="pixel-game-hint">🧭 嗨，冒險者！點擊地圖上的地點，開啟任務並留下旅行足跡！</div><div class="pixel-map-wrap"><div class="pixel-npc-speech">出發吧！<br/>一起探索北越的美麗風景！ 💗</div><div class="rpg-map-path" id="rpgMap"><div class="notice">正在載入北越冒險地圖…若未顯示地圖，請確認瀏覽器允許執行此 HTML 的 JavaScript。</div></div><div aria-hidden="true" class="pixel-pet">🐈 🐾</div></div>
 </section><p class="small">點選地圖地點可展開景點資訊、打卡與照片功能。</p>
+</section>
+<section class="page" id="encounterBondHub" aria-label="奇遇與羈絆">
+<h2 class="section-title">📖 奇遇與羈絆</h2>
+<p class="small">人物會記得你的選擇，完成章節後解鎖下一段故事。原本的人物相遇、每日任務與隨機事件完整保留。</p>
+<section class="card" id="bondStoryCard"><h3>🧭 北越三地連續故事</h3><div id="bondChapterProgress" aria-live="polite"></div><div id="bondChapterContent"></div></section>
+<section class="card"><h3>📚 原有奇遇紀錄與互動</h3><p class="small">以下兩項保留原本完整的事件、紀錄與獎勵，不重新建立第二份存檔。</p>
+<div class="bond-links"><button type="button" onclick="showPage('travelStories')">👥 查看原有相遇故事與紀錄</button><button type="button" onclick="showPage('adventurePlaybook')">🎲 查看每日任務與隨機事件</button></div></section>
 </section>
 <section class="page" id="loot"><h2 class="section-title">🎮 北越像素冒險世界｜完整 RPG</h2><p class="small">已植入 V20 驚喜冒險遊戲。旅行行程、記帳、照片與其他功能保留。</p><iframe allow="fullscreen" id="integratedNorthVietnamRPG" loading="eager" referrerpolicy="no-referrer" srcdoc="&lt;!doctype html&gt;&lt;html lang=&quot;zh-Hant&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no&quot;&gt;&lt;title&gt;北越像素冒險世界 V20｜生活探索冒險整合測試版&lt;/title&gt;&lt;style&gt;*{box-sizing:border-box}body{margin:0;background:#182b27;color:#fff;font-family:system-ui,&#x27;Noto Sans TC&#x27;,sans-serif;overflow:hidden}#wrap{position:fixed;inset:0;display:grid;place-items:center;background:radial-gradient(#496c5b,#182b27)}canvas{display:block;width:min(100vw,calc(100vh * 1.77778));height:min(100vh,calc(100vw / 1.77778));image-rendering:pixelated;box-shadow:0 12px 55px #0008}#hint{position:fixed;top:10px;left:12px;background:#142d28c9;border:2px solid #e6c78d;border-radius:8px;padding:7px 10px;font-size:12px;pointer-events:none}#pad{position:fixed;bottom:15px;left:15px;display:grid;grid-template-columns:repeat(3,44px);gap:3px}button{touch-action:none;background:#213e38d9;border:2px solid #dfc98b;border-radius:10px;color:white;font-size:21px;width:44px;height:44px}#act{position:fixed;right:20px;bottom:25px;width:72px;height:72px;border-radius:50%;font-size:16px;font-weight:bold}#dialog{display:none;position:fixed;left:50%;bottom:12px;transform:translateX(-50%);width:min(600px,90vw);background:#fff4d5;color:#2e392f;border:4px solid #7d5139;box-shadow:0 5px 0 #3d332a;padding:12px 16px;font-size:15px;line-height:1.6;border-radius:7px;z-index:5}#dialog strong{display:block;color:#8c4a2d}#dialog button{float:right;background:#527a5a;width:auto;height:auto;padding:4px 12px;font-size:13px;margin-top:5px}#note{position:fixed;top:10px;right:10px;background:#203c34bb;padding:6px 10px;border-radius:8px;font-size:12px}@media (pointer:fine){#pad,#act{opacity:.65}}@media (max-width:640px){#hint{font-size:10px;max-width:70vw}#note{font-size:10px}#pad{bottom:8px;left:8px;grid-template-columns:repeat(3,39px)}#pad button{width:39px;height:39px}#act{right:10px;bottom:12px;width:58px;height:58px}}#location{position:fixed;top:49px;left:12px;background:#142d28d9;border:1px solid #e6c78d;border-radius:7px;padding:5px 9px;font-size:12px;pointer-events:none}#toast{position:fixed;left:50%;top:16%;transform:translateX(-50%);background:#fff4d5;color:#3a4034;border:3px solid #805c40;padding:9px 15px;border-radius:7px;display:none;pointer-events:none;font-weight:bold;z-index:6}#act{font-size:14px} @media(max-width:640px){#location{top:38px;font-size:10px}} #journalBtn{position:fixed;top:85px;right:10px;width:auto;height:auto;font-size:13px;padding:7px 10px;z-index:7}#journal{position:fixed;z-index:12;inset:8% 12%;overflow:auto;background:#fff1d0;color:#3d392c;border:5px solid #75523b;border-radius:10px;padding:18px;box-shadow:0 0 0 100vmax #0009}#journal[hidden],#battle[hidden]{display:none}#journal h3{margin-top:0}#journal p{line-height:1.65}#journal button{width:auto;height:auto;padding:7px 12px;font-size:14px}#battle{position:fixed;z-index:15;inset:0;display:grid;place-items:center;background:#102c2cd9}.battleCard{width:min(520px,92vw);max-height:90vh;overflow:auto;text-align:center;background:#f8e9c5;color:#463a2c;border:5px solid #8d6545;border-radius:12px;padding:16px}.battleCard h3{margin:4px 0}.battleCard p{min-height:42px}.battleCard button{width:auto;height:auto;padding:8px 12px;font-size:15px;background:#426d60}.battleActions{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}#battleSprite{font-size:62px;text-shadow:3px 4px #b5a18a}.battleStats{font-weight:bold;margin:10px}@media(max-width:640px){#journalBtn{top:70px;font-size:11px;padding:4px 7px}#journal{inset:5% 5%;font-size:13px}} .battleBars{margin:12px auto;max-width:350px;text-align:left}.barLabel{font-size:12px;font-weight:700;margin:4px 0}.meter{height:11px;border:1px solid #6c5b46;background:#c7b69a;border-radius:8px;overflow:hidden}.meter i{display:block;height:100%;transition:width .2s}#specialBtn:disabled{opacity:.5;cursor:not-allowed}#dialog{white-space:pre-line}#postActions{display:flex;gap:7px;flex-wrap:wrap;margin-top:7px}#postActions button{float:none;margin:0;font-size:13px}#postActions:empty{display:none}
 /* V12.1: 遊戲操作區禁止長按選字、拖曳及系統觸控選單 */
@@ -2756,11 +2771,11 @@ window.addEventListener(&#x27;keydown&#x27;,e=&gt;{if(e.key===&#x27;Escape&#x27;
 </section></div></details>
 <details class="category-accordion"><summary>🎮 遊戲與冒險<span class="accordion-hint">任務、戰鬥、獎勵、等級</span></summary><div class="category-accordion-content"><section class="category-group">
 <button data-keywords="RPG 遊戲 戰鬥 背包 裝備 道具 戰利品 圖鑑 怪物" data-page="loot" onclick="chooseCategoryPage('loot')">🎮 北越 RPG 冒險世界</button>
-<button data-keywords="遊戲 互動 隨機 驚喜 四人 事件" data-page="adventurePlaybook" onclick="chooseCategoryPage('adventurePlaybook')">🎲 隨機事件與互動</button>
+<button data-keywords="人物 故事 NPC 居民 對話 相遇 羈絆 隨機 互動 事件 劇情" data-page="encounterBondHub" onclick="chooseCategoryPage('encounterBondHub')">📖 奇遇與羈絆</button>
 <button data-keywords="成就 等級 EXP 經驗值 獎章" data-page="achievements" onclick="chooseCategoryPage('achievements')">🏆 成就與冒險等級</button>
 </section></div></details>
 <details class="category-accordion"><summary>📖 旅行紀錄<span class="accordion-hint">人物、日記、照片、回憶</span></summary><div class="category-accordion-content"><section class="category-group">
-<button data-keywords="人物 故事 NPC 居民 對話 回憶 相遇" data-page="travelStories" onclick="chooseCategoryPage('travelStories')">👥 人物故事與相遇</button>
+
 <button data-keywords="日記 回憶 文字 記錄 旅行故事" data-page="diary" onclick="chooseCategoryPage('diary')">📖 旅行日記</button>
 <button data-keywords="照片 相片 圖片 相簿 上傳" data-page="photos" onclick="chooseCategoryPage('photos')">📸 旅行相簿</button>
 <button data-keywords="照片地圖 座標 地理位置 拍照地點" data-page="photoMap" onclick="chooseCategoryPage('photoMap')">🗺️ 照片地圖</button>
@@ -6123,5 +6138,27 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
  });
 })();
 </script>
-</body>
+<script id="v914-bond-engine">
+(function(){
+'use strict';
+const KEY='world_adventure_encounters_v1';
+const chapters=[
+ {id:'hanoi',place:'河內古城',title:'遺失的古城信件',person:'古董商阿明',intro:'阿明遺失了一封重要信件。他希望你幫忙尋找，你會怎麼做？',choices:[['help','主動幫忙尋找','阿明記住了你的善意，願意分享一條線索。'],['reward','先詢問報酬','阿明答應給你報酬，但仍對你保持觀察。'],['investigate','先調查古城線索','你找到了額外線索，卻也花了更多時間。']]},
+ {id:'sapa',place:'沙壩山村',title:'織布師的約定',person:'織布師小蘭',intro:'小蘭看著從河內帶來的線索，問你是否知道信件的真相。',choices:[['truth','誠實告訴她','小蘭開始信任你，並說出家族往事。'],['hide','暫時隱瞞','小蘭察覺你的猶豫，決定稍後再談。'],['investigate','繼續尋找證據','你發現了另一條通往下龍灣的線索。']]},
+ {id:'halong',place:'下龍港口',title:'船長的祕密',person:'老船長',intro:'船長知道信件的由來，但想先知道你打算如何處理這段往事。',choices:[['return','將信件交還當事人','故事以和解作結，三地人物重新建立聯繫。'],['archive','將真相留作紀錄','你成為這段歷史的守護者，故事留下開放結局。'],['share','邀請大家共同見證','你促成了一場重逢，故事迎來團聚結局。']]}
+];
+function read(){try{const d=JSON.parse(localStorage.getItem(KEY)||'null');return d&&d.version===1&&d.chapters&&typeof d.chapters==='object'?d:{version:1,chapters:{},rewardClaims:{}}}catch(e){return {version:1,chapters:{},rewardClaims:{}}}}
+function save(d){try{localStorage.setItem(KEY,JSON.stringify(d));return true}catch(e){alert('存檔失敗，請檢查裝置儲存空間。');return false}}
+function esc(x){return String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function render(){const host=document.getElementById('bondChapterContent'),progress=document.getElementById('bondChapterProgress');if(!host||!progress)return;
+ const d=read(),idx=chapters.findIndex(c=>!d.chapters[c.id]),chapter=chapters[idx<0?2:idx],done=Object.keys(d.chapters).filter(k=>chapters.some(c=>c.id===k)).length;
+ progress.textContent='故事進度：'+done+' / 3 章'+(done===3?'｜已完成':'｜目前：'+chapter.place);
+ if(done===3){const last=d.chapters.halong;host.innerHTML='<div class="bond-step"><strong>🏆 故事已完成</strong><p>'+esc(last&&last.result||'你完成了三地冒險。')+'</p><p class="bond-tag">你的每一章選擇已保存，重開網頁也會保留。</p></div>'+chapters.map(c=>'<p>✓ '+esc(c.place)+'：'+esc(d.chapters[c.id]?.choiceLabel||'完成')+'</p>').join('');return}
+ host.innerHTML='<div class="bond-step"><span class="bond-tag">第 '+(idx+1)+' 章｜'+esc(chapter.place)+'｜'+esc(chapter.person)+'</span><h3>'+esc(chapter.title)+'</h3><p>'+esc(chapter.intro)+'</p></div>'+chapter.choices.map(c=>'<button class="bond-choice" type="button" data-bond-choice="'+esc(c[0])+'">'+esc(c[1])+'</button>').join('')+'<p class="small">每章選擇會保存，不能重複領取或覆蓋；目前劇情只記錄選擇，不直接改動 RPG EXP、金幣或背包。</p>';
+ host.querySelectorAll('[data-bond-choice]').forEach(b=>b.addEventListener('click',()=>{const latest=read();if(latest.chapters[chapter.id])return render();const opt=chapter.choices.find(c=>c[0]===b.dataset.bondChoice);if(!opt)return;latest.chapters[chapter.id]={choice:opt[0],choiceLabel:opt[1],result:opt[2],completedAt:new Date().toISOString()};if(save(latest)){host.innerHTML='<div class="bond-result"><strong>✨ '+esc(opt[2])+'</strong><p>你的選擇已保存。下一段故事已解鎖。</p><button type="button" id="bondNext">繼續故事 →</button></div>';const next=document.getElementById('bondNext');if(next)next.addEventListener('click',render);progress.textContent='故事進度：'+(idx+1)+' / 3 章';}}));
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',render);else render();
+window.renderEncounterBondV914=render;
+})();
+</script></body>
 </html>
