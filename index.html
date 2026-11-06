@@ -2790,7 +2790,7 @@ document.querySelectorAll('#pad button').forEach(b=&gt;{
   b.addEventListener('touchstart',e=&gt;e.preventDefault(),{passive:false});
   b.addEventListener('touchmove',e=&gt;e.preventDefault(),{passive:false});
 });
-document.getElementById('act').addEventListener('click',interact);document.getElementById('close').addEventListener('click',closeDialog);document.getElementById('journalBtn').addEventListener('click',journal);document.getElementById('journalClose').addEventListener('click',()=&gt;document.getElementById('journal').hidden=true);document.getElementById('attackBtn').addEventListener('click',()=&gt;battleTurn('attack'));document.getElementById('guardBtn').addEventListener('click',()=&gt;battleTurn('guard'));document.getElementById('skillBtn').addEventListener('click',()=&gt;battleTurn('skill'));document.getElementById('specialBtn').addEventListener('click',()=&gt;battleTurn('special'));document.getElementById('leaveBtn').addEventListener('click',()=&gt;battleTurn('leave'));
+document.getElementById('act').addEventListener('click',()=>interact());document.getElementById('close').addEventListener('click',closeDialog);document.getElementById('journalBtn').addEventListener('click',journal);document.getElementById('journalClose').addEventListener('click',()=&gt;document.getElementById('journal').hidden=true);document.getElementById('attackBtn').addEventListener('click',()=&gt;battleTurn('attack'));document.getElementById('guardBtn').addEventListener('click',()=&gt;battleTurn('guard'));document.getElementById('skillBtn').addEventListener('click',()=&gt;battleTurn('skill'));document.getElementById('specialBtn').addEventListener('click',()=&gt;battleTurn('special'));document.getElementById('leaveBtn').addEventListener('click',()=&gt;battleTurn('leave'));
 
 // V15–V20 integrated expansion. Existing V8/V10/V11/V12/V13 keys are read, never reset.
 const LIFE_KEY='north_vietnam_pixel_rpg_v20_life';
@@ -7312,14 +7312,21 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 @media(max-width:640px){#dialog{box-sizing:border-box;left:4vw!important;right:4vw!important;bottom:12dvh!important;transform:none!important;width:92vw!important;max-height:60dvh!important;padding:12px!important;font-size:14px!important}#dialog button{min-height:42px;touch-action:manipulation}}
 /* Hidden discovery panel cannot intercept taps while story is open. */
 #v930Discovery.v976-behind-story{display:none!important;pointer-events:none!important}
+#journal:not([hidden]){z-index:45!important}
+body:has(#journal:not([hidden])) #v930Discovery,
+body:has(#dialog[style*="display: block"]) #v930Discovery,
+body:has(#dialog[style*="display:block"]) #v930Discovery{display:none!important;pointer-events:none!important}
+
 </style>
 <script id="v976-discovery-sync">
 (function(){
  function init(){
   const journal=document.getElementById('journal');
   if(!journal)return;
-  function sync(){const panel=document.getElementById('v930Discovery');if(panel)panel.classList.toggle('v976-behind-story',!journal.hidden)}
+  function sync(){const panel=document.getElementById('v930Discovery');const dialog=document.getElementById('dialog');if(panel)panel.classList.toggle('v976-behind-story',!journal.hidden||!!(dialog&&getComputedStyle(dialog).display!=='none'))}
   new MutationObserver(sync).observe(journal,{attributes:true,attributeFilter:['hidden']});
+  const dialog=document.getElementById('dialog');
+  if(dialog)new MutationObserver(sync).observe(dialog,{attributes:true,attributeFilter:['style']});
   sync();
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
