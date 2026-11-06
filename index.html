@@ -2925,7 +2925,7 @@ function v934Draw(){
  function furniture(x,y,color,label){c.fillStyle='#573b2c';c.fillRect(ox+x*t-4,oy+y*t-4,t+8,t+8);c.fillStyle=color;c.fillRect(ox+x*t,oy+y*t,t,t);c.font='bold 15px sans-serif';c.fillStyle='#2b241d';c.textAlign='center';c.fillText(label,ox+(x+.5)*t,oy+(y+.65)*t);c.textAlign='left'}
  profile.spots.forEach(o=&gt;furniture(o.x,o.y,o.id==='door'?'#e9d39e':profile.accent,o.name.slice(0,1)));
  c.fillStyle='#3e678b';c.fillRect(ox+v934.x*t+7,oy+v934.y*t+18,26,23);c.fillStyle='#efc29a';c.fillRect(ox+v934.x*t+10,oy+v934.y*t+3,20,20);c.fillStyle='#48342d';c.fillRect(ox+v934.x*t+9,oy+v934.y*t+1,22,8);
- c.fillStyle='#142d28';c.fillRect(0,500,960,40);c.fillStyle='#fff1d1';c.font='bold 18px sans-serif';c.fillText('🏠 '+v934.room+'　｜　方向鍵移動，靠近物件按互動',20,526);
+ c.fillStyle='#142d28';c.fillRect(0,500,960,40);c.fillStyle='#fff1d1';c.font='bold 18px sans-serif';c.fillText('🏠 '+v934.room+'　｜　方向鍵移動，走到出口自動離開／靠近物件按互動',20,526);
  const o=v934Object();if(o){c.fillStyle='#fff1d1';c.fillRect(ox+v934.x*t-26,oy+v934.y*t-28,110,23);c.fillStyle='#3a3027';c.font='bold 14px sans-serif';c.fillText('E '+o.name,ox+v934.x*t-20,oy+v934.y*t-11)}
 }
 const v934OldUpdate=update;
@@ -2936,7 +2936,14 @@ update=function(dt){
  const dirs=[['up',0,-1],['down',0,1],['left',-1,0],['right',1,0]];
  for(const [d,dx,dy] of dirs)if(keys.has(d)){
   v934.dir=d;const x=v934.x+dx,y=v934.y+dy;
-  const furniture=v935Profile().spots.filter(o=&gt;o.id!=='door').map(o=&gt;o.x+','+o.y);
+  const spots=v935Profile().spots;
+  const door=spots.find(o=&gt;o.id==='door');
+  // Walking onto the door, or pressing down from the doorway, exits the room.
+  // Keep the existing E / interaction exit as a second way to leave.
+  if(door&amp;&amp;((x===door.x&amp;&amp;y===door.y)||(d==='down'&amp;&amp;v934.x===door.x&amp;&amp;v934.y===door.y))){
+   v934Leave();stepAcc=0;break;
+  }
+  const furniture=spots.filter(o=&gt;o.id!=='door').map(o=&gt;o.x+','+o.y);
   if(x&gt;=1&amp;&amp;x&lt;=14&amp;&amp;y&gt;=1&amp;&amp;y&lt;=11&amp;&amp;!furniture.includes(x+','+y)){v934.x=x;v934.y=y;v934.steps++}
   stepAcc=0;break;
  }
