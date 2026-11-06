@@ -3016,6 +3016,17 @@ lifeGather=function(){
 &lt;style id=&quot;v930-discovery-css&quot;&gt;
 #v930Discovery{position:fixed;left:10px;top:100px;bottom:auto;z-index:15;max-width:min(260px,65%);max-height:35vh;overflow:auto;font:12px/1.5 system-ui,sans-serif;color:#23363b;background:#f0f6f2;border:1px solid #a5bdb3;border-radius:12px;padding:8px 10px;box-shadow:0 3px 12px #0004}
 #v930Discovery summary{cursor:pointer;font-weight:700}#v930Discovery p{margin:6px 0 0}
+/* 故事視窗開啟時暫時不顯示探索提示；關閉後自動恢復，紀錄不受影響。 */
+body:has(#journal:not([hidden])) #v930Discovery{display:none}
+/* 原有日誌內容保持完整，手機僅縮小留白、優化捲動與返回按鈕。 */
+@media(max-width:640px){
+ #journal{box-sizing:border-box;inset:6dvh 4vw auto!important;width:92vw;max-height:78dvh;overflow-y:auto;overscroll-behavior:contain;padding:12px 13px!important;font-size:13px!important;line-height:1.4}
+ #journal h3{font-size:17px;line-height:1.35;margin:4px 0 9px}
+ #journal p{line-height:1.42;margin:7px 0}
+ #journal hr{margin:11px 0}
+ #journal button{min-height:38px}
+ #journalClose{position:sticky;bottom:0;display:block;margin:12px 0 0 auto;background:#345b50;color:#fff;border:2px solid #d5bd8a;border-radius:9px;z-index:1}
+}
 &lt;/style&gt;
 &lt;script id=&quot;v930-discovery-script&quot;&gt;
 (function(){
