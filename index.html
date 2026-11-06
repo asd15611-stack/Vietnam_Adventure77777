@@ -2832,7 +2832,7 @@ function lifeSideQuest(){const key=sceneId+'_'+todayLife();const q=life.quests[k
 function lifeEvent(){const k=sceneId+'_'+todayLife();if(life.events[k]){showToast('今天已參加過活動');return}life.events[k]=true;life.coins+=5;saveLife();showToast('🎊 參加生活活動，金幣 +5')}
 function storeItem(k){if(!takeItem(k,1))return;life.home.stored[k]=(life.home.stored[k]||0)+1;saveLife();showToast('📦 已存放 '+k)}
 function retrieveItem(k){if((life.home.stored[k]||0)&lt;1)return;life.home.stored[k]--;giveItem(k,1);saveLife();showToast('📦 已取出 '+k)}
-function lifeVisit(room){life.indoorVisits[room]=(life.indoorVisits[room]||0)+1;saveLife();showGameDialog('🏠 '+room,'你走進室內，看到溫暖的燈光與居民生活的痕跡。\n（本版為室內事件場景；尚未提供可自由走動的獨立室內地圖。）',room.includes('之家')||room.includes('民宿')||room.includes('客艙')?[['🛏️ 休息恢復',()=&gt;{lifeRest();closeDialog()}]]:[]);closeLife()}
+function lifeVisit(room){life.indoorVisits[room]=(life.indoorVisits[room]||0)+1;saveLife();closeLife();showGameDialog('🏠 '+room,'你走進室內，看到溫暖的燈光與居民生活的痕跡。\n（本版為室內事件場景；尚未提供可自由走動的獨立室內地圖。）',room.includes('之家')||room.includes('民宿')||room.includes('客艙')?[['🛏️ 休息恢復',()=&gt;{lifeRest();closeDialog()}]]:[])}
 function renderLife(){lifeTabs.replaceChildren();lifeContent.replaceChildren();for(const [id,label] of tabDefs){const b=addLifeButton(lifeTabs,label,()=&gt;lifeTab=id);if(lifeTab===id)b.classList.add('selected')}
  if(lifeTab==='home'){
  lifeInfo(names[sceneId]+' · '+lifePeriodName()+' · '+lifeWeather()+' · 🪙 '+life.coins+' 金幣');
@@ -7306,6 +7306,25 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
  margin-left:auto;background:#344F49!important;color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important;
 }
 </style>
+<style id="v976-mobile-interaction-fix">
+/* Existing indoor dialogue was behind other RPG overlays (z-index:5). */
+#dialog{z-index:35!important;max-height:65dvh;overflow-y:auto;overscroll-behavior:contain}
+@media(max-width:640px){#dialog{box-sizing:border-box;left:4vw!important;right:4vw!important;bottom:12dvh!important;transform:none!important;width:92vw!important;max-height:60dvh!important;padding:12px!important;font-size:14px!important}#dialog button{min-height:42px;touch-action:manipulation}}
+/* Hidden discovery panel cannot intercept taps while story is open. */
+#v930Discovery.v976-behind-story{display:none!important;pointer-events:none!important}
+</style>
+<script id="v976-discovery-sync">
+(function(){
+ function init(){
+  const journal=document.getElementById('journal');
+  if(!journal)return;
+  function sync(){const panel=document.getElementById('v930Discovery');if(panel)panel.classList.toggle('v976-behind-story',!journal.hidden)}
+  new MutationObserver(sync).observe(journal,{attributes:true,attributeFilter:['hidden']});
+  sync();
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
 </body>
 </html>
 
