@@ -2899,17 +2899,17 @@ function v934Enter(room){
  closeLife();keys.clear();
  document.getElementById('location').textContent='🏠 '+room+' · 方向鍵移動／交談互動';
  document.getElementById('act').textContent='互動';
- showToast('🏠 已進入 '+room+'，走近家具按「互動」');
+ showToast('🏠 已進入 '+room+'；可點擊家具互動，恢復體力請到「生活 → 休息」');
 }
 function v934Leave(){const room=v934.room;v934.room=null;keys.clear();document.getElementById('act').textContent='交談';document.getElementById('location').textContent='📍 '+names[sceneId]+' · 走到道路盡頭可切換地區';showToast('🚪 已離開 '+room)}
 function v934Object(){return v935Profile().spots.find(o=&gt;Math.abs(o.x-v934.x)+Math.abs(o.y-v934.y)&lt;=1)}
-function v934Action(){
- const o=v934Object();if(!o){showToast('靠近床鋪、料理台、櫃子、盆栽或門口再互動');return}
+function v934Action(clickedObject){
+ const o=clickedObject||v934Object();if(!o){showToast('靠近床鋪、料理台、櫃子、盆栽或門口再互動');return}
  if(o.id==='door'){v934Leave();return}
  if(o.id==='bed'){lifeRest();showToast('🛏️ 休息完成，HP／MP 已恢復');return}
  if(o.id==='cook'){openLife('craft');return}
  if(o.id==='cabinet'){openLife('records');return}
- if(o.id==='npc'){showGameDialog('💬 '+o.name,'歡迎來到 '+v934.room+'！\n這裡的每個角落都有自己的故事。你可以走近家具、採集物件並使用生活功能。');return}
+ if(o.id==='npc'){showGameDialog('💬 '+o.name,'歡迎來到 '+v934.room+'！\n可在「生活」選單查看休息與料理。', (sceneId==='hanoi'||sceneId==='sapa'||sceneId==='cruise')?[['🛏️ 休息恢復 HP／MP',()=>{lifeRest();closeDialog()}]]:[]);return}
  if(o.id==='trade'){if(sceneId==='hanoi')lifeTradeBuy();else showGameDialog('🛒 交易櫃台','店主正在整理貨品，這個地區目前沒有可購買的商品。');return}
  if(o.id==='shelf'||o.id==='table'){showGameDialog('🔎 '+o.name,'你仔細觀察了 '+o.name+'，發現這裡充滿當地生活的氣息。');return}
  if(o.id==='plant'){showGameDialog('🪴 室內盆栽','窗邊的植物長得很好。想採集材料，請到戶外草叢旁按「互動」，或在生活 → 採集查看當日次數。');return}
@@ -2928,6 +2928,18 @@ function v934Draw(){
  c.fillStyle='#142d28';c.fillRect(0,500,960,40);c.fillStyle='#fff1d1';c.font='bold 18px sans-serif';c.fillText('🏠 '+v934.room+'　｜　方向鍵移動，走到出口自動離開／靠近物件按互動',20,526);
  const o=v934Object();if(o){c.fillStyle='#fff1d1';c.fillRect(ox+v934.x*t-26,oy+v934.y*t-28,110,23);c.fillStyle='#3a3027';c.font='bold 14px sans-serif';c.fillText('E '+o.name,ox+v934.x*t-20,oy+v934.y*t-11)}
 }
+// Indoor touch/mouse interaction: tap a drawn furniture tile directly.
+// The same existing v934Action handles both taps and the interaction button.
+canvas.addEventListener('click',function(ev){
+ if(!v934.room||combat||dialog||!document.getElementById('lifePanel').hidden||!document.getElementById('journal').hidden)return;
+ const rect=canvas.getBoundingClientRect();
+ if(!rect.width||!rect.height)return;
+ const px=(ev.clientX-rect.left)*canvas.width/rect.width;
+ const py=(ev.clientY-rect.top)*canvas.height/rect.height;
+ const x=Math.floor((px-150)/40),y=Math.floor((py-22)/40);
+ const spot=v935Profile().spots.find(o=>o.x===x&&o.y===y);
+ if(spot){ev.preventDefault();ev.stopPropagation();v934Action(spot)}
+},true);
 const v934OldUpdate=update;
 update=function(dt){
  if(!v934.room){v934OldUpdate(dt);return}
@@ -4666,7 +4678,23 @@ const areas={hanoi:{name:'河內',enemy:'古城搗蛋史萊姆',icon:'🟢',hp:4
 const wildPools={hanoi:[['古城搗蛋史萊姆','🟢',34,6],['還劍湖水精靈','💧',42,7],['老街飛天蝙蝠','🦇',38,8]],sapa:[['梯田山林野豬','🐗',54,9],['霧林小妖精','🧚',46,8],['高山岩石怪','🪨',66,10]],halong:[['海灣寄居蟹','🦀',62,10],['翡翠海龍','🐉',72,11],['漂流木怪','🪵',58,9]]};
 function save(){if(!write(KEY,data)){alert('背包資料保存失敗，可能是瀏覽器空間不足。原有旅遊資料未被修改。');return false}return true}
 function addItem(id,qty=1,source='manual'){if(!data.inventory[id]){const base=items[id]||{};data.inventory[id]={...base,qty:0,sources:[]}}const row=data.inventory[id];if(source&&row.sources?.includes(source))return false;row.qty=Math.max(0,Number(row.qty)||0)+qty;row.sources=row.sources||[];if(source)row.sources.push(source);save();return true}
-function ensureStarter(){if(data.starterGranted)return;addItem('potion',3,'starter-potions');addItem('pho',2,'starter-pho');addItem('hat',1,'starter-hat');addItem('shoes',1,'starter-shoes');data.starterGranted=true;save()}
+function ensureStarter(){
+ // 依每件物品的來源紀錄補齊漏發裝備；已領取過的不重複發放。
+ // 不重置現有背包、裝備或玩家進度。
+ const grants=[['potion',3,'starter-potions'],['pho',2,'starter-pho'],['hat',1,'starter-hat'],['shoes',1,'starter-shoes']];
+ for(const [id,qty,source] of grants){
+  const row=data.inventory[id];
+  if(row&&Array.isArray(row.sources)&&row.sources.includes(source))continue;
+  // 已有同名物品但無來源標記時，保留原物品，避免重複領取。
+  if(row&&(Number(row.qty)||0)>0)continue;
+  // 補給品可能已被正常消耗；舊存檔標記為已領取時不重新補發。
+  if(data.starterGranted&&id!=='hat'&&id!=='shoes')continue;
+  // 裝備可能已穿戴而不在背包列表，不重複發放。
+  if((id==='hat'||id==='shoes')&&Object.values(data.equipment).some(x=>x&&x.id===id))continue;
+  addItem(id,qty,source);
+ }
+ if(!data.starterGranted){data.starterGranted=true;save()}
+}
 function syncRpg(){const r=read(RPG_KEY,{});if(!r||typeof r!=='object')return;const labels={hanoi:'古城導覽手冊',sapa:'山村藥草包',halong:'船長的羅盤'};Object.keys(labels).forEach(id=>{if(r.questClaimed?.[id])addItem('quest-'+id,1,'quest-'+id)});const secrets={hanoi:['secret-hanoi','🏮','老街祕密明信片'],sapa:['secret-sapa','🌺','梯田山茶花'],halong:['secret-halong','🍾','海灣漂流瓶']};Object.entries(secrets).forEach(([id,v])=>{if(r.discovered?.[id])addCollectible(v[0],v[1],v[2],'secret-'+id)});const chests={hanoi:'河內古城寶箱紀念章',sapa:'沙壩山村寶箱紀念章',halong:'下龍灣港口寶箱紀念章'};Object.entries(chests).forEach(([id,name])=>{if(r.completed?.[id])addCollectible('chest-'+id,'🎁',name,'chest-'+id)});}
 function addCollectible(id,icon,name,source){if(data.inventory[id])return;data.inventory[id]={id,icon,name,desc:'冒險收藏紀念品',type:'collectible',qty:1,sources:[source]};save()}
 function syncLegacyLoot(){const loot=read('vietnam-adventure-loot-v1',[]);if(Array.isArray(loot))loot.forEach((x,i)=>{const id='legacy-loot-'+(x.at||i)+'-'+String(x.name||'item').slice(0,12);if(!data.inventory[id])data.inventory[id]={id,icon:x.icon||'🎁',name:x.name||'冒險戰利品',desc:x.note||'既有小隊戰利品',type:'collectible',qty:1,sources:['legacy-loot']}});const loc=read('vietnam-adventure-location-rewards-v1',{});if(Array.isArray(loc))loc.forEach(x=>{if(x?.id)addCollectible('legacy-location-'+x.id,x.icon||'🎖️',x.name||'景點紀念品','legacy-location-'+x.id)});save()}
@@ -6123,10 +6151,11 @@ function nearTarget(){
    candidates.push({type:'hidden',data:sc.hidden,distance:d(sc.hidden),priority:1});
  const free=localDiscovery();
  if(free)candidates.push({type:'freeDiscovery',data:free,distance:d(free),priority:1});
+ // 出入口近距離優先：避免旁邊的家具、採集點搶走「互動」。
  for(const e of sc.exits||[])if(d(e)<45)
-   candidates.push({type:'exit',data:e,distance:d(e),priority:2});
+   candidates.push({type:'exit',data:e,distance:d(e),priority:d(e)<28?-1:2});
  for(const e of sc.doors||[])if(d(e)<48)
-   candidates.push({type:'exit',data:e,distance:d(e),priority:2});
+   candidates.push({type:'exit',data:e,distance:d(e),priority:d(e)<28?-1:2});
  for(const b of sc.buildings||[]){
    const dist=Math.hypot(player.x-(b.x+b.w/2),player.y-(b.y+b.h));
    if(dist<58)candidates.push({type:'building',data:b,distance:dist,priority:2});
@@ -6253,7 +6282,7 @@ function purchase(id,cost,icon,name,desc,type){
 }
 function restAtInn(n){
  const d=getCore();const cost=8;if(d.hp>=d.maxHp){showNear(n.name,'你的生命值已滿，可以繼續冒險。',[{label:'離開',run:hideNear}],n.x,n.y);return}
- showNear(n.name,'住宿休息費用 '+cost+' G，恢復全部生命值。',[{label:'休息並恢復',run:()=>{const core=getCore();if(core.gold<cost){setLog('金幣不足，休息需要 '+cost+' G。');return}core.gold-=cost;core.hp=core.maxHp;saveCore(core);setLog('🛏️ 休息完成！生命值已恢復至 '+core.hp+'/'+core.maxHp+'。');hideNear();renderStatus()}},{label:'離開',run:hideNear}],n.x,n.y);
+ showNear(n.name,'住宿休息費用 '+cost+' G，恢復全部生命值。',[{label:'休息並恢復',run:()=>{const core=getCore();if(core.gold<cost){setLog('金幣不足，休息需要 '+cost+' G。');return}core.gold-=cost;core.hp=core.maxHp;if(!saveCore(core)){setLog('休息未完成：資料保存失敗，請確認瀏覽器儲存空間後再試。');return}setLog('🛏️ 休息完成！生命值已恢復至 '+core.hp+'/'+core.maxHp+'。');hideNear();renderStatus()}},{label:'離開',run:hideNear}],n.x,n.y);
 }
 function craftAtForge(id){
  const d=getCore(),mat=id==='blade'?'slime-gel':'mountain-herb',need=3,cost=30;
