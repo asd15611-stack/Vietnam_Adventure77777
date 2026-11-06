@@ -2044,6 +2044,21 @@ nav.rpg-bottom-menu button.active *,nav.rpg-bottom-menu button[aria-current="pag
 #waWeather .wa-weather-destinations{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;margin:12px 0 8px}
 #waWeather .wa-weather-destinations button{min-width:0;padding:9px 3px!important;font-size:12px;line-height:1.35;border-radius:9px!important;background:#E9ECE9!important;border:1px solid #82978A!important;color:#25343A!important;-webkit-text-fill-color:#25343A!important;font-weight:700}
 #waWeather .wa-weather-destinations button.active{background:#344F49!important;border-color:#344F49!important;color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important}
+#waWeather .wa-weather-expand{margin-top:12px;border:1px solid #B7C6BE;border-radius:11px;background:#F5F6F3;color:#25343A;overflow:hidden}
+#waWeather .wa-weather-expand>summary{display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;list-style:none;padding:12px 14px;background:#E9ECE9;color:#25343A!important;-webkit-text-fill-color:#25343A!important;font-weight:750}
+#waWeather .wa-weather-expand>summary::-webkit-details-marker{display:none}
+#waWeather .wa-weather-expand>summary .wa-weather-expand-hint{font-size:12px;font-weight:500;color:#344F49!important;-webkit-text-fill-color:#344F49!important}
+#waWeather .wa-weather-expand[open]>summary{border-bottom:1px solid #B7C6BE}
+#waWeather .wa-weather-expand[open]>summary .wa-weather-expand-hint{font-size:0}
+#waWeather .wa-weather-expand[open]>summary .wa-weather-expand-hint::after{content:'點擊收合';font-size:12px}
+#waWeather .wa-weather-expand .wa-weather-week{padding:10px;margin-top:0}
+#waWeather .wa-weather-week{margin-top:12px;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+#waWeather .wa-weather-week-day{min-width:0;background:#E9ECE9;color:#25343A;border:1px solid #B7C6BE;border-radius:9px;padding:7px 2px;text-align:center;font-size:11px;line-height:1.6}
+#waWeather .wa-weather-week-day strong,#waWeather .wa-weather-week-day span{display:block;color:#25343A!important;-webkit-text-fill-color:#25343A!important}
+#waWeather .wa-weather-week-day .wa-weather-emoji{font-size:18px}
+#waWeather .wa-weather-week-day .wa-weather-high{font-weight:800}
+#waWeather .wa-weather-week-day .wa-weather-low{color:#43565C!important}
+@media(max-width:430px){#waWeather .wa-weather-week{grid-template-columns:repeat(4,minmax(0,1fr))}}
 #waWeather .wa-weather-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px;font-size:11px}
 #waWeather .wa-weather-foot button{flex-shrink:0;background:#E9ECE9!important;color:#25343A!important;-webkit-text-fill-color:#25343A!important;border:1px solid #82978A!important}
 #waWeather #waWeatherRefresh{background:#E9ECE9!important;color:#25343A!important;-webkit-text-fill-color:#25343A!important}
@@ -2073,7 +2088,8 @@ nav.rpg-bottom-menu button.active *,nav.rpg-bottom-menu button[aria-current="pag
 <button type="button" class="wa-weather-place" data-home-weather="halong" aria-pressed="false">下龍灣</button>
 </div>
 <div class="wa-weather-main"><div><div id="waWeatherCity">📍 河內</div><div class="wa-weather-temp" id="waWeatherTemp">--°C</div><div id="waWeatherDesc">等待天氣資料</div></div><div aria-hidden="true" class="wa-weather-icon" id="waWeatherIcon">🌤️</div></div>
-<div class="wa-weather-meta" id="waWeatherMeta">體感 --°C · 濕度 --% · 降雨機率 --%</div>
+<div class="wa-weather-meta" id="waWeatherMeta">體感 --°C · 濕度 --% · 風速 -- km/h</div>
+<details class="wa-weather-expand" id="waWeatherExpand"><summary>📅 查看未來 7 天天氣 <span class="wa-weather-expand-hint">點擊展開</span></summary><div id="waWeatherWeek" class="wa-weather-week" aria-label="未來七天天氣預報"><p>正在載入未來七天天氣…</p></div></details>
 <div aria-live="polite" class="wa-weather-status" id="waWeatherStatus" role="status">首次使用需要允許瀏覽器定位。</div>
 </section>
 <div class="v939-secondary"><span>其他常用功能</span><div class="v939-secondary-links"><button onclick="showPage('adventureMap')" type="button">📍 打卡</button><button onclick="showPage('photos')" type="button">📷 相簿</button><button onclick="showPage('loot')" type="button">🎮 RPG</button></div></div>
@@ -6853,12 +6869,24 @@ const $=id=>document.getElementById(id);
 let selected='hanoi';const cache=new Map(),pending=new Set();
 function status(message){$('waWeatherStatus').textContent=message}
 function render(item){
- const {place,current,received}=item,desc=codes[current.weather_code]||['天氣未知','🌤️'];
+ const {place,current,daily,received}=item,desc=codes[current.weather_code]||['天氣未知','🌤️'];
  $('waWeatherCity').textContent='📍 '+place.name+(place.elevation?' · 約 '+place.elevation+'m':'');
  $('waWeatherTemp').textContent=Math.round(current.temperature_2m)+'°C';
  $('waWeatherDesc').textContent=desc[0];$('waWeatherIcon').textContent=desc[1];
  $('waWeatherMeta').textContent='體感 '+Math.round(current.apparent_temperature)+'°C · 濕度 '+Math.round(current.relative_humidity_2m)+'% · 風速 '+Math.round(current.wind_speed_10m||0)+' km/h';
+ renderWeek(daily);
  status('更新於 '+received.toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'})+' · 越南當地天氣'+(place.elevation?'（山頂估算）':''));
+}
+function renderWeek(d){
+ const root=$('waWeatherWeek');root.replaceChildren();
+ if(!d||!Array.isArray(d.time)){root.textContent='目前沒有七日預報';return}
+ d.time.slice(0,7).forEach((date,i)=>{
+  const code=d.weather_code?.[i],weather=codes[code]||['未知','🌤️'];
+  const node=document.createElement('div');node.className='wa-weather-week-day';
+  const parts=[i===0?'今天':date.slice(5).replace('-','/'),weather[1],Math.round(d.temperature_2m_max?.[i])+'°',Math.round(d.temperature_2m_min?.[i])+'°','雨 '+(d.precipitation_probability_max?.[i]??'—')+'%'];
+  parts.forEach((value,j)=>{const el=document.createElement(j===0||j===2?'strong':'span');el.textContent=value;if(j===1)el.className='wa-weather-emoji';if(j===2)el.className='wa-weather-high';if(j===3)el.className='wa-weather-low';node.appendChild(el)});
+  node.title=date+' '+weather[0];root.appendChild(node);
+ });
 }
 async function update(force=false){
  const key=selected,place=places[key];
@@ -6869,20 +6897,20 @@ async function update(force=false){
  status('正在查詢'+place.name+'天氣…');
  $('waWeatherCity').textContent='📍 '+place.name;
  $('waWeatherTemp').textContent='--°C';$('waWeatherDesc').textContent='載入中…';
- $('waWeatherMeta').textContent='需要網路連線';
+ $('waWeatherMeta').textContent='需要網路連線';$('waWeatherWeek').textContent='正在載入七日預報…';
  try{
-  const params=new URLSearchParams({latitude:place.lat,longitude:place.lon,current:'temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m',timezone:'Asia/Bangkok',forecast_days:'1'});
+  const params=new URLSearchParams({latitude:place.lat,longitude:place.lon,current:'temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m',daily:'weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max',timezone:'Asia/Bangkok',forecast_days:'7'});
   if(place.elevation)params.set('elevation',place.elevation);
   const response=await fetch('https://api.open-meteo.com/v1/forecast?'+params.toString(),{cache:'no-store'});
   if(!response.ok)throw new Error('天氣服務回應 '+response.status);
   const result=await response.json();
   if(!result.current||!Number.isFinite(result.current.temperature_2m))throw new Error('天氣資料不完整');
-  const item={place,current:result.current,received:new Date()};cache.set(key,item);
+  const item={place,current:result.current,daily:result.daily,received:new Date()};cache.set(key,item);
   if(selected===key)render(item);
  }catch(error){
   if(selected===key){
    if(cache.has(key)){render(cache.get(key));status('無法更新，顯示本次開啟頁面時取得的舊資料');}
-   else{$('waWeatherDesc').textContent='暫時無法取得';status('請確認網路後按「更新天氣」重試。');}
+   else{$('waWeatherDesc').textContent='暫時無法取得';$('waWeatherWeek').textContent='無法載入七日預報';status('請確認網路後按「更新天氣」重試。');}
   }
  }finally{pending.delete(key);refresh.disabled=pending.has(selected)}
 }
@@ -6898,7 +6926,7 @@ function init(){
  if(!$('waWeather'))return;
  document.querySelectorAll('[data-home-weather]').forEach(b=>b.addEventListener('click',()=>choose(b.dataset.homeWeather)));
  $('waWeatherRefresh').addEventListener('click',()=>update(true));
- $('waWeatherDetails').addEventListener('click',()=>{if(typeof window.selectWeatherPlace==='function')window.selectWeatherPlace(selected);if(typeof window.showPage==='function')window.showPage('weather')});
+ 
  update();
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
