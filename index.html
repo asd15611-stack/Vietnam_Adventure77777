@@ -4344,13 +4344,53 @@ function v9271SetShoppingTab(status){
  renderShoppingItems();
 }
 let shoppingPendingPhoto=null;
-function shoppingPhotoPreview(){const el=document.getElementById('shoppingUserPhotoPreview');if(!el)return;el.replaceChildren();if(shoppingPendingPhoto){const img=document.createElement('img');img.src=shoppingPendingPhoto;img.alt='準備儲存的商品照片';img.style.cssText='max-width:180px;max-height:180px;object-fit:contain;border-radius:12px';el.appendChild(img)}else{el.textContent='尚未選擇照片'}}
-function shoppingRemoveUserPhoto(){shoppingPendingPhoto='';const el=document.getElementById('shoppingUserPhoto');if(el)el.value='';shoppingPhotoPreview()}
-async function shoppingSelectUserPhoto(input){const f=input.files&&input.files[0];if(!f)return;if(!f.type.startsWith('image/')){alert('請選擇圖片檔案');input.value='';return}if(f.size>15*1024*1024){alert('圖片超過 15MB，請選擇較小的照片。');input.value='';return}const reader=new FileReader();reader.onload=()=>{const img=new Image();img.onload=()=>{const scale=Math.min(1,900/Math.max(img.width,img.height));const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(img.width*scale));canvas.height=Math.max(1,Math.round(img.height*scale));canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);shoppingPendingPhoto=canvas.toDataURL('image/jpeg',0.72);shoppingPhotoPreview()};img.onerror=()=>alert('圖片無法讀取，請換一張。');img.src=reader.result};reader.onerror=()=>alert('照片讀取失敗。');reader.readAsDataURL(f)}
-function resetShoppingForm(){shoppingPendingPhoto=null;const photoInput=document.getElementById('shoppingUserPhoto');if(photoInput)photoInput.value='';shoppingPhotoPreview();['shoppingEditId','shoppingName','shoppingBudget','shoppingPrice','shoppingPlace','shoppingRecipient','shoppingNotes'].forEach(id=>{const el=document.getElementById(id);if(el)el.value=''});document.getElementById('shoppingCategory').value='我的自訂項目';document.getElementById('shoppingFormStatus').textContent='可新增一項自訂戰利品。'}
-function saveShoppingItem(){const items=shoppingEnsureLoaded(),id=document.getElementById('shoppingEditId').value,name=document.getElementById('shoppingName').value.trim(),category=document.getElementById('shoppingCategory').value,budgetInput=document.getElementById('shoppingBudget').value.trim(),priceInput=document.getElementById('shoppingPrice').value.trim();if(!name){alert('請先輸入商品名稱。');return}const moneyOk=v=>v===''||(Number.isSafeInteger(Number(v))&&Number(v)>=0);if(!moneyOk(budgetInput)||!moneyOk(priceInput)){alert('預算與實際金額請輸入 0 或以上的整數台幣，不可輸入負數或小數。');return}const data={name,category,budget:budgetInput===''?0:Number(budgetInput),price:priceInput===''?0:Number(priceInput),place:document.getElementById('shoppingPlace').value.trim(),recipient:document.getElementById('shoppingRecipient').value.trim(),notes:document.getElementById('shoppingNotes').value.trim()};if(shoppingPendingPhoto!==null)data.userPhoto=shoppingPendingPhoto;if(id){const old=items.find(x=>x.id===id);if(!old){alert('找不到要編輯的商品，請重新整理清單後再試。');return}Object.assign(old,data)}else{items.push({id:'custom-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,8),...data,bought:false,custom:true,createdAt:Date.now()})}if(!shoppingSave())return;document.getElementById('shoppingFormStatus').textContent=id?'商品已更新。':'自訂商品已新增。';resetShoppingForm();renderShoppingItems()}
-function editShoppingItem(id){const x=shoppingEnsureLoaded().find(v=>v.id===id);if(!x)return;shoppingPendingPhoto=x.userPhoto||null;const photoInput=document.getElementById('shoppingUserPhoto');if(photoInput)photoInput.value='';shoppingPhotoPreview();document.getElementById('shoppingEditId').value=x.id;document.getElementById('shoppingName').value=x.name;document.getElementById('shoppingCategory').value=x.category;document.getElementById('shoppingBudget').value=shoppingValidMoney(x.budget);document.getElementById('shoppingPrice').value=shoppingValidMoney(x.price);document.getElementById('shoppingPlace').value=x.place||'';document.getElementById('shoppingRecipient').value=x.recipient||'';document.getElementById('shoppingNotes').value=x.notes||'';document.getElementById('shoppingFormStatus').textContent=x.custom?'正在編輯自訂商品。':x.category==='藥品與保健'?'正在編輯藥品；可以修改或刪除。':'正在編輯推薦商品；可修改照片或刪除商品。';document.getElementById('v9268ShoppingEditor').open=true;document.getElementById('shoppingName').scrollIntoView({behavior:'smooth',block:'center'})}
-function toggleShoppingBought(id,checked){const x=shoppingEnsureLoaded().find(v=>v.id===id);if(!x)return;x.bought=checked===true;if(!shoppingSave())return;renderShoppingItems()}
+let shoppingPhotoRequest=0;
+let shoppingPhotoProcessing=false;
+function shoppingPhotoPreview(){const el=document.getElementById('shoppingUserPhotoPreview');if(!el)return;el.replaceChildren();if(shoppingPendingPhoto){const img=document.createElement('img');img.src=shoppingPendingPhoto;img.alt='準備儲存的商品照片';img.onerror=()=>{el.textContent='照片預覽失敗，請重新選擇照片';};img.style.cssText='max-width:180px;max-height:180px;object-fit:contain;border-radius:12px';el.appendChild(img)}else{el.textContent='尚未選擇照片'}}
+function shoppingRemoveUserPhoto(){shoppingPhotoRequest++;shoppingPhotoProcessing=false;shoppingPendingPhoto='';const el=document.getElementById('shoppingUserPhoto');if(el)el.value='';shoppingPhotoPreview()}
+async function shoppingSelectUserPhoto(input){
+ const f=input.files&&input.files[0];if(!f)return;
+ const request=++shoppingPhotoRequest;
+ const status=document.getElementById('shoppingFormStatus');
+ const fail=(message)=>{if(request!==shoppingPhotoRequest)return;shoppingPhotoProcessing=false;if(status)status.textContent=message||'照片讀取失敗，請換一張。';input.value=''};
+ if(!f.type.startsWith('image/')){fail('請選擇圖片檔案。');return}
+ if(f.size>15*1024*1024){fail('圖片超過 15MB，請選擇較小的照片。');return}
+ shoppingPhotoProcessing=true;
+ if(status)status.textContent='正在讀取及檢查照片…';
+ try{
+  const original=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(f)});
+  if(request!==shoppingPhotoRequest)return;
+  const img=await new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=reject;image.src=original});
+  if(request!==shoppingPhotoRequest)return;
+  if(!img.naturalWidth||!img.naturalHeight)throw Error('empty image');
+  const scale=Math.min(1,900/Math.max(img.naturalWidth,img.naturalHeight));
+  const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(img.naturalWidth*scale));canvas.height=Math.max(1,Math.round(img.naturalHeight*scale));
+  const ctx=canvas.getContext('2d',{willReadFrequently:true});if(!ctx)throw Error('canvas unavailable');
+  ctx.fillStyle='#ffffff';ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.drawImage(img,0,0,canvas.width,canvas.height);
+  // Android/Chromium may return a blank/black canvas for some gallery formats.
+  // Compare a small sample from source and output before accepting the conversion.
+  const probe=document.createElement('canvas');probe.width=32;probe.height=32;
+  const pc=probe.getContext('2d',{willReadFrequently:true});pc.fillStyle='#fff';pc.fillRect(0,0,32,32);pc.drawImage(img,0,0,32,32);
+  const pixels=pc.getImageData(0,0,32,32).data;
+  let dark=0,light=0;for(let i=0;i<pixels.length;i+=4){const v=pixels[i]+pixels[i+1]+pixels[i+2];if(v<18)dark++;if(v>90)light++}
+  if(dark>960){throw Error('black canvas detected')}
+  const converted=canvas.toDataURL('image/jpeg',0.78);
+  if(!converted.startsWith('data:image/jpeg;base64,')||converted.length<1000)throw Error('bad jpeg');
+  const verify=await new Promise((resolve,reject)=>{const v=new Image();v.onload=()=>resolve(v);v.onerror=reject;v.src=converted});
+  if(!verify.naturalWidth||!verify.naturalHeight)throw Error('bad preview');
+  if(request!==shoppingPhotoRequest)return;
+  shoppingPendingPhoto=converted;shoppingPhotoProcessing=false;shoppingPhotoPreview();
+  if(status)status.textContent='照片已載入，請確認預覽正常後再儲存商品。';
+ }catch(e){
+  // Do not silently save a black image or overwrite the previous good photo.
+  fail('這張照片無法正確轉換，尚未儲存。請先在手機相簿另存為 JPG，或截圖後再選取。');
+ }
+}
+function resetShoppingForm(){shoppingPhotoRequest++;shoppingPhotoProcessing=false;shoppingPendingPhoto=null;const photoInput=document.getElementById('shoppingUserPhoto');if(photoInput)photoInput.value='';shoppingPhotoPreview();['shoppingEditId','shoppingName','shoppingBudget','shoppingPrice','shoppingPlace','shoppingRecipient','shoppingNotes'].forEach(id=>{const el=document.getElementById(id);if(el)el.value=''});document.getElementById('shoppingCategory').value='我的自訂項目';document.getElementById('shoppingFormStatus').textContent='可新增一項自訂戰利品。'}
+function saveShoppingItem(){if(shoppingPhotoProcessing){alert('照片還在處理中，請稍候再儲存。');return}const items=shoppingEnsureLoaded(),id=document.getElementById('shoppingEditId').value,name=document.getElementById('shoppingName').value.trim(),category=document.getElementById('shoppingCategory').value,budgetInput=document.getElementById('shoppingBudget').value.trim(),priceInput=document.getElementById('shoppingPrice').value.trim();if(!name){alert('請先輸入商品名稱。');return}const moneyOk=v=>v===''||(Number.isSafeInteger(Number(v))&&Number(v)>=0);if(!moneyOk(budgetInput)||!moneyOk(priceInput)){alert('預算與實際金額請輸入 0 或以上的整數台幣，不可輸入負數或小數。');return}const data={name,category,budget:budgetInput===''?0:Number(budgetInput),price:priceInput===''?0:Number(priceInput),place:document.getElementById('shoppingPlace').value.trim(),recipient:document.getElementById('shoppingRecipient').value.trim(),notes:document.getElementById('shoppingNotes').value.trim()};if(shoppingPendingPhoto!==null)data.userPhoto=shoppingPendingPhoto;const previous=JSON.stringify(items);if(id){const old=items.find(x=>x.id===id);if(!old){alert('找不到要編輯的商品，請重新整理清單後再試。');return}Object.assign(old,data)}else{items.push({id:'custom-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,8),...data,bought:false,custom:true,createdAt:Date.now()})}if(!shoppingSave()){shoppingItemsCache=JSON.parse(previous);return}document.getElementById('shoppingFormStatus').textContent=id?'商品已更新。':'自訂商品已新增。';resetShoppingForm();renderShoppingItems()}
+function editShoppingItem(id){shoppingPhotoRequest++;shoppingPhotoProcessing=false;const x=shoppingEnsureLoaded().find(v=>v.id===id);if(!x)return;shoppingPendingPhoto=x.userPhoto||null;const photoInput=document.getElementById('shoppingUserPhoto');if(photoInput)photoInput.value='';shoppingPhotoPreview();document.getElementById('shoppingEditId').value=x.id;document.getElementById('shoppingName').value=x.name;document.getElementById('shoppingCategory').value=x.category;document.getElementById('shoppingBudget').value=shoppingValidMoney(x.budget);document.getElementById('shoppingPrice').value=shoppingValidMoney(x.price);document.getElementById('shoppingPlace').value=x.place||'';document.getElementById('shoppingRecipient').value=x.recipient||'';document.getElementById('shoppingNotes').value=x.notes||'';document.getElementById('shoppingFormStatus').textContent=x.custom?'正在編輯自訂商品。':x.category==='藥品與保健'?'正在編輯藥品；可以修改或刪除。':'正在編輯推薦商品；可修改照片或刪除商品。';document.getElementById('v9268ShoppingEditor').open=true;document.getElementById('shoppingName').scrollIntoView({behavior:'smooth',block:'center'})}
+function toggleShoppingBought(id,checked){const x=shoppingEnsureLoaded().find(v=>v.id===id);if(!x)return;const old=x.bought;x.bought=checked===true;if(!shoppingSave()){x.bought=old;renderShoppingItems();return}renderShoppingItems()}
 function deleteShoppingItem(id){
  const x=shoppingEnsureLoaded().find(v=>v.id===id);
  if(!x)return;
