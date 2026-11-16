@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover"><meta name="theme-color" content="#e9f5e5"><title>台灣大富翁｜櫻花街區 V1.1 立體街景擴充版</title>
+<style>
+:root{font-family:system-ui,"Noto Sans TC",sans-serif;color:#263b35;background:#eaf4e6}*{box-sizing:border-box}button,input{font:inherit}button{cursor:pointer;touch-action:manipulation;border:0}button:disabled{opacity:.47;cursor:not-allowed}body{margin:0;background:linear-gradient(180deg,#e8f8fb 0%,#e9f1e1 65%,#f8efe0 100%)}.app{max-width:980px;margin:auto;padding:0 0 env(safe-area-inset-bottom)}.masthead{padding:11px 14px 9px;display:flex;align-items:center;justify-content:space-between;gap:8px;background:#fffef4;border-bottom:2px solid #b6cfc2}.logo{display:flex;align-items:center;gap:9px}.logo-mark{background:linear-gradient(145deg,#fae4a2,#df9c3a);border:2px solid #a56d26;border-radius:13px;box-shadow:0 3px 0 #ad874c;width:42px;height:41px;display:grid;place-items:center;font-size:23px}.masthead h1{font-size:17px;line-height:1.25;margin:0;font-weight:950;color:#214a43}.masthead .sub{font-size:11px;color:#597a70;font-weight:750}.top-actions{display:flex;gap:6px}.icon-btn{min-width:39px;height:39px;background:#eef5eb;border:1.5px solid #9cbea9;border-radius:12px;color:#284a3d;font-size:18px;font-weight:800;box-shadow:0 2px 0 #cbdccb}
+.scene{height:clamp(465px,68dvh,760px);position:relative;overflow:hidden;background:linear-gradient(#a4dce3,#d6e8c9);touch-action:none;isolation:isolate}.scene canvas{width:100%;height:100%;display:block;touch-action:none}.scene-top{position:absolute;top:10px;left:10px;right:10px;display:flex;justify-content:space-between;pointer-events:none;gap:8px}.panel-float{background:#fff9e9f2;border:2px solid #d2a46b;border-radius:14px;padding:7px 10px;box-shadow:0 3px 0 #bc916a;font-weight:800;line-height:1.35}.panel-float strong{color:#26443c}.panel-float small{font-size:11px;color:#74654b;display:block}.zoom{position:absolute;right:11px;top:88px;display:flex;flex-direction:column;gap:7px}.zoom button{width:42px;height:42px;background:#fff9e9f0;color:#284e44;border:2px solid #d0b78c;border-radius:12px;font-size:22px;font-weight:950;box-shadow:0 2px 0 #ab9474}.scene-bottom{position:absolute;left:12px;right:10px;bottom:12px;display:flex;justify-content:space-between;align-items:flex-end;pointer-events:none;gap:10px}.scene-bottom>*{pointer-events:auto}.map-help{font-size:11px;font-weight:800;line-height:1.5;max-width:172px;padding:6px 9px;background:#1f5547d9;border:2px solid #c6e6cc;border-radius:12px;color:#fff}.dice-box{display:flex;flex-direction:column;align-items:center;gap:4px}.go{border-radius:40px;background:linear-gradient(160deg,#ffed9a,#ffc43d 45%,#e47726 100%);border:4px solid #fff8c3;outline:3px solid #9e611a;box-shadow:0 7px 0 #a56a27,0 10px 16px #25423745;width:90px;height:83px;color:#633b14;font-weight:950;font-size:23px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.02;gap:3px;text-shadow:0 1px #fff2bb}.go:active:not(:disabled){transform:translateY(4px);box-shadow:0 3px 0 #a56a27}.die{width:37px;height:37px;background:linear-gradient(150deg,#fff,#dfe9ef);border:2px solid #7a818b;border-radius:8px;box-shadow:inset -4px -4px 0 #bfc8cf,1px 3px 0 #7c8a89;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:3px;padding:5px;transform:rotate(-12deg)}.die.rolling{animation:dieRoll .16s infinite}.pip{border-radius:100%;background:#bc443a;opacity:0}.die[data-v="1"] .pip:nth-child(5),.die[data-v="2"] .pip:nth-child(1),.die[data-v="2"] .pip:nth-child(9),.die[data-v="3"] .pip:nth-child(1),.die[data-v="3"] .pip:nth-child(5),.die[data-v="3"] .pip:nth-child(9),.die[data-v="4"] .pip:nth-child(1),.die[data-v="4"] .pip:nth-child(3),.die[data-v="4"] .pip:nth-child(7),.die[data-v="4"] .pip:nth-child(9),.die[data-v="5"] .pip:nth-child(1),.die[data-v="5"] .pip:nth-child(3),.die[data-v="5"] .pip:nth-child(5),.die[data-v="5"] .pip:nth-child(7),.die[data-v="5"] .pip:nth-child(9),.die[data-v="6"] .pip:nth-child(1),.die[data-v="6"] .pip:nth-child(3),.die[data-v="6"] .pip:nth-child(4),.die[data-v="6"] .pip:nth-child(6),.die[data-v="6"] .pip:nth-child(7),.die[data-v="6"] .pip:nth-child(9){opacity:1}@keyframes dieRoll{0%{transform:rotate(0) scale(1)}50%{transform:rotate(24deg) scale(1.12)}100%{transform:rotate(-14deg) scale(.95)}}
+.hud{background:#fffaf0;border-top:3px solid #e7c588;padding:10px 12px 16px;box-shadow:0 -3px 12px #57736730}.numbers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.num{border:1.5px solid #e4cfad;background:#fff9e9;border-radius:12px;padding:7px 8px;min-width:0}.num small{display:block;color:#82775e;font-size:11px;font-weight:700}.num strong{display:block;font-size:17px;color:#2e5543;white-space:nowrap;font-variant-numeric:tabular-nums}.notice{margin-top:9px;background:#e7f2e9;border-radius:10px;border-left:4px solid #519575;padding:8px 10px;font-size:13px;font-weight:760;line-height:1.45;min-height:38px}.tools{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin-top:10px}.tool{background:#fffdf6;color:#35594b;border:2px solid #aac9b8;border-radius:12px;padding:10px 2px;font-weight:850;font-size:13px;box-shadow:0 2px 0 #c3d7c9}.tool.primary{background:#407e67;color:#fff;border-color:#23654f}.history{margin-top:9px;color:#536d61;font-size:12px}.history summary{cursor:pointer;font-weight:800}.history-list{max-height:110px;overflow:auto;background:#fffdf6;border-radius:8px;padding:8px;margin-top:6px;line-height:1.55}.history-list div{border-bottom:1px solid #e8e9dc;padding:3px 0}.shade{position:fixed;inset:0;background:#102b28ae;z-index:20;display:flex;align-items:center;justify-content:center;padding:13px}.dialog{background:#fffdf5;border-radius:20px;border:3px solid #bf9d5c;box-shadow:0 12px 0 #273e35aa;width:min(100%,440px);padding:17px;max-height:90dvh;overflow:auto;color:#2d443a}.dialog h2{margin:0 0 9px;font-size:21px;color:#315d46}.dialog p{font-size:14px;line-height:1.7}.dialog .stat{background:#e9f2e9;padding:10px;border-radius:10px;font-size:13px}.dialog .buttons{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.dialog .buttons button{flex:1 0 40%;min-height:44px;border-radius:10px;background:#dca94f;color:#422c19;font-weight:900;padding:8px}.dialog .buttons button.secondary{background:#e7eeea;color:#3d594c}.dialog input[type=file]{max-width:100%}.footer{padding:5px 13px 12px;font-size:11px;color:#62796e;text-align:center}.a11y{position:absolute;left:-99999px}@media(min-width:760px){.layout{display:grid;grid-template-columns:minmax(0,1fr) 280px}.scene{height:min(82vh,800px)}.hud{border-top:0;border-left:3px solid #e7c588;align-self:stretch;padding:15px}.numbers{grid-template-columns:1fr}.tools{grid-template-columns:repeat(2,1fr)}.masthead h1{font-size:21px}}
+</style></head>
+<body><div class="app"><header class="masthead"><div class="logo"><div class="logo-mark">🏡</div><div><h1>台灣大富翁 <span style="color:#bd8151">｜</span> 櫻花街區</h1><div class="sub">V1.1 · 港灣老街擴充＋街景精修</div></div></div><div class="top-actions"><button id="helpBtn" class="icon-btn" title="玩法">?</button><button id="saveBtn" class="icon-btn" title="存檔與備份">☷</button></div></header><div class="layout"><section class="scene" id="sceneRoot"><canvas id="sceneCanvas" aria-label="斜視立體街區，可拖曳及縮放地圖"></canvas><div class="scene-top"><div class="panel-float">🏙️ 櫻花街區＋港灣老街<small id="turnTag">第 1 回合 · 街區測試</small></div><div class="panel-float"><strong id="spotTag">中央道路</strong><small>2.5D 實際遊戲場景</small></div></div><div class="zoom"><button id="zoomIn" aria-label="放大">+</button><button id="zoomOut" aria-label="縮小">−</button><button id="followBtn" aria-label="跟隨角色">◎</button><button id="overviewBtn" aria-label="場景總覽">▣</button></div><div class="scene-bottom"><div class="map-help">☝ 拖曳地圖 · 雙指縮放<br>🏠 點房屋可查看或升級</div><div class="dice-box"><button class="go" id="goBtn" aria-label="擲骰子"><span class="die" id="die" data-v="3"><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span></span><span id="goLabel">GO</span></button></div></div></section><section class="hud"><div class="numbers"><div class="num"><small>💵 現金</small><strong id="cash">$12,000</strong></div><div class="num"><small>🏡 我的地產</small><strong id="owned">0 塊</strong></div><div class="num"><small>💰 總資產</small><strong id="assets">$12,000</strong></div></div><div class="notice" id="notice" aria-live="polite">按右下方 GO 擲骰，讓小航沿街道前進。</div><div class="tools"><button class="tool primary" id="plotBtn">🏠 土地</button><button class="tool" id="buildBtn">🔨 升級</button><button class="tool" id="mapBtn">🗺️ 全景</button><button class="tool" id="resetCamera">🎯 角色</button></div><details class="history"><summary>📜 交易與行動紀錄</summary><div class="history-list" id="logs"></div></details><p class="footer">立體街區測試：道路、房屋與人物為獨立遊戲物件；新增港灣老街地區及更多可買地產。</p></section></div></div><input id="importFile" class="a11y" type="file" accept=".json,application/json"><div id="modalRoot"></div>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id),canvas=$('sceneCanvas'),ctx=canvas.getContext('2d');const K='tw-dafuweng-isometric-block-v11', OLD_K='tw-dafuweng-isometric-block-v1';const money=v=>'$'+Math.round(v).toLocaleString('zh-TW');const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const iso=(u,v,z=0)=>({x:(u-v)*86,y:(u+v)*45-z*90});
+const road=[{u:0.5,v:2.0},{u:1.5,v:2.0},{u:2.5,v:2.0},{u:3.5,v:2.0},{u:4.5,v:2.0},{u:5.5,v:2.0},{u:5.5,v:3.0},{u:5.5,v:4.0},{u:6.5,v:4.0},{u:7.5,v:4.0},{u:7.5,v:5.0},{u:7.5,v:6.0},{u:6.5,v:6.0},{u:5.5,v:6.0},{u:4.5,v:6.0},{u:4.5,v:5.0},{u:4.5,v:4.0},{u:3.5,v:4.0},{u:2.5,v:4.0},{u:1.5,v:4.0},{u:0.5,v:4.0},{u:0.5,v:3.0},{u:-0.5,v:3.0},{u:-1.5,v:3.0},{u:-2.5,v:3.0},{u:-2.5,v:2.0},{u:-2.5,v:1.0},{u:-1.5,v:1.0},{u:-0.5,v:1.0},{u:0.5,v:1.0}];
+const parcels=[
+ {id:'A',name:'榕樹街角',node:6,u:4.15,v:3.32,price:1300,rent:160,owner:'none',level:0,theme:'coral'},
+ {id:'B',name:'櫻花小院',node:4,u:4.5,v:1.0,price:1800,rent:230,owner:'npc',level:1,theme:'azure'},
+ {id:'C',name:'海風住宅',node:7,u:6.8,v:3.1,price:2400,rent:300,owner:'npc',level:2,theme:'cream'},
+ {id:'D',name:'彩虹商街',node:9,u:8.7,v:4.1,price:3200,rent:440,owner:'npc',level:3,theme:'moss'},
+ {id:'E',name:'水岸生活',node:14,u:6.0,v:7.15,price:1900,rent:240,owner:'none',level:0,theme:'azure'},
+ {id:'F',name:'花園綠地',node:18,u:2.75,v:5.45,price:1600,rent:200,owner:'none',level:0,theme:'coral'},
+ {id:'G',name:'港灣青旅',node:23,u:-1.45,v:4.38,price:2100,rent:260,owner:'none',level:0,theme:'cream'},
+ {id:'H',name:'老街茶屋',node:25,u:-3.75,v:2.15,price:1700,rent:210,owner:'npc',level:1,theme:'moss'},
+ {id:'I',name:'書香民宿',node:28,u:-.54,v:-.12,price:2200,rent:275,owner:'none',level:0,theme:'azure'}
+];
+const EVENTS={4:'🚩 起點',5:'🎁 機會',10:'☕ 咖啡',16:'🍀 好運',20:'🏞️ 公園',22:'🛍️ 老街',24:'🎴 卡片事件',26:'🍡 夜市',29:'🌸 櫻花路口'};
+const fresh=()=>({version:2,cash:12000,position:4,round:1,stepCount:0,rolls:0,plots:parcels.map(p=>({id:p.id,owner:p.owner,level:p.level})),logs:['歡迎來到櫻花街區與港灣老街！','這是 V1.1 的獨立立體場景測試版。']});
+let state=fresh(),moving=false,rolling=false,avatar={u:road[0].u,v:road[0].v,dir:1},focused=true,selected=null,notice='',cam={x:0,y:0,z:1.2},W=400,H=600,DPR=1,hitAreas=[],vtime=0,raf=0,pointerMap=new Map(),dragging=false,dragStart=null,distStart=null,camStart=null;
+const buildingColor={coral:{front:'#f7d1b5',side:'#e9a98b',roof:'#d96c5e'},azure:{front:'#e4eacf',side:'#a8c9c7',roof:'#548caa'},cream:{front:'#f1e3cb',side:'#d1ad8c',roof:'#c66f5c'},moss:{front:'#c9e4d1',side:'#8db49c',roof:'#447a6a'}};
+function point(u,v,z=0){const p=iso(u,v,z);return {x:W*.52+(p.x-cam.x)*cam.z,y:H*.50+(p.y-cam.y)*cam.z}}
+function poly(ps,fill,stroke=null,line=1){ctx.beginPath();ps.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.closePath();if(fill){ctx.fillStyle=fill;ctx.fill()}if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=line*cam.z;ctx.lineJoin='round';ctx.stroke()}}
+function pRect(u,v,w,d,z,fill,stroke,line=1){const ps=[[u-w/2,v-d/2],[u+w/2,v-d/2],[u+w/2,v+d/2],[u-w/2,v+d/2]].map(([x,y])=>point(x,y,z));poly(ps,fill,stroke,line);return ps}
+function line(ps,color,width=1,dash=[]){ctx.beginPath();ps.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.strokeStyle=color;ctx.lineWidth=width*cam.z;ctx.lineCap='round';ctx.lineJoin='round';ctx.setLineDash(dash.map(x=>x*cam.z));ctx.stroke();ctx.setLineDash([])}
+function circle(p,r,fill,stroke=null,lw=1){ctx.beginPath();ctx.arc(p.x,p.y,r*cam.z,0,Math.PI*2);ctx.fillStyle=fill;ctx.fill();if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw*cam.z;ctx.stroke()}}
+function ellipse(p,rx,ry,fill,stroke=null,lw=1){ctx.beginPath();ctx.ellipse(p.x,p.y,rx*cam.z,ry*cam.z,0,0,Math.PI*2);if(fill){ctx.fillStyle=fill;ctx.fill()}if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw*cam.z;ctx.stroke()}}
+function txt(str,p,size,color='#2b5344',align='center',weight=800){ctx.fillStyle=color;ctx.font=`${weight} ${Math.max(6,size*cam.z)}px system-ui,sans-serif`;ctx.textAlign=align;ctx.textBaseline='middle';ctx.fillText(str,p.x,p.y)}
+function shadow(u,v,rx=40,ry=14){ellipse(point(u+.12,v+.15,-.015),rx,ry,'#34564028')}
+function seeded(n){let k=Math.sin(n*127.1+13.3)*43758.5453;return k-Math.floor(k)}
+function grass(){// one continuous green world ground; independent of all road/property objects
+const corners=[[-6,-4],[13,-4],[13,12],[-6,12]].map(p=>point(...p));poly(corners,'#9bcf83');
+for(let i=0;i<360;i++){let u=seeded(i*3+4)*19-5,v=seeded(i*5+7)*14-2;const q=point(u,v);if(q.x<-10||q.x>W+10||q.y<-15||q.y>H+15)continue;circle(q,1.2+seeded(i+2)*2.6,i%3===0?'#bde3a3':'#78b96b')}
+// waterfront is a separate ground zone beyond the neighborhood
+poly([[9.7,-.3],[15,-.3],[15,11],[9.7,11]].map(x=>point(...x)),'#64b9c5');
+for(let i=0;i<45;i++){let u=10+seeded(i*6)*3,v=seeded(i+13)*10;let q=point(u,v);line([q,{x:q.x+(7+seeded(i)*21)*cam.z,y:q.y}],i%2?'#dbf2dcab':'#a7e2edb9',1.2)}
+line([[9.68,-.3],[9.68,11]].map(x=>point(...x)),'#dcd8b1',12);
+line([[9.55,-.3],[9.55,11]].map(x=>point(...x)),'#728c76',2);
+}
+function roads(){// shared isometric projection: continuous pavement, not a full screen tile grid
+const ps=road.map(x=>point(x.u,x.v));ps.push(point(road[0].u,road[0].v));
+line(ps,'#4d6566',75);line(ps,'#e0d4ba',70);line(ps,'#a7ad9d',63);line(ps,'#535968',58);line(ps,'#686b70',52);
+// understated in-pavement block marks and occasional directional icon
+for(let i=0;i<road.length;i++){const a=point(road[i].u,road[i].v);ellipse(a,14,7,'#aeb2ae70');if(i%2===0){circle(a,2.6,'#e9e8dd')}}
+// side streets forming an intersection, under the character route
+const extras=[[[3.5,1],[3.5,2],[3.5,4.0]],[[5.5,2],[6.5,2],[6.5,4]],[[5.5,6],[5.5,7.65]],[[-1.5,3],[-1.5,4.5]],[[-2.5,1],[-3.9,1]],[[-.5,1],[-.5,-.7]]];
+for(const path of extras){const pp=path.map(([u,v])=>point(u,v));line(pp,'#b9b6a5',58);line(pp,'#62676e',50);line(pp,'#a6aeb0',1.4,[8,12])}
+// route center line only where safe, subdued -- not painted dot network
+for(let i=0;i<road.length;i++){let a=road[i],b=road[(i+1)%road.length];const d=Math.hypot(b.u-a.u,b.v-a.v);if(d>.05&&i%2){let f=.30,t=.69;line([point(a.u+(b.u-a.u)*f,a.v+(b.v-a.v)*f),point(a.u+(b.u-a.u)*t,a.v+(b.v-a.v)*t)],'#e2decba5',2.2)}}
+// Crossing lines are aligned with the same 2.5D ground plane as the road.
+drawCrosswalk(5.5,2.35,'u');drawCrosswalk(7.5,4.35,'v');drawCrosswalk(-2.5,2.42,'u');
+}
+function drawCrosswalk(u,v,dir='u'){
+ // five parallel paint strips across pavement, in the same world-space projection
+ for(let j=-2;j<=2;j++){
+  if(dir==='u')pRect(u+j*.105,v,.055,.60,.015,'#f4eddbc9');
+  else pRect(u,v+j*.105,.60,.055,.015,'#f4eddbc9');
+ }
+}
+function marketBanner(u,v){const a=point(u-.44,v-.30,.15),b=point(u+.40,v-.30,.15),top=point(u-.44,v-.30,1.4),top2=point(u+.40,v-.30,1.4);
+ line([a,top],'#526b5b',3);line([b,top2],'#526b5b',3);line([top,top2],'#eac790',3);
+ const d=point(u,v-.30,1.38);const pts=[{x:d.x-29*cam.z,y:d.y-13*cam.z},{x:d.x+29*cam.z,y:d.y-13*cam.z},{x:d.x+29*cam.z,y:d.y+13*cam.z},{x:d.x-29*cam.z,y:d.y+13*cam.z}];poly(pts,'#ac5c49','#f7dd9b',2);txt('港灣老街',d,12,'#fffaf0');
+}
+function courtyard(u,v){pRect(u,v,1.52,1.45,.016,'#c8dca8','#f6eace',3);pRect(u,v,1.13,1.08,.023,'#e4d8b3','#bfae83',1.5);
+ const q=point(u,v,.04);ellipse(q,30,14,'#8ec8c5');ellipse(q,25,9,'#d2f2de');
+ for(let i=0;i<5;i++){let du=Math.cos(i*1.256)*.46,dv=Math.sin(i*1.256)*.37,pt=point(u+du,v+dv,.06);circle(pt,3,'#ea9aa8');circle({x:pt.x+3*cam.z,y:pt.y-2*cam.z},2,'#ffe2c3')}
+}
+function kiosk(u,v){shadow(u,v,26,9);pRect(u,v,.58,.45,.07,'#dcc89b','#ad9e79',2);pRect(u,v,.53,.42,.56,'#e1b890','#8c745f',2);pRect(u,v,.72,.64,.65,'#b65a57','#f6d4a1',2);for(let i=0;i<3;i++){let x=point(u+(i-1)*.18,v+.3,.37);circle(x,4,i===1?'#e7d272':'#f2a8ae')}
+}
+function parkWater(u,v){shadow(u,v,70,22);pRect(u,v,2.65,2.35,0,'#b5cba0','#e4d6aa',3);pRect(u,v,2.30,2.0,.012,'#a5d88f');ellipse(point(u,v,.02),62,32,'#436b81');ellipse(point(u,v,.035),58,28,'#78cfe1');ellipse(point(u,v,.045),47,20,'#b5eff3');for(let j=0;j<6;j++){let p=point(u+Math.cos(j*1.4)*.65,v+Math.sin(j*1.4)*.5,.07);ellipse(p,5,2,'#90bf82');circle(p,2,'#f9d3a5')}
+}
+function tree(u,v,h=1,leaf='#5d9f65',pink=false){shadow(u,v,24*h,8*h);const b=point(u,v,.05),top=point(u,v,h*.52);line([b,top],'#8d6746',7*h);const c=point(u,v,h*.88);const colors=pink?['#ed9bb2','#f7b6c9','#f9cfdb']:['#4a945f','#64b572','#91ce83'];for(let j=0;j<7;j++){let q={x:c.x+Math.cos(j*2.4)*13*h*cam.z,y:c.y+Math.sin(j*2.4)*7*h*cam.z};circle(q,13*h,colors[j%3])}circle({x:c.x-5*h*cam.z,y:c.y-9*h*cam.z},6*h,'#ffffff4b')}
+function lamp(u,v){let p=point(u,v),q=point(u,v,.53);ellipse(p,7,3,'#4a574c');line([p,q],'#3b5149',4);circle(q,5.5,'#ffe5a4','#a77f3f');circle({x:q.x,y:q.y},9,'#fffbd42b')}
+function hedge(u,v){const p=point(u,v);ellipse(p,11,5,'#538a59');circle({x:p.x,y:p.y-5*cam.z},7,'#81be70')}
+function landmark(){// small Taiwanese waterside pavilion on a grassy park; independent scene object
+const u=2,v=-.25;shadow(u,v,74,15);pRect(u,v,2.15,1.85,.02,'#e9d4ad','#e7e6d1',3);pRect(u,v,1.6,1.4,.08,'#f7ecd4','#cca87c');
+for(const [du,dv] of [[-.55,-.5],[.55,-.5],[-.55,.5],[.55,.5]]){const p=point(u+du,v+dv,.08),q=point(u+du,v+dv,.91);line([p,q],'#a13d3b',8);circle(q,4,'#eead6f')}
+const ps=[[-1.04,-.85],[1.04,-.85],[1.04,.85],[-1.04,.85]].map(([a,b])=>point(u+a,v+b,1.08));poly(ps,'#325d7b','#d3a44e',3);const ridge=[point(u-.15,v-.85,1.4),point(u-.15,v+.85,1.4)];line(ridge,'#d6ac63',8);line([ps[0],ridge[0],ps[1]],'#cfab65',4);line([ps[3],ridge[1],ps[2]],'#cfab65',4);const sign=point(u,v,1.54);txt('❀',sign,18,'#ffe6c6')
+}
+function tinyFlowers(u,v,count=5){for(let i=0;i<count;i++){const p=point(u+seeded(i+u*11)*.6,v+seeded(i*4+v*10)*.4);circle(p,1.3,i%2?'#ffcb9a':'#ffe8e9');circle({x:p.x+2*cam.z,y:p.y-2*cam.z},1.1,'#e88294')}}
+function lot(p){const plot=state.plots.find(q=>q.id===p.id);const s=1.24;const owner=plot.owner;const co=owner==='me'?'#f2cc59':owner==='npc'?'#7cb8dc':'#ecdfbb';shadow(p.u,p.v,54,17);const pts=pRect(p.u,p.v,s,s,0,'#cde3ae','#8aab7d',3);pRect(p.u,p.v,s*.96,s*.96,.035,'#b5d695',co,4);pRect(p.u,p.v,s*.79,s*.79,.045,'#bce3a5','#f7f6e5',1.3);hitAreas.push({p:pts,id:p.id,u:p.u,v:p.v});
+if(owner==='none'){
+  for(let i=0;i<6;i++)hedge(p.u+Math.sin(i*2.1)*.40,p.v+Math.cos(i*1.7)*.4);
+  const a=point(p.u+.30,p.v+.38,.12),b=point(p.u+.30,p.v+.38,.50);line([a,b],'#7c6541',3);const label=point(p.u+.30,p.v+.38,.62);const box=[[label.x-21*cam.z,label.y-10*cam.z],[label.x+21*cam.z,label.y-10*cam.z],[label.x+21*cam.z,label.y+10*cam.z],[label.x-21*cam.z,label.y+10*cam.z]].map(([x,y])=>({x,y}));poly(box,'#fff2c6','#95663b',1.3);txt('出售',label,12,'#78502e');
+}else {building(p,plot.level,buildingColor[p.theme],owner);const bh=plot.level===1?.80:plot.level===2?1.45:2.24;const top=point(p.u,p.v,bh+.35),base=point(p.u,p.v,.01);hitAreas.push({id:p.id,u:p.u,v:p.v,p:[{x:base.x-57*cam.z,y:top.y-30*cam.z},{x:base.x+57*cam.z,y:top.y-30*cam.z},{x:base.x+57*cam.z,y:base.y+20*cam.z},{x:base.x-57*cam.z,y:base.y+20*cam.z}]})}
+const tag=point(p.u,p.v,-.13);if(cam.z>.74)txt(p.id,tag,13,'#265d4a');
+}
+function facWall(a,b,az,bz,fill){const topA=point(...a,az),topB=point(...b,bz),lowB=point(...b,0.05),lowA=point(...a,0.05);poly([topA,topB,lowB,lowA],fill,'#7c8871',.8)}
+function building(p,level,colors,owner){const {u,v}=p;const w=level===3?.88:.78,d=level===3?.83:.78,h=level===1?.80:level===2?1.45:2.24;const base=.065,top=base+h;
+const av=point(avatar.u,avatar.v,.28),bv=point(u,v,h*.45);ctx.save();if(avatar.u+avatar.v<u+v&&Math.abs(av.x-bv.x)<75*cam.z&&Math.abs(av.y-bv.y)<105*cam.z)ctx.globalAlpha=.50;
+shadow(u,v,45,15);pRect(u,v,w+0.12,d+0.12,.055,owner==='me'?'#efc85c':'#8ab7d5','#fffbe7',2);
+const A=[u-w/2,v-d/2],B=[u+w/2,v-d/2],C=[u+w/2,v+d/2],D=[u-w/2,v+d/2];
+// main walls: depth in consistent isometric coordinate system
+poly([point(...A,top),point(...D,top),point(...D,base),point(...A,base)],colors.side,'#6e776c',1);
+poly([point(...D,top),point(...C,top),point(...C,base),point(...D,base)],colors.front,'#6e776c',1);
+poly([point(...C,top),point(...B,top),point(...B,base),point(...C,base)],'#d0bb9c','#6e776c',.8);
+// architectural horizontal cornices
+for(let k=1;k<=Math.ceil(level*.9);k++){let zz=base+k*h/(Math.ceil(level*.9)+1);line([point(...D,zz),point(...C,zz)],'#e8eee1ad',2.6)}
+// windows on both visible walls, vertical levels
+const floors=level===1?1:level===2?3:5;
+for(let f=0;f<floors;f++){
+ const z=base+(f+.55)*h/(floors+.14);for(let j=0;j<2;j++){
+  let along=(j+.7)/2.8,xy=[D[0]+(C[0]-D[0])*along,D[1]+(C[1]-D[1])*along];const c=point(...xy,z);const sx=9,sy=13;
+  poly([{x:c.x-sx*cam.z,y:c.y-sy*cam.z},{x:c.x+sx*cam.z,y:c.y-(sy-2)*cam.z},{x:c.x+sx*cam.z,y:c.y+sy*cam.z},{x:c.x-sx*cam.z,y:c.y+(sy-2)*cam.z}],'#7bb6c9','#f5f4d8',2.5);line([{x:c.x,y:c.y-sy*cam.z},{x:c.x,y:c.y+sy*cam.z}],'#fbf8dd',1);
+ }
+ let along=.48,xy=[D[0]+(A[0]-D[0])*along,D[1]+(A[1]-D[1])*along];const c=point(...xy,z);poly([{x:c.x-9*cam.z,y:c.y-9*cam.z},{x:c.x+4*cam.z,y:c.y-13*cam.z},{x:c.x+4*cam.z,y:c.y+10*cam.z},{x:c.x-9*cam.z,y:c.y+14*cam.z}],'#5b9fb0','#ecf0da',2);
+}
+if(level===1){ // two-sided pitched roof, terracotta shingles
+ const L=point(u-w/2,v,top+.28),R=point(u+w/2,v,top+.28);
+ poly([point(...A,top),point(...B,top),R,L],colors.roof,'#8e5b48',1.6);
+ poly([L,R,point(...C,top),point(...D,top)],colors.roof,'#924b41',1.5);
+ for(let i=0;i<5;i++){
+  let x=u-w/2+(i+.5)*w/5;
+  line([point(x,v-d/2,top),point(x,v,top+.28)],'#ffe7c056',1.3);
+  line([point(x,v,top+.28),point(x,v+d/2,top)],'#fff6da50',1.1);
+ }
+ // tiny ridge cap and an original brick chimney
+ const chimney=point(u+w*.23,v-d*.1,top+.32);
+ poly([{x:chimney.x-5*cam.z,y:chimney.y-8*cam.z},{x:chimney.x+5*cam.z,y:chimney.y-8*cam.z},{x:chimney.x+5*cam.z,y:chimney.y+7*cam.z},{x:chimney.x-5*cam.z,y:chimney.y+7*cam.z}],'#d08f72','#fff0d7',1.2);
+
+}else{
+ pRect(u,v,w+.12,d+.12,top+.03,level===2?'#d9aa85':'#4c7188','#f5e6bf',3);
+ if(level===3){pRect(u,v,w*.66,d*.66,top+.19,'#e0d3b2','#f3dfb7',2);pRect(u,v,w*.38,d*.38,top+.27,'#7a8b9b','#e5f0db',1.5);for(let j=0;j<2;j++){const q=point(u-.28+j*.5,v+.28,base+.30);ellipse(q,7,3,'#dd7a4d')}
+  const s=point(u,v+d*.65,base+.38);txt('百貨',s,12,'#744631');
+ }else{const q=point(u,v,top+.12);circle(q,5,'#e9f4f5');}
+}
+if(level>1){
+ const q1=point(u-.32,v+.46,base+.13),q2=point(u+.34,v+.46,base+.13);
+ poly([q1,q2,point(u+.34,v+.46,base+.35),point(u-.32,v+.46,base+.35)],'#e48f65','#f6e8ca',1.7);
+ // balcony railings visually divide each floor, rather than flat stacked squares
+ for(let f=1;f<(level===2?3:5);f++){
+  const zz=base+f*h/(level===2?3:5)+.02;
+  line([point(...D,zz),point(...C,zz)],'#f7ead7',3.0);
+  for(let j=1;j<6;j++){let t=j/6,x=D[0]+(C[0]-D[0])*t,y=D[1]+(C[1]-D[1])*t;
+   line([point(x,y,zz),point(x,y,zz+.075)],'#a78269',1.3)}
+ }
+}
+if(level===3){
+ // ground-floor canopy and a shop sign integrated with the front facade
+ const front=point(u,v+d*.57,base+.44);const awning=[{x:front.x-27*cam.z,y:front.y-7*cam.z},{x:front.x+27*cam.z,y:front.y-7*cam.z},{x:front.x+31*cam.z,y:front.y+9*cam.z},{x:front.x-31*cam.z,y:front.y+9*cam.z}];
+ poly(awning,'#bd6755','#f7d7b6',1.8);
+ for(let j=-2;j<=2;j++)line([{x:front.x+j*11*cam.z,y:front.y-7*cam.z},{x:front.x+(j*11+3)*cam.z,y:front.y+9*cam.z}],j%2?'#faf1da':'#e7a78f',2);
+ const label=point(u,v+d*.57,base+.72);txt('街角商店',label,10,'#5b4336')
+} 
+// entry + flowering shrub
+const door=point(u+.06,v+d*.51,base+.14);poly([{x:door.x-9*cam.z,y:door.y-12*cam.z},{x:door.x+9*cam.z,y:door.y-12*cam.z},{x:door.x+9*cam.z,y:door.y+14*cam.z},{x:door.x-9*cam.z,y:door.y+14*cam.z}],'#6e6656','#e9debe',1.3);circle({x:door.x+5*cam.z,y:door.y},1.3,'#f4ca73');
+for(let i=0;i<3;i++)hedge(u-w*.53+(i*.08),v+d*.56+.12);
+const flag=point(u-w*.60,v-d*.2,top*.72);if(owner==='me'||owner==='npc'){circle(flag,5,owner==='me'?'#efbe32':'#4c9ecd','#fff5d8',1)}ctx.restore();
+}
+function bench(u,v){const l=point(u-.22,v,0.19),r=point(u+.22,v,.19);line([l,r],'#8a553b',11);line([point(u-.22,v,0.26),point(u+.22,v,.26)],'#d9a46a',7);line([point(u-.21,v,.26),point(u-.21,v,0)],'#706257',3);line([point(u+.21,v,.26),point(u+.21,v,0)],'#706257',3)}
+function flowerpatch(u,v){pRect(u,v,.73,.50,.01,'#6caa6f','#eff1ca',2);for(let j=0;j<11;j++){const a=point(u-.32+seeded(j+8)*.64,v-.18+seeded(j*4+5)*.35,.045);circle(a,2.2,j%2?'#ffcdda':'#fff0b3');circle(a,1,'#e59b58')}}
+function drawBackgroundStreetDetails(){// roadside trees, shaded park, river promenade, lawn flowers
+parkWater(.6,-.65);landmark();
+const trees=[[.2,.3,1.2,true],[2.7,-.45,1.05,false],[4.1,-.35,.9,true],[5.8,.1,1.0,false],[7.7,1.3,.8,true],[9.1,2.5,1,false],[8.95,7.8,1.1,false],[6.9,7.9,1.05,true],[4.1,7.8,.9,false],[2.5,6.8,.98,true],[-.6,4.7,.9,false],[-3.6,4.6,.88,true],[-4.1,1.05,1,false],[-2.8,-.65,1.1,true],[-.15,-1.35,.92,false]];
+for(let i=0;i<25;i++){let t=trees[i%trees.length],u=t[0]+(i>=trees.length?.32:0),v=t[1]+(i>=trees.length?.18:0);drawables.push({d:u+v,draw:()=>tree(u,v,t[2],null,t[3])})}
+drawables.push({d:4.0+2.97,draw:()=>flowerpatch(4.0,2.97)});
+drawables.push({d:-4.2,draw:()=>courtyard(-2.0,-2.2)});drawables.push({d:-3.35,draw:()=>marketBanner(-2.1,-1.25)});drawables.push({d:.9,draw:()=>kiosk(-3.8,4.7)});drawables.push({d:4.8+3.3,draw:()=>bench(4.8,3.3)});
+for(const [u,v] of [[.5,1.1],[3.55,1.05],[5.6,1],[7.6,3],[8.6,5],[6.8,6.9],[3.1,5.0],[-.6,3.65],[-3.5,3.6],[-3.6,.5],[-.7,-.8]])drawables.push({d:u+v,draw:()=>lamp(u,v)});
+}
+let drawables=[];
+function avatarDraw(){const a=point(avatar.u,avatar.v,0),sc=cam.z*(Math.min(1.3,Math.max(.84,.94)));ellipse(a,17,7,'#2b594b4f');const t=point(avatar.u,avatar.v,.24+(moving?Math.sin(vtime/90)*.018:0));ctx.save();ctx.translate(t.x,t.y);ctx.scale(sc,sc);let flip=(avatar.dir<0?-1:1);ctx.scale(flip,1);
+// legs and shoes (original chibi vector)
+ctx.strokeStyle='#5a6b73';ctx.lineCap='round';ctx.lineWidth=6;ctx.beginPath();ctx.moveTo(-6,13);ctx.lineTo(-8,22);ctx.moveTo(6,13);ctx.lineTo(8,22);ctx.stroke();ctx.fillStyle='#f7f5e6';ctx.beginPath();ctx.ellipse(-9,23,8,4,0,0,7);ctx.ellipse(9,23,8,4,0,0,7);ctx.fill();
+ctx.fillStyle='#e9aa4b';ctx.beginPath();ctx.roundRect(-14,-13,28,31,10);ctx.fill();ctx.fillStyle='#fff0c3';ctx.fillRect(-7,-6,14,17);ctx.strokeStyle='#b97450';ctx.lineWidth=5;ctx.beginPath();ctx.moveTo(-14,-8);ctx.lineTo(-21,4);ctx.moveTo(14,-8);ctx.lineTo(19,3);ctx.stroke();
+ctx.fillStyle='#f4c8a3';ctx.beginPath();ctx.arc(0,-29,22,0,7);ctx.fill();ctx.fillStyle='#4f332c';ctx.beginPath();ctx.arc(0,-34,22,Math.PI,2*Math.PI);ctx.lineTo(18,-32);ctx.quadraticCurveTo(3,-45,-19,-27);ctx.closePath();ctx.fill();ctx.fillStyle='#5b85a6';ctx.beginPath();ctx.ellipse(0,-48,24,9,0,Math.PI,2*Math.PI);ctx.lineTo(22,-43);ctx.quadraticCurveTo(7,-35,-20,-43);ctx.fill();ctx.fillStyle='#234059';ctx.beginPath();ctx.ellipse(20,-43,12,5,-.2,0,7);ctx.fill();
+ctx.fillStyle='#262b30';ctx.beginPath();ctx.arc(-7,-28,2.8,0,7);ctx.arc(7,-28,2.8,0,7);ctx.fill();ctx.strokeStyle='#b86c5d';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(0,-22,4,.1,Math.PI-.1);ctx.stroke();ctx.fillStyle='#e9958b';ctx.beginPath();ctx.arc(-14,-20,4,0,7);ctx.arc(14,-20,4,0,7);ctx.fill();
+ctx.restore();
+const bubble=point(avatar.u,avatar.v,.95);const next=selected?'小航':'小航';if(cam.z>.65)txt(next,bubble,11,'#fffef1')}
+function draw(){if(!W||!H)return;ctx.clearRect(0,0,W,H);const sky=ctx.createLinearGradient(0,0,0,H);sky.addColorStop(0,'#c4e5de');sky.addColorStop(.48,'#d0ecc1');sky.addColorStop(1,'#aed4a2');ctx.fillStyle=sky;ctx.fillRect(0,0,W,H);hitAreas=[];drawables=[];grass();roads();
+for(const p of parcels){drawables.push({d:p.u+p.v,draw:()=>lot(p)})}drawBackgroundStreetDetails();drawables.push({d:avatar.u+avatar.v+.08,draw:avatarDraw});drawables.sort((a,b)=>a.d-b.d);for(const obj of drawables)obj.draw();if(selected){const p=parcels.find(p=>p.id===selected),q=point(p.u,p.v,0);ellipse(q,56,25,null,'#ffe34a',3)}
+}
+function resize(){const rect=canvas.getBoundingClientRect();W=rect.width;H=rect.height;DPR=Math.min(2,window.devicePixelRatio||1);canvas.width=Math.round(W*DPR);canvas.height=Math.round(H*DPR);ctx.setTransform(DPR,0,0,DPR,0,0);draw()}
+function focusAvatar(instant=false){let q=iso(avatar.u,avatar.v);cam.x=q.x+30;cam.y=q.y+(W<600?10:0);if(instant){draw();return}draw()}
+function viewOverview(){cam.z=W<600?.36:.54;cam.x=iso(2.6,3.0).x;cam.y=iso(2.6,3.0).y;focused=false;draw()}
+function setZoom(z,screenX=W*.52,screenY=H*.5){z=clamp(z,.36,2.65);const oldz=cam.z;const ax=(screenX-W*.52)/oldz+cam.x,ay=(screenY-H*.50)/oldz+cam.y;cam.z=z;cam.x=ax-(screenX-W*.52)/z;cam.y=ay-(screenY-H*.50)/z;focused=false;draw()}
+function log(str){state.logs.unshift(str);state.logs=state.logs.slice(0,45);refresh()}
+function assetValue(){let total=state.cash;for(let i=0;i<state.plots.length;i++)if(state.plots[i].owner==='me'){let p=parcels[i],l=state.plots[i];total+=p.price+Math.round(p.price*.58*(l.level-1))}return total}
+function save(){try{localStorage.setItem(K,JSON.stringify(state));return true}catch(e){setNotice('⚠️ 無法寫入瀏覽器存檔，請使用備份匯出');return false}}
+function validOldSave(data){return !!data&&data.version===1&&Number.isFinite(data.cash)&&data.cash>=0&&Number.isInteger(data.position)&&data.position>=0&&data.position<22&&Number.isInteger(data.round)&&Array.isArray(data.plots)&&data.plots.length===6&&data.plots.every((p,i)=>p.id===parcels[i].id&&['me','npc','none'].includes(p.owner)&&Number.isInteger(p.level)&&p.level>=0&&p.level<=3)&&Array.isArray(data.logs)}
+function migrateSave(data){if(validSave(data))return data;if(!validOldSave(data))return null;
+ const prior=Object.fromEntries(data.plots.map(p=>[p.id,p]));
+ return {...data,version:2,plots:parcels.map(p=>prior[p.id]||{id:p.id,owner:p.owner,level:p.level}),logs:['已匯入 V1.0 存檔並加入港灣老街。',...data.logs].slice(0,45)};
+}
+function load(){try{let raw=localStorage.getItem(K),fromOld=false;
+ if(!raw){raw=localStorage.getItem(OLD_K);fromOld=!!raw}if(!raw)return false;
+ const data=migrateSave(JSON.parse(raw));if(!data)return false;state=data;
+ if(fromOld){try{localStorage.setItem(K,JSON.stringify(state))}catch(e){}}return true;
+ }catch(e){return false}}
+function validSave(data){return !!data&&data.version===2&&Number.isFinite(data.cash)&&data.cash>=0&&Number.isInteger(data.position)&&data.position>=0&&data.position<road.length&&Number.isInteger(data.round)&&Array.isArray(data.plots)&&data.plots.length===parcels.length&&data.plots.every((p,i)=>p.id===parcels[i].id&&['me','npc','none'].includes(p.owner)&&Number.isInteger(p.level)&&p.level>=0&&p.level<=3)&&Array.isArray(data.logs)}
+function setNotice(msg){notice=msg;$('notice').textContent=msg}
+function refresh(){const p=road[state.position];$('cash').textContent=money(state.cash);$('owned').textContent=state.plots.filter(p=>p.owner==='me').length+' 塊';$('assets').textContent=money(assetValue());$('turnTag').textContent='第 '+state.round+' 回合 · '+road.length+' 個道路節點';$('spotTag').textContent=EVENTS[state.position]||parcels.find(x=>x.node===state.position)?.name||'櫻花街道';$('logs').innerHTML=state.logs.slice(0,18).map(s=>'<div>'+s.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</div>').join('');$('goBtn').disabled=moving||rolling;$('goLabel').textContent=rolling?'擲骰中':moving?'行走中':'GO';$('buildBtn').disabled=moving||rolling;}
+function modal(title,html,buttons){const root=$('modalRoot');root.innerHTML='';const shade=document.createElement('div');shade.className='shade';const box=document.createElement('div');box.className='dialog';const h=document.createElement('h2');h.textContent=title;box.append(h);const content=document.createElement('div');content.innerHTML=html;box.append(content);const actions=document.createElement('div');actions.className='buttons';for(const [name,fn,cls] of buttons){const b=document.createElement('button');b.textContent=name;b.className=cls||'';b.onclick=()=>fn();actions.append(b)}box.append(actions);shade.append(box);root.append(shade)}
+function closeModal(){$('modalRoot').innerHTML=''}
+function frameProperty(p,level=0){const a=iso(avatar.u,avatar.v),b=iso(p.u,p.v);cam.x=(a.x+b.x)/2;cam.y=(a.y+b.y)/2+8-Math.max(0,level-1)*29;}
+function propertyDialog(id){const p=parcels.find(p=>p.id===id);if(!p)return;selected=p.id;focused=false;let plot=state.plots.find(x=>x.id===id);if(state.position===p.node)frameProperty(p,plot.level);draw();let owner=plot.owner==='me'?'我的土地':plot.owner==='npc'?'街區商會': '無人持有';let levelName=['空地','小屋','住宅樓','商業大樓'][plot.level];const at=state.position===p.node;let cost=upgradeCost(p,plot.level);let rent=Math.round(p.rent*Math.pow(1.75,Math.max(0,plot.level-1)));let html=`<div class="stat"><strong>${p.name}</strong> · 第 ${p.node+1} 格<br>地主：${owner}｜建築：${levelName}<br>地價：${money(p.price)}｜過路費：${money(rent)}<br>${plot.owner==='none'?'購買後在原地建造一棟小屋。':plot.owner==='me'?'可按升級，建築直接更換外觀。':'此為示範用的商會地產。'}</div><p>${at?'📍 角色目前在此道路節點。':'📍 點土地可查看；購買必須停在對應道路格。'}</p>`;
+let acts=[];if(plot.owner==='none'){if(at&&state.cash>=p.price)acts.push(['🏡 購買 '+money(p.price),()=>{buy(id);closeModal();},'']);else acts.push(['前往這塊土地才能購買',()=>{},'secondary'])}else if(plot.owner==='me'&&plot.level<3){if(state.cash>=cost)acts.push(['🔨 升級 '+money(cost),()=>{upgrade(id);closeModal();},'']);else acts.push(['現金不足，無法升級',()=>{},'secondary'])}acts.push(['關閉',()=>{closeModal();},'secondary']);modal('🏠 '+p.name,html,acts);}
+function upgradeCost(p,level){return Math.round(p.price*(.64+.23*Math.max(0,level-1)))}
+function buy(id){const p=parcels.find(p=>p.id===id),l=state.plots.find(q=>q.id===id);if(!p||!l||l.owner!=='none'||state.position!==p.node||state.cash<p.price||moving||rolling)return false;state.cash-=p.price;l.owner='me';l.level=1;selected=id;if(state.position===p.node)frameProperty(p,l.level);save();log('🏡 購買 '+p.name+' '+money(p.price)+'，蓋起一棟小屋');setNotice('恭喜買下 '+p.name+'！房屋已在原地建成，可再點土地升級。');draw();return true}
+function upgrade(id){const p=parcels.find(p=>p.id===id),l=state.plots.find(q=>q.id===id);if(!p||!l||l.owner!=='me'||l.level>=3||moving||rolling)return false;let cost=upgradeCost(p,l.level);if(state.cash<cost)return false;state.cash-=cost;l.level++;selected=id;if(state.position===p.node)frameProperty(p,l.level);save();log('🔨 '+p.name+' 升級至 '+['','小屋','住宅樓','商業大樓'][l.level]+'，支付 '+money(cost));setNotice('升級成功！房屋已經在原本地基直接換成更高級的建築。');draw();return true}
+function onLanding(){const p=parcels.find(x=>x.node===state.position),l=p?state.plots.find(q=>q.id===p.id):null;
+if(p&&l){selected=p.id;if(l.owner==='none'){setNotice('🏡 抵達空地「'+p.name+'」，可決定是否購買。');propertyDialog(p.id)}else if(l.owner==='npc'){const amount=Math.round(p.rent*Math.pow(1.75,l.level-1));const pay=Math.min(state.cash,amount);state.cash-=pay;log('💸 經過 '+p.name+'，支付商會過路費 '+money(pay));setNotice('來到商會的地產「'+p.name+'」，支付 '+money(pay)+' 過路費。');if(!state.cash)setNotice('⚠️ 現金歸零，請重新開始一局測試。');save();propertyDialog(p.id)}else{setNotice('回到自己持有的「'+p.name+'」。點土地可升級。');propertyDialog(p.id)}}else{const e=EVENTS[state.position];if(e&&state.position===5){state.cash+=550;log('🎁 機會獎金 +$550');setNotice('收到旅遊獎金 $550！')}else if(e&&state.position===16){state.cash+=350;log('🍀 好運獎金 +$350');setNotice('幸運日！獲得 $350。')}else setNotice('抵達 '+(e||'街道路口')+'，可繼續擲骰。')}save();refresh();draw()}
+function animateMove(steps){moving=true;focused=true;refresh();let n=0;const next=()=>{if(n>=steps){moving=false;state.rolls++;state.round++;focusAvatar(true);onLanding();return}let from={u:avatar.u,v:avatar.v},nextIndex=(state.position+1)%road.length,to=road[nextIndex];let start=null;avatar.dir=(to.u-from.u)-(to.v-from.v)>=0?1:-1;function frame(now){if(start===null)start=now;let t=clamp((now-start)/440,0,1),e=t*t*(3-2*t);avatar.u=from.u+(to.u-from.u)*e;avatar.v=from.v+(to.v-from.v)*e;if(focused){const q=iso(avatar.u,avatar.v);cam.x+=(q.x+30-cam.x)*.16;cam.y+=(q.y+(W<600?10:0)-cam.y)*.16}vtime=now;draw();if(t<1){requestAnimationFrame(frame)}else{state.position=nextIndex;n++;if(nextIndex===4){state.cash+=1200;log('🚩 經過起點，領取 $1,200')}save();refresh();requestAnimationFrame(next)}}requestAnimationFrame(frame)};next()}
+function roll(){if(moving||rolling||$('modalRoot').firstChild)return;rolling=true;refresh();setNotice('🎲 骰子正在滾動…');const n=1+Math.floor(Math.random()*6),die=$('die');die.classList.add('rolling');let count=0;const timer=setInterval(()=>{count++;die.dataset.v=String(1+Math.floor(Math.random()*6));if(count>=12){clearInterval(timer);die.dataset.v=String(n);die.classList.remove('rolling');rolling=false;log('🎲 小航擲出 '+n+' 點');setNotice('擲出 '+n+' 點，人物沿道路逐格移動…');animateMove(n)}},70)}
+function exportSave(){const b=new Blob([JSON.stringify({app:'台灣大富翁_立體街區',savedAt:new Date().toISOString(),data:state},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='台灣大富翁_V1.1_街區進度.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),3000)}
+function openSave(){modal('💾 存檔與備份',`<p>本遊戲使用獨立的瀏覽器儲存空間，不會覆蓋先前台灣大富翁 V0.4 或北越版的進度。</p><div class="stat">目前位置：第 ${state.position+1} 格<br>現金：${money(state.cash)}<br>已完成擲骰：${state.rolls} 次</div><p>建議先下載 JSON 備份，再重設新局。</p>`,[['⬇ 匯出 JSON',()=>{exportSave();closeModal()}],['⬆ 匯入 JSON',()=>{$('importFile').click();closeModal()}],['重新開始（清除本測試局）',()=>{modal('確認重新開始','<p>只會重設本測試版的遊戲進度，不會影響其他作品。</p>',[['確定重設',()=>{state=fresh();avatar={...road[0],dir:1};selected=null;save();closeModal();focusAvatar(true);refresh();setNotice('新局開始，按 GO 擲骰。')}],['取消',closeModal,'secondary']])},'secondary'],['關閉',closeModal,'secondary']])}
+function help(){modal('📖 一分鐘新手教學',`<p><b>1.</b> 按 GO，骰子會轉動並產生 1～6 點。<br><b>2.</b> 人物會沿道路經過每個節點，轉彎也不會跳點。<br><b>3.</b> 到達空地可購買，土地上的「出售」牌會換成小屋。<br><b>4.</b> 點自己的房屋，可花錢升級成住宅樓或商業大樓。<br><b>5.</b> 踩到商會的地產，需要支付過路費。<br><b>6.</b> 拖曳地圖、雙指縮放，或使用定位與全景。</p><p class="stat">目前是擴充街區 V1.1 驗收版，增加港灣老街與 3 塊地產；尚未加入股票、卡片商店、多人及完整台灣地圖。</p>`,[['我知道了',closeModal]])}
+function openPropertyPicker(){modal('🏠 街區地產',`<p>點選土地名稱可把鏡頭移到那塊土地；買地只能在角色停到對應格時。</p><div class="stat">${parcels.map(p=>{let s=state.plots.find(q=>q.id===p.id);return `<p style="margin:6px 0"><b>${p.id}. ${p.name}</b> · ${s.owner==='none'?'出售中':s.owner==='me'?'我的地產':'商會地產'} · ${['空地','小屋','住宅樓','商業大樓'][s.level]}</p>`}).join('')}</div>`,parcels.map(p=>[p.id+' '+p.name,()=>{closeModal();selected=p.id;let x=iso(p.u,p.v);cam.x=x.x;cam.y=x.y;cam.z=Math.max(.9,cam.z);draw();propertyDialog(p.id)},'secondary']).concat([['關閉',closeModal,'secondary']]))}
+function loadFile(file){if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const obj=JSON.parse(reader.result),v=obj.data??obj;const migrated=migrateSave(v);if(!migrated)throw Error('格式不符');state=migrated;avatar={...road[v.position],dir:1};selected=null;save();focusAvatar(true);refresh();setNotice('已成功匯入存檔，人物與房屋狀態已恢復。')}catch(e){alert('匯入失敗：檔案不是本版支援的存檔。')}};reader.readAsText(file)}
+function selectedPoint(x,y){for(let i=hitAreas.length-1;i>=0;i--){let pp=hitAreas[i].p,inside=false;for(let j=0,k=pp.length-1;j<pp.length;k=j++){const a=pp[j],b=pp[k];if(((a.y>y)!=(b.y>y))&&(x<(b.x-a.x)*(y-a.y)/(b.y-a.y+1e-10)+a.x))inside=!inside}if(inside)return hitAreas[i].id}return null}
+function onPointerDown(e){if(e.button!==undefined&&e.button!==0)return;canvas.setPointerCapture(e.pointerId);pointerMap.set(e.pointerId,{x:e.clientX,y:e.clientY});dragging=false;if(pointerMap.size===1){dragStart={x:e.clientX,y:e.clientY,cx:cam.x,cy:cam.y};distStart=null}else if(pointerMap.size===2){let v=[...pointerMap.values()],d=Math.hypot(v[0].x-v[1].x,v[0].y-v[1].y);distStart={d,z:cam.z};dragStart=null}}
+function onPointerMove(e){if(!pointerMap.has(e.pointerId))return;pointerMap.set(e.pointerId,{x:e.clientX,y:e.clientY});if(pointerMap.size===2&&distStart){let v=[...pointerMap.values()],d=Math.hypot(v[0].x-v[1].x,v[0].y-v[1].y);if(Math.abs(d-distStart.d)>2){setZoom(distStart.z*d/distStart.d);dragging=true}}else if(dragStart){const dx=e.clientX-dragStart.x,dy=e.clientY-dragStart.y;if(Math.abs(dx)+Math.abs(dy)>6)dragging=true;if(dragging){focused=false;cam.x=dragStart.cx-dx/cam.z;cam.y=dragStart.cy-dy/cam.z;draw()}}}
+function onPointerUp(e){if(!pointerMap.has(e.pointerId))return;const wasTap=!dragging&&pointerMap.size===1;pointerMap.delete(e.pointerId);if(wasTap){const b=canvas.getBoundingClientRect();const id=selectedPoint(e.clientX-b.left,e.clientY-b.top);if(id&&!moving&&!rolling)propertyDialog(id)}if(pointerMap.size===0){dragStart=null;distStart=null}else if(pointerMap.size===1){const v=[...pointerMap.values()][0];dragStart={x:v.x,y:v.y,cx:cam.x,cy:cam.y}}}
+$('goBtn').onclick=roll;$('plotBtn').onclick=openPropertyPicker;$('buildBtn').onclick=()=>{let p=parcels.find(p=>p.id===selected&&state.plots.find(q=>q.id===p.id)?.owner==='me')||parcels.find(p=>state.plots.find(q=>q.id===p.id)?.owner==='me');if(p)propertyDialog(p.id);else setNotice('請先走到出售地塊，購買小屋後才能升級。')};$('saveBtn').onclick=openSave;$('helpBtn').onclick=help;$('mapBtn').onclick=viewOverview;$('overviewBtn').onclick=viewOverview;$('followBtn').onclick=()=>{focused=true;cam.z=W<600?1.14:1.35;focusAvatar(true)};$('resetCamera').onclick=()=>{focused=true;cam.z=W<600?1.14:1.35;focusAvatar(true)};$('zoomIn').onclick=()=>setZoom(cam.z*1.24);$('zoomOut').onclick=()=>setZoom(cam.z/1.24);$('importFile').onchange=e=>loadFile(e.target.files?.[0]);
+canvas.addEventListener('pointerdown',onPointerDown);canvas.addEventListener('pointermove',onPointerMove);canvas.addEventListener('pointerup',onPointerUp);canvas.addEventListener('pointercancel',onPointerUp);canvas.addEventListener('wheel',e=>{e.preventDefault();setZoom(cam.z*(e.deltaY<0?1.12:.90),e.offsetX,e.offsetY)},{passive:false});
+if('serviceWorker' in navigator&&location.protocol==='https:'){navigator.serviceWorker.register('./sw.js',{scope:'./'}).catch(()=>{})}
+window.addEventListener('resize',()=>{resize()});load();avatar={...road[state.position],dir:1};cam.z=window.innerWidth<650?1.14:1.45;let q=iso(avatar.u,avatar.v);cam.x=q.x+30;cam.y=q.y+10;resize();refresh();setNotice('V1.1 已擴充港灣老街，新增 8 格道路與 3 塊地產。按 GO 擲骰，或點選土地。');
+// inspection-only deterministic controls for headless regression; all operations use same user-facing functions
+window.__SCENE_TEST__={migrateSave,validSave,validOldSave,getState:()=>JSON.parse(JSON.stringify(state)),setState:s=>{if(!validSave(s))throw Error('invalid');state=s;avatar={...road[s.position],dir:1};refresh();draw()},setPosition:i=>{if(!Number.isInteger(i)||i<0||i>=road.length)throw Error('invalid position');state.position=i;avatar={...road[i],dir:1};focusAvatar(true);refresh();draw()},buy,upgrade,roll,moveDirect:n=>{if(moving||rolling||n<1||n>6)throw Error('busy or bad step');animateMove(n)},lots:parcels,road,focus:focusAvatar,overview:viewOverview,load,save,select:id=>propertyDialog(id),assetValue};
+})();
+</script></body></html>
